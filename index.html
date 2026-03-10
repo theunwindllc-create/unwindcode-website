@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Unwind Code — Intelligence That Evolves</title>
+  <meta name="description"
+    content="What if intelligence could grow itself? Unwind Code designs self-evolving AI organisms — cognitive systems that live on-chain, make autonomous decisions, and get smarter over time. Join the evolution." />
+  <meta name="theme-color" content="#06060c" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- NAV -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <nav id="nav">
+    <a href="#" class="nav-brand">
+      <span class="nav-glyph">∞</span>
+      <span class="nav-name">unwind<span class="nav-accent">code</span></span>
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-links" id="nav-links">
+      <a href="#organisms" data-i18n="nav.organisms">Organisms</a>
+      <a href="#architecture" data-i18n="nav.architecture">Architecture</a>
+      <a href="#philosophy" data-i18n="nav.philosophy">Philosophy</a>
+      <a href="#vision" data-i18n="nav.vision">Vision</a>
+      <a href="#blog" data-i18n="nav.blog">Blog</a>
+    </div>
+    <div class="nav-actions">
+      <button id="lang-toggle" class="lang-toggle" aria-label="Switch to Spanish">ES</button>
+      <a href="#cta" class="nav-cta" data-i18n="nav.cta">Get in Touch</a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- HERO -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <section id="hero">
+    <canvas id="neural-canvas"></canvas>
+    <div class="hero-content reveal">
+      <div class="hero-badge" data-i18n="hero.badge">AI + Web3 Architecture Lab</div>
+      <h1><span data-i18n="hero.title.1">What if your systems could</span><br /><span class="hero-gradient"
+          data-i18n="hero.title.2">think for themselves?</span></h1>
+      <p class="hero-sub" data-i18n="hero.sub">We don't write code that runs and stops. We design AI organisms — living
+        cognitive systems
+        that perceive, decide, and evolve. From creative intelligence to autonomous on-chain agents, this is where AI
+        meets Web3.</p>
+      <div class="hero-actions">
+        <a href="#organisms" class="btn btn-primary">
+          <span data-i18n="hero.cta.primary">See What We're Building</span>
+          <span class="btn-arrow">→</span>
+        </a>
+        <a href="#architecture" class="btn btn-ghost" data-i18n="hero.cta.ghost">How It Works</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-value">6+</span>
+          <span class="stat-label" data-i18n="hero.stat.agents">Cognitive Agents</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-value">3</span>
+          <span class="stat-label" data-i18n="hero.stat.live">Live in the Wild</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-value">3</span>
+          <span class="stat-label" data-i18n="hero.stat.chains">Live Blockchains</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- ORGANISMS / PRODUCTS -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <section id="organisms">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag" data-i18n="org.tag">What We Build</span>
+        <h2 data-i18n="org.title">Organisms, Not Apps</h2>
+        <p class="section-desc" data-i18n="org.desc">Most software is built to be used. Ours is built to be alive. Each
+          organism is a
+          self-contained intelligence — it observes, reasons, acts, and remembers. Some run locally. Some live on-chain.
+          All of them get sharper every time they run.</p>
+      </div>
+
+      <div class="organism-grid">
+        <!-- Visual Cortex -->
+        <div class="organism-card reveal" data-delay="0">
+          <div class="card-glow"></div>
+          <div class="card-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="24" cy="24" r="20" opacity="0.3" />
+              <path d="M14 18 L24 12 L34 18 L34 30 L24 36 L14 30Z" />
+              <circle cx="24" cy="24" r="6" />
+              <line x1="24" y1="18" x2="24" y2="12" />
+              <line x1="30" y1="21" x2="34" y2="18" />
+              <line x1="30" y1="27" x2="34" y2="30" />
+            </svg>
+          </div>
+          <h3 data-i18n="org.vc.title">Visual Cortex</h3>
+          <p data-i18n="org.vc.desc">You have a brand story to tell. Four AI agents — Brand Analyst, Tone Expert, Design
+            Specialist, and Sales
+            Optimizer — collaborate to transform your raw script into a broadcast-ready video blueprint. In minutes, not
+            weeks.</p>
+          <div class="card-tag" data-i18n="org.vc.tag">Content Intelligence</div>
+        </div>
+
+        <!-- Infinity Mirror -->
+        <div class="organism-card reveal" data-delay="100">
+          <div class="card-glow"></div>
+          <div class="card-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="24" cy="24" r="20" opacity="0.3" />
+              <circle cx="24" cy="24" r="14" />
+              <circle cx="24" cy="24" r="8" />
+              <circle cx="24" cy="24" r="3" fill="currentColor" opacity="0.5" />
+              <line x1="24" y1="4" x2="24" y2="10" />
+              <line x1="24" y1="38" x2="24" y2="44" />
+              <line x1="4" y1="24" x2="10" y2="24" />
+              <line x1="38" y1="24" x2="44" y2="24" />
+            </svg>
+          </div>
+          <h3 data-i18n="org.im.title">Infinity Mirror</h3>
+          <p data-i18n="org.im.desc">Your personal evolution engine. A self-reflecting app that audits where you are,
+            maps where you want to go,
+            and generates new growth strategies — creating an infinite loop of becoming the person you intend to be.</p>
+          <div class="card-tag" data-i18n="org.im.tag">Personal Intelligence</div>
+        </div>
+
+        <!-- Financial Organisms -->
+        <div class="organism-card reveal" data-delay="200">
+          <div class="card-glow"></div>
+          <div class="card-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="24" cy="24" r="20" opacity="0.3" />
+              <polyline points="8,34 16,26 22,30 30,16 38,20" stroke-width="2" />
+              <circle cx="16" cy="26" r="2" fill="currentColor" opacity="0.5" />
+              <circle cx="22" cy="30" r="2" fill="currentColor" opacity="0.5" />
+              <circle cx="30" cy="16" r="2" fill="currentColor" opacity="0.5" />
+              <circle cx="38" cy="20" r="2" fill="currentColor" opacity="0.5" />
+              <line x1="8" y1="40" x2="40" y2="40" opacity="0.2" />
+            </svg>
+          </div>
+          <h3 data-i18n="org.fo.title">Financial Organisms</h3>
+          <p data-i18n="org.fo.desc">Live across Monad, XRPL, and ICP. A multi-agent cortex that votes on every trade, a
+            dead man's switch that
+            kills the system before it bleeds, and adaptive learning that evolves with each outcome. Three chains. One
+            hive intelligence. Real markets.*</p>
+          <div class="card-tag" data-i18n="org.fo.tag">Web3 Agentic Development</div>
+        </div>
+
+        <!-- Brain Cell Architecture -->
+        <div class="organism-card reveal" data-delay="300">
+          <div class="card-glow"></div>
+          <div class="card-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="24" cy="24" r="20" opacity="0.3" />
+              <circle cx="24" cy="14" r="4" />
+              <circle cx="14" cy="30" r="4" />
+              <circle cx="34" cy="30" r="4" />
+              <circle cx="24" cy="38" r="3" opacity="0.4" />
+              <line x1="22" y1="18" x2="16" y2="27" />
+              <line x1="26" y1="18" x2="32" y2="27" />
+              <line x1="18" y1="30" x2="30" y2="30" />
+              <line x1="24" y1="35" x2="24" y2="38" opacity="0.4" />
+            </svg>
+          </div>
+          <h3 data-i18n="org.bc.title">Brain Cell Architecture</h3>
+          <p data-i18n="org.bc.desc">The blueprint behind every organism. A proprietary 6-phase methodology for
+            designing new AI minds —
+            complete with memory systems, decision frameworks, and knowledge structures. This is the brain that builds
+            brains.</p>
+          <div class="card-tag" data-i18n="org.bc.tag">The Meta-System</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- ARCHITECTURE -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <section id="architecture">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag" data-i18n="arch.tag">Under the Hood</span>
+        <h2 data-i18n="arch.title">How We Give Machines a Mind</h2>
+        <p class="section-desc" data-i18n="arch.desc">Every organism we build follows a three-layer cognitive
+          architecture — inspired by how
+          biological brains actually develop. From birth, to connection, to continuous adaptation.</p>
+      </div>
+
+      <div class="arch-layers">
+        <!-- Layer 1 -->
+        <div class="arch-layer reveal" data-delay="0">
+          <div class="arch-number">01</div>
+          <div class="arch-content">
+            <div class="arch-label" data-i18n="arch.l1.label">Neurogenesis</div>
+            <h3 data-i18n="arch.l1.title">Birth</h3>
+            <p data-i18n="arch.l1.desc">Every mind starts with a blank page. Through six rigorous phases — research,
+              architecture, memory design,
+              protocols, knowledge integration, and delivery — a new cognitive agent emerges, purpose-built for its
+              domain.</p>
+          </div>
+          <div class="arch-connector">
+            <div class="connector-dot"></div>
+            <div class="connector-line"></div>
+          </div>
+        </div>
+
+        <!-- Layer 2 -->
+        <div class="arch-layer reveal" data-delay="150">
+          <div class="arch-number">02</div>
+          <div class="arch-content">
+            <div class="arch-label" data-i18n="arch.l2.label">Synaptic Formation</div>
+            <h3 data-i18n="arch.l2.title">Connection</h3>
+            <p data-i18n="arch.l2.desc">Isolated intelligence is limited. Through shared memory, orchestrated
+              communication, and a central
+              coordinator, individual agents form a living network — each one making the others stronger.</p>
+          </div>
+          <div class="arch-connector">
+            <div class="connector-dot"></div>
+            <div class="connector-line"></div>
+          </div>
+        </div>
+
+        <!-- Layer 3 -->
+        <div class="arch-layer reveal" data-delay="300">
+          <div class="arch-number">03</div>
+          <div class="arch-content">
+            <div class="arch-label" data-i18n="arch.l3.label">Neural Plasticity</div>
+            <h3 data-i18n="arch.l3.title">Evolution</h3>
+            <p data-i18n="arch.l3.desc">Every session teaches the organism something new. Every debrief preserves
+              institutional knowledge. Every
+              interaction strengthens the neural pathway. The more you use it, the smarter it gets.</p>
+          </div>
+          <div class="arch-connector last">
+            <div class="connector-dot"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Memory Systems -->
+      <div class="memory-systems reveal">
+        <h3 class="memory-title" data-i18n="arch.mem.title">Four-Tier Memory Architecture</h3>
+        <div class="memory-grid">
+          <div class="memory-cell">
+            <span class="memory-icon">⬡</span>
+            <span class="memory-name" data-i18n="arch.mem.working">Working Memory</span>
+            <span class="memory-desc" data-i18n="arch.mem.working.desc">Current situation, active tasks, volatile
+              attention buffer</span>
+          </div>
+          <div class="memory-cell">
+            <span class="memory-icon">◈</span>
+            <span class="memory-name" data-i18n="arch.mem.procedural">Procedural Memory</span>
+            <span class="memory-desc" data-i18n="arch.mem.procedural.desc">How-to knowledge, playbooks, condition-action
+              rules</span>
+          </div>
+          <div class="memory-cell">
+            <span class="memory-icon">◇</span>
+            <span class="memory-name" data-i18n="arch.mem.semantic">Semantic Memory</span>
+            <span class="memory-desc" data-i18n="arch.mem.semantic.desc">Domain facts, frameworks, knowledge
+              graphs</span>
+          </div>
+          <div class="memory-cell">
+            <span class="memory-icon">✦</span>
+            <span class="memory-name" data-i18n="arch.mem.episodic">Episodic Memory</span>
+            <span class="memory-desc" data-i18n="arch.mem.episodic.desc">Historical cases, lessons learned, case-based
+              reasoning</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- PHILOSOPHY -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <section id="philosophy">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag" data-i18n="phil.tag">What We Believe</span>
+        <h2 data-i18n="phil.title">The Non-Negotiables.</h2>
+      </div>
+
+      <div class="principles">
+        <div class="principle reveal" data-delay="0">
+          <div class="principle-num">I</div>
+          <div class="principle-content">
+            <h4 data-i18n="phil.1.title">Question the Default</h4>
+            <p data-i18n="phil.1.desc">If everyone is doing it that way, that's reason to look harder. We deconstruct
+              every choice to its first
+              principles and rebuild only what earns its place. The elegant solution is always the right one.</p>
+          </div>
+        </div>
+
+        <div class="principle reveal" data-delay="100">
+          <div class="principle-num">II</div>
+          <div class="principle-content">
+            <h4 data-i18n="phil.2.title">Build for the World That's Coming</h4>
+            <p data-i18n="phil.2.desc">We don't design for today's constraints. We design for a world where machines
+              negotiate with machines and
+              data moves a hundred times faster. Everything we ship is forward-compatible by default.</p>
+          </div>
+        </div>
+
+        <div class="principle reveal" data-delay="200">
+          <div class="principle-num">III</div>
+          <div class="principle-content">
+            <h4 data-i18n="phil.3.title">Everything Is Replaceable</h4>
+            <p data-i18n="phil.3.desc">Every module, every agent, every component — swappable without breaking the
+              system. No monoliths. No
+              lock-in. If one piece can't be removed cleanly, the architecture isn't done yet.</p>
+          </div>
+        </div>
+
+        <div class="principle reveal" data-delay="300">
+          <div class="principle-num">IV</div>
+          <div class="principle-content">
+            <h4 data-i18n="phil.4.title">Less Noise. More Signal.</h4>
+            <p data-i18n="phil.4.desc">We believe beautiful code performs better. Zero overhead. Zero filler. If a
+              system design isn't elegant,
+              it isn't finished — because complexity is a sign that you haven't thought hard enough.</p>
+          </div>
+        </div>
+
+        <div class="principle reveal" data-delay="400">
+          <div class="principle-num">V</div>
+          <div class="principle-content">
+            <h4 data-i18n="phil.5.title">Truth Over Convenience</h4>
+            <p data-i18n="phil.5.desc">Every claim is verified. Every solution is stress-tested against long-term debt.
+              If it doesn't hold up
+              under scrutiny, it gets discarded — because trust is the foundation of everything we build.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- VISION -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <section id="vision">
+    <div class="container">
+      <div class="vision-layout reveal">
+        <div class="vision-text">
+          <span class="section-tag" data-i18n="vis.tag">Where We're Going</span>
+          <h2 data-i18n="vis.title">A Letter to the Future</h2>
+          <p class="vision-quote" data-i18n="vis.quote">"We started with one question: what if the systems we built
+            could remember, adapt, and
+            get better without being told to?"</p>
+          <p data-i18n="vis.p1">By 2028, our next frontier — <strong>uncuba.ai</strong> — will prove that intelligence
+            can carry
+            culture. A living brain cell designed to preserve identity, empower creators, and build economic
+            opportunity for an entire diaspora — where culture meets the chain. And by 2030, we envision cognitive
+            organisms operating independently across industries — creative production, on-chain finance, cultural
+            economics, cybersecurity — all coordinated by a central intelligence that learns from every
+            interaction.</p>
+          <p data-i18n="vis.p2">We're not there yet. But every organism we ship, every conversation this brain has,
+            every person who joins
+            this community brings us closer. The road is long. We'd rather walk it with you.</p>
+          <div class="vision-founder">
+            <div class="founder-avatar">JC</div>
+            <div class="founder-info">
+              <span class="founder-name">Jesus Casares</span>
+              <span class="founder-title" data-i18n="vis.founder.title">Founder & Architect</span>
+            </div>
+          </div>
+        </div>
+        <div class="vision-graphic">
+          <div class="orbit-system">
+            <div class="orbit orbit-1">
+              <div class="orbit-node">VC</div>
+              <div class="orbit-node">IM</div>
+              <div class="orbit-node">FO</div>
+            </div>
+            <div class="orbit orbit-2">
+              <div class="orbit-node small">CS</div>
+              <div class="orbit-node small">RE</div>
+              <div class="orbit-node small">ML</div>
+            </div>
+            <div class="orbit-core">
+              <span>∞</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- BLOG -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <section id="blog">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag" data-i18n="blog.tag">From the Brain</span>
+        <h2 data-i18n="blog.title">Transmissions</h2>
+        <p class="section-desc" data-i18n="blog.desc">Dispatches from the Unwind Brain — where we unpack our process,
+          share what we're
+          learning, and think out loud about the future of intelligence.</p>
+      </div>
+      <div class="blog-grid reveal">
+        <article class="blog-card">
+          <div class="blog-date" data-i18n="blog.1.date">Coming Soon</div>
+          <h3 class="blog-title" data-i18n="blog.1.title">The first transmission is loading…</h3>
+          <p class="blog-excerpt" data-i18n="blog.1.excerpt">The Unwind Brain is warming up its voice. Daily dispatches
+            on AI architecture, Web3
+            agents, and the philosophy of building intelligence that evolves.</p>
+          <span class="blog-read" data-i18n="blog.1.read">Stay tuned →</span>
+        </article>
+        <article class="blog-card">
+          <div class="blog-date" data-i18n="blog.2.date">Coming Soon</div>
+          <h3 class="blog-title" data-i18n="blog.2.title">What we learned deploying agents on-chain</h3>
+          <p class="blog-excerpt" data-i18n="blog.2.excerpt">Lessons from building autonomous organisms that survive in
+            decentralized markets —
+            where there's no undo button and every decision is permanent.</p>
+          <span class="blog-read" data-i18n="blog.2.read">Stay tuned →</span>
+        </article>
+        <article class="blog-card">
+          <div class="blog-date" data-i18n="blog.3.date">Coming Soon</div>
+          <h3 class="blog-title" data-i18n="blog.3.title">Why we build organisms, not apps</h3>
+          <p class="blog-excerpt" data-i18n="blog.3.excerpt">The philosophy behind designing AI systems that remember,
+            adapt, and get sharper with
+            every interaction — and why that matters for what comes next.</p>
+          <span class="blog-read" data-i18n="blog.3.read">Stay tuned →</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- CTA -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <section id="cta">
+    <div class="container">
+      <div class="cta-block reveal">
+        <h2 data-i18n="cta.title">This is just the beginning.</h2>
+        <p data-i18n="cta.desc">We're building something that hasn't existed before — and we're looking for the people
+          who want to be part of
+          it from day one. Whether you're a builder, investor, or just curious about what's possible.</p>
+        <button id="open-chat" class="btn btn-primary btn-lg">
+          <span data-i18n="cta.btn">Talk to the Brain</span>
+          <span class="btn-arrow">→</span>
+        </button>
+        <div class="cta-divider"></div>
+        <div class="email-signup">
+          <p class="signup-label" data-i18n="cta.email.label">Get on the list. Community members get early access,
+            exclusive updates, and first look
+            at new organisms as they come to life.</p>
+          <form id="email-form" class="signup-form">
+            <input type="email" id="email-input" placeholder="your@email.com"
+              data-i18n-placeholder="cta.email.placeholder" required autocomplete="email" />
+            <button type="submit" class="btn btn-primary signup-btn">
+              <span data-i18n="cta.email.btn">Subscribe</span>
+              <span class="btn-arrow">→</span>
+            </button>
+          </form>
+          <p id="signup-status" class="signup-status"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- FOOTER -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="nav-glyph">∞</span>
+          <span class="nav-name">unwind<span class="nav-accent">code</span></span>
+          <p class="footer-desc" data-i18n="footer.desc">Intelligence that evolves.<br />Growing organisms since 2026.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h5 data-i18n="footer.organisms">Organisms</h5>
+          <a href="#organisms" data-i18n="org.vc.title">Visual Cortex</a>
+          <a href="#organisms" data-i18n="org.im.title">Infinity Mirror</a>
+          <a href="#organisms" data-i18n="org.fo.title">Financial Organisms</a>
+          <a href="#organisms" data-i18n="org.bc.title">Brain Cell Architecture</a>
+        </div>
+        <div class="footer-col">
+          <h5 data-i18n="footer.learn">Learn</h5>
+          <a href="#architecture" data-i18n="nav.architecture">Architecture</a>
+          <a href="#philosophy" data-i18n="nav.philosophy">Philosophy</a>
+          <a href="#vision" data-i18n="footer.vision">Vision 2030</a>
+        </div>
+        <div class="footer-col">
+          <h5 data-i18n="footer.community">Community</h5>
+          <a href="#cta" data-i18n="footer.join">Join Updates</a>
+          <a href="#blog" data-i18n="footer.blog">Blog</a>
+          <a href="#" id="footer-chat-link" data-i18n="footer.talk">Talk to the Brain</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer.copyright">© 2026 Unwind Code. All rights reserved.</span>
+        <span class="footer-tagline" data-i18n="footer.tagline">The future learns from itself. ∞</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- CHAT MODAL -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div id="chat-modal" class="chat-modal" aria-hidden="true">
+    <div class="chat-overlay"></div>
+    <div class="chat-container">
+      <div class="chat-header">
+        <div class="chat-brand">
+          <span class="chat-glyph">∞</span>
+          <span class="chat-title" data-i18n="chat.title">Unwind Brain</span>
+        </div>
+        <button id="close-chat" class="chat-close" aria-label="Close chat">✕</button>
+      </div>
+      <div id="chat-messages" class="chat-messages">
+        <!-- Messages injected here -->
+      </div>
+      <form id="chat-form" class="chat-input-area">
+        <input type="text" id="chat-input" placeholder="Say something…" data-i18n-placeholder="chat.placeholder"
+          autocomplete="off" />
+        <button type="submit" class="chat-send" aria-label="Send message">→</button>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="/main.js"></script>
+</body>
+
+</html>
