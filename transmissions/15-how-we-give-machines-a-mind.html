@@ -5,182 +5,295 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Transmission 15: How We Give Machines a Mind | Unwind Code</title>
   <meta name="description" content="Inside the three-layer cognitive architecture Unwind Code uses to build AI organisms that observe, reason, remember, coordinate, and evolve." />
-  <meta name="keywords" content="AI organisms, cognitive architecture, agentic AI systems, AI memory architecture, autonomous agents, Unwind Code, AI Web3 architecture, neurogenesis, multi-agent systems" />
   <meta name="theme-color" content="#06060c" />
   <link rel="canonical" href="https://unwindcode.ai/transmissions/15-how-we-give-machines-a-mind.html" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="How We Give Machines a Mind" />
   <meta property="og:description" content="Inside the Unwind Code architecture for building AI organisms that remember, adapt, and evolve." />
-  <meta property="og:url" content="https://unwindcode.ai/transmissions/15-how-we-give-machines-a-mind.html" />
-  <meta property="og:site_name" content="Unwind Code" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="How We Give Machines a Mind" />
-  <meta name="twitter:description" content="Inside the Unwind Code architecture for building AI organisms that remember, adapt, and evolve." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="/style.css" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How We Give Machines a Mind","description":"Inside the three-layer cognitive architecture Unwind Code uses to build AI organisms that observe, reason, remember, coordinate, and evolve.","author":{"@type":"Person","name":"Jesus Casares"},"publisher":{"@type":"Organization","name":"Unwind Code","url":"https://unwindcode.ai"},"datePublished":"2026-05-16","dateModified":"2026-05-16","mainEntityOfPage":"https://unwindcode.ai/transmissions/15-how-we-give-machines-a-mind.html","keywords":["AI organisms","cognitive architecture","agentic AI","multi-agent systems","AI memory architecture"]}</script>
-</head>
-<body class="transmission-body">
+  <style>
+    .tx-page { background: var(--bg-void); color: var(--text-primary); }
+    .tx-hero { padding: 160px 0 80px; text-align: center; position: relative; overflow: hidden; }
+    .tx-hero::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:800px; height:800px; background:radial-gradient(circle, rgba(110,45,190,0.1) 0%, transparent 60%); pointer-events:none; }
+    .tx-hero h1 { font-size:clamp(2.2rem,5vw,3.5rem); font-weight:800; letter-spacing:-0.04em; line-height:1.1; margin-bottom:20px; }
+    .tx-hero-sub { font-size:1.1rem; color:var(--text-secondary); max-width:620px; margin:0 auto; line-height:1.7; }
+    .tx-hero-meta { margin-top:28px; display:flex; justify-content:center; gap:16px; font-size:0.78rem; color:var(--text-muted); font-weight:600; letter-spacing:0.06em; text-transform:uppercase; }
+    .tx-section { padding:80px 0; }
+    .tx-section-head { display:flex; align-items:center; gap:16px; margin-bottom:12px; }
+    .tx-section-num { font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:700; color:var(--accent-hot); letter-spacing:0.15em; }
+    .tx-section h2 { font-size:clamp(1.5rem,3vw,2rem); font-weight:700; letter-spacing:-0.02em; }
+    .tx-section-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:24px; }
+    .tx-prose { font-size:1.05rem; color:var(--text-secondary); line-height:1.8; max-width:720px; }
+    .tx-prose p { margin-bottom:24px; }
+    .tx-prose strong { color:var(--text-primary); font-weight:600; }
 
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- NAV (Dark Chrome) -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <nav id="nav">
-    <a href="/" class="nav-brand">
-      <span class="nav-glyph">∞</span>
-      <span class="nav-name">unwind<span class="nav-accent">code</span></span>
-    </a>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+    /* Interactive Module Explorer */
+    .mod-explorer { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:32px; }
+    .mod-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .mod-node { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:20px; cursor:pointer; transition:all 0.25s ease; text-align:left; font-family:inherit; color:var(--text-primary); }
+    .mod-node:hover, .mod-node.active { border-color:rgba(110,45,190,0.4); transform:translateY(-2px); box-shadow:0 8px 24px rgba(110,45,190,0.1); }
+    .mod-node.active { background:rgba(110,45,190,0.08); }
+    .mod-icon { font-size:1.8rem; margin-bottom:8px; display:block; }
+    .mod-name { font-weight:700; font-size:0.95rem; }
+    .mod-path { font-family:'JetBrains Mono',monospace; font-size:0.68rem; color:var(--text-muted); margin-top:4px; }
+    .mod-detail { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:20px; padding:32px; min-height:400px; }
+    .mod-detail-title { font-size:1.4rem; font-weight:700; margin-bottom:8px; }
+    .mod-detail-type { display:inline-block; font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent-hot); background:rgba(110,45,190,0.12); border:1px solid rgba(110,45,190,0.2); padding:4px 12px; border-radius:20px; margin-bottom:20px; }
+    .mod-detail-desc { color:var(--text-secondary); line-height:1.7; font-size:0.95rem; margin-bottom:24px; }
+    .mod-specs { display:flex; flex-wrap:wrap; gap:8px; }
+    .mod-spec { background:rgba(110,45,190,0.08); border:1px solid var(--accent-border); color:var(--accent-light); padding:6px 14px; border-radius:20px; font-size:0.8rem; font-weight:500; }
+
+    /* Workflow Steps */
+    .wf-steps { position:relative; margin-top:32px; padding-left:40px; }
+    .wf-steps::before { content:''; position:absolute; left:19px; top:0; bottom:0; width:2px; background:var(--accent-border); }
+    .wf-step { position:relative; margin-bottom:48px; }
+    .wf-step:last-child { margin-bottom:0; }
+    .wf-dot { position:absolute; left:-40px; top:0; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.85rem; font-weight:800; z-index:2; }
+    .wf-dot-1 { background:rgba(110,45,190,0.15); color:var(--accent-light); border:2px solid var(--accent); }
+    .wf-dot-2 { background:rgba(79,70,229,0.15); color:#818cf8; border:2px solid #6366f1; }
+    .wf-dot-3 { background:rgba(14,165,233,0.15); color:#38bdf8; border:2px solid #0ea5e9; }
+    .wf-dot-4 { background:rgba(16,185,129,0.15); color:#34d399; border:2px solid #10b981; }
+    .wf-dot-5 { background:rgba(245,158,11,0.15); color:#fbbf24; border:2px solid #f59e0b; }
+    .wf-dot-6 { background:linear-gradient(135deg,var(--accent),var(--accent-light)); color:#fff; border:none; }
+    .wf-step h3 { font-size:1.1rem; font-weight:700; margin-bottom:6px; }
+    .wf-step p { font-size:0.92rem; color:var(--text-secondary); line-height:1.65; }
+    .wf-step code { font-family:'JetBrains Mono',monospace; font-size:0.82rem; background:rgba(110,45,190,0.1); color:var(--accent-light); padding:2px 6px; border-radius:4px; }
+
+    /* Memory Cards */
+    .mem-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:32px; }
+    .mem-card { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:16px; padding:28px; cursor:pointer; transition:all 0.3s ease; }
+    .mem-card:hover { border-color:rgba(110,45,190,0.35); transform:translateY(-3px); box-shadow:0 8px 24px rgba(110,45,190,0.08); }
+    .mem-card.expanded .mem-extra { display:block; }
+    .mem-card h4 { font-size:1rem; font-weight:700; margin-bottom:8px; display:flex; align-items:center; gap:8px; }
+    .mem-card h4 .mem-icon { font-size:1.3rem; }
+    .mem-card p { font-size:0.88rem; color:var(--text-secondary); line-height:1.6; }
+    .mem-extra { display:none; margin-top:16px; padding-top:16px; border-top:1px solid var(--accent-border); font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+    .mem-expand-hint { font-size:0.7rem; color:var(--accent-hot); margin-top:12px; font-weight:600; letter-spacing:0.05em; }
+
+    /* Charts */
+    .chart-wrap { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:20px; padding:28px; }
+    .chart-wrap h3 { font-size:1.1rem; font-weight:700; margin-bottom:4px; }
+    .chart-wrap .chart-sub { font-size:0.82rem; color:var(--text-muted); margin-bottom:20px; }
+    .chart-box { position:relative; width:100%; height:320px; }
+    .charts-row { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:32px; }
+
+    /* Blockquote */
+    .tx-quote { border-left:3px solid var(--accent); padding:20px 24px; margin:40px 0; background:rgba(110,45,190,0.05); border-radius:0 12px 12px 0; font-style:italic; color:var(--text-secondary); font-size:1.05rem; line-height:1.7; }
+
+    /* CTA */
+    .tx-cta { text-align:center; padding:64px 40px; background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:28px; margin-top:80px; }
+    .tx-cta h2 { font-size:1.6rem; font-weight:700; margin-bottom:12px; }
+    .tx-cta p { color:var(--text-secondary); font-size:0.95rem; margin-bottom:28px; max-width:480px; margin-left:auto; margin-right:auto; line-height:1.7; }
+
+    @media(max-width:900px) {
+      .mod-explorer, .charts-row, .mem-grid { grid-template-columns:1fr; }
+      .mod-grid { grid-template-columns:1fr 1fr; }
+    }
+    @media(max-width:640px) {
+      .mod-grid { grid-template-columns:1fr; }
+      .tx-hero { padding:130px 0 60px; }
+      .tx-hero-meta { flex-wrap:wrap; justify-content:center; }
+    }
+  </style>
+</head>
+<body class="tx-page">
+
+  <nav id="nav" class="scrolled">
+    <a href="/" class="nav-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
     <div class="nav-links" id="nav-links">
-      <a href="/#organisms" data-i18n="nav.organisms">Organisms</a>
-      <a href="/#architecture" data-i18n="nav.architecture">Architecture</a>
-      <a href="/#philosophy" data-i18n="nav.philosophy">Philosophy</a>
-      <a href="/#vision" data-i18n="nav.vision">Vision</a>
-      <a href="/#blog" data-i18n="nav.blog">Blog</a>
+      <a href="/#organisms">Organisms</a>
+      <a href="/#architecture">Architecture</a>
+      <a href="/transmissions/">Transmissions</a>
     </div>
-    <div class="nav-actions">
-      <button id="lang-toggle" class="lang-toggle" aria-label="Switch to Spanish">ES</button>
-      <a href="/#cta" class="nav-cta" data-i18n="nav.cta">Get in Touch</a>
-    </div>
+    <div class="nav-actions"><a href="/#cta" class="nav-cta">Get in Touch</a></div>
   </nav>
 
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- MAIN TRANSMISSION (Light Content Area) -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <main class="blog-main">
-    <a href="/#blog" class="blog-back">
-      <span>←</span> Back to Transmissions
-    </a>
+  <main>
+    <!-- HERO -->
+    <section class="tx-hero">
+      <div class="container">
+        <div style="margin-bottom:16px;"><span class="tx-section-num">TRANSMISSION 015</span></div>
+        <h1>How We Give Machines<br>a Mind</h1>
+        <p class="tx-hero-sub">Most software is born finished. We build organisms — systems designed to observe, reason, remember, coordinate, and evolve. This is the architecture behind them.</p>
+        <div class="tx-hero-meta"><span>May 2026</span><span>·</span><span>Architecture</span><span>·</span><span>7 min read</span></div>
+      </div>
+    </section>
 
-    <article>
-      <header class="blog-header">
-        <div class="blog-meta-tag">
-          <span>Transmission 15</span>
-          <span class="blog-meta-dot"></span>
-          <span>Architecture</span>
+    <div class="container">
+
+      <!-- 01: BIRTH -->
+      <section class="tx-section" id="birth">
+        <div class="tx-section-head"><span class="tx-section-num">01</span><h2>Birth — Neurogenesis</h2></div>
+        <div class="tx-section-label">The Six-Phase Build Sequence</div>
+        <div class="tx-prose">
+          <p>A new mind does not begin with a prompt. It begins with a design problem. What must this organism notice? Which decisions should it make alone? What kind of failure is unacceptable?</p>
         </div>
-        
-        <h1 class="blog-title">How We Give Machines a Mind</h1>
-        <p class="blog-subtitle">Most software is born finished. We build organisms — systems designed to observe, reason, remember, coordinate, and evolve. This is the architecture behind them.</p>
-        
-        <div class="blog-meta-bottom">May 2026 / UNWIND ARCHITECTURE LAB / 7 MIN READ</div>
-      </header>
+        <div class="wf-steps">
+          <div class="wf-step"><div class="wf-dot wf-dot-1">01</div><h3>Research</h3><p>Map the terrain, the stakes, and the failure modes. Understand the domain before writing a single line of architecture.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-2">02</div><h3>Architecture</h3><p>Define the agent roles, the decision graph, and the control surface. This is the <code>src/cortex/</code> blueprint.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-3">03</div><h3>Memory Design</h3><p>Decide what should persist, decay, or be promoted. Four memory layers map to <code>src/memory/</code>.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-4">04</div><h3>Protocols</h3><p>Govern how agents communicate, escalate, and recover. The nervous system of orchestration.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-5">05</div><h3>Knowledge Integration</h3><p>Load frameworks, references, and domain context the organism needs to reason about its environment.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-6">06</div><h3>Delivery</h3><p>Place the organism in a real operating environment where it can run, observe, and improve autonomously.</p></div>
+        </div>
+        <div class="tx-prose" style="margin-top:40px;">
+          <p>The point is not to imitate a human mind theatrically. The point is to construct a system with enough internal structure that intelligence has somewhere to live. Without that structure, you do not have a mind. You have <strong>autocomplete with better branding</strong>.</p>
+        </div>
+      </section>
 
-      <div class="blog-content">
-<p>Most software is born finished. It launches with a narrow interface, a fixed behavior set, and no memory of what it learned yesterday. That model worked when the job was execution. It breaks when the job is cognition.</p>
+      <!-- 02: CONNECTION — Interactive Module Explorer -->
+      <section class="tx-section" id="connection">
+        <div class="tx-section-head"><span class="tx-section-num">02</span><h2>Connection — Synaptic Formation</h2></div>
+        <div class="tx-section-label">Explore the Cell Matrix</div>
+        <div class="tx-prose">
+          <p>A single capable agent can be useful. A coordinated network of agents becomes resilient. Click any module below to explore its architectural role.</p>
+        </div>
+        <div class="mod-explorer">
+          <div class="mod-grid" id="mod-grid"></div>
+          <div class="mod-detail" id="mod-detail">
+            <div style="text-align:center;color:var(--text-muted);margin-top:80px;">
+              <div style="font-size:2.5rem;margin-bottom:12px;">←</div>
+              <p>Select a neural cell to view its specifications.</p>
+            </div>
+          </div>
+        </div>
+        <div class="tx-quote">The more coherent the coordination layer, the less each agent has to pretend it is the whole mind.</div>
+      </section>
 
-<p>We build for a different assumption: intelligence should not sit behind the glass waiting for commands. It should <strong>observe</strong> context, <strong>reason</strong> across constraints, <strong>remember</strong> what happened, <strong>coordinate</strong> with other minds, and <strong>adapt</strong> after every run. That is the difference between a tool and an organism.</p>
+      <!-- 03: EVOLUTION — Charts -->
+      <section class="tx-section" id="evolution">
+        <div class="tx-section-head"><span class="tx-section-num">03</span><h2>Evolution — Neural Plasticity</h2></div>
+        <div class="tx-section-label">Recursive Self-Improvement Metrics</div>
+        <div class="tx-prose">
+          <p>Static systems plateau early. Organisms do not. Every run creates residue — a successful pattern, a failed assumption, a sharper default. The charts below visualize how organisms evolve over operational cycles.</p>
+        </div>
+        <div class="charts-row">
+          <div class="chart-wrap">
+            <h3>Organism Capability Spectrum</h3>
+            <p class="chart-sub">Performance across five cognitive domains</p>
+            <div class="chart-box"><canvas id="radarChart"></canvas></div>
+          </div>
+          <div class="chart-wrap">
+            <h3>Knowledge Accrual vs. Adaptation</h3>
+            <p class="chart-sub">Knowledge growth and rule mutations over 30 cycles</p>
+            <div class="chart-box"><canvas id="lineChart"></canvas></div>
+          </div>
+        </div>
+      </section>
 
-<p>At Unwind, we do not ship apps with AI bolted on. We design living cognitive systems. Each one is shaped for a domain, wired with memory, and trained through usage until the organism becomes sharper than the version that first left the lab.</p>
+      <!-- 04: MEMORY — Interactive Cards -->
+      <section class="tx-section" id="memory">
+        <div class="tx-section-head"><span class="tx-section-num">04</span><h2>Memory Architecture</h2></div>
+        <div class="tx-section-label">Four Layers — Click to Expand</div>
+        <div class="tx-prose">
+          <p>Memory is the boundary between a session and a system. Once an organism can distinguish what is transient, reusable, factual, and experiential, it operates with continuity.</p>
+        </div>
+        <div class="mem-grid" id="mem-grid"></div>
+      </section>
 
-<h3>01 — Birth: Neurogenesis</h3>
+      <!-- 05: CLOSING -->
+      <section class="tx-section" id="closing">
+        <div class="tx-section-head"><span class="tx-section-num">05</span><h2>What We Are Actually Building</h2></div>
+        <div class="tx-section-label">Closing Transmission</div>
+        <div class="tx-prose">
+          <p>Unwind is building systems that do not just execute commands. They <strong>accumulate judgment</strong>. They coordinate across specialized minds. They keep context alive long enough for intelligence to deepen.</p>
+          <p>That is the shift we care about most. Not software that looks intelligent for a moment, but architecture that lets intelligence <strong>mature over time</strong>.</p>
+          <p>This is how we give machines a mind.</p>
+        </div>
+      </section>
 
-<p>A new mind does not begin with a prompt. It begins with a design problem. What must this organism notice? Which decisions should it make alone? What kind of failure is unacceptable? What does learning look like in this environment?</p>
-
-<p>Every organism we build passes through a six-phase sequence before it touches a live environment:</p>
-
-<p><strong>Research</strong> to map the terrain, the stakes, and the failure modes.<br/>
-<strong>Architecture</strong> to define the agent roles, the decision graph, and the control surface.<br/>
-<strong>Memory design</strong> to decide what should persist, decay, or be promoted.<br/>
-<strong>Protocols</strong> to govern how agents communicate, escalate, and recover.<br/>
-<strong>Knowledge integration</strong> to load the frameworks, references, and domain context the organism needs.<br/>
-<strong>Delivery</strong> to place the organism in a real operating environment where it can run, observe, and improve.</p>
-
-<p>The point is not to imitate a human mind theatrically. The point is to construct a system with enough internal structure that intelligence has somewhere to live. Without that structure, you do not have a mind. You have autocomplete with better branding.</p>
-
-<h3>02 — Connection: Synaptic Formation</h3>
-
-<p>A single capable agent can be useful. A coordinated network of agents becomes resilient. The difference is shared memory, orchestration, and clean communication paths between specialized minds.</p>
-
-<p>We design organisms as systems of cooperating intelligence. One agent may analyze. Another may critique. Another may synthesize. Another may protect capital, quality, or brand integrity. Their strength comes from the architecture around them: who sees what, who decides what, and how the signal moves.</p>
-
-<p>That is why orchestration matters so much. Without it, multi-agent systems collapse into noise. With it, the organism develops something closer to a nervous system — context passes cleanly, decisions compound, and specialization turns into leverage instead of fragmentation.</p>
-
-<p>The more coherent the coordination layer, the less each agent has to pretend it is the whole mind.</p>
-
-<h3>03 — Evolution: Neural Plasticity</h3>
-
-<p>Static systems plateau early. Organisms do not. Every run creates residue: a successful pattern, a failed assumption, a missed signal, a stronger protocol, a sharper default. If that residue is captured well, the organism improves. If it is discarded, the system stays young forever.</p>
-
-<p>We treat sessions, debriefs, outcome reviews, and execution logs as training data for the next version of the mind. This is where real adaptation happens. The system begins to recognize recurring situations. It stops repeating avoidable mistakes. It develops taste.</p>
-
-<p>That is the operating principle: not one perfect prompt, but an architecture that can metabolize experience.</p>
-
-<h3>04 — Memory Architecture: Four Layers</h3>
-
-<p>Memory is the boundary between a session and a system. Once an organism can distinguish what is transient, what is reusable, what is factual, and what is experiential, it can begin to operate with continuity.</p>
-
-<p><strong>Working memory</strong> — the live buffer. Current objectives, active constraints, immediate context, and the moving shape of the task.</p>
-
-<p><strong>Procedural memory</strong> — the learned method. Playbooks, response rules, checklists, and the precise sequence for doing recurring work well.</p>
-
-<p><strong>Semantic memory</strong> — the domain layer. Concepts, frameworks, facts, and the structural understanding the organism uses to reason.</p>
-
-<p><strong>Episodic memory</strong> — the history of becoming. Prior runs, lessons, case patterns, mistakes, and the outcomes that should change future behavior.</p>
-
-<p>When these layers are clean, the organism can stay oriented without becoming bloated. It knows what to hold, what to compress, and what to promote into long-term structure.</p>
-
-<h3>05 — What We Are Actually Building</h3>
-
-<p>Unwind is building systems that do not just execute commands. They accumulate judgment. They coordinate across specialized minds. They keep context alive long enough for intelligence to deepen. They become sharper with every interaction.</p>
-
-<p>That is the shift we care about most. Not software that looks intelligent for a moment, but architecture that lets intelligence mature over time.</p>
-
-<p>This is how we give machines a mind.</p>
-
-<p>—</p>
-
-<p><em>If you are designing a system that should remember, coordinate, and sharpen itself over time — we should talk before you default to another brittle app stack.</em></p>
-
-<p><strong><a href="/#cta" style="color: var(--accent, #6e2dbe);">Talk to the Brain →</a></strong></p>
-</div>
-    </article>
+      <!-- CTA -->
+      <div class="tx-cta">
+        <h2>Build the organism, not the wrapper.</h2>
+        <p>If you are designing a system that should remember, coordinate, and sharpen itself over time — we should talk.</p>
+        <a class="btn btn-primary btn-lg" href="/#cta"><span>Talk to the Brain</span><span class="btn-arrow">→</span></a>
+      </div>
+    </div>
   </main>
 
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- FOOTER (Dark Chrome) -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <footer id="footer">
+  <footer id="footer" style="margin-top:80px;">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <span class="nav-glyph">∞</span>
-          <span class="nav-name">unwind<span class="nav-accent">code</span></span>
-          <p class="footer-desc" data-i18n="footer.desc">Intelligence that evolves.<br />Growing organisms since 2026.</p>
-        </div>
-        <div class="footer-col">
-          <h5 data-i18n="footer.organisms">Organisms</h5>
-          <a href="/#organisms" data-i18n="org.vc.title">Visual Cortex</a>
-          <a href="/#organisms" data-i18n="org.im.title">Infinity Mirror</a>
-          <a href="/#organisms" data-i18n="org.fo.title">Financial Organisms</a>
-          <a href="/#organisms" data-i18n="org.bc.title">Brain Cell Architecture</a>
-        </div>
-        <div class="footer-col">
-          <h5 data-i18n="footer.learn">Learn</h5>
-          <a href="/#architecture" data-i18n="nav.architecture">Architecture</a>
-          <a href="/#philosophy" data-i18n="nav.philosophy">Philosophy</a>
-          <a href="/#vision" data-i18n="footer.vision">Vision 2030</a>
-        </div>
-        <div class="footer-col">
-          <h5 data-i18n="footer.community">Community</h5>
-          <a href="/#cta" data-i18n="footer.join">Join Updates</a>
-          <a href="/#blog" data-i18n="footer.blog">Blog</a>
-          <a href="#" id="footer-chat-link" data-i18n="footer.talk">Talk to the Brain</a>
-        </div>
-      </div>
       <div class="footer-bottom">
-        <span data-i18n="footer.copyright">© 2026 Unwind Code. All rights reserved.</span>
-        <span class="footer-tagline" data-i18n="footer.tagline">The future learns from itself. ∞</span>
+        <span>© 2026 Unwind Code. All rights reserved.</span>
+        <span class="footer-tagline">The future learns from itself. ∞</span>
       </div>
     </div>
   </footer>
 
-  <script type="module" src="/main.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // NAV TOGGLE
+    const t=document.getElementById('nav-toggle'), l=document.getElementById('nav-links');
+    if(t&&l){t.addEventListener('click',()=>{t.classList.toggle('active');l.classList.toggle('open')});l.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{t.classList.remove('active');l.classList.remove('open')}))}
+
+    // MODULE EXPLORER
+    const modules = [
+      {icon:'⚡',name:'Cortex',type:'Core Processing',path:'src/cortex/',desc:'Central routing and decision-making matrix. Evaluates incoming stimuli and dictates execution paths across all cells. Houses primary logic for task delegation and heuristic evaluation.',specs:['State Management','Task Routing','Heuristic Evaluation']},
+      {icon:'🌐',name:'Gateway',type:'External Interface',path:'src/gateway/',desc:'The system\'s perception layer. Handles outbound API requests, web scraping, multi-channel communication via WebSocket, and live data extraction from external sources.',specs:['Web Scraping','API Integration','WebSocket Router']},
+      {icon:'🧠',name:'Memory',type:'Context Buffer',path:'src/memory/',desc:'Active context buffer tracking current tasks, recent data, and conversational state. Flushed or consolidated into long-term Knowledge upon task completion.',specs:['Context Windows','Vector DB','Data Consolidation']},
+      {icon:'🪞',name:'Infinite Mirror',type:'Self-Reflection',path:'src/cells/mirror/',desc:'Recursive self-evaluation engine. Continuously analyzes system output, compares against rules.md, and proposes structural updates to improve future performance.',specs:['Self-Auditing','Rule Mutation','Spec Rewriting']},
+      {icon:'⚙️',name:'Kinetic Engine',type:'Execution Loop',path:'src/cells/kinetic/',desc:'Chronological heartbeat of the organism. Orchestrates continuous loops, manages objective queues, and ensures tasks don\'t stall or timeout.',specs:['Cron Orchestration','Loop Management','Timeout Recovery']},
+      {icon:'🛡️',name:'Security',type:'Immune System',path:'src/security/',desc:'Sandbox manager and approval gate. Executes generated code in ephemeral Docker containers. High-risk operations require human-in-the-loop approval via Telegram.',specs:['Docker Sandbox','Approval Gate','DinD Isolation']}
+    ];
+    const grid=document.getElementById('mod-grid'), detail=document.getElementById('mod-detail');
+    let activeNode=null;
+    modules.forEach(m=>{
+      const btn=document.createElement('button');
+      btn.className='mod-node';
+      btn.innerHTML=`<span class="mod-icon">${m.icon}</span><div class="mod-name">${m.name}</div><div class="mod-path">${m.path}</div>`;
+      btn.addEventListener('click',()=>{
+        if(activeNode)activeNode.classList.remove('active');
+        btn.classList.add('active'); activeNode=btn;
+        detail.innerHTML=`<div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;"><span style="font-size:2.5rem">${m.icon}</span><div><div class="mod-detail-title">${m.name}</div><span class="mod-detail-type">${m.type}</span></div></div><div style="margin-bottom:16px;"><span style="font-size:0.72rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em">Directory</span><code style="display:block;background:rgba(110,45,190,0.08);color:var(--accent-light);padding:8px 12px;border-radius:8px;margin-top:6px;font-family:'JetBrains Mono',monospace;font-size:0.82rem">${m.path}</code></div><p class="mod-detail-desc">${m.desc}</p><div style="font-size:0.72rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px">Core Specs</div><div class="mod-specs">${m.specs.map(s=>`<span class="mod-spec">${s}</span>`).join('')}</div>`;
+      });
+      grid.appendChild(btn);
+    });
+    grid.querySelector('button').click();
+
+    // MEMORY CARDS
+    const memData = [
+      {icon:'⚡',title:'Working Memory',desc:'The live buffer: current objectives, active constraints, immediate context.',extra:'Implemented as the active context window. Holds ~128K tokens of immediate task state. Flushed after each execution cycle, with key findings promoted to semantic or episodic layers.'},
+      {icon:'📋',title:'Procedural Memory',desc:'The learned method: playbooks, response rules, checklists.',extra:'Stored as versioned rules.md files. The Infinite Mirror module can mutate these based on performance feedback, creating an evolutionary pressure toward better protocols.'},
+      {icon:'📚',title:'Semantic Memory',desc:'The domain layer: concepts, frameworks, structural understanding.',extra:'Powered by vector embeddings in the Knowledge store. Enables semantic search across all ingested domain knowledge — the organism reasons with its library, not just its prompt.'},
+      {icon:'🕰️',title:'Episodic Memory',desc:'The history of becoming: prior runs, lessons, case patterns.',extra:'Consciousness logs written nightly. Each entry captures decisions made, outcomes observed, and behavioral adjustments recommended. The organism develops institutional memory.'}
+    ];
+    const memGrid=document.getElementById('mem-grid');
+    memData.forEach(m=>{
+      const card=document.createElement('div');
+      card.className='mem-card';
+      card.innerHTML=`<h4><span class="mem-icon">${m.icon}</span>${m.title}</h4><p>${m.desc}</p><div class="mem-extra">${m.extra}</div><div class="mem-expand-hint">Click to expand ↓</div>`;
+      card.addEventListener('click',()=>{
+        card.classList.toggle('expanded');
+        card.querySelector('.mem-expand-hint').textContent=card.classList.contains('expanded')?'Click to collapse ↑':'Click to expand ↓';
+      });
+      memGrid.appendChild(card);
+    });
+
+    // CHARTS
+    const chartColors = {accent:'rgba(155,89,245,1)',accentFill:'rgba(155,89,245,0.15)',hot:'rgba(192,132,252,1)',teal:'rgba(13,148,136,0.7)',grid:'rgba(240,238,246,0.08)',text:'rgba(240,238,246,0.35)'};
+    const commonOpts = {responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:chartColors.text,font:{family:'Inter'}}},tooltip:{backgroundColor:'rgba(15,15,30,0.95)',titleFont:{family:'Inter'},bodyFont:{family:'Inter'},padding:10,cornerRadius:8}}};
+
+    new Chart(document.getElementById('radarChart'),{
+      type:'radar',
+      data:{labels:['Observation','Reasoning','Memory','Coordination','Adaptation'],datasets:[{label:'Capability Index',data:[8.5,9.2,8.9,7.8,9.5],backgroundColor:chartColors.accentFill,borderColor:chartColors.accent,pointBackgroundColor:chartColors.hot,pointBorderColor:'#0f0f1e',borderWidth:2}]},
+      options:{...commonOpts,scales:{r:{angleLines:{color:chartColors.grid},grid:{color:chartColors.grid},pointLabels:{color:chartColors.text,font:{family:'Inter',size:11}},ticks:{display:false,min:0,max:10}}}}
+    });
+
+    const days=Array.from({length:30},(_,i)=>`D${i+1}`);
+    let kb=100; const kbData=[],ruData=[];
+    for(let i=0;i<30;i++){kb+=Math.floor(Math.random()*15)+5;kbData.push(kb);ruData.push(Math.random()>0.7?Math.floor(Math.random()*3)+1:0)}
+
+    new Chart(document.getElementById('lineChart'),{
+      type:'line',
+      data:{labels:days,datasets:[{type:'line',label:'Knowledge Nodes',data:kbData,borderColor:chartColors.accent,backgroundColor:chartColors.accentFill,borderWidth:2,tension:0.4,fill:true,yAxisID:'y'},{type:'bar',label:'Rule Mutations',data:ruData,backgroundColor:chartColors.teal,borderRadius:4,yAxisID:'y1'}]},
+      options:{...commonOpts,interaction:{mode:'index',intersect:false},scales:{x:{grid:{display:false},ticks:{maxTicksLimit:10,color:chartColors.text}},y:{position:'left',title:{display:true,text:'Knowledge Nodes',color:chartColors.text,font:{size:10}},grid:{color:chartColors.grid},border:{display:false},ticks:{color:chartColors.text}},y1:{position:'right',title:{display:true,text:'Mutations',color:chartColors.text,font:{size:10}},grid:{drawOnChartArea:false},border:{display:false},ticks:{stepSize:1,color:chartColors.text}}}}
+    });
+  });
+  </script>
 </body>
 </html>
