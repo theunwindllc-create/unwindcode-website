@@ -2476,3 +2476,266 @@ section {
   color: #fff;
   font-weight: 600;
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   TRANSMISSIONS INDEX PAGE
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Hero ──────────────────────────────────────────────────────── */
+.tx-index-hero {
+  padding: 180px 0 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.tx-index-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(110, 45, 190, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.tx-index-hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--text-primary);
+  margin-top: 16px;
+  margin-bottom: 20px;
+}
+
+.tx-index-sub {
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.tx-index-count {
+  margin-top: 32px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.tx-index-count span {
+  color: var(--accent-light);
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+/* ── Featured Card ─────────────────────────────────────────────── */
+.tx-featured {
+  padding: 0 0 80px;
+}
+
+.tx-featured-card {
+  display: block;
+  position: relative;
+  background: var(--bg-surface);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-xl);
+  padding: 48px;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+}
+
+.tx-featured-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light), var(--accent-hot));
+  opacity: 0.6;
+}
+
+.tx-featured-card:hover {
+  border-color: rgba(110, 45, 190, 0.35);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 64px rgba(110, 45, 190, 0.12);
+}
+
+.tx-featured-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-hot);
+  background: rgba(110, 45, 190, 0.12);
+  border: 1px solid rgba(110, 45, 190, 0.2);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 24px;
+}
+
+.tx-featured-body .tx-card-number {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', 'SF Mono', monospace;
+  letter-spacing: 0.15em;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.tx-featured-body h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+.tx-featured-body p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 640px;
+  margin-bottom: 20px;
+}
+
+.tx-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+  margin-bottom: 16px;
+}
+
+.tx-card-cta {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--accent-light);
+  letter-spacing: 0.01em;
+}
+
+/* ── Archive Grid ──────────────────────────────────────────────── */
+.tx-archive {
+  padding: 0 0 100px;
+}
+
+.tx-archive-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.tx-archive-header h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.tx-archive-line {
+  flex: 1;
+  height: 1px;
+  background: var(--accent-border);
+}
+
+.tx-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.tx-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 32px;
+  background: var(--bg-surface);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.tx-card:hover {
+  border-color: rgba(110, 45, 190, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(110, 45, 190, 0.08);
+}
+
+.tx-card .tx-card-number {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent-hot);
+  font-family: 'JetBrains Mono', 'SF Mono', monospace;
+  letter-spacing: 0.2em;
+  opacity: 0.7;
+}
+
+.tx-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+.tx-card p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  flex: 1;
+}
+
+/* ── Active nav link ───────────────────────────────────────────── */
+.nav-links a.active {
+  color: var(--accent-light);
+}
+
+/* ── Responsive — Transmissions Index ──────────────────────────── */
+@media (max-width: 900px) {
+  .tx-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .tx-index-hero {
+    padding: 140px 0 60px;
+  }
+
+  .tx-featured-card {
+    padding: 28px 22px;
+  }
+
+  .tx-featured-body h2 {
+    font-size: 1.4rem;
+  }
+
+  .tx-card {
+    padding: 24px 20px;
+  }
+
+  .tx-card h3 {
+    font-size: 1rem;
+  }
+
+  .tx-archive-header h2 {
+    font-size: 0.85rem;
+  }
+}
