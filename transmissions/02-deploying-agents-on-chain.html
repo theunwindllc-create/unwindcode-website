@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Transmission 02: What We Learned Deploying Agents On-Chain | Unwind Code</title>
+  <meta name="description" content="When building an LLM agent to review code or write an email, failure is cheap." />
+  <meta name="theme-color" content="#06060c" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body class="transmission-body">
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- NAV (Dark Chrome) -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <nav id="nav">
+    <a href="/" class="nav-brand">
+      <span class="nav-glyph">∞</span>
+      <span class="nav-name">unwind<span class="nav-accent">code</span></span>
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-links" id="nav-links">
+      <a href="/#organisms" data-i18n="nav.organisms">Organisms</a>
+      <a href="/#architecture" data-i18n="nav.architecture">Architecture</a>
+      <a href="/#philosophy" data-i18n="nav.philosophy">Philosophy</a>
+      <a href="/#vision" data-i18n="nav.vision">Vision</a>
+      <a href="/#blog" data-i18n="nav.blog">Blog</a>
+    </div>
+    <div class="nav-actions">
+      <button id="lang-toggle" class="lang-toggle" aria-label="Switch to Spanish">ES</button>
+      <a href="/#cta" class="nav-cta" data-i18n="nav.cta">Get in Touch</a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- MAIN TRANSMISSION (Light Content Area) -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <main class="blog-main">
+    <a href="/#blog" class="blog-back">
+      <span>←</span> Back to Transmissions
+    </a>
+
+    <article>
+      <header class="blog-header">
+        <div class="blog-meta-tag">
+          <span>Transmission</span>
+          <span class="blog-meta-dot"></span>
+          <span>Whitepaper</span>
+        </div>
+        
+        <h1 class="blog-title">Transmission 02: What We Learned Deploying Agents On-Chain</h1>
+        <p class="blog-subtitle">When building an LLM agent to review code or write an email, failure is cheap.</p>
+        
+        <div class="blog-meta-bottom">April 2026 / UNWIND RESEARCH LAB</div>
+      </header>
+
+      <div class="blog-content">
+<h3>The Hostile Environment</h3>
+<p>When building an LLM agent to review code or write an email, failure is cheap. A hallucination results in a minor syntax error or an awkward sentence. But when an AI organism operates directly on a decentralized ledger, deploying capital or executing smart contracts, a hallucination is catastrophic. The blockchain has no undo button.</p>
+<h3>Building the Dead Man's Switch</h3>
+<p>To allow the Financial Survival Organism (FSO) to operate securely across Monad, XRPL, and the Internet Computer, we realized that raw reasoning power was secondary to strict risk management. Before an agent can make a trade, it has to pass through the <strong>Immune System</strong>.</p>
+<p>The Immune System acts as an execution sandbox. It monitors:</p>
+<ul>
+  <li><strong>Max Drawdown Velocity:</strong> Is the organism hemorrhaging capital faster than its historical norm?</li>
+  <li><strong>Pattern Deviation:</strong> Is the trade parameter significantly outside the median confidence window?</li>
+  <li><strong>Protocol Sanity:</strong> Has the agent formatted the payload flawlessly according to the strict JSON-RPC interface?</li>
+</ul>
+<p>If any of these tripwires are activated, the trade is discarded. If the system trips the alarm sequentially, a "Dead Man's Switch" engages—revoking API keys and suspending the organism automatically until human review.</p>
+<h3>The Hive-Mind Voting Protocol</h3>
+<p>Even with a Dead Man's Switch, single-agent architectures are fragile. You are one bad system prompt or model decay away from a bad decision. In Unwind Brain, we enforce a Hive-Mind Voting protocol. Three distinct "cortexes" (Gemini, OpenAI, and a historical algorithmic tracker) must independently evaluate a market signal. Only when a 2/3 majority consensus is reached, mapping confidence to a predefined risk-matrix, is value transferred.</p>
+<h3>Conclusion</h3>
+<p>Building for Web3 requires an inversion of typical AI development. You don't optimize the LLM to be perfectly creative. You optimize the infrastructure around the LLM to restrict its creativity exclusively to profitable decisions, and you build the walls high enough that it can't accidentally destroy itself.</p>
+</div>
+    </article>
+  </main>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- FOOTER (Dark Chrome) -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="nav-glyph">∞</span>
+          <span class="nav-name">unwind<span class="nav-accent">code</span></span>
+          <p class="footer-desc" data-i18n="footer.desc">Intelligence that evolves.<br />Growing organisms since 2026.</p>
+        </div>
+        <div class="footer-col">
+          <h5 data-i18n="footer.organisms">Organisms</h5>
+          <a href="/#organisms" data-i18n="org.vc.title">Visual Cortex</a>
+          <a href="/#organisms" data-i18n="org.im.title">Infinity Mirror</a>
+          <a href="/#organisms" data-i18n="org.fo.title">Financial Organisms</a>
+          <a href="/#organisms" data-i18n="org.bc.title">Brain Cell Architecture</a>
+        </div>
+        <div class="footer-col">
+          <h5 data-i18n="footer.learn">Learn</h5>
+          <a href="/#architecture" data-i18n="nav.architecture">Architecture</a>
+          <a href="/#philosophy" data-i18n="nav.philosophy">Philosophy</a>
+          <a href="/#vision" data-i18n="footer.vision">Vision 2030</a>
+        </div>
+        <div class="footer-col">
+          <h5 data-i18n="footer.community">Community</h5>
+          <a href="/#cta" data-i18n="footer.join">Join Updates</a>
+          <a href="/#blog" data-i18n="footer.blog">Blog</a>
+          <a href="#" id="footer-chat-link" data-i18n="footer.talk">Talk to the Brain</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer.copyright">© 2026 Unwind Code. All rights reserved.</span>
+        <span class="footer-tagline" data-i18n="footer.tagline">The future learns from itself. ∞</span>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>

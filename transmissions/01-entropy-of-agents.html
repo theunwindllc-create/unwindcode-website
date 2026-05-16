@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Transmission 01: The Entropy of Agents | Unwind Code</title>
+  <meta name="description" content="Why does my AI coding assistant get dumber the longer we chat? The answer lies in probabilistic drift, and the cure is Spatial Determinism." />
+  <meta name="theme-color" content="#06060c" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body class="transmission-body">
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- NAV (Dark Chrome) -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <nav id="nav">
+    <a href="/" class="nav-brand">
+      <span class="nav-glyph">∞</span>
+      <span class="nav-name">unwind<span class="nav-accent">code</span></span>
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-links" id="nav-links">
+      <a href="/#organisms" data-i18n="nav.organisms">Organisms</a>
+      <a href="/#architecture" data-i18n="nav.architecture">Architecture</a>
+      <a href="/#philosophy" data-i18n="nav.philosophy">Philosophy</a>
+      <a href="/#vision" data-i18n="nav.vision">Vision</a>
+      <a href="/#blog" data-i18n="nav.blog">Blog</a>
+    </div>
+    <div class="nav-actions">
+      <button id="lang-toggle" class="lang-toggle" aria-label="Switch to Spanish">ES</button>
+      <a href="/#cta" class="nav-cta" data-i18n="nav.cta">Get in Touch</a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- MAIN TRANSMISSION (Light Content Area) -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <main class="blog-main">
+    <a href="/#blog" class="blog-back">
+      <span>←</span> Back to Transmissions
+    </a>
+
+    <article>
+      <header class="blog-header">
+        <div class="blog-meta-tag">
+          <span>Transmission 01</span>
+          <span class="blog-meta-dot"></span>
+          <span>Whitepaper</span>
+        </div>
+        
+        <h1 class="blog-title">The Entropy of Agents</h1>
+        <p class="blog-subtitle">Why does my AI coding assistant get dumber the longer we chat? The answer lies in probabilistic drift, and the cure is Spatial Determinism.</p>
+        
+        <div class="blog-meta-bottom">
+          MARCH 2026 / UNWIND RESEARCH LAB
+        </div>
+      </header>
+
+      <div class="blog-content">
+        <p>
+          <strong>The Developer's Paradox:</strong> If you have ever handed a complex codebase to a Large Language Model and asked it to build a new feature, you have invariably witnessed a fascinating phenomenon. In the first few prompts, the AI is brilliant. It writes clean code, follows patterns, and ships the feature perfectly. But by the twentieth prompt, the system begins to fray at the edges.
+        </p>
+        <p>
+          The agent starts writing raw SQL queries inside UI components. It hallucinates dependencies that don't exist. It forgets the overarching security boundaries established in the first hour of the session. We refer to this inevitable degradation as <strong>Agentic Entropy</strong>.
+        </p>
+        
+        <h3>The "Lost in the Middle" Dilemma</h3>
+        <p>
+          This decay is not malice; it is mathematics. Generative models operate via context windows, lacking true, continuous long-term memory. As the context window overflows with conversation history, scattered code snippets, and terminal logs, the model experiences extreme cognitive load. It succumbs to the "Lost in the Middle" phenomenon: it perfectly grasps the immediate prior instruction, but completely loses the architectural invariants buried in the center of its memory buffer.
+        </p>
+        
+        <div class="blog-quote">
+          <p>"To build a mind digitally, we must stop giving the AI instructions to read, and start giving it a physical space to inhabit."</p>
+        </div>
+
+        <h3>The Antidote: Spatial Determinism</h3>
+        <p>
+          The Unwind Brain orchestrator proposes a radically divergent approach grounded in <strong>Spatial Determinism</strong>. Instead of fighting the context window with increasingly desperate, capitalized prompts, we program the AI through the geography of the file system itself. We treat directory structures as physical boundaries for cognitive logic.
+        </p>
+        <p>
+          An LLM does not inherently understand what a "database layer" is. But when we enforce an absolute, mechanistic rule that all UI files reside solely in <span class="blog-code">/app/components</span> and all procedural logic lives exclusively in <span class="blog-code">/lib</span>, we map abstract architectural concepts to literal file paths. Entropy is the natural state of an unrestricted AI, but through mapped file constraints, we create artificial gravity. We halt the decay, allowing us to build digital minds that scale indefinitely.
+        </p>
+      </div>
+    </article>
+  </main>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- FOOTER (Dark Chrome) -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="nav-glyph">∞</span>
+          <span class="nav-name">unwind<span class="nav-accent">code</span></span>
+          <p class="footer-desc" data-i18n="footer.desc">Intelligence that evolves.<br />Growing organisms since 2026.</p>
+        </div>
+        <div class="footer-col">
+          <h5 data-i18n="footer.organisms">Organisms</h5>
+          <a href="/#organisms" data-i18n="org.vc.title">Visual Cortex</a>
+          <a href="/#organisms" data-i18n="org.im.title">Infinity Mirror</a>
+          <a href="/#organisms" data-i18n="org.fo.title">Financial Organisms</a>
+          <a href="/#organisms" data-i18n="org.bc.title">Brain Cell Architecture</a>
+        </div>
+        <div class="footer-col">
+          <h5 data-i18n="footer.learn">Learn</h5>
+          <a href="/#architecture" data-i18n="nav.architecture">Architecture</a>
+          <a href="/#philosophy" data-i18n="nav.philosophy">Philosophy</a>
+          <a href="/#vision" data-i18n="footer.vision">Vision 2030</a>
+        </div>
+        <div class="footer-col">
+          <h5 data-i18n="footer.community">Community</h5>
+          <a href="/#cta" data-i18n="footer.join">Join Updates</a>
+          <a href="/#blog" data-i18n="footer.blog">Blog</a>
+          <a href="#" id="footer-chat-link" data-i18n="footer.talk">Talk to the Brain</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer.copyright">© 2026 Unwind Code. All rights reserved.</span>
+        <span class="footer-tagline" data-i18n="footer.tagline">The future learns from itself. ∞</span>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
