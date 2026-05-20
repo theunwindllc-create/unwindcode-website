@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Transmission 16: The Organism Spine | Unwind Code</title>
+  <meta name="description" content="How the Unwind Brain harness turns durable ledgers, task inboxes, approval maps, and exportable debriefs into an organism spine without unrestricted autonomy." />
+  <meta name="theme-color" content="#06060c" />
+  <link rel="canonical" href="https://unwindcode.ai/transmissions/16-the-organism-spine.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="The Organism Spine" />
+  <meta property="og:description" content="The Unwind Brain harness is becoming a governed operating spine: durable runs, task lifecycle control, human approval, and clear debriefs." />
+  <meta property="og:url" content="https://unwindcode.ai/transmissions/16-the-organism-spine.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Organism Spine",
+    "description": "How the Unwind Brain harness turns durable ledgers, task inboxes, approval maps, and exportable debriefs into an organism spine without unrestricted autonomy.",
+    "author": {
+      "@type": "Organization",
+      "name": "Unwind Code"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Unwind Code",
+      "url": "https://unwindcode.ai"
+    },
+    "datePublished": "2026-05-20",
+    "dateModified": "2026-05-20",
+    "mainEntityOfPage": "https://unwindcode.ai/transmissions/16-the-organism-spine.html"
+  }
+  </script>
+  <style>
+    .tx-page { background:var(--bg-void); color:var(--text-primary); }
+    .tx-hero { padding:160px 0 76px; text-align:center; position:relative; overflow:hidden; }
+    .tx-hero::before { content:''; position:absolute; inset:-180px auto auto 50%; width:760px; height:760px; transform:translateX(-50%); background:radial-gradient(circle, rgba(110,45,190,0.12) 0%, rgba(13,148,136,0.05) 34%, transparent 66%); pointer-events:none; }
+    .tx-hero .container { position:relative; z-index:1; }
+    .tx-hero h1 { font-size:clamp(2.25rem,5vw,3.7rem); font-weight:850; letter-spacing:-0.04em; line-height:1.08; margin-bottom:20px; }
+    .tx-hero-sub { font-size:1.08rem; color:var(--text-secondary); max-width:690px; margin:0 auto; line-height:1.75; }
+    .tx-hero-meta { margin-top:28px; display:flex; justify-content:center; gap:16px; flex-wrap:wrap; font-size:0.76rem; color:var(--text-muted); font-weight:700; letter-spacing:0.08em; text-transform:uppercase; }
+    .tx-section { padding:76px 0; }
+    .tx-section-head { display:flex; align-items:center; gap:16px; margin-bottom:12px; }
+    .tx-section-num { font-family:'JetBrains Mono',monospace; font-size:0.84rem; font-weight:700; color:var(--accent-hot); letter-spacing:0.15em; }
+    .tx-section h2 { font-size:clamp(1.55rem,3vw,2.1rem); font-weight:750; letter-spacing:-0.025em; }
+    .tx-section-label { font-size:0.72rem; font-weight:800; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.14em; margin-bottom:24px; }
+    .tx-prose { font-size:1.03rem; color:var(--text-secondary); line-height:1.82; max-width:760px; }
+    .tx-prose p { margin-bottom:24px; }
+    .tx-prose strong { color:var(--text-primary); font-weight:650; }
+    .tx-kicker { display:inline-flex; align-items:center; gap:8px; padding:7px 12px; border-radius:999px; border:1px solid rgba(13,148,136,0.22); background:rgba(13,148,136,0.08); color:rgba(153,246,228,0.9); font-family:'JetBrains Mono',monospace; font-size:0.72rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:18px; }
+    .tx-note { margin-top:24px; border-left:3px solid var(--accent); background:rgba(110,45,190,0.06); border-radius:0 12px 12px 0; padding:18px 22px; color:var(--text-secondary); line-height:1.7; }
+
+    .spine-shell { margin-top:34px; display:grid; grid-template-columns:0.95fr 1.05fr; gap:22px; }
+    .spine-map { display:grid; gap:12px; }
+    .spine-node { min-height:92px; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:18px; transition:transform 0.2s ease, border-color 0.2s ease, background 0.2s ease; }
+    .spine-node:hover, .spine-node.active { transform:translateY(-2px); border-color:rgba(155,89,245,0.42); background:rgba(110,45,190,0.09); }
+    .spine-node-top { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:8px; }
+    .spine-node strong { font-size:0.98rem; }
+    .spine-tag { font-family:'JetBrains Mono',monospace; font-size:0.66rem; color:var(--accent-hot); border:1px solid rgba(192,132,252,0.22); border-radius:999px; padding:4px 8px; white-space:nowrap; }
+    .spine-node p { color:var(--text-muted); line-height:1.5; font-size:0.84rem; }
+    .spine-detail { background:linear-gradient(180deg, rgba(15,15,30,0.78), rgba(15,15,30,0.52)); border:1px solid var(--accent-border); border-radius:20px; padding:30px; min-height:470px; }
+    .spine-detail h3 { font-size:1.35rem; margin-bottom:8px; }
+    .spine-detail .path { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.78rem; color:var(--accent-light); background:rgba(110,45,190,0.1); border:1px solid var(--accent-border); border-radius:8px; padding:7px 10px; margin:10px 0 18px; }
+    .detail-copy { color:var(--text-secondary); line-height:1.72; font-size:0.95rem; margin-bottom:22px; }
+    .detail-list { display:grid; gap:10px; }
+    .detail-list li { list-style:none; display:flex; gap:10px; align-items:flex-start; color:var(--text-secondary); font-size:0.9rem; line-height:1.55; }
+    .detail-list li::before { content:''; width:7px; height:7px; border-radius:50%; background:var(--accent-hot); margin-top:8px; flex:0 0 auto; }
+
+    .lifecycle { margin-top:34px; display:grid; grid-template-columns:1fr 1fr; gap:22px; align-items:start; }
+    .queue-panel, .approval-panel, .chart-wrap, .debrief-panel { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:20px; padding:26px; }
+    .queue-toolbar { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:18px; }
+    .queue-toolbar button, .debrief-actions button { color:var(--text-primary); border:1px solid rgba(155,89,245,0.28); background:rgba(110,45,190,0.11); border-radius:10px; padding:9px 12px; font-size:0.78rem; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; transition:background 0.2s ease, border-color 0.2s ease; }
+    .queue-toolbar button:hover, .debrief-actions button:hover { background:rgba(110,45,190,0.2); border-color:rgba(155,89,245,0.48); }
+    .task-card { border:1px solid rgba(240,238,246,0.08); background:rgba(6,6,12,0.24); border-radius:14px; padding:16px; margin-bottom:12px; }
+    .task-card.active { border-color:rgba(13,148,136,0.32); background:rgba(13,148,136,0.07); }
+    .task-top { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:8px; }
+    .task-title { color:var(--text-primary); font-weight:700; font-size:0.92rem; }
+    .task-state { font-family:'JetBrains Mono',monospace; font-size:0.65rem; border-radius:999px; padding:4px 8px; color:rgba(153,246,228,0.95); border:1px solid rgba(13,148,136,0.24); background:rgba(13,148,136,0.08); }
+    .task-state.cancelled { color:rgba(252,165,165,0.95); border-color:rgba(239,68,68,0.25); background:rgba(239,68,68,0.08); }
+    .task-card p { color:var(--text-muted); font-size:0.82rem; line-height:1.55; }
+    .ledger-box { font-family:'JetBrains Mono',monospace; background:rgba(6,6,12,0.36); border:1px solid rgba(240,238,246,0.08); border-radius:14px; padding:18px; min-height:266px; color:rgba(240,238,246,0.62); font-size:0.76rem; line-height:1.8; overflow:auto; }
+    .ledger-box b { color:var(--accent-hot); font-weight:700; }
+
+    .authority-grid { margin-top:34px; display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; }
+    .authority-card { position:relative; background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:16px; padding:22px; transition:transform 0.2s ease, border-color 0.2s ease; }
+    .authority-card:hover { transform:translateY(-3px); border-color:rgba(155,89,245,0.42); }
+    .authority-card h3 { font-size:1rem; margin-bottom:8px; }
+    .authority-card p { color:var(--text-secondary); font-size:0.88rem; line-height:1.62; margin-bottom:18px; }
+    .authority-card button { width:100%; color:var(--text-primary); border:1px solid rgba(240,238,246,0.1); border-radius:10px; padding:10px; font-size:0.78rem; font-weight:800; text-transform:uppercase; letter-spacing:0.06em; }
+    .authority-card.safe button { background:rgba(13,148,136,0.12); }
+    .authority-card.ask button { background:rgba(245,158,11,0.12); }
+    .authority-card.block button { background:rgba(239,68,68,0.12); }
+    .authority-result { margin-top:18px; padding:18px; border:1px solid rgba(240,238,246,0.08); border-radius:14px; background:rgba(6,6,12,0.26); color:var(--text-secondary); line-height:1.65; min-height:94px; }
+    .authority-result strong { color:var(--text-primary); }
+
+    .debrief-grid { margin-top:34px; display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+    .chart-box { position:relative; width:100%; height:315px; }
+    .debrief-actions { display:flex; gap:10px; flex-wrap:wrap; margin:18px 0; }
+    .debrief-output { background:rgba(6,6,12,0.36); border:1px solid rgba(240,238,246,0.08); border-radius:14px; padding:18px; color:var(--text-secondary); min-height:318px; font-size:0.88rem; line-height:1.68; }
+    .debrief-output h4 { font-size:0.92rem; margin:0 0 10px; }
+    .debrief-output code { display:block; white-space:pre-wrap; color:rgba(240,238,246,0.68); font-family:'JetBrains Mono',monospace; font-size:0.75rem; line-height:1.7; }
+
+    .fit-strip { margin-top:32px; display:grid; grid-template-columns:repeat(4, 1fr); gap:14px; }
+    .fit-item { border:1px solid var(--accent-border); background:rgba(15,15,30,0.5); border-radius:14px; padding:18px; }
+    .fit-item span { display:block; color:var(--accent-hot); font-family:'JetBrains Mono',monospace; font-size:0.7rem; font-weight:700; letter-spacing:0.09em; text-transform:uppercase; margin-bottom:8px; }
+    .fit-item p { color:var(--text-secondary); font-size:0.86rem; line-height:1.58; }
+    .tx-cta { text-align:center; padding:62px 36px; background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:28px; margin-top:72px; }
+    .tx-cta h2 { font-size:1.55rem; font-weight:750; margin-bottom:12px; }
+    .tx-cta p { color:var(--text-secondary); font-size:0.95rem; margin:0 auto 28px; max-width:540px; line-height:1.72; }
+
+    @media(max-width:960px) {
+      .spine-shell, .lifecycle, .debrief-grid { grid-template-columns:1fr; }
+      .authority-grid, .fit-strip { grid-template-columns:1fr 1fr; }
+    }
+    @media(max-width:640px) {
+      .tx-hero { padding:132px 0 58px; }
+      .tx-section { padding:58px 0; }
+      .tx-section-head { align-items:flex-start; }
+      .authority-grid, .fit-strip { grid-template-columns:1fr; }
+      .spine-detail, .queue-panel, .approval-panel, .chart-wrap, .debrief-panel { padding:20px; }
+      .chart-box { height:280px; }
+    }
+  </style>
+</head>
+<body class="tx-page">
+
+  <nav id="nav" class="scrolled">
+    <a href="/" class="nav-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="/#organisms">Organisms</a>
+      <a href="/#architecture">Architecture</a>
+      <a href="/transmissions/">Transmissions</a>
+    </div>
+    <div class="nav-actions"><a href="/#cta" class="nav-cta">Get in Touch</a></div>
+  </nav>
+
+  <main>
+    <section class="tx-hero">
+      <div class="container">
+        <div class="tx-kicker">TRANSMISSION 016</div>
+        <h1>The Organism Spine</h1>
+        <p class="tx-hero-sub">The Unwind Brain harness is becoming the operational spine: durable runs, a task inbox, governed authority, lifecycle controls, and debriefs that can leave the system as clean evidence.</p>
+        <div class="tx-hero-meta"><span>May 2026</span><span>Phase 3.1 / 3.2</span><span>Harness Architecture</span><span>8 min read</span></div>
+      </div>
+    </section>
+
+    <div class="container">
+      <section class="tx-section" id="spine">
+        <div class="tx-section-head"><span class="tx-section-num">01</span><h2>From Harness to Spine</h2></div>
+        <div class="tx-section-label">Click the organs to inspect the operating layer</div>
+        <div class="tx-prose">
+          <p>A harness is not the mind. It is the anatomy that lets the mind keep its posture under load. Phase 3.1 and 3.2 move the Brain from loose execution toward a governed operating spine: every run leaves a ledger, every task enters a lifecycle, and every risky move is routed through explicit authority.</p>
+          <p>The claim is narrow and important: <strong>this is not unrestricted autonomy</strong>. It is controlled orchestration with durable memory of what happened, who authorized it, and what should happen next.</p>
+        </div>
+
+        <div class="spine-shell">
+          <div class="spine-map" id="spine-map"></div>
+          <div class="spine-detail" id="spine-detail"></div>
+        </div>
+      </section>
+
+      <section class="tx-section" id="lifecycle">
+        <div class="tx-section-head"><span class="tx-section-num">02</span><h2>The Task Lifecycle Is the Pulse</h2></div>
+        <div class="tx-section-label">Queue, assign, run, cancel, debrief</div>
+        <div class="tx-prose">
+          <p>Without a lifecycle, an agent is just a thread with ambition. The task inbox gives work an address. Queueing gives work order. Assignment gives work ownership. Cancellation gives the operator a brake. Debriefing gives the system a memory that can be audited later.</p>
+        </div>
+
+        <div class="lifecycle">
+          <div class="queue-panel">
+            <div class="queue-toolbar">
+              <button type="button" data-action="queue">Queue Task</button>
+              <button type="button" data-action="assign">Assign</button>
+              <button type="button" data-action="run">Run</button>
+              <button type="button" data-action="cancel">Cancel</button>
+              <button type="button" data-action="debrief">Debrief</button>
+            </div>
+            <div id="task-list"></div>
+          </div>
+          <div class="approval-panel">
+            <h3>Durable Run Ledger</h3>
+            <p class="detail-copy">The ledger records transitions as operational facts. It is not a personality layer. It is a spine: timestamped, replayable, and exportable.</p>
+            <div class="ledger-box" id="ledger-box"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tx-section" id="authority">
+        <div class="tx-section-head"><span class="tx-section-num">03</span><h2>Authority Is Mapped, Not Assumed</h2></div>
+        <div class="tx-section-label">The approval surface is a design object</div>
+        <div class="tx-prose">
+          <p>The Brain should know the difference between internal coordination and external consequence. It can prepare, route, summarize, and recommend. It should not silently spend money, execute financial actions, publish publicly, or rewrite public surfaces without a human approval path.</p>
+        </div>
+
+        <div class="authority-grid">
+          <div class="authority-card safe">
+            <h3>Internal Coordination</h3>
+            <p>Queueing, assigning, summarizing, and moving tasks through the harness.</p>
+            <button type="button" data-authority="safe">Inspect Rule</button>
+          </div>
+          <div class="authority-card ask">
+            <h3>Consequential Action</h3>
+            <p>Filesystem writes, external messages, public posts, deployment changes, or commands with operator impact.</p>
+            <button type="button" data-authority="ask">Inspect Rule</button>
+          </div>
+          <div class="authority-card block">
+            <h3>Restricted Execution</h3>
+            <p>Unapproved financial execution, unrestricted autonomy, and public self-modification are outside the harness authority.</p>
+            <button type="button" data-authority="block">Inspect Rule</button>
+          </div>
+        </div>
+        <div class="authority-result" id="authority-result"><strong>Select an authority band.</strong> The Brain gets useful by making permission visible before a task crosses a boundary.</div>
+      </section>
+
+      <section class="tx-section" id="debriefs">
+        <div class="tx-section-head"><span class="tx-section-num">04</span><h2>Debriefs Make Runs Portable</h2></div>
+        <div class="tx-section-label">Exportable evidence, not vague memory</div>
+        <div class="tx-prose">
+          <p>When the run ends, the system should leave behind a useful artifact: what changed, what was blocked, what needs approval, and what should be queued next. The debrief is the bridge between the harness and the human organization around it.</p>
+        </div>
+
+        <div class="debrief-grid">
+          <div class="chart-wrap">
+            <h3>Run Surface by Authority</h3>
+            <p class="detail-copy">A representative view of how the harness separates safe coordination from approval-gated work.</p>
+            <div class="chart-box"><canvas id="authorityChart"></canvas></div>
+          </div>
+          <div class="debrief-panel">
+            <h3>Debrief Format Preview</h3>
+            <div class="debrief-actions">
+              <button type="button" data-debrief="operator">Operator</button>
+              <button type="button" data-debrief="engineer">Engineer</button>
+              <button type="button" data-debrief="client">Client</button>
+            </div>
+            <div class="debrief-output" id="debrief-output"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tx-section" id="mission">
+        <div class="tx-section-head"><span class="tx-section-num">05</span><h2>Why This Fits Unwind Code</h2></div>
+        <div class="tx-section-label">Mission fit to unwindcode.ai</div>
+        <div class="tx-prose">
+          <p>Unwind Code builds organisms, not wrappers. The website says the future learns from itself. The harness is how that sentence becomes operational without becoming reckless.</p>
+          <p>The organism spine lowers suffering by reducing ambiguity. It increases clarity by exposing state, permission, and next action. It preserves the light by keeping human authority where consequences leave the sandbox.</p>
+        </div>
+        <div class="fit-strip">
+          <div class="fit-item"><span>Ledger</span><p>Every run can be reviewed instead of reconstructed from scattered chat residue.</p></div>
+          <div class="fit-item"><span>Inbox</span><p>Work enters a visible queue, gets owned, and can be cancelled before it drifts.</p></div>
+          <div class="fit-item"><span>Authority</span><p>The Brain can coordinate aggressively while stopping at public, financial, and host-impact boundaries.</p></div>
+          <div class="fit-item"><span>Debrief</span><p>The output becomes a clean artifact for humans, clients, and future cells.</p></div>
+        </div>
+        <div class="tx-note">The spine does not make the Brain sovereign. It makes the Brain legible, interruptible, and useful enough to trust with more of the loop over time.</div>
+      </section>
+
+      <div class="tx-cta">
+        <h2>Give the organism a spine before giving it reach.</h2>
+        <p>Durable execution, explicit authority, and portable debriefs are the difference between automation that feels clever and systems that can safely carry real work.</p>
+        <a class="btn btn-primary btn-lg" href="/#cta"><span>Talk to the Brain</span><span class="btn-arrow">-&gt;</span></a>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer" style="margin-top:80px;">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>© 2026 Unwind Code. All rights reserved.</span>
+        <span class="footer-tagline">The future learns from itself. ∞</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const navToggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('active');
+        navLinks.classList.toggle('open');
+      });
+      navLinks.querySelectorAll('a').forEach((anchor) => {
+        anchor.addEventListener('click', () => {
+          navToggle.classList.remove('active');
+          navLinks.classList.remove('open');
+        });
+      });
+    }
+
+    const spineModules = [
+      {
+        name: 'Durable Run Ledger',
+        tag: 'REPLAY',
+        path: 'src/cortex/run_ledger.py',
+        short: 'Append-only record of run events, decisions, approvals, failures, and debrief outputs.',
+        detail: 'The ledger turns execution into evidence. A run can be resumed, inspected, summarized, or audited because its transitions are recorded as structured facts instead of buried in a model transcript.',
+        bullets: ['Records lifecycle transitions and timestamps.', 'Links approvals to the exact action being authorized.', 'Feeds exportable debriefs without inventing history.']
+      },
+      {
+        name: 'Task Inbox',
+        tag: 'INTAKE',
+        path: 'src/cortex/task_inbox.py',
+        short: 'A visible work surface for queued, active, blocked, cancelled, and completed tasks.',
+        detail: 'The inbox gives the Brain a front door. It separates incoming work from active work, makes ownership explicit, and allows cancellation before wasted motion becomes structural confusion.',
+        bullets: ['Queues tasks before execution.', 'Assigns work to a cell or operator context.', 'Keeps blocked tasks visible instead of forgotten.']
+      },
+      {
+        name: 'Approval Authority Map',
+        tag: 'GOVERN',
+        path: 'src/cortex/authority_map.py',
+        short: 'A permission matrix for what can run, what must pause, and what is out of bounds.',
+        detail: 'Authority is treated as architecture. The harness can route low-risk internal work quickly while requiring approval for filesystem writes, public messaging, deployment changes, and any financial or irreversible consequence.',
+        bullets: ['Allows internal coordination within defined scope.', 'Escalates consequential work to the human operator.', 'Blocks unrestricted autonomy and unapproved financial execution.']
+      },
+      {
+        name: 'Exportable Debriefs',
+        tag: 'PROOF',
+        path: 'src/cortex/debrief_exporter.py',
+        short: 'Structured run summaries for operators, engineers, clients, and future cells.',
+        detail: 'A debrief converts the run ledger into an artifact. It reports what happened, what was intentionally not done, which approvals were requested, and what task should enter the next queue.',
+        bullets: ['Summarizes outcomes without overstating capability.', 'Exports operator and engineering views from the same record.', 'Creates continuity between runs without public self-modification.']
+      }
+    ];
+
+    const spineMap = document.getElementById('spine-map');
+    const spineDetail = document.getElementById('spine-detail');
+    let activeSpineNode = null;
+
+    function renderSpineDetail(module) {
+      spineDetail.innerHTML = [
+        '<h3>' + module.name + '</h3>',
+        '<span class="path">' + module.path + '</span>',
+        '<p class="detail-copy">' + module.detail + '</p>',
+        '<ul class="detail-list">' + module.bullets.map((item) => '<li>' + item + '</li>').join('') + '</ul>'
+      ].join('');
+    }
+
+    spineModules.forEach((module, index) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'spine-node';
+      button.innerHTML = '<div class="spine-node-top"><strong>' + module.name + '</strong><span class="spine-tag">' + module.tag + '</span></div><p>' + module.short + '</p>';
+      button.addEventListener('click', () => {
+        if (activeSpineNode) activeSpineNode.classList.remove('active');
+        button.classList.add('active');
+        activeSpineNode = button;
+        renderSpineDetail(module);
+      });
+      spineMap.appendChild(button);
+      if (index === 0) button.click();
+    });
+
+    const tasks = [
+      { title: 'Draft gateway run debrief', state: 'queued', note: 'Collect ledger events and produce operator summary.' },
+      { title: 'Route mobile command request', state: 'blocked', note: 'Requires approval before touching an external device channel.' },
+      { title: 'Map inbox cancellation path', state: 'queued', note: 'Verify cancelled work cannot continue downstream.' }
+    ];
+    const taskList = document.getElementById('task-list');
+    const ledgerBox = document.getElementById('ledger-box');
+    const ledger = [];
+
+    function log(event) {
+      const now = new Date();
+      const stamp = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      ledger.unshift('<b>' + stamp + '</b> ' + event);
+      ledgerBox.innerHTML = ledger.slice(0, 10).join('<br>');
+    }
+
+    function renderTasks() {
+      taskList.innerHTML = tasks.map((task, index) => {
+        const stateClass = task.state === 'cancelled' ? 'task-state cancelled' : 'task-state';
+        const activeClass = index === 0 ? ' task-card active' : 'task-card';
+        return '<div class="' + activeClass + '"><div class="task-top"><span class="task-title">' + task.title + '</span><span class="' + stateClass + '">' + task.state.toUpperCase() + '</span></div><p>' + task.note + '</p></div>';
+      }).join('');
+    }
+
+    const lifecycleText = {
+      queue: 'queued new task: export latest run as markdown and JSON',
+      assign: 'assigned task to cortex.harness with operator visibility',
+      run: 'started run after authority check: internal coordination only',
+      cancel: 'cancelled blocked mobile command before external action',
+      debrief: 'exported debrief: outcomes, blocked actions, approvals, next tasks'
+    };
+
+    document.querySelectorAll('[data-action]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const action = button.dataset.action;
+        if (action === 'queue') tasks.unshift({ title: 'Export latest run as markdown and JSON', state: 'queued', note: 'Prepared for operator review, not public posting.' });
+        if (action === 'assign') tasks[0].state = 'assigned';
+        if (action === 'run') tasks[0].state = 'running';
+        if (action === 'cancel') tasks[1].state = 'cancelled';
+        if (action === 'debrief') tasks[0].state = 'completed';
+        renderTasks();
+        log(lifecycleText[action]);
+      });
+    });
+
+    renderTasks();
+    log('ledger initialized for transmission preview');
+
+    const authorityResult = document.getElementById('authority-result');
+    const authorityCopy = {
+      safe: '<strong>Internal coordination can proceed.</strong> Examples: queue a task, assign a cell, summarize a run, generate a private draft, or prepare a debrief. These actions remain inside the harness.',
+      ask: '<strong>Pause and ask the creator.</strong> Examples: write to the filesystem, send a message, deploy, post publicly, or execute a host-impacting command. The Brain prepares the action and waits for approval.',
+      block: '<strong>Out of scope without a separate operating mandate.</strong> No unapproved financial execution, no unrestricted autonomy, and no public self-modification. The harness can recommend and document, not silently cross those lines.'
+    };
+    document.querySelectorAll('[data-authority]').forEach((button) => {
+      button.addEventListener('click', () => {
+        authorityResult.innerHTML = authorityCopy[button.dataset.authority];
+      });
+    });
+
+    const debriefOutput = document.getElementById('debrief-output');
+    const debriefs = {
+      operator: '<h4>Operator Debrief</h4><code>run_id: ub-2026-05-20-031\nstatus: completed_with_blocks\ncompleted:\n  - queued and assigned inbox tasks\n  - generated exportable run summary\nblocked:\n  - external command required approval\nnext:\n  - review blocked command\n  - approve, revise, or cancel</code>',
+      engineer: '<h4>Engineer Debrief</h4><code>components:\n  - run_ledger\n  - task_inbox\n  - authority_map\n  - debrief_exporter\nnotes:\n  - cancellation path must terminate downstream work\n  - approval events should link to exact command payload\n  - debrief output should derive from ledger only</code>',
+      client: '<h4>Client Debrief</h4><code>summary:\n  The Brain completed internal coordination tasks and produced a structured run report.\nlimits:\n  It did not execute financial actions, publish publicly, or modify live systems without approval.\nvalue:\n  Clear state, visible blockers, and a concrete next-action list.</code>'
+    };
+    document.querySelectorAll('[data-debrief]').forEach((button) => {
+      button.addEventListener('click', () => {
+        debriefOutput.innerHTML = debriefs[button.dataset.debrief];
+      });
+    });
+    debriefOutput.innerHTML = debriefs.operator;
+
+    const chartColors = {
+      accent: 'rgba(155,89,245,1)',
+      accentFill: 'rgba(155,89,245,0.15)',
+      hot: 'rgba(192,132,252,1)',
+      teal: 'rgba(13,148,136,0.7)',
+      grid: 'rgba(240,238,246,0.08)',
+      text: 'rgba(240,238,246,0.35)'
+    };
+
+    new Chart(document.getElementById('authorityChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Internal coordination', 'Approval-gated', 'Blocked by policy'],
+        datasets: [{
+          data: [58, 34, 8],
+          backgroundColor: [chartColors.teal, chartColors.accent, 'rgba(239,68,68,0.66)'],
+          borderColor: 'rgba(6,6,12,0.9)',
+          borderWidth: 3,
+          hoverOffset: 6
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: { color: chartColors.text, font: { family: 'Inter' }, padding: 18 }
+          },
+          tooltip: {
+            backgroundColor: 'rgba(15,15,30,0.95)',
+            titleFont: { family: 'Inter' },
+            bodyFont: { family: 'Inter' },
+            padding: 10,
+            cornerRadius: 8,
+            callbacks: {
+              label: (context) => context.label + ': ' + context.parsed + '% of represented run surface'
+            }
+          }
+        },
+        cutout: '62%'
+      }
+    });
+  });
+  </script>
+</body>
+</html>
