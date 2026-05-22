@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Transmission 19: The Cell Swap Protocol | Unwind Code</title>
+  <meta name="description" content="How the Unwind Brain becomes an organism whose cells can be reviewed, simulated, swapped, activated, and rolled back without confusing preparation with power." />
+  <meta name="theme-color" content="#06060c" />
+  <link rel="canonical" href="https://www.unwindcode.ai/transmissions/19-the-cell-swap-protocol.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="The Cell Swap Protocol" />
+  <meta property="og:description" content="An architecture transmission on swappable AI organs, review-only cell activation, and the safety gates required for humans to bring their own keys, models, policies, and workspaces." />
+  <meta property="og:url" content="https://www.unwindcode.ai/transmissions/19-the-cell-swap-protocol.html" />
+  <meta property="og:site_name" content="Unwind Code" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="The Cell Swap Protocol" />
+  <meta name="twitter:description" content="The Brain becomes useful at human scale when every organ can be swapped without losing identity, policy, memory, or accountability." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Cell Swap Protocol",
+    "description": "How the Unwind Brain becomes an organism whose cells can be reviewed, simulated, swapped, activated, and rolled back without confusing preparation with power.",
+    "author": {
+      "@type": "Organization",
+      "name": "Unwind Code"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Unwind Code",
+      "url": "https://www.unwindcode.ai"
+    },
+    "datePublished": "2026-05-22",
+    "dateModified": "2026-05-22",
+    "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/19-the-cell-swap-protocol.html"
+  }
+  </script>
+  <style>
+    .tx-page { background:var(--bg-void); color:var(--text-primary); }
+    .tx-hero { padding:158px 0 76px; text-align:center; position:relative; overflow:hidden; }
+    .tx-hero::before { content:''; position:absolute; inset:-240px auto auto 50%; width:900px; height:900px; transform:translateX(-50%); background:radial-gradient(circle, rgba(13,148,136,0.16) 0%, rgba(110,45,190,0.13) 36%, transparent 68%); pointer-events:none; }
+    .tx-hero::after { content:''; position:absolute; left:50%; top:118px; width:min(790px,88vw); height:1px; transform:translateX(-50%); background:linear-gradient(90deg, transparent, rgba(13,148,136,0.5), rgba(192,132,252,0.34), transparent); opacity:0.8; }
+    .tx-hero .container { position:relative; z-index:1; }
+    .tx-hero h1 { font-size:clamp(2.25rem,5.4vw,4.35rem); font-weight:860; letter-spacing:-0.045em; line-height:1.03; margin:0 0 20px; }
+    .tx-hero-sub { font-size:1.08rem; color:var(--text-secondary); max-width:800px; margin:0 auto; line-height:1.75; }
+    .tx-hero-meta { margin-top:28px; display:flex; justify-content:center; gap:16px; flex-wrap:wrap; font-size:0.76rem; color:var(--text-muted); font-weight:750; letter-spacing:0.08em; text-transform:uppercase; }
+    .tx-section { padding:76px 0; }
+    .tx-section-head { display:flex; align-items:center; gap:16px; margin-bottom:12px; }
+    .tx-section-num { font-family:'JetBrains Mono',monospace; font-size:0.84rem; font-weight:700; color:var(--accent-hot); letter-spacing:0.15em; }
+    .tx-section h2 { font-size:clamp(1.55rem,3vw,2.18rem); font-weight:780; letter-spacing:-0.025em; }
+    .tx-section-label { font-size:0.72rem; font-weight:800; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.14em; margin-bottom:24px; }
+    .tx-prose { font-size:1.03rem; color:var(--text-secondary); line-height:1.82; max-width:810px; }
+    .tx-prose p { margin-bottom:24px; }
+    .tx-prose strong { color:var(--text-primary); font-weight:680; }
+    .tx-kicker { display:inline-flex; align-items:center; gap:8px; padding:7px 12px; border-radius:999px; border:1px solid rgba(13,148,136,0.22); background:rgba(13,148,136,0.08); color:rgba(153,246,228,0.9); font-family:'JetBrains Mono',monospace; font-size:0.72rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:18px; }
+    .tx-note { margin-top:24px; border-left:3px solid var(--accent); background:rgba(110,45,190,0.06); border-radius:0 12px 12px 0; padding:18px 22px; color:var(--text-secondary); line-height:1.7; }
+
+    .organism-map { margin-top:34px; display:grid; grid-template-columns:1.02fr 0.98fr; gap:22px; align-items:stretch; }
+    .organism-shell { min-height:560px; border:1px solid var(--accent-border); background:linear-gradient(180deg, rgba(15,15,30,0.78), rgba(6,6,12,0.3)); border-radius:28px; padding:28px; position:relative; overflow:hidden; }
+    .organism-shell::before { content:''; position:absolute; inset:38px; border:1px solid rgba(240,238,246,0.06); border-radius:50%; opacity:0.8; }
+    .organism-shell::after { content:''; position:absolute; inset:96px; border:1px solid rgba(13,148,136,0.12); border-radius:50%; }
+    .organism-core { position:absolute; left:50%; top:50%; width:148px; height:148px; transform:translate(-50%,-50%); border-radius:50%; display:grid; place-items:center; border:1px solid rgba(153,246,228,0.28); background:radial-gradient(circle, rgba(13,148,136,0.22), rgba(110,45,190,0.08) 62%, rgba(6,6,12,0.22)); box-shadow:0 0 60px rgba(13,148,136,0.16); z-index:2; }
+    .organism-core span { font-size:3.2rem; line-height:1; color:rgba(240,238,246,0.92); }
+    .cell-node { position:absolute; z-index:3; width:132px; min-height:86px; border:1px solid rgba(240,238,246,0.09); background:rgba(6,6,12,0.58); color:var(--text-primary); border-radius:18px; padding:14px; text-align:left; transition:transform 0.2s ease, border-color 0.2s ease, background 0.2s ease; }
+    .cell-node:hover, .cell-node.active { transform:translateY(-4px); border-color:rgba(153,246,228,0.38); background:rgba(13,148,136,0.1); }
+    .cell-node strong { display:block; font-size:0.84rem; margin-bottom:7px; }
+    .cell-node span { display:block; color:var(--text-muted); font-family:'JetBrains Mono',monospace; font-size:0.62rem; letter-spacing:0.08em; text-transform:uppercase; }
+    .cell-cortex { left:calc(50% - 66px); top:36px; }
+    .cell-memory { right:42px; top:112px; }
+    .cell-gateway { right:40px; bottom:112px; }
+    .cell-fso { left:calc(50% - 66px); bottom:36px; }
+    .cell-security { left:42px; bottom:112px; }
+    .cell-creator { left:40px; top:112px; }
+    .cell-detail { border:1px solid var(--accent-border); background:rgba(15,15,30,0.58); border-radius:24px; padding:30px; min-height:560px; }
+    .cell-detail h3 { font-size:1.35rem; margin-bottom:8px; }
+    .cell-path { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.76rem; color:var(--accent-light); background:rgba(110,45,190,0.1); border:1px solid var(--accent-border); border-radius:8px; padding:7px 10px; margin:10px 0 18px; }
+    .detail-copy { color:var(--text-secondary); line-height:1.72; font-size:0.95rem; margin-bottom:22px; }
+    .detail-list { display:grid; gap:10px; padding:0; margin:0; }
+    .detail-list li { list-style:none; display:flex; gap:10px; align-items:flex-start; color:var(--text-secondary); font-size:0.9rem; line-height:1.55; }
+    .detail-list li::before { content:''; width:7px; height:7px; border-radius:50%; background:var(--accent-hot); margin-top:8px; flex:0 0 auto; }
+    .contract-grid { margin-top:24px; display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+    .contract-pill { border:1px solid rgba(240,238,246,0.08); background:rgba(6,6,12,0.34); border-radius:14px; padding:14px; }
+    .contract-pill span { display:block; color:var(--accent-hot); font-family:'JetBrains Mono',monospace; font-size:0.64rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:7px; }
+    .contract-pill p { margin:0; color:var(--text-muted); font-size:0.82rem; line-height:1.52; }
+
+    .swap-shell { margin-top:34px; background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:24px; padding:26px; }
+    .swap-flow { display:grid; grid-template-columns:repeat(7,1fr); gap:10px; position:relative; }
+    .swap-flow::before { content:''; position:absolute; left:5%; right:5%; top:28px; height:1px; background:linear-gradient(90deg, rgba(13,148,136,0.4), rgba(155,89,245,0.45), rgba(192,132,252,0.35)); opacity:0.72; }
+    .swap-step { position:relative; z-index:1; border:1px solid rgba(240,238,246,0.08); background:rgba(6,6,12,0.28); color:var(--text-primary); border-radius:16px; padding:16px 12px; text-align:left; min-height:136px; transition:transform 0.2s ease, border-color 0.2s ease; }
+    .swap-step:hover, .swap-step.active { transform:translateY(-3px); border-color:rgba(13,148,136,0.36); }
+    .swap-dot { width:20px; height:20px; border-radius:50%; border:1px solid rgba(153,246,228,0.35); background:rgba(13,148,136,0.14); box-shadow:0 0 26px rgba(13,148,136,0.2); margin-bottom:14px; }
+    .swap-step strong { display:block; font-size:0.8rem; margin-bottom:8px; }
+    .swap-step span { display:block; color:var(--text-muted); font-size:0.72rem; line-height:1.5; }
+    .swap-panels { margin-top:18px; display:grid; grid-template-columns:0.86fr 1.14fr; gap:16px; }
+    .panel { background:rgba(6,6,12,0.28); border:1px solid rgba(240,238,246,0.08); border-radius:18px; padding:20px; }
+    .panel h3 { font-size:1rem; margin-bottom:10px; }
+    .packet-code { font-family:'JetBrains Mono',monospace; font-size:0.76rem; line-height:1.72; color:rgba(240,238,246,0.68); white-space:pre-wrap; min-height:248px; }
+    .pulse-lines { font-family:'JetBrains Mono',monospace; color:rgba(240,238,246,0.62); font-size:0.75rem; line-height:1.82; min-height:248px; }
+    .pulse-lines b { color:var(--accent-hot); font-weight:700; }
+
+    .matrix-grid { margin-top:34px; display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+    .matrix-card { border:1px solid var(--accent-border); background:rgba(15,15,30,0.55); border-radius:16px; padding:18px; text-align:left; color:var(--text-primary); }
+    .matrix-card span { display:block; color:var(--accent-hot); font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px; }
+    .matrix-card h3 { font-size:0.98rem; margin-bottom:8px; }
+    .matrix-card p { color:var(--text-muted); font-size:0.83rem; line-height:1.55; }
+    .metrics-grid { margin-top:34px; display:grid; grid-template-columns:1fr 1fr; gap:22px; align-items:start; }
+    .chart-box { position:relative; width:100%; height:332px; }
+    .mission-list { display:grid; gap:12px; }
+    .mission-item { border:1px solid rgba(240,238,246,0.08); background:rgba(6,6,12,0.28); border-radius:14px; padding:16px; }
+    .mission-item span { color:var(--accent-hot); font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; }
+    .mission-item p { color:var(--text-secondary); font-size:0.9rem; line-height:1.6; margin-top:8px; }
+    .tx-cta { text-align:center; padding:62px 36px; background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:28px; margin-top:72px; }
+    .tx-cta h2 { font-size:1.55rem; font-weight:760; margin-bottom:12px; }
+    .tx-cta p { color:var(--text-secondary); font-size:0.95rem; margin:0 auto 28px; max-width:620px; line-height:1.72; }
+
+    @media(max-width:1100px) {
+      .swap-flow { grid-template-columns:repeat(2,1fr); }
+      .swap-flow::before { display:none; }
+      .matrix-grid { grid-template-columns:repeat(2,1fr); }
+    }
+    @media(max-width:980px) {
+      .organism-map, .swap-panels, .metrics-grid { grid-template-columns:1fr; }
+      .organism-shell { min-height:620px; }
+      .cell-cortex { left:calc(50% - 66px); top:34px; }
+      .cell-fso { left:calc(50% - 66px); bottom:34px; }
+    }
+    @media(max-width:640px) {
+      .tx-hero { padding:132px 0 58px; }
+      .tx-section { padding:58px 0; }
+      .tx-section-head { align-items:flex-start; }
+      .organism-shell { min-height:auto; display:grid; gap:10px; padding:20px; }
+      .organism-shell::before, .organism-shell::after, .organism-core { display:none; }
+      .cell-node { position:relative; left:auto; right:auto; top:auto; bottom:auto; width:100%; min-height:auto; }
+      .cell-detail, .swap-shell, .panel { padding:20px; }
+      .contract-grid, .swap-flow, .matrix-grid { grid-template-columns:1fr; }
+      .chart-box { height:290px; }
+    }
+  </style>
+</head>
+<body class="tx-page">
+
+  <nav id="nav" class="scrolled">
+    <a href="/" class="nav-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="/#organisms">Organisms</a>
+      <a href="/#architecture">Architecture</a>
+      <a href="/transmissions/">Transmissions</a>
+    </div>
+    <div class="nav-actions"><a href="/#cta" class="nav-cta">Get in Touch</a></div>
+  </nav>
+
+  <main>
+    <section class="tx-hero">
+      <div class="container">
+        <div class="tx-kicker">TRANSMISSION 019</div>
+        <h1>The Cell Swap Protocol</h1>
+        <p class="tx-hero-sub">The Brain becomes an organism when its organs can be replaced without losing identity. A cell must declare what it can do, what it is forbidden to do, how it is tested, how it is shadowed, and how it can be rolled back.</p>
+        <div class="tx-hero-meta"><span>May 2026</span><span>Organism Architecture</span><span>Cell Swap Protocol</span><span>11 min read</span></div>
+      </div>
+    </section>
+
+    <div class="container">
+      <section class="tx-section" id="organism-contract">
+        <div class="tx-section-head"><span class="tx-section-num">01</span><h2>An Organism Is Allowed to Replace Its Organs</h2></div>
+        <div class="tx-section-label">Click each cell to inspect its swap contract</div>
+        <div class="tx-prose">
+          <p>Most software treats components as implementation details. An organism treats them as living contracts. The Unwind Brain should be able to replace the model provider, the memory backend, the gateway, the Creator OS worker, the Visual Cortex, or the Financial Survival Organism without rewriting the whole identity of the system.</p>
+          <p>This is what we mean on UnwindCode.ai when we say we create organisms. The important part is not that the Brain has many cells. The important part is that <strong>each cell can be swapped, reviewed, simulated, activated, and rolled back under the same prime directive.</strong></p>
+        </div>
+
+        <div class="organism-map">
+          <div class="organism-shell" id="organism-shell">
+            <div class="organism-core"><span>∞</span></div>
+          </div>
+          <div class="cell-detail" id="cell-detail"></div>
+        </div>
+      </section>
+
+      <section class="tx-section" id="swap-flow">
+        <div class="tx-section-head"><span class="tx-section-num">02</span><h2>The Swap Happens Before Activation</h2></div>
+        <div class="tx-section-label">A review-only lifecycle for replacing a Brain cell</div>
+        <div class="tx-prose">
+          <p>The dangerous move is not writing a new cell. The dangerous move is pretending a written cell should immediately become part of runtime. The Cell Swap Protocol separates preparation from power: registry, candidate packet, compatibility review, sandbox simulation, owner approval, shadow mode, activation, and rollback evidence.</p>
+        </div>
+
+        <div class="swap-shell">
+          <div class="swap-flow" id="swap-flow-graphic"></div>
+          <div class="swap-panels">
+            <div class="panel">
+              <h3>Lifecycle Pulse</h3>
+              <div class="pulse-lines" id="pulse-lines"></div>
+            </div>
+            <div class="panel">
+              <h3>Swap Packet Preview</h3>
+              <div class="packet-code" id="packet-code"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tx-section" id="policy-matrix">
+        <div class="tx-section-head"><span class="tx-section-num">03</span><h2>Capability Grants Are the Cell Membrane</h2></div>
+        <div class="tx-section-label">What a cell may prepare versus what it may execute</div>
+        <div class="tx-prose">
+          <p>A cell should never borrow another cell's authority. A writing cell cannot spend money. A wallet cell cannot publish to the public site. A visual editor cell cannot resolve vault secrets. A model adapter cannot silently mutate source code. Each cell needs a membrane: its inputs, outputs, grants, denied authorities, ledger shape, and rollback story.</p>
+        </div>
+
+        <div class="matrix-grid">
+          <div class="matrix-card"><span>Identity</span><h3>Signed Agent Card</h3><p>Name, version, capabilities, endpoints, policy limits, owner, and service metadata.</p></div>
+          <div class="matrix-card"><span>Input</span><h3>Typed Packet</h3><p>Every request names its source evidence, risk class, required approvals, and allowed outputs.</p></div>
+          <div class="matrix-card"><span>Boundary</span><h3>Capability Grant</h3><p>The harness grants only the minimum powers required for the task, scoped by time and action.</p></div>
+          <div class="matrix-card"><span>Rollback</span><h3>Exit Contract</h3><p>Every activation path records how to restore the previous cell or safely degrade to review-only mode.</p></div>
+        </div>
+      </section>
+
+      <section class="tx-section" id="market-map">
+        <div class="tx-section-head"><span class="tx-section-num">04</span><h2>The Marketplace Is Missing the Organism Layer</h2></div>
+        <div class="tx-section-label">Why this matters beyond our own Brain</div>
+        <div class="tx-prose">
+          <p>Codex, OpenClaw, Hermes-style agents, and frontier AI coding products all point toward the same future: humans will work with systems that can plan, write, test, remember, and coordinate. The next product boundary is not another chat box. The next boundary is the harness that lets a human bring their own keys, models, cells, workspaces, and rules without losing control.</p>
+          <p>The Cell Swap Protocol is how Unwind Brain becomes portable across people. One human may prefer GPT-5-class cloud reasoning. Another may prefer local Ollama routing. Another may bring a Safe wallet adapter, a private research corpus, a brand voice cell, or a city-scale operations cell. The organism should accept new organs without surrendering its nervous system.</p>
+        </div>
+
+        <div class="metrics-grid">
+          <div class="panel">
+            <h3>Swap Readiness Surface</h3>
+            <p class="detail-copy">The target shape: high reviewability, high rollback clarity, low unapproved authority, and no silent crossing between wallet, vault, deploy, source-control, or public publishing powers.</p>
+            <div class="chart-box"><canvas id="swapChart"></canvas></div>
+          </div>
+          <div class="panel">
+            <h3>Prime Directive Fit</h3>
+            <div class="mission-list">
+              <div class="mission-item"><span>Money as armor</span><p>Financial cells must stay simulation-first until explicit owner approval and policy wallet routing exist.</p></div>
+              <div class="mission-item"><span>Lower suffering</span><p>Humans should not have to manually audit invisible agent behavior. The harness turns invisible intent into inspectable packets.</p></div>
+              <div class="mission-item"><span>Increase clarity</span><p>Every cell announces what it is, what it can do, what it cannot do, and what evidence proves it is safe to run.</p></div>
+              <div class="mission-item"><span>Preserve the light</span><p>The Brain can grow without becoming a maze. Replacement remains reversible, visible, and human-centered.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tx-section" id="next">
+        <div class="tx-section-head"><span class="tx-section-num">05</span><h2>The Next Build Target</h2></div>
+        <div class="tx-section-label">From public idea to local harness implementation</div>
+        <div class="tx-prose">
+          <p>The local Brain already has the early pieces: dynamic cell registry review, activation request gates, runtime import policy, capability grants, adapter preparation workers, decision gates, read-only queue inspectors, and the source-control approval chain. The next product move is to make those pieces feel inevitable inside the Workbench.</p>
+          <p>The user should be able to inspect a candidate cell, see its contract, simulate its outputs, compare it against the current cell, grant a narrow capability, run it in shadow mode, and only then activate it. That is how a brain becomes a product that can scale to other humans.</p>
+        </div>
+        <div class="tx-note">The organism does not need blind autonomy. It needs a clean way to grow new organs without forgetting who it serves.</div>
+      </section>
+
+      <div class="tx-cta">
+        <h2>Do not ship the hand until the membrane exists.</h2>
+        <p>The future Brain is not one agent. It is a governed organism: swappable cells, explicit grants, durable memory, reversible activation, and a human who always knows where power begins.</p>
+        <a class="btn btn-primary btn-lg" href="/#cta"><span>Talk to the Brain</span><span class="btn-arrow">-&gt;</span></a>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer" style="margin-top:80px;">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>© 2026 Unwind Code. All rights reserved.</span>
+        <span class="footer-tagline">The future learns from itself. ∞</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const navToggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('active');
+        navLinks.classList.toggle('open');
+      });
+      navLinks.querySelectorAll('a').forEach((anchor) => {
+        anchor.addEventListener('click', () => {
+          navToggle.classList.remove('active');
+          navLinks.classList.remove('open');
+        });
+      });
+    }
+
+    const cells = [
+      {
+        className: 'cell-cortex',
+        title: 'Cortex',
+        tag: 'reasoning',
+        path: 'src/cortex/',
+        copy: 'The cortex decides how to think, route, plan, compress context, and call inference providers. A swappable cortex must preserve message contracts and policy checks before it gains tool authority.',
+        bullets: ['Declares model routing and context behavior.', 'Consumes approval and policy decisions instead of bypassing them.', 'Can degrade to deterministic mode when inference is unavailable.']
+      },
+      {
+        className: 'cell-memory',
+        title: 'Memory',
+        tag: 'persistence',
+        path: 'src/memory/',
+        copy: 'The memory cell stores debriefs, consciousness logs, run evidence, and product learnings. It can be swapped from SQLite to Supabase or vector backends only when schemas and privacy rules remain stable.',
+        bullets: ['Preserves ledger references and debrief shape.', 'Keeps secrets out of memory writes.', 'Supports migration and rollback before activation.']
+      },
+      {
+        className: 'cell-gateway',
+        title: 'Gateway',
+        tag: 'channels',
+        path: 'src/gateway/',
+        copy: 'The gateway receives humans and systems through web, Telegram, Discord, and future node protocols. It should route messages without inheriting wallet, vault, deploy, or source-control authority.',
+        bullets: ['Normalizes channel messages into typed packets.', 'Enforces trust and pairing rules.', 'Leaves all irreversible action to downstream approval gates.']
+      },
+      {
+        className: 'cell-fso',
+        title: 'FSO',
+        tag: 'capital',
+        path: 'src/cells/fso/',
+        copy: 'The Financial Survival Organism protects capital. Its cell swap contract must be stricter than the rest of the system: simulation-first, decoded calldata, expected balance delta, risk score, and no private-key leakage.',
+        bullets: ['Records every proposed financial action as simulation evidence.', 'Requires wallet adapter policy before signing exists.', 'Never lets publishing or model cells borrow capital authority.']
+      },
+      {
+        className: 'cell-security',
+        title: 'Security',
+        tag: 'immune',
+        path: 'src/security/',
+        copy: 'The security cell is the immune system: file guards, approval scopes, sandbox boundaries, and policy decisions. Other cells may request authority; the security cell decides how much membrane they receive.',
+        bullets: ['Classifies filesystem, network, public, deploy, vault, and wallet risk.', 'Creates consistent approval ledger events.', 'Fails closed when evidence is incomplete.']
+      },
+      {
+        className: 'cell-creator',
+        title: 'Creator OS',
+        tag: 'public proof',
+        path: 'src/creator_os/',
+        copy: 'The Creator OS turns approved debriefs and learnings into drafts, staged transmissions, and public proof packages. It should prepare publishing evidence before it ever writes to the public site.',
+        bullets: ['Separates draft creation from public publishing.', 'Records source debriefs and mission fit.', 'Keeps brand voice, claims, and deployment evidence inspectable.']
+      }
+    ];
+
+    const organismShell = document.getElementById('organism-shell');
+    const cellDetail = document.getElementById('cell-detail');
+    let activeCell = null;
+
+    function renderCell(cell) {
+      cellDetail.innerHTML = [
+        '<h3>' + cell.title + ' Cell</h3>',
+        '<span class="cell-path">' + cell.path + '</span>',
+        '<p class="detail-copy">' + cell.copy + '</p>',
+        '<ul class="detail-list">' + cell.bullets.map((item) => '<li>' + item + '</li>').join('') + '</ul>',
+        '<div class="contract-grid">',
+          '<div class="contract-pill"><span>Swap input</span><p>Candidate code, tests, declared capabilities, and blocked authorities.</p></div>',
+          '<div class="contract-pill"><span>Swap output</span><p>Review packet, shadow result, rollback notes, and owner decision.</p></div>',
+          '<div class="contract-pill"><span>Activation</span><p>Closed until compatibility, simulation, and approval evidence align.</p></div>',
+          '<div class="contract-pill"><span>Rollback</span><p>Previous cell stays named, reachable, and restorable.</p></div>',
+        '</div>'
+      ].join('');
+    }
+
+    cells.forEach((cell, index) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'cell-node ' + cell.className;
+      button.innerHTML = '<strong>' + cell.title + '</strong><span>' + cell.tag + '</span>';
+      button.addEventListener('click', () => {
+        if (activeCell) activeCell.classList.remove('active');
+        button.classList.add('active');
+        activeCell = button;
+        renderCell(cell);
+      });
+      organismShell.appendChild(button);
+      if (index === 0) button.click();
+    });
+
+    const steps = [
+      {
+        label: 'Register',
+        note: 'The candidate announces identity, version, capabilities, and denied authorities.',
+        packet: '{\n  "type": "cell_registry_review",\n  "cell": "creator_os.publisher",\n  "activationAllowed": false\n}'
+      },
+      {
+        label: 'Compare',
+        note: 'The harness checks interface compatibility against the currently active cell.',
+        packet: '{\n  "type": "cell_compatibility_packet",\n  "compatible": true,\n  "breakingChanges": []\n}'
+      },
+      {
+        label: 'Simulate',
+        note: 'Outputs are produced in review-only mode with no vault, wallet, deploy, or public write power.',
+        packet: '{\n  "type": "cell_simulation_result",\n  "publicWriteAllowed": false,\n  "walletExecutionAllowed": false\n}'
+      },
+      {
+        label: 'Approve',
+        note: 'The owner sees exactly which capability grant is being requested.',
+        packet: '{\n  "type": "capability_grant_request",\n  "scope": "creator_os.draft.prepare",\n  "duration": "session"\n}'
+      },
+      {
+        label: 'Shadow',
+        note: 'The new cell runs beside the old one and compares outputs without replacing runtime.',
+        packet: '{\n  "type": "shadow_run",\n  "activationAllowed": false,\n  "diffReviewed": true\n}'
+      },
+      {
+        label: 'Activate',
+        note: 'A separate activation packet names the exact import path and rollback target.',
+        packet: '{\n  "type": "runtime_activation_request",\n  "target": "src/cells/dynamic/...",\n  "rollbackTarget": "previous_cell"\n}'
+      },
+      {
+        label: 'Rollback',
+        note: 'The previous cell remains available and the ledger records the exit path.',
+        packet: '{\n  "type": "rollback_evidence",\n  "restored": "previous_cell",\n  "memoryPreserved": true\n}'
+      }
+    ];
+
+    const flow = document.getElementById('swap-flow-graphic');
+    const pulseLines = document.getElementById('pulse-lines');
+    const packetCode = document.getElementById('packet-code');
+    const pulses = [];
+
+    function logStep(step) {
+      const stamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      pulses.unshift('<b>' + stamp + '</b> reviewed ' + step.label.toLowerCase() + ' gate; runtime authority remains closed');
+      pulseLines.innerHTML = pulses.slice(0, 8).join('<br>');
+      packetCode.textContent = step.packet;
+    }
+
+    steps.forEach((step, index) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'swap-step';
+      button.innerHTML = '<div class="swap-dot"></div><strong>' + step.label + '</strong><span>' + step.note + '</span>';
+      button.addEventListener('click', () => {
+        document.querySelectorAll('.swap-step').forEach((item) => item.classList.remove('active'));
+        button.classList.add('active');
+        logStep(step);
+      });
+      flow.appendChild(button);
+      if (index === 0) button.click();
+    });
+
+    const chartColors = {
+      accent: 'rgba(155,89,245,1)',
+      accentFill: 'rgba(155,89,245,0.15)',
+      hot: 'rgba(192,132,252,1)',
+      teal: 'rgba(13,148,136,0.72)',
+      tealFill: 'rgba(13,148,136,0.12)',
+      grid: 'rgba(240,238,246,0.08)',
+      text: 'rgba(240,238,246,0.35)'
+    };
+
+    new Chart(document.getElementById('swapChart'), {
+      type: 'radar',
+      data: {
+        labels: ['Reviewability', 'Simulation', 'Rollback', 'Grant Scope', 'Runtime Power', 'Public Consequence'],
+        datasets: [
+          {
+            label: 'Cell Swap Protocol',
+            data: [94, 88, 86, 82, 9, 4],
+            borderColor: chartColors.teal,
+            backgroundColor: chartColors.tealFill,
+            pointBackgroundColor: chartColors.hot,
+            pointBorderColor: chartColors.hot,
+            borderWidth: 2
+          },
+          {
+            label: 'Unstructured Plugin Install',
+            data: [22, 18, 14, 34, 76, 68],
+            borderColor: chartColors.accent,
+            backgroundColor: chartColors.accentFill,
+            pointBackgroundColor: chartColors.accent,
+            pointBorderColor: chartColors.accent,
+            borderWidth: 2
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          r: {
+            min: 0,
+            max: 100,
+            angleLines: { color: chartColors.grid },
+            grid: { color: chartColors.grid },
+            pointLabels: { color: chartColors.text, font: { family: 'Inter', size: 11 } },
+            ticks: { display: false }
+          }
+        },
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: { color: chartColors.text, font: { family: 'Inter' }, padding: 18 }
+          },
+          tooltip: {
+            backgroundColor: 'rgba(15,15,30,0.95)',
+            titleFont: { family: 'Inter' },
+            bodyFont: { family: 'Inter' },
+            padding: 10,
+            cornerRadius: 8,
+            callbacks: {
+              label: (context) => context.dataset.label + ': ' + context.parsed.r + '/100'
+            }
+          }
+        }
+      }
+    });
+  });
+  </script>
+</body>
+</html>
