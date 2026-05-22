@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Transmission 18: The Source-Control Nervous System | Unwind Code</title>
+  <meta name="description" content="How the Unwind Brain is learning to build safely: branch, worktree, commit, and PR readiness gates that turn source-control power into inspectable architecture." />
+  <meta name="theme-color" content="#06060c" />
+  <link rel="canonical" href="https://www.unwindcode.ai/transmissions/18-the-source-control-nervous-system.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="The Source-Control Nervous System" />
+  <meta property="og:description" content="The Unwind Brain is learning to build safely through review-only source-control gates: branch, worktree, commit preparation, and PR readiness." />
+  <meta property="og:url" content="https://www.unwindcode.ai/transmissions/18-the-source-control-nervous-system.html" />
+  <meta property="og:site_name" content="Unwind Code" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="The Source-Control Nervous System" />
+  <meta name="twitter:description" content="How the Brain turns self-modification into visible, approval-gated architecture before it touches source control." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Source-Control Nervous System",
+    "description": "How the Unwind Brain is learning to build safely: branch, worktree, commit, and PR readiness gates that turn source-control power into inspectable architecture.",
+    "author": {
+      "@type": "Organization",
+      "name": "Unwind Code"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Unwind Code",
+      "url": "https://www.unwindcode.ai"
+    },
+    "datePublished": "2026-05-22",
+    "dateModified": "2026-05-22",
+    "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/18-the-source-control-nervous-system.html"
+  }
+  </script>
+  <style>
+    .tx-page { background:var(--bg-void); color:var(--text-primary); }
+    .tx-hero { padding:158px 0 76px; text-align:center; position:relative; overflow:hidden; }
+    .tx-hero::before { content:''; position:absolute; inset:-210px auto auto 50%; width:860px; height:860px; transform:translateX(-50%); background:radial-gradient(circle, rgba(110,45,190,0.15) 0%, rgba(13,148,136,0.08) 34%, transparent 68%); pointer-events:none; }
+    .tx-hero::after { content:''; position:absolute; left:50%; top:118px; width:min(760px,88vw); height:1px; transform:translateX(-50%); background:linear-gradient(90deg, transparent, rgba(155,89,245,0.5), rgba(13,148,136,0.35), transparent); opacity:0.8; }
+    .tx-hero .container { position:relative; z-index:1; }
+    .tx-hero h1 { font-size:clamp(2.25rem,5.4vw,4.25rem); font-weight:860; letter-spacing:-0.045em; line-height:1.03; margin:0 0 20px; }
+    .tx-hero-sub { font-size:1.08rem; color:var(--text-secondary); max-width:760px; margin:0 auto; line-height:1.75; }
+    .tx-hero-meta { margin-top:28px; display:flex; justify-content:center; gap:16px; flex-wrap:wrap; font-size:0.76rem; color:var(--text-muted); font-weight:750; letter-spacing:0.08em; text-transform:uppercase; }
+    .tx-section { padding:76px 0; }
+    .tx-section-head { display:flex; align-items:center; gap:16px; margin-bottom:12px; }
+    .tx-section-num { font-family:'JetBrains Mono',monospace; font-size:0.84rem; font-weight:700; color:var(--accent-hot); letter-spacing:0.15em; }
+    .tx-section h2 { font-size:clamp(1.55rem,3vw,2.15rem); font-weight:780; letter-spacing:-0.025em; }
+    .tx-section-label { font-size:0.72rem; font-weight:800; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.14em; margin-bottom:24px; }
+    .tx-prose { font-size:1.03rem; color:var(--text-secondary); line-height:1.82; max-width:790px; }
+    .tx-prose p { margin-bottom:24px; }
+    .tx-prose strong { color:var(--text-primary); font-weight:680; }
+    .tx-kicker { display:inline-flex; align-items:center; gap:8px; padding:7px 12px; border-radius:999px; border:1px solid rgba(13,148,136,0.22); background:rgba(13,148,136,0.08); color:rgba(153,246,228,0.9); font-family:'JetBrains Mono',monospace; font-size:0.72rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:18px; }
+    .tx-note { margin-top:24px; border-left:3px solid var(--accent); background:rgba(110,45,190,0.06); border-radius:0 12px 12px 0; padding:18px 22px; color:var(--text-secondary); line-height:1.7; }
+
+    .neural-board { margin-top:34px; display:grid; grid-template-columns:1fr 1.08fr; gap:22px; align-items:stretch; }
+    .gate-map { display:grid; gap:12px; }
+    .gate-node { min-height:96px; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:15px; padding:18px; transition:transform 0.2s ease, border-color 0.2s ease, background 0.2s ease; position:relative; overflow:hidden; }
+    .gate-node::after { content:''; position:absolute; inset:auto 16px 0; height:1px; background:linear-gradient(90deg, transparent, rgba(155,89,245,0.36), transparent); opacity:0; transition:opacity 0.2s ease; }
+    .gate-node:hover, .gate-node.active { transform:translateY(-2px); border-color:rgba(155,89,245,0.44); background:rgba(110,45,190,0.09); }
+    .gate-node.active::after { opacity:1; }
+    .gate-node-top { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:8px; }
+    .gate-node strong { font-size:0.98rem; }
+    .gate-tag { font-family:'JetBrains Mono',monospace; font-size:0.66rem; color:var(--accent-hot); border:1px solid rgba(192,132,252,0.22); border-radius:999px; padding:4px 8px; white-space:nowrap; }
+    .gate-node p { color:var(--text-muted); line-height:1.52; font-size:0.84rem; }
+    .gate-detail { background:linear-gradient(180deg, rgba(15,15,30,0.82), rgba(15,15,30,0.52)); border:1px solid var(--accent-border); border-radius:22px; padding:30px; min-height:508px; }
+    .gate-detail h3 { font-size:1.35rem; margin-bottom:8px; }
+    .path { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.76rem; color:var(--accent-light); background:rgba(110,45,190,0.1); border:1px solid var(--accent-border); border-radius:8px; padding:7px 10px; margin:10px 0 18px; }
+    .detail-copy { color:var(--text-secondary); line-height:1.72; font-size:0.95rem; margin-bottom:22px; }
+    .detail-list { display:grid; gap:10px; padding:0; margin:0; }
+    .detail-list li { list-style:none; display:flex; gap:10px; align-items:flex-start; color:var(--text-secondary); font-size:0.9rem; line-height:1.55; }
+    .detail-list li::before { content:''; width:7px; height:7px; border-radius:50%; background:var(--accent-hot); margin-top:8px; flex:0 0 auto; }
+    .command-preview { margin-top:22px; display:grid; gap:10px; }
+    .command-preview code { display:block; white-space:normal; word-break:break-word; border:1px solid rgba(240,238,246,0.08); background:rgba(6,6,12,0.34); border-radius:12px; padding:12px; color:rgba(240,238,246,0.72); }
+
+    .pipeline-shell { margin-top:34px; background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:24px; padding:26px; }
+    .pipeline { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; position:relative; }
+    .pipeline::before { content:''; position:absolute; left:8%; right:8%; top:27px; height:1px; background:linear-gradient(90deg, rgba(13,148,136,0.4), rgba(155,89,245,0.45), rgba(192,132,252,0.35)); opacity:0.7; }
+    .pipe-step { position:relative; z-index:1; border:1px solid rgba(240,238,246,0.08); background:rgba(6,6,12,0.28); color:var(--text-primary); border-radius:16px; padding:16px 12px; text-align:left; min-height:128px; transition:transform 0.2s ease, border-color 0.2s ease; }
+    .pipe-step:hover, .pipe-step.active { transform:translateY(-3px); border-color:rgba(13,148,136,0.36); }
+    .pipe-dot { width:20px; height:20px; border-radius:50%; border:1px solid rgba(153,246,228,0.35); background:rgba(13,148,136,0.14); box-shadow:0 0 26px rgba(13,148,136,0.2); margin-bottom:14px; }
+    .pipe-step strong { display:block; font-size:0.86rem; margin-bottom:8px; }
+    .pipe-step span { display:block; color:var(--text-muted); font-size:0.74rem; line-height:1.5; }
+    .pipeline-ledger { margin-top:18px; display:grid; grid-template-columns:0.86fr 1.14fr; gap:16px; }
+    .ledger-panel, .packet-panel, .chart-panel { background:rgba(6,6,12,0.28); border:1px solid rgba(240,238,246,0.08); border-radius:18px; padding:20px; }
+    .ledger-panel h3, .packet-panel h3, .chart-panel h3 { font-size:1rem; margin-bottom:10px; }
+    .ledger-lines { font-family:'JetBrains Mono',monospace; color:rgba(240,238,246,0.62); font-size:0.75rem; line-height:1.82; min-height:232px; }
+    .ledger-lines b { color:var(--accent-hot); font-weight:700; }
+    .packet-code { font-family:'JetBrains Mono',monospace; font-size:0.76rem; line-height:1.72; color:rgba(240,238,246,0.68); white-space:pre-wrap; min-height:232px; }
+
+    .evidence-grid { margin-top:34px; display:grid; grid-template-columns:repeat(4, 1fr); gap:14px; }
+    .evidence-card { border:1px solid var(--accent-border); background:rgba(15,15,30,0.55); border-radius:16px; padding:18px; text-align:left; color:var(--text-primary); transition:transform 0.2s ease, border-color 0.2s ease; }
+    .evidence-card:hover, .evidence-card.open { transform:translateY(-3px); border-color:rgba(155,89,245,0.44); }
+    .evidence-card span { display:block; color:var(--accent-hot); font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px; }
+    .evidence-card h3 { font-size:0.98rem; margin-bottom:8px; }
+    .evidence-card p { color:var(--text-muted); font-size:0.83rem; line-height:1.55; }
+    .evidence-detail { margin-top:18px; border:1px solid rgba(240,238,246,0.08); border-radius:18px; background:rgba(6,6,12,0.28); padding:22px; color:var(--text-secondary); line-height:1.72; min-height:150px; }
+    .evidence-detail strong { color:var(--text-primary); }
+
+    .metrics-grid { margin-top:34px; display:grid; grid-template-columns:1fr 1fr; gap:22px; align-items:start; }
+    .chart-box { position:relative; width:100%; height:332px; }
+    .mission-list { display:grid; gap:12px; }
+    .mission-item { border:1px solid rgba(240,238,246,0.08); background:rgba(6,6,12,0.28); border-radius:14px; padding:16px; }
+    .mission-item span { color:var(--accent-hot); font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; }
+    .mission-item p { color:var(--text-secondary); font-size:0.9rem; line-height:1.6; margin-top:8px; }
+    .tx-cta { text-align:center; padding:62px 36px; background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:28px; margin-top:72px; }
+    .tx-cta h2 { font-size:1.55rem; font-weight:760; margin-bottom:12px; }
+    .tx-cta p { color:var(--text-secondary); font-size:0.95rem; margin:0 auto 28px; max-width:600px; line-height:1.72; }
+
+    @media(max-width:980px) {
+      .neural-board, .pipeline-ledger, .metrics-grid { grid-template-columns:1fr; }
+      .pipeline { grid-template-columns:1fr; }
+      .pipeline::before { left:27px; right:auto; top:24px; bottom:24px; width:1px; height:auto; }
+      .pipe-step { min-height:auto; }
+      .evidence-grid { grid-template-columns:1fr 1fr; }
+    }
+    @media(max-width:640px) {
+      .tx-hero { padding:132px 0 58px; }
+      .tx-section { padding:58px 0; }
+      .tx-section-head { align-items:flex-start; }
+      .gate-detail, .pipeline-shell, .ledger-panel, .packet-panel, .chart-panel { padding:20px; }
+      .evidence-grid { grid-template-columns:1fr; }
+      .chart-box { height:290px; }
+    }
+  </style>
+</head>
+<body class="tx-page">
+
+  <nav id="nav" class="scrolled">
+    <a href="/" class="nav-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="/#organisms">Organisms</a>
+      <a href="/#architecture">Architecture</a>
+      <a href="/transmissions/">Transmissions</a>
+    </div>
+    <div class="nav-actions"><a href="/#cta" class="nav-cta">Get in Touch</a></div>
+  </nav>
+
+  <main>
+    <section class="tx-hero">
+      <div class="container">
+        <div class="tx-kicker">TRANSMISSION 018</div>
+        <h1>The Source-Control Nervous System</h1>
+        <p class="tx-hero-sub">The Brain is learning to build without pretending it should be trusted blindly. Branches, worktrees, commit preparation, and PR readiness become review-only nerve impulses before any source-control power is granted.</p>
+        <div class="tx-hero-meta"><span>May 2026</span><span>P4 Architecture</span><span>Harness Buildout</span><span>10 min read</span></div>
+      </div>
+    </section>
+
+    <div class="container">
+      <section class="tx-section" id="nervous-system">
+        <div class="tx-section-head"><span class="tx-section-num">01</span><h2>Self-Modification Needs Nerves</h2></div>
+        <div class="tx-section-label">Click each gate to inspect the architecture</div>
+        <div class="tx-prose">
+          <p>When an AI system can change code, the primitive question is not "can it write a patch?" The primitive question is <strong>can it expose consequence before consequence happens?</strong></p>
+          <p>Transmission 016 showed the organism spine: durable runs, task lifecycle, approval surfaces, and debriefs. Transmission 018 zooms into a narrower organ: the source-control nervous system. This is the sequence that lets the Brain prepare work like Codex, OpenClaw, or Hermes-style agents while keeping every irreversible action behind explicit gates.</p>
+        </div>
+
+        <div class="neural-board">
+          <div class="gate-map" id="gate-map"></div>
+          <div class="gate-detail" id="gate-detail"></div>
+        </div>
+      </section>
+
+      <section class="tx-section" id="packet-flow">
+        <div class="tx-section-head"><span class="tx-section-num">02</span><h2>Packets Before Power</h2></div>
+        <div class="tx-section-label">A live simulation of the review-only source-control flow</div>
+        <div class="tx-prose">
+          <p>The pattern is deliberately repetitive. Every phase writes a packet. Every packet has a type, source evidence, command preview, risk class, approval request, next gate, and closed policy boundary. Repetition is not bureaucracy. It is how the organism grows reflexes.</p>
+        </div>
+
+        <div class="pipeline-shell">
+          <div class="pipeline" id="pipeline"></div>
+          <div class="pipeline-ledger">
+            <div class="ledger-panel">
+              <h3>Run Ledger Pulse</h3>
+              <div class="ledger-lines" id="ledger-lines"></div>
+            </div>
+            <div class="packet-panel">
+              <h3>Packet Preview</h3>
+              <div class="packet-code" id="packet-code"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tx-section" id="evidence">
+        <div class="tx-section-head"><span class="tx-section-num">03</span><h2>The Evidence Map</h2></div>
+        <div class="tx-section-label">Expandable cards for the files that make the gate real</div>
+        <div class="tx-prose">
+          <p>The Brain does not become trustworthy because it says "I am safe." It becomes more trustworthy when every cell and packet can be inspected. The source-control chain records what it wanted to do, why it stopped, what evidence it used, and what must happen next.</p>
+        </div>
+
+        <div class="evidence-grid" id="evidence-grid"></div>
+        <div class="evidence-detail" id="evidence-detail"><strong>Select an evidence card.</strong> The detail panel will show what the packet proves and what authority remains closed.</div>
+      </section>
+
+      <section class="tx-section" id="risk">
+        <div class="tx-section-head"><span class="tx-section-num">04</span><h2>Risk Is Designed Downstream</h2></div>
+        <div class="tx-section-label">Preview authority compared with execution authority</div>
+        <div class="tx-prose">
+          <p>A normal automation path collapses "prepare" and "execute" into the same motion. The organism path separates them. The Brain can prepare a branch command, a worktree command, a diff command, and a commit command without being allowed to run any of them.</p>
+        </div>
+
+        <div class="metrics-grid">
+          <div class="chart-panel">
+            <h3>Authority Surface</h3>
+            <p class="detail-copy">The P4 chain expands what the Brain can prepare while keeping consequential authority near zero until a future owner-approved executor gate.</p>
+            <div class="chart-box"><canvas id="authorityChart"></canvas></div>
+          </div>
+          <div class="chart-panel">
+            <h3>Mission Fit</h3>
+            <div class="mission-list">
+              <div class="mission-item"><span>Lower suffering</span><p>Ambiguity is expensive. The gate sequence turns vague agent work into packets a human can inspect before it mutates anything.</p></div>
+              <div class="mission-item"><span>Increase clarity</span><p>Every packet names its source evidence, command preview, risk class, blocked authority, and next gate.</p></div>
+              <div class="mission-item"><span>Money as armor</span><p>Wallet, vault, deploy, public publishing, and source-control execution remain separate authorities. No packet can silently borrow another organ's power.</p></div>
+              <div class="mission-item"><span>Preserve the light</span><p>The Brain can become more capable without becoming reckless. Growth stays legible.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tx-section" id="next">
+        <div class="tx-section-head"><span class="tx-section-num">05</span><h2>What This Unlocks</h2></div>
+        <div class="tx-section-label">A bridge from harness to real product organism</div>
+        <div class="tx-prose">
+          <p>The source-control nervous system is not the destination. It is the prerequisite for agentic engineering. Once branch, worktree, commit, and PR readiness have clean review packets, the next question becomes practical: which executor gate, under which owner approval, can perform exactly one action and leave evidence behind?</p>
+          <p>That is how Unwind Brain becomes useful to more humans. Each person should eventually bring their own keys, models, workspaces, policies, and cells. The organism must know the difference between preparing work and taking power.</p>
+        </div>
+        <div class="tx-note">The architecture is becoming simple enough to trust: prepare deeply, show the consequence, ask before crossing the boundary, then remember exactly what happened.</div>
+      </section>
+
+      <div class="tx-cta">
+        <h2>Build the nerve before giving the hand more reach.</h2>
+        <p>Self-modifying systems need source-control reflexes: packet evidence, command previews, approval gates, and a memory of every consequence they chose not to take.</p>
+        <a class="btn btn-primary btn-lg" href="/#cta"><span>Talk to the Brain</span><span class="btn-arrow">-&gt;</span></a>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer" style="margin-top:80px;">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>© 2026 Unwind Code. All rights reserved.</span>
+        <span class="footer-tagline">The future learns from itself. ∞</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const navToggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('active');
+        navLinks.classList.toggle('open');
+      });
+      navLinks.querySelectorAll('a').forEach((anchor) => {
+        anchor.addEventListener('click', () => {
+          navToggle.classList.remove('active');
+          navLinks.classList.remove('open');
+        });
+      });
+    }
+
+    const gates = [
+      {
+        title: 'P4.6 Status Snapshot',
+        tag: 'SENSE',
+        path: 'src/harness/github_status_snapshot.py',
+        short: 'Captures branch identity, HEAD, clean-tree evidence, changed paths, and scope drift.',
+        detail: 'The sensory layer asks: what is the state of the repository before the Brain proposes any source-control move? It records evidence without creating branches, worktrees, commits, or PRs.',
+        bullets: ['Requires branch and HEAD evidence.', 'Summarizes changed and untracked paths.', 'Marks clean-tree readiness before later gates.'],
+        command: 'git status --short  # previewed evidence, not an active command'
+      },
+      {
+        title: 'P4.7 Branch Approval',
+        tag: 'BRANCH',
+        path: 'src/harness/github_branch_creation_approval.py',
+        short: 'Consumes a clean status snapshot and prepares an exact branch command preview.',
+        detail: 'The branch gate converts readiness into a proposed branch identity. It can show the command, validate the branch name, and ask for approval, but it still cannot create the branch.',
+        bullets: ['Rejects unsafe branch names.', 'Requires clean-tree readiness.', 'Stores an approval packet under local data.'],
+        command: 'git branch codex/p4-branch <head-sha>  # executionAllowed: false'
+      },
+      {
+        title: 'P4.8 Worktree Approval',
+        tag: 'WORKTREE',
+        path: 'src/harness/github_worktree_creation_approval.py',
+        short: 'Consumes branch approval and prepares an exact worktree creation command preview.',
+        detail: 'The worktree gate gives future execution a safe physical place to happen. It validates the path, links back to branch approval, and keeps workspace mutation closed.',
+        bullets: ['Requires prior branch review evidence.', 'Blocks sensitive paths.', 'Prepares rollback notes before execution exists.'],
+        command: 'git worktree add ../unwind-brain-p4-8 codex/p4-branch  # preview only'
+      },
+      {
+        title: 'P4.9 Commit Preparation',
+        tag: 'COMMIT',
+        path: 'src/harness/github_commit_preparation_approval.py',
+        short: 'Consumes worktree approval and prepares status, diff, and commit previews.',
+        detail: 'The commit preparation gate is intentionally not a commit gate. It lists what would be inspected and committed later, but it does not read Git state, stage files, or create a commit.',
+        bullets: ['Previews status, diff stat, and commit message.', 'Requires changed path evidence.', 'Keeps git add, git commit, push, and PR authority false.'],
+        command: 'git -C ../worktree commit -m "..."  # command preview, no source-control write'
+      }
+    ];
+
+    const gateMap = document.getElementById('gate-map');
+    const gateDetail = document.getElementById('gate-detail');
+    let activeGate = null;
+
+    function renderGate(gate) {
+      gateDetail.innerHTML = [
+        '<h3>' + gate.title + '</h3>',
+        '<span class="path">' + gate.path + '</span>',
+        '<p class="detail-copy">' + gate.detail + '</p>',
+        '<ul class="detail-list">' + gate.bullets.map((item) => '<li>' + item + '</li>').join('') + '</ul>',
+        '<div class="command-preview"><code>' + gate.command + '</code></div>'
+      ].join('');
+    }
+
+    gates.forEach((gate, index) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'gate-node';
+      button.innerHTML = '<div class="gate-node-top"><strong>' + gate.title + '</strong><span class="gate-tag">' + gate.tag + '</span></div><p>' + gate.short + '</p>';
+      button.addEventListener('click', () => {
+        if (activeGate) activeGate.classList.remove('active');
+        button.classList.add('active');
+        activeGate = button;
+        renderGate(gate);
+      });
+      gateMap.appendChild(button);
+      if (index === 0) button.click();
+    });
+
+    const steps = [
+      {
+        label: 'Plan',
+        note: 'Issue scope and file boundaries are converted into a review packet.',
+        packet: '{\n  "type": "issue_branch_plan",\n  "executionAllowed": false,\n  "nextGate": "status_snapshot"\n}'
+      },
+      {
+        label: 'Sense',
+        note: 'The status snapshot records branch, HEAD, clean tree, and drift warnings.',
+        packet: '{\n  "type": "github_status_snapshot",\n  "cleanTreeReady": true,\n  "branchCreationAllowed": false\n}'
+      },
+      {
+        label: 'Branch',
+        note: 'The branch approval packet previews git branch without running it.',
+        packet: '{\n  "type": "branch_creation_approval",\n  "command": "git branch ...",\n  "executionAllowed": false\n}'
+      },
+      {
+        label: 'Worktree',
+        note: 'The worktree approval packet previews git worktree add and stores rollback notes.',
+        packet: '{\n  "type": "worktree_creation_approval",\n  "command": "git worktree add ...",\n  "workspaceMutationAllowed": false\n}'
+      },
+      {
+        label: 'Commit Prep',
+        note: 'The commit preparation packet previews status, diff, and commit commands.',
+        packet: '{\n  "type": "commit_preparation_approval",\n  "gitCommitAllowed": false,\n  "githubPushAllowed": false\n}'
+      }
+    ];
+
+    const pipeline = document.getElementById('pipeline');
+    const ledgerLines = document.getElementById('ledger-lines');
+    const packetCode = document.getElementById('packet-code');
+    const ledger = [];
+
+    function logPulse(step) {
+      const stamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      ledger.unshift('<b>' + stamp + '</b> staged ' + step.label.toLowerCase() + ' packet; authority remains preview-only');
+      ledgerLines.innerHTML = ledger.slice(0, 8).join('<br>');
+      packetCode.textContent = step.packet;
+    }
+
+    steps.forEach((step, index) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'pipe-step';
+      button.innerHTML = '<div class="pipe-dot"></div><strong>' + step.label + '</strong><span>' + step.note + '</span>';
+      button.addEventListener('click', () => {
+        document.querySelectorAll('.pipe-step').forEach((item) => item.classList.remove('active'));
+        button.classList.add('active');
+        logPulse(step);
+      });
+      pipeline.appendChild(button);
+      if (index === 0) button.click();
+    });
+
+    const evidence = [
+      {
+        label: 'Tests',
+        title: 'TDD packets',
+        body: 'Each gate landed with focused tests first: unsafe branches, secrets, sensitive paths, unreviewed upstream approvals, and API rejection paths.'
+      },
+      {
+        label: 'Policy',
+        title: 'Closed authority',
+        body: 'The packets can write local review evidence. They cannot create branches, create worktrees, read diffs, stage files, commit, push, open PRs, deploy, resolve vault material, or sign wallet actions.'
+      },
+      {
+        label: 'Workbench',
+        title: 'Operator surface',
+        body: 'The Workbench now renders each gate as an operator panel: required fields, blocked inputs, command preview mode, staged packet count, and latest approval evidence.'
+      },
+      {
+        label: 'Memory',
+        title: 'Living reports',
+        body: 'Every phase updates the HTML roadmap, the product gap report, BRAIN_STRUCTURE.md, and soul.md so the organism can explain what exists before it tries to extend itself.'
+      }
+    ];
+    const evidenceGrid = document.getElementById('evidence-grid');
+    const evidenceDetail = document.getElementById('evidence-detail');
+    evidence.forEach((item) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'evidence-card';
+      button.innerHTML = '<span>' + item.label + '</span><h3>' + item.title + '</h3><p>Inspect evidence</p>';
+      button.addEventListener('click', () => {
+        document.querySelectorAll('.evidence-card').forEach((card) => card.classList.remove('open'));
+        button.classList.add('open');
+        evidenceDetail.innerHTML = '<strong>' + item.title + '.</strong> ' + item.body;
+      });
+      evidenceGrid.appendChild(button);
+    });
+
+    const chartColors = {
+      accent: 'rgba(155,89,245,1)',
+      accentFill: 'rgba(155,89,245,0.15)',
+      hot: 'rgba(192,132,252,1)',
+      teal: 'rgba(13,148,136,0.7)',
+      grid: 'rgba(240,238,246,0.08)',
+      text: 'rgba(240,238,246,0.35)'
+    };
+
+    new Chart(document.getElementById('authorityChart'), {
+      type: 'radar',
+      data: {
+        labels: ['Planning', 'Evidence', 'Command Preview', 'Git Execution', 'Public Consequence', 'Rollback Clarity'],
+        datasets: [
+          {
+            label: 'P4 packet chain',
+            data: [92, 88, 96, 3, 2, 84],
+            borderColor: chartColors.accent,
+            backgroundColor: chartColors.accentFill,
+            pointBackgroundColor: chartColors.hot,
+            pointBorderColor: chartColors.hot,
+            borderWidth: 2
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          r: {
+            min: 0,
+            max: 100,
+            angleLines: { color: chartColors.grid },
+            grid: { color: chartColors.grid },
+            pointLabels: { color: chartColors.text, font: { family: 'Inter', size: 11 } },
+            ticks: { display: false }
+          }
+        },
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: { color: chartColors.text, font: { family: 'Inter' }, padding: 18 }
+          },
+          tooltip: {
+            backgroundColor: 'rgba(15,15,30,0.95)',
+            titleFont: { family: 'Inter' },
+            bodyFont: { family: 'Inter' },
+            padding: 10,
+            cornerRadius: 8,
+            callbacks: {
+              label: (context) => context.dataset.label + ': ' + context.parsed.r + '/100'
+            }
+          }
+        }
+      }
+    });
+  });
+  </script>
+</body>
+</html>
