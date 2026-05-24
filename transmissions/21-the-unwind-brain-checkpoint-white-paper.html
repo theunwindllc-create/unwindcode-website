@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Transmission 21: The Unwind Brain Checkpoint White Paper | Unwind Code</title>
-  <meta name="description" content="A white paper checkpoint on the Unwind Brain: what has been built, why the harness matters, how the organism compares with agent platforms, and why consequential actions must remain approval-gated." />
+  <title>Transmission 21: The Unwind Brain Whitepaper | Unwind Code</title>
+  <meta name="description" content="A public whitepaper on the Unwind Brain: a human-governed cognitive organism for agentic work, public proof, bounded cell growth, and approval-gated authority." />
   <meta name="theme-color" content="#06060c" />
   <link rel="canonical" href="https://www.unwindcode.ai/transmissions/21-the-unwind-brain-checkpoint-white-paper.html" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="The Unwind Brain Checkpoint White Paper" />
-  <meta property="og:description" content="The checkpoint paper for the Unwind Brain organism: harness, memory, approvals, cell growth, public proof, and the next trust layer." />
+  <meta property="og:title" content="The Unwind Brain Whitepaper" />
+  <meta property="og:description" content="A public research edition on the Unwind Brain organism: human-governed autonomy, memory, approvals, bounded cell growth, public proof, and the next trust layer." />
   <meta property="og:url" content="https://www.unwindcode.ai/transmissions/21-the-unwind-brain-checkpoint-white-paper.html" />
   <meta property="og:site_name" content="Unwind Code" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="The Unwind Brain Checkpoint White Paper" />
-  <meta name="twitter:description" content="A checkpoint on the Brain as a governed cognitive organism, not a loose agent wrapper." />
+  <meta name="twitter:title" content="The Unwind Brain Whitepaper" />
+  <meta name="twitter:description" content="A public whitepaper on the Brain as a human-governed cognitive organism, not a loose agent wrapper." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -24,8 +24,8 @@
   {
     "@context": "https://schema.org",
     "@type": "TechArticle",
-    "headline": "The Unwind Brain Checkpoint White Paper",
-    "description": "A white paper checkpoint on the Unwind Brain: what has been built, why the harness matters, how the organism compares with agent platforms, and why consequential actions must remain approval-gated.",
+    "headline": "The Unwind Brain Whitepaper",
+    "description": "A public whitepaper on the Unwind Brain: a human-governed cognitive organism for agentic work, public proof, bounded cell growth, and approval-gated authority.",
     "author": {
       "@type": "Organization",
       "name": "Unwind Code"
@@ -59,6 +59,10 @@
     .tx-prose p { margin-bottom:24px; }
     .tx-prose strong { color:var(--text-primary); font-weight:680; }
     .paper-note { margin-top:24px; border-left:3px solid var(--accent); background:rgba(110,45,190,0.06); border-radius:0 12px 12px 0; padding:18px 22px; color:var(--text-secondary); line-height:1.7; }
+    .whitepaper-meta-card { margin:34px auto 0; max-width:980px; border:1px solid var(--accent-border); background:rgba(15,15,30,0.58); border-radius:24px; padding:22px; display:grid; grid-template-columns:repeat(4,1fr); gap:12px; text-align:left; }
+    .whitepaper-meta-card div { border:1px solid rgba(240,238,246,0.08); background:rgba(6,6,12,0.34); border-radius:14px; padding:14px; }
+    .whitepaper-meta-card span { display:block; color:var(--accent-hot); font-family:'JetBrains Mono',monospace; font-size:0.62rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:7px; }
+    .whitepaper-meta-card strong { display:block; color:var(--text-primary); font-size:0.9rem; line-height:1.38; }
     .abstract-grid { margin-top:34px; display:grid; grid-template-columns:1.08fr 0.92fr; gap:22px; align-items:stretch; }
     .abstract-card, .panel, .source-card { border:1px solid var(--accent-border); background:rgba(15,15,30,0.58); border-radius:24px; padding:28px; }
     .abstract-card h3, .panel h3, .source-card h3 { font-size:1.2rem; margin-bottom:10px; }
@@ -90,6 +94,21 @@
     .packet-pill { border:1px solid rgba(240,238,246,0.08); background:rgba(6,6,12,0.34); border-radius:14px; padding:14px; }
     .packet-pill span { display:block; color:var(--accent-hot); font-family:'JetBrains Mono',monospace; font-size:0.64rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:7px; }
     .packet-pill p { margin:0; color:var(--text-muted); font-size:0.82rem; line-height:1.52; }
+    .definition-grid { margin-top:34px; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    .definition-card { border:1px solid rgba(240,238,246,0.08); background:rgba(15,15,30,0.55); border-radius:18px; padding:18px; }
+    .definition-card span { display:block; color:var(--accent-hot); font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px; }
+    .definition-card h3 { font-size:1rem; margin-bottom:8px; }
+    .definition-card p { color:var(--text-secondary); font-size:0.86rem; line-height:1.58; }
+    .system-flow { margin-top:34px; display:grid; grid-template-columns:repeat(8,1fr); gap:10px; align-items:stretch; }
+    .flow-node { position:relative; border:1px solid rgba(153,246,228,0.22); background:rgba(13,148,136,0.08); border-radius:16px; padding:15px 12px; min-height:112px; }
+    .flow-node:not(:last-child)::after { content:'→'; position:absolute; top:50%; right:-14px; transform:translateY(-50%); color:rgba(192,132,252,0.76); font-family:'JetBrains Mono',monospace; font-weight:700; z-index:2; }
+    .flow-node span { display:block; color:var(--accent-hot); font-family:'JetBrains Mono',monospace; font-size:0.62rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px; }
+    .flow-node strong { display:block; color:var(--text-primary); font-size:0.94rem; margin-bottom:7px; }
+    .flow-node p { margin:0; color:var(--text-muted); font-size:0.76rem; line-height:1.45; }
+    .threat-grid { margin-top:34px; display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .threat-card { border:1px solid rgba(240,238,246,0.08); background:rgba(15,15,30,0.55); border-radius:18px; padding:20px; }
+    .threat-card h3 { font-size:1rem; margin-bottom:10px; }
+    .threat-card p { color:var(--text-secondary); font-size:0.9rem; line-height:1.62; margin:0; }
 
     .research-grid { margin-top:34px; display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
     .source-card { padding:18px; border-radius:18px; }
@@ -114,13 +133,15 @@
     .tx-cta { text-align:center; padding:62px 36px; background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:28px; margin-top:72px; }
     .tx-cta h2 { font-size:1.55rem; font-weight:760; margin-bottom:12px; }
     .tx-cta p { color:var(--text-secondary); font-size:0.95rem; margin:0 auto 28px; max-width:690px; line-height:1.72; }
-    @media(max-width:1120px) { .research-grid, .phase-grid { grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:1120px) { .research-grid, .phase-grid, .definition-grid { grid-template-columns:repeat(2,1fr); } .system-flow { grid-template-columns:repeat(4,1fr); } .flow-node:nth-child(4)::after { display:none; } .whitepaper-meta-card { grid-template-columns:repeat(2,1fr); } }
     @media(max-width:940px) { .abstract-grid, .stack-map, .comparison { grid-template-columns:1fr; } .stack-detail { min-height:auto; } }
     @media(max-width:660px) {
       .tx-hero { padding:132px 0 58px; }
       .tx-section { padding:58px 0; }
       .tx-section-head { align-items:flex-start; }
-      .score-grid, .packet-grid, .research-grid, .phase-grid { grid-template-columns:1fr; }
+      .score-grid, .packet-grid, .research-grid, .phase-grid, .definition-grid, .threat-grid, .whitepaper-meta-card { grid-template-columns:1fr; }
+      .system-flow { grid-template-columns:1fr; }
+      .flow-node::after { display:none; }
       .matrix-row { grid-template-columns:1fr; }
       .abstract-card, .panel, .stack-detail { padding:20px; }
       .chart-box { height:306px; }
@@ -144,20 +165,28 @@
     <section class="tx-hero">
       <div class="container">
         <div class="tx-kicker">TRANSMISSION 021</div>
-        <h1>The Unwind Brain Checkpoint White Paper</h1>
-        <p class="tx-hero-sub">A research checkpoint on the Brain as it stands today: not a generic chatbot, not a loose collection of agents, but a governed cognitive organism with memory, approvals, public proof, Web3 safety, and carefully bounded cell growth.</p>
-        <div class="tx-hero-meta"><span>May 2026</span><span>White Paper</span><span>Harness Checkpoint</span><span>15 min read</span></div>
+        <h1>The Unwind Brain Whitepaper</h1>
+        <p class="tx-hero-sub">A public research edition on the Brain as a human-governed cognitive organism: a system for agentic work that can reason, remember, stage actions, ask for authority, produce public proof, and grow new cells without silently turning intelligence into unchecked power.</p>
+        <div class="tx-hero-meta"><span>Whitepaper v0.1</span><span>May 2026</span><span>Public Research Edition</span><span>Unwind Code</span></div>
+        <div class="whitepaper-meta-card">
+          <div><span>Status</span><strong>Public architecture paper</strong></div>
+          <div><span>Scope</span><strong>Design thesis, not an operating manual</strong></div>
+          <div><span>Audience</span><strong>Builders, operators, researchers, and future partners</strong></div>
+          <div><span>Boundary</span><strong>Internal mechanics, credentials, and procedures intentionally omitted</strong></div>
+        </div>
       </div>
     </section>
 
     <div class="container">
       <section class="tx-section" id="abstract">
         <div class="tx-section-head"><span class="tx-section-num">00</span><h2>Abstract</h2></div>
-        <div class="tx-section-label">The checkpoint before the next construction phase</div>
+        <div class="tx-section-label">A public thesis for human-governed autonomy</div>
         <div class="tx-prose">
-          <p>The Unwind Brain has crossed an architectural threshold. It is no longer only an interface for calling models or routing tasks. It is becoming a <strong>human-owned operating harness for cognitive work</strong>: one that can observe, stage, approve, simulate, publish, remember, and prepare new cells without silently granting itself power.</p>
-          <p>This paper records the current state before continuing. The Brain now has a durable operator surface, a public proof loop, visual editing research, Web3 safety research, identity metadata, capability boundaries, and a carefully staged path for growing new cells. The important claim is not that it can act autonomously. The important claim is that it is learning how to ask for authority before consequences leave the sandbox.</p>
+          <p>Most agent software optimizes for task completion. The Unwind Brain optimizes for <strong>governed agency</strong>: the ability to turn human intent into structured work while keeping memory, approval, evidence, and consequences legible.</p>
+          <p>This paper presents the public model for the Unwind Brain as a cognitive organism. It is not a generic chatbot, not a loose collection of agents, and not a claim of unchecked autonomy. It is a harness for agentic work: one that can observe, stage, approve, simulate, publish, remember, and prepare new cells without silently granting itself power.</p>
+          <p>The central claim is simple: the next valuable agent platform will not be the one that acts the fastest. It will be the one whose actions can be understood, constrained, replayed, and trusted across humans, tools, wallets, websites, and other agents.</p>
         </div>
+        <div class="paper-note">Executive summary: the Unwind Brain is a governed AI operating harness. It separates reasoning from authority, treats new capabilities as bounded cells, records evidence before action, keeps financial and public consequences gated, and turns approved learning into public proof without publishing the operating manual.</div>
 
         <div class="abstract-grid">
           <div class="abstract-card">
@@ -181,8 +210,62 @@
         </div>
       </section>
 
+      <section class="tx-section" id="principles">
+        <div class="tx-section-head"><span class="tx-section-num">01</span><h2>Design Principles</h2></div>
+        <div class="tx-section-label">The rules that make autonomy useful</div>
+        <div class="phase-grid">
+          <div class="phase-card"><span>Human Authority</span><h3>Consent Before Consequence</h3><p>The system may reason, stage, and explain, but consequential authority belongs to the human operator.</p></div>
+          <div class="phase-card"><span>Evidence First</span><h3>Show The Work</h3><p>Every serious action should leave a reviewable trail: intent, context, risk, approval, result, and memory.</p></div>
+          <div class="phase-card"><span>Bounded Growth</span><h3>Cells Before Power</h3><p>New capabilities should be isolated, evaluated, and recoverable before they become part of live operations.</p></div>
+          <div class="phase-card"><span>Reversibility</span><h3>Plan The Recovery</h3><p>Systems that change code, content, or external state must make rollback and containment part of the design.</p></div>
+          <div class="phase-card"><span>Public Proof</span><h3>Teach Without Exposing</h3><p>Approved learning should become public architecture language, not a transcript of sensitive procedures.</p></div>
+          <div class="phase-card"><span>Mission Fit</span><h3>Serve The Prime Directive</h3><p>Every loop should support clarity, protection, creation, and the use of money as armor rather than identity.</p></div>
+        </div>
+      </section>
+
+      <section class="tx-section" id="problem">
+        <div class="tx-section-head"><span class="tx-section-num">02</span><h2>Problem Statement</h2></div>
+        <div class="tx-section-label">Power without governance becomes operational risk</div>
+        <div class="tx-prose">
+          <p>Large models can now draft code, call tools, coordinate workflows, analyze markets, write public content, and collaborate with other agents. But most systems still treat authority as an afterthought. They connect models to tools, add a prompt, and hope the model does the right thing.</p>
+          <p>That pattern breaks down when an agent can touch money, source code, identity, public channels, private credentials, or production infrastructure. In those domains, intelligence is not enough. The system must show what it intends to do, what evidence it used, which boundaries apply, who approved the action, and how the result can be audited afterward.</p>
+          <p>The Unwind Brain is a response to that failure mode. It treats autonomy as something earned through inspection, simulation, approval, and memory, not something assumed because a model can speak confidently.</p>
+        </div>
+      </section>
+
+      <section class="tx-section" id="definitions">
+        <div class="tx-section-head"><span class="tx-section-num">03</span><h2>Definitions</h2></div>
+        <div class="tx-section-label">Public vocabulary for the organism model</div>
+        <div class="definition-grid">
+          <div class="definition-card"><span>Brain</span><h3>Cognitive Harness</h3><p>The coordinating system that turns intent into staged work, memory, evidence, and approval requests.</p></div>
+          <div class="definition-card"><span>Cell</span><h3>Specialized Organ</h3><p>A bounded capability module for a domain such as writing, security, finance, design, research, or operations.</p></div>
+          <div class="definition-card"><span>Harness</span><h3>Operating Surface</h3><p>The queue, ledger, controls, and review layer that makes agentic work inspectable before it becomes external.</p></div>
+          <div class="definition-card"><span>Membrane</span><h3>Authority Boundary</h3><p>A separation layer between reasoning and consequence: private data, public channels, code, deployment, and wallets stay gated.</p></div>
+          <div class="definition-card"><span>Public Proof</span><h3>Evidence Made Legible</h3><p>The practice of turning approved system learning into public explanations without revealing sensitive procedures.</p></div>
+          <div class="definition-card"><span>Cell Swap</span><h3>Replaceable Architecture</h3><p>The principle that organs of the Brain should be reviewable, swappable, bounded, and recoverable.</p></div>
+        </div>
+      </section>
+
+      <section class="tx-section" id="system-model">
+        <div class="tx-section-head"><span class="tx-section-num">04</span><h2>System Model</h2></div>
+        <div class="tx-section-label">A public state machine for safe agency</div>
+        <div class="tx-prose">
+          <p>The Brain should not move directly from idea to action. The public model is a sequence of visible states. Each state narrows ambiguity, records evidence, and gives the human operator a clean place to intervene.</p>
+        </div>
+        <div class="system-flow">
+          <div class="flow-node"><span>01</span><strong>Intent</strong><p>A human or agent names a desired outcome.</p></div>
+          <div class="flow-node"><span>02</span><strong>Proposal</strong><p>The Brain turns intent into structured work.</p></div>
+          <div class="flow-node"><span>03</span><strong>Review</strong><p>Evidence, scope, and boundaries become visible.</p></div>
+          <div class="flow-node"><span>04</span><strong>Simulation</strong><p>Consequences are rehearsed before authority is granted.</p></div>
+          <div class="flow-node"><span>05</span><strong>Approval</strong><p>A human grants, holds, rejects, or requests changes.</p></div>
+          <div class="flow-node"><span>06</span><strong>Execution</strong><p>Only approved actions move through controlled channels.</p></div>
+          <div class="flow-node"><span>07</span><strong>Audit</strong><p>Results, failures, and prevented actions are recorded.</p></div>
+          <div class="flow-node"><span>08</span><strong>Memory</strong><p>The organism learns what to repeat, avoid, or explain.</p></div>
+        </div>
+      </section>
+
       <section class="tx-section" id="architecture">
-        <div class="tx-section-head"><span class="tx-section-num">01</span><h2>Architecture: The Brain as an Authority Harness</h2></div>
+        <div class="tx-section-head"><span class="tx-section-num">05</span><h2>Architecture: The Brain as an Authority Harness</h2></div>
         <div class="tx-section-label">Click a layer to inspect the current organism</div>
         <div class="tx-prose">
           <p>The Brain is best understood as a stack of membranes. At the center is reasoning and memory. Around it are cells, workbench controls, approval ledgers, public proof, Web3 simulations, and future interoperability surfaces. Each layer adds capability, but the organism should only gain external power through a recorded gate.</p>
@@ -195,7 +278,7 @@
       </section>
 
       <section class="tx-section" id="research-context">
-        <div class="tx-section-head"><span class="tx-section-num">02</span><h2>Research Context: Where the Market Is Moving</h2></div>
+        <div class="tx-section-head"><span class="tx-section-num">06</span><h2>Research Context: Where the Market Is Moving</h2></div>
         <div class="tx-section-label">The Brain should interoperate without surrendering its nervous system</div>
         <div class="tx-prose">
           <p>The current agent ecosystem is converging around four primitives: agent frameworks, tool protocols, agent-to-agent protocols, and on-chain identity. The Unwind Brain does not need to replace those standards. It needs to absorb the useful patterns while preserving its own approval spine.</p>
@@ -210,7 +293,7 @@
       </section>
 
       <section class="tx-section" id="comparison">
-        <div class="tx-section-head"><span class="tx-section-num">03</span><h2>Comparison: What Makes the Brain Different</h2></div>
+        <div class="tx-section-head"><span class="tx-section-num">07</span><h2>Comparison: What Makes the Brain Different</h2></div>
         <div class="tx-section-label">Not model power alone, not protocol compliance alone</div>
         <div class="comparison">
           <div class="panel">
@@ -221,9 +304,9 @@
           <div class="panel">
             <h3>Marketplace Position</h3>
             <div class="matrix">
-              <div class="matrix-row"><b>Codex-like harnesses</b><span>Excellent at code work, patches, review, and local execution, but not inherently a multi-human organism memory with wallet/publication authority membranes.</span><span class="badge warn">tool spine</span></div>
-              <div class="matrix-row"><b>OpenClaw-style clients</b><span>Strong personal agent ergonomics and auth reuse patterns, but the Brain needs native ledgers, cell swaps, and owner-scoped approvals.</span><span class="badge warn">client layer</span></div>
-              <div class="matrix-row"><b>Hermes-style agents</b><span>Useful learning-loop and debrief patterns. The Brain absorbs the pattern while keeping the runtime local and auditable.</span><span class="badge ok">absorbed</span></div>
+              <div class="matrix-row"><b>Code harnesses</b><span>Excellent at patches, review, and local execution, but not inherently a multi-human organism memory with financial and publication authority membranes.</span><span class="badge warn">tool spine</span></div>
+              <div class="matrix-row"><b>Personal agent clients</b><span>Strong ergonomics and model access, but the Brain needs durable records, swappable capability modules, and owner-scoped approvals.</span><span class="badge warn">client layer</span></div>
+              <div class="matrix-row"><b>Learning-loop agents</b><span>Useful debrief and memory patterns. The Brain absorbs the pattern while keeping the runtime local, auditable, and human-governed.</span><span class="badge ok">absorbed</span></div>
               <div class="matrix-row"><b>Agent protocols</b><span>MCP, A2A, and ERC-8004 help with tools, agent communication, and identity. They do not replace the Brain's internal authority model.</span><span class="badge ok">interop</span></div>
               <div class="matrix-row"><b>Unwind Brain</b><span>A product harness for sovereign work: humans, cells, approvals, memory, public proof, Web3 simulation, and future BYOK tenancy in one operating organism.</span><span class="badge ok">organism</span></div>
             </div>
@@ -232,10 +315,10 @@
       </section>
 
       <section class="tx-section" id="checkpoint">
-        <div class="tx-section-head"><span class="tx-section-num">04</span><h2>Checkpoint: What Exists Now</h2></div>
+        <div class="tx-section-head"><span class="tx-section-num">08</span><h2>Checkpoint: What Exists Now</h2></div>
         <div class="tx-section-label">The local organism before the next gate</div>
         <div class="phase-grid">
-          <div class="phase-card"><span>P0-P2</span><h3>Sovereign Foundation</h3><p>Provider-aware inference, portability, native intelligence absorption, and initial safety primitives are documented and partially implemented.</p></div>
+          <div class="phase-card"><span>Foundation</span><h3>Sovereign Foundation</h3><p>Provider-aware inference, portability, native intelligence patterns, and initial safety primitives are part of the emerging architecture.</p></div>
           <div class="phase-card"><span>Runtime</span><h3>Operating Harness</h3><p>The operator surface can inspect work, review capability boundaries, and stage dry-runs before external systems are touched.</p></div>
           <div class="phase-card"><span>Public Proof</span><h3>Publication Evidence</h3><p>Public writing now follows a reviewable evidence loop with clear intent, human judgment, and outcome tracking.</p></div>
           <div class="phase-card"><span>Cell Growth</span><h3>Bounded Neurogenesis</h3><p>New cell ideas can be proposed, reviewed, and simulated without silently becoming live system power.</p></div>
@@ -245,20 +328,78 @@
       </section>
 
       <section class="tx-section" id="risks">
-        <div class="tx-section-head"><span class="tx-section-num">05</span><h2>Risks: What Must Stay Closed</h2></div>
+        <div class="tx-section-head"><span class="tx-section-num">09</span><h2>Threat Model: What Must Stay Closed</h2></div>
         <div class="tx-section-label">The Brain earns power by refusing shortcuts</div>
         <div class="tx-prose">
           <p>The biggest danger is not that the Brain lacks intelligence. The danger is that intelligence gains side effects before the ownership model is mature. The current architecture correctly refuses automatic authority over code, publishing, deployment, wallets, private credentials, external runners, and repository mutation unless a separate human gate grants that power.</p>
         </div>
+        <div class="threat-grid">
+          <div class="threat-card"><h3>Prompt Injection</h3><p>External text can try to become instruction. The Brain must separate reference material from authority-bearing instructions.</p></div>
+          <div class="threat-card"><h3>Authority Leakage</h3><p>A tool that can prepare work should not automatically gain the right to execute it.</p></div>
+          <div class="threat-card"><h3>Wallet Misuse</h3><p>Financial analysis must remain separate from signing authority and transaction broadcast.</p></div>
+          <div class="threat-card"><h3>Unsafe Self-Modification</h3><p>New cells should pass through review, simulation, and recovery planning before they become live organs.</p></div>
+          <div class="threat-card"><h3>Public Misfire</h3><p>Drafting a transmission is not the same as publishing one. Public writing needs a final human gate.</p></div>
+          <div class="threat-card"><h3>Stale Memory</h3><p>A memory system must preserve useful context without turning outdated conclusions into hidden policy.</p></div>
+        </div>
         <div class="paper-note">The design principle is simple: prepare many things, execute few things, and make every execution path legible before it becomes real.</div>
       </section>
 
+      <section class="tx-section" id="non-goals">
+        <div class="tx-section-head"><span class="tx-section-num">10</span><h2>Non-Goals</h2></div>
+        <div class="tx-section-label">What this paper is not claiming</div>
+        <div class="tx-prose">
+          <p>The Unwind Brain is not presented as an autonomous financial actor, a replacement for human authority, a black-box AGI claim, or a system that should execute private actions without consent. It is not a promise that every cell is production-ready or that every future integration should be trusted by default.</p>
+          <p>The claim is narrower and stronger: a useful agentic system must make its work reviewable, its boundaries explicit, and its consequences accountable before it scales to more humans, more tools, and more economic surfaces.</p>
+        </div>
+      </section>
+
+      <section class="tx-section" id="public-private">
+        <div class="tx-section-head"><span class="tx-section-num">11</span><h2>Public / Private Boundary</h2></div>
+        <div class="tx-section-label">Educate without publishing the operating manual</div>
+        <div class="tx-prose">
+          <p>This document explains the public architecture, vocabulary, safety philosophy, and research direction. It intentionally omits internal implementation details, credentials, operational commands, security fingerprints, deployment procedures, and exact review mechanics.</p>
+          <p>That boundary is part of the design. Public proof should make the mission legible. It should not turn the organism's immune system into an instruction manual for attackers or competitors.</p>
+        </div>
+      </section>
+
+      <section class="tx-section" id="evaluation">
+        <div class="tx-section-head"><span class="tx-section-num">12</span><h2>Evaluation Criteria</h2></div>
+        <div class="tx-section-label">What progress should prove</div>
+        <div class="phase-grid">
+          <div class="phase-card"><span>Clarity</span><h3>Intent Becomes Legible</h3><p>Runs should make the original purpose, chosen path, and final outcome easy to inspect.</p></div>
+          <div class="phase-card"><span>Safety</span><h3>Risk Is Reduced</h3><p>Failed, blocked, or held actions are not waste. They are proof that boundaries are working.</p></div>
+          <div class="phase-card"><span>Shipping</span><h3>Work Leaves Evidence</h3><p>Public outputs, code changes, research artifacts, and operator decisions should all carry context.</p></div>
+          <div class="phase-card"><span>Capital</span><h3>Money Stays Protected</h3><p>Financial work should privilege simulation, explanation, and capital preservation before execution.</p></div>
+          <div class="phase-card"><span>Learning</span><h3>Memory Improves Behavior</h3><p>The Brain should remember what worked, what failed, what was prevented, and what deserves attention next.</p></div>
+          <div class="phase-card"><span>Scale</span><h3>Humans Keep Their Keys</h3><p>The system should eventually support many humans with their own models, keys, policies, websites, and cells.</p></div>
+        </div>
+      </section>
+
+      <section class="tx-section" id="validation">
+        <div class="tx-section-head"><span class="tx-section-num">13</span><h2>Validation Methodology</h2></div>
+        <div class="tx-section-label">How claims become evidence</div>
+        <div class="tx-prose">
+          <p>The Brain should be evaluated through staged review flows, local verification, public-proof artifacts, and operator-visible outcome metrics. A capability is not considered mature because it can produce text. It becomes mature when it can show intent, boundaries, risk, evidence, human decision, result, and memory.</p>
+          <p>For public purposes, validation is expressed as categories rather than internal procedure: build verification, safety review, approval traceability, rollback readiness, publication review, and outcome measurement.</p>
+        </div>
+      </section>
+
+      <section class="tx-section" id="roadmap">
+        <div class="tx-section-head"><span class="tx-section-num">14</span><h2>Roadmap</h2></div>
+        <div class="tx-section-label">Non-sensitive milestones</div>
+        <div class="phase-grid">
+          <div class="phase-card"><span>Near Term</span><h3>Complete The Review Spine</h3><p>Make every meaningful action inspectable from one operator surface with clear evidence and owner decisions.</p></div>
+          <div class="phase-card"><span>Mid Term</span><h3>Expand Public Proof</h3><p>Turn approved debriefs, research, and system learning into educational transmissions and product artifacts.</p></div>
+          <div class="phase-card"><span>Long Term</span><h3>Scale To Many Humans</h3><p>Support customer-controlled credentials, models, policy domains, websites, cells, and agent identities.</p></div>
+        </div>
+      </section>
+
       <section class="tx-section" id="next">
-        <div class="tx-section-head"><span class="tx-section-num">06</span><h2>Next: From Checkpoint to Continuation</h2></div>
+        <div class="tx-section-head"><span class="tx-section-num">15</span><h2>Next: From Whitepaper to Continuation</h2></div>
         <div class="tx-section-label">What should happen after this paper</div>
         <div class="tx-prose">
           <p>The next clean build phase is not to grant the Brain unrestricted power. It is to keep strengthening the approval and verification gates until the Brain can prove, end to end, that a new capability can move from idea to materialization without bypassing human authority.</p>
-          <p>After that, the product work becomes sharper: one operator surface for evidence, approval, dry-run, final execution, rollback, memory, and public proof. Then the same architecture can scale to other humans with their own keys, models, policies, wallets, websites, and agent identities.</p>
+          <p>After that, the product work becomes sharper: one operator surface for evidence, approval, dry-run, final execution, rollback, memory, and public proof. Then the same architecture can scale to other humans with customer-controlled credentials, models, policies, websites, capability modules, and agent identities.</p>
         </div>
 
         <div class="tx-cta">
@@ -302,8 +443,8 @@
         title: 'Cortex',
         label: 'reasoning and orchestration',
         path: 'Internal reasoning layer',
-        copy: 'The cortex coordinates inference, orchestration, cell proposals, public proof, content pipeline state, and the Brain API. It is where intention becomes typed work.',
-        bullets: ['Provider-aware model access without making any one tool the nervous system.', 'Brain Orchestrator chat and ecosystem contracts for routing work.', 'New cell ideas remain staged until they are reviewed.']
+        copy: 'The cortex coordinates inference, orchestration, cell proposals, public proof, content pipeline state, and the core service surface. It is where intention becomes typed work.',
+        bullets: ['Provider-aware model access without making any one tool the nervous system.', 'Core orchestration contracts for routing work.', 'New cell ideas remain staged until they are reviewed.']
       },
       {
         id: '02',
@@ -326,8 +467,8 @@
         title: 'Cells',
         label: 'specialized organs',
         path: 'Specialized capability layer',
-        copy: 'Cells are organs of the organism: Banker, Cyber Security, Emotions, Invicta, FSO helpers, and future dynamic cells. They should be swappable, reviewable, and bounded.',
-        bullets: ['Financial organisms use simulation and risk gates before wallet action.', 'Invicta gives the Brain a real-world model for agency work.', 'Dynamic cells remain bounded until final gates exist.']
+        copy: 'Cells are organs of the organism: specialized capability modules for finance, security, emotional context, agency work, research, and future domains. They should be swappable, reviewable, and bounded.',
+        bullets: ['Financial organisms use simulation and risk gates before wallet action.', 'Real-world agency work gives the Brain a practical operating model.', 'New cells remain bounded until final gates exist.']
       },
       {
         id: '05',
@@ -394,7 +535,7 @@
     new Chart(document.getElementById('capabilityChart'), {
       type: 'radar',
       data: {
-        labels: ['Evidence', 'Approvals', 'Memory', 'Interop', 'Wallet Safety', 'Source Quarantine'],
+        labels: ['Evidence', 'Approvals', 'Memory', 'Interop', 'Financial Safety', 'Bounded Growth'],
         datasets: [
           {
             label: 'Unwind Brain',
