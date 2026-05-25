@@ -13,6 +13,7 @@
 
 ```
 index.html                          ← Homepage (single-page scroll)
+api/subscribe.js                    ← Vercel email signup storage endpoint
 transmissions/index.html            ← Blog listing (all posts)
 transmissions/01-*.html             ← Individual post pages
 transmissions/15-*.html             ← Latest: interactive flagship
@@ -21,6 +22,14 @@ main.js                             ← Homepage interactivity
 vite.config.js                      ← Auto-discovers transmissions/*.html
 vercel.json                         ← Clean URL routing
 ```
+
+## Email Signup Storage
+
+- Homepage form posts to same-origin `POST /api/subscribe` first.
+- `api/subscribe.js` validates and normalizes the email, then upserts into Supabase `website_subscribers` using `SUPABASE_SERVICE_ROLE_KEY`.
+- Required Vercel env vars: `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`.
+- Optional env vars: `SUBSCRIBERS_TABLE` defaults to `website_subscribers`; `SUPABASE_ANON_KEY` preserves the existing Edge Function fallback.
+- Keep service-role keys server-side only. Do not expose them in `main.js`.
 
 ## Design System Tokens (style.css)
 

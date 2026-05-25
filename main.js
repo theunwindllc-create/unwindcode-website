@@ -160,6 +160,29 @@ const emailForm = document.getElementById('email-form');
 const emailInput = document.getElementById('email-input');
 const signupStatus = document.getElementById('signup-status');
 
+async function subscribeEmail(email) {
+    const payload = JSON.stringify({ email, page_path: window.location.pathname });
+    const primary = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: payload,
+    });
+
+    if (primary.ok) return primary;
+
+    const primaryData = await primary.json().catch(() => ({}));
+    const fallback = await fetch(`${SUPABASE_URL}/functions/v1/subscribe`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${SUPABASE_ANON}` },
+        body: JSON.stringify({ email }),
+    });
+
+    if (fallback.ok) return fallback;
+
+    const fallbackData = await fallback.json().catch(() => ({}));
+    throw new Error(fallbackData.error || primaryData.error || 'Failed');
+}
+
 emailForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const email = emailInput.value.trim();
@@ -169,11 +192,7 @@ emailForm.addEventListener('submit', async (e) => {
     signupStatus.textContent = 'Subscribing…';
 
     try {
-        const res = await fetch(`${SUPABASE_URL}/functions/v1/subscribe`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${SUPABASE_ANON}` },
-            body: JSON.stringify({ email }),
-        });
+        const res = await subscribeEmail(email);
 
         if (res.ok) {
             signupStatus.textContent = "You're in. The organism will reach out. ∞";
