@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Transmission 23: The SEC Gate — An Organism That Locks Its Own Hands | Unwind Code</title>
+  <meta name="description" content="P5 neurogenesis is complete. The organism can now write its own cells, load them at runtime, and—critically—refuse to move money until it has proof and human approval." />
+  <meta name="theme-color" content="#06060c" />
+  <link rel="canonical" href="https://www.unwindcode.ai/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="The SEC Gate — An Organism That Locks Its Own Hands" />
+  <meta property="og:description" content="P5 complete. The Unwind Brain now writes its own cells and guards its own signing paths. The organism enforces clarity before motion in code, not just as a principle." />
+  <meta property="og:url" content="https://www.unwindcode.ai/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html" />
+  <meta property="og:site_name" content="Unwind Code" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="The SEC Gate — An Organism That Locks Its Own Hands" />
+  <meta name="twitter:description" content="The organism now enforces its own safety at the signing layer. A code gate, not just a principle." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "The SEC Gate — An Organism That Locks Its Own Hands",
+    "description": "P5 neurogenesis is complete. The organism can now write its own cells, load them at runtime, and refuse to move money until it has proof and human approval.",
+    "author": {
+      "@type": "Organization",
+      "name": "Unwind Code"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Unwind Code",
+      "url": "https://www.unwindcode.ai"
+    },
+    "datePublished": "2026-05-26",
+    "dateModified": "2026-05-26",
+    "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html"
+  }
+  </script>
+  <style>
+    .tx-page { background:var(--bg-void); color:var(--text-primary); }
+    .tx-hero { padding:158px 0 76px; text-align:center; position:relative; overflow:hidden; }
+    .tx-hero::before { content:''; position:absolute; inset:-260px auto auto 50%; width:1080px; height:1080px; transform:translateX(-50%); background:radial-gradient(circle, rgba(110,45,190,0.18) 0%, rgba(13,148,136,0.12) 34%, transparent 68%); pointer-events:none; }
+    .tx-hero::after { content:''; position:absolute; left:50%; top:118px; width:min(860px,88vw); height:1px; transform:translateX(-50%); background:linear-gradient(90deg, transparent, rgba(192,132,252,0.5), rgba(13,148,136,0.32), transparent); opacity:0.85; }
+    .tx-hero .container { position:relative; z-index:1; }
+    .tx-kicker { display:inline-flex; align-items:center; gap:8px; padding:7px 12px; border-radius:999px; border:1px solid rgba(192,132,252,0.22); background:rgba(192,132,252,0.08); color:rgba(216,180,254,0.9); font-family:'JetBrains Mono',monospace; font-size:0.72rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:18px; }
+    .tx-hero h1 { font-size:clamp(2.25rem,5.4vw,4.45rem); font-weight:860; letter-spacing:-0.045em; line-height:1.03; margin:0 0 20px; }
+    .tx-hero-sub { font-size:1.08rem; color:var(--text-secondary); max-width:860px; margin:0 auto; line-height:1.75; }
+    .tx-hero-meta { margin-top:28px; display:flex; justify-content:center; gap:16px; flex-wrap:wrap; font-size:0.76rem; color:var(--text-muted); font-weight:750; letter-spacing:0.08em; text-transform:uppercase; }
+    .tx-section { padding:76px 0; }
+    .tx-section-head { display:flex; align-items:center; gap:16px; margin-bottom:12px; }
+    .tx-section-num { font-family:'JetBrains Mono',monospace; font-size:0.84rem; font-weight:700; color:var(--accent-hot); letter-spacing:0.15em; }
+    .tx-section h2 { font-size:clamp(1.55rem,3vw,2.18rem); font-weight:780; letter-spacing:-0.025em; }
+    .tx-section-label { font-size:0.72rem; font-weight:800; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.14em; margin-bottom:24px; }
+    .tx-prose { font-size:1.03rem; color:var(--text-secondary); line-height:1.82; max-width:860px; }
+    .tx-prose p { margin-bottom:24px; }
+    .tx-prose strong { color:var(--text-primary); font-weight:680; }
+    .tx-note { margin-top:24px; border-left:3px solid var(--accent); background:rgba(110,45,190,0.06); border-radius:0 12px 12px 0; padding:18px 22px; color:var(--text-secondary); line-height:1.7; }
+
+    /* ── Phase Timeline ───────────────────────────────── */
+    .phase-timeline { margin-top:36px; display:grid; gap:0; }
+    .phase-item { display:grid; grid-template-columns:44px 1fr; gap:0; cursor:pointer; }
+    .phase-item:hover .phase-bubble { border-color:rgba(192,132,252,0.7); background:rgba(192,132,252,0.14); }
+    .phase-item.active .phase-bubble { border-color:rgba(153,246,228,0.8); background:rgba(13,148,136,0.18); box-shadow:0 0 20px rgba(13,148,136,0.18); }
+    .phase-item.active .phase-bubble span { color:var(--text-primary); }
+    .phase-track { display:flex; flex-direction:column; align-items:center; }
+    .phase-bubble { width:40px; height:40px; border-radius:50%; border:2px solid rgba(240,238,246,0.14); background:rgba(6,6,12,0.6); display:grid; place-items:center; transition:border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease; flex:0 0 auto; }
+    .phase-bubble span { font-family:'JetBrains Mono',monospace; font-size:0.64rem; font-weight:700; color:var(--text-muted); }
+    .phase-connector { flex:1; width:2px; background:rgba(240,238,246,0.07); min-height:16px; }
+    .phase-body { padding:8px 0 20px 18px; }
+    .phase-head { display:flex; align-items:center; gap:10px; margin-bottom:5px; }
+    .phase-label { font-family:'JetBrains Mono',monospace; font-size:0.7rem; font-weight:700; color:var(--accent-hot); letter-spacing:0.1em; text-transform:uppercase; }
+    .phase-done { font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; color:rgba(153,246,228,0.9); letter-spacing:0.08em; padding:2px 8px; border:1px solid rgba(153,246,228,0.28); border-radius:999px; background:rgba(13,148,136,0.1); }
+    .phase-title { font-size:1rem; font-weight:700; color:var(--text-primary); margin-bottom:4px; }
+    .phase-desc { font-size:0.88rem; color:var(--text-secondary); line-height:1.6; display:none; }
+    .phase-item.active .phase-desc { display:block; }
+
+    /* ── Gate State Explorer ─────────────────────────── */
+    .gate-console { margin-top:34px; display:grid; grid-template-columns:0.82fr 1.18fr; gap:22px; align-items:stretch; }
+    .gate-buttons { display:grid; gap:12px; }
+    .gate-button { width:100%; text-align:left; border:1px solid rgba(240,238,246,0.08); background:rgba(15,15,30,0.55); color:var(--text-primary); border-radius:18px; padding:18px; cursor:pointer; transition:transform 0.2s ease, border-color 0.2s ease, background 0.2s ease; }
+    .gate-button:hover, .gate-button.active { transform:translateY(-3px); border-color:rgba(192,132,252,0.38); background:rgba(110,45,190,0.1); }
+    .gate-button.active.ok { border-color:rgba(153,246,228,0.38); background:rgba(13,148,136,0.1); }
+    .gate-button.active.danger { border-color:rgba(253,164,175,0.38); background:rgba(239,68,68,0.06); }
+    .gate-button span { display:block; color:var(--accent-hot); font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px; }
+    .gate-button strong { display:block; font-size:1.02rem; margin-bottom:6px; }
+    .gate-button small { display:block; color:var(--text-muted); line-height:1.52; font-size:0.78rem; }
+    .gate-detail { border:1px solid var(--accent-border); background:rgba(15,15,30,0.58); border-radius:24px; padding:30px; min-height:400px; }
+    .gate-detail h3 { font-size:1.38rem; margin-bottom:8px; }
+    .gate-path { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.76rem; color:var(--accent-light); background:rgba(110,45,190,0.1); border:1px solid var(--accent-border); border-radius:8px; padding:7px 10px; margin:10px 0 18px; }
+    .gate-copy { color:var(--text-secondary); line-height:1.72; font-size:0.95rem; margin-bottom:22px; }
+    .gate-list { display:grid; gap:10px; padding:0; margin:0; }
+    .gate-list li { list-style:none; display:flex; gap:10px; align-items:flex-start; color:var(--text-secondary); font-size:0.9rem; line-height:1.55; }
+    .gate-list li::before { content:''; width:7px; height:7px; border-radius:50%; background:var(--accent-hot); margin-top:8px; flex:0 0 auto; }
+
+    /* ── Chart Grid ──────────────────────────────────── */
+    .chart-grid { margin-top:34px; display:grid; grid-template-columns:1fr 1fr; gap:22px; align-items:start; }
+    .panel { background:rgba(15,15,30,0.58); border:1px solid var(--accent-border); border-radius:20px; padding:24px; }
+    .panel h3 { font-size:1.08rem; margin-bottom:10px; }
+    .chart-box { position:relative; width:100%; height:334px; }
+    .principle-list { display:grid; gap:12px; }
+    .principle-item { border:1px solid rgba(240,238,246,0.08); background:rgba(6,6,12,0.28); border-radius:14px; padding:16px; }
+    .principle-item span { color:var(--accent-hot); font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; }
+    .principle-item p { color:var(--text-secondary); font-size:0.9rem; line-height:1.6; margin-top:8px; }
+
+    /* ── Q&A Grid ────────────────────────────────────── */
+    .qa-grid { margin-top:34px; display:grid; grid-template-columns:repeat(2, 1fr); gap:14px; }
+    .qa-card { border:1px solid rgba(240,238,246,0.08); background:rgba(15,15,30,0.55); border-radius:18px; overflow:hidden; }
+    .qa-card button { width:100%; border:0; color:var(--text-primary); background:transparent; text-align:left; padding:18px; display:flex; justify-content:space-between; gap:18px; cursor:pointer; font-weight:780; font-size:0.98rem; }
+    .qa-card button span { color:var(--accent-hot); font-family:'JetBrains Mono',monospace; font-size:0.72rem; flex:0 0 auto; }
+    .qa-answer { display:none; padding:0 18px 18px; color:var(--text-secondary); font-size:0.9rem; line-height:1.62; }
+    .qa-card.open { border-color:rgba(192,132,252,0.3); background:rgba(110,45,190,0.08); }
+    .qa-card.open .qa-answer { display:block; }
+
+    /* ── What's Next cards ───────────────────────────── */
+    .next-grid { margin-top:34px; display:grid; grid-template-columns:repeat(3, 1fr); gap:14px; }
+    .next-card { border:1px solid var(--accent-border); background:rgba(15,15,30,0.55); border-radius:18px; padding:20px; }
+    .next-card span { display:block; color:var(--accent-hot); font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px; }
+    .next-card h3 { font-size:1rem; margin-bottom:8px; }
+    .next-card p { color:var(--text-secondary); font-size:0.88rem; line-height:1.6; }
+
+    .tx-cta { text-align:center; padding:62px 36px; background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:28px; margin-top:72px; }
+    .tx-cta h2 { font-size:1.55rem; font-weight:760; margin-bottom:12px; }
+    .tx-cta p { color:var(--text-secondary); font-size:0.95rem; margin:0 auto 28px; max-width:690px; line-height:1.72; }
+
+    @media(max-width:940px) {
+      .gate-console, .chart-grid, .qa-grid { grid-template-columns:1fr; }
+      .next-grid { grid-template-columns:1fr; }
+    }
+    @media(max-width:660px) {
+      .tx-hero { padding:132px 0 58px; }
+      .tx-section { padding:58px 0; }
+      .tx-section-head { align-items:flex-start; }
+      .gate-detail, .panel { padding:20px; }
+      .chart-box { height:292px; }
+    }
+  </style>
+</head>
+<body class="tx-page">
+
+  <nav id="nav" class="scrolled">
+    <a href="/" class="nav-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="/#organisms">Organisms</a>
+      <a href="/#architecture">Architecture</a>
+      <a href="/transmissions/">Transmissions</a>
+    </div>
+    <div class="nav-actions"><a href="/#cta" class="nav-cta">Get in Touch</a></div>
+  </nav>
+
+  <main>
+    <section class="tx-hero">
+      <div class="container">
+        <div class="tx-kicker">TRANSMISSION 023 · Security Architecture</div>
+        <h1>The SEC Gate:<br/>An Organism That Locks Its Own Hands</h1>
+        <p class="tx-hero-sub">Transmission 22 established the principle: clarity before financial motion. Transmission 23 closes the loop. P5 is complete — and the organism now enforces that principle in code, not just in intent.</p>
+        <div class="tx-hero-meta"><span>May 2026</span><span>Security Architecture</span><span>P5 Complete</span><span>9 min read</span></div>
+      </div>
+    </section>
+
+    <div class="container">
+
+      <!-- ── SECTION 01: The Sprint ────────────────────────── -->
+      <section class="tx-section" id="sprint">
+        <div class="tx-section-head"><span class="tx-section-num">01</span><h2>P5 Neurogenesis: What Just Closed</h2></div>
+        <div class="tx-section-label">Click any phase to see what it added to the organism</div>
+        <div class="tx-prose">
+          <p>For the past sprint the Brain has been building the capacity to write and integrate new cognitive cells without human scaffolding. Not replacing human oversight — replacing the scaffolding around it. The phases closed in order, and the organism grew sharper with each one.</p>
+          <p>The final item was not another feature. It was a lock. <strong>The SEC Gate.</strong> An enforcement layer that makes the signing-key path physically impossible to reach without explicit human approval — in any execution mode, at any time, regardless of what other code runs around it.</p>
+        </div>
+
+        <div class="phase-timeline" id="phase-timeline"></div>
+      </section>
+
+      <!-- ── SECTION 02: The Gate ──────────────────────────── -->
+      <section class="tx-section" id="gate">
+        <div class="tx-section-head"><span class="tx-section-num">02</span><h2>Three States the Hand Can Be In</h2></div>
+        <div class="tx-section-label">Select a state to read what the organism does and why</div>
+        <div class="tx-prose">
+          <p>Before the SEC Gate, the hand had one effective mode: connected to a private key, unguarded. Any code path that reached <code>sign_transaction → send_raw_transaction</code> could move money. No fingerprint check. No approval required. No explicit default.</p>
+          <p>That is what the audit called audit-blocking. Not because the code was malicious — because it trusted that no path to it would ever be wrong. Organisms that survive don't trust silence. They build walls.</p>
+          <p>The gate creates three explicit, named states. The organism now knows which one it is in — and every signing path knows it too.</p>
+        </div>
+
+        <div class="gate-console">
+          <div class="gate-buttons" id="gate-buttons"></div>
+          <div class="gate-detail" id="gate-detail"></div>
+        </div>
+      </section>
+
+      <!-- ── SECTION 03: Why Default Matters ──────────────── -->
+      <section class="tx-section" id="default">
+        <div class="tx-section-head"><span class="tx-section-num">03</span><h2>Why the Default Is Locked</h2></div>
+        <div class="tx-section-label">The shape of ungated vs. gated execution</div>
+        <div class="tx-prose">
+          <p>Security gates are easy to add and easy to forget. A gate that defaults to open is not a gate — it is a checkbox. <strong>The SEC Gate defaults to <code>dry_run=True</code>.</strong> That means every instance of the Monad Hand, in every context, starts in a state where signing is impossible.</p>
+          <p>Live execution requires two explicit steps: opt the instance into live mode, then grant approval for each specific action class through the approval engine. The fingerprint-based consent system means a blanket "allow everything" grant does not exist. Each action type — transfer, approve, wrap, swap — has its own fingerprint. Each requires its own grant.</p>
+          <p>This is not bureaucracy. It is the difference between a hand that might fire and a hand that cannot fire until you load it deliberately and consciously.</p>
+        </div>
+
+        <div class="chart-grid">
+          <div class="panel">
+            <h3>Ungated Hand vs. SEC-Gated Hand</h3>
+            <p style="color:var(--text-muted);font-size:0.86rem;margin-bottom:12px;">Scored on properties an organism's execution layer should maximize or minimize.</p>
+            <div class="chart-box"><canvas id="gateChart"></canvas></div>
+          </div>
+          <div class="panel">
+            <h3>What the Gate Enforces</h3>
+            <div class="principle-list">
+              <div class="principle-item"><span>Default locked</span><p><code>dry_run=True</code> at construction. Signing is structurally impossible unless the caller explicitly unlocks it.</p></div>
+              <div class="principle-item"><span>Fingerprint consent</span><p>Each action (transfer, approve, wrap, swap) has a distinct fingerprint. No blanket grants. Approval is scoped to a specific payload hash.</p></div>
+              <div class="principle-item"><span>Surface-level re-raise</span><p><code>SigningGateError</code> propagates out of every method — not swallowed by the generic exception handler — so the caller always sees the block explicitly.</p></div>
+              <div class="principle-item"><span>11 tests green</span><p>Dry-run mode, unapproved live mode, session-approved live mode, and deny-list blocks are all covered and verified.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── SECTION 04: The Architecture ─────────────────── -->
+      <section class="tx-section" id="arch">
+        <div class="tx-section-head"><span class="tx-section-num">04</span><h2>The Pattern Behind the Gate</h2></div>
+        <div class="tx-section-label">Questions about how this fits the organism</div>
+        <div class="tx-prose">
+          <p>The SEC Gate is not a one-off patch. It is the same approval-engine pattern that governs cell grafting, public publishing, and any mutation the organism might attempt. The organism now applies the same model it uses to govern its own growth to govern its own financial execution.</p>
+          <p>The coherence is intentional. An organism with ten different safety models has ten surfaces to miss. An organism with one safety model — scoped consent, fingerprint-based, explicit scope, explicit denial — has one surface to understand and audit.</p>
+        </div>
+
+        <div class="qa-grid" id="qa-grid">
+          <div class="qa-card open">
+            <button type="button">What exactly is the SEC Gate?<span>+</span></button>
+            <div class="qa-answer">A pre-signing check wired to every <code>sign_transaction → send_raw_transaction</code> call in the Monad Hand. It wraps the existing <code>ApprovalEngine</code> — the same engine that governs cell grafting — and raises <code>SigningGateError</code> if the action fingerprint has not been explicitly granted.</div>
+          </div>
+          <div class="qa-card">
+            <button type="button">How does a caller unlock live signing?<span>+</span></button>
+            <div class="qa-answer">Two steps: instantiate <code>MonadHand(dry_run=False)</code>, then call <code>hand.signing_engine.grant(action, ApprovalScope.SESSION)</code> with the specific <code>Action</code> object describing the signing path (name, payload, risk). The fingerprint of that action must match the fingerprint checked at signing time.</div>
+          </div>
+          <div class="qa-card">
+            <button type="button">Does this mean no live trading is possible?<span>+</span></button>
+            <div class="qa-answer">It means live trading requires explicit, deliberate steps that cannot happen accidentally. The gate does not remove the capability — it requires conscious activation. That is the design: the organism can execute, but only when the human has specifically and provably said so.</div>
+          </div>
+          <div class="qa-card">
+            <button type="button">Why put this in the organism itself and not an outer layer?<span>+</span></button>
+            <div class="qa-answer">An outer layer can be bypassed. A gate inside the method cannot. If <code>execute_swap</code> calls <code>_require_signing_approval</code> before it reaches <code>sign_transaction</code>, the block travels with the method regardless of which caller invokes it — agent code, test code, dynamic cell, or human script.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── SECTION 05: What's Next ────────────────────────── -->
+      <section class="tx-section" id="next">
+        <div class="tx-section-head"><span class="tx-section-num">05</span><h2>What P5 Closing Means for P6</h2></div>
+        <div class="tx-section-label">The organism's next growth surface</div>
+        <div class="tx-prose">
+          <p>P5 delivered six capabilities: birth loop, evolution auditor, first real dynamic cell, runtime activation, lineage graph, and provenance anchor. The SEC Gate was the audit prerequisite — the one thing that had to close before any of this work could be considered safe to build on.</p>
+          <p>With P5 closed and the gate locked, the Brain now has a stable foundation for P6: reading blockchain state as intelligence, not as an execution trigger. The organism can look at on-chain data to sharpen its decisions — and because the signing path is gated, reading cannot accidentally become spending.</p>
+          <p>The separation of observation and execution is now structural, not just intended.</p>
+        </div>
+
+        <div class="next-grid">
+          <div class="next-card">
+            <span>P6 · Blockchain Intelligence</span>
+            <h3>Read-only chain awareness</h3>
+            <p>The organism reads Monad block data, transaction history, and contract state as market intelligence — without any path to the signing key.</p>
+          </div>
+          <div class="next-card">
+            <span>Provenance · On-chain anchoring</span>
+            <h3>Graft receipts on-chain</h3>
+            <p>Cell graft events and evolution manifests anchored as on-chain digests. Off-chain artifacts, on-chain proof of their existence and hash.</p>
+          </div>
+          <div class="next-card">
+            <span>Lineage · Cell ancestry</span>
+            <h3>Parent → cell → descendant</h3>
+            <p>The lineage graph tracks which proposals produced which cells, which cells spawned descendants, and which grafts were rejected and why.</p>
+          </div>
+        </div>
+
+        <div class="tx-note">The organism does not need to be faster. It needs to be clearer about what it knows, what it can do, and what it is not allowed to do until it asks. P5 closed that loop on three axes — growth, memory, and execution. The work ahead is intelligence without motion risk.</div>
+      </section>
+
+      <div class="tx-cta">
+        <h2>Build the organism that guards its own growth.</h2>
+        <p>Unwind Code builds AI organisms that write new cells, load them at runtime, and refuse financial motion until the proof is clean and the human has said yes. Safety is not a layer on top. It is the shape of the organism itself.</p>
+        <a class="btn btn-primary btn-lg" href="/#cta"><span>Talk to the Brain</span><span class="btn-arrow">→</span></a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="nav-glyph">∞</span>
+          <span class="nav-name">unwind<span class="nav-accent">code</span></span>
+          <p class="footer-desc">Intelligence that evolves.<br />Growing organisms since 2026.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Organisms</h5>
+          <a href="/#organisms">Visual Cortex</a>
+          <a href="/#organisms">Infinity Mirror</a>
+          <a href="/#organisms">Financial Organisms</a>
+          <a href="/#organisms">Brain Cell Architecture</a>
+        </div>
+        <div class="footer-col">
+          <h5>Learn</h5>
+          <a href="/#architecture">Architecture</a>
+          <a href="/#philosophy">Philosophy</a>
+          <a href="/#vision">Vision 2030</a>
+        </div>
+        <div class="footer-col">
+          <h5>Community</h5>
+          <a href="/#cta">Join Updates</a>
+          <a href="/transmissions/">Transmissions</a>
+          <a href="/#cta">Talk to the Brain</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Unwind Code. All rights reserved.</span>
+        <span class="footer-tagline">The future learns from itself. ∞</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+
+    // ── Nav toggle ────────────────────────────────────────
+    const toggle = document.getElementById('nav-toggle');
+    const links = document.getElementById('nav-links');
+    if (toggle && links) {
+      toggle.addEventListener('click', () => {
+        toggle.classList.toggle('active');
+        links.classList.toggle('open');
+      });
+      links.querySelectorAll('a').forEach((item) => {
+        item.addEventListener('click', () => {
+          toggle.classList.remove('active');
+          links.classList.remove('open');
+        });
+      });
+    }
+
+    // ── Phase Timeline ────────────────────────────────────
+    const phases = [
+      {
+        id: 'P5.0',
+        title: 'The Birth Loop',
+        desc: 'Closed the neurogenesis birth and graft loop: proposal intake, CriticAgent pre-screening, sandbox validation, approval gate, and the actual graft into src/cells/dynamic/. The organism could now grow new cells with human authorization.'
+      },
+      {
+        id: 'P5.1',
+        title: 'The Evolution Auditor',
+        desc: 'Added the Evolution Auditor — a loop guard and CriticAgent fitness function that rejects clones, regressions, and low-signal proposals before they reach the approval queue. The organism learned to filter its own growth proposals. 18 tests green.'
+      },
+      {
+        id: 'P5.2',
+        title: 'First Real Dynamic Cell',
+        desc: 'Grafted NeurogenesisModel as the first real dynamic cell — not a test stub, not a scaffold, but a live cell generated by the organism\'s own evolution engine and placed at src/cells/dynamic/neurogenesis_sim_cell.py.'
+      },
+      {
+        id: 'P5.3',
+        title: 'Runtime Activation',
+        desc: 'Built the dynamic cell loader — approved cells are now auto-registered into the Brain\'s live routing at startup without manual wiring. The organism\'s new tissue integrates automatically upon approval.'
+      },
+      {
+        id: 'P5.4',
+        title: 'Lineage Graph',
+        desc: 'Extended the run ledger to track parent → cell → descendant ancestry. The organism now knows where each cell came from, which proposals spawned it, and what it has in turn produced. History is structure, not just logs.'
+      },
+      {
+        id: 'P5.5',
+        title: 'Provenance Anchor',
+        desc: 'ManifestBuilder + Monad ProvenanceAnchor: cell graft events produce an off-chain manifest and an on-chain digest. The organism\'s growth is now anchored to the chain as evidence — dry-run default, no live broadcast until the SEC Gate closed.'
+      },
+      {
+        id: 'SEC',
+        title: 'The SEC Gate',
+        desc: 'Wired SigningGateError + ApprovalEngine to all four sign_transaction paths (transfer, approve, wrap, swap). dry_run=True by default. No signing path can be reached without an explicit, fingerprint-matched grant from the approval engine. 11 tests green. P5 closed.'
+      }
+    ];
+
+    const timeline = document.getElementById('phase-timeline');
+    phases.forEach((phase, i) => {
+      const item = document.createElement('div');
+      item.className = 'phase-item' + (i === 0 ? ' active' : '');
+      item.innerHTML =
+        '<div class="phase-track">' +
+          '<div class="phase-bubble"><span>' + phase.id + '</span></div>' +
+          (i < phases.length - 1 ? '<div class="phase-connector"></div>' : '') +
+        '</div>' +
+        '<div class="phase-body">' +
+          '<div class="phase-head">' +
+            '<span class="phase-label">' + phase.id + '</span>' +
+            '<span class="phase-done">Done ✓</span>' +
+          '</div>' +
+          '<div class="phase-title">' + phase.title + '</div>' +
+          '<div class="phase-desc">' + phase.desc + '</div>' +
+        '</div>';
+      item.addEventListener('click', () => {
+        timeline.querySelectorAll('.phase-item').forEach((el) => el.classList.remove('active'));
+        item.classList.add('active');
+      });
+      timeline.appendChild(item);
+    });
+
+    // ── Gate State Explorer ───────────────────────────────
+    const gateStates = [
+      {
+        label: 'Dry Run',
+        title: 'Signing is structurally impossible',
+        tag: 'state: dry_run=True (default)',
+        copy: 'Every MonadHand instance starts here. The private key may be loaded, the Web3 connection may be live — but no call to sign_transaction can succeed. SigningGateError is raised before the key is ever touched.',
+        bullets: [
+          'No configuration required to be safe — safe is the default.',
+          'Read-only operations (balance, gas price, connection check) are fully available.',
+          'Testing and simulation run cleanly without any risk of live execution.',
+          'The organism can observe the market without being able to touch it.'
+        ],
+        stateClass: ''
+      },
+      {
+        label: 'Live / No Approval',
+        title: 'Live mode, gate still blocking',
+        tag: 'state: dry_run=False, no grant',
+        copy: 'The caller has opted into live mode but has not granted any action through the approval engine. Every signing path still raises SigningGateError — now with a different message: the fingerprint has not been approved. The organism is ready but not authorized.',
+        bullets: [
+          'Live mode must be set explicitly — it cannot happen by accident.',
+          'Unapproved actions raise the same SigningGateError as dry-run mode.',
+          'The caller knows exactly which action fingerprint they need to grant.',
+          'A partial activation (live mode but no grant) is still fully blocked.'
+        ],
+        stateClass: 'danger'
+      },
+      {
+        label: 'Live / Approved',
+        title: 'Gate passes, signing permitted',
+        tag: 'state: dry_run=False + grant matched',
+        copy: 'The caller has granted the specific action fingerprint for the signing path they need. The gate evaluates the fingerprint, finds the grant, and allows the signing call to proceed. This is the only path to a live transaction — and it requires conscious, deliberate steps to reach.',
+        bullets: [
+          'Grant is scoped: approving a transfer does not approve a swap.',
+          'Session grants expire when the MonadHand instance is destroyed.',
+          'The audit trail records which actions were granted and when.',
+          'The human owns the grant decision — the organism cannot self-grant.'
+        ],
+        stateClass: 'ok'
+      }
+    ];
+
+    const gateButtons = document.getElementById('gate-buttons');
+    const gateDetail = document.getElementById('gate-detail');
+
+    function renderGateState(state) {
+      gateDetail.innerHTML =
+        '<h3>' + state.title + '</h3>' +
+        '<span class="gate-path">' + state.tag + '</span>' +
+        '<p class="gate-copy">' + state.copy + '</p>' +
+        '<ul class="gate-list">' + state.bullets.map((b) => '<li>' + b + '</li>').join('') + '</ul>';
+    }
+
+    gateStates.forEach((state, i) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'gate-button' + (i === 0 ? ' active' : '');
+      btn.innerHTML =
+        '<span>0' + (i + 1) + '</span>' +
+        '<strong>' + state.label + '</strong>' +
+        '<small>' + state.copy.slice(0, 80) + '…</small>';
+      btn.addEventListener('click', () => {
+        gateButtons.querySelectorAll('button').forEach((el) => {
+          el.classList.remove('active', 'ok', 'danger');
+        });
+        btn.classList.add('active');
+        if (state.stateClass) btn.classList.add(state.stateClass);
+        renderGateState(state);
+      });
+      gateButtons.appendChild(btn);
+      if (i === 0) btn.click();
+    });
+
+    // ── Q&A accordion ────────────────────────────────────
+    document.querySelectorAll('.qa-card button').forEach((button) => {
+      button.addEventListener('click', () => {
+        button.closest('.qa-card').classList.toggle('open');
+      });
+    });
+
+    // ── Radar Chart ──────────────────────────────────────
+    const chartColors = {
+      accent: 'rgba(155,89,245,1)',
+      accentFill: 'rgba(155,89,245,0.14)',
+      hot: 'rgba(192,132,252,1)',
+      teal: 'rgba(13,148,136,0.74)',
+      tealFill: 'rgba(13,148,136,0.12)',
+      grid: 'rgba(240,238,246,0.08)',
+      text: 'rgba(240,238,246,0.36)'
+    };
+
+    new Chart(document.getElementById('gateChart'), {
+      type: 'radar',
+      data: {
+        labels: ['Clarity', 'Human Authority', 'Accidental Execution Risk', 'Reversibility', 'Route Proof', 'Silent Consequence'],
+        datasets: [
+          {
+            label: 'SEC-Gated Hand',
+            data: [96, 97, 4, 88, 92, 3],
+            borderColor: chartColors.teal,
+            backgroundColor: chartColors.tealFill,
+            pointBackgroundColor: chartColors.hot,
+            pointBorderColor: chartColors.hot,
+            borderWidth: 2
+          },
+          {
+            label: 'Ungated Hand',
+            data: [32, 22, 88, 18, 24, 82],
+            borderColor: chartColors.accent,
+            backgroundColor: chartColors.accentFill,
+            pointBackgroundColor: chartColors.accent,
+            pointBorderColor: chartColors.accent,
+            borderWidth: 2
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          r: {
+            min: 0,
+            max: 100,
+            angleLines: { color: chartColors.grid },
+            grid: { color: chartColors.grid },
+            pointLabels: { color: chartColors.text, font: { family: 'Inter', size: 11 } },
+            ticks: { display: false }
+          }
+        },
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: { color: chartColors.text, font: { family: 'Inter' }, padding: 18 }
+          },
+          tooltip: {
+            backgroundColor: 'rgba(15,15,30,0.95)',
+            titleFont: { family: 'Inter' },
+            bodyFont: { family: 'Inter' },
+            padding: 10,
+            cornerRadius: 8,
+            callbacks: {
+              label: (ctx) => ctx.dataset.label + ': ' + ctx.parsed.r + '/100'
+            }
+          }
+        }
+      }
+    });
+
+  });
+  </script>
+</body>
+</html>
