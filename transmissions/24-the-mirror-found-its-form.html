@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Transmission 24: The Mirror Found Its Form | Unwind Code</title>
+  <meta name="description" content="Infinity Mirror is not becoming another wellness dashboard. The remix gives it a visual grammar: a dark field, a gold signal, and a mirror that changes when the user speaks." />
+  <meta name="theme-color" content="#06060c" />
+  <link rel="canonical" href="https://www.unwindcode.ai/transmissions/24-the-mirror-found-its-form.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="The Mirror Found Its Form" />
+  <meta property="og:description" content="The Infinity Mirror remix turns the product away from dashboard logic and toward a living visual surface: talk, capture, map, ritual, and consequence." />
+  <meta property="og:url" content="https://www.unwindcode.ai/transmissions/24-the-mirror-found-its-form.html" />
+  <meta property="og:site_name" content="Unwind Code" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="The Mirror Found Its Form" />
+  <meta name="twitter:description" content="A design transmission on Infinity Mirror becoming a surface, not a dashboard." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Mirror Found Its Form",
+    "description": "Infinity Mirror is not becoming another wellness dashboard. The remix gives it a visual grammar: a dark field, a gold signal, and a mirror that changes when the user speaks.",
+    "author": {
+      "@type": "Organization",
+      "name": "Unwind Code"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Unwind Code",
+      "url": "https://www.unwindcode.ai"
+    },
+    "datePublished": "2026-05-28",
+    "dateModified": "2026-05-28",
+    "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/24-the-mirror-found-its-form.html"
+  }
+  </script>
+  <style>
+    :root {
+      --mirror-gold: #d2ac5f;
+      --mirror-gold-soft: rgba(210, 172, 95, 0.18);
+      --mirror-gold-line: rgba(210, 172, 95, 0.42);
+      --mirror-ink: rgba(246, 241, 229, 0.94);
+      --mirror-teal: rgba(63, 128, 126, 0.86);
+      --mirror-card: rgba(10, 10, 16, 0.74);
+      --mirror-card-2: rgba(22, 20, 28, 0.86);
+    }
+
+    .tx-page { background:var(--bg-void); color:var(--text-primary); overflow-x:hidden; }
+    .tx-page *, .tx-page *::before, .tx-page *::after { box-sizing:border-box; }
+    .tx-hero { padding:158px 0 72px; position:relative; overflow:hidden; text-align:center; }
+    .tx-hero::before {
+      content:""; position:absolute; inset:-260px auto auto 50%; width:1120px; height:1120px; transform:translateX(-50%);
+      background:
+        radial-gradient(circle at 50% 44%, rgba(210,172,95,0.18), transparent 27%),
+        radial-gradient(circle at 46% 47%, rgba(110,45,190,0.14), transparent 42%),
+        radial-gradient(circle at 50% 50%, transparent 0 18%, rgba(210,172,95,0.07) 18% 19%, transparent 20% 100%);
+      pointer-events:none;
+    }
+    .tx-hero::after {
+      content:""; position:absolute; left:50%; top:122px; width:min(900px,86vw); height:1px; transform:translateX(-50%);
+      background:linear-gradient(90deg, transparent, rgba(210,172,95,0.46), rgba(155,89,245,0.35), transparent);
+    }
+    .tx-hero .container { position:relative; z-index:1; }
+    .tx-kicker {
+      display:inline-flex; align-items:center; gap:9px; padding:7px 13px; border-radius:999px;
+      border:1px solid rgba(210,172,95,0.25); background:rgba(210,172,95,0.07);
+      color:var(--mirror-gold); font-family:"JetBrains Mono",monospace; font-size:0.72rem; font-weight:800;
+      letter-spacing:0.12em; text-transform:uppercase; margin-bottom:18px;
+    }
+    .tx-hero h1 { font-size:4.85rem; font-weight:880; letter-spacing:0; line-height:0.98; margin:0 auto 22px; max-width:980px; }
+    .tx-title-mobile { display:none; }
+    .tx-hero-sub { font-size:1.08rem; color:var(--text-secondary); max-width:790px; margin:0 auto; line-height:1.76; }
+    .tx-hero-meta { margin-top:28px; display:flex; justify-content:center; gap:16px; flex-wrap:wrap; color:var(--text-muted); font-size:0.76rem; font-weight:780; letter-spacing:0.09em; text-transform:uppercase; }
+
+    .mirror-hero-card {
+      margin:42px auto 0; width:min(390px, calc(100vw - 40px)); min-height:560px; border-radius:36px; border:1px solid rgba(210,172,95,0.28);
+      background:
+        radial-gradient(circle at 50% 24%, rgba(210,172,95,0.13), transparent 20%),
+        radial-gradient(circle at 82% 6%, rgba(210,172,95,0.10), transparent 18%),
+        linear-gradient(155deg, rgba(22,20,28,0.94), rgba(5,5,7,0.98));
+      box-shadow:0 30px 92px rgba(0,0,0,0.45), inset 0 0 0 1px rgba(255,255,255,0.03);
+      position:relative; overflow:hidden; padding:38px 26px 28px;
+    }
+    .mirror-hero-card::before, .mirror-hero-card::after {
+      content:""; position:absolute; inset:0; pointer-events:none;
+      background:
+        linear-gradient(126deg, transparent 0 19%, rgba(210,172,95,0.20) 19.2%, transparent 19.7% 46%, rgba(210,172,95,0.14) 46.2%, transparent 46.7%),
+        linear-gradient(28deg, transparent 0 63%, rgba(210,172,95,0.14) 63.2%, transparent 63.8%);
+      opacity:0.85;
+    }
+    .mirror-hero-card::after {
+      background-image:radial-gradient(circle, rgba(210,172,95,0.38) 0 1px, transparent 1.5px);
+      background-size:38px 48px; opacity:0.18; mix-blend-mode:screen;
+    }
+    .mirror-card-inner { position:relative; z-index:1; display:flex; min-height:494px; flex-direction:column; align-items:center; justify-content:center; gap:22px; }
+    .mirror-mark { width:168px; height:96px; position:relative; filter:drop-shadow(0 0 28px rgba(210,172,95,0.20)); }
+    .mirror-loop { position:absolute; top:10px; width:86px; height:74px; border:4px solid var(--mirror-gold); border-radius:50%; opacity:0.94; }
+    .mirror-loop.left { left:4px; }
+    .mirror-loop.right { right:4px; }
+    .mirror-spine { position:absolute; left:50%; top:8px; width:22px; height:80px; border-radius:999px; transform:translateX(-50%); background:rgba(210,172,95,0.38); }
+    .mirror-title-card { text-align:center; }
+    .mirror-title-card span { font-family:"JetBrains Mono",monospace; font-size:0.68rem; font-weight:800; color:rgba(210,172,95,0.92); letter-spacing:0.22em; text-transform:uppercase; }
+    .mirror-title-card h2 { margin:14px 0 0; font-size:3.35rem; letter-spacing:0; line-height:0.94; }
+    .mirror-title-card p { max-width:310px; margin:20px auto 0; color:rgba(246,241,229,0.70); line-height:1.58; }
+    .mirror-actions { width:100%; display:grid; gap:10px; margin-top:auto; }
+    .mirror-action-primary, .mirror-action-row span {
+      border:1px solid rgba(210,172,95,0.24); background:rgba(210,172,95,0.08); border-radius:14px;
+      padding:13px 14px; color:var(--mirror-ink); font-weight:800;
+    }
+    .mirror-action-primary { background:linear-gradient(135deg, rgba(210,172,95,0.95), rgba(184,141,55,0.95)); color:#08080c; }
+    .mirror-action-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+
+    .tx-section { padding:76px 0; }
+    .tx-section-head { display:flex; align-items:center; gap:16px; margin-bottom:12px; }
+    .tx-section-num { font-family:"JetBrains Mono",monospace; color:var(--mirror-gold); font-size:0.83rem; font-weight:800; letter-spacing:0.16em; }
+    .tx-section h2 { font-size:2.08rem; font-weight:790; letter-spacing:0; }
+    .tx-section-label { color:var(--text-muted); font-size:0.72rem; font-weight:800; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:24px; }
+    .tx-prose { max-width:840px; color:var(--text-secondary); font-size:1.03rem; line-height:1.82; }
+    .tx-prose p { margin-bottom:24px; }
+    .tx-prose strong { color:var(--text-primary); font-weight:720; }
+    .tx-quote { margin:36px 0; border-left:3px solid var(--mirror-gold); background:rgba(210,172,95,0.055); border-radius:0 14px 14px 0; padding:20px 24px; color:var(--text-secondary); line-height:1.72; font-style:italic; }
+
+    .visual-board { display:grid; grid-template-columns:1fr 1.08fr; gap:22px; margin-top:34px; align-items:stretch; }
+    .visual-tabs { display:grid; gap:12px; }
+    .visual-tab {
+      width:100%; text-align:left; border:1px solid rgba(240,238,246,0.08); background:rgba(15,15,30,0.58);
+      border-radius:18px; padding:18px; color:var(--text-primary); cursor:pointer; transition:transform .2s ease,border-color .2s ease,background .2s ease;
+    }
+    .visual-tab:hover, .visual-tab.active { transform:translateY(-2px); border-color:rgba(210,172,95,0.42); background:rgba(210,172,95,0.075); }
+    .visual-tab span { display:block; font-family:"JetBrains Mono",monospace; color:var(--mirror-gold); font-size:0.66rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:7px; }
+    .visual-tab strong { display:block; font-size:1.02rem; margin-bottom:6px; }
+    .visual-tab small { display:block; color:var(--text-muted); line-height:1.5; }
+    .visual-stage {
+      min-height:560px; border:1px solid rgba(210,172,95,0.18); border-radius:28px; background:rgba(15,15,30,0.54);
+      padding:24px; display:grid; grid-template-columns:minmax(230px, 340px) 1fr; gap:24px; align-items:center;
+    }
+    .phone-preview {
+      min-height:500px; border-radius:34px; border:1px solid rgba(210,172,95,0.28); padding:26px 20px 20px;
+      background:linear-gradient(155deg, rgba(18,17,24,0.96), rgba(5,5,7,0.98));
+      box-shadow:0 24px 70px rgba(0,0,0,0.32), inset 0 0 0 1px rgba(255,255,255,0.035);
+      position:relative; overflow:hidden;
+    }
+    .phone-preview::before {
+      content:""; position:absolute; inset:0;
+      background:
+        radial-gradient(circle at 50% 18%, var(--mirror-gold-soft), transparent 24%),
+        linear-gradient(137deg, transparent 0 24%, rgba(210,172,95,0.18) 24.2%, transparent 24.8% 52%, rgba(210,172,95,0.12) 52.2%, transparent 52.8%),
+        radial-gradient(circle at 18% 72%, rgba(63,128,126,0.12), transparent 28%);
+      pointer-events:none;
+    }
+    .phone-content { position:relative; z-index:1; min-height:448px; display:flex; flex-direction:column; }
+    .phone-eyebrow { font-family:"JetBrains Mono",monospace; font-size:0.64rem; font-weight:800; color:var(--mirror-gold); letter-spacing:0.18em; text-transform:uppercase; }
+    .phone-heading { font-size:2.3rem; letter-spacing:0; line-height:0.98; margin:12px 0 16px; }
+    .phone-copy { color:rgba(246,241,229,0.68); line-height:1.55; }
+    .mini-mirror { width:160px; height:110px; margin:28px auto; position:relative; }
+    .mini-mirror .mirror-loop { width:76px; height:68px; border-width:3px; top:18px; }
+    .mini-mirror .mirror-spine { height:76px; top:14px; }
+    .phone-signal { margin-top:auto; display:grid; gap:11px; }
+    .signal-row { display:flex; justify-content:space-between; align-items:center; border:1px solid rgba(210,172,95,0.17); border-radius:13px; padding:12px; background:rgba(0,0,0,0.18); }
+    .signal-row span { color:var(--text-muted); font-family:"JetBrains Mono",monospace; font-size:0.64rem; letter-spacing:0.12em; text-transform:uppercase; }
+    .signal-row strong { color:var(--mirror-gold); font-size:0.92rem; }
+    .stage-copy h3 { font-size:1.5rem; margin-bottom:10px; }
+    .stage-copy p { color:var(--text-secondary); line-height:1.7; margin-bottom:18px; }
+    .stage-chip-row { display:flex; flex-wrap:wrap; gap:8px; }
+    .stage-chip { border:1px solid rgba(210,172,95,0.24); color:var(--mirror-gold); background:rgba(210,172,95,0.06); border-radius:999px; padding:7px 11px; font-size:0.76rem; font-weight:760; }
+
+    .facet-map { margin-top:34px; border:1px solid rgba(240,238,246,0.08); background:rgba(15,15,30,0.58); border-radius:28px; padding:28px; display:grid; grid-template-columns:1fr 1fr; gap:22px; align-items:center; }
+    .facet-diagram { min-height:420px; position:relative; display:grid; place-items:center; }
+    .facet-core { width:min(330px, 72vw); aspect-ratio:1; border:1px solid rgba(210,172,95,0.36); border-radius:50%; display:grid; place-items:center; position:relative; background:radial-gradient(circle, rgba(210,172,95,0.10), transparent 58%); }
+    .facet-core::before, .facet-core::after { content:""; position:absolute; width:60%; height:60%; border:2px solid rgba(210,172,95,0.55); border-radius:50%; top:20%; }
+    .facet-core::before { left:12%; }
+    .facet-core::after { right:12%; }
+    .facet-center { position:relative; z-index:1; text-align:center; }
+    .facet-center span { font-family:"JetBrains Mono",monospace; color:var(--mirror-gold); font-size:0.64rem; font-weight:800; letter-spacing:0.18em; text-transform:uppercase; }
+    .facet-center strong { display:block; margin-top:6px; font-size:1.18rem; }
+    .facet-node {
+      position:absolute; width:84px; height:84px; border-radius:50%; border:1px solid rgba(210,172,95,0.36); background:rgba(6,6,12,0.92);
+      color:var(--text-primary); display:grid; place-items:center; text-align:center; padding:10px; cursor:pointer; transition:transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+    .facet-node:hover, .facet-node.active { transform:scale(1.07); background:rgba(210,172,95,0.12); border-color:rgba(210,172,95,0.72); }
+    .facet-node span { font-family:"JetBrains Mono",monospace; color:var(--mirror-gold); font-size:0.65rem; font-weight:800; letter-spacing:0.09em; }
+    .facet-node[data-facet="talk"] { left:4%; top:2%; }
+    .facet-node[data-facet="map"] { right:4%; top:2%; }
+    .facet-node[data-facet="capture"] { left:4%; bottom:2%; }
+    .facet-node[data-facet="ritual"] { right:4%; bottom:2%; }
+    .facet-panel { min-height:280px; border:1px solid rgba(210,172,95,0.16); border-radius:20px; padding:24px; background:rgba(6,6,12,0.32); }
+    .facet-panel span { font-family:"JetBrains Mono",monospace; color:var(--mirror-gold); font-size:0.68rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; }
+    .facet-panel h3 { margin:12px 0 10px; font-size:1.35rem; }
+    .facet-panel p { color:var(--text-secondary); line-height:1.7; }
+
+    .workflow { margin-top:34px; position:relative; padding-left:42px; }
+    .workflow::before { content:""; position:absolute; left:18px; top:0; bottom:0; width:2px; background:linear-gradient(180deg, rgba(210,172,95,0.65), rgba(155,89,245,0.2)); }
+    .workflow-step { position:relative; margin-bottom:32px; border:1px solid rgba(240,238,246,0.08); background:rgba(15,15,30,0.52); border-radius:18px; padding:20px; }
+    .workflow-step:last-child { margin-bottom:0; }
+    .workflow-dot { position:absolute; left:-42px; top:18px; width:38px; height:38px; border-radius:50%; background:#06060c; border:2px solid var(--mirror-gold); display:grid; place-items:center; color:var(--mirror-gold); font-family:"JetBrains Mono",monospace; font-size:0.72rem; font-weight:800; }
+    .workflow-step h3 { font-size:1.05rem; margin-bottom:6px; }
+    .workflow-step p { color:var(--text-secondary); line-height:1.62; font-size:0.92rem; }
+
+    .archetype-grid { margin-top:34px; display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+    .archetype-card { border:1px solid rgba(240,238,246,0.08); background:rgba(15,15,30,0.58); border-radius:18px; padding:18px; cursor:pointer; transition:transform .2s ease, border-color .2s ease, background .2s ease; }
+    .archetype-card:hover, .archetype-card.open { transform:translateY(-3px); border-color:rgba(210,172,95,0.38); background:rgba(210,172,95,0.075); }
+    .archetype-card span { color:var(--mirror-gold); font-family:"JetBrains Mono",monospace; font-size:0.66rem; font-weight:800; letter-spacing:0.10em; text-transform:uppercase; }
+    .archetype-card h3 { margin:9px 0 8px; font-size:1.03rem; }
+    .archetype-card p { color:var(--text-secondary); font-size:0.86rem; line-height:1.55; }
+    .archetype-extra { display:none; margin-top:14px; padding-top:14px; border-top:1px solid rgba(210,172,95,0.14); color:var(--text-muted); font-size:0.82rem; line-height:1.55; }
+    .archetype-card.open .archetype-extra { display:block; }
+
+    .chart-grid { margin-top:34px; display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+    .chart-panel { border:1px solid rgba(240,238,246,0.08); background:rgba(15,15,30,0.58); border-radius:22px; padding:24px; }
+    .chart-panel h3 { font-size:1.08rem; margin-bottom:6px; }
+    .chart-panel p { color:var(--text-muted); font-size:0.82rem; margin-bottom:16px; }
+    .chart-box { position:relative; width:100%; height:318px; }
+
+    .tx-cta { text-align:center; padding:64px 40px; border:1px solid rgba(210,172,95,0.18); background:rgba(15,15,30,0.58); border-radius:28px; margin-top:80px; }
+    .tx-cta h2 { font-size:1.68rem; margin-bottom:12px; }
+    .tx-cta p { color:var(--text-secondary); max-width:560px; margin:0 auto 28px; line-height:1.7; }
+
+    @media (max-width: 940px) {
+      .visual-board, .visual-stage, .facet-map, .chart-grid { grid-template-columns:1fr; }
+      .archetype-grid { grid-template-columns:1fr 1fr; }
+      .visual-stage { min-height:auto; }
+      .tx-hero h1 { font-size:3.45rem; }
+    }
+    @media (max-width: 640px) {
+      .tx-hero { padding:132px 0 58px; }
+      .tx-hero h1 { font-size:2.44rem; line-height:1.05; }
+      .tx-title-desktop { display:none; }
+      .tx-title-mobile { display:inline; }
+      .tx-hero-meta { flex-direction:column; align-items:center; gap:8px; padding:0 10px; }
+      .mirror-hero-card { width:min(360px, calc(100vw - 32px)); min-height:510px; padding:34px 20px 24px; }
+      .mirror-title-card h2 { font-size:2.85rem; }
+      .phone-heading { font-size:2rem; }
+      .facet-diagram { min-height:360px; }
+      .facet-node { width:72px; height:72px; }
+      .archetype-grid { grid-template-columns:1fr; }
+      .tx-section { padding:58px 0; }
+      .tx-section-head { align-items:flex-start; }
+      .tx-section h2 { font-size:1.55rem; }
+    }
+  </style>
+</head>
+<body class="tx-page">
+
+  <nav id="nav" class="scrolled">
+    <a href="/" class="nav-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="/#organisms">Organisms</a>
+      <a href="/#architecture">Architecture</a>
+      <a href="/#philosophy">Philosophy</a>
+      <a href="/transmissions/" class="active">Transmissions</a>
+    </div>
+    <div class="nav-actions"><a href="/#cta" class="nav-cta">Get in Touch</a></div>
+  </nav>
+
+  <main>
+    <section class="tx-hero">
+      <div class="container">
+        <div class="tx-kicker">Transmission 024</div>
+        <h1><span class="tx-title-desktop">The Mirror<br />Found Its Form</span><span class="tx-title-mobile">The Mirror<br />Found<br />Its Form</span></h1>
+        <p class="tx-hero-sub">Infinity Mirror is not becoming another wellness dashboard. The remix gives it a visual grammar: a dark field, a gold signal, and a mirror that changes when the user speaks.</p>
+        <div class="tx-hero-meta"><span>May 2026</span><span>Design Organism</span><span>Interactive Transmission</span></div>
+
+        <div class="mirror-hero-card" aria-label="Infinity Mirror visual card">
+          <div class="mirror-card-inner">
+            <div class="mirror-mark" aria-hidden="true">
+              <span class="mirror-loop left"></span>
+              <span class="mirror-spine"></span>
+              <span class="mirror-loop right"></span>
+            </div>
+            <div class="mirror-title-card">
+              <span>Broken Mirror</span>
+              <h2>Mirror<br />Chamber</h2>
+              <p>Bring one raw signal into the mirror. The surface changes because the user was honest inside it.</p>
+            </div>
+            <div class="mirror-actions" aria-hidden="true">
+              <div class="mirror-action-primary">Begin Reflection</div>
+              <div class="mirror-action-row"><span>Speak Freely</span><span>Signal Map</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <section class="tx-section" id="signal">
+        <div class="tx-section-head"><span class="tx-section-num">01</span><h2>Not a Dashboard</h2></div>
+        <div class="tx-section-label">The surface replaced the feature list</div>
+        <div class="tx-prose">
+          <p>Most wellness software asks the user to report themselves. Mood. Habit. Journal. Progress. Category. That posture can turn emotional work into administration.</p>
+          <p>Infinity Mirror has to refuse that posture. The mirror should not begin by making the user explain themselves. It should begin by giving them a surface.</p>
+        </div>
+
+        <div class="visual-board">
+          <div class="visual-tabs" id="visual-tabs"></div>
+          <div class="visual-stage" id="visual-stage"></div>
+        </div>
+      </section>
+
+      <section class="tx-section" id="facets">
+        <div class="tx-section-head"><span class="tx-section-num">02</span><h2>Four Ways to Touch One Object</h2></div>
+        <div class="tx-section-label">Talk, capture, map, ritual</div>
+        <div class="tx-prose">
+          <p>The best decision in the remix is that the mirror stays central. These are not tabs competing for attention. They are facets on the same object.</p>
+        </div>
+
+        <div class="facet-map">
+          <div class="facet-diagram" aria-label="Mirror facet map">
+            <div class="facet-core">
+              <button class="facet-node active" data-facet="talk" type="button"><span>Talk</span></button>
+              <button class="facet-node" data-facet="map" type="button"><span>Map</span></button>
+              <div class="facet-center"><span>Mirror</span><strong>Surface</strong></div>
+              <button class="facet-node" data-facet="capture" type="button"><span>Capture</span></button>
+              <button class="facet-node" data-facet="ritual" type="button"><span>Ritual</span></button>
+            </div>
+          </div>
+          <div class="facet-panel" id="facet-panel"></div>
+        </div>
+      </section>
+
+      <section class="tx-section" id="consequence">
+        <div class="tx-section-head"><span class="tx-section-num">03</span><h2>The Surface Changed</h2></div>
+        <div class="tx-section-label">Visual workflow of consequence</div>
+        <div class="tx-prose">
+          <p>The product is not the chat. The product is the change in the mirror after the user speaks. The visual system has to make that consequence legible without making it loud.</p>
+        </div>
+
+        <div class="workflow">
+          <div class="workflow-step"><div class="workflow-dot">01</div><h3>Signal enters</h3><p>The user gives the mirror one honest sentence before it becomes performance.</p></div>
+          <div class="workflow-step"><div class="workflow-dot">02</div><h3>Pattern wakes</h3><p>The mirror checks for recurrence, emotional weather, belief loops, and prior surface marks.</p></div>
+          <div class="workflow-step"><div class="workflow-dot">03</div><h3>Surface marks</h3><p>A gold seam, root, phrase, map point, or felt-word appears. The system shows that something changed.</p></div>
+          <div class="workflow-step"><div class="workflow-dot">04</div><h3>Artifact returns</h3><p>The response becomes something the user can accept, refuse, save, or ritualize.</p></div>
+        </div>
+      </section>
+
+      <section class="tx-section" id="languages">
+        <div class="tx-section-head"><span class="tx-section-num">04</span><h2>The Mirror Has Different Languages</h2></div>
+        <div class="tx-section-label">Click each archetype</div>
+        <div class="tx-prose">
+          <p>The remix points toward personalized perception, not just personalized content. The system should meet the human in the shape they can receive.</p>
+        </div>
+        <div class="archetype-grid" id="archetype-grid"></div>
+      </section>
+
+      <section class="tx-section" id="shape">
+        <div class="tx-section-head"><span class="tx-section-num">05</span><h2>The Form Matches the Work</h2></div>
+        <div class="tx-section-label">Visual balance of the new product grammar</div>
+        <div class="tx-prose">
+          <p>This is why the design matters. Not because it looks premium. Not because it looks mystical. Because the form finally matches the work.</p>
+        </div>
+
+        <div class="chart-grid">
+          <div class="chart-panel">
+            <h3>Interface Gravity</h3>
+            <p>From feature management toward mirror consequence.</p>
+            <div class="chart-box"><canvas id="gravityChart"></canvas></div>
+          </div>
+          <div class="chart-panel">
+            <h3>Trust Membrane</h3>
+            <p>What the remix protects before analysis begins.</p>
+            <div class="chart-box"><canvas id="trustChart"></canvas></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tx-section" id="rule">
+        <div class="tx-section-head"><span class="tx-section-num">06</span><h2>Build From the Form</h2></div>
+        <div class="tx-section-label">The design gate</div>
+        <div class="tx-prose">
+          <p>The next design agent should not implement everything at once. It should protect the form.</p>
+          <p>Every screen should answer one question:</p>
+        </div>
+        <div class="tx-quote">What did your signal change in the mirror?</div>
+        <div class="tx-prose">
+          <p>If the screen cannot answer that, it does not belong yet.</p>
+        </div>
+      </section>
+
+      <div class="tx-cta">
+        <h2>Not a wellness dashboard.</h2>
+        <p>Not another chat wrapper. Not a mood tracker wearing gold. A mirror for becoming.</p>
+        <a class="btn btn-primary btn-lg" href="/transmissions/"><span>All Transmissions</span><span class="btn-arrow">→</span></a>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer" style="margin-top:80px;">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="nav-glyph">∞</span>
+          <span class="nav-name">unwind<span class="nav-accent">code</span></span>
+          <p class="footer-desc">Intelligence that evolves.<br />Growing organisms since 2026.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Organisms</h5>
+          <a href="/#organisms">Visual Cortex</a>
+          <a href="/#organisms">Infinity Mirror</a>
+          <a href="/#organisms">Financial Organisms</a>
+          <a href="/#organisms">Brain Cell Architecture</a>
+        </div>
+        <div class="footer-col">
+          <h5>Learn</h5>
+          <a href="/#architecture">Architecture</a>
+          <a href="/#philosophy">Philosophy</a>
+          <a href="/#vision">Vision 2030</a>
+        </div>
+        <div class="footer-col">
+          <h5>Community</h5>
+          <a href="/#cta">Join Updates</a>
+          <a href="/transmissions/">Transmissions</a>
+          <a href="/#cta">Talk to the Brain</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Unwind Code. All rights reserved.</span>
+        <span class="footer-tagline">The future learns from itself. ∞</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('nav-toggle');
+    const links = document.getElementById('nav-links');
+    if (toggle && links) {
+      toggle.addEventListener('click', () => {
+        toggle.classList.toggle('active');
+        links.classList.toggle('open');
+      });
+      links.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          toggle.classList.remove('active');
+          links.classList.remove('open');
+        });
+      });
+    }
+
+    const visualCards = [
+      {
+        key: 'chamber',
+        label: '01 / Home',
+        title: 'Mirror Chamber',
+        sub: 'The first surface is not a dashboard. It is a chamber for one honest signal.',
+        heading: 'Mirror Chamber',
+        eyebrow: 'Broken Mirror',
+        copy: 'Bring one raw signal into the mirror. The engine maps emotion, belief, reframe, question, and ritual.',
+        rows: [['surface', 'changed'], ['signal', 'raw'], ['mark', 'gold seam']],
+        chips: ['dark field', 'gold repair', 'low-pressure entry']
+      },
+      {
+        key: 'talk',
+        label: '02 / Just Talk',
+        title: 'Speak Freely',
+        sub: 'No tagging. No artifact. No forced insight. The mirror receives before it processes.',
+        heading: 'Speak Freely',
+        eyebrow: 'Voice Signal',
+        copy: 'Say the thought without editing it. If the voice route is active, it becomes a saved mirror signal only when the user chooses.',
+        rows: [['mode', 'permission'], ['analysis', 'paused'], ['state', 'listening']],
+        chips: ['restraint', 'consent', 'quiet reception']
+      },
+      {
+        key: 'map',
+        label: '03 / Memory',
+        title: 'Signal Map',
+        sub: 'The map shows recurrence without making memory feel like surveillance.',
+        heading: 'Signal Map',
+        eyebrow: 'Emotional Cartography',
+        copy: 'A memory map of emotional paths, repeated beliefs, and mirror clarity over time.',
+        rows: [['path', 'returns'], ['belief', 'visible'], ['root', 'deepening']],
+        chips: ['cartography', 'recurrence', 'continuity']
+      },
+      {
+        key: 'ritual',
+        label: '04 / Body',
+        title: 'Ritual Surface',
+        sub: 'Some signals need breath before language. The interface should know that.',
+        heading: 'Ritual',
+        eyebrow: 'Embodied Mirror',
+        copy: 'The body gets a route when analysis would only tighten the loop. Temperature, timing, breath, felt word.',
+        rows: [['word', 'tender'], ['tempo', 'slower'], ['field', 'warmer']],
+        chips: ['felt sense', 'breath', 'before explanation']
+      }
+    ];
+
+    const visualTabs = document.getElementById('visual-tabs');
+    const visualStage = document.getElementById('visual-stage');
+    let activeVisual = null;
+    function renderVisual(card) {
+      visualStage.innerHTML = `
+        <div class="phone-preview">
+          <div class="phone-content">
+            <div class="phone-eyebrow">${card.eyebrow}</div>
+            <h3 class="phone-heading">${card.heading}</h3>
+            <p class="phone-copy">${card.copy}</p>
+            <div class="mini-mirror" aria-hidden="true">
+              <span class="mirror-loop left"></span>
+              <span class="mirror-spine"></span>
+              <span class="mirror-loop right"></span>
+            </div>
+            <div class="phone-signal">
+              ${card.rows.map(row => `<div class="signal-row"><span>${row[0]}</span><strong>${row[1]}</strong></div>`).join('')}
+            </div>
+          </div>
+        </div>
+        <div class="stage-copy">
+          <h3>${card.title}</h3>
+          <p>${card.sub}</p>
+          <p>The visual card is not a literal app implementation. It is the transmission's compressed design signal: what the screen has to make legible in public.</p>
+          <div class="stage-chip-row">${card.chips.map(chip => `<span class="stage-chip">${chip}</span>`).join('')}</div>
+        </div>
+      `;
+    }
+    visualCards.forEach(card => {
+      const button = document.createElement('button');
+      button.className = 'visual-tab';
+      button.type = 'button';
+      button.innerHTML = `<span>${card.label}</span><strong>${card.title}</strong><small>${card.sub}</small>`;
+      button.addEventListener('click', () => {
+        if (activeVisual) activeVisual.classList.remove('active');
+        button.classList.add('active');
+        activeVisual = button;
+        renderVisual(card);
+      });
+      visualTabs.appendChild(button);
+    });
+    visualTabs.querySelector('button').click();
+
+    const facets = {
+      talk: ['Talk', 'Pressure-release valve. No tagging, no artifact, no forced insight. The mirror receives before it converts the signal into work.'],
+      capture: ['Capture', 'The raw intake route. The user can bring a sentence, voice, or fragment without having to make it coherent first.'],
+      map: ['Map', 'The continuity layer. Repeated beliefs, emotional paths, and old phrases become visible without turning memory into surveillance.'],
+      ritual: ['Ritual', 'The embodied route. Breath, temperature, pacing, and felt words come before explanation when explanation would tighten the loop.']
+    };
+    const facetPanel = document.getElementById('facet-panel');
+    document.querySelectorAll('.facet-node').forEach(node => {
+      node.addEventListener('click', () => {
+        document.querySelectorAll('.facet-node').forEach(n => n.classList.remove('active'));
+        node.classList.add('active');
+        const data = facets[node.dataset.facet];
+        facetPanel.innerHTML = `<span>${node.dataset.facet}</span><h3>${data[0]}</h3><p>${data[1]}</p>`;
+      });
+    });
+    document.querySelector('.facet-node.active').click();
+
+    const archetypes = [
+      ['Architect', 'Pattern, signal, readout, cause and effect.', 'For users who regulate through structure. The mirror shows what repeated, what moved, and what action follows.'],
+      ['Cartographer', 'Memory as landscape. Beliefs become paths.', 'For users who need terrain. The mirror makes recurrence spatial and lets the user see where they have been.'],
+      ['Translator', 'One line that names the thing gently enough to approach.', 'For users who need language. The mirror converts the raw signal into a sentence that can be answered.'],
+      ['Ritualist', 'Breath, warmth, color, timing, felt sense before explanation.', 'For users who need the body first. The mirror slows the nervous system before asking for clarity.']
+    ];
+    const archetypeGrid = document.getElementById('archetype-grid');
+    archetypes.forEach((item, i) => {
+      const card = document.createElement('div');
+      card.className = 'archetype-card';
+      card.innerHTML = `<span>0${i + 1} / Archetype</span><h3>${item[0]}</h3><p>${item[1]}</p><div class="archetype-extra">${item[2]}</div>`;
+      card.addEventListener('click', () => card.classList.toggle('open'));
+      archetypeGrid.appendChild(card);
+    });
+
+    const chartColors = {
+      accent: 'rgba(155,89,245,1)',
+      accentFill: 'rgba(155,89,245,0.15)',
+      hot: 'rgba(192,132,252,1)',
+      teal: 'rgba(63,128,126,0.86)',
+      gold: 'rgba(210,172,95,1)',
+      goldFill: 'rgba(210,172,95,0.16)',
+      grid: 'rgba(240,238,246,0.08)',
+      text: 'rgba(240,238,246,0.45)'
+    };
+    const commonOptions = {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { color: chartColors.text, font: { family: 'Inter' } } },
+        tooltip: { backgroundColor: 'rgba(15,15,30,0.95)', padding: 10, cornerRadius: 8 }
+      }
+    };
+    new Chart(document.getElementById('gravityChart'), {
+      type: 'radar',
+      data: {
+        labels: ['Surface', 'Memory', 'Ritual', 'Language', 'Map', 'Consent'],
+        datasets: [
+          { label: 'Dashboard Logic', data: [2, 4, 2, 6, 4, 3], borderColor: chartColors.accent, backgroundColor: chartColors.accentFill, pointBackgroundColor: chartColors.accent, borderWidth: 2 },
+          { label: 'Mirror Logic', data: [9, 8, 7, 8, 8, 9], borderColor: chartColors.gold, backgroundColor: chartColors.goldFill, pointBackgroundColor: chartColors.gold, borderWidth: 2 }
+        ]
+      },
+      options: { ...commonOptions, scales: { r: { angleLines: { color: chartColors.grid }, grid: { color: chartColors.grid }, pointLabels: { color: chartColors.text, font: { family: 'Inter', size: 11 } }, ticks: { display: false, min: 0, max: 10 } } } }
+    });
+    new Chart(document.getElementById('trustChart'), {
+      type: 'bar',
+      data: {
+        labels: ['No forced insight', 'Consent to save', 'Quiet mode', 'Visible change', 'Private memory'],
+        datasets: [{ label: 'Trust Weight', data: [9, 8, 8.5, 9.2, 8.8], backgroundColor: [chartColors.gold, chartColors.teal, chartColors.hot, chartColors.gold, chartColors.accent], borderRadius: 8 }]
+      },
+      options: { ...commonOptions, scales: { x: { grid: { display: false }, ticks: { color: chartColors.text } }, y: { beginAtZero: true, max: 10, grid: { color: chartColors.grid }, ticks: { color: chartColors.text } } } }
+    });
+  });
+  </script>
+</body>
+</html>
