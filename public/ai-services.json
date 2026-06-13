@@ -323,12 +323,8 @@
       "source_routes": [
         "/transmissions/24-the-mirror-found-its-form.html",
         "/transmissions/26-property-sales-intelligence-cell.html",
-        "/social/transmission-26-property-sales-intelligence-cell-carousel/carousel.html",
-        "/social/transmission-24-mirror-carousel/carousel.html",
         "/transmissions/27-the-site-became-a-public-index.html",
-        "/social/transmission-27-site-public-index-carousel/carousel.html",
-        "/transmissions/28-the-memory-control-plane.html",
-        "/social/transmission-28-memory-control-plane-carousel/carousel.html"
+        "/transmissions/28-the-memory-control-plane.html"
       ],
       "source_files": [
         "api/assets.js",
@@ -358,28 +354,12 @@
           "route": "/transmissions/26-property-sales-intelligence-cell.html"
         },
         {
-          "label": "Transmission 26 social carousel",
-          "route": "/social/transmission-26-property-sales-intelligence-cell-carousel/carousel.html"
-        },
-        {
-          "label": "Transmission 24 Mirror Carousel source carousel",
-          "route": "/social/transmission-24-mirror-carousel/carousel.html"
-        },
-        {
-          "label": "Transmission 27 Site Public Index Carousel",
+          "label": "Transmission 27 Public Index Protocol guide",
           "route": "/transmissions/27-the-site-became-a-public-index.html"
         },
         {
-          "label": "Transmission 27 Site Public Index Carousel source carousel",
-          "route": "/social/transmission-27-site-public-index-carousel/carousel.html"
-        },
-        {
-          "label": "Transmission 28 Memory Control Plane Carousel",
+          "label": "Transmission 28 Memory Control Plane guide",
           "route": "/transmissions/28-the-memory-control-plane.html"
-        },
-        {
-          "label": "Transmission 28 Memory Control Plane Carousel source carousel",
-          "route": "/social/transmission-28-memory-control-plane-carousel/carousel.html"
         }
       ],
       "review_status": "public_safe"
@@ -530,7 +510,7 @@
           "route": "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html"
         },
         {
-          "label": "Transmission 27 public index",
+          "label": "Transmission 27 public index protocol",
           "route": "/transmissions/27-the-site-became-a-public-index.html"
         },
         {

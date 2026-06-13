@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
-import { cpSync, existsSync, readdirSync, rmSync } from 'fs';
+import { readdirSync } from 'fs';
 import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -17,26 +17,8 @@ try {
     });
 } catch { /* transmissions dir may not exist in CI */ }
 
-function copySocialPacketsToDist() {
-  return {
-    name: 'copy-social-packets-to-dist',
-    apply: 'build',
-    closeBundle() {
-      const sourceDir = resolve(__dirname, 'social');
-      const targetDir = resolve(__dirname, 'dist/social');
-
-      if (!existsSync(sourceDir)) {
-        return;
-      }
-
-      rmSync(targetDir, { recursive: true, force: true });
-      cpSync(sourceDir, targetDir, { recursive: true });
-    },
-  };
-}
-
 export default defineConfig({
-  plugins: [copySocialPacketsToDist()],
+  plugins: [],
   build: {
     rollupOptions: {
       input: {

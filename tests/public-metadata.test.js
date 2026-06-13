@@ -5,22 +5,6 @@ import test from 'node:test';
 const CANONICAL_ORIGIN = 'https://www.unwindcode.ai';
 const PROPERTY_SALES_ROUTE = '/transmissions/26-property-sales-intelligence-cell.html';
 const LEGACY_PROPERTY_SALES_ROUTE = '/transmissions/26-the-property-sales-intelligence-cell.html';
-const PUBLIC_SITEMAP_PACKET_PATHS = [
-  '/social/transmission-26-property-sales-intelligence-cell-carousel/carousel.html',
-  '/social/transmission-27-site-public-index-carousel/carousel.html',
-  '/social/transmission-28-memory-control-plane-carousel/carousel.html',
-];
-const PUBLIC_LLMS_PACKET_PATHS = [
-  '/social/transmission-26-property-sales-intelligence-cell-carousel/carousel.html',
-  '/social/transmission-26-property-sales-intelligence-cell-carousel/downloads/transmission-26-property-sales-intelligence-cell-carousel.zip',
-  '/social/transmission-26-property-sales-intelligence-cell-carousel/caption.md',
-  '/social/transmission-27-site-public-index-carousel/carousel.html',
-  '/social/transmission-27-site-public-index-carousel/downloads/transmission-27-site-public-index-carousel.zip',
-  '/social/transmission-27-site-public-index-carousel/caption.md',
-  '/social/transmission-28-memory-control-plane-carousel/carousel.html',
-  '/social/transmission-28-memory-control-plane-carousel/downloads/transmission-28-memory-control-plane-carousel.zip',
-  '/social/transmission-28-memory-control-plane-carousel/caption.md',
-];
 
 async function activeRoutePaths() {
   const transmissionFiles = (await readdir(new URL('../transmissions/', import.meta.url)))
@@ -44,10 +28,7 @@ function extractHttpsUrls(source) {
 
 test('public sitemap lists only active source routes', async () => {
   const sitemap = await publicFile('sitemap.xml');
-  const expectedUrls = [
-    ...(await activeRoutePaths()),
-    ...PUBLIC_SITEMAP_PACKET_PATHS,
-  ].map((path) => `${CANONICAL_ORIGIN}${path}`);
+  const expectedUrls = (await activeRoutePaths()).map((path) => `${CANONICAL_ORIGIN}${path}`);
   const actualUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
 
   assert.deepEqual(actualUrls, expectedUrls);
@@ -68,10 +49,7 @@ test('robots file exposes sitemap and keeps crawlers on public routes', async ()
 
 test('llms file is public-safe and anchored to live routes', async () => {
   const llms = await publicFile('llms.txt');
-  const allowedUrls = new Set([
-    ...(await activeRoutePaths()),
-    ...PUBLIC_LLMS_PACKET_PATHS,
-  ].map((path) => `${CANONICAL_ORIGIN}${path}`));
+  const allowedUrls = new Set((await activeRoutePaths()).map((path) => `${CANONICAL_ORIGIN}${path}`));
 
   assert.match(llms, /UnwindCode\.ai/);
   assert.match(llms, /Public RAG Seed Routes/);
@@ -95,9 +73,6 @@ test('property sales intelligence public metadata follows the live canonical rou
   const publicMetadata = `${sitemap}\n${llms}`;
 
   assert.match(publicMetadata, new RegExp(`${CANONICAL_ORIGIN}${PROPERTY_SALES_ROUTE}`));
-  assert.match(sitemap, new RegExp(`${CANONICAL_ORIGIN}${PUBLIC_SITEMAP_PACKET_PATHS[0]}`));
-  for (const packetPath of PUBLIC_LLMS_PACKET_PATHS.slice(0, 3)) {
-    assert.match(llms, new RegExp(`${CANONICAL_ORIGIN}${packetPath}`));
-  }
+  assert.equal(publicMetadata.includes(`${CANONICAL_ORIGIN}/social/`), false);
   assert.equal(publicMetadata.includes(`${CANONICAL_ORIGIN}${LEGACY_PROPERTY_SALES_ROUTE}`), false);
 });

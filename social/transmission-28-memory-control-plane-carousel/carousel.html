@@ -6,17 +6,19 @@
   <title>Transmission 28 Memory Control Plane Carousel</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&family=JetBrains+Mono:wght@600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
       --void: #05060a;
+      --panel: rgba(12, 14, 20, 0.82);
       --ink: #f6f2ea;
-      --muted: rgba(246, 242, 234, 0.68);
+      --muted: rgba(246, 242, 234, 0.66);
+      --faint: rgba(246, 242, 234, 0.14);
       --amber: #d2ac5f;
       --teal: #65b7ad;
       --rose: #d66f7f;
       --steel: #89a4c2;
-      --line: rgba(246, 242, 234, 0.16);
+      --green: #8abf91;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body {
@@ -35,21 +37,20 @@
       height: 1080px;
       overflow: hidden;
       grid-template-rows: auto 1fr auto;
-      padding: 72px;
+      padding: 70px;
       background:
-        linear-gradient(145deg, rgba(210, 172, 95, 0.17), transparent 32%),
-        linear-gradient(32deg, transparent 0 54%, rgba(101, 183, 173, 0.15) 55%, transparent 69%),
-        radial-gradient(circle at 78% 22%, rgba(214, 111, 127, 0.14), transparent 30%),
-        linear-gradient(160deg, #111217 0%, #05060a 64%, #010103 100%);
+        linear-gradient(144deg, rgba(210, 172, 95, 0.18), transparent 31%),
+        linear-gradient(38deg, transparent 0 52%, rgba(101, 183, 173, 0.16) 53%, transparent 68%),
+        linear-gradient(170deg, #14161d 0%, #07080d 58%, #020204 100%);
     }
     .slide:target { display: grid; }
     body:not(:has(.slide:target)) #slide-1 { display: grid; }
     .slide::before {
       content: "";
       position: absolute;
-      inset: 46px;
-      border: 1px solid rgba(210, 172, 95, 0.28);
-      border-radius: 36px;
+      inset: 44px;
+      border: 1px solid rgba(246, 242, 234, 0.14);
+      border-radius: 34px;
       pointer-events: none;
     }
     .slide::after {
@@ -57,10 +58,10 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(210,172,95,0.13) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(101,183,173,0.12) 1px, transparent 1px);
+        linear-gradient(rgba(210,172,95,0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(101,183,173,0.1) 1px, transparent 1px);
       background-size: 60px 60px;
-      opacity: 0.42;
+      mask-image: linear-gradient(140deg, rgba(0,0,0,0.85), rgba(0,0,0,0.1));
       pointer-events: none;
     }
     .top, .content, .bottom { position: relative; z-index: 2; }
@@ -71,90 +72,212 @@
       color: var(--teal);
       font-family: "JetBrains Mono", monospace;
       font-size: 18px;
-      font-weight: 700;
+      font-weight: 800;
       text-transform: uppercase;
     }
-    .content { display: grid; align-content: center; gap: 32px; max-width: 900px; }
-    h1 { max-width: 850px; font-size: 84px; line-height: 0.96; font-weight: 900; letter-spacing: 0; }
-    h2 { max-width: 880px; font-size: 70px; line-height: 1.02; font-weight: 900; letter-spacing: 0; }
-    p { max-width: 850px; color: var(--muted); font-size: 36px; line-height: 1.25; font-weight: 600; }
+    .content { display: grid; align-content: center; gap: 30px; }
+    h1 { max-width: 880px; font-size: 88px; line-height: 0.95; font-weight: 900; letter-spacing: 0; }
+    h2 { max-width: 900px; font-size: 70px; line-height: 1.02; font-weight: 900; letter-spacing: 0; }
+    p { max-width: 850px; color: var(--muted); font-size: 34px; line-height: 1.26; font-weight: 650; }
     .amber { color: var(--amber); }
     .teal { color: var(--teal); }
     .rose { color: var(--rose); }
-    .console {
-      border: 1px solid var(--line);
-      border-radius: 30px;
-      padding: 28px;
-      background: rgba(12, 13, 18, 0.8);
+    .steel { color: var(--steel); }
+    .bottom { color: rgba(246, 242, 234, 0.52); font-family: "JetBrains Mono", monospace; font-size: 17px; font-weight: 800; }
+    .stamp {
+      display: inline-flex;
+      width: max-content;
+      border: 1px solid rgba(210, 172, 95, 0.36);
+      border-radius: 999px;
+      padding: 12px 16px;
+      color: var(--amber);
+      background: rgba(210, 172, 95, 0.08);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 18px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .plane {
       display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
       max-width: 900px;
     }
-    .row {
-      display: grid;
-      grid-template-columns: 230px 1fr;
-      gap: 22px;
-      border-bottom: 1px solid rgba(246, 242, 234, 0.1);
-      padding-bottom: 18px;
-    }
-    .row:last-child { border-bottom: 0; padding-bottom: 0; }
-    .row strong { color: var(--amber); font-family: "JetBrains Mono", monospace; font-size: 24px; }
-    .row span { color: var(--muted); font-size: 25px; line-height: 1.25; }
-    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-    .cell {
-      min-height: 156px;
-      border: 1px solid var(--line);
+    .node, .law, .step, .proof {
+      border: 1px solid var(--faint);
       border-radius: 26px;
-      padding: 24px;
-      background: rgba(12, 13, 18, 0.78);
+      background: var(--panel);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.18);
     }
-    .cell strong { display: block; margin-bottom: 10px; font-size: 28px; line-height: 1.08; }
-    .cell span { display: block; color: var(--muted); font-size: 22px; line-height: 1.3; }
-    .bottom { color: rgba(246, 242, 234, 0.52); font-family: "JetBrains Mono", monospace; font-size: 17px; font-weight: 700; }
+    .node { min-height: 168px; padding: 24px; }
+    .node strong, .law strong, .step strong, .proof strong {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--ink);
+      font-size: 28px;
+      line-height: 1.08;
+      font-weight: 900;
+    }
+    .node span, .law span, .step span, .proof span {
+      display: block;
+      color: var(--muted);
+      font-size: 22px;
+      line-height: 1.28;
+      font-weight: 650;
+    }
+    .node i {
+      display: inline-grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 14px;
+      border-radius: 50%;
+      color: var(--void);
+      background: var(--amber);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 900;
+    }
+    .risk-grid, .law-grid, .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      max-width: 900px;
+    }
+    .risk {
+      min-height: 182px;
+      border: 1px solid rgba(214, 111, 127, 0.22);
+      border-radius: 28px;
+      padding: 26px;
+      background: rgba(18, 11, 15, 0.74);
+    }
+    .risk strong { display: block; margin-bottom: 12px; color: var(--rose); font-size: 30px; font-weight: 900; }
+    .risk span { color: var(--muted); font-size: 24px; line-height: 1.28; font-weight: 650; }
+    .law { min-height: 150px; padding: 24px; }
+    .law strong { color: var(--amber); font-family: "JetBrains Mono", monospace; font-size: 22px; text-transform: uppercase; }
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 930px;
+      align-items: stretch;
+    }
+    .step { min-height: 214px; padding: 22px; }
+    .step em {
+      display: block;
+      margin-bottom: 18px;
+      color: var(--teal);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 900;
+    }
+    .step strong { font-size: 25px; }
+    .step span { font-size: 20px; }
+    .proof { min-height: 170px; padding: 26px; }
+    .proof strong { color: var(--green); }
+    .proof.blocked strong { color: var(--rose); }
+    .rings {
+      position: absolute;
+      right: 72px;
+      top: 170px;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      border: 1px solid rgba(101, 183, 173, 0.24);
+      opacity: 0.78;
+    }
+    .rings::before, .rings::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(210, 172, 95, 0.22);
+    }
+    .rings::before { inset: 54px; }
+    .rings::after { inset: 112px; background: rgba(210, 172, 95, 0.12); }
   </style>
 </head>
 <body>
   <section class="slide" id="slide-1">
+    <div class="rings"></div>
     <div class="top"><div class="brand"><span>∞</span>unwind<b>code</b></div><div class="kicker">Transmission 28</div></div>
     <div class="content">
-      <h1>Memory became a <span class="amber">control plane</span>.</h1>
-      <p>The local Brain work turns recall into typed records, health checks, queues, triage, and reviewed repair.</p>
+      <span class="stamp">Whitepaper-grade Brain guide</span>
+      <h1>Memory is now a <span class="amber">control plane</span>.</h1>
+      <p>Durable recall only becomes useful when an operator can inspect pressure, queues, and receipts before memory is trusted or changed.</p>
     </div>
-    <div class="bottom"><span>Memory Infrastructure</span><span>Read the transmission</span></div>
+    <div class="bottom"><span>Memory Infrastructure</span><span>unwindcode.ai</span></div>
   </section>
 
   <section class="slide" id="slide-2">
-    <div class="top"><div class="brand"><span>∞</span>unwind<b>code</b></div><div class="kicker">Operator View</div></div>
+    <div class="top"><div class="brand"><span>∞</span>unwind<b>code</b></div><div class="kicker">Failure Mode</div></div>
     <div class="content">
-      <h2>The operator sees workload, <span class="teal">not private content</span>.</h2>
-      <div class="console">
-        <div class="row"><strong>recent</strong><span>Metadata-only index with unresolved and retention flags.</span></div>
-        <div class="row"><strong>health</strong><span>Aggregate pressure without exposing stored memory text.</span></div>
-        <div class="row"><strong>queues</strong><span>Repair, resolve, and receipt hygiene work sorted for review.</span></div>
+      <h2>Memory without governance becomes <span class="rose">hidden authority</span>.</h2>
+      <div class="risk-grid">
+        <div class="risk"><strong>Stale truth</strong><span>Old context quietly becomes current instruction.</span></div>
+        <div class="risk"><strong>Private exposure</strong><span>Useful inspection collapses into reading the private body.</span></div>
+        <div class="risk"><strong>Silent mutation</strong><span>The system repairs itself before the operator approves the change.</span></div>
+        <div class="risk"><strong>Receipt drift</strong><span>No one can prove what changed, why, or how to roll it back.</span></div>
       </div>
     </div>
-    <div class="bottom"><span>Visibility is not disclosure</span><span>unwindcode.ai</span></div>
+    <div class="bottom"><span>Threat model</span><span>Do not confuse recall with authority</span></div>
   </section>
 
   <section class="slide" id="slide-3">
-    <div class="top"><div class="brand"><span>∞</span>unwind<b>code</b></div><div class="kicker">Lifecycle</div></div>
+    <div class="top"><div class="brand"><span>∞</span>unwind<b>code</b></div><div class="kicker">Anatomy</div></div>
     <div class="content">
-      <h2>Recall, triage, and repair are separate hands.</h2>
-      <div class="grid">
-        <div class="cell"><strong>Write</strong><span>Reviewed memory packets enter with receipts.</span></div>
-        <div class="cell"><strong>Inspect</strong><span>Recent and health views stay content-free.</span></div>
-        <div class="cell"><strong>Triage</strong><span>The next queue is named, not mutated.</span></div>
-        <div class="cell"><strong>Repair</strong><span>Explicit reviewed commands clean provenance.</span></div>
+      <h2>Six surfaces make recall governable.</h2>
+      <div class="plane">
+        <div class="node"><i>01</i><strong>Capture</strong><span>Typed memory with privacy, source, retention, and review posture.</span></div>
+        <div class="node"><i>02</i><strong>Index</strong><span>Metadata-first views without exposing stored memory content.</span></div>
+        <div class="node"><i>03</i><strong>Health</strong><span>Pressure, unresolved records, stale receipts, and retention gaps.</span></div>
+        <div class="node"><i>04</i><strong>Queue</strong><span>Review work is named before anything mutates.</span></div>
+        <div class="node"><i>05</i><strong>Mutation</strong><span>Repairs require reviewed requests and rollback notes.</span></div>
+        <div class="node"><i>06</i><strong>Receipt</strong><span>Every accepted change leaves inspectable provenance.</span></div>
       </div>
     </div>
-    <div class="bottom"><span>Human-gated mutation</span><span>Content stays private</span></div>
+    <div class="bottom"><span>Architecture</span><span>Capture → Receipt</span></div>
   </section>
 
   <section class="slide" id="slide-4">
+    <div class="top"><div class="brand"><span>∞</span>unwind<b>code</b></div><div class="kicker">Operating Laws</div></div>
+    <div class="content">
+      <h2>The laws are intentionally plain.</h2>
+      <div class="law-grid">
+        <div class="law"><strong>Metadata first</strong><span>Show workload before showing memory body.</span></div>
+        <div class="law"><strong>Privacy by default</strong><span>Sensitive content stays excluded unless explicitly reviewed.</span></div>
+        <div class="law"><strong>No mutation without receipt</strong><span>Every accepted change must prove what happened.</span></div>
+        <div class="law"><strong>Old memory is evidence</strong><span>It is not current truth until health and retention checks pass.</span></div>
+      </div>
+    </div>
+    <div class="bottom"><span>Doctrine</span><span>Visibility is not permission</span></div>
+  </section>
+
+  <section class="slide" id="slide-5">
+    <div class="top"><div class="brand"><span>∞</span>unwind<b>code</b></div><div class="kicker">Build Recipe</div></div>
+    <div class="content">
+      <h2>Build memory as an approval path.</h2>
+      <div class="pipeline">
+        <div class="step"><em>01</em><strong>Record</strong><span>Type, privacy, source, confidence, retention.</span></div>
+        <div class="step"><em>02</em><strong>Index</strong><span>Expose metadata-only recent and health views.</span></div>
+        <div class="step"><em>03</em><strong>Queue</strong><span>Route pressure into repair, resolve, retention.</span></div>
+        <div class="step"><em>04</em><strong>Review</strong><span>Prepare mutation packet with rollback note.</span></div>
+        <div class="step"><em>05</em><strong>Receipt</strong><span>Append provenance after approved mutation.</span></div>
+      </div>
+    </div>
+    <div class="bottom"><span>Implementation sketch</span><span>Operator before automation</span></div>
+  </section>
+
+  <section class="slide" id="slide-6">
     <div class="top"><div class="brand"><span>∞</span>unwind<b>code</b></div><div class="kicker">Boundary</div></div>
     <div class="content">
-      <h2>The Brain can show pressure without moving the system by itself.</h2>
-      <p>That is the organism pattern: inspect, recommend, queue, and wait for reviewed authority before mutation.</p>
+      <h2>The Brain can recommend. It cannot quietly rewrite itself.</h2>
+      <div class="proof-grid">
+        <div class="proof"><strong>Can prepare</strong><span>Queue summaries, repair packets, retention previews, and source-backed answer drafts.</span></div>
+        <div class="proof blocked"><strong>Must not do alone</strong><span>Edit memory, expose private content, deploy, spend, post, or treat stale context as truth.</span></div>
+      </div>
+      <p>Read the transmission for the full Memory Control Plane doctrine.</p>
     </div>
     <div class="bottom"><span>Manual posting only</span><span>/transmissions/28-the-memory-control-plane.html</span></div>
   </section>

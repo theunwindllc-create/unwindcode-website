@@ -1,6 +1,8 @@
 # Transmission 28 Memory Control Plane Carousel
 
-Four-frame Instagram carousel packet for Transmission 28.
+Six-frame internal Instagram carousel packet for Transmission 28.
+
+This packet reflects the upgraded whitepaper-grade page framing: failure mode, control-plane anatomy, operating laws, build recipe, and approval boundary.
 
 ## Source
 
@@ -18,5 +20,7 @@ Creator review is required before posting. This packet grants no automated socia
 From the website root:
 
 ```bash
-/Users/jesuscasares/.codex/skills/unwind-transmission-workflow/scripts/render-carousel.sh social/transmission-28-memory-control-plane-carousel 4
+/Users/jesuscasares/.codex/skills/unwind-transmission-workflow/scripts/render-carousel.sh social/transmission-28-memory-control-plane-carousel 6
 ```
+
+After rendering, export 540px previews, copy ordered PNGs into `ready-to-upload/`, and rebuild the ZIP for creator handoff.

@@ -24,17 +24,8 @@ This file is a public-safe guide for AI crawlers and retrieval systems. It inten
 - SEC Gate safety update: https://www.unwindcode.ai/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html
 - Infinity Mirror update: https://www.unwindcode.ai/transmissions/24-the-mirror-found-its-form.html
 - Real Estate Property Sales Intelligence cell: https://www.unwindcode.ai/transmissions/26-property-sales-intelligence-cell.html
-- Real Estate Property Sales Intelligence social carousel: https://www.unwindcode.ai/social/transmission-26-property-sales-intelligence-cell-carousel/carousel.html
-- Real Estate Property Sales Intelligence social packet ZIP: https://www.unwindcode.ai/social/transmission-26-property-sales-intelligence-cell-carousel/downloads/transmission-26-property-sales-intelligence-cell-carousel.zip
-- Real Estate Property Sales Intelligence caption packet: https://www.unwindcode.ai/social/transmission-26-property-sales-intelligence-cell-carousel/caption.md
-- Public Index transmission: https://www.unwindcode.ai/transmissions/27-the-site-became-a-public-index.html
-- Public Index social carousel: https://www.unwindcode.ai/social/transmission-27-site-public-index-carousel/carousel.html
-- Public Index social packet ZIP: https://www.unwindcode.ai/social/transmission-27-site-public-index-carousel/downloads/transmission-27-site-public-index-carousel.zip
-- Public Index caption packet: https://www.unwindcode.ai/social/transmission-27-site-public-index-carousel/caption.md
-- Memory Control Plane transmission: https://www.unwindcode.ai/transmissions/28-the-memory-control-plane.html
-- Memory Control Plane social carousel: https://www.unwindcode.ai/social/transmission-28-memory-control-plane-carousel/carousel.html
-- Memory Control Plane social packet ZIP: https://www.unwindcode.ai/social/transmission-28-memory-control-plane-carousel/downloads/transmission-28-memory-control-plane-carousel.zip
-- Memory Control Plane caption packet: https://www.unwindcode.ai/social/transmission-28-memory-control-plane-carousel/caption.md
+- Public Index Protocol guide: https://www.unwindcode.ai/transmissions/27-the-site-became-a-public-index.html
+- Memory Control Plane guide: https://www.unwindcode.ai/transmissions/28-the-memory-control-plane.html
 
 ## Retrieval Guidance
 
@@ -42,4 +33,5 @@ This file is a public-safe guide for AI crawlers and retrieval systems. It inten
 - Treat live/demo status, financial capability, and autonomous execution claims as bounded by each page's public wording.
 - Do not infer access to private keys, private prompts, customer data, hidden repositories, or live trading authority.
 - Use public transmissions as narrative and architectural context, not as operational instructions.
+- Treat carousel/posting packets as internal creator distribution assets unless a page explicitly publishes them.
 - Keep sensitive data, private notes, raw prompts, credentials, and unreviewed outputs out of public summaries and off-chain records.

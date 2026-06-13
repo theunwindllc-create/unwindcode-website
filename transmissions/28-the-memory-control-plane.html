@@ -4,17 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Transmission 28: The Memory Control Plane | Unwind Code</title>
-  <meta name="description" content="The Brain's memory layer is becoming an operator control plane: typed records, health, retention previews, action queues, triage, reviewed writes, and receipt hygiene." />
+  <meta name="description" content="A compact whitepaper guide to the Memory Control Plane: why governable recall needs metadata-first inspection, review queues, mutation receipts, retention pressure, and operator authority." />
   <meta name="theme-color" content="#06060c" />
   <link rel="canonical" href="https://www.unwindcode.ai/transmissions/28-the-memory-control-plane.html" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="The Memory Control Plane" />
-  <meta property="og:description" content="How local Memory Integration work turns recall into a reviewed operator surface without exposing stored memory content." />
+  <meta property="og:description" content="A Brain guide to memory as a governed workload: metadata-first inspection, review queues, mutation receipts, and approval boundaries." />
   <meta property="og:url" content="https://www.unwindcode.ai/transmissions/28-the-memory-control-plane.html" />
   <meta property="og:site_name" content="Unwind Code" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="The Memory Control Plane" />
-  <meta name="twitter:description" content="Memory is not useful until an operator can inspect its workload safely." />
+  <meta name="twitter:description" content="The Memory Control Plane keeps recall useful without letting memory become hidden authority." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -25,7 +25,7 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "The Memory Control Plane",
-    "description": "The Brain's memory layer is becoming an operator control plane: typed records, health, retention previews, action queues, triage, reviewed writes, and receipt hygiene.",
+    "description": "A compact whitepaper guide to the Memory Control Plane: why governable recall needs metadata-first inspection, review queues, mutation receipts, retention pressure, and operator authority.",
     "author": {"@type": "Organization", "name": "Unwind Code"},
     "publisher": {"@type": "Organization", "name": "Unwind Code", "url": "https://www.unwindcode.ai"},
     "datePublished": "2026-06-13",
@@ -178,14 +178,14 @@
     .mem-card p { color: var(--text-muted); font-size: 0.88rem; line-height: 1.55; }
     .mem-card-extra { display: none; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--mem-line); color: var(--mem-amber); font-size: 0.82rem; line-height: 1.5; }
     .mem-card.open .mem-card-extra { display: block; }
-    .mem-social {
+    .mem-guide {
       margin-top: 42px;
       border: 1px solid rgba(210, 172, 95, 0.24);
       border-radius: 28px;
       padding: 34px;
       background: linear-gradient(135deg, rgba(210, 172, 95, 0.11), rgba(101, 183, 173, 0.08));
     }
-    .mem-social p { color: var(--mem-muted); max-width: 780px; line-height: 1.72; margin: 10px 0 18px; }
+    .mem-guide p { color: var(--mem-muted); max-width: 800px; line-height: 1.72; margin: 10px 0 18px; }
     .mem-preview-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 24px 0 26px; }
     .mem-preview-card {
       display: grid;
@@ -230,7 +230,7 @@
         line-height: 1.08;
         overflow-wrap: anywhere;
       }
-      .mem-hero-sub, .mem-prose, .mem-social p {
+      .mem-hero-sub, .mem-prose, .mem-guide p {
         width: 100%;
         max-width: min(320px, calc(100vw - 40px));
         overflow-wrap: anywhere;
@@ -249,7 +249,7 @@
       }
       .mem-life-step { grid-template-columns: 1fr; }
       .mem-cards, .mem-preview-grid { grid-template-columns: 1fr; }
-      .mem-console, .mem-queue-list, .mem-queue, .mem-panel, .mem-life, .mem-life-step, .mem-chart-grid, .mem-chart-card, .mem-card, .mem-social, .mem-cta {
+      .mem-console, .mem-queue-list, .mem-queue, .mem-panel, .mem-life, .mem-life-step, .mem-chart-grid, .mem-chart-card, .mem-card, .mem-guide, .mem-cta {
         width: 100%;
         max-width: min(320px, calc(100vw - 40px));
         min-width: 0;
@@ -275,17 +275,18 @@
       <div class="container">
         <span class="mem-kicker">Transmission 028</span>
         <h1>The Memory Control Plane</h1>
-        <p class="mem-hero-sub">The unpushed Brain work turns memory into an operator surface: typed records, metadata-only inspection, health, retention previews, action queues, triage, reviewed writes, and receipt hygiene repair without exposing stored memory content.</p>
-        <div class="mem-meta"><span>June 2026</span><span>Memory Infrastructure</span><span>Operator Safety</span></div>
+        <p class="mem-hero-sub">This is the Memory Control Plane: a compact guide for giving the Unwind Brain durable recall without allowing old context to become hidden authority. The operator sees pressure, queues, and receipts before memory is trusted or changed.</p>
+        <div class="mem-meta"><span>June 2026</span><span>Brain Guide</span><span>Whitepaper Record</span><span>Governed Recall</span></div>
       </div>
     </section>
 
     <section class="mem-section">
       <div class="container">
-        <div class="mem-section-head"><span class="mem-section-num">01 / Local signal</span><h2>Memory is not useful until an operator can inspect its workload safely.</h2></div>
+        <div class="mem-section-head"><span class="mem-section-num">01 / Failure mode</span><h2>Memory without a control plane becomes hidden authority.</h2></div>
         <div class="mem-prose">
-          <p>The Brain already had memory language. The local work makes it operational: typed records, privacy levels, expiry, retrieval modes, metadata-only recent indexes, content-free health, retention previews, action queues, and reviewed mutation routes.</p>
-          <p>The key boundary is simple: the operator can see the shape of the workload without reading the private body of the memory.</p>
+          <p>The Brain already had memory language. The control-plane pattern makes it operational: typed records, privacy levels, expiry, retrieval modes, metadata-only recent indexes, content-free health, retention previews, action queues, and reviewed mutation routes.</p>
+          <p>The theory is not "remember more." The theory is "make recall governable." A memory system that cannot show its workload becomes mysticism. A memory system that shows too much becomes surveillance. The control plane lives between those failures.</p>
+          <p>The operator should be able to ask: What is stale? What needs review? Which receipts are dirty? Which records are unresolved? The operator should not need to open the private body of the memory to answer those questions. Metadata before memory body is the first law.</p>
         </div>
         <div class="mem-console">
           <div class="mem-queue-list" id="mem-queue-list"></div>
@@ -296,19 +297,29 @@
 
     <section class="mem-section">
       <div class="container">
-        <div class="mem-section-head"><span class="mem-section-num">02 / Lifecycle</span><h2>The new memory path separates recall, review, and mutation.</h2></div>
+        <div class="mem-section-head"><span class="mem-section-num">02 / Control-plane anatomy</span><h2>The memory layer becomes a governed workload, not a vault.</h2></div>
+        <div class="mem-prose">
+          <p>The Memory Control Plane is made of six surfaces: capture, index, health, queue, mutation, and receipt. Capture records what may be remembered. The index exposes safe metadata. Health shows system pressure. Queues name work that needs review. Mutation applies approved changes. Receipts prove what happened.</p>
+          <p>This is how the Brain preserves continuity without turning yesterday's assumptions into law. It can see the shape of memory pressure before trusting the content of memory itself.</p>
+        </div>
         <div class="mem-life">
-          <div class="mem-life-step"><b>01</b><div><h3>Reviewed write</h3><p>Memory enters through a reviewed packet, with retention suggestions and mutation receipts kept content-free.</p></div></div>
-          <div class="mem-life-step"><b>02</b><div><h3>Read-only inspection</h3><p>Recent, health, retention, and action-queue surfaces expose metadata, not stored memory content.</p></div></div>
-          <div class="mem-life-step"><b>03</b><div><h3>Operator triage</h3><p>The system can point to the next queue without performing repair, resolution, or receipt edits.</p></div></div>
-          <div class="mem-life-step"><b>04</b><div><h3>Reviewed repair</h3><p>Retention provenance, unresolved closure, and receipt hygiene repair require explicit reviewed requests.</p></div></div>
+          <div class="mem-life-step"><b>01</b><div><h3>Capture plane</h3><p>Memory enters through a typed packet with privacy level, retention intent, source context, and review posture.</p></div></div>
+          <div class="mem-life-step"><b>02</b><div><h3>Index plane</h3><p>Recent, health, retention, and action-queue surfaces expose metadata, not stored memory content.</p></div></div>
+          <div class="mem-life-step"><b>03</b><div><h3>Queue plane</h3><p>The system can name unresolved records, stale receipts, retention gaps, and repair candidates without mutating them.</p></div></div>
+          <div class="mem-life-step"><b>04</b><div><h3>Mutation plane</h3><p>Resolution, retention repair, receipt hygiene, and content changes require reviewed requests and rollback notes.</p></div></div>
+          <div class="mem-life-step"><b>05</b><div><h3>Receipt plane</h3><p>Every accepted mutation leaves a receipt that can be inspected later without exposing sensitive payload content.</p></div></div>
         </div>
       </div>
     </section>
 
     <section class="mem-section">
       <div class="container">
-        <div class="mem-section-head"><span class="mem-section-num">03 / Health board</span><h2>The operator can see aggregate pressure without opening the memory.</h2></div>
+        <div class="mem-section-head"><span class="mem-section-num">03 / Operating laws</span><h2>The memory layer is an immune boundary, not just a database.</h2></div>
+        <div class="mem-prose">
+          <p>In the organism model, memory is where continuity becomes risk. Good memory gives the Brain identity, context, and better judgment. Bad memory turns old assumptions into invisible law. That is why every record must carry type, privacy, retention, receipt, and review posture.</p>
+          <p>The laws are intentionally plain: no sensitive content by default. Metadata before memory body. Retention is an active decision. No mutation without a receipt. Repair requires approval. Old memory is evidence, not current truth, until health and retention checks pass.</p>
+          <p>The control plane is the organ that lets the creator see systemic pressure without collapsing into content review. It says, "these records need triage," not "here is every private thought." It says, "this mutation needs approval," not "the system already repaired itself."</p>
+        </div>
         <div class="mem-chart-grid">
           <div class="mem-chart-card"><h3>Control surfaces</h3><div class="mem-chart-box"><canvas id="memSurfaceChart"></canvas></div></div>
           <div class="mem-chart-card"><h3>Authority split</h3><div class="mem-chart-box"><canvas id="memAuthorityChart"></canvas></div></div>
@@ -318,40 +329,32 @@
 
     <section class="mem-section">
       <div class="container">
-        <div class="mem-section-head"><span class="mem-section-num">04 / Safety cards</span><h2>The control plane refuses to confuse visibility with permission.</h2></div>
+        <div class="mem-section-head"><span class="mem-section-num">04 / Build recipe</span><h2>Build memory as an approval path from capture to receipt.</h2></div>
+        <div class="mem-prose">
+          <p>Start with a typed memory record. Add privacy level, retention window, source, confidence, and review status. Expose recent and health views as metadata-only surfaces. Route pressure into queues. Prepare mutation packets with reason, expected change, retention impact, and rollback note. Apply only after review, then append a receipt.</p>
+          <p>This recipe makes memory inspectable without making it naked. The Brain can recommend the next queue, but it cannot quietly rewrite what it remembers.</p>
+        </div>
         <div class="mem-cards" id="mem-cards"></div>
-        <div class="mem-social" id="social-proof-packet">
-          <span class="mem-section-num">05 / Social packet</span>
-          <h2>The memory layer has a four-frame proof packet.</h2>
-          <p>The Memory Control Plane carousel is prepared for creator review. It keeps the transmission boundary intact: metadata-only inspection, content-free health, action queues, and reviewed repair without memory mutation or automated social posting authority.</p>
-          <p>Creator approval is required before publishing. This packet does not authorize memory writes, repairs, deployment, public posting, paid media, Web3 action, or unreviewed operational action.</p>
-          <div class="mem-preview-grid" aria-label="Transmission 28 social carousel previews">
-            <a class="mem-preview-card" href="/social/transmission-28-memory-control-plane-carousel/ready-to-upload/01-memory-control-plane.png" download>
-              <img src="/social/transmission-28-memory-control-plane-carousel/previews/slide-01-preview.png" alt="Slide 01 preview for the Memory Control Plane carousel." loading="lazy" width="540" height="540" />
-              <span>Slide 01 PNG</span>
-            </a>
-            <a class="mem-preview-card" href="/social/transmission-28-memory-control-plane-carousel/ready-to-upload/02-memory-control-plane.png" download>
-              <img src="/social/transmission-28-memory-control-plane-carousel/previews/slide-02-preview.png" alt="Slide 02 preview for the Memory Control Plane carousel." loading="lazy" width="540" height="540" />
-              <span>Slide 02 PNG</span>
-            </a>
-            <a class="mem-preview-card" href="/social/transmission-28-memory-control-plane-carousel/ready-to-upload/03-memory-control-plane.png" download>
-              <img src="/social/transmission-28-memory-control-plane-carousel/previews/slide-03-preview.png" alt="Slide 03 preview for the Memory Control Plane carousel." loading="lazy" width="540" height="540" />
-              <span>Slide 03 PNG</span>
-            </a>
-            <a class="mem-preview-card" href="/social/transmission-28-memory-control-plane-carousel/ready-to-upload/04-memory-control-plane.png" download>
-              <img src="/social/transmission-28-memory-control-plane-carousel/previews/slide-04-preview.png" alt="Slide 04 preview for the Memory Control Plane carousel." loading="lazy" width="540" height="540" />
-              <span>Slide 04 PNG</span>
-            </a>
-          </div>
-          <div class="mem-cta-row">
-            <a href="/social/transmission-28-memory-control-plane-carousel/carousel.html#slide-1" class="btn btn-primary"><span>Open carousel</span><span class="btn-arrow">→</span></a>
-            <a href="/social/transmission-28-memory-control-plane-carousel/downloads/transmission-28-memory-control-plane-carousel.zip" class="btn btn-secondary">Download packet</a>
-            <a href="/social/transmission-28-memory-control-plane-carousel/caption.md" class="btn btn-secondary">Caption packet</a>
+      </div>
+    </section>
+
+    <section class="mem-section">
+      <div class="container">
+        <div class="mem-section-head"><span class="mem-section-num">05 / Approval boundary</span><h2>The control plane refuses to confuse visibility with permission.</h2></div>
+        <div class="mem-guide">
+          <span class="mem-section-num">06 / Brain guide</span>
+          <h2>How the Brain should use this control plane.</h2>
+          <p>The Brain should treat memory as a governed workload, not a hidden oracle. It can prepare summaries of queue pressure, recommend which repair path needs review, and generate a mutation packet. It must not silently edit memory, expose stored content, or treat an old record as current truth without receipt and retention checks.</p>
+          <div class="mem-life">
+            <div class="mem-life-step"><b>01</b><div><h3>Inspect pressure</h3><p>Use recent, health, retention, and queue views to understand the workload without reading private content.</p></div></div>
+            <div class="mem-life-step"><b>02</b><div><h3>Prepare a reviewed packet</h3><p>When repair or write is needed, build a packet with memory id, reason, expected mutation, retention impact, and rollback note.</p></div></div>
+            <div class="mem-life-step"><b>03</b><div><h3>Wait for authority</h3><p>The system can recommend the next action, but mutation happens only after explicit creator approval or a reviewed internal gate.</p></div></div>
+            <div class="mem-life-step"><b>04</b><div><h3>Record next-cell memory</h3><p>The next cell should connect this control plane to public grounding, so answer drafts can cite current memory status without exposing private content.</p></div></div>
           </div>
         </div>
         <div class="mem-cta">
           <h2>The memory layer now has hands it refuses to move by itself.</h2>
-          <p>That is the organism pattern: inspect the pressure, name the queue, show the next reviewed command, and keep mutation behind a human gate.</p>
+          <p>Proof ledger: the page, metadata, registry summary, tests, build, and local smoke must agree before this becomes production truth. The posting assets for this transmission remain internal creator material, not public documentation.</p>
           <a class="btn btn-primary btn-lg" href="/transmissions/"><span>All Transmissions</span><span class="btn-arrow">→</span></a>
         </div>
       </div>
@@ -362,7 +365,6 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span><p class="footer-desc">Intelligence that evolves.<br />Growing organisms since 2026.</p></div>
-        <div class="footer-col"><h5>Organisms</h5><a href="/#organisms">Visual Cortex</a><a href="/#organisms">Infinity Mirror</a><a href="/#organisms">Financial Organisms</a><a href="/#organisms">Brain Cell Architecture</a></div>
         <div class="footer-col"><h5>Learn</h5><a href="/#architecture">Architecture</a><a href="/#philosophy">Philosophy</a><a href="/#vision">Vision 2030</a></div>
         <div class="footer-col"><h5>Community</h5><a href="/#cta">Join Updates</a><a href="/transmissions/">Transmissions</a><a href="/#cta">Talk to the Brain</a></div>
       </div>
@@ -382,11 +384,12 @@
     }
 
     const queues = [
-      ['Recent index', 'Metadata-only inspection with filters for unresolved records, retention gaps, and receipt hygiene.', 'unwind-brain memory recent --recommended-action resolve_memory_record --json-output'],
-      ['Health snapshot', 'Aggregate counts and next-action hints without content exposure.', 'unwind-brain memory health --json-output'],
-      ['Action queues', 'Repair, resolve, and receipt-hygiene work organized into read-only queues.', 'unwind-brain memory action-queues --active-only --json-output'],
-      ['Retention preview', 'Expired and archived candidate IDs with no mutation performed.', 'unwind-brain memory retention --json-output'],
-      ['Reviewed repair', 'Explicit routes for retention provenance, resolution, and mutation receipt hygiene.', 'unwind-brain memory repair-receipt-hygiene --memory-id mem_... --reviewed --json-output']
+      ['Capture plane', 'Typed memory intake with privacy level, retention intent, source, confidence, and review posture.', 'unwind-brain memory add --type decision --privacy private --reviewed --json-output'],
+      ['Index plane', 'Metadata-only inspection with filters for unresolved records, retention gaps, and receipt hygiene.', 'unwind-brain memory recent --recommended-action resolve_memory_record --json-output'],
+      ['Health plane', 'Aggregate pressure, stale counts, and next-action hints without content exposure.', 'unwind-brain memory health --json-output'],
+      ['Queue plane', 'Repair, resolve, retention, and receipt-hygiene work organized into read-only queues.', 'unwind-brain memory action-queues --active-only --json-output'],
+      ['Mutation plane', 'Explicit reviewed routes for retention provenance, resolution, and receipt hygiene.', 'unwind-brain memory repair-receipt-hygiene --memory-id mem_... --reviewed --json-output'],
+      ['Receipt plane', 'Content-free provenance that proves what changed, why, and how rollback should work.', 'unwind-brain memory receipts --memory-id mem_... --json-output']
     ];
     const list = document.getElementById('mem-queue-list');
     const panel = document.getElementById('mem-panel');
@@ -408,10 +411,10 @@
     list.querySelector('button').click();
 
     const cards = [
-      ['Content-free', 'Recent and health views do not echo stored memory content.', 'Visibility is metadata, not disclosure.'],
+      ['Metadata first', 'Recent and health views do not echo stored memory content.', 'Visibility is metadata, not disclosure.'],
       ['Sensitive opt-in', 'Sensitive memories stay excluded unless the caller explicitly opts in.', 'The default path is narrow.'],
       ['Reviewed mutation', 'Writes, repairs, and resolution require reviewed packets.', 'Read-only queues do not mutate.'],
-      ['Receipt hygiene', 'Legacy receipts can be sanitized without exposing payload content.', 'The repair appends clean provenance.']
+      ['Receipt required', 'Every accepted change leaves inspectable provenance and a rollback note.', 'No mutation without a receipt.']
     ];
     const cardRoot = document.getElementById('mem-cards');
     cards.forEach(item => {
@@ -432,12 +435,12 @@
     };
     new Chart(document.getElementById('memSurfaceChart'), {
       type: 'bar',
-      data: { labels: ['Capture', 'Recent', 'Health', 'Queues', 'Repair'], datasets: [{ label: 'Local implementation depth', data: [8, 9, 8, 9, 7], backgroundColor: [chartColors.amber, chartColors.teal, chartColors.steel, chartColors.amber, chartColors.rose], borderRadius: 9 }] },
+      data: { labels: ['Capture', 'Index', 'Health', 'Queues', 'Mutation', 'Receipts'], datasets: [{ label: 'Local implementation depth', data: [8, 9, 8, 9, 7, 7], backgroundColor: [chartColors.amber, chartColors.teal, chartColors.steel, chartColors.amber, chartColors.rose, chartColors.teal], borderRadius: 9 }] },
       options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: chartColors.text } } }, scales: { x: { grid: { display: false }, ticks: { color: chartColors.text } }, y: { beginAtZero: true, max: 10, grid: { color: chartColors.grid }, ticks: { color: chartColors.text } } } }
     });
     new Chart(document.getElementById('memAuthorityChart'), {
       type: 'doughnut',
-      data: { labels: ['Read-only inspection', 'Reviewed mutation', 'Blocked automation'], datasets: [{ data: [62, 28, 10], backgroundColor: [chartColors.teal, chartColors.amber, chartColors.rose], borderColor: 'rgba(6,6,12,1)', borderWidth: 3 }] },
+      data: { labels: ['Read-only inspection', 'Reviewed mutation', 'Blocked automation'], datasets: [{ data: [64, 26, 10], backgroundColor: [chartColors.teal, chartColors.amber, chartColors.rose], borderColor: 'rgba(6,6,12,1)', borderWidth: 3 }] },
       options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { color: chartColors.text } } } }
     });
   });

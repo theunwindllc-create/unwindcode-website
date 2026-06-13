@@ -4,17 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Transmission 27: The Site Became a Public Index | Unwind Code</title>
-  <meta name="description" content="UnwindCode.ai is becoming a public-safe retrieval surface: registries, search, grounding packets, claims, assets, and disabled-answer boundaries." />
+  <meta name="description" content="A compact whitepaper guide to the Public Index Protocol: why public memory needs spatial determinism, grounding packets, claim context, refusal rules, and approval boundaries." />
   <meta name="theme-color" content="#06060c" />
   <link rel="canonical" href="https://www.unwindcode.ai/transmissions/27-the-site-became-a-public-index.html" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="The Site Became a Public Index" />
-  <meta property="og:description" content="A transmission on the local public registry, search, and grounding work turning UnwindCode.ai into a public-safe index." />
+  <meta property="og:description" content="A Brain guide to public memory as an inspectable index: coordinates, retrieval, grounding, claim context, refusal, and approval." />
   <meta property="og:url" content="https://www.unwindcode.ai/transmissions/27-the-site-became-a-public-index.html" />
   <meta property="og:site_name" content="Unwind Code" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="The Site Became a Public Index" />
-  <meta name="twitter:description" content="A public site can become a memory surface without becoming an answer engine." />
+  <meta name="twitter:description" content="The Public Index Protocol turns public memory into coordinates, not unchecked answer authority." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -25,7 +25,7 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "The Site Became a Public Index",
-    "description": "UnwindCode.ai is becoming a public-safe retrieval surface: registries, search, grounding packets, claims, assets, and disabled-answer boundaries.",
+    "description": "A compact whitepaper guide to the Public Index Protocol: why public memory needs spatial determinism, grounding packets, claim context, refusal rules, and approval boundaries.",
     "author": {"@type": "Organization", "name": "Unwind Code"},
     "publisher": {"@type": "Organization", "name": "Unwind Code", "url": "https://www.unwindcode.ai"},
     "datePublished": "2026-06-13",
@@ -157,7 +157,7 @@
     .pi-route-map {
       margin-top: 34px;
       display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       gap: 10px;
       align-items: stretch;
     }
@@ -184,14 +184,14 @@
     .pi-boundary p { color: var(--text-muted); font-size: 0.88rem; line-height: 1.55; }
     .pi-boundary-extra { display: none; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--pi-line); color: var(--pi-teal); font-size: 0.82rem; line-height: 1.5; }
     .pi-boundary.open .pi-boundary-extra { display: block; }
-    .pi-social {
+    .pi-guide {
       margin-top: 42px;
       border: 1px solid rgba(76, 181, 165, 0.24);
       border-radius: 28px;
       padding: 34px;
       background: linear-gradient(135deg, rgba(76, 181, 165, 0.1), rgba(155, 89, 245, 0.08));
     }
-    .pi-social p { color: var(--pi-muted); max-width: 760px; line-height: 1.72; margin: 10px 0 18px; }
+    .pi-guide p { color: var(--pi-muted); max-width: 780px; line-height: 1.72; margin: 10px 0 18px; }
     .pi-preview-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 24px 0 26px; }
     .pi-preview-card {
       display: grid;
@@ -236,7 +236,7 @@
         line-height: 1.08;
         overflow-wrap: anywhere;
       }
-      .pi-hero-sub, .pi-prose, .pi-social p {
+      .pi-hero-sub, .pi-prose, .pi-guide p {
         width: 100%;
         max-width: min(320px, calc(100vw - 40px));
         overflow-wrap: anywhere;
@@ -255,7 +255,7 @@
       }
       .pi-route-map, .pi-boundaries, .pi-preview-grid { grid-template-columns: 1fr; }
       .pi-flow-step { grid-template-columns: 1fr; }
-      .pi-atlas, .pi-atlas-list, .pi-atlas-panel, .pi-route, .pi-flow, .pi-flow-step, .pi-chart-grid, .pi-chart-card, .pi-boundary, .pi-social, .pi-cta {
+      .pi-atlas, .pi-atlas-list, .pi-atlas-panel, .pi-route, .pi-flow, .pi-flow-step, .pi-chart-grid, .pi-chart-card, .pi-boundary, .pi-guide, .pi-cta {
         width: 100%;
         max-width: min(320px, calc(100vw - 40px));
         min-width: 0;
@@ -281,17 +281,18 @@
       <div class="container">
         <span class="pi-kicker">Transmission 027</span>
         <h1>The Site Became a Public Index</h1>
-        <p class="pi-hero-sub">The local website work is not just another page. It turns UnwindCode.ai into a public-safe retrieval surface: registries, search, grounding packets, claims, assets, and disabled-answer boundaries.</p>
-        <div class="pi-meta"><span>June 2026</span><span>Public Proof</span><span>Retrieval Surface</span></div>
+        <p class="pi-hero-sub">This is the Public Index Protocol: a compact guide for turning the website into a public coordinate system, so the Unwind Brain can retrieve, cite, qualify, and refuse before it ever claims answer authority.</p>
+        <div class="pi-meta"><span>June 2026</span><span>Brain Guide</span><span>Whitepaper Record</span><span>Public Memory</span></div>
       </div>
     </section>
 
     <section class="pi-section">
       <div class="container">
-        <div class="pi-section-head"><span class="pi-section-num">01 / Local signal</span><h2>A website can become a memory surface without becoming an answer engine.</h2></div>
+        <div class="pi-section-head"><span class="pi-section-num">01 / Failure mode</span><h2>Context without coordinates becomes agent entropy.</h2></div>
         <div class="pi-prose">
-          <p>The unpushed website work adds public registries and read-only APIs for assets, architecture, claims, organisms, transmissions, search, grounding, status, and subscriptions. The important move is restraint: retrieval is allowed, but unchecked answer authority is not.</p>
-          <p>The site is learning to expose public evidence without dragging private runtime notes, owner manifests, credentials, or hidden procedures into the browser.</p>
+          <p>The early Unwind transmissions named the central failure of long-running agents: the model begins with intent, then loses shape as memory stays trapped in conversation. The public site answers that failure by giving public knowledge a place, a route, a status, and a boundary.</p>
+          <p>The Public Index Protocol is not a blog feature. It is the first safe external memory organ. It holds reviewed concepts, routes, claims, assets, and transmission summaries so future agents can retrieve public context without touching private runtime state.</p>
+          <p>The key principle is simple: retrieval is not authority. A source can be found, ranked, cited, and qualified, and the Brain may still have no permission to answer, execute, deploy, post, advise, sign, spend, or mutate anything. The protocol keeps those powers separate.</p>
         </div>
         <div class="pi-atlas">
           <div class="pi-atlas-list" id="pi-atlas-list"></div>
@@ -302,35 +303,29 @@
 
     <section class="pi-section">
       <div class="container">
-        <div class="pi-section-head"><span class="pi-section-num">02 / Route map</span><h2>The public site now has organs for retrieval.</h2></div>
+        <div class="pi-section-head"><span class="pi-section-num">02 / Protocol anatomy</span><h2>The public site now has organs with narrow jobs.</h2></div>
         <div class="pi-prose">
-          <p>Each route has a narrow job. The site does not need one omnipotent endpoint. It needs small public surfaces that can be inspected, cached, rate-limited, and refused when the context is unsafe.</p>
+          <p>A public Brain does not need one omnipotent endpoint. It needs small surfaces that can be inspected, cached, rate-limited, tested, and refused. Each surface answers one architectural question and carries its limits forward.</p>
+          <p>The anatomy matters because public memory can easily become hidden persuasion. A visitor sees an answer; the system sees a chain: registry, retrieval, grounding, claim context, refusal rule, approval boundary. If any link is missing, the Brain should slow down.</p>
         </div>
         <div class="pi-route-map">
-          <div class="pi-route"><strong>/api/search</strong><span>Lexical registry retrieval with answer generation disabled.</span></div>
-          <div class="pi-route"><strong>/api/grounding</strong><span>Top-source packet for future grounded answers without synthesis authority.</span></div>
-          <div class="pi-route"><strong>/api/claims</strong><span>Claim labels, evidence status, risk levels, and citation boundaries.</span></div>
-          <div class="pi-route"><strong>/api/assets</strong><span>Asset provenance and approval status without posting authority.</span></div>
-          <div class="pi-route"><strong>/api/status</strong><span>Aggregate public metadata, not private runtime truth.</span></div>
+          <div class="pi-route"><strong>Registry</strong><span>Reviewed public records, not private notes or hidden runtime memory.</span></div>
+          <div class="pi-route"><strong>/api/search</strong><span>Lexical retrieval with deterministic snippets and answer generation disabled.</span></div>
+          <div class="pi-route"><strong>/api/grounding</strong><span>Top-source packets with citations, qualifications, and refusal rules.</span></div>
+          <div class="pi-route"><strong>/api/claims</strong><span>Claim labels, evidence posture, risk levels, and citation boundaries.</span></div>
+          <div class="pi-route"><strong>Approval gate</strong><span>The point where synthesis, deployment, posting, spending, or file mutation must ask.</span></div>
         </div>
       </div>
     </section>
 
     <section class="pi-section">
       <div class="container">
-        <div class="pi-section-head"><span class="pi-section-num">03 / Grounding flow</span><h2>Search retrieves. Grounding frames. The answer still has to earn permission.</h2></div>
-        <div class="pi-flow">
-          <div class="pi-flow-step"><b>01</b><div><h3>Public registry loads</h3><p>Architecture, assets, claims, organisms, and transmissions stay in reviewed JSON sources.</p></div></div>
-          <div class="pi-flow-step"><b>02</b><div><h3>Query is ranked</h3><p>Search returns deterministic public snippets and preserves claim context.</p></div></div>
-          <div class="pi-flow-step"><b>03</b><div><h3>Grounding packet forms</h3><p>Sources, citation indexes, qualifications, and refusal rules travel together.</p></div></div>
-          <div class="pi-flow-step"><b>04</b><div><h3>Answer authority remains closed</h3><p>The packet is scaffolding. It does not become permission to invent, execute, deploy, or post.</p></div></div>
+        <div class="pi-section-head"><span class="pi-section-num">03 / Theory</span><h2>Public memory needs spatial determinism.</h2></div>
+        <div class="pi-prose">
+          <p>Spatial determinism means the Brain can point to where a concept is allowed to live. Claims live in a claim registry. Transmissions become memory seeds. Assets carry approval state. Status describes public surfaces, not private deployment truth.</p>
+          <p>A future Brain should not ask, "What do I remember?" It should ask, "Which public surface is allowed to answer this part of the question?" That shift changes the architecture from one chat window into a set of inspectable organs.</p>
+          <p>The law of the protocol is: no source without boundary, no answer without citations, no action without approval. That law turns the site from a brochure into a public reasoning substrate.</p>
         </div>
-      </div>
-    </section>
-
-    <section class="pi-section">
-      <div class="container">
-        <div class="pi-section-head"><span class="pi-section-num">04 / Index metrics</span><h2>The shape of the public index is visible.</h2></div>
         <div class="pi-chart-grid">
           <div class="pi-chart-card"><h3>Surface mix</h3><div class="pi-chart-box"><canvas id="piSurfaceChart"></canvas></div></div>
           <div class="pi-chart-card"><h3>Authority posture</h3><div class="pi-chart-box"><canvas id="piAuthorityChart"></canvas></div></div>
@@ -340,40 +335,43 @@
 
     <section class="pi-section">
       <div class="container">
-        <div class="pi-section-head"><span class="pi-section-num">05 / Boundaries</span><h2>The index is public because it refuses the private body.</h2></div>
+        <div class="pi-section-head"><span class="pi-section-num">04 / Build recipe</span><h2>Build the index as a chain of permissions, not a pile of content.</h2></div>
+        <div class="pi-flow">
+          <div class="pi-flow-step"><b>01</b><div><h3>Declare public registries</h3><p>Architecture notes, assets, claims, organisms, and transmissions stay in reviewed public files with source routes and review status.</p></div></div>
+          <div class="pi-flow-step"><b>02</b><div><h3>Rank without synthesis</h3><p>Search returns deterministic source candidates, matched terms, and snippets. It does not become a chatbot.</p></div></div>
+          <div class="pi-flow-step"><b>03</b><div><h3>Attach claim context</h3><p>Every result keeps its evidence status, risk label, public-safe wording, and known missing proof attached.</p></div></div>
+          <div class="pi-flow-step"><b>04</b><div><h3>Form a grounding packet</h3><p>Sources, citation indexes, qualifications, and refusal rules travel together as the packet the Brain must respect.</p></div></div>
+          <div class="pi-flow-step"><b>05</b><div><h3>Render or refuse</h3><p>If citations, public authority, or review state are missing, the Brain refuses or asks for review instead of pretending certainty.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pi-section">
+      <div class="container">
+        <div class="pi-section-head"><span class="pi-section-num">05 / Approval boundary</span><h2>The index is public because it refuses the private body.</h2></div>
+        <div class="pi-prose">
+          <p>The protocol allows public retrieval because it refuses private memory by default. That is the approval boundary. The Brain can cite what the website has reviewed, but it cannot use hidden notes, owner manifests, credentials, unpublished routes, or runtime logs to answer a public reader.</p>
+        </div>
         <div class="pi-boundaries" id="pi-boundaries"></div>
-        <div class="pi-social" id="social-proof-packet">
-          <span class="pi-section-num">06 / Social packet</span>
-          <h2>The public index has a four-frame proof packet.</h2>
-          <p>The Site Became a Public Index carousel is prepared for creator review. It keeps the transmission boundary intact: public retrieval, citation packets, claim context, and refusal rules without deploy, wallet, answer, or automated social posting authority.</p>
-          <p>Creator approval is required before publishing. This packet does not authorize production deployment, public posting, paid media, Web3 action, or unreviewed answer generation.</p>
-          <div class="pi-preview-grid" aria-label="Transmission 27 social carousel previews">
-            <a class="pi-preview-card" href="/social/transmission-27-site-public-index-carousel/ready-to-upload/01-site-public-index.png" download>
-              <img src="/social/transmission-27-site-public-index-carousel/previews/slide-01-preview.png" alt="Slide 01 preview for the Site Became a Public Index carousel." loading="lazy" width="540" height="540" />
-              <span>Slide 01 PNG</span>
-            </a>
-            <a class="pi-preview-card" href="/social/transmission-27-site-public-index-carousel/ready-to-upload/02-site-public-index.png" download>
-              <img src="/social/transmission-27-site-public-index-carousel/previews/slide-02-preview.png" alt="Slide 02 preview for the Site Became a Public Index carousel." loading="lazy" width="540" height="540" />
-              <span>Slide 02 PNG</span>
-            </a>
-            <a class="pi-preview-card" href="/social/transmission-27-site-public-index-carousel/ready-to-upload/03-site-public-index.png" download>
-              <img src="/social/transmission-27-site-public-index-carousel/previews/slide-03-preview.png" alt="Slide 03 preview for the Site Became a Public Index carousel." loading="lazy" width="540" height="540" />
-              <span>Slide 03 PNG</span>
-            </a>
-            <a class="pi-preview-card" href="/social/transmission-27-site-public-index-carousel/ready-to-upload/04-site-public-index.png" download>
-              <img src="/social/transmission-27-site-public-index-carousel/previews/slide-04-preview.png" alt="Slide 04 preview for the Site Became a Public Index carousel." loading="lazy" width="540" height="540" />
-              <span>Slide 04 PNG</span>
-            </a>
-          </div>
-          <div class="pi-cta-row">
-            <a href="/social/transmission-27-site-public-index-carousel/carousel.html#slide-1" class="btn btn-primary"><span>Open carousel</span><span class="btn-arrow">→</span></a>
-            <a href="/social/transmission-27-site-public-index-carousel/downloads/transmission-27-site-public-index-carousel.zip" class="btn btn-secondary">Download packet</a>
-            <a href="/social/transmission-27-site-public-index-carousel/caption.md" class="btn btn-secondary">Caption packet</a>
+      </div>
+    </section>
+
+    <section class="pi-section">
+      <div class="container">
+        <div class="pi-guide">
+          <span class="pi-section-num">06 / Brain guide</span>
+          <h2>How the Brain should use this protocol.</h2>
+          <p>When the Brain prepares a public answer, it should gather source candidates from the index, request a grounding packet, render citations and claim qualifications, then decide whether it has permission to speak. If the packet reports missing citations, high-risk claims, private context, or action authority, the correct output is refusal or review.</p>
+          <div class="pi-flow">
+            <div class="pi-flow-step"><b>01</b><div><h3>Locate the public organ</h3><p>Route the question to architecture, claims, assets, organisms, transmissions, or status. Do not search private memory to answer a public reader.</p></div></div>
+            <div class="pi-flow-step"><b>02</b><div><h3>Carry the boundary forward</h3><p>Every retrieved source keeps its review flags, claim context, and refusal rules attached. A citation without its boundary is not a citation.</p></div></div>
+            <div class="pi-flow-step"><b>03</b><div><h3>Keep synthesis earned</h3><p>If the answer would move from source summary into advice, recommendation, public posting, deployment, file mutation, signing, or spending, the protocol exits retrieval mode.</p></div></div>
+            <div class="pi-flow-step"><b>04</b><div><h3>Record the next-cell memory</h3><p>The next cell should render source-backed answer drafts from grounding packets, but synthesis remains disabled until review proves the packet is complete.</p></div></div>
           </div>
         </div>
         <div class="pi-cta">
-          <h2>The site is learning to cite itself.</h2>
-          <p>That is the public proof move: a website that can show its sources, its limits, and its refusal rules before it tries to sound intelligent.</p>
+          <h2>The site is learning to cite itself before it answers.</h2>
+          <p>Proof ledger: the route, metadata, public registry, grounding language, tests, and local verification must agree before this becomes production truth. The posting assets for this transmission remain internal creator material, not public documentation.</p>
           <a class="btn btn-primary btn-lg" href="/transmissions/"><span>All Transmissions</span><span class="btn-arrow">→</span></a>
         </div>
       </div>
@@ -404,16 +402,16 @@
     }
 
     const surfaces = [
-      ['Architecture', 'Public concepts, memory layers, citations, and confidence labels.', ['semantic', 'source-backed', 'public-safe']],
-      ['Claims', 'Evidence status, risk labels, sensitive-topic flags, and qualifications.', ['claim context', 'risk', 'citations']],
-      ['Assets', 'Source hashes, generated files, review status, and approval boundaries.', ['provenance', 'approval', 'no auto-post']],
-      ['Transmissions', 'Published routes become retrieval seeds for future public memory.', ['archive', 'topic tags', 'public proof']],
-      ['Grounding', 'A packet of sources and refusal rules, not an answer generator.', ['disabled answer', 'citation packet', 'review flags']]
+      ['Registry', 'Reviewed public records with route, source file, topic tags, citations, and review status.', ['coordinates', 'source-backed', 'public-safe']],
+      ['Retrieval', 'Deterministic search that can return candidates without generating an answer.', ['matched terms', 'snippets', 'ranked']],
+      ['Grounding', 'A packet of sources, citation indexes, qualifications, and refusal rules.', ['citation packet', 'review flags', 'no synthesis']],
+      ['Claim context', 'Evidence status, risk labels, sensitive-topic flags, and public wording boundaries.', ['claim labels', 'risk', 'qualification']],
+      ['Approval', 'The boundary that stops retrieval from becoming posting, deployment, advice, or mutation.', ['human gate', 'action boundary', 'no hidden authority']]
     ];
     const list = document.getElementById('pi-atlas-list');
     const panel = document.getElementById('pi-atlas-panel');
     function renderSurface(surface) {
-      panel.innerHTML = `<span class="pi-kicker">${surface[0]}</span><h3>${surface[0]} registry</h3><p>${surface[1]}</p><div class="pi-chip-row">${surface[2].map(item => `<span class="pi-chip">${item}</span>`).join('')}</div>`;
+      panel.innerHTML = `<span class="pi-kicker">${surface[0]}</span><h3>${surface[0]} layer</h3><p>${surface[1]}</p><div class="pi-chip-row">${surface[2].map(item => `<span class="pi-chip">${item}</span>`).join('')}</div>`;
     }
     surfaces.forEach((surface, index) => {
       const button = document.createElement('button');
@@ -430,10 +428,10 @@
     list.querySelector('button').click();
 
     const boundaries = [
-      ['No private notes', 'Registries exclude owner manifests, prompts, credentials, and runtime logs.', 'Public metadata is not private memory.'],
+      ['No private body', 'Registries exclude owner manifests, prompts, credentials, hidden routes, and runtime logs.', 'Public metadata is not private memory.'],
       ['No answer authority', 'Search and grounding keep answer generation disabled by contract.', 'Retrieval is scaffolding, not synthesis.'],
-      ['No execution proof', 'Status can describe public surfaces without claiming live deployment truth.', 'A public route is not a wallet, deploy, or workflow authority.'],
-      ['No auto-posting', 'Asset packets can be prepared while posting remains a creator approval gate.', 'Creation is separate from publication.']
+      ['No action authority', 'A cited source is not permission to deploy, mutate files, post, sign, spend, or advise.', 'Authority requires an approval path.'],
+      ['Internal posting assets', 'Carousel and caption assets can be prepared for the creator without becoming public site documentation.', 'Creation is separate from publication.']
     ];
     const boundaryRoot = document.getElementById('pi-boundaries');
     boundaries.forEach(item => {
@@ -462,12 +460,12 @@
     };
     new Chart(document.getElementById('piSurfaceChart'), {
       type: 'bar',
-      data: { labels: ['Registries', 'APIs', 'Search', 'Grounding', 'Social Desk'], datasets: [{ label: 'Local surface depth', data: [9, 8, 7, 7, 6], backgroundColor: [chartColors.teal, chartColors.violet, chartColors.teal, chartColors.amber, chartColors.violet], borderRadius: 9 }] },
+      data: { labels: ['Registry', 'Search', 'Grounding', 'Claims', 'Approval'], datasets: [{ label: 'Local surface depth', data: [9, 8, 8, 7, 7], backgroundColor: [chartColors.teal, chartColors.violet, chartColors.teal, chartColors.amber, chartColors.violet], borderRadius: 9 }] },
       options: common
     });
     new Chart(document.getElementById('piAuthorityChart'), {
       type: 'radar',
-      data: { labels: ['Retrieve', 'Cite', 'Qualify', 'Refuse', 'Execute', 'Post'], datasets: [{ label: 'Allowed posture', data: [9, 9, 8, 9, 1, 1], borderColor: chartColors.teal, backgroundColor: 'rgba(76,181,165,0.14)', pointBackgroundColor: chartColors.teal }] },
+      data: { labels: ['Retrieve', 'Cite', 'Qualify', 'Refuse', 'Advise', 'Execute'], datasets: [{ label: 'Allowed posture', data: [9, 9, 8, 9, 2, 1], borderColor: chartColors.teal, backgroundColor: 'rgba(76,181,165,0.14)', pointBackgroundColor: chartColors.teal }] },
       options: { ...common, scales: { r: { grid: { color: chartColors.grid }, angleLines: { color: chartColors.grid }, pointLabels: { color: chartColors.text }, ticks: { display: false, min: 0, max: 10 } } } }
     });
   });

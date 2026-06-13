@@ -76,91 +76,55 @@ test('property sales intelligence transmission uses the live canonical slug', as
   await assertFileExists(entry.source_file);
 });
 
-test('property sales intelligence transmission exposes the prepared social packet boundary', async () => {
-  const page = await readFile(new URL('../transmissions/26-property-sales-intelligence-cell.html', import.meta.url), 'utf8');
-
-  assert.match(page, /id="social-proof-packet"/);
-  assert.match(page, /07 \/ Social packet/);
-  assert.match(page, /eight upload-ready Instagram frames/i);
-  assert.match(page, /Creator approval is required before publishing/i);
-  assert.match(page, /social\/transmission-26-property-sales-intelligence-cell-carousel\/carousel\.html/);
-  assert.match(page, /social\/transmission-26-property-sales-intelligence-cell-carousel\/downloads\/transmission-26-property-sales-intelligence-cell-carousel\.zip/);
-  assert.match(page, /social\/transmission-26-property-sales-intelligence-cell-carousel\/caption\.md/);
-  assert.match(page, /ready-to-upload\/01-property-sales-intelligence-cell\.png/);
-  for (let slide = 1; slide <= 8; slide += 1) {
-    const number = String(slide).padStart(2, '0');
-    assert.match(
-      page,
-      new RegExp(`previews/slide-${number}-preview\\.png`),
-      `social proof packet should expose preview image ${number}`,
-    );
-  }
-  assert.equal(/four upload-ready Instagram frames/i.test(page), false);
-});
-
-test('new local transmissions expose prepared social packet boundaries', async () => {
-  const packets = [
-    {
-      page: '../transmissions/27-the-site-became-a-public-index.html',
-      folder: 'transmission-27-site-public-index-carousel',
-      zip: 'transmission-27-site-public-index-carousel.zip',
-      upload: 'ready-to-upload/01-site-public-index.png',
-    },
-    {
-      page: '../transmissions/28-the-memory-control-plane.html',
-      folder: 'transmission-28-memory-control-plane-carousel',
-      zip: 'transmission-28-memory-control-plane-carousel.zip',
-      upload: 'ready-to-upload/01-memory-control-plane.png',
-    },
+test('public transmission pages keep posting assets internal', async () => {
+  const publicPages = [
+    '../transmissions/26-property-sales-intelligence-cell.html',
+    '../transmissions/27-the-site-became-a-public-index.html',
+    '../transmissions/28-the-memory-control-plane.html',
   ];
 
-  for (const packet of packets) {
-    const page = await readFile(new URL(packet.page, import.meta.url), 'utf8');
+  for (const pagePath of publicPages) {
+    const page = await readFile(new URL(pagePath, import.meta.url), 'utf8');
 
-    assert.match(page, /id="social-proof-packet"/);
-    assert.match(page, /four-frame proof packet/i);
-    assert.match(page, /Creator approval is required before publishing/i);
-    assert.match(page, new RegExp(`social/${packet.folder}/carousel\\.html#slide-1`));
-    assert.match(page, new RegExp(`social/${packet.folder}/downloads/${packet.zip}`));
-    assert.match(page, new RegExp(`social/${packet.folder}/caption\\.md`));
-    assert.ok(page.includes(packet.upload), `${packet.folder} should expose the first upload PNG`);
-    for (let slide = 1; slide <= 4; slide += 1) {
-      const number = String(slide).padStart(2, '0');
-      assert.match(
-        page,
-        new RegExp(`previews/slide-${number}-preview\\.png`),
-        `${packet.folder} should expose preview image ${number}`,
-      );
-    }
+    assert.equal(page.includes('id="social-proof-packet"'), false, `${pagePath} should not expose a public social packet section`);
+    assert.equal(/\/social\/transmission-[^"']+/i.test(page), false, `${pagePath} should not link to internal posting assets`);
+    assert.equal(/Open carousel|Download packet|Caption packet/i.test(page), false, `${pagePath} should not present posting actions`);
   }
 });
 
-test('transmission archive exposes latest social packet desk', async () => {
+test('new local transmissions read as Brain guides and compact whitepaper notes', async () => {
+  const publicIndex = await readFile(new URL('../transmissions/27-the-site-became-a-public-index.html', import.meta.url), 'utf8');
+  const memoryControlPlane = await readFile(new URL('../transmissions/28-the-memory-control-plane.html', import.meta.url), 'utf8');
+
+  assert.match(publicIndex, /Public Index Protocol/);
+  assert.match(publicIndex, /Context without coordinates becomes agent entropy/i);
+  assert.match(publicIndex, /retrieval is not authority/i);
+  assert.match(publicIndex, /spatial determinism/i);
+  assert.match(publicIndex, /no source without boundary, no answer without citations, no action without approval/i);
+  assert.match(publicIndex, /04 \/ Build recipe/);
+  assert.match(publicIndex, /How the Brain should use this protocol/i);
+  assert.match(publicIndex, /next-cell memory/i);
+  assert.match(publicIndex, /posting assets for this transmission remain internal creator material/i);
+
+  assert.match(memoryControlPlane, /Memory Control Plane/);
+  assert.match(memoryControlPlane, /Memory without a control plane becomes hidden authority/i);
+  assert.match(memoryControlPlane, /make recall governable/i);
+  assert.match(memoryControlPlane, /Metadata before memory body/i);
+  assert.match(memoryControlPlane, /No mutation without a receipt/i);
+  assert.match(memoryControlPlane, /04 \/ Build recipe/);
+  assert.match(memoryControlPlane, /How the Brain should use this control plane/i);
+  assert.match(memoryControlPlane, /next-cell memory/i);
+  assert.match(memoryControlPlane, /posting assets for this transmission remain internal creator material/i);
+});
+
+test('transmission archive is a guide library, not a public posting desk', async () => {
   const archive = await readFile(new URL('../transmissions/index.html', import.meta.url), 'utf8');
 
-  assert.match(archive, /id="social-packet-desk"/);
-  assert.match(archive, /Social Packet Desk/);
-  assert.match(archive, /Transmission 28 Memory Control Plane Carousel/);
-  assert.match(archive, /social\/transmission-28-memory-control-plane-carousel\/carousel\.html#slide-1/);
-  assert.match(archive, /social\/transmission-28-memory-control-plane-carousel\/downloads\/transmission-28-memory-control-plane-carousel\.zip/);
-  assert.match(archive, /social\/transmission-28-memory-control-plane-carousel\/caption\.md/);
-  assert.match(archive, /Transmission 27 Site Public Index Carousel/);
-  assert.match(archive, /social\/transmission-27-site-public-index-carousel\/carousel\.html#slide-1/);
-  assert.match(archive, /social\/transmission-27-site-public-index-carousel\/downloads\/transmission-27-site-public-index-carousel\.zip/);
-  assert.match(archive, /social\/transmission-27-site-public-index-carousel\/caption\.md/);
-  assert.match(archive, /Transmission 26 Property Sales Intelligence Carousel/);
-  assert.match(archive, /Creator review required/);
-  assert.match(archive, /social\/transmission-26-property-sales-intelligence-cell-carousel\/carousel\.html#slide-1/);
-  assert.match(archive, /social\/transmission-26-property-sales-intelligence-cell-carousel\/downloads\/transmission-26-property-sales-intelligence-cell-carousel\.zip/);
-  assert.match(archive, /social\/transmission-26-property-sales-intelligence-cell-carousel\/caption\.md/);
-  for (let slide = 1; slide <= 8; slide += 1) {
-    const number = String(slide).padStart(2, '0');
-    assert.match(
-      archive,
-      new RegExp(`previews/slide-${number}-preview\\.png`),
-      `archive social packet desk should expose preview image ${number}`,
-    );
-  }
+  assert.match(archive, /whitepaper-style records/i);
+  assert.match(archive, /28<\/span> transmissions published/);
+  assert.equal(archive.includes('id="social-packet-desk"'), false);
+  assert.equal(/Social Packet Desk|Open carousel|Download ZIP|View caption/i.test(archive), false);
+  assert.equal(/\/social\/transmission-[^"']+/i.test(archive), false);
 });
 
 test('property sales intelligence transmission records source-backed Brain decision', async () => {
