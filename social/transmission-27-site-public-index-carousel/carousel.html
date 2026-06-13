@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transmission 27 Site Public Index Carousel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --void: #05060a;
+      --ink: #f6f2ea;
+      --muted: rgba(246, 242, 234, 0.68);
+      --teal: #4cb5a5;
+      --violet: #9b59f5;
+      --amber: #d2ac5f;
+      --line: rgba(246, 242, 234, 0.16);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      overflow: hidden;
+      background: #020204;
+      color: var(--ink);
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    body { display: grid; place-items: center; }
+    .slide {
+      position: relative;
+      display: none;
+      width: 1080px;
+      height: 1080px;
+      overflow: hidden;
+      grid-template-rows: auto 1fr auto;
+      padding: 72px;
+      background:
+        linear-gradient(132deg, rgba(76, 181, 165, 0.16), transparent 32%),
+        linear-gradient(34deg, transparent 0 55%, rgba(155, 89, 245, 0.16) 56%, transparent 70%),
+        radial-gradient(circle at 74% 18%, rgba(210, 172, 95, 0.16), transparent 28%),
+        linear-gradient(160deg, #10131c 0%, #05060a 64%, #010103 100%);
+    }
+    .slide:target { display: grid; }
+    body:not(:has(.slide:target)) #slide-1 { display: grid; }
+    .slide::before {
+      content: "";
+      position: absolute;
+      inset: 46px;
+      border: 1px solid rgba(76, 181, 165, 0.28);
+      border-radius: 36px;
+      pointer-events: none;
+    }
+    .slide::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(76,181,165,0.14) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(155,89,245,0.12) 1px, transparent 1px);
+      background-size: 54px 54px;
+      opacity: 0.42;
+      pointer-events: none;
+    }
+    .top, .content, .bottom { position: relative; z-index: 2; }
+    .top, .bottom { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; font-size: 25px; font-weight: 900; }
+    .brand span:first-child, .brand b { color: var(--teal); }
+    .kicker {
+      color: var(--amber);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .content { display: grid; align-content: center; gap: 32px; max-width: 900px; }
+    h1 { max-width: 850px; font-size: 86px; line-height: 0.96; font-weight: 900; letter-spacing: 0; }
+    h2 { max-width: 880px; font-size: 72px; line-height: 1.02; font-weight: 900; letter-spacing: 0; }
+    p { max-width: 850px; color: var(--muted); font-size: 36px; line-height: 1.25; font-weight: 600; }
+    .teal { color: var(--teal); }
+    .violet { color: var(--violet); }
+    .amber { color: var(--amber); }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .cell {
+      min-height: 154px;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      padding: 24px;
+      background: rgba(12, 18, 26, 0.74);
+    }
+    .cell strong { display: block; margin-bottom: 10px; font-size: 28px; line-height: 1.08; }
+    .cell span { display: block; color: var(--muted); font-size: 22px; line-height: 1.3; }
+    .rail { display: grid; gap: 18px; max-width: 900px; }
+    .step {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 20px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      background: rgba(12, 18, 26, 0.78);
+    }
+    .step b {
+      display: grid;
+      place-items: center;
+      width: 72px;
+      height: 72px;
+      border: 1px solid rgba(76, 181, 165, 0.42);
+      border-radius: 50%;
+      color: var(--teal);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 24px;
+    }
+    .step span { color: var(--muted); font-size: 26px; line-height: 1.25; }
+    .bottom { color: rgba(246, 242, 234, 0.52); font-family: "JetBrains Mono", monospace; font-size: 17px; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <section class="slide" id="slide-1">
+    <div class="top"><div class="brand"><span>∞</span>unwind<b>code</b></div><div class="kicker">Transmission 27</div></div>
+    <div class="content">
+      <h1>The site became a <span class="teal">public index</span>.</h1>
+      <p>UnwindCode.ai is no longer only a narrative surface. It is becoming a public-safe memory layer.</p>
+    </div>
+    <div class="bottom"><span>Public Proof</span><span>Read the transmission</span></div>
+  </section>
+
+  <section class="slide" id="slide-2">
+    <div class="top"><div class="brand"><span>∞</span>unwind<b>code</b></div><div class="kicker">Registry Surface</div></div>
+    <div class="content">
+      <h2>Retrieval is allowed. <span class="violet">Unbounded answers are not.</span></h2>
+      <div class="grid">
+        <div class="cell"><strong>Search</strong><span>Returns public snippets and citations.</span></div>
+        <div class="cell"><strong>Grounding</strong><span>Builds packets with qualifications.</span></div>
+        <div class="cell"><strong>Claims</strong><span>Keeps risk labels attached.</span></div>
+        <div class="cell"><strong>Assets</strong><span>Preserves review and approval state.</span></div>
+      </div>
+    </div>
+    <div class="bottom"><span>Sources before synthesis</span><span>unwindcode.ai</span></div>
+  </section>
+
+  <section class="slide" id="slide-3">
+    <div class="top"><div class="brand"><span>∞</span>unwind<b>code</b></div><div class="kicker">Boundary</div></div>
+    <div class="content">
+      <h2>The public index refuses the private body.</h2>
+      <div class="rail">
+        <div class="step"><b>01</b><span>No prompts, credentials, owner manifests, or runtime logs.</span></div>
+        <div class="step"><b>02</b><span>No deploy, wallet, execution, or posting authority.</span></div>
+        <div class="step"><b>03</b><span>Grounding packets remain scaffolding until reviewed.</span></div>
+      </div>
+    </div>
+    <div class="bottom"><span>Public-safe by design</span><span>Creator review required</span></div>
+  </section>
+
+  <section class="slide" id="slide-4">
+    <div class="top"><div class="brand"><span>∞</span>unwind<b>code</b></div><div class="kicker">Next Cell</div></div>
+    <div class="content">
+      <h2>A website should <span class="amber">cite itself</span> before it tries to sound intelligent.</h2>
+      <p>The next organism pattern is a public proof loop: archive, registry, search, grounding, refusal, then answer.</p>
+    </div>
+    <div class="bottom"><span>Manual posting only</span><span>/transmissions/27-the-site-became-a-public-index.html</span></div>
+  </section>
+</body>
+</html>

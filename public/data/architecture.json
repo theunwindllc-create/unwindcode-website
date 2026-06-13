@@ -1,0 +1,268 @@
+{
+  "schema_version": "2026-06-06.public-architecture-registry.v1",
+  "review_status": "public_safe_draft",
+  "source_scope": "Active UnwindCode.ai public homepage sections and architecture transmissions only",
+  "retrieval_notes": [
+    "This registry is public-safe seed data for architecture search, RAG, chat grounding, and source review.",
+    "Entries summarize public architecture concepts and point back to source routes/files for citation.",
+    "Claim references point to public claim/evidence labels so retrieval can preserve context and avoid overclaiming.",
+    "No prompts, credentials, private notes, runtime logs, user data, deployment evidence, or hidden procedures are included."
+  ],
+  "concepts": [
+    {
+      "id": "three-layer-cognitive-architecture",
+      "category": "cognitive-architecture",
+      "title": "Three-Layer Cognitive Architecture",
+      "summary": "The homepage describes each organism as moving through birth, connection, and evolution: neurogenesis creates the agent, synaptic formation connects it to memory and coordination, and neural plasticity lets it improve over time.",
+      "claims": [
+        "New organisms begin with research, architecture, memory design, protocols, knowledge integration, and delivery.",
+        "Shared memory and orchestrated communication turn isolated agents into a living network.",
+        "Debriefs and repeated interaction are treated as the path for continuous adaptation."
+      ],
+      "claim_references": [
+        {
+          "claim_id": "hero-on-chain-autonomous-positioning",
+          "claim_status": "needs_context",
+          "evidence_status": "source_copy_present",
+          "risk_level": "high",
+          "purpose": "Qualifies homepage autonomy and on-chain positioning language when this architecture is retrieved."
+        },
+        {
+          "claim_id": "future-independent-organisms",
+          "claim_status": "future_vision",
+          "evidence_status": "roadmap_language",
+          "risk_level": "medium",
+          "purpose": "Keeps long-term independent organism language framed as vision rather than current capability."
+        }
+      ],
+      "source_routes": [
+        "/#architecture",
+        "/transmissions/15-how-we-give-machines-a-mind.html"
+      ],
+      "source_files": [
+        "index.html",
+        "transmissions/15-how-we-give-machines-a-mind.html"
+      ],
+      "citations": [
+        {
+          "label": "Homepage architecture section",
+          "route": "/#architecture",
+          "source_file": "index.html"
+        },
+        {
+          "label": "How We Give Machines a Mind",
+          "route": "/transmissions/15-how-we-give-machines-a-mind.html",
+          "source_file": "transmissions/15-how-we-give-machines-a-mind.html"
+        }
+      ],
+      "memory_layers": ["working", "procedural", "semantic", "episodic"],
+      "safety_boundaries": [
+        "This entry describes public architecture concepts only and does not imply runtime activation, deployment authority, or hidden operational access."
+      ],
+      "confidence": "high",
+      "review_status": "public_safe"
+    },
+    {
+      "id": "four-tier-memory-architecture",
+      "category": "memory",
+      "title": "Four-Tier Memory Architecture",
+      "summary": "The public site describes memory as working, procedural, semantic, and episodic: current task context, learned playbooks, domain knowledge, and historical lessons that help an organism operate with continuity.",
+      "claims": [
+        "Working memory holds current situation, active tasks, and volatile attention context.",
+        "Procedural memory stores how-to knowledge, playbooks, and condition-action rules.",
+        "Semantic and episodic memory separate domain facts from historical cases and lessons learned."
+      ],
+      "claim_references": [
+        {
+          "claim_id": "future-independent-organisms",
+          "claim_status": "future_vision",
+          "evidence_status": "roadmap_language",
+          "risk_level": "medium",
+          "purpose": "Connects memory architecture to the future organism vision without treating it as current deployment proof."
+        }
+      ],
+      "source_routes": [
+        "/#architecture",
+        "/transmissions/15-how-we-give-machines-a-mind.html",
+        "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html"
+      ],
+      "source_files": [
+        "index.html",
+        "transmissions/15-how-we-give-machines-a-mind.html",
+        "transmissions/21-the-unwind-brain-checkpoint-white-paper.html"
+      ],
+      "citations": [
+        {
+          "label": "Homepage memory systems",
+          "route": "/#architecture",
+          "source_file": "index.html"
+        },
+        {
+          "label": "Memory Architecture",
+          "route": "/transmissions/15-how-we-give-machines-a-mind.html",
+          "source_file": "transmissions/15-how-we-give-machines-a-mind.html"
+        }
+      ],
+      "memory_layers": ["working", "procedural", "semantic", "episodic"],
+      "safety_boundaries": [
+        "Public memory descriptions are retrieval guidance, not permission to store private prompts, user data, secrets, or stale operational conclusions."
+      ],
+      "confidence": "high",
+      "review_status": "public_safe"
+    },
+    {
+      "id": "approval-spine",
+      "category": "approval-governance",
+      "title": "Approval Spine",
+      "summary": "The public architecture separates reasoning from authority: the Brain can prepare, route, summarize, and recommend, but consequential filesystem, publishing, deployment, wallet, and financial actions need human approval.",
+      "claims": [
+        "The organism spine is controlled orchestration rather than unrestricted autonomy.",
+        "The approval surface distinguishes internal coordination from external consequence.",
+        "Authority is treated as architecture, with higher-risk work requiring explicit approval paths."
+      ],
+      "claim_references": [
+        {
+          "claim_id": "proof-gated-financial-motion",
+          "claim_status": "public_safe",
+          "evidence_status": "source_backed",
+          "risk_level": "medium",
+          "purpose": "Preserves the public approval-gated financial motion boundary when approval architecture is retrieved."
+        },
+        {
+          "claim_id": "financial-organisms-real-markets",
+          "claim_status": "safety_qualified",
+          "evidence_status": "qualified_by_public_transmission",
+          "risk_level": "high",
+          "purpose": "Qualifies financial organism language with public safety transmissions before reuse."
+        }
+      ],
+      "source_routes": [
+        "/transmissions/16-the-organism-spine.html",
+        "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html"
+      ],
+      "source_files": [
+        "transmissions/16-the-organism-spine.html",
+        "transmissions/21-the-unwind-brain-checkpoint-white-paper.html"
+      ],
+      "citations": [
+        {
+          "label": "The Organism Spine",
+          "route": "/transmissions/16-the-organism-spine.html",
+          "source_file": "transmissions/16-the-organism-spine.html"
+        },
+        {
+          "label": "Brain checkpoint approval sections",
+          "route": "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html",
+          "source_file": "transmissions/21-the-unwind-brain-checkpoint-white-paper.html"
+        }
+      ],
+      "memory_layers": ["procedural", "episodic"],
+      "safety_boundaries": [
+        "This entry describes human-governed approval design and does not expose approval mechanics, credentials, provider access, or executable procedures."
+      ],
+      "confidence": "high",
+      "review_status": "public_safe"
+    },
+    {
+      "id": "cell-swap-protocol",
+      "category": "cell-governance",
+      "title": "Cell Swap Protocol",
+      "summary": "The Cell Swap Protocol describes organisms as living contracts whose cells can be reviewed, simulated, swapped, activated, and rolled back without losing identity, policy, memory, or accountability.",
+      "claims": [
+        "Written cells do not automatically become runtime authority.",
+        "Preparation is separated from power through registry, candidate packets, compatibility review, sandbox simulation, owner approval, shadow mode, activation, and rollback evidence.",
+        "Swappable cells preserve the organism identity while allowing models, memory backends, gateways, and specialist organs to change."
+      ],
+      "claim_references": [
+        {
+          "claim_id": "hero-on-chain-autonomous-positioning",
+          "claim_status": "needs_context",
+          "evidence_status": "source_copy_present",
+          "risk_level": "high",
+          "purpose": "Prevents cell-growth architecture from being read as unrestricted autonomous runtime authority."
+        },
+        {
+          "claim_id": "proof-gated-financial-motion",
+          "claim_status": "public_safe",
+          "evidence_status": "source_backed",
+          "risk_level": "medium",
+          "purpose": "Links swappable-cell governance to the proof and approval boundary before consequential motion."
+        }
+      ],
+      "source_routes": [
+        "/transmissions/19-the-cell-swap-protocol.html",
+        "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html"
+      ],
+      "source_files": [
+        "transmissions/19-the-cell-swap-protocol.html",
+        "transmissions/21-the-unwind-brain-checkpoint-white-paper.html"
+      ],
+      "citations": [
+        {
+          "label": "The Cell Swap Protocol",
+          "route": "/transmissions/19-the-cell-swap-protocol.html",
+          "source_file": "transmissions/19-the-cell-swap-protocol.html"
+        }
+      ],
+      "memory_layers": ["procedural", "semantic"],
+      "safety_boundaries": [
+        "This entry is a public governance summary and not an instruction manual for activating unreviewed cells or bypassing simulation and approval gates."
+      ],
+      "confidence": "high",
+      "review_status": "public_safe"
+    },
+    {
+      "id": "public-proof-loop",
+      "category": "proof-governance",
+      "title": "Public Proof Loop",
+      "summary": "Public proof turns approved internal learning into legible transmissions and evidence artifacts while keeping sensitive procedures, credentials, commands, and operational details out of public output.",
+      "claims": [
+        "Evidence should precede serious claims and actions.",
+        "Approved learning can become public architecture language without revealing sensitive procedures.",
+        "Public transmissions act as proof artifacts rather than raw operating transcripts."
+      ],
+      "claim_references": [
+        {
+          "claim_id": "proof-gated-financial-motion",
+          "claim_status": "public_safe",
+          "evidence_status": "source_backed",
+          "risk_level": "medium",
+          "purpose": "Anchors public proof architecture to the financial proof-before-motion safety label."
+        },
+        {
+          "claim_id": "financial-organisms-real-markets",
+          "claim_status": "safety_qualified",
+          "evidence_status": "qualified_by_public_transmission",
+          "risk_level": "high",
+          "purpose": "Keeps public proof language attached to qualified financial and market claims."
+        }
+      ],
+      "source_routes": [
+        "/transmissions/20-the-public-proof-loop.html",
+        "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html"
+      ],
+      "source_files": [
+        "transmissions/20-the-public-proof-loop.html",
+        "transmissions/21-the-unwind-brain-checkpoint-white-paper.html"
+      ],
+      "citations": [
+        {
+          "label": "The Public Proof Loop",
+          "route": "/transmissions/20-the-public-proof-loop.html",
+          "source_file": "transmissions/20-the-public-proof-loop.html"
+        },
+        {
+          "label": "Public proof whitepaper sections",
+          "route": "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html",
+          "source_file": "transmissions/21-the-unwind-brain-checkpoint-white-paper.html"
+        }
+      ],
+      "memory_layers": ["episodic", "procedural"],
+      "safety_boundaries": [
+        "Public proof should make architecture legible without exposing private prompts, exact review mechanics, credentials, security fingerprints, deployment procedures, or operational commands."
+      ],
+      "confidence": "high",
+      "review_status": "public_safe"
+    }
+  ]
+}

@@ -5,9 +5,6 @@
 
 import { setLanguage, getCurrentLang, getTranslation } from './i18n.js';
 
-const SUPABASE_URL = 'https://rxsjhikbmvstsivrqqyg.supabase.co';
-const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ4c2poaWtibXZzdHNpdnJxcXlnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE3MTI1MDYsImV4cCI6MjA4NzI4ODUwNn0.Wt1i-HBRzX6eF0EzSPHbRLoh6wVKDFMGQqqUyiVdKbo';
-
 // ── Language Toggle ─────────────────────────────────────────────
 const langToggle = document.getElementById('lang-toggle');
 langToggle.addEventListener('click', () => {
@@ -161,26 +158,11 @@ const emailInput = document.getElementById('email-input');
 const signupStatus = document.getElementById('signup-status');
 
 async function subscribeEmail(email) {
-    const payload = JSON.stringify({ email, page_path: window.location.pathname });
-    const primary = await fetch('/api/subscribe', {
+    return fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: payload,
+        body: JSON.stringify({ email, page_path: window.location.pathname }),
     });
-
-    if (primary.ok) return primary;
-
-    const primaryData = await primary.json().catch(() => ({}));
-    const fallback = await fetch(`${SUPABASE_URL}/functions/v1/subscribe`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${SUPABASE_ANON}` },
-        body: JSON.stringify({ email }),
-    });
-
-    if (fallback.ok) return fallback;
-
-    const fallbackData = await fallback.json().catch(() => ({}));
-    throw new Error(fallbackData.error || primaryData.error || 'Failed');
 }
 
 emailForm.addEventListener('submit', async (e) => {
@@ -277,6 +259,14 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && chatModal.classList.contains('open')) closeChat();
 });
 
+async function sendChatMessage(message) {
+    return fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ conversation_id: conversationId, message }),
+    });
+}
+
 chatForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const msg = chatInput.value.trim();
@@ -287,11 +277,7 @@ chatForm.addEventListener('submit', async (e) => {
     showTyping();
 
     try {
-        const res = await fetch(`${SUPABASE_URL}/functions/v1/chat`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${SUPABASE_ANON}` },
-            body: JSON.stringify({ conversation_id: conversationId, message: msg }),
-        });
+        const res = await sendChatMessage(msg);
 
         hideTyping();
 

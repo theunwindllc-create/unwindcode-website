@@ -1,0 +1,694 @@
+{
+  "schema_version": "2026-06-06.public-asset-registry.v1",
+  "review_status": "public_safe_draft",
+  "source_scope": "Reviewed public-safe UnwindCode.ai asset packages in this site package",
+  "retrieval_notes": [
+    "This registry is public-safe seed data for asset provenance, review status, RAG grounding, and future approval workflows.",
+    "Entries point to source files and generated artifacts so assets can be inspected before use.",
+    "No credentials, private notes, user data, deployment evidence, provider configuration, or public posting authority are included."
+  ],
+  "packages": [
+    {
+      "id": "transmission-24-mirror-carousel",
+      "type": "social-carousel",
+      "title": "Transmission 24 Mirror Carousel",
+      "summary": "A prepared twelve-slide square carousel for Transmission 24 that explains Infinity Mirror as a visual surface shaped by user signal rather than another admin-like wellness dashboard.",
+      "source_route": "/transmissions/24-the-mirror-found-its-form.html",
+      "asset_package_sha256": "2e6ad72871c7b49b1e2032a9cdfff571fadad3d8d418985fd7a745b0756c002b",
+      "source_files": [
+        "social/transmission-24-mirror-carousel/README.md",
+        "social/transmission-24-mirror-carousel/caption.md",
+        "social/transmission-24-mirror-carousel/carousel.html"
+      ],
+      "alt_text": "Twelve-slide dark theme carousel for Unwind Code Transmission 24 using gold mirror imagery to explain Infinity Mirror, the four mirror facets, trust membrane, and the design gate: What did your signal change in the mirror?",
+      "provenance": {
+        "created_from": "local-html-carousel-render",
+        "source_files": [
+          "social/transmission-24-mirror-carousel/README.md",
+          "social/transmission-24-mirror-carousel/caption.md",
+          "social/transmission-24-mirror-carousel/carousel.html"
+        ],
+        "source_file_hashes": [
+          {
+            "path": "social/transmission-24-mirror-carousel/README.md",
+            "mime_type": "text/markdown",
+            "bytes": 774,
+            "sha256": "8a9dc578f0a33c5769dff6ed2da18afccd241c8dcf4bc653a6f268631970d167"
+          },
+          {
+            "path": "social/transmission-24-mirror-carousel/caption.md",
+            "mime_type": "text/markdown",
+            "bytes": 1534,
+            "sha256": "2f3b51134ac326717a1f894218ccc854f96994a14e4f2c5077042719cb3310b9"
+          },
+          {
+            "path": "social/transmission-24-mirror-carousel/carousel.html",
+            "mime_type": "text/html",
+            "bytes": 13630,
+            "sha256": "d64da2944e278fa7737b9a20d0cfd1825bc49cb4ec99d1aaf89398493075e2a2"
+          }
+        ],
+        "generated_files": [
+          {
+            "path": "social/transmission-24-mirror-carousel/exports/slide-01.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 388131,
+            "sha256": "07a45e766f9da3c1409890c555a19ef94b489acbdadcc2499c18cf43d23d6a01"
+          },
+          {
+            "path": "social/transmission-24-mirror-carousel/exports/slide-02.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 392372,
+            "sha256": "44df5c8a07c4a608653bd03fd5c9295700e815bf9afa93cee79d52deadcf2883"
+          },
+          {
+            "path": "social/transmission-24-mirror-carousel/exports/slide-03.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 396617,
+            "sha256": "61b91f9c8e57a5effa09f97ab46621159f041a7f5f3ff3c8f44141967b1b20fa"
+          },
+          {
+            "path": "social/transmission-24-mirror-carousel/exports/slide-04.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 360067,
+            "sha256": "13c079edef52bebedab1fd73f54daa8c4e4ea4a2815b059952214ce1ab77ee7b"
+          },
+          {
+            "path": "social/transmission-24-mirror-carousel/exports/slide-05.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 380279,
+            "sha256": "a555f3245b77388515c5b6736f2ea5332c6705b62b33a21ed94014213b620f8c"
+          },
+          {
+            "path": "social/transmission-24-mirror-carousel/exports/slide-06.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 370501,
+            "sha256": "1ec39bc50eb9ce4d24b86b3da6754ff3e8897b06efa8bd1fb95ccdf05e80bc21"
+          },
+          {
+            "path": "social/transmission-24-mirror-carousel/exports/slide-07.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 382713,
+            "sha256": "9bdf37f3c00daea884a3949e032ad6577601c07259faf502d13a46aea07e6b37"
+          },
+          {
+            "path": "social/transmission-24-mirror-carousel/exports/slide-08.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 369824,
+            "sha256": "12a88dd0e47758c57c7a337beb4652ac7d44a698b18a79ace29171a12271cfcc"
+          },
+          {
+            "path": "social/transmission-24-mirror-carousel/exports/slide-09.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 373328,
+            "sha256": "402d1c97134e59b9e536b29b5301b5b0d8b6087892737e4062d46caf780dabea"
+          },
+          {
+            "path": "social/transmission-24-mirror-carousel/exports/slide-10.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 392141,
+            "sha256": "48217c5138a6180b1cf962db2578f5e7cb169b6122eed52ef4354cd3978adb24"
+          },
+          {
+            "path": "social/transmission-24-mirror-carousel/exports/slide-11.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 370581,
+            "sha256": "268f7a901a83fd41a4ac3caac6b9d1a6c2e4c8d4630dc5ee52fbb8ca0def53e7"
+          },
+          {
+            "path": "social/transmission-24-mirror-carousel/exports/slide-12.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 387406,
+            "sha256": "f80024e22bce98a5c0ff7866ec06a039881edd7f6e84a70527ca187b3fb601ba"
+          }
+        ]
+      },
+      "rights": {
+        "usage_scope": "Prepared for UnwindCode.ai social channels after manual approval only.",
+        "license_notes": "Owner-created site and social asset package; external licensing is not asserted by this registry."
+      },
+      "approval_gates": [
+        "Creator approval is required before public posting.",
+        "Caption, alt text, generated slides, and source route must be reviewed together.",
+        "No automated public publishing authority is granted by this registry."
+      ],
+      "authority_boundary": {
+        "posting_authority": false,
+        "wallet_authority": false,
+        "paid_media_authority": false,
+        "on_chain_attestation_authority": false,
+        "approval_state": "creator_approval_required",
+        "allowed_uses": [
+          "manual_review",
+          "provenance_lookup",
+          "local_asset_inspection",
+          "manual_social_post_after_creator_approval"
+        ],
+        "prohibited_uses": [
+          "automated_public_posting",
+          "wallet_signing",
+          "paid_media_activation",
+          "on_chain_publication",
+          "unreviewed_rag_answer_evidence"
+        ]
+      },
+      "approval_record_schema": {
+        "schema_version": "2026-06-06.public-asset-approval-record.v1",
+        "storage_boundary": {
+          "public_record_only": true,
+          "secrets_excluded": true,
+          "raw_prompts_excluded": true,
+          "private_notes_excluded": true,
+          "on_chain_sensitive_data_excluded": true
+        },
+        "required_fields": [
+          "approval_id",
+          "asset_package_id",
+          "asset_package_sha256",
+          "approved_by_role",
+          "approved_at",
+          "approved_scope",
+          "source_file_hashes_verified",
+          "generated_file_hashes_verified"
+        ],
+        "allowed_approval_scopes": [
+          "manual_social_publication",
+          "site_asset_publication",
+          "provenance_attestation"
+        ],
+        "prohibited_record_content": [
+          "private_approver_identity",
+          "raw_prompts",
+          "private_notes",
+          "wallet_secret_material",
+          "service_credentials",
+          "sensitive_user_data"
+        ]
+      },
+      "approval_records": [],
+      "review_status": "creator_approval_required",
+      "publication_status": "prepared_not_posted",
+      "manual_approval_required": true,
+      "confidence": "high"
+    },
+    {
+      "id": "transmission-26-property-sales-intelligence-cell-carousel",
+      "type": "social-carousel",
+      "title": "Transmission 26 Property Sales Intelligence Cell Carousel",
+      "summary": "A prepared eight-slide square carousel for Transmission 26 that frames real estate property sales intelligence as source-aware, consent-first CRM architecture with human approval and proof before outreach.",
+      "source_route": "/transmissions/26-property-sales-intelligence-cell.html",
+      "asset_package_sha256": "3b5bb5bab4b7398aa88ebc6d3aee1f02c500c86373832db350c15495ceef508a",
+      "source_files": [
+        "social/transmission-26-property-sales-intelligence-cell-carousel/README.md",
+        "social/transmission-26-property-sales-intelligence-cell-carousel/caption.md",
+        "social/transmission-26-property-sales-intelligence-cell-carousel/carousel.html"
+      ],
+      "alt_text": "Eight-slide dark theme carousel for Unwind Code Transmission 26 explaining a real estate property sales intelligence cell as consent-first CRM architecture for source review, lead qualification, human escalation, and audit proof before outreach.",
+      "provenance": {
+        "created_from": "local-html-carousel-render",
+        "source_files": [
+          "social/transmission-26-property-sales-intelligence-cell-carousel/README.md",
+          "social/transmission-26-property-sales-intelligence-cell-carousel/caption.md",
+          "social/transmission-26-property-sales-intelligence-cell-carousel/carousel.html"
+        ],
+        "source_file_hashes": [
+          {
+            "path": "social/transmission-26-property-sales-intelligence-cell-carousel/README.md",
+            "mime_type": "text/markdown",
+            "bytes": 1188,
+            "sha256": "75ce46ea8773d7c2592f742fbdbf72c86c4d00ff90e262e53ac70596404092b4"
+          },
+          {
+            "path": "social/transmission-26-property-sales-intelligence-cell-carousel/caption.md",
+            "mime_type": "text/markdown",
+            "bytes": 1603,
+            "sha256": "d3200d9e815ab5ea5ab33d5d84a3648b16927df28896f3cedd6a6b5707537081"
+          },
+          {
+            "path": "social/transmission-26-property-sales-intelligence-cell-carousel/carousel.html",
+            "mime_type": "text/html",
+            "bytes": 11951,
+            "sha256": "105d6a784717242125c9da1e13dbbdce7d3e8a089c93640dd22329c4e1d4e762"
+          }
+        ],
+        "generated_files": [
+          {
+            "path": "social/transmission-26-property-sales-intelligence-cell-carousel/exports/slide-01.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 583193,
+            "sha256": "8f734150e7880db574838d0a2fa00b89006cfaf7bf42a5286bbc076c947a177d"
+          },
+          {
+            "path": "social/transmission-26-property-sales-intelligence-cell-carousel/exports/slide-02.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 586888,
+            "sha256": "7d98b4f6bc569c3bc7a905c2a1d10f745aaee53491e5650a6e4c193e1753884b"
+          },
+          {
+            "path": "social/transmission-26-property-sales-intelligence-cell-carousel/exports/slide-03.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 558339,
+            "sha256": "d4871c26e9e3160c6cfb973bfd2f24649293547efb0917ab0edf3fa029c50da4"
+          },
+          {
+            "path": "social/transmission-26-property-sales-intelligence-cell-carousel/exports/slide-04.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 547355,
+            "sha256": "d3b1dd3933edc6f894d3b9bcb8426b9c98cd4edc9869e90c7d3b9437ab4259c3"
+          },
+          {
+            "path": "social/transmission-26-property-sales-intelligence-cell-carousel/exports/slide-05.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 584672,
+            "sha256": "d454731507aeb4fddffe61b611eaa2fa36b8451d4d366cb4f811f3a84afd78de"
+          },
+          {
+            "path": "social/transmission-26-property-sales-intelligence-cell-carousel/exports/slide-06.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 531601,
+            "sha256": "dec46348c77d0448bbcae7d3cef7224d9c1bb3684c816f52df5607a9af148a72"
+          },
+          {
+            "path": "social/transmission-26-property-sales-intelligence-cell-carousel/exports/slide-07.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 537246,
+            "sha256": "492e9642640b7b73b8666edd0f434d2c0efdc7483aba13b52fe53e6f2409fdb5"
+          },
+          {
+            "path": "social/transmission-26-property-sales-intelligence-cell-carousel/exports/slide-08.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 580256,
+            "sha256": "6910d4122ac05e6b5a6a8e8d748eb4d4286b0487b672b46a2d3120a4311296d7"
+          }
+        ]
+      },
+      "rights": {
+        "usage_scope": "Prepared for UnwindCode.ai social channels after manual approval only.",
+        "license_notes": "Owner-created site and social asset package; external licensing is not asserted by this registry."
+      },
+      "approval_gates": [
+        "Creator approval is required before public posting.",
+        "Caption, alt text, generated slides, and source route must be reviewed together.",
+        "No automated public publishing, lead import, paid media, provider activation, or outreach authority is granted by this registry."
+      ],
+      "authority_boundary": {
+        "posting_authority": false,
+        "wallet_authority": false,
+        "paid_media_authority": false,
+        "on_chain_attestation_authority": false,
+        "outreach_authority": false,
+        "lead_import_authority": false,
+        "approval_state": "creator_approval_required",
+        "allowed_uses": [
+          "manual_review",
+          "provenance_lookup",
+          "local_asset_inspection",
+          "manual_social_post_after_creator_approval"
+        ],
+        "prohibited_uses": [
+          "automated_public_posting",
+          "wallet_signing",
+          "paid_media_activation",
+          "on_chain_publication",
+          "lead_scraping",
+          "outreach_activation",
+          "provider_activation",
+          "unreviewed_rag_answer_evidence"
+        ]
+      },
+      "approval_record_schema": {
+        "schema_version": "2026-06-06.public-asset-approval-record.v1",
+        "storage_boundary": {
+          "public_record_only": true,
+          "secrets_excluded": true,
+          "raw_prompts_excluded": true,
+          "private_notes_excluded": true,
+          "on_chain_sensitive_data_excluded": true
+        },
+        "required_fields": [
+          "approval_id",
+          "asset_package_id",
+          "asset_package_sha256",
+          "approved_by_role",
+          "approved_at",
+          "approved_scope",
+          "source_file_hashes_verified",
+          "generated_file_hashes_verified"
+        ],
+        "allowed_approval_scopes": [
+          "manual_social_publication",
+          "site_asset_publication",
+          "provenance_attestation"
+        ],
+        "prohibited_record_content": [
+          "private_approver_identity",
+          "raw_prompts",
+          "private_notes",
+          "wallet_secret_material",
+          "service_credentials",
+          "sensitive_user_data"
+        ]
+      },
+      "approval_records": [],
+      "review_status": "creator_approval_required",
+      "publication_status": "prepared_not_posted",
+      "manual_approval_required": true,
+      "confidence": "high"
+    },
+    {
+      "id": "transmission-27-site-public-index-carousel",
+      "type": "social-carousel",
+      "title": "Transmission 27 Site Public Index Carousel",
+      "summary": "A prepared four-slide square carousel for Transmission 27 that frames UnwindCode.ai as a public-safe index for registries, search, grounding packets, claim context, asset provenance, and refusal boundaries.",
+      "source_route": "/transmissions/27-the-site-became-a-public-index.html",
+      "asset_package_sha256": "65ae07c5a29865a219ae9dbd2b6d2857f58a778c259f37802f6f97866675f24f",
+      "source_files": [
+        "social/transmission-27-site-public-index-carousel/README.md",
+        "social/transmission-27-site-public-index-carousel/caption.md",
+        "social/transmission-27-site-public-index-carousel/carousel.html"
+      ],
+      "alt_text": "Four-slide dark theme carousel for Unwind Code Transmission 27 explaining the public index, retrieval boundaries, grounding packets, claim context, asset provenance, and creator review before public posting.",
+      "provenance": {
+        "created_from": "local-html-carousel-render",
+        "source_files": [
+          "social/transmission-27-site-public-index-carousel/README.md",
+          "social/transmission-27-site-public-index-carousel/caption.md",
+          "social/transmission-27-site-public-index-carousel/carousel.html"
+        ],
+        "source_file_hashes": [
+          {
+            "path": "social/transmission-27-site-public-index-carousel/README.md",
+            "mime_type": "text/markdown",
+            "bytes": 846,
+            "sha256": "62f4d376c1fc922be195b056a3737a1148c8188bb68a4748bf64004daccaf3e3"
+          },
+          {
+            "path": "social/transmission-27-site-public-index-carousel/caption.md",
+            "mime_type": "text/markdown",
+            "bytes": 1419,
+            "sha256": "3c741e8d94ea4c2d8154b93d14dfff08d0e15e003256a4b1911587877d821911"
+          },
+          {
+            "path": "social/transmission-27-site-public-index-carousel/carousel.html",
+            "mime_type": "text/html",
+            "bytes": 7157,
+            "sha256": "cda32efd9f1d82989205f7033a25876e6ce8f22ccec676875165fb1d08297c34"
+          }
+        ],
+        "generated_files": [
+          {
+            "path": "social/transmission-27-site-public-index-carousel/exports/slide-01.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 697286,
+            "sha256": "813912cdf4aeee6985aaf07e915e19f47857b72f53d27fc4dd38ce8879cba943"
+          },
+          {
+            "path": "social/transmission-27-site-public-index-carousel/exports/slide-02.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 645277,
+            "sha256": "623c5646cbf89f6a47d7b9ae96cc21329c3571349efd773bc83cd59702929f68"
+          },
+          {
+            "path": "social/transmission-27-site-public-index-carousel/exports/slide-03.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 635101,
+            "sha256": "021b2a8a9963c35db6b526fea8724508c00a382797e539927c0d1eb3fceea6ca"
+          },
+          {
+            "path": "social/transmission-27-site-public-index-carousel/exports/slide-04.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 710400,
+            "sha256": "bb96a7c46ea2a1b0ee78475d323de397d5005802e98389f08357d00fd6d4c5cf"
+          }
+        ]
+      },
+      "rights": {
+        "usage_scope": "Prepared for UnwindCode.ai social channels after manual approval only.",
+        "license_notes": "Owner-created site and social asset package; external licensing is not asserted by this registry."
+      },
+      "approval_gates": [
+        "Creator approval is required before public posting.",
+        "Caption, alt text, generated slides, and source route must be reviewed together.",
+        "No automated public publishing, answer generation, deployment, wallet, or paid media authority is granted by this registry."
+      ],
+      "authority_boundary": {
+        "posting_authority": false,
+        "wallet_authority": false,
+        "paid_media_authority": false,
+        "on_chain_attestation_authority": false,
+        "deployment_authority": false,
+        "answer_generation_authority": false,
+        "memory_mutation_authority": false,
+        "approval_state": "creator_approval_required",
+        "allowed_uses": [
+          "manual_review",
+          "provenance_lookup",
+          "local_asset_inspection",
+          "manual_social_post_after_creator_approval"
+        ],
+        "prohibited_uses": [
+          "automated_public_posting",
+          "wallet_signing",
+          "paid_media_activation",
+          "on_chain_publication",
+          "unreviewed_rag_answer_evidence",
+          "unreviewed_deployment"
+        ]
+      },
+      "approval_record_schema": {
+        "schema_version": "2026-06-06.public-asset-approval-record.v1",
+        "storage_boundary": {
+          "public_record_only": true,
+          "secrets_excluded": true,
+          "raw_prompts_excluded": true,
+          "private_notes_excluded": true,
+          "on_chain_sensitive_data_excluded": true
+        },
+        "required_fields": [
+          "approval_id",
+          "asset_package_id",
+          "asset_package_sha256",
+          "approved_by_role",
+          "approved_at",
+          "approved_scope",
+          "source_file_hashes_verified",
+          "generated_file_hashes_verified"
+        ],
+        "allowed_approval_scopes": [
+          "manual_social_publication",
+          "site_asset_publication",
+          "provenance_attestation"
+        ],
+        "prohibited_record_content": [
+          "private_approver_identity",
+          "raw_prompts",
+          "private_notes",
+          "wallet_secret_material",
+          "service_credentials",
+          "sensitive_user_data"
+        ]
+      },
+      "approval_records": [],
+      "review_status": "creator_approval_required",
+      "publication_status": "prepared_not_posted",
+      "manual_approval_required": true,
+      "confidence": "high"
+    },
+    {
+      "id": "transmission-28-memory-control-plane-carousel",
+      "type": "social-carousel",
+      "title": "Transmission 28 Memory Control Plane Carousel",
+      "summary": "A prepared four-slide square carousel for Transmission 28 that frames Brain memory as an operator control plane for metadata-only inspection, health, action queues, triage, reviewed writes, and receipt hygiene.",
+      "source_route": "/transmissions/28-the-memory-control-plane.html",
+      "asset_package_sha256": "b6df401ac332c95079b9747e49275b4b852393fdab1bb1283f8f7602a4a2454a",
+      "source_files": [
+        "social/transmission-28-memory-control-plane-carousel/README.md",
+        "social/transmission-28-memory-control-plane-carousel/caption.md",
+        "social/transmission-28-memory-control-plane-carousel/carousel.html"
+      ],
+      "alt_text": "Four-slide dark theme carousel for Unwind Code Transmission 28 explaining the memory control plane, content-free operator inspection, action queues, reviewed repair, and human-gated mutation authority.",
+      "provenance": {
+        "created_from": "local-html-carousel-render",
+        "source_files": [
+          "social/transmission-28-memory-control-plane-carousel/README.md",
+          "social/transmission-28-memory-control-plane-carousel/caption.md",
+          "social/transmission-28-memory-control-plane-carousel/carousel.html"
+        ],
+        "source_file_hashes": [
+          {
+            "path": "social/transmission-28-memory-control-plane-carousel/README.md",
+            "mime_type": "text/markdown",
+            "bytes": 875,
+            "sha256": "019ecbabdfbd81d5348a9ccce459521dd1133d82852ce58fb8011f320266924e"
+          },
+          {
+            "path": "social/transmission-28-memory-control-plane-carousel/caption.md",
+            "mime_type": "text/markdown",
+            "bytes": 1398,
+            "sha256": "bae6d31e16e4d97f7fc0169e0534025389adc6d7006916aa2f55288f92462c0d"
+          },
+          {
+            "path": "social/transmission-28-memory-control-plane-carousel/carousel.html",
+            "mime_type": "text/html",
+            "bytes": 7203,
+            "sha256": "c6d7ff4c52381efc6fb4d1088c73fe08f42c5c6afd9283b8786ca111909e5d5d"
+          }
+        ],
+        "generated_files": [
+          {
+            "path": "social/transmission-28-memory-control-plane-carousel/exports/slide-01.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 633159,
+            "sha256": "2027879c3d600ec424a0f9e9dbbbfbbb39640bdce463b96270c4bdbd1761fbd4"
+          },
+          {
+            "path": "social/transmission-28-memory-control-plane-carousel/exports/slide-02.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 596656,
+            "sha256": "0482dcb0dd2b43ddec29c442721889acec9fb32f507997f992cf11cfca30085e"
+          },
+          {
+            "path": "social/transmission-28-memory-control-plane-carousel/exports/slide-03.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 585173,
+            "sha256": "88fd81342850b4f877da7adab8dc006d5ac68261e10765d67aa2e1201891b0fa"
+          },
+          {
+            "path": "social/transmission-28-memory-control-plane-carousel/exports/slide-04.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 645323,
+            "sha256": "90ec7ca77e9c144d7a093735de5e565d01a2a8c842f2a45ee0536e3b88e91a91"
+          }
+        ]
+      },
+      "rights": {
+        "usage_scope": "Prepared for UnwindCode.ai social channels after manual approval only.",
+        "license_notes": "Owner-created site and social asset package; external licensing is not asserted by this registry."
+      },
+      "approval_gates": [
+        "Creator approval is required before public posting.",
+        "Caption, alt text, generated slides, and source route must be reviewed together.",
+        "No automated public publishing, memory mutation, deployment, wallet, or paid media authority is granted by this registry."
+      ],
+      "authority_boundary": {
+        "posting_authority": false,
+        "wallet_authority": false,
+        "paid_media_authority": false,
+        "on_chain_attestation_authority": false,
+        "deployment_authority": false,
+        "answer_generation_authority": false,
+        "memory_mutation_authority": false,
+        "approval_state": "creator_approval_required",
+        "allowed_uses": [
+          "manual_review",
+          "provenance_lookup",
+          "local_asset_inspection",
+          "manual_social_post_after_creator_approval"
+        ],
+        "prohibited_uses": [
+          "automated_public_posting",
+          "wallet_signing",
+          "paid_media_activation",
+          "on_chain_publication",
+          "unreviewed_rag_answer_evidence",
+          "unreviewed_deployment",
+          "unreviewed_memory_mutation"
+        ]
+      },
+      "approval_record_schema": {
+        "schema_version": "2026-06-06.public-asset-approval-record.v1",
+        "storage_boundary": {
+          "public_record_only": true,
+          "secrets_excluded": true,
+          "raw_prompts_excluded": true,
+          "private_notes_excluded": true,
+          "on_chain_sensitive_data_excluded": true
+        },
+        "required_fields": [
+          "approval_id",
+          "asset_package_id",
+          "asset_package_sha256",
+          "approved_by_role",
+          "approved_at",
+          "approved_scope",
+          "source_file_hashes_verified",
+          "generated_file_hashes_verified"
+        ],
+        "allowed_approval_scopes": [
+          "manual_social_publication",
+          "site_asset_publication",
+          "provenance_attestation"
+        ],
+        "prohibited_record_content": [
+          "private_approver_identity",
+          "raw_prompts",
+          "private_notes",
+          "wallet_secret_material",
+          "service_credentials",
+          "sensitive_user_data"
+        ]
+      },
+      "approval_records": [],
+      "review_status": "creator_approval_required",
+      "publication_status": "prepared_not_posted",
+      "manual_approval_required": true,
+      "confidence": "high"
+    }
+  ]
+}

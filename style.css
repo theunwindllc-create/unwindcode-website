@@ -2702,6 +2702,73 @@ section {
   flex: 1;
 }
 
+/* ── Social Packet Desk ───────────────────────────────────────── */
+.tx-social-desk {
+  padding: 0 0 100px;
+}
+
+.tx-social-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 380px);
+  gap: 32px;
+  align-items: center;
+  padding: 36px;
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface);
+}
+
+.tx-social-card + .tx-social-card {
+  margin-top: 18px;
+}
+
+.tx-social-kicker {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: var(--accent-hot);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.tx-social-card h3 {
+  margin-bottom: 12px;
+  color: var(--text-primary);
+  font-size: clamp(1.35rem, 2.5vw, 2rem);
+  line-height: 1.16;
+  letter-spacing: -0.01em;
+}
+
+.tx-social-card p {
+  max-width: 720px;
+  margin-bottom: 18px;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.72;
+}
+
+.tx-social-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tx-social-previews {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.tx-social-previews img {
+  width: 100%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(240, 238, 246, 0.1);
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  background: rgba(15, 15, 30, 0.72);
+}
+
 /* ── Active nav link ───────────────────────────────────────────── */
 .nav-links a.active {
   color: var(--accent-light);
@@ -2710,6 +2777,10 @@ section {
 /* ── Responsive — Transmissions Index ──────────────────────────── */
 @media (max-width: 900px) {
   .tx-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tx-social-card {
     grid-template-columns: 1fr;
   }
 }
@@ -2733,6 +2804,14 @@ section {
 
   .tx-card h3 {
     font-size: 1rem;
+  }
+
+  .tx-social-card {
+    padding: 24px 20px;
+  }
+
+  .tx-social-previews {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .tx-archive-header h2 {

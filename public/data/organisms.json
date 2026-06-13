@@ -1,0 +1,220 @@
+{
+  "schema_version": "2026-06-06.public-organism-registry.v1",
+  "review_status": "public_safe_draft",
+  "generated_from": "active-site-public-html",
+  "retrieval_notes": [
+    "Claim references point to public claim/evidence labels so organism retrieval can preserve context and avoid overclaiming.",
+    "No private prompts, credentials, runtime evidence, user data, deployment evidence, wallet authority, or hidden procedures are included."
+  ],
+  "organisms": [
+    {
+      "id": "unwind-brain",
+      "name": "Unwind Brain",
+      "status": "public-architecture",
+      "summary": "The Unwind Brain is described publicly as a human-governed cognitive organism for memory, approvals, proof, bounded cell growth, and evidence-preserving work.",
+      "capabilities": [
+        "coordinates organism cells and public proof narratives",
+        "models memory, approval gates, and bounded self-evolution",
+        "keeps financial and publication authority behind explicit human review"
+      ],
+      "claim_references": [
+        {
+          "claim_id": "proof-gated-financial-motion",
+          "claim_status": "public_safe",
+          "evidence_status": "source_backed",
+          "risk_level": "medium",
+          "purpose": "Keeps Brain retrieval grounded in approval-gated financial and public consequence boundaries."
+        },
+        {
+          "claim_id": "future-independent-organisms",
+          "claim_status": "future_vision",
+          "evidence_status": "roadmap_language",
+          "risk_level": "medium",
+          "purpose": "Connects Brain roadmap language to future vision rather than current autonomous deployment proof."
+        }
+      ],
+      "safety_boundaries": [
+        "public pages describe architecture and safety posture only; they do not grant autonomous financial execution or hidden operational authority"
+      ],
+      "memory_model": [
+        "working",
+        "procedural",
+        "semantic",
+        "episodic"
+      ],
+      "site_routes": [
+        "/",
+        "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html"
+      ],
+      "source_files": [
+        "index.html",
+        "transmissions/21-the-unwind-brain-checkpoint-white-paper.html"
+      ],
+      "review_status": "public_safe"
+    },
+    {
+      "id": "visual-cortex",
+      "name": "Visual Cortex",
+      "status": "public-concept",
+      "summary": "Visual Cortex is presented as a creative intelligence surface for translating organism strategy, design systems, and public-facing experience into coherent visual output.",
+      "capabilities": [
+        "supports visual system planning for organism-facing interfaces",
+        "connects creative direction with structured public product pages"
+      ],
+      "claim_references": [
+        {
+          "claim_id": "future-independent-organisms",
+          "claim_status": "future_vision",
+          "evidence_status": "roadmap_language",
+          "risk_level": "medium",
+          "purpose": "Frames creative production organism language as part of a future vision rather than current autonomous operations."
+        }
+      ],
+      "safety_boundaries": [
+        "public registry records capability intent only, not private asset prompts, unreleased customer work, or unreviewed generated media"
+      ],
+      "memory_model": [
+        "semantic",
+        "procedural"
+      ],
+      "site_routes": [
+        "/#organisms"
+      ],
+      "source_files": [
+        "index.html"
+      ],
+      "review_status": "public_safe"
+    },
+    {
+      "id": "infinity-mirror",
+      "name": "Infinity Mirror",
+      "status": "public-product-narrative",
+      "summary": "Infinity Mirror is framed as a reflective organism experience for emotional clarity, memory visibility, consent-aware reflection, and human-centered feedback loops.",
+      "capabilities": [
+        "supports reflective user flows around clarity and emotional state",
+        "frames memory as visible, consent-aware context rather than surveillance"
+      ],
+      "claim_references": [
+        {
+          "claim_id": "future-independent-organisms",
+          "claim_status": "future_vision",
+          "evidence_status": "roadmap_language",
+          "risk_level": "medium",
+          "purpose": "Keeps reflective organism retrieval tied to roadmap framing instead of current independent operation."
+        }
+      ],
+      "safety_boundaries": [
+        "public material should not be treated as medical, therapeutic, or private-memory implementation detail"
+      ],
+      "memory_model": [
+        "working",
+        "episodic"
+      ],
+      "site_routes": [
+        "/#organisms",
+        "/transmissions/24-the-mirror-found-its-form.html"
+      ],
+      "source_files": [
+        "index.html",
+        "transmissions/24-the-mirror-found-its-form.html"
+      ],
+      "review_status": "public_safe"
+    },
+    {
+      "id": "financial-organisms",
+      "name": "Financial Organisms",
+      "status": "public-safety-architecture",
+      "summary": "Financial Organisms are described as proof-first systems that observe, simulate, classify risk, and require explicit human approval before any consequential financial motion.",
+      "capabilities": [
+        "models read-only financial observation and simulation-first workflows",
+        "uses approval gates and safety language before execution claims"
+      ],
+      "claim_references": [
+        {
+          "claim_id": "financial-organisms-real-markets",
+          "claim_status": "safety_qualified",
+          "evidence_status": "qualified_by_public_transmission",
+          "risk_level": "high",
+          "purpose": "Qualifies real-market financial organism language with public safety transmissions."
+        },
+        {
+          "claim_id": "hero-live-blockchains-stat",
+          "claim_status": "needs_context",
+          "evidence_status": "source_copy_present",
+          "risk_level": "high",
+          "purpose": "Prevents live blockchain stat copy from being treated as current deployment verification."
+        },
+        {
+          "claim_id": "proof-gated-financial-motion",
+          "claim_status": "public_safe",
+          "evidence_status": "source_backed",
+          "risk_level": "medium",
+          "purpose": "Keeps financial retrieval grounded in proof, simulation, and human approval before consequence."
+        }
+      ],
+      "safety_boundaries": [
+        "public registry does not claim live trading authority, wallet signing access, yield performance, or autonomous money movement"
+      ],
+      "memory_model": [
+        "semantic",
+        "episodic",
+        "procedural"
+      ],
+      "site_routes": [
+        "/#organisms",
+        "/transmissions/22-the-monad-hand-clarity-before-motion.html",
+        "/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html"
+      ],
+      "source_files": [
+        "index.html",
+        "transmissions/22-the-monad-hand-clarity-before-motion.html",
+        "transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html"
+      ],
+      "review_status": "public_safe"
+    },
+    {
+      "id": "brain-cell-architecture",
+      "name": "Brain Cell Architecture",
+      "status": "public-architecture",
+      "summary": "Brain Cell Architecture is the public pattern for specialized, swappable organism cells governed by review, simulation, capability boundaries, and rollback-aware growth.",
+      "capabilities": [
+        "describes replaceable capability modules for organism growth",
+        "links cell evolution to review, public proof, and bounded activation"
+      ],
+      "claim_references": [
+        {
+          "claim_id": "hero-on-chain-autonomous-positioning",
+          "claim_status": "needs_context",
+          "evidence_status": "source_copy_present",
+          "risk_level": "high",
+          "purpose": "Prevents brain-cell architecture from amplifying unrestricted on-chain autonomy language."
+        },
+        {
+          "claim_id": "proof-gated-financial-motion",
+          "claim_status": "public_safe",
+          "evidence_status": "source_backed",
+          "risk_level": "medium",
+          "purpose": "Links bounded cell growth to proof and approval gates before consequential action."
+        }
+      ],
+      "safety_boundaries": [
+        "public descriptions are not operational instructions for bypassing review, writing unapproved cells, or mutating production systems"
+      ],
+      "memory_model": [
+        "procedural",
+        "semantic"
+      ],
+      "site_routes": [
+        "/#organisms",
+        "/transmissions/19-the-cell-swap-protocol.html",
+        "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html"
+      ],
+      "source_files": [
+        "index.html",
+        "transmissions/19-the-cell-swap-protocol.html",
+        "transmissions/21-the-unwind-brain-checkpoint-white-paper.html"
+      ],
+      "review_status": "public_safe"
+    }
+  ]
+}

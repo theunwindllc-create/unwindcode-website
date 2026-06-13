@@ -1,0 +1,589 @@
+{
+  "schema_version": "2026-06-06.public-ai-services.v1",
+  "review_status": "public_safe_draft",
+  "site": "https://www.unwindcode.ai/",
+  "purpose": "Public-safe metadata for active UnwindCode.ai AI-adjacent service surfaces.",
+  "scope": [
+    "Only active public API routes in this site package are listed.",
+    "The file describes service boundaries and source-backed capabilities, not provider configuration.",
+    "Prompts, credentials, private notes, user records, runtime logs, and deployment evidence are excluded."
+  ],
+  "services": [
+    {
+      "id": "brain-chat",
+      "name": "Brain Chat Proxy",
+      "endpoint": "/api/chat",
+      "public": true,
+      "status": "active_same_origin_proxy",
+      "claim_scope": "public_api_behavior",
+      "summary": "Same-origin governance proxy for the homepage Brain chat surface.",
+      "operational_controls": {
+        "same_origin_guarded": true,
+        "durable_rate_limit": true,
+        "production_fail_closed": true,
+        "metadata_only_logging": true
+      },
+      "capabilities": [
+        "Validates browser origin, message length, and conversation identifiers before forwarding chat requests.",
+        "Keeps browser chat traffic on the same-origin API route without shipping direct third-party function fallback coordinates.",
+        "Returns generic public failures when upstream chat forwarding is unavailable.",
+        "Supports metadata-only operational logging when explicitly enabled.",
+        "Supports an optional durable pre-forward rate-limit check using salted client hash keys.",
+        "Blocks financial, Web3, wallet-signing, transaction-action, live-deployment, and future-vision prompts behind public grounding review before upstream answers."
+      ],
+      "safety_boundaries": [
+        "Production browser traffic should use this same-origin proxy rather than direct third-party function calls.",
+        "Browser assets must not include direct upstream function paths, baked-in provider configuration, or provider tokens.",
+        "Logs must not include submitted chat text, conversation payloads, provider tokens, or upstream response bodies.",
+        "Rate-limit checks must not include submitted chat text, raw client addresses, provider tokens, or upstream response bodies.",
+        "Risky transaction-action prompts such as swaps, fund transfers, and transaction signing must not receive bare upstream answers without citations, claim qualifications, and refusal-rule review."
+      ],
+      "source_routes": [
+        "/"
+      ],
+      "source_files": [
+        "api/chat.js",
+        "main.js",
+        "tests/chat-api.test.js",
+        "tests/chat-form-source.test.js"
+      ],
+      "citations": [
+        {
+          "label": "Homepage chat surface",
+          "route": "/"
+        }
+      ],
+      "review_status": "public_safe"
+    },
+    {
+      "id": "architecture-registry",
+      "name": "Architecture Registry",
+      "endpoint": "/api/architecture",
+      "public": true,
+      "status": "active_read_only_registry",
+      "claim_scope": "public_architecture",
+      "summary": "Read-only API over source-backed public architecture concepts for search, RAG, and citation-aware chat grounding.",
+      "capabilities": [
+        "Returns public architecture concepts for retrieval and source review.",
+        "Returns one public architecture concept by id when requested.",
+        "Filters public architecture concepts by category.",
+        "Includes claim references that preserve public claim status, evidence status, and risk labels during retrieval.",
+        "Returns non-cacheable generic errors for malformed inputs, unknown ids, write methods, and registry-loader failures."
+      ],
+      "safety_boundaries": [
+        "Registry content is limited to public architecture concepts, active source routes, public source files, citations, confidence labels, claim references, and review status.",
+        "Private notes, exact approval mechanics, provider configuration, deployment procedures, and operational commands are not included.",
+        "Error responses must stay generic and no-store so parser details, filesystem paths, and transient error states are not public-cached."
+      ],
+      "source_routes": [
+        "/",
+        "/transmissions/15-how-we-give-machines-a-mind.html",
+        "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html"
+      ],
+      "source_files": [
+        "api/architecture.js",
+        "public/data/architecture.json",
+        "tests/architecture-api.test.js",
+        "tests/architecture-registry.test.js"
+      ],
+      "citations": [
+        {
+          "label": "Homepage architecture section",
+          "route": "/"
+        },
+        {
+          "label": "How We Give Machines a Mind",
+          "route": "/transmissions/15-how-we-give-machines-a-mind.html"
+        }
+      ],
+      "review_status": "public_safe"
+    },
+    {
+      "id": "public-backend-status",
+      "name": "Public Backend Status",
+      "endpoint": "/api/status",
+      "public": true,
+      "status": "active_read_only_status",
+      "claim_scope": "public_api_behavior",
+      "summary": "Read-only public status endpoint over the site's public service and registry metadata.",
+      "capabilities": [
+        "Aggregates active public service ids, endpoints, and review state from public AI-service metadata.",
+        "Reports public asset, architecture, organism, and transmission registry counts and review counts.",
+        "Reports public operational-control endpoint lists for durable rate limiting, production fail-closed behavior, same-origin guards, and answer-generation-disabled surfaces.",
+        "Refreshes cached public status when source metadata file signatures change.",
+        "Returns generic no-store errors for write methods and public metadata loader failures.",
+        "Rejects write methods and returns only public metadata boundaries."
+      ],
+      "safety_boundaries": [
+        "Status output is limited to public metadata files and static registry counts.",
+        "Operational controls are aggregate public booleans and endpoint lists, not live env configuration or provider health.",
+        "The endpoint must not expose environment values, provider keys, user submissions, runtime evidence, private prompts, owner manifests, or deployment details.",
+        "Status output must not imply live provider health, authenticated admin access, or production deployment proof."
+      ],
+      "source_routes": [
+        "/"
+      ],
+      "source_files": [
+        "api/status.js",
+        "public/ai-services.json",
+        "public/data/assets.json",
+        "public/data/architecture.json",
+        "public/data/claims.json",
+        "public/data/organisms.json",
+        "public/data/transmissions.json",
+        "tests/status-api.test.js"
+      ],
+      "citations": [
+        {
+          "label": "Homepage public architecture overview",
+          "route": "/"
+        }
+      ],
+      "review_status": "public_safe"
+    },
+    {
+      "id": "public-search",
+      "name": "Public Registry Search",
+      "endpoint": "/api/search",
+      "public": true,
+      "status": "active_read_only_search",
+      "claim_scope": "public_api_behavior",
+      "summary": "Read-only lexical search over source-backed public registries with claim-aware filters for safer retrieval.",
+      "operational_controls": {
+        "durable_rate_limit": true,
+        "production_fail_closed": true,
+        "answer_generation_disabled": true,
+        "synthesis_requires_grounding": true,
+        "query_responses_private_no_store": true,
+        "write_methods_rejected": true
+      },
+      "capabilities": [
+        "Searches public architecture, asset, claim, organism, and transmission registries without reading private repository content.",
+        "Returns citations, source files, review status, and claim references with each result when available.",
+        "Returns deterministic lexical ranks, match scores, matched terms, compact snippets, and claim-context summaries for retrieval-ready display.",
+        "Returns public memory_layers and memory_context fields for architecture, organism, and transmission retrieval results.",
+        "Returns answer generation disabled with a grounding-required answer policy so snippets are not treated as synthesized answers.",
+        "Marks each result snippet as not an answer and as an evidence excerpt that requires grounding before synthesis.",
+        "Marks approval-required asset packages with approval context, review flags, public safety state, and human-review requirements before downstream RAG use.",
+        "Uses file-signature-aware in-process memoization for public registry JSON while keeping query responses private and non-cacheable.",
+        "Uses the shared durable rate-limit hook before registry loading, with route-specific limit and window settings.",
+        "Supports bounded type, claim-status, evidence-status, risk-level, and memory_layer filters for claim-aware and memory-aware retrieval.",
+        "Returns query-bearing responses with private no-store cache headers and errors with no-store cache headers.",
+        "Rejects write methods and malformed search inputs."
+      ],
+      "safety_boundaries": [
+        "Search output is limited to reviewed public metadata files and active public routes.",
+        "Search snippets are retrieval scaffolding only; downstream answers must request a grounding packet and render citations and claim qualifications first.",
+        "Submitted query text is echoed only in private, non-cacheable responses and should not be stored in shared caches.",
+        "Rate-limit checks use salted route/client hashes and limit-window metadata only; query text, snippets, and registry results are not sent to the limiter.",
+        "Private prompts, credentials, user submissions, provider configuration, runtime evidence, owner manifests, and deployment details are not included.",
+        "private memory, runtime memory, user memory, and unstated embeddings are excluded from public search outputs.",
+        "High-risk Web3 and financial results must retain claim status, evidence status, risk labels, or claim references before downstream answer generation.",
+        "Approval-required or unposted asset results must retain review flags and human-review requirements before downstream answer generation."
+      ],
+      "source_routes": [
+        "/",
+        "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html",
+        "/transmissions/22-the-monad-hand-clarity-before-motion.html",
+        "/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html"
+      ],
+      "source_files": [
+        "api/search.js",
+        "api/_shared/rate-limit.js",
+        "api/_shared/public-search.js",
+        "public/data/architecture.json",
+        "public/data/assets.json",
+        "public/data/claims.json",
+        "public/data/organisms.json",
+        "public/data/transmissions.json",
+        "tests/search-api.test.js"
+      ],
+      "citations": [
+        {
+          "label": "Homepage public architecture overview",
+          "route": "/"
+        },
+        {
+          "label": "Brain checkpoint white paper",
+          "route": "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html"
+        },
+        {
+          "label": "Monad Hand proof membrane",
+          "route": "/transmissions/22-the-monad-hand-clarity-before-motion.html"
+        }
+      ],
+      "review_status": "public_safe"
+    },
+    {
+      "id": "public-grounding",
+      "name": "Public Grounding Packet",
+      "endpoint": "/api/grounding",
+      "public": true,
+      "status": "active_read_only_grounding",
+      "claim_scope": "public_api_behavior",
+      "summary": "Read-only citation packet endpoint that assembles public search results, citations, claim qualifications, and refusal rules before any answer synthesis.",
+      "operational_controls": {
+        "durable_rate_limit": true,
+        "production_fail_closed": true,
+        "answer_generation_disabled": true,
+        "query_responses_private_no_store": true,
+        "write_methods_rejected": true
+      },
+      "capabilities": [
+        "Builds a top-five grounding packet from public architecture, asset, claim, organism, and transmission registries.",
+        "Returns source snippets, citation indexes, required claim qualifications, and refusal rules for downstream RAG or chat grounding.",
+        "Returns frontend-ready numbered citation display metadata and per-source citation display references while keeping answer generation disabled.",
+        "Returns machine-readable answer policy and review flags so synthesis remains blocked until citation and claim rendering are reviewed.",
+        "Marks every grounding source with answer generation disabled, source policy, retrieval semantics, and answer safety fields that separate public metadata safety from answer safety and inherit packet-level review decisions.",
+        "Preserves public memory_layers and memory_context on grounding sources before any answer synthesis.",
+        "Carries approval-required asset review flags and blocked answer-policy reasons into grounding packets.",
+        "Uses the file-signature-aware memoized public-registry loader so repeated grounding requests do not reread every registry file in the same process.",
+        "Uses the shared durable rate-limit hook before grounding packet assembly, with route-specific limit and window settings.",
+        "Keeps answer generation disabled so public outputs can be reviewed before any synthesis layer is added.",
+        "Returns query-bearing responses with private no-store cache headers and errors with no-store cache headers.",
+        "Rejects write methods and malformed grounding inputs."
+      ],
+      "safety_boundaries": [
+        "Grounding packets are retrieval scaffolding only and must not be treated as generated answers or operational proof.",
+        "Citation display metadata is for rendering reviewed public citations before an answer; it does not grant answer synthesis, wallet authority, current deployment proof, or execution authority.",
+        "Individual grounding sources are citation scaffolds only; public metadata safety does not make a source answer-safe, and detached sources must preserve packet-level review requirements.",
+        "Submitted grounding query text is echoed only in private, non-cacheable responses and should not be stored in shared caches.",
+        "Rate-limit checks use salted route/client hashes and limit-window metadata only; query text, citations, snippets, qualifications, and packet contents are not sent to the limiter.",
+        "Private prompts, credentials, user submissions, runtime evidence, provider configuration, owner manifests, and deployment details are excluded.",
+        "private memory, runtime memory, user memory, and unstated embeddings are excluded from public grounding packets.",
+        "High-risk Web3 and financial packets must preserve claim qualifications and refusal rules before downstream answer generation.",
+        "Approval-required asset sources must preserve manual-approval and publication-status review flags before downstream answer generation."
+      ],
+      "source_routes": [
+        "/",
+        "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html",
+        "/transmissions/22-the-monad-hand-clarity-before-motion.html",
+        "/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html"
+      ],
+      "source_files": [
+        "api/grounding.js",
+        "api/_shared/grounding-policy.js",
+        "api/_shared/rate-limit.js",
+        "api/_shared/public-search.js",
+        "public/data/architecture.json",
+        "public/data/assets.json",
+        "public/data/claims.json",
+        "public/data/organisms.json",
+        "public/data/transmissions.json",
+        "tests/grounding-api.test.js"
+      ],
+      "citations": [
+        {
+          "label": "Homepage public architecture overview",
+          "route": "/"
+        },
+        {
+          "label": "Brain checkpoint white paper",
+          "route": "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html"
+        },
+        {
+          "label": "SEC Gate financial restraint",
+          "route": "/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html"
+        }
+      ],
+      "review_status": "public_safe"
+    },
+    {
+      "id": "asset-registry",
+      "name": "Asset Registry",
+      "endpoint": "/api/assets",
+      "public": true,
+      "status": "active_read_only_registry",
+      "claim_scope": "public_api_behavior",
+      "operational_controls": {
+        "durable_rate_limit": true,
+        "production_fail_closed": true
+      },
+      "summary": "Read-only API over public-safe asset provenance, source and generated file hashes, review status, approval gates, authority boundaries, and approval record schemas.",
+      "capabilities": [
+        "Returns reviewed public-safe asset package metadata with source-file and generated-file hashes plus authority boundaries and approval record schemas for provenance and future asset workflows.",
+        "Returns canonical asset_package_sha256 values so future approvals and attestations bind to a reviewed package digest.",
+        "Returns one asset package by id when requested.",
+        "Filters asset packages by review status or publication status.",
+        "Keeps approval records empty until a reviewed approval exists, while exposing the public-safe fields future approval records must use.",
+        "Fails closed when future approval records reference a different asset package id or package digest.",
+        "Uses the shared durable rate-limit hook before registry loading, with route-specific limit and window settings.",
+        "Returns ETag and Last-Modified validators with a short revalidation cache policy for successful public asset metadata reads.",
+        "Returns generic no-store errors for validation, method, not-found, and registry-loader failures."
+      ],
+      "safety_boundaries": [
+        "Registry content is limited to source files, source-file hashes, generated artifact hashes, byte counts, alt text, review status, publication status, approval gates, authority boundaries, and public approval record schemas.",
+        "Private notes, credentials, provider configuration, user data, unpublished drafts, and public posting authority are not included.",
+        "Approval record schemas must remain role-based and public-safe, excluding personal approver identities, generation-input text, credentials, internal notes, sensitive user data, and sensitive on-chain data.",
+        "Asset provenance does not grant automated posting, wallet signing, paid media activation, on-chain publication, or unreviewed RAG answer authority.",
+        "Future approval records must match the package's canonical asset_package_sha256 before publication or provenance use.",
+        "Limiter payloads contain salted route/client hashes only and must not include asset ids, filters, source file paths, generated asset paths, registry contents, or raw client addresses.",
+        "Approval-bearing asset metadata should remain validator-aware so caches can revalidate before relying on publication state."
+      ],
+      "source_routes": [
+        "/transmissions/24-the-mirror-found-its-form.html",
+        "/transmissions/26-property-sales-intelligence-cell.html",
+        "/social/transmission-26-property-sales-intelligence-cell-carousel/carousel.html",
+        "/social/transmission-24-mirror-carousel/carousel.html",
+        "/transmissions/27-the-site-became-a-public-index.html",
+        "/social/transmission-27-site-public-index-carousel/carousel.html",
+        "/transmissions/28-the-memory-control-plane.html",
+        "/social/transmission-28-memory-control-plane-carousel/carousel.html"
+      ],
+      "source_files": [
+        "api/assets.js",
+        "public/data/assets.json",
+        "social/transmission-24-mirror-carousel/README.md",
+        "social/transmission-24-mirror-carousel/caption.md",
+        "social/transmission-24-mirror-carousel/carousel.html",
+        "social/transmission-26-property-sales-intelligence-cell-carousel/README.md",
+        "social/transmission-26-property-sales-intelligence-cell-carousel/caption.md",
+        "social/transmission-26-property-sales-intelligence-cell-carousel/carousel.html",
+        "tests/asset-registry.test.js",
+        "tests/assets-api.test.js",
+        "social/transmission-27-site-public-index-carousel/README.md",
+        "social/transmission-27-site-public-index-carousel/caption.md",
+        "social/transmission-27-site-public-index-carousel/carousel.html",
+        "social/transmission-28-memory-control-plane-carousel/README.md",
+        "social/transmission-28-memory-control-plane-carousel/caption.md",
+        "social/transmission-28-memory-control-plane-carousel/carousel.html"
+      ],
+      "citations": [
+        {
+          "label": "Transmission 24 source page",
+          "route": "/transmissions/24-the-mirror-found-its-form.html"
+        },
+        {
+          "label": "Transmission 26 Property Sales Intelligence Cell",
+          "route": "/transmissions/26-property-sales-intelligence-cell.html"
+        },
+        {
+          "label": "Transmission 26 social carousel",
+          "route": "/social/transmission-26-property-sales-intelligence-cell-carousel/carousel.html"
+        },
+        {
+          "label": "Transmission 24 Mirror Carousel source carousel",
+          "route": "/social/transmission-24-mirror-carousel/carousel.html"
+        },
+        {
+          "label": "Transmission 27 Site Public Index Carousel",
+          "route": "/transmissions/27-the-site-became-a-public-index.html"
+        },
+        {
+          "label": "Transmission 27 Site Public Index Carousel source carousel",
+          "route": "/social/transmission-27-site-public-index-carousel/carousel.html"
+        },
+        {
+          "label": "Transmission 28 Memory Control Plane Carousel",
+          "route": "/transmissions/28-the-memory-control-plane.html"
+        },
+        {
+          "label": "Transmission 28 Memory Control Plane Carousel source carousel",
+          "route": "/social/transmission-28-memory-control-plane-carousel/carousel.html"
+        }
+      ],
+      "review_status": "public_safe"
+    },
+    {
+      "id": "claim-registry",
+      "name": "Claim Registry",
+      "endpoint": "/api/claims",
+      "public": true,
+      "status": "active_read_only_registry",
+      "claim_scope": "public_api_behavior",
+      "operational_controls": {
+        "durable_rate_limit": true,
+        "production_fail_closed": true
+      },
+      "summary": "Read-only API over source-backed public claim labels, evidence status, risk level, and interpretation boundaries.",
+      "capabilities": [
+        "Returns public claim labels before broad RAG, search, or chat grounding.",
+        "Returns one claim by id when requested.",
+        "Filters claims by claim status, evidence status, and category.",
+        "Uses the shared durable rate-limit hook before registry loading, with route-specific limit and window settings.",
+        "Returns non-cacheable generic errors for malformed inputs, unknown ids, write methods, and registry-loader failures."
+      ],
+      "safety_boundaries": [
+        "Registry content is limited to public copy, source routes, source files, citations, labels, evidence status, and interpretation boundaries.",
+        "Private prompts, credentials, hidden procedures, runtime evidence, provider configuration, user data, and deployment proof are not included.",
+        "High-risk Web3 and financial claims must remain qualified and must not be interpreted as wallet authority or production execution proof.",
+        "Limiter payloads contain salted route/client hashes only and must not include claim ids, filters, claim labels, citations, source files, registry contents, or raw client addresses.",
+        "Error responses must stay generic and no-store so parser details, filesystem paths, and transient error states are not public-cached."
+      ],
+      "source_routes": [
+        "/",
+        "/transmissions/22-the-monad-hand-clarity-before-motion.html",
+        "/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html"
+      ],
+      "source_files": [
+        "api/claims.js",
+        "public/data/claims.json",
+        "tests/claim-registry.test.js",
+        "tests/claims-api.test.js"
+      ],
+      "citations": [
+        {
+          "label": "Homepage claim sources",
+          "route": "/"
+        },
+        {
+          "label": "Monad Hand proof membrane",
+          "route": "/transmissions/22-the-monad-hand-clarity-before-motion.html"
+        }
+      ],
+      "review_status": "public_safe"
+    },
+    {
+      "id": "organism-registry",
+      "name": "Organism Registry",
+      "endpoint": "/api/organisms",
+      "public": true,
+      "status": "active_read_only_registry",
+      "claim_scope": "public_architecture",
+      "operational_controls": {
+        "durable_rate_limit": true,
+        "production_fail_closed": true
+      },
+      "summary": "Read-only API over the source-backed public organism registry.",
+      "capabilities": [
+        "Returns all public organism records for site, chat, and future retrieval use.",
+        "Returns one public organism by id when requested.",
+        "Includes claim references that preserve public claim status, evidence status, and risk labels during organism retrieval.",
+        "Uses the shared durable rate-limit hook before registry loading, with route-specific limit and window settings.",
+        "Rejects malformed ids and write methods.",
+        "Returns non-cacheable generic errors for malformed inputs, unknown ids, write methods, and registry-loader failures."
+      ],
+      "safety_boundaries": [
+        "Registry content is limited to public copy, active public routes, public source files, claim references, and review status.",
+        "Runtime evidence, owner manifests, private implementation notes, and provider configuration are not included.",
+        "Limiter payloads contain salted route/client hashes only and must not include organism ids, capability text, memory labels, claim references, source routes, registry contents, or raw client addresses.",
+        "Error responses must stay generic and no-store so parser details, filesystem paths, and transient error states are not public-cached."
+      ],
+      "source_routes": [
+        "/",
+        "/transmissions/19-the-cell-swap-protocol.html",
+        "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html",
+        "/transmissions/22-the-monad-hand-clarity-before-motion.html",
+        "/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html",
+        "/transmissions/24-the-mirror-found-its-form.html"
+      ],
+      "source_files": [
+        "api/organisms.js",
+        "public/data/organisms.json",
+        "tests/organism-registry.test.js",
+        "tests/organisms-api.test.js"
+      ],
+      "citations": [
+        {
+          "label": "Organism architecture overview",
+          "route": "/"
+        },
+        {
+          "label": "Brain checkpoint white paper",
+          "route": "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html"
+        }
+      ],
+      "review_status": "public_safe"
+    },
+    {
+      "id": "transmission-registry",
+      "name": "Transmission Registry",
+      "endpoint": "/api/transmissions",
+      "public": true,
+      "status": "active_read_only_registry",
+      "claim_scope": "public_architecture",
+      "operational_controls": {
+        "durable_rate_limit": true,
+        "production_fail_closed": true
+      },
+      "summary": "Read-only API over source-backed public transmission retrieval seed data.",
+      "capabilities": [
+        "Returns all public transmission records for retrieval and search preparation.",
+        "Returns one public transmission by id when requested.",
+        "Filters public transmission records by topic tag.",
+        "Uses the shared durable rate-limit hook before registry and claim-context loading, with route-specific limit and window settings."
+      ],
+      "safety_boundaries": [
+        "Registry content is limited to active published transmission pages and public retrieval metadata.",
+        "Private notes, owner manifests, provider configuration, and unpublished routes are not included.",
+        "Limiter payloads contain salted route/client hashes only and must not include transmission ids, topic filters, source routes, claim context, registry contents, or raw client addresses."
+      ],
+      "source_routes": [
+        "/transmissions/",
+        "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html",
+        "/transmissions/27-the-site-became-a-public-index.html",
+        "/transmissions/28-the-memory-control-plane.html"
+      ],
+      "source_files": [
+        "api/transmissions.js",
+        "public/data/transmissions.json",
+        "tests/transmission-registry.test.js",
+        "tests/transmissions-api.test.js"
+      ],
+      "citations": [
+        {
+          "label": "Transmission archive",
+          "route": "/transmissions/"
+        },
+        {
+          "label": "Brain checkpoint white paper",
+          "route": "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html"
+        },
+        {
+          "label": "Transmission 27 public index",
+          "route": "/transmissions/27-the-site-became-a-public-index.html"
+        },
+        {
+          "label": "Transmission 28 memory control plane",
+          "route": "/transmissions/28-the-memory-control-plane.html"
+        }
+      ],
+      "review_status": "public_safe"
+    },
+    {
+      "id": "subscriber-intake",
+      "name": "Subscriber Intake",
+      "endpoint": "/api/subscribe",
+      "public": true,
+      "status": "active_same_origin_intake",
+      "claim_scope": "public_api_behavior",
+      "summary": "Same-origin email signup endpoint for the homepage community form.",
+      "operational_controls": {
+        "same_origin_guarded": true,
+        "durable_rate_limit": true,
+        "production_fail_closed": true,
+        "metadata_only_logging": true
+      },
+      "capabilities": [
+        "Normalizes and validates submitted email addresses before storage.",
+        "Keeps browser signup traffic on the same-origin API route without shipping direct third-party function fallback coordinates.",
+        "Rejects untrusted browser origins and unsafe page path metadata.",
+        "Hides upstream storage details from public error responses.",
+        "Supports an optional durable pre-storage rate-limit check using salted client hash keys."
+      ],
+      "safety_boundaries": [
+        "Production browser traffic should use this same-origin intake rather than direct third-party function calls.",
+        "Browser assets must not include direct upstream function paths, baked-in provider configuration, or provider tokens.",
+        "Service credentials stay server-side and are never exposed through browser code or public metadata.",
+        "Operational logs must remain metadata-only and exclude submitted email addresses and provider response bodies.",
+        "Rate-limit checks must not include submitted email addresses, raw client addresses, service credentials, or upstream response bodies."
+      ],
+      "source_routes": [
+        "/"
+      ],
+      "source_files": [
+        "api/subscribe.js",
+        "main.js",
+        "tests/email-form-source.test.js",
+        "tests/subscribe-api.test.js"
+      ],
+      "citations": [
+        {
+          "label": "Homepage signup form",
+          "route": "/"
+        }
+      ],
+      "review_status": "public_safe"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+# UnwindCode.ai
+
+UnwindCode.ai is the public site for Unwind Code, an AI architecture lab focused on human-governed AI organisms: systems that reason, remember, ask for authority, preserve evidence, and grow through reviewed capability cells.
+
+This file is a public-safe guide for AI crawlers and retrieval systems. It intentionally references only routes that are live in this active site package.
+
+## Public Concepts
+
+- AI organism: a bounded software system organized around cells, memory, approvals, evidence, and controlled evolution.
+- Memory model: working, procedural, semantic, and episodic memory are described as architecture concepts on the homepage.
+- Approval gates: public material emphasizes explicit human approval before financial motion, publishing, code mutation, or other consequential actions.
+- Web3 trust: Web3 is framed as provenance, identity, simulation, attestations, and audit hashes; sensitive data and raw prompts should remain off-chain.
+- Public proof: transmissions are public artifacts that summarize architecture, safety boundaries, and implementation direction without exposing secrets.
+- Real Estate Property Sales Intelligence: a source-aware domain cell narrative for approved lead intake, qualification, consent evidence, DNC posture, human review, and proof before outreach.
+- Public index: the website exposes registries, search, grounding packets, claim context, asset provenance, and refusal rules without answer-generation authority.
+- Memory control plane: the Brain memory work exposes metadata-only recent views, health, action queues, triage, and reviewed repair boundaries without exposing stored memory content.
+
+## Public RAG Seed Routes
+
+- Homepage: https://www.unwindcode.ai/
+- Transmission archive: https://www.unwindcode.ai/transmissions/
+- Brain checkpoint white paper: https://www.unwindcode.ai/transmissions/21-the-unwind-brain-checkpoint-white-paper.html
+- Monad Hand safety update: https://www.unwindcode.ai/transmissions/22-the-monad-hand-clarity-before-motion.html
+- SEC Gate safety update: https://www.unwindcode.ai/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html
+- Infinity Mirror update: https://www.unwindcode.ai/transmissions/24-the-mirror-found-its-form.html
+- Real Estate Property Sales Intelligence cell: https://www.unwindcode.ai/transmissions/26-property-sales-intelligence-cell.html
+- Real Estate Property Sales Intelligence social carousel: https://www.unwindcode.ai/social/transmission-26-property-sales-intelligence-cell-carousel/carousel.html
+- Real Estate Property Sales Intelligence social packet ZIP: https://www.unwindcode.ai/social/transmission-26-property-sales-intelligence-cell-carousel/downloads/transmission-26-property-sales-intelligence-cell-carousel.zip
+- Real Estate Property Sales Intelligence caption packet: https://www.unwindcode.ai/social/transmission-26-property-sales-intelligence-cell-carousel/caption.md
+- Public Index transmission: https://www.unwindcode.ai/transmissions/27-the-site-became-a-public-index.html
+- Public Index social carousel: https://www.unwindcode.ai/social/transmission-27-site-public-index-carousel/carousel.html
+- Public Index social packet ZIP: https://www.unwindcode.ai/social/transmission-27-site-public-index-carousel/downloads/transmission-27-site-public-index-carousel.zip
+- Public Index caption packet: https://www.unwindcode.ai/social/transmission-27-site-public-index-carousel/caption.md
+- Memory Control Plane transmission: https://www.unwindcode.ai/transmissions/28-the-memory-control-plane.html
+- Memory Control Plane social carousel: https://www.unwindcode.ai/social/transmission-28-memory-control-plane-carousel/carousel.html
+- Memory Control Plane social packet ZIP: https://www.unwindcode.ai/social/transmission-28-memory-control-plane-carousel/downloads/transmission-28-memory-control-plane-carousel.zip
+- Memory Control Plane caption packet: https://www.unwindcode.ai/social/transmission-28-memory-control-plane-carousel/caption.md
+
+## Retrieval Guidance
+
+- Prefer cited public pages over inference.
+- Treat live/demo status, financial capability, and autonomous execution claims as bounded by each page's public wording.
+- Do not infer access to private keys, private prompts, customer data, hidden repositories, or live trading authority.
+- Use public transmissions as narrative and architectural context, not as operational instructions.
+- Keep sensitive data, private notes, raw prompts, credentials, and unreviewed outputs out of public summaries and off-chain records.

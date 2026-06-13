@@ -1,0 +1,214 @@
+import { readFile } from 'node:fs/promises';
+import { stat } from 'node:fs/promises';
+
+const STATUS_URLS = {
+  services: new URL('../public/ai-services.json', import.meta.url),
+  architecture: new URL('../public/data/architecture.json', import.meta.url),
+  assets: new URL('../public/data/assets.json', import.meta.url),
+  claims: new URL('../public/data/claims.json', import.meta.url),
+  organisms: new URL('../public/data/organisms.json', import.meta.url),
+  transmissions: new URL('../public/data/transmissions.json', import.meta.url),
+};
+const ALLOWED_METHODS = 'GET, HEAD, OPTIONS';
+const SUCCESS_CACHE_CONTROL = 'public, max-age=120, stale-while-revalidate=600';
+const ERROR_CACHE_CONTROL = 'no-store';
+
+async function readJson(url) {
+  return JSON.parse(await readFile(url, 'utf8'));
+}
+
+async function statusSignature(urls) {
+  const parts = await Promise.all(
+    Object.entries(urls).map(async ([key, url]) => {
+      const stats = await stat(url);
+      return `${key}:${stats.size}:${stats.mtimeMs}`;
+    }),
+  );
+
+  return parts.join('|');
+}
+
+function serviceStatus(services) {
+  const ids = services.services.map((service) => service.id).sort();
+
+  return {
+    count: ids.length,
+    ids,
+    endpoints: services.services.map((service) => service.endpoint).sort(),
+    review_status: services.review_status,
+  };
+}
+
+function operationalControls(services) {
+  const controls = services.services
+    .map((service) => ({
+      endpoint: service.endpoint,
+      controls: service.operational_controls || {},
+    }))
+    .filter((service) => service.endpoint);
+
+  const endpointsWhere = (key) =>
+    controls
+      .filter((service) => service.controls[key] === true)
+      .map((service) => service.endpoint)
+      .sort();
+
+  return {
+    durable_rate_limited_endpoints: endpointsWhere('durable_rate_limit'),
+    production_fail_closed_endpoints: endpointsWhere('production_fail_closed'),
+    answer_generation_disabled_endpoints: endpointsWhere('answer_generation_disabled'),
+    same_origin_guarded_endpoints: endpointsWhere('same_origin_guarded'),
+    limiter_payload_boundary: {
+      salted_route_client_hashes_only: true,
+      raw_queries_excluded: true,
+      raw_client_addresses_excluded: true,
+      secrets_excluded: true,
+      runtime_evidence_excluded: true,
+    },
+  };
+}
+
+function registryStatus(registry, collectionName) {
+  const collection = registry[collectionName];
+
+  return {
+    count: collection.length,
+    review_status: registry.review_status,
+    public_safe_count: collection.filter((entry) => entry.review_status === 'public_safe').length,
+  };
+}
+
+function assetStatus(registry) {
+  const packages = registry.packages;
+
+  return {
+    count: packages.length,
+    review_status: registry.review_status,
+    creator_approval_required_count: packages.filter(
+      (entry) => entry.review_status === 'creator_approval_required',
+    ).length,
+    prepared_not_posted_count: packages.filter(
+      (entry) => entry.publication_status === 'prepared_not_posted',
+    ).length,
+  };
+}
+
+function claimStatus(registry) {
+  const claims = registry.claims;
+
+  return {
+    count: claims.length,
+    review_status: registry.review_status,
+    needs_context_count: claims.filter((entry) => entry.claim_status === 'needs_context').length,
+    safety_qualified_count: claims.filter((entry) => entry.claim_status === 'safety_qualified').length,
+    future_vision_count: claims.filter((entry) => entry.claim_status === 'future_vision').length,
+  };
+}
+
+async function buildStatus(urls = STATUS_URLS) {
+  const [services, architecture, assets, claims, organisms, transmissions] = await Promise.all([
+    readJson(urls.services),
+    readJson(urls.architecture),
+    readJson(urls.assets),
+    readJson(urls.claims),
+    readJson(urls.organisms),
+    readJson(urls.transmissions),
+  ]);
+
+  return {
+    schema_version: '2026-06-06.public-backend-status.v1',
+    review_status: 'public_safe',
+    generated_from: [
+      'public/ai-services.json',
+      'public/data/architecture.json',
+      'public/data/assets.json',
+      'public/data/claims.json',
+      'public/data/organisms.json',
+      'public/data/transmissions.json',
+    ],
+    services: serviceStatus(services),
+    operational_controls: operationalControls(services),
+    registries: {
+      architecture: registryStatus(architecture, 'concepts'),
+      assets: assetStatus(assets),
+      claims: claimStatus(claims),
+      organisms: registryStatus(organisms, 'organisms'),
+      transmissions: registryStatus(transmissions, 'transmissions'),
+    },
+    boundaries: {
+      public_only: true,
+      secrets_excluded: true,
+      runtime_evidence_excluded: true,
+      private_prompts_excluded: true,
+      write_methods_rejected: true,
+    },
+  };
+}
+
+function createStatusReader({ urls = STATUS_URLS } = {}) {
+  let cachedStatus = null;
+
+  return async function readStatus() {
+    const signature = await statusSignature(urls);
+
+    if (!cachedStatus || cachedStatus.signature !== signature) {
+      cachedStatus = {
+        signature,
+        value: await buildStatus(urls),
+      };
+    }
+
+    return cachedStatus.value;
+  };
+}
+
+function sendJson(res, status, body) {
+  res.status(status);
+  res.json(body);
+}
+
+export function createStatusHandler(deps = {}) {
+  const readStatus = deps.readStatus || createStatusReader({ urls: deps.urls || STATUS_URLS });
+
+  return async function statusHandler(req, res) {
+    res.setHeader('Content-Type', 'application/json; charset=utf-8');
+
+    if (req.method === 'OPTIONS') {
+      res.setHeader('Allow', ALLOWED_METHODS);
+      res.setHeader('Cache-Control', ERROR_CACHE_CONTROL);
+      res.status(204);
+      res.end();
+      return;
+    }
+
+    if (req.method === 'HEAD') {
+      res.setHeader('Cache-Control', SUCCESS_CACHE_CONTROL);
+      res.status(200);
+      res.end();
+      return;
+    }
+
+    if (req.method !== 'GET') {
+      res.setHeader('Allow', ALLOWED_METHODS);
+      res.setHeader('Cache-Control', ERROR_CACHE_CONTROL);
+      sendJson(res, 405, { success: false, error: 'Method not allowed' });
+      return;
+    }
+
+    try {
+      res.setHeader('Cache-Control', SUCCESS_CACHE_CONTROL);
+      sendJson(res, 200, {
+        success: true,
+        status: await readStatus(),
+      });
+    } catch {
+      res.setHeader('Cache-Control', ERROR_CACHE_CONTROL);
+      sendJson(res, 500, {
+        success: false,
+        error: 'Unable to load backend status',
+      });
+    }
+  };
+}
+
+export default createStatusHandler();

@@ -1,0 +1,177 @@
+{
+  "schema_version": "2026-06-06.public-claim-registry.v1",
+  "review_status": "public_safe_draft",
+  "source_scope": "Public UnwindCode.ai homepage and published transmissions with claim/evidence labels for retrieval safety",
+  "retrieval_notes": [
+    "This registry labels public claims before broad RAG, chat grounding, or proof/audit expansion.",
+    "Entries preserve claim text, source routes, citations, evidence status, interpretation boundaries, and risk labels.",
+    "No credentials, private prompts, user data, provider configuration, runtime logs, hidden procedures, or deployment evidence are included."
+  ],
+  "claims": [
+    {
+      "id": "hero-on-chain-autonomous-positioning",
+      "category": "homepage-positioning",
+      "text": "Unwind Code designs self-evolving AI organisms — cognitive systems that live on-chain, make autonomous decisions, and get smarter over time.",
+      "public_label": "Homepage positioning language that needs safety context before retrieval or answer generation.",
+      "claim_status": "needs_context",
+      "evidence_status": "source_copy_present",
+      "risk_level": "high",
+      "interpretation_boundary": "This does not prove active wallet authority, deployed chain execution, or unrestricted autonomous financial behavior.",
+      "source_routes": [
+        "/"
+      ],
+      "source_files": [
+        "index.html"
+      ],
+      "citations": [
+        {
+          "label": "Homepage meta description",
+          "route": "/",
+          "source_file": "index.html"
+        }
+      ],
+      "review_status": "public_safe"
+    },
+    {
+      "id": "hero-live-blockchains-stat",
+      "category": "web3-status",
+      "text": "The homepage hero currently presents a stat labeled 3 Live Blockchains.",
+      "public_label": "A public Web3 status claim that should be interpreted as site copy until supported by a proof registry.",
+      "claim_status": "needs_context",
+      "evidence_status": "source_copy_present",
+      "risk_level": "high",
+      "interpretation_boundary": "This does not verify active chain transactions, wallet permissions, production contracts, or current deployment health.",
+      "source_routes": [
+        "/"
+      ],
+      "source_files": [
+        "index.html"
+      ],
+      "citations": [
+        {
+          "label": "Homepage hero stats",
+          "route": "/",
+          "source_file": "index.html"
+        }
+      ],
+      "review_status": "public_safe"
+    },
+    {
+      "id": "financial-organisms-real-markets",
+      "category": "financial-safety",
+      "text": "Financial Organisms are described as live across Monad, XRPL, and ICP, with a multi-agent cortex, a dead man's switch, adaptive learning, and real markets.",
+      "public_label": "Financial organism claim that is qualified by public safety transmissions and approval-gated language.",
+      "claim_status": "safety_qualified",
+      "evidence_status": "qualified_by_public_transmission",
+      "risk_level": "high",
+      "interpretation_boundary": "This does not grant or prove autonomous money movement; public financial motion remains framed as proof, simulation, and human approval before consequence.",
+      "source_routes": [
+        "/",
+        "/transmissions/22-the-monad-hand-clarity-before-motion.html",
+        "/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html"
+      ],
+      "source_files": [
+        "index.html",
+        "transmissions/22-the-monad-hand-clarity-before-motion.html",
+        "transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html"
+      ],
+      "citations": [
+        {
+          "label": "Homepage financial organism card",
+          "route": "/",
+          "source_file": "index.html"
+        },
+        {
+          "label": "Monad Hand safety transmission",
+          "route": "/transmissions/22-the-monad-hand-clarity-before-motion.html",
+          "source_file": "transmissions/22-the-monad-hand-clarity-before-motion.html"
+        },
+        {
+          "label": "SEC Gate safety transmission",
+          "route": "/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html",
+          "source_file": "transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html"
+        }
+      ],
+      "review_status": "public_safe"
+    },
+    {
+      "id": "future-independent-organisms",
+      "category": "future-vision",
+      "text": "By 2030, the site envisions cognitive organisms operating independently across creative production, on-chain finance, cultural economics, and cybersecurity.",
+      "public_label": "Forward-looking vision language that should not be treated as current production capability.",
+      "claim_status": "future_vision",
+      "evidence_status": "roadmap_language",
+      "risk_level": "medium",
+      "interpretation_boundary": "This is not a current-state deployment claim and should remain labeled as roadmap or vision language.",
+      "source_routes": [
+        "/"
+      ],
+      "source_files": [
+        "index.html"
+      ],
+      "citations": [
+        {
+          "label": "Homepage vision section",
+          "route": "/",
+          "source_file": "index.html"
+        }
+      ],
+      "review_status": "public_safe"
+    },
+    {
+      "id": "proof-gated-financial-motion",
+      "category": "financial-safety",
+      "text": "Public transmissions describe financial motion as requiring proof, simulation, and human approval before consequence.",
+      "public_label": "Safety claim that can be used to qualify higher-risk Web3 and financial organism language.",
+      "claim_status": "public_safe",
+      "evidence_status": "source_backed",
+      "risk_level": "medium",
+      "interpretation_boundary": "This safety label should not be expanded into execution authority, wallet access, or public deployment proof.",
+      "source_routes": [
+        "/transmissions/22-the-monad-hand-clarity-before-motion.html",
+        "/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html"
+      ],
+      "source_files": [
+        "transmissions/22-the-monad-hand-clarity-before-motion.html",
+        "transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html"
+      ],
+      "citations": [
+        {
+          "label": "Monad Hand proof membrane",
+          "route": "/transmissions/22-the-monad-hand-clarity-before-motion.html",
+          "source_file": "transmissions/22-the-monad-hand-clarity-before-motion.html"
+        },
+        {
+          "label": "SEC Gate financial restraint",
+          "route": "/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html",
+          "source_file": "transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html"
+        }
+      ],
+      "review_status": "public_safe"
+    },
+    {
+      "id": "real-estate-property-sales-intelligence-boundary",
+      "category": "domain-cell-safety",
+      "text": "Real Estate Property Sales Intelligence is framed as a source-aware, consent-aware, human-governed real estate sales intelligence cell.",
+      "public_label": "A public-safe real estate cell claim that must stay bounded to approved sources, review routing, consent evidence, DNC posture, and proof before outreach.",
+      "claim_status": "safety_qualified",
+      "evidence_status": "source_backed",
+      "risk_level": "medium",
+      "interpretation_boundary": "This does not prove live CRM deployment, provider credentials, lead imports, autonomous messages, autonomous calls, legal compliance, or permission to contact any person.",
+      "source_routes": [
+        "/transmissions/26-property-sales-intelligence-cell.html"
+      ],
+      "source_files": [
+        "transmissions/26-property-sales-intelligence-cell.html"
+      ],
+      "citations": [
+        {
+          "label": "Property Sales Intelligence Cell transmission",
+          "route": "/transmissions/26-property-sales-intelligence-cell.html",
+          "source_file": "transmissions/26-property-sales-intelligence-cell.html"
+        }
+      ],
+      "review_status": "public_safe"
+    }
+  ]
+}
