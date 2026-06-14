@@ -353,6 +353,19 @@
       "citations": [{"label": "Published transmission", "route": "/transmissions/28-the-memory-control-plane.html", "source_file": "transmissions/28-the-memory-control-plane.html"}],
       "confidence": "high",
       "review_status": "public_safe"
+    },
+    {
+      "id": "29-the-agent-readable-organism",
+      "transmission_number": 29,
+      "title": "Transmission 29: The Agent-Readable Organism",
+      "summary": "Brain guide and compact whitepaper record for the Agent-Readable Organism: public contracts, machine-readable routes, manifests, grounding packets, proof ledgers, approval boundaries, and the next Agent Readiness Cell.",
+      "route": "/transmissions/29-the-agent-readable-organism.html",
+      "source_file": "transmissions/29-the-agent-readable-organism.html",
+      "topic_tags": ["agent-readable-web", "public-proof", "retrieval-safety", "approval-gates"],
+      "memory_layers": ["semantic", "procedural"],
+      "citations": [{"label": "Published transmission", "route": "/transmissions/29-the-agent-readable-organism.html", "source_file": "transmissions/29-the-agent-readable-organism.html"}],
+      "confidence": "high",
+      "review_status": "public_safe"
     }
   ]
 }

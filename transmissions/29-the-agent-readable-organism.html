@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Transmission 29: The Agent-Readable Organism | Unwind Code</title>
+  <meta name="description" content="A whitepaper-grade Brain guide for turning UnwindCode.ai into an agent-readable organism: public contracts, grounding packets, proof ledgers, and approval boundaries for the agentic web." />
+  <meta name="theme-color" content="#06060c" />
+  <link rel="canonical" href="https://www.unwindcode.ai/transmissions/29-the-agent-readable-organism.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="The Agent-Readable Organism" />
+  <meta property="og:description" content="How Unwind turns public routes, manifests, grounding, citations, and authority boundaries into a site other agents can safely understand." />
+  <meta property="og:url" content="https://www.unwindcode.ai/transmissions/29-the-agent-readable-organism.html" />
+  <meta property="og:site_name" content="Unwind Code" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="The Agent-Readable Organism" />
+  <meta name="twitter:description" content="A compact whitepaper for the agent-readable interface layer of the Unwind ecosystem." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Agent-Readable Organism",
+    "description": "A whitepaper-grade Brain guide for turning UnwindCode.ai into an agent-readable organism: public contracts, grounding packets, proof ledgers, and approval boundaries for the agentic web.",
+    "author": {"@type": "Organization", "name": "Unwind Code"},
+    "publisher": {"@type": "Organization", "name": "Unwind Code", "url": "https://www.unwindcode.ai"},
+    "datePublished": "2026-06-14",
+    "dateModified": "2026-06-14",
+    "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/29-the-agent-readable-organism.html"
+  }
+  </script>
+  <style>
+    :root {
+      --aro-gold: #d7b66f;
+      --aro-cyan: #64c8c0;
+      --aro-coral: #df7d72;
+      --aro-blue: #83a8d8;
+      --aro-panel: rgba(12, 14, 22, 0.76);
+      --aro-panel-strong: rgba(18, 21, 31, 0.9);
+      --aro-line: rgba(244, 240, 232, 0.12);
+      --aro-muted: rgba(244, 240, 232, 0.68);
+    }
+    .aro-page {
+      background: var(--bg-void);
+      color: var(--text-primary);
+      overflow-x: hidden;
+    }
+    .aro-page *, .aro-page *::before, .aro-page *::after {
+      box-sizing: border-box;
+    }
+    .aro-hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 94vh;
+      padding: 150px 0 70px;
+      display: grid;
+      align-items: center;
+      border-bottom: 1px solid var(--aro-line);
+      background:
+        radial-gradient(circle at 10% 20%, rgba(215, 182, 111, 0.14), transparent 28%),
+        radial-gradient(circle at 86% 16%, rgba(100, 200, 192, 0.12), transparent 26%),
+        linear-gradient(145deg, rgba(10, 10, 20, 0.98), rgba(6, 6, 12, 1));
+    }
+    .aro-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.23;
+      background-image:
+        linear-gradient(rgba(244, 240, 232, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(244, 240, 232, 0.08) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent 82%);
+    }
+    .aro-hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.03fr) minmax(340px, 0.72fr);
+      gap: 44px;
+      align-items: center;
+    }
+    .aro-kicker {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid rgba(215, 182, 111, 0.34);
+      border-radius: 999px;
+      padding: 8px 13px;
+      background: rgba(215, 182, 111, 0.08);
+      color: var(--aro-gold);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .aro-hero h1 {
+      max-width: 980px;
+      margin: 22px 0 24px;
+      font-size: 5.35rem;
+      line-height: 0.95;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+    .aro-hero-sub {
+      max-width: 840px;
+      color: var(--aro-muted);
+      font-size: 1.09rem;
+      line-height: 1.78;
+    }
+    .aro-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+    .aro-meta span {
+      border: 1px solid var(--aro-line);
+      border-radius: 999px;
+      padding: 9px 12px;
+      background: rgba(15, 16, 25, 0.68);
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      font-weight: 760;
+      text-transform: uppercase;
+    }
+    .aro-contract {
+      position: relative;
+      border: 1px solid rgba(215, 182, 111, 0.24);
+      border-radius: 30px;
+      padding: 26px;
+      background:
+        linear-gradient(135deg, rgba(215, 182, 111, 0.12), transparent 38%),
+        linear-gradient(315deg, rgba(100, 200, 192, 0.12), transparent 42%),
+        var(--aro-panel);
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.34);
+    }
+    .aro-contract h2 {
+      font-size: 1.02rem;
+      margin-bottom: 18px;
+      color: var(--aro-gold);
+      font-family: "JetBrains Mono", monospace;
+      text-transform: uppercase;
+    }
+    .aro-contract-map {
+      display: grid;
+      gap: 12px;
+    }
+    .aro-node {
+      border: 1px solid var(--aro-line);
+      border-radius: 18px;
+      padding: 15px;
+      background: rgba(6, 7, 13, 0.42);
+    }
+    .aro-node strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--text-primary);
+    }
+    .aro-node span {
+      color: var(--aro-muted);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+    .aro-node:nth-child(2) strong { color: var(--aro-cyan); }
+    .aro-node:nth-child(3) strong { color: var(--aro-blue); }
+    .aro-node:nth-child(4) strong { color: var(--aro-coral); }
+    .aro-section {
+      padding: 78px 0;
+      border-bottom: 1px solid var(--aro-line);
+    }
+    .aro-section-head {
+      max-width: 910px;
+      margin-bottom: 28px;
+    }
+    .aro-section-num {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--aro-gold);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .aro-section h2 {
+      font-size: 2.72rem;
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+    .aro-prose {
+      max-width: 890px;
+      color: var(--aro-muted);
+      font-size: 1.02rem;
+      line-height: 1.84;
+    }
+    .aro-prose p {
+      margin: 0 0 22px;
+    }
+    .aro-signal-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 34px;
+    }
+    .aro-source-card,
+    .aro-def-card,
+    .aro-threat-card,
+    .aro-proof-card {
+      border: 1px solid var(--aro-line);
+      border-radius: 19px;
+      padding: 18px;
+      background: rgba(15, 16, 25, 0.58);
+      color: inherit;
+      text-decoration: none;
+    }
+    .aro-source-card {
+      min-height: 230px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .aro-source-card:hover,
+    .aro-source-card:focus-visible {
+      transform: translateY(-3px);
+      border-color: rgba(215, 182, 111, 0.54);
+      outline: none;
+    }
+    .aro-card-label {
+      color: var(--aro-gold);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .aro-source-card h3,
+    .aro-def-card h3,
+    .aro-threat-card h3,
+    .aro-proof-card h3 {
+      margin: 10px 0 8px;
+      font-size: 1.05rem;
+      line-height: 1.25;
+    }
+    .aro-source-card p,
+    .aro-def-card p,
+    .aro-threat-card p,
+    .aro-proof-card p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.58;
+    }
+    .aro-link-note {
+      margin-top: 18px;
+      color: var(--aro-cyan);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.75rem;
+      font-weight: 800;
+    }
+    .aro-def-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 34px;
+    }
+    .aro-def-card {
+      min-height: 180px;
+    }
+    .aro-stack {
+      display: grid;
+      grid-template-columns: 0.84fr 1.16fr;
+      gap: 22px;
+      align-items: start;
+      margin-top: 34px;
+    }
+    .aro-spec {
+      border: 1px solid rgba(100, 200, 192, 0.22);
+      border-radius: 24px;
+      padding: 22px;
+      background: rgba(2, 6, 9, 0.58);
+      overflow: hidden;
+    }
+    .aro-spec h3 {
+      color: var(--aro-cyan);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .aro-spec pre {
+      margin: 0;
+      color: rgba(244, 240, 232, 0.76);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.62;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+    .aro-layer-list {
+      display: grid;
+      gap: 12px;
+    }
+    .aro-layer {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 15px;
+      align-items: start;
+      border: 1px solid var(--aro-line);
+      border-radius: 18px;
+      padding: 16px;
+      background: rgba(15, 16, 25, 0.58);
+    }
+    .aro-layer b {
+      display: grid;
+      place-items: center;
+      width: 54px;
+      height: 54px;
+      border: 1px solid rgba(215, 182, 111, 0.34);
+      border-radius: 16px;
+      color: var(--aro-gold);
+      font-family: "JetBrains Mono", monospace;
+    }
+    .aro-layer p {
+      margin: 4px 0 0;
+      color: var(--text-muted);
+      line-height: 1.56;
+    }
+    .aro-protocol {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 34px;
+    }
+    .aro-step {
+      position: relative;
+      border: 1px solid var(--aro-line);
+      border-radius: 19px;
+      padding: 18px;
+      background: rgba(15, 16, 25, 0.58);
+      min-height: 210px;
+    }
+    .aro-step b {
+      display: inline-flex;
+      color: var(--aro-gold);
+      font-family: "JetBrains Mono", monospace;
+      margin-bottom: 20px;
+    }
+    .aro-step h3 {
+      margin-bottom: 8px;
+      font-size: 1.03rem;
+    }
+    .aro-step p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.58;
+    }
+    .aro-threat-grid,
+    .aro-proof-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 34px;
+    }
+    .aro-threat-card {
+      min-height: 188px;
+      border-color: rgba(223, 125, 114, 0.2);
+    }
+    .aro-threat-card .aro-card-label {
+      color: var(--aro-coral);
+    }
+    .aro-guide {
+      margin-top: 36px;
+      border: 1px solid rgba(215, 182, 111, 0.24);
+      border-radius: 28px;
+      padding: 34px;
+      background:
+        linear-gradient(135deg, rgba(215, 182, 111, 0.12), transparent 42%),
+        linear-gradient(315deg, rgba(100, 200, 192, 0.1), transparent 48%),
+        var(--aro-panel-strong);
+    }
+    .aro-guide p {
+      max-width: 860px;
+      color: var(--aro-muted);
+      line-height: 1.74;
+      margin: 10px 0 18px;
+    }
+    .aro-proof-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    .aro-proof-card {
+      min-height: 170px;
+    }
+    .aro-cta {
+      margin-top: 40px;
+      border: 1px solid rgba(215, 182, 111, 0.24);
+      border-radius: 28px;
+      padding: 46px 34px;
+      text-align: center;
+      background: rgba(15, 16, 25, 0.58);
+    }
+    .aro-cta p {
+      max-width: 720px;
+      margin: 12px auto 26px;
+      color: var(--aro-muted);
+      line-height: 1.72;
+    }
+    @media (max-width: 1080px) {
+      .aro-hero-grid,
+      .aro-stack {
+        grid-template-columns: 1fr;
+      }
+      .aro-signal-grid,
+      .aro-protocol,
+      .aro-proof-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .aro-threat-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 760px) {
+      .aro-hero {
+        min-height: auto;
+        padding: 130px 0 58px;
+      }
+      .aro-hero h1 {
+        width: min(335px, calc(100vw - 40px));
+        max-width: min(335px, calc(100vw - 40px));
+        font-size: 2.28rem;
+        line-height: 1.08;
+        overflow-wrap: anywhere;
+      }
+      .aro-hero-sub,
+      .aro-prose,
+      .aro-guide p,
+      .aro-cta p {
+        width: 100%;
+        max-width: min(335px, calc(100vw - 40px));
+        overflow-wrap: anywhere;
+      }
+      .aro-page .container {
+        width: 100%;
+        max-width: 100vw;
+        padding-left: 20px;
+        padding-right: 20px;
+        overflow-x: hidden;
+      }
+      .aro-section {
+        padding: 58px 0;
+      }
+      .aro-section h2 {
+        width: 100%;
+        max-width: min(335px, calc(100vw - 40px));
+        font-size: 1.58rem;
+        overflow-wrap: anywhere;
+      }
+      .aro-meta {
+        display: grid;
+        width: min(335px, calc(100vw - 40px));
+      }
+      .aro-meta span {
+        width: 100%;
+        white-space: normal;
+      }
+      .aro-contract,
+      .aro-signal-grid,
+      .aro-def-grid,
+      .aro-stack,
+      .aro-spec,
+      .aro-layer-list,
+      .aro-protocol,
+      .aro-threat-grid,
+      .aro-guide,
+      .aro-proof-grid,
+      .aro-cta {
+        width: 100%;
+        max-width: min(335px, calc(100vw - 40px));
+        min-width: 0;
+      }
+      .aro-signal-grid,
+      .aro-def-grid,
+      .aro-protocol,
+      .aro-threat-grid,
+      .aro-proof-grid {
+        grid-template-columns: 1fr;
+      }
+      .aro-layer {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="tx-page aro-page">
+  <nav id="nav" class="scrolled">
+    <a href="/" class="nav-brand"><span class="nav-glyph">&infin;</span><span class="nav-name">unwind<span class="nav-accent">code</span></span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="/#organisms">Organisms</a>
+      <a href="/#architecture">Architecture</a>
+      <a href="/#philosophy">Philosophy</a>
+      <a href="/transmissions/" class="active">Transmissions</a>
+    </div>
+    <div class="nav-actions"><a href="/#cta" class="nav-cta">Get in Touch</a></div>
+  </nav>
+
+  <main>
+    <section class="aro-hero">
+      <div class="container aro-hero-grid">
+        <div>
+          <span class="aro-kicker">Transmission 029 / Public interface layer</span>
+          <h1>The Agent-Readable Organism</h1>
+          <p class="aro-hero-sub">A website built for the agentic web cannot be only a brochure, archive, or blog. It needs a public contract: routes that name what is knowable, manifests that bound authority, grounding packets that separate evidence from synthesis, and approval gates that refuse hidden action.</p>
+          <div class="aro-meta"><span>June 2026</span><span>Brain Guide</span><span>Whitepaper Record</span><span>Agent-Readable Web</span></div>
+        </div>
+        <aside class="aro-contract" aria-label="Agent-readable contract map">
+          <h2>Public contract map</h2>
+          <div class="aro-contract-map">
+            <div class="aro-node"><strong>Human page</strong><span>The public reader sees thesis, protocol, failure modes, and next build direction.</span></div>
+            <div class="aro-node"><strong>Machine route</strong><span>The agent sees canonical URLs, registry entries, source files, metadata, and review status.</span></div>
+            <div class="aro-node"><strong>Grounding packet</strong><span>The retrieval layer returns evidence, citations, qualifications, and refusal rules before synthesis.</span></div>
+            <div class="aro-node"><strong>Approval boundary</strong><span>The system can prepare, cite, and recommend. It cannot publish, spend, sign, outreach, or mutate without authority.</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="aro-section">
+      <div class="container">
+        <div class="aro-section-head"><span class="aro-section-num">01 / Thesis</span><h2>The next web interface is not a page. It is a contract an agent can inspect.</h2></div>
+        <div class="aro-prose">
+          <p>The Unwind site has already crossed two thresholds. Transmission 27 made the site a public index. Transmission 28 made memory governable through a control plane. The next threshold is agent readability: public knowledge must be shaped so another agent can ask, "What is this system allowed to say? What source backs it? What action is forbidden? What proof is live?"</p>
+          <p>This is not search-engine optimization with new vocabulary. Agent-readable design is an architectural discipline. A human can tolerate atmosphere, metaphor, and missing coordinates. An agent needs stable routes, explicit scopes, source maps, review status, refusal rules, and authority boundaries. Without those, the agent turns public narrative into unsafe inference.</p>
+          <p>The agent-readable organism is the Unwind answer: every public surface should be legible to humans, useful to builders, and safely retrievable by future Brain cells without granting secret authority.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="aro-section">
+      <div class="container">
+        <div class="aro-section-head"><span class="aro-section-num">02 / Why now</span><h2>The ecosystem is moving from model choice to harness choice, and from websites to agent-ready surfaces.</h2></div>
+        <div class="aro-prose">
+          <p>The current external signal is not "AI is advancing." That is too broad to deserve a transmission. The real signal is narrower: agent systems are standardizing the harness, the sandbox, and the website interface. That matters to Unwind because the Brain is not only a model. It is a governed organism with routes, memory, tools, approvals, and public proof.</p>
+          <p>When agent harnesses become interchangeable and sites are audited for agent readiness, Unwind needs to behave like a public system other agents can inspect. The site should not ask agents to guess what is safe. It should publish the contract.</p>
+        </div>
+        <div class="aro-signal-grid">
+          <a class="aro-source-card" href="https://vercel.com/changelog/program-agent-harnesses-with-ai-sdk" rel="noopener" target="_blank">
+            <div>
+              <span class="aro-card-label">Vercel / Jun 12 2026</span>
+              <h3>Harnesses become swappable</h3>
+              <p>AI SDK 7 introduces a harness abstraction so builders can run established agent harnesses through one API.</p>
+            </div>
+            <span class="aro-link-note">Source &rarr;</span>
+          </a>
+          <a class="aro-source-card" href="https://openai.com/index/the-next-evolution-of-the-agents-sdk/" rel="noopener" target="_blank">
+            <div>
+              <span class="aro-card-label">OpenAI / Agents SDK</span>
+              <h3>Long-running work needs controlled execution</h3>
+              <p>OpenAI describes agents inspecting files, running commands, editing code, and working in controlled sandbox environments.</p>
+            </div>
+            <span class="aro-link-note">Source &rarr;</span>
+          </a>
+          <a class="aro-source-card" href="https://blog.cloudflare.com/agent-readiness/" rel="noopener" target="_blank">
+            <div>
+              <span class="aro-card-label">Cloudflare / Apr 17 2026</span>
+              <h3>Sites must become agent-readable</h3>
+              <p>Cloudflare frames agent readiness as the next website adaptation: machines need guidance on content, auth, formats, and controls.</p>
+            </div>
+            <span class="aro-link-note">Source &rarr;</span>
+          </a>
+          <a class="aro-source-card" href="https://blog.cloudflare.com/agents-week-in-review/" rel="noopener" target="_blank">
+            <div>
+              <span class="aro-card-label">Cloudflare / Agents Week</span>
+              <h3>The agentic cloud is becoming infrastructure</h3>
+              <p>The platform layer is forming around compute, security, toolboxes, browsers, persistent sessions, and agent deployment primitives.</p>
+            </div>
+            <span class="aro-link-note">Source &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="aro-section">
+      <div class="container">
+        <div class="aro-section-head"><span class="aro-section-num">03 / Definitions</span><h2>Agent readability is the difference between being crawled and being understood.</h2></div>
+        <div class="aro-prose">
+          <p>An agent-readable organism exposes enough public structure for a machine to retrieve, verify, refuse, and ask for authority. It does not expose secrets. It does not pretend the agent can act just because the agent can read. It gives the agent a governed map.</p>
+        </div>
+        <div class="aro-def-grid">
+          <article class="aro-def-card"><span class="aro-card-label">Agent-readable organism</span><h3>Public system with machine-legible boundaries</h3><p>A site whose human pages, manifests, registries, and APIs all describe what can be known, cited, prepared, and refused.</p></article>
+          <article class="aro-def-card"><span class="aro-card-label">Harness</span><h3>The execution loop around the model</h3><p>The policy, tools, sandbox, filesystem access, terminal behavior, and run lifecycle that shape what an agent can actually do.</p></article>
+          <article class="aro-def-card"><span class="aro-card-label">Grounding packet</span><h3>Evidence before synthesis</h3><p>A retrieval artifact containing sources, citations, qualifications, review flags, and refusal rules before an answer is allowed.</p></article>
+          <article class="aro-def-card"><span class="aro-card-label">Authority boundary</span><h3>Where reading stops becoming action</h3><p>The explicit line before publishing, social posting, file mutation, spending, wallet signing, outreach, or unreviewed deployment.</p></article>
+          <article class="aro-def-card"><span class="aro-card-label">Proof ledger</span><h3>Evidence that the public surface is real</h3><p>Canonical page, registry entry, sitemap route, machine-readable metadata, tests, build, smoke evidence, and deployment status.</p></article>
+          <article class="aro-def-card"><span class="aro-card-label">Manual Brain Mode</span><h3>Human-governed protocol run</h3><p>The Brain pattern is executed manually from real signals until the runtime can operate the loop directly under review.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="aro-section">
+      <div class="container">
+        <div class="aro-section-head"><span class="aro-section-num">04 / Architecture</span><h2>The public site becomes the first safe interface between the Brain and other agents.</h2></div>
+        <div class="aro-prose">
+          <p>The architecture is a layered contract. The visible page teaches. The registry indexes. The manifest bounds. The grounding endpoint qualifies. The claim registry names risk. The sitemap makes discovery deterministic. The tests enforce that the public story and the machine story do not drift apart.</p>
+          <p>The crucial design choice is that agent readability remains read-mostly. The site may help an agent understand Unwind, but it does not hand the agent hidden runtime permissions. Public clarity is not public authority.</p>
+        </div>
+        <div class="aro-stack">
+          <div class="aro-spec">
+            <h3>Contract sketch</h3>
+<pre>{
+  "surface": "unwindcode.ai",
+  "agent_readable": true,
+  "public_knowledge": [
+    "transmissions",
+    "organism concepts",
+    "claim registry",
+    "asset provenance",
+    "grounding packets"
+  ],
+  "default_authority": "read_only",
+  "requires_approval": [
+    "publish",
+    "social_post",
+    "file_mutation",
+    "wallet_signing",
+    "paid_activation",
+    "outreach"
+  ],
+  "answer_policy": "ground_before_synthesis",
+  "next_cell": "agent_readiness_audit"
+}</pre>
+          </div>
+          <div class="aro-layer-list">
+            <article class="aro-layer"><b>01</b><div><h3>Route layer</h3><p>Stable public URLs for transmissions, homepage concepts, and machine seed files. No knowledge without coordinates.</p></div></article>
+            <article class="aro-layer"><b>02</b><div><h3>Manifest layer</h3><p><code>llms.txt</code> and <code>ai-services.json</code> tell agents what exists, what it means, and what authority is blocked.</p></div></article>
+            <article class="aro-layer"><b>03</b><div><h3>Registry layer</h3><p>Read-only JSON records expose public-safe summaries, source files, topic tags, citations, confidence, and review state.</p></div></article>
+            <article class="aro-layer"><b>04</b><div><h3>Grounding layer</h3><p>Search and grounding return evidence packets before answer synthesis, keeping retrieval separate from advice or action.</p></div></article>
+            <article class="aro-layer"><b>05</b><div><h3>Approval layer</h3><p>Every high-risk transition exits public retrieval and asks the creator or reviewed operator path before motion.</p></div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="aro-section">
+      <div class="container">
+        <div class="aro-section-head"><span class="aro-section-num">05 / Protocol</span><h2>An agent-readable site should answer with evidence, not charisma.</h2></div>
+        <div class="aro-prose">
+          <p>The Agent Contract Protocol is the operating path for future Unwind pages and APIs. It is how a public reader, a builder, or another agent can move from discovery to grounded understanding without crossing into hidden capability.</p>
+        </div>
+        <div class="aro-protocol">
+          <article class="aro-step"><b>01</b><h3>Declare</h3><p>Name the page, concept, capability, review state, and route. Do not make agents infer the shape of the system from style alone.</p></article>
+          <article class="aro-step"><b>02</b><h3>Expose</h3><p>Publish public-safe metadata in registry and manifest surfaces so machine readers can find the canonical source.</p></article>
+          <article class="aro-step"><b>03</b><h3>Retrieve</h3><p>Return snippets and matched sources as evidence candidates, not as final answers or advice.</p></article>
+          <article class="aro-step"><b>04</b><h3>Ground</h3><p>Attach citations, qualifications, refusal rules, and claim scope before synthesis is considered.</p></article>
+          <article class="aro-step"><b>05</b><h3>Qualify</h3><p>Separate public architecture claims from live deployment claims, domain advice, financial outcomes, legal status, or operational authority.</p></article>
+          <article class="aro-step"><b>06</b><h3>Ask</h3><p>When a request crosses into publishing, mutation, spending, signing, outreach, or private data, ask for explicit authority.</p></article>
+          <article class="aro-step"><b>07</b><h3>Cite</h3><p>Show which page, registry row, API route, source note, or smoke check supports the answer.</p></article>
+          <article class="aro-step"><b>08</b><h3>Record</h3><p>Leave a proof ledger so future Brain cells can tell what changed, what was verified, and what remains blocked.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="aro-section">
+      <div class="container">
+        <div class="aro-section-head"><span class="aro-section-num">06 / Threat model</span><h2>The agentic web creates a new failure: public text becomes private permission by accident.</h2></div>
+        <div class="aro-prose">
+          <p>A superficial agent-ready site tries to attract crawlers. A serious one prevents crawlers, harnesses, and future Brain cells from turning prose into unsafe action. The Unwind threat model treats ambiguity as a system risk.</p>
+        </div>
+        <div class="aro-threat-grid">
+          <article class="aro-threat-card"><span class="aro-card-label">Agent bait</span><h3>Optimization without boundary</h3><p>Pages invite agents but do not explain what the agent must not assume.</p></article>
+          <article class="aro-threat-card"><span class="aro-card-label">Stale authority</span><h3>Old proof reads current</h3><p>A past deployment, approval, or capability gets retrieved as if it is live truth.</p></article>
+          <article class="aro-threat-card"><span class="aro-card-label">Context laundering</span><h3>Private memory leaks into public synthesis</h3><p>The system blends internal context into public answers without source or review.</p></article>
+          <article class="aro-threat-card"><span class="aro-card-label">Autopublish drift</span><h3>Cadence becomes permission</h3><p>A schedule starts producing public pages because time passed, not because value passed the gate.</p></article>
+          <article class="aro-threat-card"><span class="aro-card-label">Hidden privilege</span><h3>Tools imply authority</h3><p>A harness can edit, deploy, or execute, so the public narrative accidentally implies it may do so unattended.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="aro-section">
+      <div class="container">
+        <div class="aro-section-head"><span class="aro-section-num">07 / Implementation sketch</span><h2>The next build direction is an Agent Readiness Cell for UnwindCode.ai.</h2></div>
+        <div class="aro-prose">
+          <p>This transmission advances the ecosystem only if it becomes build pressure. The concrete next cell is not another post generator. It is an Agent Readiness Cell: a reviewer that scans public routes, machine-readable files, registries, grounding behavior, claim language, and approval boundaries, then produces a private report before any public transmission is recommended.</p>
+          <p>The cell should verify route coverage, stale metadata, uncited claims, unsafe autonomy language, missing refusal rules, social-packet leakage, sitemap drift, production smoke status, and whether the candidate actually advances architecture, implementation, proof, theory, or user capability.</p>
+        </div>
+        <div class="aro-guide">
+          <span class="aro-section-num">Build recipe</span>
+          <h2>Assemble the Agent Readiness Cell as a read-only reviewer first.</h2>
+          <p>Input: public routes, <code>sitemap.xml</code>, <code>llms.txt</code>, <code>ai-services.json</code>, registry JSON, recent git commits, deployment status, official ecosystem sources, and the transmission quality gate.</p>
+          <p>Process: compare declared routes against live files, detect claims without citations, inspect authority language, verify tests/build/smoke readiness, and score whether a proposed transmission advances the Unwind ecosystem.</p>
+          <p>Output: a private watch memo or a publish-ready whitepaper candidate with source notes, required metadata changes, verification plan, and explicit approval recommendation. The cell prepares; it does not publish.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="aro-section">
+      <div class="container">
+        <div class="aro-section-head"><span class="aro-section-num">08 / Approval boundary</span><h2>Agent-readable does not mean agent-authorized.</h2></div>
+        <div class="aro-prose">
+          <p>This is a Manual Brain Mode transmission. The Brain pattern is being executed by a human-governed agent from real local and public signals. It is not proof that the Brain published itself, posted to social media, controls wallets, performs outreach, or can mutate public infrastructure without review.</p>
+          <p>The public contract is read-mostly by default. It may prepare source-backed candidates, summarize public routes, recommend tests, and name the next cell. It must ask before public publishing, production aliasing, file mutation, social distribution, spending, signing, lead outreach, or policy-sensitive escalation.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="aro-section">
+      <div class="container">
+        <div class="aro-section-head"><span class="aro-section-num">09 / Proof ledger</span><h2>The page is only credible if the human and machine surfaces agree.</h2></div>
+        <div class="aro-proof-grid">
+          <article class="aro-proof-card"><span class="aro-card-label">Page</span><h3>Transmission 29</h3><p>Canonical public guide for the agent-readable organism layer.</p></article>
+          <article class="aro-proof-card"><span class="aro-card-label">Metadata</span><h3>Registry and discovery</h3><p>Transmission archive, public registry, sitemap, <code>llms.txt</code>, and <code>ai-services.json</code> must all include the route.</p></article>
+          <article class="aro-proof-card"><span class="aro-card-label">Verification</span><h3>Tests and build</h3><p>The package must pass the transmission registry tests, full test suite, build, and route smoke before production trust.</p></article>
+          <article class="aro-proof-card"><span class="aro-card-label">Boundary</span><h3>No social packet exposure</h3><p>Internal carousel or posting assets remain creator material unless a public campaign surface is explicitly approved.</p></article>
+        </div>
+        <div class="aro-cta">
+          <h2>The next organism layer is public legibility with private authority protected.</h2>
+          <p>Next-cell memory: build the Agent Readiness Cell so every future transmission candidate is audited for real ecosystem advancement before it is allowed to become public surface.</p>
+          <a class="btn btn-primary btn-lg" href="/transmissions/"><span>All Transmissions</span><span class="btn-arrow">&rarr;</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" style="margin-top:0;">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><span class="nav-glyph">&infin;</span><span class="nav-name">unwind<span class="nav-accent">code</span></span><p class="footer-desc">Intelligence that evolves.<br />Growing organisms since 2026.</p></div>
+        <div class="footer-col"><h5>Learn</h5><a href="/#architecture">Architecture</a><a href="/#philosophy">Philosophy</a><a href="/#vision">Vision 2030</a></div>
+        <div class="footer-col"><h5>Community</h5><a href="/#cta">Join Updates</a><a href="/transmissions/">Transmissions</a><a href="/#cta">Talk to the Brain</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 Unwind Code. All rights reserved.</span><span class="footer-tagline">The future learns from itself. &infin;</span></div>
+    </div>
+  </footer>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('nav-toggle');
+    const links = document.getElementById('nav-links');
+    if (toggle && links) {
+      toggle.addEventListener('click', () => {
+        toggle.classList.toggle('active');
+        links.classList.toggle('open');
+      });
+    }
+  });
+  </script>
+</body>
+</html>

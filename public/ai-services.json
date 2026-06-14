@@ -492,7 +492,8 @@
         "/transmissions/",
         "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html",
         "/transmissions/27-the-site-became-a-public-index.html",
-        "/transmissions/28-the-memory-control-plane.html"
+        "/transmissions/28-the-memory-control-plane.html",
+        "/transmissions/29-the-agent-readable-organism.html"
       ],
       "source_files": [
         "api/transmissions.js",
@@ -516,6 +517,10 @@
         {
           "label": "Transmission 28 memory control plane",
           "route": "/transmissions/28-the-memory-control-plane.html"
+        },
+        {
+          "label": "Transmission 29 agent-readable organism",
+          "route": "/transmissions/29-the-agent-readable-organism.html"
         }
       ],
       "review_status": "public_safe"

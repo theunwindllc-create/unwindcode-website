@@ -81,6 +81,7 @@ test('public transmission pages keep posting assets internal', async () => {
     '../transmissions/26-property-sales-intelligence-cell.html',
     '../transmissions/27-the-site-became-a-public-index.html',
     '../transmissions/28-the-memory-control-plane.html',
+    '../transmissions/29-the-agent-readable-organism.html',
   ];
 
   for (const pagePath of publicPages) {
@@ -95,6 +96,7 @@ test('public transmission pages keep posting assets internal', async () => {
 test('new local transmissions read as Brain guides and compact whitepaper notes', async () => {
   const publicIndex = await readFile(new URL('../transmissions/27-the-site-became-a-public-index.html', import.meta.url), 'utf8');
   const memoryControlPlane = await readFile(new URL('../transmissions/28-the-memory-control-plane.html', import.meta.url), 'utf8');
+  const agentReadableOrganism = await readFile(new URL('../transmissions/29-the-agent-readable-organism.html', import.meta.url), 'utf8');
 
   assert.match(publicIndex, /Public Index Protocol/);
   assert.match(publicIndex, /Context without coordinates becomes agent entropy/i);
@@ -115,13 +117,26 @@ test('new local transmissions read as Brain guides and compact whitepaper notes'
   assert.match(memoryControlPlane, /How the Brain should use this control plane/i);
   assert.match(memoryControlPlane, /next-cell memory/i);
   assert.match(memoryControlPlane, /posting assets for this transmission remain internal creator material/i);
+
+  assert.match(agentReadableOrganism, /Agent-Readable Organism/);
+  assert.match(agentReadableOrganism, /The next web interface is not a page/i);
+  assert.match(agentReadableOrganism, /agent-readable design is an architectural discipline/i);
+  assert.match(agentReadableOrganism, /Agent Contract Protocol/i);
+  assert.match(agentReadableOrganism, /context laundering/i);
+  assert.match(agentReadableOrganism, /Agent Readiness Cell/i);
+  assert.match(agentReadableOrganism, /Manual Brain Mode transmission/i);
+  assert.match(agentReadableOrganism, /Agent-readable does not mean agent-authorized/i);
+  assert.match(agentReadableOrganism, /next-cell memory/i);
+  assert.match(agentReadableOrganism, /https:\/\/vercel\.com\/changelog\/program-agent-harnesses-with-ai-sdk/);
+  assert.match(agentReadableOrganism, /https:\/\/openai\.com\/index\/the-next-evolution-of-the-agents-sdk\//);
+  assert.match(agentReadableOrganism, /https:\/\/blog\.cloudflare\.com\/agent-readiness\//);
 });
 
 test('transmission archive is a guide library, not a public posting desk', async () => {
   const archive = await readFile(new URL('../transmissions/index.html', import.meta.url), 'utf8');
 
   assert.match(archive, /whitepaper-style records/i);
-  assert.match(archive, /28<\/span> transmissions published/);
+  assert.match(archive, /29<\/span> transmissions published/);
   assert.equal(archive.includes('id="social-packet-desk"'), false);
   assert.equal(/Social Packet Desk|Open carousel|Download ZIP|View caption/i.test(archive), false);
   assert.equal(/\/social\/transmission-[^"']+/i.test(archive), false);

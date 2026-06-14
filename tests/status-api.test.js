@@ -67,7 +67,7 @@ test('returns public-safe backend status from active registries', async () => {
   assert.equal(res.body.status.registries.claims.needs_context_count, 2);
   assert.equal(res.body.status.registries.claims.safety_qualified_count, 2);
   assert.equal(res.body.status.registries.organisms.count, 5);
-  assert.equal(res.body.status.registries.transmissions.count, 27);
+  assert.equal(res.body.status.registries.transmissions.count, 28);
   assert.deepEqual(res.body.status.operational_controls.durable_rate_limited_endpoints.sort(), [
     '/api/assets',
     '/api/chat',

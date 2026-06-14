@@ -14,6 +14,7 @@ This file is a public-safe guide for AI crawlers and retrieval systems. It inten
 - Real Estate Property Sales Intelligence: a source-aware domain cell narrative for approved lead intake, qualification, consent evidence, DNC posture, human review, and proof before outreach.
 - Public index: the website exposes registries, search, grounding packets, claim context, asset provenance, and refusal rules without answer-generation authority.
 - Memory control plane: the Brain memory work exposes metadata-only recent views, health, action queues, triage, and reviewed repair boundaries without exposing stored memory content.
+- Agent-readable organism: public routes, manifests, registries, grounding packets, proof ledgers, and authority boundaries let future agents understand Unwind without inferring hidden execution permission.
 
 ## Public RAG Seed Routes
 
@@ -26,6 +27,7 @@ This file is a public-safe guide for AI crawlers and retrieval systems. It inten
 - Real Estate Property Sales Intelligence cell: https://www.unwindcode.ai/transmissions/26-property-sales-intelligence-cell.html
 - Public Index Protocol guide: https://www.unwindcode.ai/transmissions/27-the-site-became-a-public-index.html
 - Memory Control Plane guide: https://www.unwindcode.ai/transmissions/28-the-memory-control-plane.html
+- Agent-Readable Organism guide: https://www.unwindcode.ai/transmissions/29-the-agent-readable-organism.html
 
 ## Retrieval Guidance
 
