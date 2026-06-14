@@ -8,7 +8,8 @@ This packet compresses the public whitepaper into a creator-ready visual story: 
 
 - Transmission: `/transmissions/29-the-agent-readable-organism.html`
 - Carousel: `/social/transmission-29-agent-readable-organism-carousel/carousel.html#slide-1`
-- Caption: `/social/transmission-29-agent-readable-organism-carousel/caption.md`
+- Caption source: `/social/transmission-29-agent-readable-organism-carousel/caption.md`
+- Caption copy/paste: `/social/transmission-29-agent-readable-organism-carousel/caption.txt`
 - Download ZIP: `/social/transmission-29-agent-readable-organism-carousel/downloads/transmission-29-agent-readable-organism-carousel.zip`
 
 ## Manual Posting Gate
@@ -23,4 +24,4 @@ From the website root:
 /Users/jesuscasares/.codex/skills/unwind-transmission-workflow/scripts/render-carousel.sh social/transmission-29-agent-readable-organism-carousel 6
 ```
 
-After rendering, export 540px previews, copy ordered PNGs into `ready-to-upload/`, and rebuild the ZIP for creator handoff.
+After rendering, export 540px previews, copy ordered PNGs into `ready-to-upload/`, keep both `caption.md` and `caption.txt`, and rebuild the ZIP for creator handoff.

@@ -53,6 +53,7 @@ test('agent-readable organism internal carousel is prepared for creator handoff'
   const packetRoot = 'social/transmission-29-agent-readable-organism-carousel';
   const carousel = await readFile(new URL(`${packetRoot}/carousel.html`, ROOT), 'utf8');
   const caption = await readFile(new URL(`${packetRoot}/caption.md`, ROOT), 'utf8');
+  const captionTxt = await readFile(new URL(`${packetRoot}/caption.txt`, ROOT), 'utf8');
   const readme = await readFile(new URL(`${packetRoot}/README.md`, ROOT), 'utf8');
 
   assert.match(carousel, /agent-readable contract/i);
@@ -67,6 +68,11 @@ test('agent-readable organism internal carousel is prepared for creator handoff'
   assert.match(caption, /Agent-readable does not mean agent-authorized/i);
   assert.match(caption, /Manual posting boundary/i);
   assert.match(caption, /does not authorize automated posting, deployment, wallet activity/i);
+  assert.match(captionTxt, /Agent-readable does not mean agent-authorized/i);
+  assert.match(captionTxt, /Manual posting boundary/i);
+  assert.equal(captionTxt.startsWith('#'), false, 'plain caption should be copy/paste text, not markdown');
+  assert.match(readme, /Caption source: .*caption\.md/);
+  assert.match(readme, /Caption copy\/paste: .*caption\.txt/);
   assert.match(readme, /render-carousel\.sh social\/transmission-29-agent-readable-organism-carousel 6/);
 
   for (const slide of ['01', '02', '03', '04', '05', '06']) {

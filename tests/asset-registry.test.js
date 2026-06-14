@@ -262,12 +262,12 @@ test('agent-readable organism carousel is registered as a prepared-only package'
     'asset package digest should bind Transmission 29 provenance and authority boundary',
   );
   assert.ok(assetPackage.alt_text.includes('Agent Readiness Cell'));
-  assert.equal(assetPackage.provenance.source_files.length, 3);
-  assert.equal(assetPackage.provenance.source_file_hashes.length, 3);
+  assert.equal(assetPackage.provenance.source_files.length, 4);
+  assert.equal(assetPackage.provenance.source_file_hashes.length, 4);
   assert.equal(assetPackage.provenance.generated_files.length, 6);
 
   for (const sourceFileHash of assetPackage.provenance.source_file_hashes) {
-    assert.match(sourceFileHash.path, /^social\/transmission-29-agent-readable-organism-carousel\/(README|caption|carousel)\.(md|html)$/);
+    assert.match(sourceFileHash.path, /^social\/transmission-29-agent-readable-organism-carousel\/((README|caption)\.(md|txt)|carousel\.html)$/);
     const actual = await sha256File(sourceFileHash.path);
     assert.equal(sourceFileHash.bytes, actual.bytes.length, `${sourceFileHash.path} byte count must match`);
     assert.equal(sourceFileHash.sha256, actual.sha256, `${sourceFileHash.path} hash must match`);

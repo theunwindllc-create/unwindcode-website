@@ -696,10 +696,11 @@
       "title": "Transmission 29 Agent-Readable Organism Carousel",
       "summary": "A prepared six-slide square carousel for Transmission 29 that explains the agent-readable organism: public contracts, machine-readable routes, grounding packets, approval boundaries, threat model, and the Agent Readiness Cell.",
       "source_route": "/transmissions/29-the-agent-readable-organism.html",
-      "asset_package_sha256": "882bd4def0085e7c9b0ad9995d6533626373a1b7d6e1bdb94acae503d5c316c8",
+      "asset_package_sha256": "5e8bfc87d9cbb4bc2e12e5009c033e7bb81b0d76a3aed1bff68f609699cf50b4",
       "source_files": [
         "social/transmission-29-agent-readable-organism-carousel/README.md",
         "social/transmission-29-agent-readable-organism-carousel/caption.md",
+        "social/transmission-29-agent-readable-organism-carousel/caption.txt",
         "social/transmission-29-agent-readable-organism-carousel/carousel.html"
       ],
       "alt_text": "Six-slide dark theme carousel for Unwind Code Transmission 29 explaining agent-readable public contracts, ecosystem signals, contract anatomy, grounding packets, approval boundaries, threat model, and the Agent Readiness Cell.",
@@ -708,20 +709,27 @@
         "source_files": [
           "social/transmission-29-agent-readable-organism-carousel/README.md",
           "social/transmission-29-agent-readable-organism-carousel/caption.md",
+          "social/transmission-29-agent-readable-organism-carousel/caption.txt",
           "social/transmission-29-agent-readable-organism-carousel/carousel.html"
         ],
         "source_file_hashes": [
           {
             "path": "social/transmission-29-agent-readable-organism-carousel/README.md",
             "mime_type": "text/markdown",
-            "bytes": 1251,
-            "sha256": "5feba9797861dca5eeeb7c497cedef5f6d299a172aab9bc81a14fd042c27012e"
+            "bytes": 1393,
+            "sha256": "bb335dbd9c80dc41b598fb51b7d15d56f1bb0302f51ab297abc714cbd32b48ee"
           },
           {
             "path": "social/transmission-29-agent-readable-organism-carousel/caption.md",
             "mime_type": "text/markdown",
             "bytes": 2201,
             "sha256": "31adb13f20329d0c82443594bdc46b0b76c32daf63195d202882d8f69ccbdd78"
+          },
+          {
+            "path": "social/transmission-29-agent-readable-organism-carousel/caption.txt",
+            "mime_type": "text/plain",
+            "bytes": 2199,
+            "sha256": "83b55a6f3dd0e59321d97b6ab9a4d5aede027fde57e5808c1fff8eb340d11e0f"
           },
           {
             "path": "social/transmission-29-agent-readable-organism-carousel/carousel.html",
