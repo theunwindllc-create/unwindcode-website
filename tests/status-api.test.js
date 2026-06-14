@@ -59,9 +59,9 @@ test('returns public-safe backend status from active registries', async () => {
     'transmission-registry',
   ]);
   assert.equal(res.body.status.services.count, 10);
-  assert.equal(res.body.status.registries.assets.count, 4);
-  assert.equal(res.body.status.registries.assets.creator_approval_required_count, 4);
-  assert.equal(res.body.status.registries.assets.prepared_not_posted_count, 4);
+  assert.equal(res.body.status.registries.assets.count, 5);
+  assert.equal(res.body.status.registries.assets.creator_approval_required_count, 5);
+  assert.equal(res.body.status.registries.assets.prepared_not_posted_count, 5);
   assert.equal(res.body.status.registries.architecture.count, 5);
   assert.equal(res.body.status.registries.claims.count, 6);
   assert.equal(res.body.status.registries.claims.needs_context_count, 2);

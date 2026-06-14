@@ -231,6 +231,56 @@ test('property sales intelligence carousel is registered as a prepared-only pack
   }
 });
 
+test('agent-readable organism carousel is registered as a prepared-only package', async () => {
+  const registry = await loadRegistry();
+  const assetPackage = registry.packages.find(
+    (candidate) => candidate.id === 'transmission-29-agent-readable-organism-carousel',
+  );
+
+  assert.ok(assetPackage, 'Transmission 29 carousel should be registered');
+  assert.equal(assetPackage.type, 'social-carousel');
+  assert.equal(assetPackage.source_route, '/transmissions/29-the-agent-readable-organism.html');
+  assert.equal(assetPackage.review_status, 'creator_approval_required');
+  assert.equal(assetPackage.publication_status, 'prepared_not_posted');
+  assert.equal(assetPackage.manual_approval_required, true);
+  assert.equal(assetPackage.authority_boundary.posting_authority, false);
+  assert.equal(assetPackage.authority_boundary.deployment_authority, false);
+  assert.equal(assetPackage.authority_boundary.answer_generation_authority, false);
+  assert.equal(assetPackage.authority_boundary.memory_mutation_authority, false);
+  assert.equal(assetPackage.authority_boundary.file_mutation_authority, false);
+  assert.equal(assetPackage.authority_boundary.outreach_authority, false);
+  assert.ok(assetPackage.authority_boundary.allowed_uses.includes('manual_review'));
+  assert.ok(assetPackage.authority_boundary.allowed_uses.includes('manual_social_post_after_creator_approval'));
+  assert.ok(assetPackage.authority_boundary.prohibited_uses.includes('automated_public_posting'));
+  assert.ok(assetPackage.authority_boundary.prohibited_uses.includes('unreviewed_deployment'));
+  assert.ok(assetPackage.authority_boundary.prohibited_uses.includes('unreviewed_memory_mutation'));
+  assert.ok(assetPackage.authority_boundary.prohibited_uses.includes('unreviewed_file_mutation'));
+  assert.match(assetPackage.asset_package_sha256, /^[a-f0-9]{64}$/);
+  assert.equal(
+    assetPackage.asset_package_sha256,
+    canonicalAssetPackageDigest(assetPackage),
+    'asset package digest should bind Transmission 29 provenance and authority boundary',
+  );
+  assert.ok(assetPackage.alt_text.includes('Agent Readiness Cell'));
+  assert.equal(assetPackage.provenance.source_files.length, 3);
+  assert.equal(assetPackage.provenance.source_file_hashes.length, 3);
+  assert.equal(assetPackage.provenance.generated_files.length, 6);
+
+  for (const sourceFileHash of assetPackage.provenance.source_file_hashes) {
+    assert.match(sourceFileHash.path, /^social\/transmission-29-agent-readable-organism-carousel\/(README|caption|carousel)\.(md|html)$/);
+    const actual = await sha256File(sourceFileHash.path);
+    assert.equal(sourceFileHash.bytes, actual.bytes.length, `${sourceFileHash.path} byte count must match`);
+    assert.equal(sourceFileHash.sha256, actual.sha256, `${sourceFileHash.path} hash must match`);
+  }
+
+  for (const generatedFile of assetPackage.provenance.generated_files) {
+    assert.match(generatedFile.path, /^social\/transmission-29-agent-readable-organism-carousel\/exports\/slide-[0-9]{2}\.png$/);
+    const actual = await sha256File(generatedFile.path);
+    assert.equal(generatedFile.bytes, actual.bytes.length, `${generatedFile.path} byte count must match`);
+    assert.equal(generatedFile.sha256, actual.sha256, `${generatedFile.path} hash must match`);
+  }
+});
+
 test('asset registry does not expose secrets, drafts, or unreviewed posting authority', async () => {
   const raw = await readFile(REGISTRY_URL, 'utf8');
 

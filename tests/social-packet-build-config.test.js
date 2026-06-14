@@ -48,3 +48,32 @@ test('memory control plane internal carousel matches upgraded whitepaper framing
 
   await assertFileExists(`${packetRoot}/downloads/transmission-28-memory-control-plane-carousel.zip`);
 });
+
+test('agent-readable organism internal carousel is prepared for creator handoff', async () => {
+  const packetRoot = 'social/transmission-29-agent-readable-organism-carousel';
+  const carousel = await readFile(new URL(`${packetRoot}/carousel.html`, ROOT), 'utf8');
+  const caption = await readFile(new URL(`${packetRoot}/caption.md`, ROOT), 'utf8');
+  const readme = await readFile(new URL(`${packetRoot}/README.md`, ROOT), 'utf8');
+
+  assert.match(carousel, /agent-readable contract/i);
+  assert.match(carousel, /model choice.*harness choice/i);
+  assert.match(carousel, /Grounding packet/i);
+  assert.match(carousel, /Agent Contract Protocol/i);
+  assert.match(carousel, /public text becomes private permission/i);
+  assert.match(carousel, /Agent Readiness Cell/i);
+  assert.match(carousel, /Manual posting only/i);
+  assert.equal([...carousel.matchAll(/class="slide"/g)].length, 6);
+
+  assert.match(caption, /Agent-readable does not mean agent-authorized/i);
+  assert.match(caption, /Manual posting boundary/i);
+  assert.match(caption, /does not authorize automated posting, deployment, wallet activity/i);
+  assert.match(readme, /render-carousel\.sh social\/transmission-29-agent-readable-organism-carousel 6/);
+
+  for (const slide of ['01', '02', '03', '04', '05', '06']) {
+    await assertFileExists(`${packetRoot}/exports/slide-${slide}.png`);
+    await assertFileExists(`${packetRoot}/previews/slide-${slide}-preview.png`);
+    await assertFileExists(`${packetRoot}/ready-to-upload/${slide}-agent-readable-organism.png`);
+  }
+
+  await assertFileExists(`${packetRoot}/downloads/transmission-29-agent-readable-organism-carousel.zip`);
+});

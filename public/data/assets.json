@@ -689,6 +689,174 @@
       "publication_status": "prepared_not_posted",
       "manual_approval_required": true,
       "confidence": "high"
+    },
+    {
+      "id": "transmission-29-agent-readable-organism-carousel",
+      "type": "social-carousel",
+      "title": "Transmission 29 Agent-Readable Organism Carousel",
+      "summary": "A prepared six-slide square carousel for Transmission 29 that explains the agent-readable organism: public contracts, machine-readable routes, grounding packets, approval boundaries, threat model, and the Agent Readiness Cell.",
+      "source_route": "/transmissions/29-the-agent-readable-organism.html",
+      "asset_package_sha256": "882bd4def0085e7c9b0ad9995d6533626373a1b7d6e1bdb94acae503d5c316c8",
+      "source_files": [
+        "social/transmission-29-agent-readable-organism-carousel/README.md",
+        "social/transmission-29-agent-readable-organism-carousel/caption.md",
+        "social/transmission-29-agent-readable-organism-carousel/carousel.html"
+      ],
+      "alt_text": "Six-slide dark theme carousel for Unwind Code Transmission 29 explaining agent-readable public contracts, ecosystem signals, contract anatomy, grounding packets, approval boundaries, threat model, and the Agent Readiness Cell.",
+      "provenance": {
+        "created_from": "local-html-carousel-render",
+        "source_files": [
+          "social/transmission-29-agent-readable-organism-carousel/README.md",
+          "social/transmission-29-agent-readable-organism-carousel/caption.md",
+          "social/transmission-29-agent-readable-organism-carousel/carousel.html"
+        ],
+        "source_file_hashes": [
+          {
+            "path": "social/transmission-29-agent-readable-organism-carousel/README.md",
+            "mime_type": "text/markdown",
+            "bytes": 1251,
+            "sha256": "5feba9797861dca5eeeb7c497cedef5f6d299a172aab9bc81a14fd042c27012e"
+          },
+          {
+            "path": "social/transmission-29-agent-readable-organism-carousel/caption.md",
+            "mime_type": "text/markdown",
+            "bytes": 2201,
+            "sha256": "31adb13f20329d0c82443594bdc46b0b76c32daf63195d202882d8f69ccbdd78"
+          },
+          {
+            "path": "social/transmission-29-agent-readable-organism-carousel/carousel.html",
+            "mime_type": "text/html",
+            "bytes": 13848,
+            "sha256": "5c6055783888edb14f9f2775aab57566d2a2344177b7a237c99925ee395e1fc5"
+          }
+        ],
+        "generated_files": [
+          {
+            "path": "social/transmission-29-agent-readable-organism-carousel/exports/slide-01.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 667404,
+            "sha256": "b8ee35bb88afed89b23efa876349ea5ba713f15f0f028b247eb05b2c4815de3f"
+          },
+          {
+            "path": "social/transmission-29-agent-readable-organism-carousel/exports/slide-02.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 609698,
+            "sha256": "e9eb73c551076b504a5100c463ed3a370b5c708575be9e1b3ef0de42919357d1"
+          },
+          {
+            "path": "social/transmission-29-agent-readable-organism-carousel/exports/slide-03.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 563027,
+            "sha256": "4da00f6c120335d77de0067b48c95b3134c77e149f0b3f25ad47528798e15daa"
+          },
+          {
+            "path": "social/transmission-29-agent-readable-organism-carousel/exports/slide-04.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 591236,
+            "sha256": "e01cc69a0f50f72bdb78c87d6a9b101e886e9973b9752b9da67c694989ad366c"
+          },
+          {
+            "path": "social/transmission-29-agent-readable-organism-carousel/exports/slide-05.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 604816,
+            "sha256": "6e66c872921d98ac45cc503296665925f39573e8899f43f7cce1850f7f824717"
+          },
+          {
+            "path": "social/transmission-29-agent-readable-organism-carousel/exports/slide-06.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 623012,
+            "sha256": "333bd87c6fb0dcd39137eaeecafb0d691568cd413639ad8ee9bf93d9668d1d8b"
+          }
+        ]
+      },
+      "rights": {
+        "usage_scope": "Prepared for UnwindCode.ai social channels after manual approval only.",
+        "license_notes": "Owner-created site and social asset package; external licensing is not asserted by this registry."
+      },
+      "approval_gates": [
+        "Creator approval is required before public posting.",
+        "Caption, alt text, generated slides, and source route must be reviewed together.",
+        "No automated public publishing, deployment, wallet, memory mutation, file mutation, outreach, paid media, or answer-generation authority is granted by this registry."
+      ],
+      "authority_boundary": {
+        "posting_authority": false,
+        "wallet_authority": false,
+        "paid_media_authority": false,
+        "on_chain_attestation_authority": false,
+        "deployment_authority": false,
+        "answer_generation_authority": false,
+        "memory_mutation_authority": false,
+        "file_mutation_authority": false,
+        "outreach_authority": false,
+        "approval_state": "creator_approval_required",
+        "allowed_uses": [
+          "manual_review",
+          "provenance_lookup",
+          "local_asset_inspection",
+          "manual_social_post_after_creator_approval"
+        ],
+        "prohibited_uses": [
+          "automated_public_posting",
+          "wallet_signing",
+          "paid_media_activation",
+          "on_chain_publication",
+          "unreviewed_rag_answer_evidence",
+          "unreviewed_deployment",
+          "unreviewed_memory_mutation",
+          "unreviewed_file_mutation",
+          "outreach_activation"
+        ]
+      },
+      "approval_record_schema": {
+        "schema_version": "2026-06-06.public-asset-approval-record.v1",
+        "storage_boundary": {
+          "public_record_only": true,
+          "secrets_excluded": true,
+          "raw_prompts_excluded": true,
+          "private_notes_excluded": true,
+          "on_chain_sensitive_data_excluded": true
+        },
+        "required_fields": [
+          "approval_id",
+          "asset_package_id",
+          "asset_package_sha256",
+          "approved_by_role",
+          "approved_at",
+          "approved_scope",
+          "source_file_hashes_verified",
+          "generated_file_hashes_verified"
+        ],
+        "allowed_approval_scopes": [
+          "manual_social_publication",
+          "site_asset_publication",
+          "provenance_attestation"
+        ],
+        "prohibited_record_content": [
+          "private_approver_identity",
+          "raw_prompts",
+          "private_notes",
+          "wallet_secret_material",
+          "service_credentials",
+          "sensitive_user_data"
+        ]
+      },
+      "approval_records": [],
+      "review_status": "creator_approval_required",
+      "publication_status": "prepared_not_posted",
+      "manual_approval_required": true,
+      "confidence": "high"
     }
   ]
 }
