@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="640" viewBox="0 0 1080 640" fill="none" role="presentation" aria-hidden="true" focusable="false">
+  <style>
+    .lens-pulse { animation: lens-pulse 5.6s ease-in-out infinite; }
+    .lens-drift { animation: lens-drift 9s ease-in-out infinite; }
+    .lens-flow { stroke-dasharray: 8 18; animation: lens-flow 12s linear infinite; }
+    .lens-fade { animation: lens-fade 7.5s ease-in-out infinite; }
+    @keyframes lens-pulse {
+      0%, 100% { opacity: 0.42; transform: scale(1); }
+      50% { opacity: 0.9; transform: scale(1.02); }
+    }
+    @keyframes lens-drift {
+      0%, 100% { transform: translate3d(0, 0, 0); }
+      50% { transform: translate3d(0, -10px, 0); }
+    }
+    @keyframes lens-flow {
+      to { stroke-dashoffset: -180; }
+    }
+    @keyframes lens-fade {
+      0%, 100% { opacity: 0.22; }
+      50% { opacity: 0.72; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .lens-pulse,
+      .lens-drift,
+      .lens-flow,
+      .lens-fade {
+        animation: none !important;
+      }
+    }
+  </style>
+  <defs>
+    <linearGradient id="lensSurface" x1="104" y1="80" x2="990" y2="566" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#171A2D"/>
+      <stop offset="0.52" stop-color="#0A1020"/>
+      <stop offset="1" stop-color="#071914"/>
+    </linearGradient>
+    <linearGradient id="appLane" x1="116" y1="162" x2="460" y2="474" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A78BFA" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#6E2DBE" stop-opacity="0.08"/>
+    </linearGradient>
+    <linearGradient id="organismLane" x1="616" y1="128" x2="968" y2="502" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0D9488" stop-opacity="0.65"/>
+      <stop offset="0.68" stop-color="#D6A84F" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#9B59F5" stop-opacity="0.12"/>
+    </linearGradient>
+    <radialGradient id="lensCore" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(540 320) rotate(90) scale(186)">
+      <stop stop-color="#E9CF97" stop-opacity="0.48"/>
+      <stop offset="0.46" stop-color="#0D9488" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#9B59F5" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="lensGlow" x="-60" y="-60" width="1200" height="760" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+  </defs>
+
+  <rect x="24" y="24" width="1032" height="592" rx="28" fill="url(#lensSurface)" stroke="#F0EEF6" stroke-opacity="0.08"/>
+  <path d="M84 112H996" stroke="#F0EEF6" stroke-opacity="0.06"/>
+  <path d="M84 528H996" stroke="#F0EEF6" stroke-opacity="0.06"/>
+  <g opacity="0.35">
+    <path d="M120 152H420M120 208H420M120 264H420M120 320H420M120 376H420M120 432H420M120 488H420" stroke="#F0EEF6" stroke-opacity="0.06"/>
+    <path d="M660 152H960M660 208H960M660 264H960M660 320H960M660 376H960M660 432H960M660 488H960" stroke="#F0EEF6" stroke-opacity="0.06"/>
+  </g>
+
+  <g class="lens-drift">
+    <rect x="116" y="170" width="324" height="78" rx="14" fill="url(#appLane)" stroke="#A78BFA" stroke-opacity="0.28"/>
+    <rect x="116" y="282" width="324" height="78" rx="14" fill="#11142A" stroke="#F0EEF6" stroke-opacity="0.1"/>
+    <rect x="116" y="394" width="324" height="78" rx="14" fill="#11142A" stroke="#F0EEF6" stroke-opacity="0.1"/>
+    <path class="lens-flow" d="M186 248V282M186 360V394" stroke="#A78BFA" stroke-opacity="0.54" stroke-width="3" stroke-linecap="round"/>
+    <path d="M282 248V282M282 360V394" stroke="#F0EEF6" stroke-opacity="0.12" stroke-width="2"/>
+    <path d="M378 248V282M378 360V394" stroke="#F0EEF6" stroke-opacity="0.12" stroke-width="2"/>
+  </g>
+
+  <g filter="url(#lensGlow)" opacity="0.55">
+    <circle cx="540" cy="320" r="164" fill="url(#lensCore)"/>
+  </g>
+  <g class="lens-pulse">
+    <circle cx="540" cy="320" r="92" fill="#0D9488" fill-opacity="0.08" stroke="#0D9488" stroke-opacity="0.42"/>
+    <circle cx="540" cy="320" r="52" fill="#E9CF97" fill-opacity="0.08" stroke="#E9CF97" stroke-opacity="0.52"/>
+    <circle cx="540" cy="320" r="10" fill="#E9CF97" fill-opacity="0.75"/>
+  </g>
+
+  <g class="lens-drift">
+    <path d="M660 320C660 231.634 731.634 160 820 160C908.366 160 980 231.634 980 320C980 408.366 908.366 480 820 480C731.634 480 660 408.366 660 320Z" fill="url(#organismLane)" stroke="#0D9488" stroke-opacity="0.28"/>
+    <path class="lens-flow" d="M820 160C908.366 160 980 231.634 980 320C980 408.366 908.366 480 820 480C731.634 480 660 408.366 660 320C660 231.634 731.634 160 820 160Z" stroke="#0D9488" stroke-opacity="0.68" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="820" cy="160" r="18" fill="#0D9488" fill-opacity="0.22" stroke="#0D9488" stroke-opacity="0.7"/>
+    <circle cx="950" cy="262" r="18" fill="#9B59F5" fill-opacity="0.18" stroke="#9B59F5" stroke-opacity="0.62"/>
+    <circle cx="930" cy="398" r="18" fill="#E9CF97" fill-opacity="0.2" stroke="#E9CF97" stroke-opacity="0.62"/>
+    <circle cx="708" cy="398" r="18" fill="#0D9488" fill-opacity="0.18" stroke="#0D9488" stroke-opacity="0.62"/>
+    <circle cx="690" cy="262" r="18" fill="#9B59F5" fill-opacity="0.16" stroke="#9B59F5" stroke-opacity="0.56"/>
+    <path d="M820 160L950 262L930 398L708 398L690 262Z" stroke="#F0EEF6" stroke-opacity="0.12"/>
+  </g>
+
+  <path class="lens-flow" d="M440 320H506" stroke="#E9CF97" stroke-opacity="0.54" stroke-width="3" stroke-linecap="round"/>
+  <path class="lens-flow" d="M574 320H660" stroke="#0D9488" stroke-opacity="0.62" stroke-width="3" stroke-linecap="round"/>
+
+  <g class="lens-fade">
+    <circle cx="142" cy="118" r="6" fill="#A78BFA"/>
+    <circle cx="936" cy="118" r="6" fill="#0D9488"/>
+    <circle cx="504" cy="512" r="5" fill="#E9CF97"/>
+    <circle cx="570" cy="512" r="5" fill="#0D9488"/>
+  </g>
+</svg>

@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="640" viewBox="0 0 1040 640" role="presentation" aria-hidden="true">
+  <defs>
+    <linearGradient id="doctrine-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07151a"/>
+      <stop offset=".42" stop-color="#0a0c18"/>
+      <stop offset="1" stop-color="#150c1f"/>
+    </linearGradient>
+    <linearGradient id="doctrine-amber" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0ce88"/>
+      <stop offset="1" stop-color="#8c6a2e"/>
+    </linearGradient>
+    <linearGradient id="doctrine-teal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#73f7df"/>
+      <stop offset="1" stop-color="#0d9488"/>
+    </linearGradient>
+    <linearGradient id="doctrine-violet" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a86bff"/>
+      <stop offset="1" stop-color="#493071"/>
+    </linearGradient>
+    <filter id="doctrine-soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+    <style>
+      .doctrine-grid-line { stroke: rgba(236, 241, 255, .08); stroke-width: 1; }
+      .doctrine-ring { fill: none; stroke-width: 1.5; }
+      .doctrine-spoke { stroke-width: 1.5; stroke-linecap: round; }
+      .doctrine-cell { fill: rgba(9, 15, 28, .74); stroke: rgba(236, 241, 255, .14); stroke-width: 1; }
+      .doctrine-pulse { transform-origin: 520px 320px; animation: doctrine-pulse 5.8s ease-in-out infinite; }
+      .doctrine-rotate { transform-origin: 520px 320px; animation: doctrine-rotate 30s linear infinite; }
+      .doctrine-flow { stroke-dasharray: 12 18; animation: doctrine-flow 8s linear infinite; }
+      .doctrine-core { animation: doctrine-core 4.8s ease-in-out infinite; }
+      @keyframes doctrine-rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes doctrine-flow {
+        from { stroke-dashoffset: 0; }
+        to { stroke-dashoffset: -120; }
+      }
+      @keyframes doctrine-pulse {
+        0%, 100% { opacity: .56; transform: scale(.985); }
+        50% { opacity: .95; transform: scale(1.015); }
+      }
+      @keyframes doctrine-core {
+        0%, 100% { opacity: .74; }
+        50% { opacity: 1; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .doctrine-pulse,
+        .doctrine-rotate,
+        .doctrine-flow,
+        .doctrine-core {
+          animation: none !important;
+        }
+      }
+    </style>
+  </defs>
+
+  <rect width="1040" height="640" rx="34" fill="url(#doctrine-bg)"/>
+  <path d="M0 92H1040M0 188H1040M0 284H1040M0 380H1040M0 476H1040M0 572H1040M104 0V640M208 0V640M312 0V640M416 0V640M520 0V640M624 0V640M728 0V640M832 0V640M936 0V640" class="doctrine-grid-line"/>
+  <path d="M92 540C242 414 354 364 520 320C684 276 802 224 948 94" fill="none" stroke="rgba(115,247,223,.1)" stroke-width="54" filter="url(#doctrine-soft)"/>
+  <path d="M98 96C248 222 358 272 520 320C688 370 800 420 944 542" fill="none" stroke="rgba(240,206,136,.09)" stroke-width="64" filter="url(#doctrine-soft)"/>
+
+  <g class="doctrine-rotate">
+    <circle cx="520" cy="320" r="228" class="doctrine-ring" stroke="rgba(115,247,223,.22)"/>
+    <circle cx="520" cy="320" r="168" class="doctrine-ring" stroke="rgba(240,206,136,.22)"/>
+    <circle cx="520" cy="320" r="106" class="doctrine-ring" stroke="rgba(168,107,255,.22)"/>
+  </g>
+
+  <g class="doctrine-pulse">
+    <path d="M520 320L520 96" class="doctrine-spoke doctrine-flow" stroke="url(#doctrine-teal)"/>
+    <path d="M520 320L735 251" class="doctrine-spoke doctrine-flow" stroke="url(#doctrine-amber)"/>
+    <path d="M520 320L653 502" class="doctrine-spoke doctrine-flow" stroke="url(#doctrine-violet)"/>
+    <path d="M520 320L387 502" class="doctrine-spoke doctrine-flow" stroke="url(#doctrine-teal)"/>
+    <path d="M520 320L305 251" class="doctrine-spoke doctrine-flow" stroke="url(#doctrine-amber)"/>
+  </g>
+
+  <g>
+    <rect x="438" y="238" width="164" height="164" rx="38" fill="rgba(7,12,24,.9)" stroke="rgba(236,241,255,.22)"/>
+    <circle cx="520" cy="320" r="54" fill="none" stroke="url(#doctrine-amber)" stroke-width="3" class="doctrine-core"/>
+    <circle cx="520" cy="320" r="20" fill="url(#doctrine-teal)" opacity=".68" class="doctrine-core"/>
+    <path d="M520 256L558 320L520 384L482 320Z" fill="none" stroke="url(#doctrine-violet)" stroke-width="2.5"/>
+  </g>
+
+  <g>
+    <rect x="438" y="54" width="164" height="84" rx="22" class="doctrine-cell"/>
+    <path d="M486 96H554" stroke="url(#doctrine-teal)" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="520" cy="96" r="22" fill="rgba(115,247,223,.12)" stroke="rgba(115,247,223,.5)"/>
+  </g>
+
+  <g>
+    <rect x="755" y="196" width="166" height="88" rx="22" class="doctrine-cell"/>
+    <path d="M804 240H872" stroke="url(#doctrine-amber)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M838 220L858 240L838 260L818 240Z" fill="rgba(240,206,136,.18)" stroke="rgba(240,206,136,.55)"/>
+  </g>
+
+  <g>
+    <rect x="652" y="500" width="174" height="88" rx="22" class="doctrine-cell"/>
+    <path d="M704 544H774" stroke="url(#doctrine-violet)" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="739" cy="544" r="22" fill="rgba(168,107,255,.14)" stroke="rgba(168,107,255,.54)"/>
+  </g>
+
+  <g>
+    <rect x="214" y="500" width="174" height="88" rx="22" class="doctrine-cell"/>
+    <path d="M266 544H336" stroke="url(#doctrine-teal)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M301 520L326 544L301 568L276 544Z" fill="rgba(115,247,223,.13)" stroke="rgba(115,247,223,.52)"/>
+  </g>
+
+  <g>
+    <rect x="119" y="196" width="166" height="88" rx="22" class="doctrine-cell"/>
+    <path d="M168 240H236" stroke="url(#doctrine-amber)" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="202" cy="240" r="22" fill="rgba(240,206,136,.14)" stroke="rgba(240,206,136,.52)"/>
+  </g>
+
+  <path d="M118 320H270M770 320H922M520 138V212M520 428V502" stroke="rgba(236,241,255,.12)" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="104" cy="320" r="6" fill="#73f7df"/>
+  <circle cx="936" cy="320" r="6" fill="#f0ce88"/>
+  <circle cx="520" cy="92" r="6" fill="#a86bff"/>
+  <circle cx="520" cy="548" r="6" fill="#73f7df"/>
+</svg>

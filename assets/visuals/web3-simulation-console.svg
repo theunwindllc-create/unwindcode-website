@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 640" role="presentation" aria-hidden="true">
+  <defs>
+    <linearGradient id="simPanel" x1="104" x2="936" y1="108" y2="532" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0d9488" stop-opacity=".16"/>
+      <stop offset=".5" stop-color="#e9cf97" stop-opacity=".1"/>
+      <stop offset="1" stop-color="#9b59f5" stop-opacity=".15"/>
+    </linearGradient>
+    <linearGradient id="simRail" x1="158" x2="882" y1="320" y2="320" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0d9488" stop-opacity=".18"/>
+      <stop offset=".32" stop-color="#0d9488" stop-opacity=".86"/>
+      <stop offset=".62" stop-color="#e9cf97" stop-opacity=".8"/>
+      <stop offset="1" stop-color="#9b59f5" stop-opacity=".2"/>
+    </linearGradient>
+    <radialGradient id="simCoreGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#e9cf97" stop-opacity=".58"/>
+      <stop offset="62%" stop-color="#e9cf97" stop-opacity=".14"/>
+      <stop offset="100%" stop-color="#06060c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="simReadGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0d9488" stop-opacity=".56"/>
+      <stop offset="70%" stop-color="#0d9488" stop-opacity=".1"/>
+      <stop offset="100%" stop-color="#06060c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="simLockGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#9b59f5" stop-opacity=".44"/>
+      <stop offset="66%" stop-color="#9b59f5" stop-opacity=".11"/>
+      <stop offset="100%" stop-color="#06060c" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="simBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+  </defs>
+
+  <style>
+    .sim-orbit {
+      fill: none;
+      stroke: url(#simRail);
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-dasharray: 10 18;
+      animation: sim-rail 24s linear infinite;
+    }
+
+    .sim-node {
+      transform-origin: center;
+      animation: sim-node-pulse 8s ease-in-out infinite;
+    }
+
+    .sim-node:nth-of-type(2) {
+      animation-delay: -2.4s;
+    }
+
+    .sim-node:nth-of-type(3) {
+      animation-delay: -4.8s;
+    }
+
+    .sim-packet {
+      fill: #e9cf97;
+      opacity: .72;
+      animation: sim-packet 4.4s ease-in-out infinite;
+    }
+
+    .sim-packet:nth-child(2) {
+      animation-delay: -1.4s;
+    }
+
+    .sim-packet:nth-child(3) {
+      animation-delay: -2.8s;
+    }
+
+    .sim-fence {
+      stroke-dasharray: 8 12;
+      animation: sim-fence 12s linear infinite;
+    }
+
+    @keyframes sim-rail {
+      to { stroke-dashoffset: -240; }
+    }
+
+    @keyframes sim-node-pulse {
+      0%, 100% { opacity: .44; transform: scale(.96); }
+      50% { opacity: .86; transform: scale(1.06); }
+    }
+
+    @keyframes sim-packet {
+      0%, 100% { opacity: .16; transform: translateX(-8px) scale(.72); }
+      50% { opacity: .82; transform: translateX(8px) scale(1); }
+    }
+
+    @keyframes sim-fence {
+      to { stroke-dashoffset: -120; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .sim-orbit,
+      .sim-node,
+      .sim-packet,
+      .sim-fence {
+        animation: none !important;
+      }
+    }
+  </style>
+
+  <rect x="52" y="72" width="936" height="496" rx="34" fill="#070812" opacity=".56"/>
+  <rect x="82" y="102" width="876" height="436" rx="28" fill="url(#simPanel)" opacity=".72"/>
+  <path d="M108 152h824M108 488h824" stroke="#f0eef6" stroke-opacity=".06"/>
+  <path d="M318 118v404M722 118v404" stroke="#f0eef6" stroke-opacity=".055"/>
+
+  <g fill="none" stroke="#f0eef6" stroke-opacity=".045">
+    <path d="M134 196h772M134 248h772M134 300h772M134 352h772M134 404h772M134 456h772"/>
+    <path d="M166 144v352M230 144v352M294 144v352M382 144v352M446 144v352M510 144v352M594 144v352M658 144v352M786 144v352M850 144v352"/>
+  </g>
+
+  <path class="sim-orbit" d="M160 320c90-76 156-76 220 0s150 76 204 0 142-76 296 0"/>
+  <path class="sim-fence" d="M730 148v344" fill="none" stroke="#e9cf97" stroke-opacity=".32" stroke-width="1.5"/>
+  <path class="sim-fence" d="M808 148v344" fill="none" stroke="#9b59f5" stroke-opacity=".24" stroke-width="1.5"/>
+
+  <g>
+    <circle class="sim-node" cx="222" cy="320" r="98" fill="url(#simReadGlow)" filter="url(#simBlur)"/>
+    <circle class="sim-node" cx="520" cy="320" r="118" fill="url(#simCoreGlow)" filter="url(#simBlur)"/>
+    <circle class="sim-node" cx="824" cy="320" r="96" fill="url(#simLockGlow)" filter="url(#simBlur)"/>
+  </g>
+
+  <g fill="#06060c" stroke="#f0eef6" stroke-opacity=".14">
+    <rect x="154" y="236" width="136" height="168" rx="22"/>
+    <path d="M440 210h160c22 0 40 18 40 40v140c0 22-18 40-40 40H440c-22 0-40-18-40-40V250c0-22 18-40 40-40Z"/>
+    <rect x="760" y="238" width="128" height="164" rx="22"/>
+  </g>
+
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M188 282h68M188 318h68M188 354h44" stroke="#0d9488" stroke-opacity=".86" stroke-width="2.4"/>
+    <path d="M462 262h116M462 302h116M462 342h72" stroke="#e9cf97" stroke-opacity=".72" stroke-width="2.4"/>
+    <path d="M488 382l26-28 26 28 42-62" stroke="#e9cf97" stroke-opacity=".9" stroke-width="2.8"/>
+    <path d="M800 306v-24c0-16 13-29 29-29s29 13 29 29v24" stroke="#9b59f5" stroke-opacity=".84" stroke-width="2.5"/>
+    <path d="M792 306h74v58h-74Z" stroke="#9b59f5" stroke-opacity=".84" stroke-width="2.5"/>
+    <path d="M828 326v18" stroke="#9b59f5" stroke-opacity=".84" stroke-width="2.5"/>
+  </g>
+
+  <g>
+    <circle class="sim-packet" cx="340" cy="320" r="4.4"/>
+    <circle class="sim-packet" cx="520" cy="320" r="5.2"/>
+    <circle class="sim-packet" cx="704" cy="320" r="4.4"/>
+  </g>
+
+  <g fill="#f0eef6" opacity=".16">
+    <circle cx="124" cy="132" r="2"/>
+    <circle cx="182" cy="510" r="1.7"/>
+    <circle cx="492" cy="122" r="1.9"/>
+    <circle cx="914" cy="158" r="1.7"/>
+    <circle cx="914" cy="500" r="2"/>
+    <circle cx="720" cy="520" r="1.5"/>
+  </g>
+</svg>

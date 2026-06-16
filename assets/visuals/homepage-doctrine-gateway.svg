@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="680" viewBox="0 0 1080 680" role="presentation" aria-hidden="true">
+  <defs>
+    <radialGradient id="doctrineGlow" cx="50%" cy="50%" r="60%">
+      <stop offset="0" stop-color="#d6a84f" stop-opacity=".28"/>
+      <stop offset=".42" stop-color="#7fcfc1" stop-opacity=".14"/>
+      <stop offset="1" stop-color="#06060c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="doctrineStroke" x1="160" x2="920" y1="120" y2="560" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7fcfc1" stop-opacity=".68"/>
+      <stop offset=".5" stop-color="#d6a84f" stop-opacity=".78"/>
+      <stop offset="1" stop-color="#9b59f5" stop-opacity=".62"/>
+    </linearGradient>
+    <filter id="doctrineSoftGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <style>
+      .grid { stroke: rgba(240,238,246,.052); stroke-width: 1; }
+      .orbit { fill: none; stroke: rgba(240,238,246,.12); stroke-width: 1.2; }
+      .axis { fill: none; stroke: url(#doctrineStroke); stroke-width: 4; stroke-linecap: round; stroke-dasharray: 34 16; animation: doctrine-dash 18s linear infinite; }
+      .node-ring { fill: rgba(6,6,12,.82); stroke: rgba(240,238,246,.18); stroke-width: 1.4; }
+      .node-core { filter: url(#doctrineSoftGlow); animation: doctrine-pulse 5.6s ease-in-out infinite; transform-origin: center; }
+      .node-core:nth-of-type(2n) { animation-delay: -1.6s; }
+      .shield { fill: rgba(214,168,79,.08); stroke: rgba(214,168,79,.42); stroke-width: 3; filter: url(#doctrineSoftGlow); }
+      .boundary { fill: none; stroke: rgba(127,207,193,.28); stroke-width: 2; stroke-dasharray: 12 12; animation: doctrine-breathe 7s ease-in-out infinite; transform-origin: center; }
+      .proof { fill: rgba(240,238,246,.1); stroke: rgba(240,238,246,.26); stroke-width: 1.2; }
+      @keyframes doctrine-dash { to { stroke-dashoffset: -220; } }
+      @keyframes doctrine-pulse {
+        0%, 100% { opacity: .64; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.12); }
+      }
+      @keyframes doctrine-breathe {
+        0%, 100% { opacity: .52; transform: scale(.98); }
+        50% { opacity: .86; transform: scale(1.025); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .axis, .node-core, .boundary { animation: none !important; }
+      }
+    </style>
+  </defs>
+  <rect width="1080" height="680" fill="#06060c" opacity=".02"/>
+  <circle cx="540" cy="340" r="398" fill="url(#doctrineGlow)"/>
+  <g opacity=".55">
+    <path class="grid" d="M150 120H930M150 220H930M150 320H930M150 420H930M150 520H930"/>
+    <path class="grid" d="M180 92V588M300 92V588M420 92V588M540 92V588M660 92V588M780 92V588M900 92V588"/>
+  </g>
+  <circle class="orbit" cx="540" cy="340" r="238"/>
+  <circle class="orbit" cx="540" cy="340" r="160"/>
+  <path class="axis" d="M540 116C650 176 724 246 792 340C724 434 650 504 540 564C430 504 356 434 288 340C356 246 430 176 540 116Z"/>
+  <path class="boundary" d="M540 154C680 224 750 278 840 340C750 402 680 456 540 526C400 456 330 402 240 340C330 278 400 224 540 154Z"/>
+  <path class="shield" d="M540 214L664 264V354C664 438 604 492 540 518C476 492 416 438 416 354V264Z"/>
+  <path d="M540 260L618 294V352C618 410 576 448 540 466C504 448 462 410 462 352V294Z" fill="rgba(6,6,12,.62)" stroke="rgba(240,238,246,.18)" stroke-width="1.5"/>
+  <g>
+    <circle class="node-ring" cx="540" cy="116" r="43"/>
+    <circle class="node-core" cx="540" cy="116" r="13" fill="#d6a84f"/>
+    <circle class="node-ring" cx="792" cy="340" r="44"/>
+    <circle class="node-core" cx="792" cy="340" r="14" fill="#7fcfc1"/>
+    <circle class="node-ring" cx="540" cy="564" r="43"/>
+    <circle class="node-core" cx="540" cy="564" r="13" fill="#9b59f5"/>
+    <circle class="node-ring" cx="288" cy="340" r="44"/>
+    <circle class="node-core" cx="288" cy="340" r="14" fill="#7fcfc1"/>
+    <circle class="node-ring" cx="540" cy="340" r="54"/>
+    <circle class="node-core" cx="540" cy="340" r="17" fill="#f0eef6"/>
+  </g>
+  <g opacity=".72">
+    <path class="proof" d="M820 462h84l26 26v92H820z"/>
+    <path class="proof" d="M904 462v26h26"/>
+    <path d="M842 512h58M842 538h66M842 562h38" stroke="rgba(240,238,246,.28)" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <g opacity=".42">
+    <circle cx="236" cy="184" r="7" fill="#7fcfc1"/>
+    <circle cx="840" cy="186" r="8" fill="#d6a84f"/>
+    <circle cx="240" cy="510" r="6" fill="#9b59f5"/>
+    <circle cx="704" cy="518" r="7" fill="#7fcfc1"/>
+  </g>
+</svg>

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transmission 27 Instagram Carousel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&family=JetBrains+Mono:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --void: #030407;
+      --panel: rgba(9, 18, 31, 0.86);
+      --panel-strong: rgba(13, 24, 39, 0.94);
+      --ink: #f5f1e8;
+      --muted: rgba(245, 241, 232, 0.72);
+      --quiet: rgba(245, 241, 232, 0.44);
+      --teal: #72d7c6;
+      --gold: #e0bd6d;
+      --coral: #e38470;
+      --blue: #8fb7ff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+      overflow: hidden;
+      background: #010203;
+      color: var(--ink);
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+    }
+
+    .slide {
+      position: relative;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      width: 1080px;
+      height: 1080px;
+      overflow: hidden;
+      padding: 64px;
+      background:
+        linear-gradient(135deg, rgba(114, 215, 198, 0.14), transparent 24%),
+        linear-gradient(315deg, rgba(224, 189, 109, 0.12), transparent 28%),
+        linear-gradient(145deg, #081018 0%, #07111d 48%, #020407 100%);
+    }
+
+    .slide::before {
+      content: "";
+      position: absolute;
+      inset: 42px;
+      border: 1px solid rgba(245, 241, 232, 0.16);
+      border-radius: 8px;
+      z-index: 1;
+    }
+
+    .slide::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(0deg, rgba(245, 241, 232, 0.055) 0 1px, transparent 1px 72px),
+        repeating-linear-gradient(90deg, rgba(114, 215, 198, 0.06) 0 1px, transparent 1px 72px),
+        linear-gradient(112deg, transparent 0 34%, rgba(224, 189, 109, 0.1) 34.2%, transparent 34.8% 66%, rgba(114, 215, 198, 0.09) 66.2%, transparent 66.8%);
+      opacity: 0.55;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .top,
+    .content,
+    .bottom,
+    .quote-ledger,
+    .cell-stack,
+    .approval-rail,
+    .boundary-board {
+      position: relative;
+      z-index: 2;
+    }
+
+    .top,
+    .bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      min-height: 46px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      color: var(--ink);
+      font-size: 24px;
+      font-weight: 900;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(114, 215, 198, 0.46);
+      border-radius: 50%;
+      color: var(--teal);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 16px;
+      box-shadow: 0 0 28px rgba(114, 215, 198, 0.16);
+    }
+
+    .brand span span {
+      color: var(--teal);
+    }
+
+    .kicker,
+    .microcopy,
+    .bottom {
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .kicker {
+      color: var(--gold);
+      font-size: 18px;
+    }
+
+    .bottom {
+      color: var(--quiet);
+      font-size: 17px;
+    }
+
+    .url {
+      color: var(--gold);
+    }
+
+    .content {
+      display: grid;
+      align-content: center;
+      gap: 28px;
+      max-width: 790px;
+    }
+
+    .content.wide {
+      max-width: 900px;
+    }
+
+    .microcopy {
+      color: var(--teal);
+      font-size: 18px;
+    }
+
+    h1,
+    h2 {
+      color: var(--ink);
+      font-weight: 900;
+    }
+
+    h1 {
+      max-width: 780px;
+      font-size: 86px;
+      line-height: 0.98;
+    }
+
+    h2 {
+      max-width: 900px;
+      font-size: 72px;
+      line-height: 1.02;
+    }
+
+    p {
+      max-width: 790px;
+      color: var(--muted);
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 1.24;
+    }
+
+    .accent {
+      color: var(--gold);
+    }
+
+    .teal {
+      color: var(--teal);
+    }
+
+    .coral {
+      color: var(--coral);
+    }
+
+    .quote-ledger {
+      position: absolute;
+      right: 80px;
+      bottom: 145px;
+      display: grid;
+      gap: 14px;
+      width: 310px;
+      transform: rotate(-5deg);
+    }
+
+    .ledger-line {
+      height: 58px;
+      border: 1px solid rgba(114, 215, 198, 0.25);
+      border-radius: 8px;
+      background:
+        linear-gradient(90deg, rgba(224, 189, 109, 0.16), transparent 68%),
+        rgba(7, 18, 30, 0.78);
+      box-shadow: inset 0 0 24px rgba(114, 215, 198, 0.07);
+    }
+
+    .ledger-line:nth-child(2),
+    .ledger-line:nth-child(5) {
+      border-color: rgba(224, 189, 109, 0.56);
+      background: rgba(224, 189, 109, 0.12);
+      box-shadow: 0 0 42px rgba(224, 189, 109, 0.18);
+    }
+
+    .cell-stack,
+    .approval-rail,
+    .boundary-board {
+      display: grid;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .cell-row,
+    .gate-row,
+    .boundary-card {
+      display: grid;
+      align-items: center;
+      border: 1px solid rgba(114, 215, 198, 0.2);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.24);
+    }
+
+    .cell-row {
+      grid-template-columns: 82px 1fr;
+      gap: 20px;
+      min-height: 104px;
+      padding: 18px 24px;
+    }
+
+    .num {
+      display: grid;
+      place-items: center;
+      width: 66px;
+      height: 66px;
+      border: 1px solid rgba(224, 189, 109, 0.42);
+      border-radius: 50%;
+      background: rgba(224, 189, 109, 0.1);
+      color: var(--gold);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .cell-row strong,
+    .gate-row strong,
+    .boundary-card strong {
+      display: block;
+      color: var(--ink);
+      font-size: 29px;
+      font-weight: 900;
+      line-height: 1.04;
+      margin-bottom: 5px;
+    }
+
+    .cell-row span,
+    .gate-row span,
+    .boundary-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 1.24;
+    }
+
+    .approval-rail {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      align-items: stretch;
+      max-width: 900px;
+    }
+
+    .gate-row {
+      align-content: start;
+      min-height: 226px;
+      padding: 24px;
+      background: var(--panel-strong);
+      border-color: rgba(224, 189, 109, 0.24);
+    }
+
+    .gate-row .num {
+      width: 54px;
+      height: 54px;
+      margin-bottom: 18px;
+      font-size: 18px;
+    }
+
+    .gate-row:nth-child(4) {
+      border-color: rgba(227, 132, 112, 0.44);
+      background: rgba(34, 18, 18, 0.8);
+    }
+
+    .boundary-board {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      max-width: 850px;
+    }
+
+    .boundary-card {
+      min-height: 148px;
+      align-content: start;
+      padding: 24px;
+    }
+
+    .boundary-card:nth-child(3) {
+      grid-column: 1 / -1;
+      border-color: rgba(227, 132, 112, 0.36);
+      background: rgba(33, 17, 17, 0.74);
+    }
+
+    .callout {
+      display: inline-grid;
+      width: fit-content;
+      max-width: 820px;
+      gap: 12px;
+      padding: 28px 32px;
+      border: 1px solid rgba(224, 189, 109, 0.3);
+      border-radius: 8px;
+      background: rgba(3, 6, 9, 0.58);
+    }
+
+    .callout strong {
+      color: var(--gold);
+      font-size: 30px;
+      font-weight: 900;
+      line-height: 1.1;
+    }
+
+    .callout span {
+      color: var(--muted);
+      font-size: 23px;
+      line-height: 1.24;
+    }
+  </style>
+</head>
+<body>
+  <main id="root"></main>
+
+  <script>
+    const ledger = Array.from({ length: 6 }, () => '<div class="ledger-line"></div>').join("");
+
+    const slides = [
+      {
+        kicker: "Transmission 027",
+        body: `
+          <div class="quote-ledger" aria-hidden="true">${ledger}</div>
+          <div class="content">
+            <span class="microcopy">Quoting / governed transaction packet</span>
+            <h1>The Quotation <span class="accent">Cell.</span></h1>
+            <p>A quote is a package of evidence, readiness, and approval state.</p>
+          </div>
+        `
+      },
+      {
+        kicker: "Evidence before price",
+        body: `
+          <div class="content wide">
+            <h2>Do not recommend what you cannot <span class="teal">explain.</span></h2>
+            <p>Supplier memory turns quote options into reviewable evidence instead of hidden guesses.</p>
+            <div class="cell-stack">
+              <div class="cell-row"><div class="num">01</div><div><strong>Supplier options</strong><span>Known sources, substitutions, availability notes, and fit context.</span></div></div>
+              <div class="cell-row"><div class="num">02</div><div><strong>Price snapshot</strong><span>Current evidence, confidence label, and what still needs confirmation.</span></div></div>
+              <div class="cell-row"><div class="num">03</div><div><strong>Review state</strong><span>A package is ready only when uncertainty is visible.</span></div></div>
+            </div>
+          </div>
+        `
+      },
+      {
+        kicker: "Latest signal wins",
+        body: `
+          <div class="content wide">
+            <h2>Corrections should update the package, not erase the trail.</h2>
+            <p>The user can change size, quantity, timing, or constraint. The organism keeps the reason attached.</p>
+            <div class="boundary-board">
+              <div class="boundary-card"><strong>Capture</strong><span>Identify the explicit field that changed.</span></div>
+              <div class="boundary-card"><strong>Update</strong><span>Refresh affected lines without touching unrelated context.</span></div>
+              <div class="boundary-card"><strong>Explain</strong><span>Show what changed, why, and what still needs review.</span></div>
+            </div>
+          </div>
+        `
+      },
+      {
+        kicker: "Approval before commitment",
+        body: `
+          <div class="content wide">
+            <h2>The organism can prepare a quote. <span class="coral">It does not own commitment.</span></h2>
+            <p>Drafts, routes, and readiness states stop at the human approval boundary.</p>
+            <div class="approval-rail">
+              <div class="gate-row"><div class="num">01</div><strong>Intake</strong><span>Confirm the request and missing fields.</span></div>
+              <div class="gate-row"><div class="num">02</div><strong>Supplier</strong><span>Check evidence, fit, and uncertainty.</span></div>
+              <div class="gate-row"><div class="num">03</div><strong>Readiness</strong><span>Mark what is ready for review.</span></div>
+              <div class="gate-row"><div class="num">04</div><strong>Human</strong><span>Approve before external commitment.</span></div>
+            </div>
+            <div class="callout">
+              <strong>Quote intelligence is not purchasing authority.</strong>
+              <span>Read Transmission 027 on UnwindCode.ai.</span>
+            </div>
+          </div>
+        `
+      }
+    ];
+
+    const root = document.getElementById("root");
+    const slideNumber = Number((location.hash.match(/slide-(\d+)/) || [])[1] || 1);
+    const index = Math.max(0, Math.min(slides.length - 1, slideNumber - 1));
+    const slide = slides[index];
+
+    root.innerHTML = `
+      <section class="slide">
+        <header class="top">
+          <div class="brand"><span class="brand-mark">UC</span><span>unwind<span>code</span></span></div>
+          <div class="kicker">${slide.kicker}</div>
+        </header>
+        ${slide.body}
+        <footer class="bottom">
+          <span>${String(index + 1).padStart(2, "0")} / ${String(slides.length).padStart(2, "0")}</span>
+          <span class="url">unwindcode.ai</span>
+        </footer>
+      </section>
+    `;
+  </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="680" viewBox="0 0 1080 680" role="presentation" aria-hidden="true">
+  <defs>
+    <radialGradient id="runwayCore" cx="50%" cy="48%" r="58%">
+      <stop offset="0" stop-color="#7fcfc1" stop-opacity=".3"/>
+      <stop offset=".48" stop-color="#9b59f5" stop-opacity=".13"/>
+      <stop offset="1" stop-color="#06060c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="runwayLine" x1="110" x2="970" y1="340" y2="340" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7fcfc1" stop-opacity=".25"/>
+      <stop offset=".5" stop-color="#d6a84f" stop-opacity=".74"/>
+      <stop offset="1" stop-color="#9b59f5" stop-opacity=".26"/>
+    </linearGradient>
+    <filter id="softGlow" x="-35%" y="-35%" width="170%" height="170%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <style>
+      .grid { stroke: rgba(240,238,246,.055); stroke-width: 1; }
+      .rail { fill: none; stroke: url(#runwayLine); stroke-width: 5; stroke-linecap: round; stroke-dasharray: 42 18; animation: dash 18s linear infinite; }
+      .rail-soft { fill: none; stroke: rgba(127,207,193,.12); stroke-width: 22; stroke-linecap: round; }
+      .node-ring { fill: rgba(6,6,12,.82); stroke: rgba(240,238,246,.18); stroke-width: 1.5; }
+      .node-core { filter: url(#softGlow); }
+      .signal { animation: pulse 5s ease-in-out infinite; transform-origin: center; }
+      .signal:nth-of-type(2n) { animation-delay: -1.4s; }
+      .boundary { fill: none; stroke: rgba(214,168,79,.32); stroke-width: 2; stroke-dasharray: 12 12; animation: breathe 7s ease-in-out infinite; transform-origin: center; }
+      .proof { fill: rgba(214,168,79,.2); stroke: rgba(214,168,79,.5); stroke-width: 1.2; }
+      @keyframes dash { to { stroke-dashoffset: -240; } }
+      @keyframes pulse {
+        0%, 100% { opacity: .56; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.1); }
+      }
+      @keyframes breathe {
+        0%, 100% { opacity: .48; transform: scale(.98); }
+        50% { opacity: .86; transform: scale(1.02); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .rail, .signal, .boundary { animation: none !important; }
+      }
+    </style>
+  </defs>
+  <rect width="1080" height="680" fill="#06060c" opacity=".02"/>
+  <circle cx="540" cy="340" r="380" fill="url(#runwayCore)"/>
+  <g opacity=".55">
+    <path class="grid" d="M140 120H940M140 220H940M140 320H940M140 420H940M140 520H940"/>
+    <path class="grid" d="M180 90V590M300 90V590M420 90V590M540 90V590M660 90V590M780 90V590M900 90V590"/>
+  </g>
+  <path class="rail-soft" d="M130 350C250 210 348 238 438 334C514 416 586 430 676 328C754 240 850 244 950 350"/>
+  <path class="rail" d="M130 350C250 210 348 238 438 334C514 416 586 430 676 328C754 240 850 244 950 350"/>
+  <ellipse class="boundary" cx="690" cy="340" rx="190" ry="125" transform="rotate(-7 690 340)"/>
+  <g>
+    <g class="signal">
+      <circle class="node-ring" cx="148" cy="350" r="45"/>
+      <circle class="node-core" cx="148" cy="350" r="13" fill="#7fcfc1"/>
+    </g>
+    <g class="signal">
+      <circle class="node-ring" cx="340" cy="268" r="48"/>
+      <circle class="node-core" cx="340" cy="268" r="15" fill="#9b59f5"/>
+    </g>
+    <g class="signal">
+      <circle class="node-ring" cx="540" cy="398" r="54"/>
+      <circle class="node-core" cx="540" cy="398" r="17" fill="#d6a84f"/>
+    </g>
+    <g class="signal">
+      <circle class="node-ring" cx="730" cy="280" r="48"/>
+      <circle class="node-core" cx="730" cy="280" r="15" fill="#7fcfc1"/>
+    </g>
+    <g class="signal">
+      <circle class="node-ring" cx="932" cy="350" r="45"/>
+      <circle class="node-core" cx="932" cy="350" r="13" fill="#f0eef6"/>
+    </g>
+  </g>
+  <g opacity=".72">
+    <path class="proof" d="M882 446h86l28 28v96H882z"/>
+    <path class="proof" d="M968 446v28h28"/>
+    <path d="M906 498h58M906 524h66M906 550h42" stroke="rgba(240,238,246,.32)" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <g opacity=".42">
+    <circle cx="280" cy="500" r="8" fill="#7fcfc1"/>
+    <circle cx="390" cy="158" r="6" fill="#9b59f5"/>
+    <circle cx="630" cy="184" r="7" fill="#d6a84f"/>
+    <circle cx="816" cy="520" r="6" fill="#7fcfc1"/>
+  </g>
+</svg>

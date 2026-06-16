@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="720" viewBox="0 0 1080 720" fill="none" role="presentation" aria-hidden="true" focusable="false">
+  <defs>
+    <radialGradient id="identity-core" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(540 360) rotate(90) scale(238 238)">
+      <stop stop-color="#F0EEF6" stop-opacity="0.28"/>
+      <stop offset="0.38" stop-color="#13B8A6" stop-opacity="0.18"/>
+      <stop offset="0.72" stop-color="#9B59F5" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#06060C" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="identity-line" x1="206" y1="154" x2="884" y2="566" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9B59F5" stop-opacity="0.08"/>
+      <stop offset="0.48" stop-color="#13B8A6" stop-opacity="0.54"/>
+      <stop offset="1" stop-color="#D6A84F" stop-opacity="0.14"/>
+    </linearGradient>
+    <linearGradient id="identity-node-a" x1="190" y1="122" x2="360" y2="292" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9B59F5" stop-opacity="0.62"/>
+      <stop offset="1" stop-color="#13B8A6" stop-opacity="0.2"/>
+    </linearGradient>
+    <linearGradient id="identity-node-b" x1="706" y1="122" x2="886" y2="302" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#13B8A6" stop-opacity="0.66"/>
+      <stop offset="1" stop-color="#D6A84F" stop-opacity="0.18"/>
+    </linearGradient>
+    <linearGradient id="identity-node-c" x1="194" y1="426" x2="374" y2="606" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D6A84F" stop-opacity="0.56"/>
+      <stop offset="1" stop-color="#9B59F5" stop-opacity="0.18"/>
+    </linearGradient>
+    <linearGradient id="identity-node-d" x1="704" y1="420" x2="896" y2="612" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D6A84F" stop-opacity="0.36"/>
+      <stop offset="0.44" stop-color="#9B59F5" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#13B8A6" stop-opacity="0.22"/>
+    </linearGradient>
+    <filter id="identity-glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.45 0 0 0 0 0.28 0 0 0 0 0.88 0 0 0 0.42 0"/>
+      <feBlend in="SourceGraphic"/>
+    </filter>
+    <style>
+      .identity-orbit { animation: identity-orbit 18s ease-in-out infinite; transform-origin: 540px 360px; }
+      .identity-pulse { animation: identity-pulse 4.8s ease-in-out infinite; transform-origin: center; }
+      .identity-pulse:nth-of-type(2n) { animation-delay: -1.8s; }
+      .identity-flow { stroke-dasharray: 12 20; animation: identity-flow 12s linear infinite; }
+      @keyframes identity-orbit {
+        0%, 100% { transform: rotate(0deg) scale(1); }
+        50% { transform: rotate(1.4deg) scale(1.012); }
+      }
+      @keyframes identity-pulse {
+        0%, 100% { opacity: 0.54; transform: scale(1); }
+        50% { opacity: 0.94; transform: scale(1.035); }
+      }
+      @keyframes identity-flow {
+        to { stroke-dashoffset: -128; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .identity-orbit,
+        .identity-pulse,
+        .identity-flow {
+          animation: none !important;
+        }
+      }
+    </style>
+  </defs>
+  <rect width="1080" height="720" rx="0" fill="#06060C"/>
+  <path d="M0 0h1080v720H0z" fill="url(#identity-core)"/>
+  <g opacity="0.16">
+    <path d="M96 120H984M96 240H984M96 360H984M96 480H984M96 600H984" stroke="#F0EEF6"/>
+    <path d="M180 54V666M360 54V666M540 54V666M720 54V666M900 54V666" stroke="#F0EEF6"/>
+  </g>
+  <g class="identity-orbit">
+    <circle cx="540" cy="360" r="252" stroke="url(#identity-line)" stroke-width="2"/>
+    <circle cx="540" cy="360" r="178" stroke="#F0EEF6" stroke-opacity="0.08"/>
+    <ellipse cx="540" cy="360" rx="360" ry="116" stroke="#13B8A6" stroke-opacity="0.16"/>
+    <ellipse cx="540" cy="360" rx="116" ry="360" stroke="#9B59F5" stroke-opacity="0.14"/>
+  </g>
+  <g filter="url(#identity-glow)">
+    <circle cx="540" cy="360" r="86" fill="#06060C" fill-opacity="0.78" stroke="#F0EEF6" stroke-opacity="0.16"/>
+    <circle cx="540" cy="360" r="48" fill="#13B8A6" fill-opacity="0.2" stroke="#13B8A6" stroke-opacity="0.55"/>
+    <path d="M540 292l59 34v68l-59 34-59-34v-68l59-34z" stroke="#D6A84F" stroke-opacity="0.42" stroke-width="2"/>
+    <circle cx="540" cy="360" r="10" fill="#F0EEF6" fill-opacity="0.72"/>
+  </g>
+  <g stroke="url(#identity-line)" stroke-width="3" stroke-linecap="round" opacity="0.86">
+    <path class="identity-flow" d="M340 216C420 248 462 302 512 340"/>
+    <path class="identity-flow" d="M740 216C660 248 618 302 568 340"/>
+    <path class="identity-flow" d="M340 504C420 472 462 418 512 380"/>
+    <path class="identity-flow" d="M740 504C660 472 618 418 568 380"/>
+  </g>
+  <g class="identity-pulse">
+    <circle cx="270" cy="180" r="76" fill="url(#identity-node-a)" fill-opacity="0.62" stroke="#F0EEF6" stroke-opacity="0.12"/>
+    <circle cx="270" cy="180" r="36" fill="#06060C" fill-opacity="0.55" stroke="#9B59F5" stroke-opacity="0.52"/>
+    <path d="M270 138l36 21v42l-36 21-36-21v-42l36-21z" stroke="#13B8A6" stroke-opacity="0.42" stroke-width="2"/>
+    <circle cx="270" cy="180" r="8" fill="#F0EEF6" fill-opacity="0.64"/>
+  </g>
+  <g class="identity-pulse">
+    <circle cx="810" cy="180" r="76" fill="url(#identity-node-b)" fill-opacity="0.62" stroke="#F0EEF6" stroke-opacity="0.12"/>
+    <circle cx="810" cy="180" r="36" fill="#06060C" fill-opacity="0.55" stroke="#13B8A6" stroke-opacity="0.54"/>
+    <path d="M774 180c18-34 54-34 72 0-18 34-54 34-72 0z" stroke="#D6A84F" stroke-opacity="0.4" stroke-width="2"/>
+    <circle cx="810" cy="180" r="8" fill="#F0EEF6" fill-opacity="0.64"/>
+  </g>
+  <g class="identity-pulse">
+    <circle cx="270" cy="540" r="76" fill="url(#identity-node-c)" fill-opacity="0.6" stroke="#F0EEF6" stroke-opacity="0.12"/>
+    <circle cx="270" cy="540" r="36" fill="#06060C" fill-opacity="0.55" stroke="#D6A84F" stroke-opacity="0.52"/>
+    <path d="M236 540h68M270 506v68M246 516l48 48M294 516l-48 48" stroke="#9B59F5" stroke-opacity="0.36" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="270" cy="540" r="8" fill="#F0EEF6" fill-opacity="0.64"/>
+  </g>
+  <g class="identity-pulse">
+    <circle cx="810" cy="540" r="76" fill="url(#identity-node-d)" fill-opacity="0.62" stroke="#F0EEF6" stroke-opacity="0.12"/>
+    <circle cx="810" cy="540" r="36" fill="#06060C" fill-opacity="0.55" stroke="#9B59F5" stroke-opacity="0.48"/>
+    <path d="M810 496l38 22v44l-38 22-38-22v-44l38-22z" stroke="#13B8A6" stroke-opacity="0.34" stroke-width="2"/>
+    <path d="M810 512v56M786 526l48 28M834 526l-48 28" stroke="#D6A84F" stroke-opacity="0.4" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="810" cy="540" r="8" fill="#F0EEF6" fill-opacity="0.64"/>
+  </g>
+  <g opacity="0.58">
+    <circle cx="158" cy="116" r="4" fill="#13B8A6"/>
+    <circle cx="930" cy="106" r="5" fill="#D6A84F"/>
+    <circle cx="128" cy="590" r="5" fill="#9B59F5"/>
+    <circle cx="950" cy="612" r="4" fill="#13B8A6"/>
+    <circle cx="470" cy="104" r="3" fill="#F0EEF6"/>
+    <circle cx="612" cy="626" r="3" fill="#F0EEF6"/>
+  </g>
+</svg>

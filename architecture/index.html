@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>The Unwind Organism Stack | AI Architecture Lab</title>
+  <meta name="description" content="The Unwind organism stack combines Cortex, Memory, Gateway, Immune System, Cells, and Proof Loop so self-evolving AI systems can act without becoming unaccountable." />
+  <meta name="keywords" content="AI architecture, AI agents, autonomous systems, cognitive agents, organism stack, human-in-the-loop AI, Web3 architecture" />
+  <meta name="theme-color" content="#06060c" />
+  <link rel="canonical" href="https://www.unwindcode.ai/architecture/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="The Unwind Organism Stack | AI Architecture Lab" />
+  <meta property="og:description" content="The Unwind organism stack combines Cortex, Memory, Gateway, Immune System, Cells, and Proof Loop so self-evolving AI systems can act without becoming unaccountable." />
+  <meta property="og:url" content="https://www.unwindcode.ai/architecture/" />
+  <meta property="og:site_name" content="Unwind Code" />
+  <meta property="og:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
+  <meta property="og:image:type" content="image/svg+xml" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Unwind Code AI organism architecture lab visual" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Unwind Organism Stack | AI Architecture Lab" />
+  <meta name="twitter:description" content="The Unwind organism stack combines Cortex, Memory, Gateway, Immune System, Cells, and Proof Loop so self-evolving AI systems can act without becoming unaccountable." />
+  <meta name="twitter:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
+  <meta name="twitter:image:alt" content="Unwind Code AI organism architecture lab visual" />
+  <link rel="stylesheet" href="/style.css?v=20260615-system-state" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"TechArticle","headline":"The Unwind Organism Stack","url":"https://www.unwindcode.ai/architecture/","description":"A public explanation of the Unwind Code AI organism architecture: Cortex, Memory, Gateway, Immune System, Cells, and Proof Loop.","inLanguage":["en","es"],"author":{"@type":"Organization","name":"Unwind Code"},"about":["AI organism architecture","cognitive agents","autonomous systems","human-in-the-loop AI","Web3 architecture"],"mainEntity":{"@id":"https://www.unwindcode.ai/architecture/#organism-stack"}},{"@type":"DefinedTermSet","@id":"https://www.unwindcode.ai/architecture/#organism-stack","name":"Unwind Code Organism Stack","hasDefinedTerm":[{"@type":"DefinedTerm","name":"Cortex","description":"The reasoning loop that turns goals, current state, memory, and evidence into decisions."},{"@type":"DefinedTerm","name":"Memory","description":"Working, procedural, semantic, and episodic stores that keep lessons available across runs."},{"@type":"DefinedTerm","name":"Gateway","description":"The communication layer for web, chat, Telegram, Discord, mobile, APIs, and future channels."},{"@type":"DefinedTerm","name":"Immune System","description":"Sandbox execution, risk scanning, approval checkpoints, and refusal paths before unsafe actions."},{"@type":"DefinedTerm","name":"Cells","description":"Specialist agents for creator workflows, personal reflection, Web3 simulation, security, and dynamic capabilities."},{"@type":"DefinedTerm","name":"Proof Loop","description":"Tests, transmissions, release packets, architecture docs, and public evidence that make progress inspectable."}]},{"@type":"ImageObject","@id":"https://www.unwindcode.ai/architecture/#organism-stack-glyphs-asset","name":"Unwind Code Organism Stack Glyphs","contentUrl":"https://www.unwindcode.ai/assets/visuals/organism-stack-glyphs.svg","encodingFormat":"image/svg+xml","description":"A lightweight SVG glyph system that frames Gateway, Cortex, Memory, Cells, Immune System, and Proof Loop as the reusable operating icons of the Unwind organism stack."},{"@type":"ImageObject","@id":"https://www.unwindcode.ai/architecture/#cognitive-flow-map-asset","name":"Unwind Code Cognitive Flow Map","contentUrl":"https://www.unwindcode.ai/assets/visuals/cognitive-flow-map.svg","encodingFormat":"image/svg+xml","description":"A lightweight SVG flow map showing how gateway intake, cortex reasoning, memory, cells, immune boundaries, and proof turn a request into governed organism action."},{"@type":"ImageObject","@id":"https://www.unwindcode.ai/architecture/#architecture-run-inspector-asset","name":"Architecture Run Inspector","contentUrl":"https://www.unwindcode.ai/assets/visuals/architecture-run-inspector.svg","encodingFormat":"image/svg+xml","description":"A lightweight SVG console showing how prototype, reflection, Web3 simulation, and self-evolution requests move through gateway, cortex, cells, immune gates, and proof."},{"@type":"ImageObject","@id":"https://www.unwindcode.ai/architecture/#memory-continuity-map-asset","name":"Unwind Code Memory Continuity Map","contentUrl":"https://www.unwindcode.ai/assets/visuals/memory-continuity-map.svg","encodingFormat":"image/svg+xml","description":"A lightweight SVG memory-system map showing how working context, semantic memory, episodic logs, vector recall, proof artifacts, and retention boundaries keep an AI organism continuous without becoming unaccountable."}]}</script>
+</head>
+<body class="lab-page">
+  <nav id="nav" class="scrolled">
+    <a href="/" class="nav-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="/" data-i18n="nav.home">Home</a>
+      <a href="/organisms/" data-i18n="nav.organisms">Organisms</a>
+      <a href="/architecture/" class="active" aria-current="page" data-i18n="nav.architecture">Architecture</a>
+      <a href="/proof/" data-i18n="nav.proof">Proof</a>
+      <a href="/transmissions/" data-i18n="nav.blog">Transmissions</a>
+      <a href="/philosophy/" data-i18n="nav.philosophy">Philosophy</a>
+    </div>
+    <div class="nav-actions">
+      <button id="lang-toggle" class="lang-toggle" aria-label="Switch to Spanish">ES</button>
+      <a href="/build-with-us/" class="nav-cta" data-i18n="nav.cta">Build With Us</a>
+    </div>
+  </nav>
+  <main>
+    <section class="lab-hero">
+      <div class="container">
+        <span class="lab-kicker" data-i18n="archPage.hero.kicker">Organism stack</span>
+        <h1 data-i18n="archPage.hero.title">Self-evolving AI needs anatomy, not vibes.</h1>
+        <p data-i18n="archPage.hero.desc">The Unwind organism stack gives autonomous systems a concrete body: Cortex for reasoning, Memory for continuity, Gateway for channels, Immune System for safety, Cells for specialization, and Proof Loop for trust.</p>
+        <div class="lab-actions">
+          <a href="/proof/" class="btn btn-primary"><span data-i18n="archPage.hero.primary">View proof loop</span><span class="btn-arrow">→</span></a>
+          <a href="/organisms/" class="btn btn-ghost" data-i18n="archPage.hero.secondary">Explore organisms</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="lab-section organism-brief" aria-labelledby="architecture-operating-title">
+      <div class="container">
+        <div class="organism-brief-grid">
+          <div class="organism-brief-copy">
+            <span class="status-label" data-i18n="archPage.operating.label">Operating model</span>
+            <h2 id="architecture-operating-title" data-i18n="archPage.operating.title">The stack is a governance loop, not a diagram.</h2>
+            <p class="lab-section-lead" data-i18n="archPage.operating.desc">A request enters through a gateway, the cortex reasons with memory, cells do bounded work, the immune system decides whether to act or pause, and the proof loop records what happened.</p>
+            <div class="organism-brief-actions">
+              <a class="lab-link" href="/proof/" data-i18n="archPage.operating.proof">Inspect proof artifacts</a>
+              <a class="lab-link" href="/build-with-us/" data-i18n="archPage.operating.review">Request architecture review</a>
+            </div>
+          </div>
+          <dl class="organism-brief-facts" aria-label="Unwind organism stack operating model">
+            <div><dt data-i18n="archPage.fact.trigger.label">Trigger</dt><dd data-i18n="archPage.fact.trigger.desc">A user, channel, protocol, or scheduled event asks the organism to perceive something.</dd></div>
+            <div><dt data-i18n="archPage.fact.reason.label">Reason</dt><dd data-i18n="archPage.fact.reason.desc">The cortex reads memory, current state, and proof before choosing a cell path.</dd></div>
+            <div><dt data-i18n="archPage.fact.authority.label">Authority</dt><dd data-i18n="archPage.fact.authority.desc">The immune system allows, refuses, sandboxes, or asks the creator before high-risk action.</dd></div>
+            <div><dt data-i18n="archPage.fact.evidence.label">Evidence</dt><dd data-i18n="archPage.fact.evidence.desc">The proof loop stores tests, transmissions, review packets, and architecture notes.</dd></div>
+            <div><dt data-i18n="archPage.fact.evolution.label">Evolution</dt><dd data-i18n="archPage.fact.evolution.desc">Memory and proof make the next run sharper without removing human activation authority.</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="lab-section stack-glyph-section" aria-labelledby="stack-glyph-title">
+      <div class="container">
+        <div class="stack-glyph-layout">
+          <div class="stack-glyph-copy">
+            <span class="status-label" data-i18n="archPage.glyph.kicker">Stack glyph system</span>
+            <h2 id="stack-glyph-title" data-i18n="archPage.glyph.title">A builder should recognize the organism layers at a glance.</h2>
+            <p class="lab-section-lead" data-i18n="archPage.glyph.desc">The glyph console turns the architecture into a reusable visual language. Each layer has a job, a trust question, and a proof output so the stack can be inspected before autonomy gets tools.</p>
+            <div class="organism-brief-actions">
+              <a class="lab-link" href="/proof/" data-i18n="archPage.glyph.proof">Match glyphs to proof</a>
+              <a class="lab-link" href="/build-with-us/" data-i18n="archPage.glyph.review">Map my stack</a>
+            </div>
+          </div>
+
+          <div class="stack-glyph-board" data-asset-id="organism-stack-glyphs" aria-label="Organism stack glyph system">
+            <img class="stack-glyph-asset" src="/assets/visuals/organism-stack-glyphs.svg" width="1080" height="680" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+            <div class="stack-glyph-cards">
+              <details class="stack-glyph-card gateway" open>
+                <summary><span>01</span><strong data-i18n="archPage.glyph.gateway.title">Gateway</strong></summary>
+                <p data-i18n="archPage.glyph.gateway.desc">Routes human, web, chat, protocol, and scheduled signals into the organism without confusing channels for authority.</p>
+              </details>
+              <details class="stack-glyph-card cortex">
+                <summary><span>02</span><strong data-i18n="archPage.glyph.cortex.title">Cortex</strong></summary>
+                <p data-i18n="archPage.glyph.cortex.desc">Chooses goals, context, cells, risk posture, and what proof must exist before output becomes action.</p>
+              </details>
+              <details class="stack-glyph-card memory">
+                <summary><span>03</span><strong data-i18n="archPage.glyph.memory.title">Memory</strong></summary>
+                <p data-i18n="archPage.glyph.memory.desc">Keeps working context, facts, lessons, and debriefs separated so learning improves without becoming unbounded.</p>
+              </details>
+              <details class="stack-glyph-card cells">
+                <summary><span>04</span><strong data-i18n="archPage.glyph.cells.title">Cells</strong></summary>
+                <p data-i18n="archPage.glyph.cells.desc">Specialist agents handle creator work, reflection, Web3 simulation, security, and new capabilities as replaceable modules.</p>
+              </details>
+              <details class="stack-glyph-card immune">
+                <summary><span>05</span><strong data-i18n="archPage.glyph.immune.title">Immune System</strong></summary>
+                <p data-i18n="archPage.glyph.immune.desc">Pauses filesystem writes, public publishing, money movement, Web3 broadcast, and generated code until review passes.</p>
+              </details>
+              <details class="stack-glyph-card proof">
+                <summary><span>06</span><strong data-i18n="archPage.glyph.proofLoop.title">Proof Loop</strong></summary>
+                <p data-i18n="archPage.glyph.proofLoop.desc">Turns tests, transmissions, release packets, and architecture notes into evidence a visitor can inspect.</p>
+              </details>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lab-section architecture-flow-map-section" aria-labelledby="architecture-flow-map-title">
+      <div class="container">
+        <div class="architecture-flow-map-layout">
+          <div class="architecture-flow-map-copy">
+            <span class="status-label" data-i18n="archPage.map.kicker">Cognitive flow map</span>
+            <h2 id="architecture-flow-map-title" data-i18n="archPage.map.title">Trace one request through the organism before you trust the output.</h2>
+            <p class="lab-section-lead" data-i18n="archPage.map.desc">The map turns the stack into a reviewable path: intake, reasoning, remembered context, bounded work, authority check, and public-safe proof.</p>
+            <a class="lab-link" href="/proof/" data-i18n="archPage.map.cta">Inspect the evidence path</a>
+          </div>
+
+          <div class="architecture-flow-board" data-asset-id="cognitive-flow-map" aria-label="Cognitive flow architecture map">
+            <img class="architecture-flow-asset" src="/assets/visuals/cognitive-flow-map.svg" width="1080" height="720" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+            <div class="architecture-flow-nodes">
+              <details class="architecture-flow-node" open>
+                <summary><span>01</span><strong data-i18n="archPage.map.gateway.title">Gateway intake</strong></summary>
+                <p data-i18n="archPage.map.gateway.desc">A person, protocol, app, or schedule asks the organism to perceive a state.</p>
+              </details>
+              <details class="architecture-flow-node">
+                <summary><span>02</span><strong data-i18n="archPage.map.cortex.title">Cortex decision</strong></summary>
+                <p data-i18n="archPage.map.cortex.desc">The reasoning loop compares the request with goals, context, and proof.</p>
+              </details>
+              <details class="architecture-flow-node">
+                <summary><span>03</span><strong data-i18n="archPage.map.memory.title">Memory check</strong></summary>
+                <p data-i18n="archPage.map.memory.desc">Prior runs, facts, procedures, and mistakes shape the next action.</p>
+              </details>
+              <details class="architecture-flow-node">
+                <summary><span>04</span><strong data-i18n="archPage.map.cells.title">Cell work</strong></summary>
+                <p data-i18n="archPage.map.cells.desc">Specialist cells handle creative, reflective, Web3, security, or dynamic tasks.</p>
+              </details>
+              <details class="architecture-flow-node">
+                <summary><span>05</span><strong data-i18n="archPage.map.immune.title">Immune gate</strong></summary>
+                <p data-i18n="archPage.map.immune.desc">Risky action can be refused, sandboxed, or paused for creator approval.</p>
+              </details>
+              <details class="architecture-flow-node">
+                <summary><span>06</span><strong data-i18n="archPage.map.proof.title">Proof trail</strong></summary>
+                <p data-i18n="archPage.map.proof.desc">Tests, transmissions, review packets, and notes make the result inspectable.</p>
+              </details>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lab-section architecture-run-section" aria-labelledby="architecture-run-title" data-asset-id="architecture-run-inspector">
+      <div class="container">
+        <div class="architecture-run-layout">
+          <div class="architecture-run-copy">
+            <span class="status-label" data-i18n="archPage.run.kicker">Run inspector</span>
+            <h2 id="architecture-run-title" data-i18n="archPage.run.title">Choose a request and inspect the stack decision before the organism acts.</h2>
+            <p class="lab-section-lead" data-i18n="archPage.run.desc">The same architecture behaves differently depending on intent, risk, memory, and authority. This inspector shows what the Gateway hears, how the Cortex routes work, what the Immune System blocks, and what proof remains.</p>
+            <div class="organism-brief-actions">
+              <a class="lab-link" href="/proof/" data-i18n="archPage.run.proof">Open proof ledger</a>
+              <a class="lab-link" href="/build-with-us/" data-i18n="archPage.run.review">Request architecture review</a>
+            </div>
+          </div>
+
+          <div class="architecture-run-board" data-asset-id="architecture-run-inspector" aria-label="Architecture request run inspector">
+            <img class="architecture-run-asset" src="/assets/visuals/architecture-run-inspector.svg" width="1040" height="640" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+            <fieldset class="architecture-run-selector">
+              <legend data-i18n="archPage.run.legend">Choose a request type</legend>
+              <input class="architecture-run-radio" type="radio" name="architecture-run" id="arch-run-prototype" checked />
+              <input class="architecture-run-radio" type="radio" name="architecture-run" id="arch-run-reflection" />
+              <input class="architecture-run-radio" type="radio" name="architecture-run" id="arch-run-web3" />
+              <input class="architecture-run-radio" type="radio" name="architecture-run" id="arch-run-evolution" />
+
+              <div class="architecture-run-tabs" role="presentation">
+                <label for="arch-run-prototype"><span>01</span><strong data-i18n="archPage.run.prototype.tab">Prototype</strong></label>
+                <label for="arch-run-reflection"><span>02</span><strong data-i18n="archPage.run.reflection.tab">Reflection</strong></label>
+                <label for="arch-run-web3"><span>03</span><strong data-i18n="archPage.run.web3.tab">Web3 sim</strong></label>
+                <label for="arch-run-evolution"><span>04</span><strong data-i18n="archPage.run.evolution.tab">Cell growth</strong></label>
+              </div>
+
+              <div class="architecture-run-panels">
+                <article class="architecture-run-panel run-panel-prototype">
+                  <span class="architecture-run-status" data-i18n="archPage.run.prototype.status">Builder run</span>
+                  <h3 data-i18n="archPage.run.prototype.title">Build a prototype organism</h3>
+                  <dl>
+                    <div><dt data-i18n="archPage.run.meta.gateway">Gateway hears</dt><dd data-i18n="archPage.run.prototype.gateway">A builder brings a product goal, target user, available data, risk surface, and the first proof they need.</dd></div>
+                    <div><dt data-i18n="archPage.run.meta.cortex">Cortex routes</dt><dd data-i18n="archPage.run.prototype.cortex">The stack chooses architecture review, memory design, prototype cell scope, and a proof-first sprint path.</dd></div>
+                    <div><dt data-i18n="archPage.run.meta.immune">Immune decision</dt><dd data-i18n="archPage.run.prototype.immune">No production authority, file-writing automation, public claims, or spend exists until the sprint packet is approved.</dd></div>
+                    <div><dt data-i18n="archPage.run.meta.proof">Proof output</dt><dd data-i18n="archPage.run.prototype.proof">The run should leave architecture notes, risk boundaries, test targets, owner, and a next build lane.</dd></div>
+                  </dl>
+                </article>
+
+                <article class="architecture-run-panel run-panel-reflection">
+                  <span class="architecture-run-status" data-i18n="archPage.run.reflection.status">Human-facing run</span>
+                  <h3 data-i18n="archPage.run.reflection.title">Reflect a personal state</h3>
+                  <dl>
+                    <div><dt data-i18n="archPage.run.meta.gateway">Gateway hears</dt><dd data-i18n="archPage.run.reflection.gateway">A user names a current state, recurring pattern, friction, and the kind of next action they can safely choose.</dd></div>
+                    <div><dt data-i18n="archPage.run.meta.cortex">Cortex routes</dt><dd data-i18n="archPage.run.reflection.cortex">The stack routes to Infinity Mirror, scoped memory recall, reflection synthesis, and a grounded next-action frame.</dd></div>
+                    <div><dt data-i18n="archPage.run.meta.immune">Immune decision</dt><dd data-i18n="archPage.run.reflection.immune">The organism can reflect and suggest, but care, identity, diagnosis, and professional support remain human-led.</dd></div>
+                    <div><dt data-i18n="archPage.run.meta.proof">Proof output</dt><dd data-i18n="archPage.run.reflection.proof">The run preserves uncertainty, separates observation from interpretation, and records what boundary was respected.</dd></div>
+                  </dl>
+                </article>
+
+                <article class="architecture-run-panel run-panel-web3">
+                  <span class="architecture-run-status" data-i18n="archPage.run.web3.status">Simulation run</span>
+                  <h3 data-i18n="archPage.run.web3.title">Review an on-chain decision</h3>
+                  <dl>
+                    <div><dt data-i18n="archPage.run.meta.gateway">Gateway hears</dt><dd data-i18n="archPage.run.web3.gateway">A protocol or treasury question needs market context, risk interpretation, governance notes, and a safe decision packet.</dd></div>
+                    <div><dt data-i18n="archPage.run.meta.cortex">Cortex routes</dt><dd data-i18n="archPage.run.web3.cortex">The stack routes to Financial Organisms for read-only context, simulation, unsigned review, and risk framing.</dd></div>
+                    <div><dt data-i18n="archPage.run.meta.immune">Immune decision</dt><dd data-i18n="archPage.run.web3.immune">No private keys, wallet signing, broadcast, or money movement are available by default.</dd></div>
+                    <div><dt data-i18n="archPage.run.meta.proof">Proof output</dt><dd data-i18n="archPage.run.web3.proof">The run leaves assumptions, evidence, unsupported claims, and the exact approval required before any on-chain action.</dd></div>
+                  </dl>
+                </article>
+
+                <article class="architecture-run-panel run-panel-evolution">
+                  <span class="architecture-run-status" data-i18n="archPage.run.evolution.status">Self-evolution run</span>
+                  <h3 data-i18n="archPage.run.evolution.title">Grow or repair a cell</h3>
+                  <dl>
+                    <div><dt data-i18n="archPage.run.meta.gateway">Gateway hears</dt><dd data-i18n="archPage.run.evolution.gateway">A repeated failure or missing capability suggests the organism needs a new or repaired specialist cell.</dd></div>
+                    <div><dt data-i18n="archPage.run.meta.cortex">Cortex routes</dt><dd data-i18n="archPage.run.evolution.cortex">The stack routes to Brain Cell Architecture for research packet, candidate scope, sandbox trial, and rollback design.</dd></div>
+                    <div><dt data-i18n="archPage.run.meta.immune">Immune decision</dt><dd data-i18n="archPage.run.evolution.immune">Generated code stays inert until tests, sandbox evidence, review, and human approval pass.</dd></div>
+                    <div><dt data-i18n="archPage.run.meta.proof">Proof output</dt><dd data-i18n="archPage.run.evolution.proof">The run leaves failing evidence, patch intent, passing tests, changed files, status, and rollback path.</dd></div>
+                  </dl>
+                </article>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lab-section memory-continuity-section" aria-labelledby="memory-continuity-title">
+      <div class="container">
+        <div class="memory-continuity-layout">
+          <div class="memory-continuity-copy">
+            <span class="status-label" data-i18n="archPage.memory.kicker">Memory continuity map</span>
+            <h2 id="memory-continuity-title" data-i18n="archPage.memory.title">Memory is the continuity layer, not a pile of notes.</h2>
+            <p class="lab-section-lead" data-i18n="archPage.memory.desc">The organism keeps working context, semantic facts, episodic debriefs, vector recall, proof artifacts, and retention boundaries separate so learning improves decisions without erasing accountability.</p>
+            <div class="memory-continuity-actions">
+              <a class="lab-link" href="/transmissions/21-the-unwind-brain-checkpoint-white-paper.html" data-i18n="archPage.memory.proof">Read memory proof</a>
+              <a class="lab-link" href="/build-with-us/" data-i18n="archPage.memory.review">Design a memory lane</a>
+            </div>
+          </div>
+
+          <div class="memory-continuity-board" data-asset-id="memory-continuity-map" aria-label="Memory continuity architecture map">
+            <img class="memory-continuity-asset" src="/assets/visuals/memory-continuity-map.svg" width="1040" height="640" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+            <div class="memory-continuity-nodes">
+              <details class="memory-continuity-node" open>
+                <summary><span>01</span><strong data-i18n="archPage.memory.working.title">Working context</strong></summary>
+                <p data-i18n="archPage.memory.working.desc">The current goal, constraints, open files, active thread state, and immediate risk signals stay short-lived and inspectable.</p>
+              </details>
+              <details class="memory-continuity-node">
+                <summary><span>02</span><strong data-i18n="archPage.memory.semantic.title">Semantic memory</strong></summary>
+                <p data-i18n="archPage.memory.semantic.desc">Stable domain facts, architecture terms, organism definitions, and product doctrine become reusable context.</p>
+              </details>
+              <details class="memory-continuity-node">
+                <summary><span>03</span><strong data-i18n="archPage.memory.episodic.title">Episodic logs</strong></summary>
+                <p data-i18n="archPage.memory.episodic.desc">Daily debriefs, transmissions, decisions, failures, and lessons preserve what actually happened.</p>
+              </details>
+              <details class="memory-continuity-node">
+                <summary><span>04</span><strong data-i18n="archPage.memory.recall.title">Vector recall</strong></summary>
+                <p data-i18n="archPage.memory.recall.desc">Relevant fragments can be retrieved for the next run without flooding the cortex with stale context.</p>
+              </details>
+              <details class="memory-continuity-node">
+                <summary><span>05</span><strong data-i18n="archPage.memory.proofNode.title">Proof artifacts</strong></summary>
+                <p data-i18n="archPage.memory.proofNode.desc">Tests, review packets, whitepapers, release notes, and public transmissions keep memory tied to evidence.</p>
+              </details>
+              <details class="memory-continuity-node retained">
+                <summary><span>06</span><strong data-i18n="archPage.memory.boundary.title">Retention boundary</strong></summary>
+                <p data-i18n="archPage.memory.boundary.desc">Sensitive, temporary, or authority-changing context must expire, stay scoped, or ask the creator before it shapes future action.</p>
+              </details>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lab-section" aria-labelledby="architecture-layers-title">
+      <div class="container">
+        <h2 id="architecture-layers-title" data-i18n="archPage.layers.title">The six layers.</h2>
+        <p class="lab-section-lead" data-i18n="archPage.layers.desc">Every organism can be explained in plain English and inspected as architecture. The metaphor is biological; the implementation is operational.</p>
+        <div class="lab-grid">
+          <article class="lab-card"><span class="status-label" data-i18n="archPage.layer.cortex.label">Cortex</span><h3 data-i18n="archPage.layer.cortex.title">Cortex</h3><p data-i18n="archPage.layer.cortex.desc">The reasoning loop that turns goals, current state, memory, and evidence into decisions.</p></article>
+          <article class="lab-card"><span class="status-label" data-i18n="archPage.layer.memory.label">Memory</span><h3 data-i18n="archPage.layer.memory.title">Memory</h3><p data-i18n="archPage.layer.memory.desc">Working, procedural, semantic, and episodic stores that keep lessons from evaporating between runs.</p></article>
+          <article class="lab-card"><span class="status-label" data-i18n="archPage.layer.gateway.label">Gateway</span><h3 data-i18n="archPage.layer.gateway.title">Gateway</h3><p data-i18n="archPage.layer.gateway.desc">The input/output nervous system for web, chat, Telegram, Discord, mobile, APIs, and future channels.</p></article>
+          <article class="lab-card"><span class="status-label" data-i18n="archPage.layer.immune.label">Immune System</span><h3 data-i18n="archPage.layer.immune.title">Immune System</h3><p data-i18n="archPage.layer.immune.desc">Sandbox execution, risk scanning, approval checkpoints, and refusal paths before unsafe actions.</p></article>
+          <article class="lab-card"><span class="status-label" data-i18n="archPage.layer.cells.label">Cells</span><h3 data-i18n="archPage.layer.cells.title">Cells</h3><p data-i18n="archPage.layer.cells.desc">Specialist agents for creator workflows, personal reflection, Web3 simulation, security, and dynamic capabilities.</p></article>
+          <article class="lab-card"><span class="status-label" data-i18n="archPage.layer.proof.label">Proof Loop</span><h3 data-i18n="archPage.layer.proof.title">Proof Loop</h3><p data-i18n="archPage.layer.proof.desc">Tests, transmissions, release packets, architecture docs, and public evidence that make progress inspectable.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="lab-section" aria-labelledby="architecture-flow-title">
+      <div class="container">
+        <h2 id="architecture-flow-title" data-i18n="archPage.flow.title">Why this is different from an app.</h2>
+        <p class="lab-section-lead" data-i18n="archPage.flow.desc">An app waits for input and resets its context. An organism carries state forward, routes work through specialized cells, stops at risk gates, and records what happened so humans can review the trail.</p>
+        <div class="safety-flow">
+          <div class="safety-step"><span>01</span><h3 data-i18n="archPage.step.perceive.title">Perceive</h3><p data-i18n="archPage.step.perceive.desc">Inputs arrive through channels, not just forms.</p></div>
+          <div class="safety-step"><span>02</span><h3 data-i18n="archPage.step.decide.title">Decide</h3><p data-i18n="archPage.step.decide.desc">The Cortex uses memory and evidence before action.</p></div>
+          <div class="safety-step"><span>03</span><h3 data-i18n="archPage.step.act.title">Act</h3><p data-i18n="archPage.step.act.desc">Cells use tools only inside bounded authority.</p></div>
+          <div class="safety-step"><span>04</span><h3 data-i18n="archPage.step.pause.title">Pause</h3><p data-i18n="archPage.step.pause.desc">High-risk operations ask the creator first.</p></div>
+          <div class="safety-step"><span>05</span><h3 data-i18n="archPage.step.remember.title">Remember</h3><p data-i18n="archPage.step.remember.desc">Debriefs and proof artifacts make the next run sharper.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer id="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span><p class="footer-desc">Intelligence that evolves.<br />Architecture before autonomy.</p></div><div class="footer-col"><h5>Organisms</h5><a href="/organisms/visual-cortex/">Visual Cortex</a><a href="/organisms/infinity-mirror/">Infinity Mirror</a><a href="/organisms/financial-organisms/">Financial Organisms</a><a href="/organisms/brain-cell-architecture/">Brain Cell Architecture</a></div><div class="footer-col"><h5>Proof</h5><a href="/proof/">Proof Ledger</a><a href="/transmissions/">Transmissions</a><a href="/philosophy/">Philosophy</a></div><div class="footer-col"><h5>Next</h5><a href="/build-with-us/">Build With Us</a><a href="/#cta">Subscribe</a></div></div><div class="footer-bottom"><span>© 2026 Unwind Code. All rights reserved.</span><span class="footer-tagline">The future learns from itself. ∞</span></div></div></footer>
+  <script type="module" src="/main.js?v=20260615-system-state"></script>
+</body>
+</html>

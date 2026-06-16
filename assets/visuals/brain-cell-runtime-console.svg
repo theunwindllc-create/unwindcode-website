@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 640" role="presentation" aria-hidden="true">
+  <defs>
+    <linearGradient id="runtimePanel" x1="104" x2="936" y1="104" y2="536" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0d9488" stop-opacity=".14"/>
+      <stop offset=".46" stop-color="#e9cf97" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#9b59f5" stop-opacity=".16"/>
+    </linearGradient>
+    <linearGradient id="runtimeRail" x1="132" x2="908" y1="320" y2="320" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0d9488" stop-opacity=".12"/>
+      <stop offset=".34" stop-color="#0d9488" stop-opacity=".72"/>
+      <stop offset=".68" stop-color="#e9cf97" stop-opacity=".7"/>
+      <stop offset="1" stop-color="#9b59f5" stop-opacity=".5"/>
+    </linearGradient>
+    <radialGradient id="runtimeCore" cx="50%" cy="50%" r="54%">
+      <stop offset="0" stop-color="#0d9488" stop-opacity=".36"/>
+      <stop offset=".58" stop-color="#e9cf97" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#06060c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="runtimeGate" cx="50%" cy="50%" r="52%">
+      <stop offset="0" stop-color="#9b59f5" stop-opacity=".34"/>
+      <stop offset=".62" stop-color="#9b59f5" stop-opacity=".09"/>
+      <stop offset="1" stop-color="#06060c" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="runtimeSoftBlur" x="-36%" y="-36%" width="172%" height="172%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <style>
+    .runtime-rail {
+      fill: none;
+      stroke: url(#runtimeRail);
+      stroke-width: 2.6;
+      stroke-linecap: round;
+      stroke-dasharray: 12 18;
+      animation: runtime-rail-flow 19s linear infinite;
+    }
+
+    .runtime-core,
+    .runtime-gate {
+      transform-origin: center;
+      animation: runtime-breathe 8s ease-in-out infinite;
+    }
+
+    .runtime-gate {
+      animation-delay: -4s;
+    }
+
+    .runtime-pulse {
+      fill: #e9cf97;
+      opacity: .72;
+      animation: runtime-pulse 4.8s ease-in-out infinite;
+    }
+
+    .runtime-pulse:nth-of-type(2n) {
+      animation-delay: -2.4s;
+    }
+
+    @keyframes runtime-rail-flow {
+      to { stroke-dashoffset: -260; }
+    }
+
+    @keyframes runtime-breathe {
+      0%, 100% { opacity: .58; transform: scale(.982); }
+      50% { opacity: .95; transform: scale(1.028); }
+    }
+
+    @keyframes runtime-pulse {
+      0%, 100% { opacity: .18; transform: scale(.7); }
+      50% { opacity: .92; transform: scale(1); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .runtime-rail,
+      .runtime-core,
+      .runtime-gate,
+      .runtime-pulse {
+        animation: none !important;
+      }
+    }
+  </style>
+
+  <rect x="54" y="64" width="932" height="512" rx="34" fill="#080812" opacity=".36"/>
+  <path d="M112 116h816c34 0 62 28 62 62v284c0 34-28 62-62 62H112c-34 0-62-28-62-62V178c0-34 28-62 62-62Z" fill="url(#runtimePanel)" stroke="#f0eef6" stroke-opacity=".075"/>
+  <path d="M128 162h784M128 478h784M260 134v372M520 134v372M780 134v372" fill="none" stroke="#f0eef6" stroke-opacity=".046" stroke-dasharray="8 12"/>
+
+  <g filter="url(#runtimeSoftBlur)">
+    <circle class="runtime-core" cx="416" cy="320" r="132" fill="url(#runtimeCore)"/>
+    <circle class="runtime-gate" cx="684" cy="320" r="138" fill="url(#runtimeGate)"/>
+  </g>
+
+  <path class="runtime-rail" d="M132 320C208 246 292 246 356 320s128 78 164 0 116-80 164 0 120 74 224-4"/>
+  <path class="runtime-rail" d="M180 426c92-42 174-34 246 24s172 54 242-6 128-68 194-22" opacity=".5"/>
+
+  <g fill="#06060c" stroke="#f0eef6" stroke-opacity=".14">
+    <rect x="134" y="246" width="144" height="148" rx="20"/>
+    <rect x="326" y="190" width="150" height="112" rx="22"/>
+    <rect x="326" y="338" width="150" height="112" rx="22"/>
+    <rect x="564" y="190" width="150" height="112" rx="22"/>
+    <rect x="564" y="338" width="150" height="112" rx="22"/>
+    <rect x="782" y="246" width="126" height="148" rx="20"/>
+  </g>
+
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M168 286h76M168 318h46M168 350h66" stroke="#0d9488" stroke-opacity=".72" stroke-width="2.4"/>
+    <path d="M358 230h84M358 260h54" stroke="#e9cf97" stroke-opacity=".68" stroke-width="2.4"/>
+    <path d="M358 384h84M358 414h34" stroke="#0d9488" stroke-opacity=".68" stroke-width="2.4"/>
+    <path d="M596 230l34 34 54-68M596 262h58" stroke="#e9cf97" stroke-opacity=".74" stroke-width="2.6"/>
+    <path d="M596 382c22-18 50-18 72 0v42c-22 18-50 18-72 0Z" stroke="#9b59f5" stroke-opacity=".7" stroke-width="2.4"/>
+    <path d="M816 292h58M816 322h34M816 352h70" stroke="#f0eef6" stroke-opacity=".48" stroke-width="2.2"/>
+  </g>
+
+  <g fill="#f0eef6" opacity=".08">
+    <rect x="154" y="204" width="96" height="10" rx="5"/>
+    <rect x="354" y="154" width="96" height="10" rx="5"/>
+    <rect x="590" y="154" width="96" height="10" rx="5"/>
+    <rect x="804" y="204" width="84" height="10" rx="5"/>
+  </g>
+
+  <g>
+    <circle class="runtime-pulse" cx="132" cy="320" r="4"/>
+    <circle class="runtime-pulse" cx="326" cy="246" r="4"/>
+    <circle class="runtime-pulse" cx="326" cy="394" r="4"/>
+    <circle class="runtime-pulse" cx="564" cy="246" r="4"/>
+    <circle class="runtime-pulse" cx="564" cy="394" r="4"/>
+    <circle class="runtime-pulse" cx="908" cy="320" r="4"/>
+  </g>
+</svg>

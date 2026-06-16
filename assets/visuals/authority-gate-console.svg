@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="720" viewBox="0 0 1080 720" role="presentation" aria-hidden="true">
+  <defs>
+    <radialGradient id="consoleGlow" cx="50%" cy="46%" r="62%">
+      <stop offset="0%" stop-color="#f3dca4" stop-opacity=".22"/>
+      <stop offset="44%" stop-color="#0d9488" stop-opacity=".14"/>
+      <stop offset="100%" stop-color="#06060c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="railGold" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#d6a84f" stop-opacity="0"/>
+      <stop offset="42%" stop-color="#f3dca4" stop-opacity=".7"/>
+      <stop offset="100%" stop-color="#0d9488" stop-opacity=".22"/>
+    </linearGradient>
+    <linearGradient id="railTeal" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#0d9488" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#64d8c6" stop-opacity=".72"/>
+      <stop offset="100%" stop-color="#d6a84f" stop-opacity=".2"/>
+    </linearGradient>
+    <filter id="softFocus" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+    <pattern id="microGrid" width="54" height="54" patternUnits="userSpaceOnUse">
+      <path d="M54 0H0v54" fill="none" stroke="#f0eef6" stroke-opacity=".045" stroke-width="1"/>
+      <path d="M27 0v54M0 27h54" fill="none" stroke="#f0eef6" stroke-opacity=".026" stroke-width="1"/>
+    </pattern>
+    <style>
+      .gate-pulse{animation:gate-pulse 5.8s ease-in-out infinite;transform-origin:center}
+      .gate-orbit{animation:gate-orbit 12s linear infinite;transform-origin:540px 360px}
+      .gate-rail{stroke-dasharray:12 22;animation:gate-rail 13s linear infinite}
+      .gate-lock{animation:gate-lock 4.7s ease-in-out infinite;transform-origin:center}
+      .gate-lane:nth-of-type(2){animation-delay:.4s}
+      .gate-lane:nth-of-type(3){animation-delay:.8s}
+      .gate-lane:nth-of-type(4){animation-delay:1.2s}
+      .gate-lane:nth-of-type(5){animation-delay:1.6s}
+      @keyframes gate-pulse{0%,100%{opacity:.64;transform:scale(1)}50%{opacity:.95;transform:scale(1.018)}}
+      @keyframes gate-orbit{to{transform:rotate(360deg)}}
+      @keyframes gate-rail{to{stroke-dashoffset:-340}}
+      @keyframes gate-lock{0%,100%{opacity:.68;transform:translateY(0)}50%{opacity:1;transform:translateY(-4px)}}
+      @media (prefers-reduced-motion: reduce){
+        .gate-pulse,.gate-orbit,.gate-rail,.gate-lock{animation:none!important}
+      }
+    </style>
+  </defs>
+
+  <rect width="1080" height="720" rx="28" fill="#06060c"/>
+  <rect width="1080" height="720" fill="url(#microGrid)"/>
+  <circle cx="540" cy="360" r="390" fill="url(#consoleGlow)"/>
+  <ellipse cx="540" cy="360" rx="316" ry="176" fill="#0d9488" opacity=".09" filter="url(#softFocus)"/>
+  <ellipse cx="540" cy="360" rx="236" ry="132" fill="#d6a84f" opacity=".06" filter="url(#softFocus)"/>
+
+  <g class="gate-orbit" opacity=".44">
+    <path d="M230 360a310 132 0 1 0 620 0a310 132 0 1 0-620 0" fill="none" stroke="#f0eef6" stroke-opacity=".16" stroke-width="1.4"/>
+    <path d="M298 238a280 280 0 0 1 484 0" fill="none" stroke="#d6a84f" stroke-opacity=".22" stroke-width="1.2"/>
+    <path d="M298 482a280 280 0 0 0 484 0" fill="none" stroke="#0d9488" stroke-opacity=".2" stroke-width="1.2"/>
+  </g>
+
+  <g opacity=".86">
+    <path class="gate-rail" d="M128 170C288 168 332 238 458 270c116 29 154-18 252-4c82 12 144 54 242 54" fill="none" stroke="url(#railGold)" stroke-width="3" stroke-linecap="round"/>
+    <path class="gate-rail" d="M128 250c130 0 200 22 284 64c120 60 168 24 268 28c102 4 164 48 272 50" fill="none" stroke="url(#railTeal)" stroke-width="3" stroke-linecap="round"/>
+    <path class="gate-rail" d="M128 360h228c90 0 124-60 204-60s114 60 204 60h188" fill="none" stroke="url(#railGold)" stroke-width="3" stroke-linecap="round"/>
+    <path class="gate-rail" d="M128 470c132 0 198-36 294-76c110-46 154-18 248-10c112 10 164 64 282 70" fill="none" stroke="url(#railTeal)" stroke-width="3" stroke-linecap="round"/>
+    <path class="gate-rail" d="M128 550c152-4 208-72 330-98c112-24 150 20 250 8c90-10 150-62 244-62" fill="none" stroke="url(#railGold)" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <g class="gate-pulse">
+    <rect x="406" y="166" width="268" height="388" rx="28" fill="#090a13" fill-opacity=".72" stroke="#f0eef6" stroke-opacity=".18"/>
+    <rect x="432" y="194" width="216" height="332" rx="22" fill="#f0eef6" fill-opacity=".035" stroke="#d6a84f" stroke-opacity=".22"/>
+    <path d="M476 342v-46c0-36 28-62 64-62s64 26 64 62v46" fill="none" stroke="#f3dca4" stroke-opacity=".72" stroke-width="10" stroke-linecap="round"/>
+    <rect x="460" y="330" width="160" height="118" rx="18" fill="#d6a84f" fill-opacity=".16" stroke="#f3dca4" stroke-opacity=".62" stroke-width="3"/>
+    <circle cx="540" cy="384" r="17" fill="#f3dca4" fill-opacity=".58"/>
+    <path d="M540 399v36" stroke="#f3dca4" stroke-opacity=".58" stroke-width="10" stroke-linecap="round"/>
+  </g>
+
+  <g class="gate-lane gate-lock">
+    <circle cx="142" cy="170" r="22" fill="#06060c" stroke="#d6a84f" stroke-opacity=".66" stroke-width="2"/>
+    <circle cx="944" cy="320" r="18" fill="#06060c" stroke="#0d9488" stroke-opacity=".66" stroke-width="2"/>
+    <path d="M136 170h12m-6-6v12M938 320h12" stroke="#f3dca4" stroke-opacity=".7" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <g class="gate-lane gate-lock">
+    <circle cx="142" cy="250" r="22" fill="#06060c" stroke="#0d9488" stroke-opacity=".66" stroke-width="2"/>
+    <circle cx="944" cy="392" r="18" fill="#06060c" stroke="#d6a84f" stroke-opacity=".66" stroke-width="2"/>
+    <path d="M136 250h12m-6-6v12M938 392h12" stroke="#64d8c6" stroke-opacity=".7" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <g class="gate-lane gate-lock">
+    <circle cx="142" cy="360" r="22" fill="#06060c" stroke="#d6a84f" stroke-opacity=".66" stroke-width="2"/>
+    <circle cx="944" cy="360" r="18" fill="#06060c" stroke="#0d9488" stroke-opacity=".66" stroke-width="2"/>
+    <path d="M136 360h12m-6-6v12M938 360h12" stroke="#f3dca4" stroke-opacity=".7" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <g class="gate-lane gate-lock">
+    <circle cx="142" cy="470" r="22" fill="#06060c" stroke="#0d9488" stroke-opacity=".66" stroke-width="2"/>
+    <circle cx="944" cy="454" r="18" fill="#06060c" stroke="#d6a84f" stroke-opacity=".66" stroke-width="2"/>
+    <path d="M136 470h12m-6-6v12M938 454h12" stroke="#64d8c6" stroke-opacity=".7" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <g class="gate-lane gate-lock">
+    <circle cx="142" cy="550" r="22" fill="#06060c" stroke="#d6a84f" stroke-opacity=".66" stroke-width="2"/>
+    <circle cx="944" cy="398" r="18" fill="#06060c" stroke="#0d9488" stroke-opacity=".66" stroke-width="2"/>
+    <path d="M136 550h12m-6-6v12M938 398h12" stroke="#f3dca4" stroke-opacity=".7" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <g opacity=".28">
+    <path d="M118 102h844v516H118z" fill="none" stroke="#f0eef6" stroke-opacity=".2"/>
+    <path d="M118 138h844M118 582h844M214 102v516M866 102v516" stroke="#f0eef6" stroke-opacity=".11"/>
+    <circle cx="214" cy="138" r="4" fill="#d6a84f" fill-opacity=".72"/>
+    <circle cx="866" cy="582" r="4" fill="#0d9488" fill-opacity=".72"/>
+  </g>
+</svg>

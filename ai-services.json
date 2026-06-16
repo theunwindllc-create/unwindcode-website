@@ -1,0 +1,1254 @@
+{
+  "name": "Unwind Code",
+  "url": "https://www.unwindcode.ai/",
+  "description": "An AI + Web3 architecture lab building governed AI organisms: memory-bearing, approval-gated systems with public proof, sandboxed execution, Web3 simulation boundaries, and human authority.",
+  "defined_terms": [
+    {
+      "name": "AI organism",
+      "definition": "A governed cognitive system with cortex, memory, gateway, specialized cells, safety boundaries, and a proof loop that can perceive, decide, act, remember, and improve under human authority."
+    },
+    {
+      "name": "Organisms vs apps",
+      "definition": "Typical apps execute flows and often reset context; AI organisms carry state forward, route work through cells, pause at risk gates, preserve proof, and evolve through tested proposals under human authority."
+    },
+    {
+      "name": "Organism Stack",
+      "definition": "The Unwind architecture model: Cortex for reasoning, Memory for continuity, Gateway for channels, Immune System for safety, Cells for specialization, and Proof Loop for inspectable trust."
+    },
+    {
+      "name": "Proof Loop",
+      "definition": "The evidence layer that records tests, transmissions, review packets, release notes, architecture docs, status labels, and safety gates so autonomous-system progress remains inspectable."
+    },
+    {
+      "name": "Operating Doctrine",
+      "definition": "The Unwind Code governance philosophy: money as armor, clarity before motion, human authority, proof before claims, replaceable cells, and Web3 simulation before live authority."
+    },
+    {
+      "name": "Money as armor",
+      "definition": "A design principle that treats money as protection for human stability and agency rather than as the final authority of an autonomous system."
+    },
+    {
+      "name": "Intelligence that evolves",
+      "definition": "The Unwind Code identity: AI systems that carry memory forward, improve through proof, keep cells replaceable, and remain bounded by human authority."
+    },
+    {
+      "name": "Culture-bearing intelligence",
+      "definition": "A future Unwind Code research lane for AI organisms that preserve identity, creator economics, diaspora memory, and cultural context without flattening human meaning."
+    },
+    {
+      "name": "Transmission",
+      "definition": "A public Unwind Code dispatch that turns architecture work, proof artifacts, safety boundaries, product signals, and organism research into inspectable writing."
+    }
+  ],
+  "services": [
+    {
+      "id": "organism_architecture",
+      "name": "AI organism architecture",
+      "description": "Map goals, memory, tools, channels, safety boundaries, proof artifacts, and specialized cells into a governed AI organism path.",
+      "url": "https://www.unwindcode.ai/architecture/"
+    },
+    {
+      "id": "prototype_organism",
+      "name": "Prototype organism build",
+      "description": "Design and implement a bounded prototype with cortex, memory, gateway, cells, and reviewable output.",
+      "url": "https://www.unwindcode.ai/build-with-us/"
+    },
+    {
+      "id": "proof_loop_audit",
+      "name": "Proof-loop audit",
+      "description": "Turn agentic system claims into public-safe evidence through status labels, architecture notes, tests, transmissions, and safety gates.",
+      "url": "https://www.unwindcode.ai/proof/"
+    },
+    {
+      "id": "web3_simulation",
+      "name": "Web3 simulation lane",
+      "description": "Research and simulate on-chain intelligence flows with risk scoring, unsigned review packets, and no hidden wallet authority.",
+      "url": "https://www.unwindcode.ai/organisms/financial-organisms/"
+    },
+    {
+      "id": "human_approval",
+      "name": "Human approval boundary design",
+      "description": "Design approval gates for filesystem writes, money movement, public posting, generated code, and high-risk automation.",
+      "url": "https://www.unwindcode.ai/philosophy/"
+    }
+  ],
+  "organisms": [
+    {
+      "name": "Visual Cortex",
+      "status": "prototype",
+      "url": "https://www.unwindcode.ai/organisms/visual-cortex/",
+      "summary": "Creator intelligence for transforming scripts, brand context, and creative goals into production-ready media blueprints."
+    },
+    {
+      "name": "Infinity Mirror",
+      "status": "prototype",
+      "url": "https://www.unwindcode.ai/organisms/infinity-mirror/",
+      "summary": "Personal evolution organism for reflection, state awareness, identity continuity, and clearer next actions."
+    },
+    {
+      "name": "Financial Organisms",
+      "status": "research_simulation_first",
+      "url": "https://www.unwindcode.ai/organisms/financial-organisms/",
+      "summary": "Web3 research and simulation organisms with risk scoring, unsigned review packets, and human approval before motion."
+    },
+    {
+      "name": "Brain Cell Architecture",
+      "status": "experimental",
+      "url": "https://www.unwindcode.ai/organisms/brain-cell-architecture/",
+      "summary": "The architecture for researching, testing, sandboxing, approving, and integrating new AI organism capabilities."
+    },
+    {
+      "name": "Research Organisms",
+      "status": "research",
+      "url": "https://www.unwindcode.ai/organisms/research-organisms/",
+      "summary": "Source-bound research systems for turning questions, evidence gaps, experiments, and public proof into reviewed organism knowledge."
+    }
+  ],
+  "safety_boundaries": [
+    "Generated code runs in sandbox before trust.",
+    "Filesystem writes require explicit approval.",
+    "Money movement requires proof and human approval.",
+    "Public posting requires reviewed publish packets.",
+    "Web3 work is simulation-first and no-broadcast by default."
+  ],
+  "operating_doctrine": [
+    {
+      "principle": "Money as armor, not god",
+      "product_constraint": "Financial organisms protect attention, capital, and decision quality before any money motion."
+    },
+    {
+      "principle": "Lower the suffering",
+      "product_constraint": "Human-facing organisms should interrupt collapse patterns and clarify the next useful action."
+    },
+    {
+      "principle": "Increase the clarity",
+      "product_constraint": "Organisms must explain state, risk, assumptions, and authority before action."
+    },
+    {
+      "principle": "Preserve the light",
+      "product_constraint": "Automation should expand human agency rather than replace judgment, care, or consent."
+    },
+    {
+      "principle": "Everything important is replaceable",
+      "product_constraint": "Cells, tools, providers, memory stores, and gateways stay swappable so self-evolution does not become lock-in."
+    }
+  ],
+  "vision_roadmap": [
+    {
+      "stage": "now",
+      "name": "Proof-first public architecture",
+      "trust_gate": "Public pages, schema, transmissions, status labels, and proof artifacts make the organism thesis inspectable.",
+      "url": "https://www.unwindcode.ai/proof/"
+    },
+    {
+      "stage": "prototype",
+      "name": "Infinity Mirror",
+      "trust_gate": "Human-facing personal evolution remains a mirror for clarity and next action, not a replacement for judgment.",
+      "url": "https://www.unwindcode.ai/organisms/infinity-mirror/"
+    },
+    {
+      "stage": "prototype",
+      "name": "Visual Cortex",
+      "trust_gate": "Creator intelligence produces reviewable media plans, assumptions, scripts, shots, and production evidence.",
+      "url": "https://www.unwindcode.ai/organisms/visual-cortex/"
+    },
+    {
+      "stage": "research",
+      "name": "Research Organisms",
+      "trust_gate": "Research loops keep sources, uncertainty, experiments, caveats, and publication approval visible before claims become public authority.",
+      "url": "https://www.unwindcode.ai/organisms/research-organisms/"
+    },
+    {
+      "stage": "research",
+      "name": "Financial Organisms",
+      "trust_gate": "Web3 work remains simulation-first, unsigned, no-broadcast, and human-approved before financial motion.",
+      "url": "https://www.unwindcode.ai/organisms/financial-organisms/"
+    },
+    {
+      "stage": "experimental",
+      "name": "Brain Cell Architecture",
+      "trust_gate": "New cells must pass research, sandbox verification, approval gates, source control, and proof.",
+      "url": "https://www.unwindcode.ai/organisms/brain-cell-architecture/"
+    },
+    {
+      "stage": "2028",
+      "name": "Uncuba.ai and culture-bearing intelligence",
+      "trust_gate": "Culture lanes must preserve identity, creator economics, diaspora memory, and human context.",
+      "url": "https://www.unwindcode.ai/vision/"
+    },
+    {
+      "stage": "2030",
+      "name": "Governed machine coordination",
+      "trust_gate": "Cognitive organisms coordinate across domains only with proof, approval, and replaceable cells.",
+      "url": "https://www.unwindcode.ai/architecture/"
+    }
+  ],
+  "immersive_assets": [
+    {
+      "id": "hero_signal_field",
+      "name": "Hero Signal Field",
+      "route": "https://www.unwindcode.ai/#hero",
+      "asset": "https://www.unwindcode.ai/#hero-signal-field-asset",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A dependency-free homepage canvas layer that visualizes the organism loop behind the hero: visitor signal, gateway, cortex, memory, proof, and approval boundary.",
+      "trust_boundary": "The canvas is decorative and aria-hidden; semantic HTML, bilingual copy, CreativeWork schema, and asset-governance metadata carry the public meaning.",
+      "motion_policy": "Progressive enhancement only, with prefers-reduced-motion support, static compact-screen mode, no WebGL, no video, and pointer response only on larger screens."
+    },
+    {
+      "id": "organism_pulse_field",
+      "name": "Organism Pulse Field",
+      "route": "https://www.unwindcode.ai/#hero-console-title",
+      "asset": "https://www.unwindcode.ai/assets/visuals/organism-pulse-field.svg",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A lightweight homepage hero console that explains how a visitor signal becomes a governed organism run through gateway, cortex, memory, proof, and authority boundary.",
+      "trust_boundary": "The SVG remains decorative and textless; semantic HTML, bilingual step labels, ImageObject schema, and asset-governance metadata carry the public meaning.",
+      "motion_policy": "Lightweight SVG/CSS only, reduced-motion safe, no JavaScript animation dependency, and no WebGL on mobile."
+    },
+    {
+      "id": "organism_ecosystem_map",
+      "name": "Organism Ecosystem Map",
+      "route": "https://www.unwindcode.ai/#ecosystem-map",
+      "asset": "https://www.unwindcode.ai/assets/visuals/organism-ecosystem-map.svg",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A lightweight interactive map that explains the shared organism spine and routes visitors into Visual Cortex, Infinity Mirror, Financial Organisms, Brain Cell Architecture, Research Organisms, and the architecture proof path.",
+      "trust_boundary": "The visual asset is decorative and textless; semantic HTML, bilingual labels, schema, and manifest governance carry the public meaning.",
+      "motion_policy": "Lightweight SVG/CSS only, reduced-motion safe, no JavaScript animation dependency, and no WebGL on mobile."
+    },
+    {
+      "id": "organism_difference_lens",
+      "name": "Organism Difference Lens",
+      "route": "https://www.unwindcode.ai/#organism-lens-title",
+      "asset": "https://www.unwindcode.ai/assets/visuals/organism-difference-lens.svg",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A lightweight homepage primer console that explains why AI organisms differ from typical apps across state, reasoning, authority, and proof.",
+      "trust_boundary": "The SVG remains decorative and textless; the public meaning is carried by native radio controls, bilingual panels, the comparison table, ImageObject schema, and asset-governance metadata.",
+      "motion_policy": "Lightweight SVG/CSS only, reduced-motion safe, no JavaScript animation dependency, and no WebGL on mobile."
+    },
+    {
+      "id": "organism_readiness_radar",
+      "name": "Organism Readiness Radar",
+      "route": "https://www.unwindcode.ai/#organism-readiness-title",
+      "asset": "https://www.unwindcode.ai/assets/visuals/organism-readiness-radar.svg",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A lightweight homepage readiness console that lets visitors compare Visual Cortex, Infinity Mirror, Financial Organisms, Brain Cell Architecture, and Research Organisms by maturity, proof artifact, authority boundary, and next route.",
+      "trust_boundary": "The SVG remains decorative and textless; the public meaning is carried by native radio controls, bilingual readiness panels, ImageObject schema, durable route links, proof links, and asset-governance metadata.",
+      "motion_policy": "Lightweight SVG/CSS only, reduced-motion safe, no JavaScript animation dependency, and no WebGL on mobile."
+    },
+    {
+      "id": "architecture_proof_runway",
+      "name": "Architecture Proof Runway",
+      "route": "https://www.unwindcode.ai/#architecture-runway-title",
+      "asset": "https://www.unwindcode.ai/assets/visuals/architecture-proof-runway.svg",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A lightweight homepage architecture runway that shows how a request moves through gateway signal, context fence, specialist cells, immune decision, and proof output before autonomy receives authority.",
+      "trust_boundary": "The SVG remains decorative and textless; semantic HTML, the ordered proof sequence, bilingual labels, ImageObject schema, and asset-governance metadata carry the public meaning.",
+      "motion_policy": "Lightweight SVG/CSS only, reduced-motion safe, no JavaScript animation dependency, and no WebGL on mobile."
+    },
+    {
+      "id": "homepage_motion_contract",
+      "name": "Homepage Motion Contract Ledger",
+      "route": "https://www.unwindcode.ai/#motion-contract-title",
+      "asset": "semantic-html",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A semantic homepage ledger that explains what motion is allowed to mean across signal, focus, authority boundary, proof return, and shutdown states.",
+      "trust_boundary": "No runtime-only proof. The public meaning is carried by semantic HTML, bilingual copy, CSS reduced-motion rules, tests, metadata, and durable route links.",
+      "motion_policy": "No new animation dependency. Motion remains CSS/SVG/canvas progressive enhancement, transform and opacity first, reduced-motion safe, no scroll hijack, and no WebGL requirement."
+    },
+    {
+      "id": "homepage_doctrine_gateway",
+      "name": "Homepage Doctrine Gateway",
+      "route": "https://www.unwindcode.ai/#homepage-doctrine-title",
+      "asset": "https://www.unwindcode.ai/assets/visuals/homepage-doctrine-gateway.svg",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A lightweight homepage doctrine gateway that maps the prime directive into money-as-armor, clarity, human authority, and proof controls before visitors reach the future vision.",
+      "trust_boundary": "The SVG remains decorative and textless; semantic HTML, the definition list of doctrine controls, bilingual labels, ImageObject schema, and asset-governance metadata carry the public meaning.",
+      "motion_policy": "Lightweight SVG/CSS only, reduced-motion safe, no JavaScript animation dependency, and no WebGL on mobile."
+    },
+    {
+      "id": "visitor_pathway_map",
+      "name": "Visitor Pathway Map",
+      "route": "https://www.unwindcode.ai/#pathfinder-title",
+      "asset": "https://www.unwindcode.ai/assets/visuals/visitor-pathway-map.svg",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A lightweight interactive pathfinder that routes builders, creators, users, protocols, investors, and collaborators toward the clearest product, architecture, proof, or collaboration artifact.",
+      "trust_boundary": "The SVG remains decorative and textless; the public meaning is carried by native radio controls, bilingual route panels, schema, and asset-governance metadata.",
+      "motion_policy": "Lightweight SVG/CSS only, reduced-motion safe, no JavaScript animation dependency, and no WebGL on mobile."
+    },
+    {
+      "id": "subscriber_signal_beacon",
+      "name": "Subscriber Signal Beacon",
+      "route": "https://www.unwindcode.ai/#cta",
+      "asset": "https://www.unwindcode.ai/assets/visuals/subscriber-signal-beacon.svg",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A lightweight subscriber gateway visual and native selector that routes builders, investors, users, and collaborators through proof-filtered public-safe signal paths before subscribing.",
+      "trust_boundary": "The SVG remains decorative and textless; the public meaning is carried by native radio controls, bilingual signal panels, ImageObject schema, email form labels, same-origin subscribe API behavior, and asset-governance metadata. The list promises public-safe updates only: no private reasoning, credentials, financial promises, hidden Web3 authority, or unreviewed implementation details.",
+      "motion_policy": "Lightweight SVG/CSS only, reduced-motion safe, no JavaScript animation dependency, and no WebGL on mobile."
+    },
+    {
+      "id": "organism_fit_matrix",
+      "name": "Organism Fit Matrix",
+      "route": "https://www.unwindcode.ai/organisms/#organism-fit-title",
+      "asset": "https://www.unwindcode.ai/assets/visuals/organism-fit-matrix.svg",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A lightweight comparison matrix that helps visitors match Visual Cortex, Infinity Mirror, Financial Organisms, and Brain Cell Architecture to intent, maturity, authority boundary, proof path, and next action.",
+      "trust_boundary": "The SVG remains decorative and textless; the public meaning is carried by native radio controls, bilingual comparison panels, ImageObject schema, durable organism links, and asset-governance metadata.",
+      "motion_policy": "Lightweight SVG/CSS only, reduced-motion safe, no JavaScript animation dependency, and no WebGL on mobile."
+    },
+    {
+      "id": "organism_identity_constellation",
+      "name": "Organism Identity Constellation",
+      "route": "https://www.unwindcode.ai/organisms/#organism-identity-title",
+      "asset": "https://www.unwindcode.ai/assets/visuals/organism-identity-constellation.svg",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A lightweight organism identity layer that frames Visual Cortex, Infinity Mirror, Financial Organisms, and Brain Cell Architecture as distinct organism identities connected to one governed spine.",
+      "trust_boundary": "The SVG remains decorative and textless; the public meaning is carried by semantic bilingual cards, ImageObject schema, durable organism links, and asset-governance metadata. Each card names signal, proof, and authority boundary before a visitor chooses a route.",
+      "motion_policy": "Lightweight SVG/CSS only, reduced-motion safe, no JavaScript animation dependency, and no WebGL on mobile."
+    },
+    {
+      "id": "organism_interface_specimens",
+      "name": "Organism Interface Specimens",
+      "route": "https://www.unwindcode.ai/organisms/#organism-specimen-title",
+      "asset": "https://www.unwindcode.ai/assets/visuals/organism-interface-specimens.svg",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A lightweight organism-index specimen shelf showing each public organism path as a concrete first proof surface: production packet, reflection session, unsigned Web3 review, or runtime cell note.",
+      "trust_boundary": "The SVG remains decorative and textless; the public meaning is carried by semantic bilingual cards, detail-page anchors, ImageObject schema, manifest metadata, llms.txt, and tests.",
+      "motion_policy": "Lightweight SVG/CSS only, reduced-motion safe, no JavaScript animation dependency, and no WebGL on mobile."
+    },
+    {
+      "id": "organism_state_ledger",
+      "name": "Organism State Ledger",
+      "route": "https://www.unwindcode.ai/organisms/#organism-state-ledger-title",
+      "asset": "https://www.unwindcode.ai/organisms/#organism-state-ledger-title",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A semantic organism-index proof surface that maps Visual Cortex, Infinity Mirror, Financial Organisms, Brain Cell Architecture, and the Public Proof Loop to canonical Prototype, Research, Experimental, and Live state labels, actual systems reflected, proof sources, and blocked authority.",
+      "trust_boundary": "The ledger is not live telemetry and does not grant autonomy. It exposes current public state and proof links while keeping public posting, deploys, spending, filesystem writes, diagnosis, identity inference, hidden memory, wallet control, and Web3 broadcast behind explicit approval.",
+      "motion_policy": "Semantic HTML and CSS only, reduced-motion safe, no JavaScript dependency, no canvas, no WebGL, no video, no live telemetry, and no automatic state mutation."
+    },
+    {
+      "id": "research_organisms_capability_ledger",
+      "name": "Research Organisms Capability Ledger",
+      "route": "https://www.unwindcode.ai/organisms/research-organisms/#research-organisms-capability-title",
+      "asset": "semantic-html",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A semantic research-lane ledger that names what Research Organisms can study, what remains uncertain, what claims are blocked, and where proof routes live.",
+      "trust_boundary": "The ledger does not grant research authority by confidence. Public claims, benchmarks, market claims, source interpretations, and publication wording stay behind evidence, caveats, state labels, and human review.",
+      "motion_policy": "Semantic HTML and CSS only, reduced-motion safe, no JavaScript dependency, no canvas, no WebGL, no private scraping, no storage, no network call, and no automatic publication."
+    },
+    {
+      "id": "research_organism_field",
+      "name": "Research Organism Field",
+      "route": "https://www.unwindcode.ai/organisms/research-organisms/#research-organism-field-title",
+      "asset": "https://www.unwindcode.ai/assets/visuals/research-organism-field.svg",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A lightweight textless SVG that visualizes a source moving through source packet, question map, bounded experiment, and publication gate.",
+      "trust_boundary": "The SVG remains decorative and textless; semantic HTML, bilingual steps, durable proof links, schema, and asset-governance metadata carry the public research meaning.",
+      "motion_policy": "Lightweight SVG/CSS only, reduced-motion safe, no JavaScript animation dependency, no canvas, no WebGL, and no mobile runtime loop."
+    },
+    {
+      "id": "vision_roadmap_observatory",
+      "name": "Vision Roadmap Observatory",
+      "route": "https://www.unwindcode.ai/vision/#vision-observatory-title",
+      "asset": "https://www.unwindcode.ai/assets/visuals/vision-roadmap-observatory.svg",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A lightweight roadmap control surface that lets visitors inspect public proof, product organisms, Web3 value, and culture horizon lanes across capability, proof gate, authority boundary, and next route.",
+      "trust_boundary": "The SVG remains decorative and textless; the public meaning is carried by native radio controls, bilingual proof-lane panels, ImageObject schema, asset-governance metadata, and human authority boundaries. Web3 value remains simulation-first with no private keys, no hidden broadcast, and no live money motion by default.",
+      "motion_policy": "Lightweight SVG/CSS only, reduced-motion safe, no JavaScript animation dependency, and no WebGL on mobile."
+    },
+    {
+      "id": "operating_doctrine_compass",
+      "name": "Operating Doctrine Compass",
+      "route": "https://www.unwindcode.ai/philosophy/#doctrine-compass-title",
+      "asset": "https://www.unwindcode.ai/assets/visuals/operating-doctrine-compass.svg",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A lightweight philosophy control surface that maps clarity, human authority, money as armor, proof before claims, and preserve the light into inspectable product constraints and next routes.",
+      "trust_boundary": "The SVG remains decorative and textless; the public meaning is carried by native radio controls, bilingual doctrine panels, ImageObject schema, asset-governance metadata, and explicit human authority boundaries. Money movement, filesystem writes, public publishing, high-risk automation, and Web3 broadcast stay approval-gated.",
+      "motion_policy": "Lightweight SVG/CSS only, reduced-motion safe, no JavaScript animation dependency, and no WebGL on mobile."
+    },
+    {
+      "id": "infinity_mirror_reflection_loop",
+      "name": "Infinity Mirror Reflection Loop",
+      "route": "https://www.unwindcode.ai/organisms/infinity-mirror/#infinity-mirror-loop-title",
+      "asset": "https://www.unwindcode.ai/assets/visuals/infinity-mirror-reflection-loop.svg",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A lightweight personal-evolution board that explains state capture, pattern memory, reflective synthesis, friction naming, grounded next action, and human boundary.",
+      "trust_boundary": "The SVG remains decorative and textless; the public meaning is carried by semantic details/summary controls, bilingual labels, ImageObject schema, proof links, and asset-governance metadata.",
+      "motion_policy": "Lightweight SVG/CSS only, reduced-motion safe, no JavaScript animation dependency, and no WebGL on mobile."
+    },
+    {
+      "id": "infinity_mirror_session_console",
+      "name": "Infinity Mirror Session Console",
+      "route": "https://www.unwindcode.ai/organisms/infinity-mirror/#infinity-mirror-session-title",
+      "asset": "https://www.unwindcode.ai/assets/visuals/infinity-mirror-session-console.svg",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A lightweight Infinity Mirror decision console that lets visitors inspect overwhelm, identity drift, launch fear, and stuck loop requests before any reflection becomes a suggested next action.",
+      "trust_boundary": "The SVG remains decorative and textless; the public meaning is carried by native radio controls, bilingual request panels, ImageObject schema, proof links, and asset-governance metadata. The mirror reflects and suggests, but consent, identity, care decisions, professional support, public contact, and reputation motion remain human-led.",
+      "motion_policy": "Lightweight SVG/CSS only, reduced-motion safe, no JavaScript animation dependency, and no WebGL on mobile."
+    },
+    {
+      "id": "infinity_mirror_capability_ledger",
+      "name": "Infinity Mirror Capability Ledger",
+      "route": "https://www.unwindcode.ai/organisms/infinity-mirror/#infinity-mirror-capability-title",
+      "asset": "semantic-html",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A semantic product ledger that names what Infinity Mirror can do, what it cannot claim, and where proof lives across capture, memory, motion, and stop boundaries.",
+      "trust_boundary": "The public meaning is carried by semantic HTML, bilingual definition lists, durable proof links, tests, metadata, and explicit blocked claims. No diagnosis, identity verdict, hidden profiling, hidden memory map, public contact, posting, spending, file writes, therapy replacement, emergency handling, or professional advice claim is granted to the mirror.",
+      "motion_policy": "No new animation dependency. The ledger is static semantic HTML/CSS, reduced-motion safe, mobile-readable, no canvas, no WebGL, no storage, no network call, and no motion-only proof."
+    },
+    {
+      "id": "infinity_mirror_runtime_field",
+      "name": "Infinity Mirror Runtime Field",
+      "route": "https://www.unwindcode.ai/organisms/infinity-mirror/experience/#mirror-experience-hero",
+      "asset": "https://www.unwindcode.ai/organisms/infinity-mirror/experience/#mirror-runtime-field",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A dependency-free decorative canvas field that makes the Infinity Mirror hero feel alive by drawing scroll-depth lemniscate particles and pointer-energy response behind the semantic SVG portal.",
+      "trust_boundary": "The canvas is aria-hidden and cannot carry public meaning. The SVG fallback, semantic HTML, bilingual copy, threshold readout, story rail, proof routes, and asset-governance metadata remain authoritative.",
+      "motion_policy": "requestAnimationFrame canvas only, IntersectionObserver pause/resume, capped device-pixel-ratio, prefers-reduced-motion static mode, compact-screen shutdown under 760px, no WebGL, no video, and no third-party animation dependency."
+    },
+    {
+      "id": "infinity_mirror_brain_route_pulse",
+      "name": "Infinity Mirror Brain Route Pulse",
+      "route": "https://www.unwindcode.ai/organisms/infinity-mirror/experience/#mirror-brain-title",
+      "asset": "https://www.unwindcode.ai/organisms/infinity-mirror/experience/#mirror-brain-route-pulse",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A dependency-free Brain-section runtime that sequences signal, cells, authority, and proof across the recursive brain tunnel, brain-cell network, route console, signal handoff, and state grid.",
+      "trust_boundary": "The pulse is decorative state highlighting only, and the signal handoff only swaps existing i18n-backed copy and selected-cell classes from the visible composer. It cannot carry public meaning, invent hidden cognition, store memory, or imply autonomy; semantic headings, ordered lists, bilingual copy, immune boundaries, proof links, and asset governance remain authoritative.",
+      "motion_policy": "requestAnimationFrame phase pulse only, IntersectionObserver pause/resume, prefers-reduced-motion static mode, compact-screen static mode, no canvas, no WebGL, no video, and no third-party animation dependency."
+    },
+    {
+      "id": "infinity_mirror_organism_growth_relay",
+      "name": "Infinity Mirror Organism Growth Relay",
+      "route": "https://www.unwindcode.ai/organisms/infinity-mirror/experience/#mirror-organisms-title",
+      "asset": "https://www.unwindcode.ai/organisms/infinity-mirror/experience/#mirror-organism-growth-relay",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A dependency-free relay runtime that sequences Visual Cortex, Infinity Mirror, Financial Organism, and Research Organisms, then sequences recursive growth gates from pattern through proof.",
+      "trust_boundary": "The relay is decorative state highlighting only. It cannot carry public meaning, invent hidden autonomy, or imply that capability has shipped; semantic organism links, ordered growth steps, bilingual copy, proof boundaries, tests, approval, and asset governance remain authoritative.",
+      "motion_policy": "requestAnimationFrame relay only, IntersectionObserver pause/resume, prefers-reduced-motion static mode, compact-screen static mode, no canvas, no WebGL, no video, and no third-party animation dependency."
+    },
+    {
+      "id": "infinity_mirror_adaptive_artifact_relay",
+      "name": "Infinity Mirror Adaptive Artifact Relay",
+      "route": "https://www.unwindcode.ai/organisms/infinity-mirror/experience/#mirror-reflection-title",
+      "asset": "https://www.unwindcode.ai/organisms/infinity-mirror/experience/#mirror-adaptive-artifact-relay",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A dependency-free relay runtime that sequences Architect, Cartographer, Translator, and Ritualist lenses against a returned artifact route from signal through proof.",
+      "trust_boundary": "The relay is reversible state highlighting only. It cannot assign identity, infer destiny, hide personalization, or carry public meaning; native lens buttons, semantic copy, ordered artifact steps, proof boundaries, tests, and asset governance remain authoritative.",
+      "motion_policy": "requestAnimationFrame relay only, native button override, IntersectionObserver pause/resume, prefers-reduced-motion static mode, compact-screen static mode, no camera access, no canvas, no WebGL, no video, and no third-party animation dependency."
+    },
+    {
+      "id": "infinity_mirror_signal_composer",
+      "name": "Infinity Mirror Signal Composer",
+      "route": "https://www.unwindcode.ai/organisms/infinity-mirror/experience/#mirror-signal-composer",
+      "asset": "https://www.unwindcode.ai/organisms/infinity-mirror/experience/#mirror-signal-composer",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A dependency-free signal selection layer that lets visitors choose mental room, build stuck, trust proof, or quiet listen signals and see the adaptive lens plus returned artifact packet update in view.",
+      "trust_boundary": "The composer is reversible interface state only. It cannot diagnose, assign identity, infer destiny, store hidden memory, access camera, execute code, write files, deploy, post publicly, or grant autonomy; it swaps visible i18n-backed text, aria-pressed states, and proof-bound artifact fields only.",
+      "motion_policy": "Native button relay only, no network call, no camera access, no canvas, no WebGL, no video, no third-party animation dependency, and no continuous animation required for the signal composer."
+    },
+    {
+      "id": "infinity_mirror_memory_consent_ledger",
+      "name": "Infinity Mirror Memory Consent Ledger",
+      "route": "https://www.unwindcode.ai/organisms/infinity-mirror/experience/#mirror-memory-consent",
+      "asset": "https://www.unwindcode.ai/organisms/infinity-mirror/experience/#mirror-memory-consent",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A semantic memory consent ledger that maps ephemeral, proposed, reviewed, and integrated reflection memory states to what can be held, what proof is required, and what control remains human-owned.",
+      "trust_boundary": "The ledger is explanatory semantic content only. It cannot store memory, diagnose, assign identity, infer destiny, profile hidden traits, access camera, execute code, write files, deploy, post publicly, move wallets, broadcast Web3 transactions, or grant autonomy; it names consent states and proof boundaries only.",
+      "motion_policy": "CSS ambient scan only, no JavaScript dependency, no network call, no storage, no camera access, no canvas, no WebGL, no video, no third-party animation dependency, and reduced-motion support through global motion rules."
+    },
+    {
+      "id": "infinity_mirror_emotional_progression",
+      "name": "Infinity Mirror Emotional Progression Rail",
+      "route": "https://www.unwindcode.ai/organisms/infinity-mirror/experience/#mirror-emotional-progression",
+      "asset": "https://www.unwindcode.ai/organisms/infinity-mirror/experience/#mirror-emotional-progression",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A dependency-free emotional journey relay that lets visitors choose curiosity, unease, recognition, wonder, relief, or agency and inspect the matching organism route, proof return, and authority boundary.",
+      "trust_boundary": "The rail is reversible visible interface state only. It cannot profile emotion, infer identity, store hidden memory, diagnose, execute code, write files, deploy, post publicly, or grant autonomy; it swaps existing i18n-backed text and native aria-pressed states only.",
+      "motion_policy": "Native button relay plus CSS ambient scan only, no network call, no storage, no canvas, no WebGL, no video, no third-party animation dependency, and reduced-motion support through global motion rules."
+    },
+    {
+      "id": "infinity_mirror_proof_observatory",
+      "name": "Infinity Mirror Proof Observatory",
+      "route": "https://www.unwindcode.ai/organisms/infinity-mirror/experience/#mirror-proof-observatory",
+      "asset": "https://www.unwindcode.ai/organisms/infinity-mirror/experience/#mirror-proof-observatory",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A dependency-free proof lane selector that lets visitors choose Architecture, Metrics, Deployments, or Status and inspect the matching evidence path, current signal, authority boundary, and next artifact link.",
+      "trust_boundary": "The observatory is reversible visible interface state only. It cannot read live telemetry, store hidden state, execute code, write files, deploy, post publicly, grant autonomy, or change production status; it swaps existing i18n-backed text, native aria-pressed states, node highlight attributes, and one local proof link only.",
+      "motion_policy": "Native button relay plus CSS ambient scan only, no network call, no storage, no canvas, no WebGL, no video, no deployment action, no third-party animation dependency, and reduced-motion support through global motion rules."
+    },
+    {
+      "id": "infinity_mirror_authority_gradient",
+      "name": "Infinity Mirror Authority Gradient",
+      "route": "https://www.unwindcode.ai/organisms/infinity-mirror/experience/#mirror-authority-gradient",
+      "asset": "https://www.unwindcode.ai/organisms/infinity-mirror/experience/#mirror-authority-gradient",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A semantic authority ladder that shows how observe, reflect, draft, sandbox, approval, and public-motion rungs earn permission only through visible proof.",
+      "trust_boundary": "The gradient is explanatory semantic HTML only. It cannot store state, infer identity, control wallets, execute code, write files, spend money, deploy, post publicly, broadcast Web3 transactions, change status, or grant autonomy; it names the approval and proof gates visitors should expect.",
+      "motion_policy": "CSS ambient scan only, no JavaScript dependency, no storage, no network call, no canvas, no WebGL, no video, no deployment action, no public posting, no third-party animation dependency, and reduced-motion support through global motion rules."
+    },
+    {
+      "id": "infinity_mirror_cognitive_evolution_trace",
+      "name": "Infinity Mirror Cognitive Evolution Trace",
+      "route": "https://www.unwindcode.ai/organisms/infinity-mirror/experience/#mirror-cognitive-evolution-trace",
+      "asset": "https://www.unwindcode.ai/organisms/infinity-mirror/experience/#mirror-cognitive-evolution-trace",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A semantic trace that maps signal, memory, cells, sandbox, proof, and next loop into inspectable evolution steps and proof locks before the Proof chapter.",
+      "trust_boundary": "The trace is not live cognition, hidden memory, or autonomous execution. It cannot store state, call a network, execute code, write files, spend money, deploy, post publicly, change production status, broadcast Web3 transactions, or grant autonomy; it explains the proof-locked loop only.",
+      "motion_policy": "Semantic HTML plus CSS ambient scan only, no JavaScript dependency, no storage, no network call, no canvas, no WebGL, no video, no deployment action, and reduced-motion support through global motion rules."
+    },
+    {
+      "id": "infinity_mirror_route_compass",
+      "name": "Infinity Mirror Route Compass",
+      "route": "https://www.unwindcode.ai/organisms/infinity-mirror/experience/#mirror-route-compass",
+      "asset": "https://www.unwindcode.ai/organisms/infinity-mirror/experience/#mirror-route-compass",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A semantic route compass that maps 81K human desire signals into mirror chapter, proof return, authority stop, and CTA fields before visitors choose a deeper route.",
+      "trust_boundary": "It cannot infer identity, store a preference, submit data, call a model, start a build, spend money, deploy, post publicly, change production status, broadcast Web3 transactions, or grant autonomy; it explains a route map only.",
+      "motion_policy": "Semantic HTML plus CSS compass scan only, no JavaScript dependency, no identity inference, no storage, no network call, no model call, no canvas, no WebGL, no video, no deployment action, no public posting, no Web3 broadcast, and reduced-motion support through global motion rules."
+    },
+    {
+      "id": "infinity_mirror_first_artifact_router",
+      "name": "Infinity Mirror First Artifact Router",
+      "route": "https://www.unwindcode.ai/organisms/infinity-mirror/experience/#mirror-first-artifact-router",
+      "asset": "https://www.unwindcode.ai/organisms/infinity-mirror/experience/#mirror-first-artifact-router",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A semantic conversion router that maps builder, investor, researcher, and partner intent into what to bring, what first artifact returns, where proof lives, and what approval boundary remains.",
+      "trust_boundary": "The router is not a form, CRM, hidden workflow, autonomous agent, deployment action, public post, spending action, or Web3 broadcaster. It cannot submit data, create a lead, store state, call a network, execute code, write files, spend money, deploy, post publicly, change production status, broadcast Web3 transactions, infer identity, or grant autonomy; it explains the first inspectable artifact path only.",
+      "motion_policy": "Semantic HTML plus CSS ambient scan only, no JavaScript dependency, no data submission, no lead creation, no storage, no network call, no canvas, no WebGL, no video, no deployment action, no public posting, no Web3 broadcast, and reduced-motion support through global motion rules."
+    },
+    {
+      "id": "infinity_mirror_evolution_entry_protocol",
+      "name": "Infinity Mirror Evolution Entry Protocol",
+      "route": "https://www.unwindcode.ai/organisms/infinity-mirror/experience/#mirror-evolution-entry-protocol",
+      "asset": "https://www.unwindcode.ai/organisms/infinity-mirror/experience/#mirror-evolution-entry-protocol",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A semantic conversion protocol that turns Join Evolution into signal, boundary, first proof, and next loop so builders, investors, researchers, and partners know what happens after the doorway.",
+      "trust_boundary": "The protocol is not an intake database, CRM, autonomous agent, deployment action, public post, or Web3 broadcaster. It cannot store state, call a network, execute code, write files, spend money, deploy, post publicly, change production status, broadcast Web3 transactions, infer identity, or grant autonomy; it explains the first proof loop only.",
+      "motion_policy": "Semantic HTML plus CSS ambient scan only, no JavaScript dependency, no storage, no network call, no canvas, no WebGL, no video, no deployment action, no public posting, no Web3 broadcast, and reduced-motion support through global motion rules."
+    },
+    {
+      "id": "infinity_mirror_phase_proof_ledger",
+      "name": "Infinity Mirror Phase Proof Ledger",
+      "route": "https://www.unwindcode.ai/organisms/infinity-mirror/experience/#mirror-phase-proof-ledger",
+      "asset": "https://www.unwindcode.ai/organisms/infinity-mirror/experience/#mirror-phase-proof-ledger",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A semantic phase evidence map that turns reverse engineering, concept, story, motion, visual exploration, implementation, and execution into inspectable proof artifacts, visible surfaces, and authority boundaries.",
+      "trust_boundary": "The ledger is not live telemetry and does not grant autonomy. It cannot store state, call a network, execute code, write files, deploy, post publicly, change production status, or authorize future runtime work; it exposes proof routes and boundaries only.",
+      "motion_policy": "Semantic HTML plus CSS ambient scan only, no JavaScript dependency, no storage, no network call, no canvas, no WebGL, no video, no deployment action, and reduced-motion support through global motion rules."
+    },
+    {
+      "id": "infinity_mirror_depth_gate",
+      "name": "Infinity Mirror Depth Readiness Gate",
+      "route": "https://www.unwindcode.ai/organisms/infinity-mirror/experience/#mirror-depth-gate",
+      "asset": "https://www.unwindcode.ai/organisms/infinity-mirror/experience/#mirror-depth-gate",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A semantic release gate that maps semantic, Framer, GSAP, and Three/WebGL depth lanes into trigger, allowed behavior, proof needed, fallback, and kill switch before cinematic runtime work can earn production authority.",
+      "trust_boundary": "The gate is not a runtime activator and does not grant autonomy. It cannot store state, call a network, execute code, write files, spend money, deploy, post publicly, change production status, broadcast Web3 transactions, infer identity, or authorize future motion; it exposes production readiness criteria only.",
+      "motion_policy": "Semantic HTML plus CSS ambient scan only, no JavaScript dependency, no storage, no network call, no WebGL runtime, no video, no deployment action, no public posting, no Web3 broadcast, and reduced-motion support through global motion rules."
+    },
+    {
+      "id": "infinity_mirror_implementation_packet",
+      "name": "Infinity Mirror Implementation Packet",
+      "route": "https://www.unwindcode.ai/assets/specs/infinity-mirror-implementation-packet.json",
+      "type": "public_implementation_contract",
+      "status": "local_proof",
+      "purpose": "A machine-readable Infinity Mirror handoff that turns the Remix concept review, component tree, React/Next architecture, motion lanes, asset requirements, accessibility, mobile gates, SEO preservation, verification, and approval boundaries into a builder-ready contract.",
+      "trust_boundary": "The packet is not a deployed React/Next runtime and does not grant autonomy. It adopts the Remix package's persistent shell as a visible Mirror Shell Specimen, plus quiet prompt chamber, returned artifact, descent engine, and signal map only where they strengthen proof; birth-date identity claims, hidden memory maps, default camera access, and continuous mobile canvas remain blocked until explicit consent, proof, and approval exist.",
+      "motion_policy": "No runtime motion. The current Vite page remains semantic proof; Framer, GSAP, Three/WebGL, Tailwind, Next, and React are listed as future isolated migration lanes with fallbacks, cleanup, stop conditions, reduced-motion gates, and mobile shutdown rules."
+    },
+    {
+      "id": "infinity_mirror_experience_audit",
+      "name": "Infinity Mirror Experience Audit",
+      "route": "https://www.unwindcode.ai/assets/specs/infinity-mirror-experience-audit.md",
+      "type": "public_reverse_engineering_audit",
+      "status": "local_proof",
+      "purpose": "A source-backed Phase 1 audit that extracts the underlying information architecture, storytelling flow, scroll choreography, motion system, visual hierarchy, typography, transition logic, attention management, emotional progression, and performance techniques from the Anthropic 81K Interviews experience.",
+      "trust_boundary": "The audit translates principles, not surface design. It does not clone the Anthropic visual skin, quote wall, globe metaphor, category-chart treatment, brand hierarchy, or participant quote presentation.",
+      "motion_policy": "No runtime motion. The audit defines constraints for future motion: every animated layer must name trigger, animation, duration, easing, performance strategy, fallback, cleanup, and stop condition."
+    },
+    {
+      "id": "unwindcode_experience_evolution_audit",
+      "name": "UnwindCode.ai Experience Evolution Audit",
+      "route": "https://www.unwindcode.ai/assets/specs/unwindcode-experience-evolution-audit.md",
+      "type": "public_experience_evolution_contract",
+      "status": "local_proof",
+      "purpose": "A site-wide experience contract that translates Anthropic homepage storytelling, information architecture, motion restraint, visual hierarchy, attention management, emotional progression, accessibility, mobile strategy, SEO preservation, React/Next structure, Framer specs, Three.js opportunities, design tokens, asset rules, performance budgets, and rollout gates into Unwind-native organism behavior.",
+      "trust_boundary": "The audit is a principle translation, not a design clone or runtime migration. It preserves Organisms, not Apps; Infinity Mirror; Brain Cell Architecture; Visual Cortex; Research Organisms; Financial Organisms; and the proof-before-authority doctrine while requiring Concept, Research, Prototype, Experimental, or Live labels for non-live capability claims.",
+      "motion_policy": "No runtime motion. The contract requires every future animation, dashboard, map, status card, route, and interaction to represent a real workflow, memory layer, research lane, deployment artifact, or capability; expose a proof source; respect reduced motion; and keep hidden authority, deployment, public posting, Web3 broadcast, identity inference, and hidden memory outside automatic action."
+    },
+    {
+      "id": "homepage_system_state_console",
+      "name": "Homepage System State Console",
+      "route": "https://www.unwindcode.ai/#system-state-title",
+      "asset": "semantic-html",
+      "type": "public_operating_state_surface",
+      "status": "prototype",
+      "purpose": "A homepage operating-state console that turns current UnwindCode reality into inspectable visitor evidence: live organism routes, prototype Conversation Gateway, live transmission proof archive, research Web3 simulation lane, and live subscriber/collaboration intake.",
+      "trust_boundary": "The console is not telemetry, not a model runtime, and not an autonomous controller. It links to public routes and proof artifacts only; it cannot store private data, execute work, write files, spend money, post publicly, deploy, broadcast Web3 transactions, infer identity, or change organism status.",
+      "motion_policy": "Semantic HTML plus CSS-only scan and pulse states. Motion represents intake, public memory, authority boundary, and proof return; the same meaning remains in text, links, metadata, and tests with global reduced-motion support and one-column mobile layout."
+    },
+    {
+      "id": "infinity_mirror_engine_concept_analysis",
+      "name": "Infinity Mirror Engine Concept Analysis",
+      "route": "https://www.unwindcode.ai/assets/specs/infinity-mirror-engine-concept-analysis.md",
+      "type": "public_engine_concept_analysis",
+      "status": "local_proof",
+      "purpose": "A package-specific analysis of the uploaded Infinity Mirror ZIP that sorts persistent mirror shell, reversible lenses, just-talk pressure valve, returned artifact, scroll descent, kintsugi growth, signal map, and 9:16 social scenes into adopt now, prototype next, and block until proof decisions.",
+      "trust_boundary": "The analysis is not a production app import. Birth-date identity authority, default camera reflection, hidden memory personalization, continuous mobile canvas, and public posting stay blocked until consent, proof, local verification, and explicit approval exist.",
+      "motion_policy": "No runtime motion. The artifact defines future optional motion ideas only after fallback, cleanup, reduced-motion, compact-screen, and authority gates are named."
+    },
+    {
+      "id": "infinity_mirror_runtime_code_handoff",
+      "name": "Infinity Mirror Runtime Code Handoff",
+      "route": "https://www.unwindcode.ai/assets/specs/infinity-mirror-runtime-code-handoff.md",
+      "type": "public_builder_handoff",
+      "status": "local_proof",
+      "purpose": "A Markdown handoff that turns the Infinity Mirror engine design concepts into implementation-ready React, server-rendered Desire Translation Wall, Mirror Route Compass, Memory Consent Ledger, Brain Cell Network, Living Organism Visualizer, Recursive Growth Timeline, Cognitive Evolution Trace, Floating Architecture Maps, Proof Cascade, Mirror State Sequencer, Proof Observatory, Authority Gradient, Scroll Choreography Map, Emotional Progression Rail, Motion Contract Ledger, Infinity Symbol Language, First Artifact Router, Evolution Entry Protocol, Framer, GSAP, Three/WebGL, Tailwind, and asset snippets for a future approved migration, plus Mirror Shell Specimen, Mirror Product Loop, Returned Artifact Specimen, Mirror Descent Protocol, Recursive Brain Tunnel, Brain Route Console, Brain Signal Handoff, Experience Audit Console, Source Translation Ledger, Engine Translation Ledger, Interface Build Ledger, Join Evolution Routes, Runtime Handoff Matrix, and Mirror Depth Gate source contracts.",
+      "trust_boundary": "The handoff is not imported into the current Vite route and does not deploy new runtime authority. It preserves semantic HTML, Desire Translation Wall proof logic, Mirror Route Compass chapter/proofReturn/authorityStop/CTA data, Memory Consent Ledger memory-consent state/can-hold/proof-required/human-control data, First Artifact Router bring/firstArtifact/proofRoute/approvalBoundary data, Mirror Shell Specimen rules, Mirror Product Loop steps and decisions, Returned Artifact fields and repair steps, Mirror Descent stages, Recursive Brain Tunnel steps, Brain Route Console stages, Brain Signal Handoff packets, Brain Cell Network signal/path/proof/authority stops, Living Organism Visualizer signal/memory/authority/proof paths, Recursive Growth Timeline signal/verification/authority stops, Cognitive Evolution Trace evolves/proof-lock steps, Floating Architecture Maps route/proof/boundary panes, Proof Cascade claim/evidence/artifact/boundary routes, Mirror State Sequencer signal/response/proof/boundary packets, Proof Observatory evidence/signal/boundary/artifact packets, Authority Gradient allowed-action/proof-required rungs, seven-act scroll choreography, Emotional Progression Rail packets, motion contracts with trigger, animation, timing, duration, easing, and performance strategy, Experience Audit lens data, Source Translation non-clone boundaries, Engine Translation decision guards, Interface Build gates, Runtime Handoff lane stop conditions, Mirror Depth Gate trigger/allowed/proof-needed/fallback/kill-switch criteria, infinity symbol states, Evolution Entry Protocol signal/boundary/first proof/next loop data, and SVG as fallback, isolates client motion leaves, names cleanup and stop conditions, and keeps deployment behind explicit approval.",
+      "motion_policy": "No runtime motion. The file documents future optional motion lanes only: Framer for microinteractions, GSAP for desktop portal choreography, Three/WebGL for optional depth, each with reduced-motion, compact-screen, cleanup, and fallback rules."
+    },
+    {
+      "id": "infinity_mirror_runtime_source_kit",
+      "name": "Infinity Mirror Runtime Source Kit",
+      "route": "https://www.unwindcode.ai/assets/specs/infinity-mirror-runtime-kit/README.md",
+      "type": "public_builder_source_kit",
+      "status": "local_proof",
+      "purpose": "A static source kit containing implementation-ready files for the future Infinity Mirror React/Next page, server-rendered Desire Translation Wall, Mirror Route Compass, Memory Consent Ledger, First Artifact Router, Brain Cell Network, Living Organism Visualizer, Recursive Growth Timeline, Cognitive Evolution Trace, Floating Architecture Maps, Proof Cascade, Mirror State Sequencer, Proof Observatory, Authority Gradient, Scroll Choreography Map, Emotional Progression Rail, Motion Contract Ledger, Infinity Symbol Language, Evolution Entry Protocol, Framer chapter leaf, GSAP portal timeline, Three/WebGL tunnel gate, Tailwind tokens, content model, and asset rules, plus Infinite Reflection Navigator, Adaptive Mirror Engine, Signal Composer, Memory Consent Ledger, First Artifact Router, and Join Evolution Routes source contracts, with Mirror Shell Specimen, Mirror Product Loop, Returned Artifact Specimen, Mirror Descent Protocol, Recursive Brain Tunnel, Brain Route Console, Brain Signal Handoff, Experience Audit Console, Source Translation Ledger, Engine Translation Ledger, Interface Build Ledger, Runtime Handoff Matrix, and Mirror Depth Gate source contracts added to the same static kit.",
+      "trust_boundary": "The kit is not imported by the current Vite route and does not activate React, Framer, GSAP, Three, Tailwind, WebGL, or deployment authority. It is copied as a local-proof builder artifact and remains behind explicit migration approval.",
+      "motion_policy": "No active runtime motion. The source kit documents optional future client leaves with strict cleanup, reduced-motion fallbacks, compact-screen shutdown, textless visuals, and semantic HTML plus the Infinite Reflection Navigator, Desire Translation Wall, Mirror Route Compass, Adaptive Mirror Engine, Signal Composer, Memory Consent Ledger, First Artifact Router, Brain Cell Network, Living Organism Visualizer, Recursive Growth Timeline, Cognitive Evolution Trace, Floating Architecture Maps, Proof Cascade, Mirror State Sequencer, Proof Observatory, Authority Gradient, Scroll Choreography Map, Emotional Progression Rail, Motion Contract Ledger, Infinity Symbol Language, Join Evolution Routes, and Evolution Entry Protocol as the source of public meaning, with Mirror Shell Specimen, Mirror Product Loop, Returned Artifact Specimen, Mirror Descent Protocol, Recursive Brain Tunnel, Brain Route Console, Brain Signal Handoff, Experience Audit Console, Source Translation Ledger, Engine Translation Ledger, Interface Build Ledger, Runtime Handoff Matrix, and Mirror Depth Gate preserved as additional proof modules. Signal Composer is local state only: no storage, network, files, deploys, public posts, or identity authority. Memory Consent Ledger is semantic content only: no diagnosis, identity authority, hidden profiling, wallet control, network, files, deploys, public posts, Web3 broadcast, storage, or autonomy authority. Mirror Route Compass is semantic content only: no identity inference, storage, data submission, model calls, build starts, spending, deploys, public posts, Web3 broadcast, status changes, or autonomy authority. First Artifact Router is semantic content only: no data submission, lead creation, hidden workflow, storage, network, files, code execution, spending, deploys, public posts, Web3 broadcast, status changes, identity inference, or autonomy authority. Mirror State Sequencer is local state only: no storage, network, files, execution, deploys, public posts, identity inference, status changes, or autonomy authority. Brain Signal Handoff is local state only: no storage, network, files, code execution, deploys, public posts, or identity authority. Proof Observatory is local state only: no live telemetry, storage, files, code execution, deploys, public posts, status changes, or autonomy authority. Authority Gradient is semantic content only: no hidden memory, identity authority, wallet control, deploys, public posts, status changes, or autonomy authority. Emotional Progression Rail is local state only: no emotional profiling, identity inference, storage, network, files, code execution, deploys, public posts, or identity authority. Evolution Entry Protocol is semantic content only: no storage, network, files, code execution, deploys, public posts, Web3 broadcast, status changes, or autonomy authority."
+    },
+    {
+      "id": "infinity_mirror_state_sequencer",
+      "name": "Infinity Mirror State Sequencer",
+      "route": "https://www.unwindcode.ai/organisms/infinity-mirror/experience/#mirror-state-sequencer",
+      "type": "public_experience_state_relay",
+      "status": "prototype",
+      "purpose": "A dependency-free state sequencer that maps the seven Infinity Mirror chapters into a bounded organism loop: Mirror, Reflection, Brain, Organisms, Growth, Proof, and Join. Each selected state names the signal, organism response, proof return, authority boundary, and next chapter route.",
+      "trust_boundary": "The sequencer swaps local visible state only. It uses existing bilingual copy, native buttons, aria-live output, and anchor links; it does not store memory, call a network, execute code, write files, deploy, post publicly, grant autonomy, infer identity, or change production status.",
+      "motion_policy": "CSS-only ambient orbit plus native button state and IntersectionObserver chapter awareness, with global reduced-motion support, one-column mobile layout, no canvas, no WebGL, no video, and no third-party animation dependency."
+    },
+    {
+      "id": "infinity_mirror_portal",
+      "name": "Infinity Mirror Portal Experience",
+      "route": "https://www.unwindcode.ai/organisms/infinity-mirror/experience/#mirror-experience-hero",
+      "asset": "https://www.unwindcode.ai/assets/visuals/infinity-mirror-portal.svg",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A lightweight black-reflective portal route that turns the Infinity Mirror concept into the seven-part story arc: mirror, reflection, brain, organisms, recursive growth, proof, and join evolution, with a proof-bound mirror threshold readout, scroll-depth fracture choreography, a first-viewport hero fracture sequence, a bounded canvas runtime field, a signal reflection plane, a human signal atlas that maps AI desire patterns to organism routes, a desire translation wall that maps Anthropic desire categories into organism routes, proof gates, and authority stops, a mirror route compass that maps 81K human desire signals into chapter, proof return, authority stop, and CTA fields, a delivery calibration layer that maps productivity, cognitive partnership, access, support, and not-delivered signals into proof gates, a role signal constellation, an adaptive mirror engine with four bounded lenses, a signal composer for mental room, build stuck, trust proof, and quiet listen requests, a memory consent ledger that maps ephemeral, proposed, reviewed, and integrated memory states to can-hold, proof-required, and human-control fields, a remix concept fit matrix that keeps persistent shell, reversible lenses, listening valve, artifact return, growth phases, and descent motion bound to proof and human authority, a persistent Mirror Shell Specimen with growth meter, prompt chamber, artifact return, bottom route shell, and authority lock, a constant-shell product loop with artifact decisions and pressure-release valve, a returned artifact specimen with console readout, route map, and repair ledger, a proof-returning descent protocol distilled from the local Infinity Mirror engine concept, a reflection tension thread, anchor-based infinite reflection navigation plus a native Infinite Reflection Navigator with Human Signal, Brain Route, Proof Route, and Build Route lenses, a Mirror State Sequencer that maps seven chapters into signal, organism response, proof return, and boundary lock, a recursive brain tunnel, an inspectable brain route console, a living organism visualizer, a recursive growth loop field, floating neural architecture maps, a motion contract ledger, an experience audit console that exposes ten reverse-engineering lenses, a source translation ledger that maps Anthropic 81K patterns into Unwind-native organism proof without cloning the design skin, an engine translation ledger that turns the local remix engine into progress, pointer energy, lens, artifact, and approval states with adopt now, prototype next, and block until proof decisions, an interface build ledger that exposes semantic shell, motion islands, optional 3D gate, evidence sync, and release gate, a builder execution packet that names the React shell, Framer island, optional GSAP/Three tunnel, asset spec, metadata sync, tests, and approval gate, a runtime handoff matrix that assigns CSS, Framer, GSAP, and Three/WebGL to isolated motion lanes with one job, one fallback, and one stop condition, a claim-to-artifact proof cascade, an Infinity symbol language that maps seven public symbol states to loop, proof, and authority boundary, a dynamic Infinity doorway, and a first artifact router that maps builder, investor, researcher, and partner intent into bounded first-packet paths.",
+      "trust_boundary": "The SVG and bounded canvas field remain decorative and textless; the public meaning is carried by semantic sections, bilingual labels, ImageObject schema, a first-viewport threshold contract, a hero fracture sequence that turns signal, mirror, symbol-to-cell fracture, cells, and proof into a visible engine path, a bounded runtime field that draws scroll-depth lemniscate particles while the SVG fallback and semantic route stay authoritative, a signal reflection plane that shows command-to-proof transformation, a human signal atlas grounded in the Anthropic 81K Interviews pattern and framed as inference rather than fake direct quotes, a desire translation wall that maps Anthropic desire categories into organism routes, proof gates, and authority stops without copying quotes, a mirror route compass that maps human desire signals into chapter, proof return, authority stop, and CTA fields without identity inference, storage, data submission, model calls, build starts, spending, deployment, posting, Web3 broadcast, or autonomy authority, a delivery calibration layer that routes productivity, cognitive partnership, access, support, and not-delivered signals into proof gates, a role signal constellation that keeps builder, user, investor, and researcher tensions human-readable before they become architecture, an adaptive mirror engine that maps one honest signal through Architect, Cartographer, Translator, and Ritualist lenses before returning a reviewable artifact, a signal composer that lets mental room, build stuck, trust proof, and quiet listen requests update visible lens and returned artifact fields without hidden memory or network authority, a memory consent ledger that makes ephemeral, proposed, reviewed, and integrated memory states inspectable without diagnosis, identity authority, hidden profiling, wallet control, network, files, deployment, posting, Web3 broadcast, storage, or autonomy authority, a remix concept fit matrix that translates the local package's persistent shell, archetype lens, listening valve, artifact return, growth phase, and descent engine ideas into inspectable use and boundary decisions, a Mirror Shell Specimen that makes stable shell, growth-state meter, prompt chamber, returned artifact, bottom navigation, and authority lock visible before any mobile runtime exists, a constant mirror shell product loop that shows talk, capture, map, ritual, artifact return, and the choice to keep, refuse, deepen, or ritualize, a returned artifact specimen that names signal_in, lens, memory_map, boundary_lock, proof_path, and human-owned decisions before any output can imply authority, a proof-returning descent protocol that translates the local Infinity Mirror engine concept into self, memory, split, lattice, current, evolution, and proof-return stages without importing a heavy canvas dependency, a pressure-release valve for sessions that should only listen without tagging or growth claims, reflection tension copy, a Mirror State Sequencer that swaps local visible state across signal, organism response, proof return, and boundary lock without storage, network, execution, deployment, posting, identity inference, or authority changes, a recursive brain tunnel that makes signal, cells, boundary, and proof legible before the cell network, an inspectable brain signal route, a governed organism spine, a six-gate recursive growth loop, floating proof architecture panes, a motion contract ledger that names trigger, animation, timing, duration, easing, and performance for the portal, reflection, signal, human signal, product, descent, brain, proof, and doorway movements, an experience audit console that explains purpose, why it works, and Unwind reinterpretation for information architecture, storytelling flow, scroll choreography, motion system, visual hierarchy, typography, transition logic, attention management, emotional progression, and performance technique, a source translation ledger that maps scale, method, tension, delivery gaps, scroll choreography, and non-clone boundary into Unwind decisions without cloning the design skin, including 80,508 participants across 159 countries and 70 languages, an engine translation ledger that turns the local remix engine into progress, pointer energy, lens, artifact, and approval states, separates adopt now, prototype next, and block until proof decisions, and blocks DOB identity truth, default camera access, hidden memory maps, and continuous mobile canvas, an interface build ledger that exposes semantic shell, motion islands, optional 3D gate, evidence sync, and release gate while the release gate keeps deployment behind explicit approval, a builder execution packet that separates React shell, Framer island, optional GSAP/Three tunnel, asset spec, metadata sync, tests, and approval gate before production motion, a runtime handoff matrix that assigns CSS, Framer, GSAP, and Three/WebGL to isolated motion lanes, each with one job, one fallback, and one stop condition, a proof cascade that routes claim, evidence, boundary, and artifact, an Infinity symbol language that keeps portal, reflection, brain route, organism orbit, growth, proof, and doorway tied to proof and authority limits, role-specific proof doorways, a first artifact router that explains bring, first artifact, proof route, and approval boundary without submitting data, creating leads, storing state, calling networks, executing code, spending money, deploying, posting, broadcasting Web3 transactions, inferring identity, or granting autonomy, durable architecture, metrics, deployments, status, researcher, and partner links, manifest metadata, and tests. The page explains evolution as proof-bound capability growth, not unbounded autonomy.",
+      "motion_policy": "Lightweight SVG/CSS plus bounded requestAnimationFrame canvas, requestAnimationFrame-throttled story-rail and scroll-depth fracture variables, story-rail active state derived from the canonical seven chapter anchors, state sequencer updates via native buttons plus IntersectionObserver chapter awareness, IntersectionObserver pause, reduced-motion static mode, compact-screen shutdown, no third-party animation dependency, and no WebGL on mobile.",
+      "proof_surface": "The Desire Translation Wall at #mirror-desire-translation maps Anthropic desire categories into organism routes, proof gates, and authority stops without copying quotes. The Mirror Route Compass at #mirror-route-compass maps 81K human desire signals into chapter, proof return, authority stop, and CTA fields without identity inference, storage, data submission, model calls, build starts, spending, deployment, posting, Web3 broadcast, or autonomy authority. The Scroll Choreography Map at #mirror-scroll-choreography maps seven proof-bearing acts to focus, motion, and proof return."
+    },
+    {
+      "id": "visual_cortex_capability_ledger",
+      "name": "Visual Cortex Capability Ledger",
+      "route": "https://www.unwindcode.ai/organisms/visual-cortex/#visual-cortex-capability-title",
+      "asset": "semantic-html",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A semantic creator-intelligence ledger that names what Visual Cortex can shape, what remains human-owned, and where proof lives across brief, memory, cell coordination, and approval boundaries.",
+      "trust_boundary": "The public meaning is carried by semantic HTML, bilingual definition lists, durable proof links, tests, metadata, and explicit blocked claims. Visual Cortex can prepare reviewable creative packets. No invented brand truth, hidden profile, unreviewed brand memory, automatic distribution, client outreach, public posting, ad spend, external upload, analytics claim, or public promise is granted to the organism.",
+      "motion_policy": "No new animation dependency. The ledger is static semantic HTML/CSS, reduced-motion safe, mobile-readable, no canvas, no WebGL, no storage, no network call, no filesystem write, no public posting, and no motion-only proof."
+    },
+    {
+      "id": "visual_cortex_pipeline_map",
+      "name": "Visual Cortex Pipeline Map",
+      "route": "https://www.unwindcode.ai/organisms/visual-cortex/#visual-cortex-pipeline-title",
+      "asset": "https://www.unwindcode.ai/assets/visuals/visual-cortex-pipeline-map.svg",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A lightweight creator-intelligence board that explains raw script intake, brand memory, tone constraints, visual blueprinting, sales proof, and human review packets before publishing.",
+      "trust_boundary": "The SVG remains decorative and textless; the public meaning is carried by semantic details/summary controls, bilingual labels, ImageObject schema, proof links, and asset-governance metadata.",
+      "motion_policy": "Lightweight SVG/CSS only, reduced-motion safe, no JavaScript animation dependency, and no WebGL on mobile."
+    },
+    {
+      "id": "visual_cortex_production_console",
+      "name": "Visual Cortex Production Packet Console",
+      "route": "https://www.unwindcode.ai/organisms/visual-cortex/#visual-cortex-packet-title",
+      "asset": "https://www.unwindcode.ai/assets/visuals/visual-cortex-production-console.svg",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A lightweight Visual Cortex decision console that lets visitors inspect launch film, creator reel, product demo, and landing proof requests before any production or publishing authority exists.",
+      "trust_boundary": "The SVG remains decorative and textless; the public meaning is carried by native radio controls, bilingual request panels, ImageObject schema, proof links, and asset-governance metadata. Each scenario ends in a human-reviewed production packet, not hidden distribution.",
+      "motion_policy": "Lightweight SVG/CSS only, reduced-motion safe, no JavaScript animation dependency, and no WebGL on mobile."
+    },
+    {
+      "id": "brain_cell_capability_ledger",
+      "name": "Brain Cell Architecture Capability Ledger",
+      "route": "https://www.unwindcode.ai/organisms/brain-cell-architecture/#brain-cell-capability-title",
+      "asset": "semantic-html",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A semantic self-evolution ledger that names what Brain Cell Architecture can grow, what remains quarantined, and where proof lives across signal, research, sandbox, and integration boundaries.",
+      "trust_boundary": "The public meaning is carried by semantic HTML, bilingual definition lists, durable proof links, tests, metadata, and explicit blocked claims. Brain Cell Architecture can propose and test candidate cells. No hidden self-modification, autonomous code execution, unreviewed filesystem write, production load, external side effect, irreversible self-evolution, hidden memory write, authority expansion, or unreviewed autonomy is granted to the organism.",
+      "motion_policy": "No new animation dependency. The ledger is static semantic HTML/CSS, reduced-motion safe, mobile-readable, no canvas, no WebGL, no storage, no network call, no filesystem write, no code execution, no deployment, no public posting, no Web3 broadcast, and no motion-only proof."
+    },
+    {
+      "id": "brain_cell_lifecycle_map",
+      "name": "Brain Cell Lifecycle Map",
+      "route": "https://www.unwindcode.ai/organisms/brain-cell-architecture/#brain-cell-lifecycle-title",
+      "asset": "https://www.unwindcode.ai/assets/visuals/brain-cell-lifecycle-map.svg",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A lightweight self-evolution board that explains problem signal, research packet, candidate cell, sandbox trial, immune review, and integrated skill.",
+      "trust_boundary": "The SVG remains decorative and textless; the public meaning is carried by semantic details/summary controls, bilingual labels, ImageObject schema, proof links, and asset-governance metadata.",
+      "motion_policy": "Lightweight SVG/CSS only, reduced-motion safe, no JavaScript animation dependency, and no WebGL on mobile."
+    },
+    {
+      "id": "brain_cell_runtime_console",
+      "name": "Brain Cell Runtime Console",
+      "route": "https://www.unwindcode.ai/organisms/brain-cell-architecture/#brain-cell-runtime-title",
+      "asset": "https://www.unwindcode.ai/assets/visuals/brain-cell-runtime-console.svg",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A lightweight Brain Cell decision console that lets visitors inspect capability design, sandbox repair, approval gate, and integration proof requests before any generated capability can touch the organism.",
+      "trust_boundary": "The SVG remains decorative and textless; the public meaning is carried by native radio controls, bilingual request panels, ImageObject schema, proof links, and asset-governance metadata. Each scenario ends at proof and human authority boundaries, not hidden self-modification.",
+      "motion_policy": "Lightweight SVG/CSS only, reduced-motion safe, no JavaScript animation dependency, and no WebGL on mobile."
+    },
+    {
+      "id": "organism_stack_glyphs",
+      "name": "Organism Stack Glyphs",
+      "route": "https://www.unwindcode.ai/architecture/#stack-glyph-title",
+      "asset": "https://www.unwindcode.ai/assets/visuals/organism-stack-glyphs.svg",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A lightweight architecture glyph console that makes Gateway, Cortex, Memory, Cells, Immune System, and Proof Loop recognizable as a reusable visual system.",
+      "trust_boundary": "The SVG remains decorative and textless; the public meaning is carried by semantic details/summary controls, bilingual layer descriptions, ImageObject schema, proof links, and asset-governance metadata. The section explains roles and boundaries without granting any tool authority.",
+      "motion_policy": "Lightweight SVG/CSS only, reduced-motion safe, no JavaScript animation dependency, and no WebGL on mobile."
+    },
+    {
+      "id": "cognitive_flow_map",
+      "name": "Cognitive Flow Map",
+      "route": "https://www.unwindcode.ai/architecture/#architecture-flow-map-title",
+      "asset": "https://www.unwindcode.ai/assets/visuals/cognitive-flow-map.svg",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A lightweight architecture board that shows how gateway intake, cortex reasoning, memory, specialist cells, immune gates, and proof turn a request into governed organism output.",
+      "trust_boundary": "The SVG remains decorative and textless; the public meaning is carried by semantic details/summary controls, bilingual labels, schema, and asset-governance metadata.",
+      "motion_policy": "Lightweight SVG/CSS only, reduced-motion safe, no JavaScript animation dependency, and no WebGL on mobile."
+    },
+    {
+      "id": "architecture_run_inspector",
+      "name": "Architecture Run Inspector",
+      "route": "https://www.unwindcode.ai/architecture/#architecture-run-title",
+      "asset": "https://www.unwindcode.ai/assets/visuals/architecture-run-inspector.svg",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A lightweight architecture decision console that lets visitors inspect prototype, reflection, Web3 simulation, and cell evolution requests before the organism acts.",
+      "trust_boundary": "The SVG remains decorative and textless; the public meaning is carried by native radio controls, bilingual request panels, ImageObject schema, proof links, and asset-governance metadata. Each scenario names the immune decision and the proof output before authority changes.",
+      "motion_policy": "Lightweight SVG/CSS only, reduced-motion safe, no JavaScript animation dependency, and no WebGL on mobile."
+    },
+    {
+      "id": "memory_continuity_map",
+      "name": "Memory Continuity Map",
+      "route": "https://www.unwindcode.ai/architecture/#memory-continuity-title",
+      "asset": "https://www.unwindcode.ai/assets/visuals/memory-continuity-map.svg",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A lightweight memory-system board that explains working context, semantic memory, episodic logs, vector recall, proof artifacts, and retention boundaries.",
+      "trust_boundary": "The SVG remains decorative and textless; the public meaning is carried by semantic details/summary controls, bilingual labels, ImageObject schema, proof links, and asset-governance metadata.",
+      "motion_policy": "Lightweight SVG/CSS only, reduced-motion safe, no JavaScript animation dependency, and no WebGL on mobile."
+    },
+    {
+      "id": "financial_organisms_capability_ledger",
+      "name": "Financial Organisms Capability Ledger",
+      "route": "https://www.unwindcode.ai/organisms/financial-organisms/#financial-organisms-capability-title",
+      "asset": "semantic-html",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A semantic Web3 research ledger that names what Financial Organisms can study, what they cannot touch, and where proof lives across read-only context, off-chain simulation, unsigned review packets, and approval or broadcast-lock boundaries.",
+      "trust_boundary": "The public meaning is carried by semantic HTML, bilingual definition lists, durable proof links, tests, metadata, and explicit blocked claims. Financial Organisms can prepare simulations and review packets. No private keys, seed phrases, signatures, custody, hidden wallet access, wallet calls, approvals, contract writes, investment advice, guaranteed yield, individualized financial recommendation, automatic trade, wallet write, hidden broadcast path, or public money promise is granted to the organism.",
+      "motion_policy": "No new animation dependency. The ledger is static semantic HTML/CSS, reduced-motion safe, mobile-readable, no canvas, no WebGL, no storage, no network call, no wallet call, no filesystem write, no transaction broadcast, no money motion, and no motion-only proof."
+    },
+    {
+      "id": "web3_trust_layer_map",
+      "name": "Web3 Trust Layer Map",
+      "route": "https://www.unwindcode.ai/organisms/financial-organisms/#web3-trust-layer-title",
+      "asset": "https://www.unwindcode.ai/assets/visuals/web3-trust-layer-map.svg",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A lightweight Financial Organisms trust-layer board that explains read-only context, off-chain simulation, risk interpretation, unsigned review packets, creator approval, and locked broadcast defaults.",
+      "trust_boundary": "The SVG remains decorative and textless; the public meaning is carried by semantic details/summary controls, bilingual labels, ImageObject schema, proof links, and asset-governance metadata.",
+      "motion_policy": "Lightweight SVG/CSS only, reduced-motion safe, no JavaScript animation dependency, and no WebGL on mobile."
+    },
+    {
+      "id": "web3_simulation_console",
+      "name": "Web3 Simulation Console",
+      "route": "https://www.unwindcode.ai/organisms/financial-organisms/#web3-simulation-console-title",
+      "asset": "https://www.unwindcode.ai/assets/visuals/web3-simulation-console.svg",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A lightweight Financial Organisms decision console that lets visitors inspect rebalance, yield route, risk alert, and governance vote requests before any wallet authority exists.",
+      "trust_boundary": "The SVG remains decorative and textless; the public meaning is carried by native radio controls, bilingual request panels, ImageObject schema, proof links, and asset-governance metadata. Each scenario ends in evidence or an unsigned packet, never hidden broadcast.",
+      "motion_policy": "Lightweight SVG/CSS only, reduced-motion safe, no JavaScript animation dependency, and no WebGL on mobile."
+    },
+    {
+      "id": "collaboration_packet_map",
+      "name": "Collaboration Packet Map",
+      "route": "https://www.unwindcode.ai/build-with-us/#collaboration-packet-title",
+      "asset": "https://www.unwindcode.ai/assets/visuals/collaboration-packet-map.svg",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A lightweight collaboration gateway board that explains visitor signal, role lens, authority boundary, proof requirement, organism route, and first sprint packet.",
+      "trust_boundary": "The SVG remains decorative and textless; the public meaning is carried by semantic details/summary controls, bilingual labels, ImageObject schema, proof links, and asset-governance metadata.",
+      "motion_policy": "Lightweight SVG/CSS only, reduced-motion safe, no JavaScript animation dependency, and no WebGL on mobile."
+    },
+    {
+      "id": "engagement_fit_compass",
+      "name": "Engagement Fit Compass",
+      "route": "https://www.unwindcode.ai/build-with-us/#engagement-fit-title",
+      "asset": "https://www.unwindcode.ai/assets/visuals/engagement-fit-compass.svg",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A lightweight Build With Us engagement compass that lets visitors compare architecture review, prototype organism, proof-loop audit, Web3 simulation lane, and product organism paths before sending the first signal.",
+      "trust_boundary": "The SVG remains decorative and textless; the public meaning is carried by native radio controls, bilingual engagement panels, ImageObject schema, route links, proof bars, and asset-governance metadata. Each mode names its deliverable and authority boundary before collaboration starts.",
+      "motion_policy": "Lightweight SVG/CSS only, reduced-motion safe, no JavaScript animation dependency, and no WebGL on mobile."
+    },
+    {
+      "id": "transmission_atlas_map",
+      "name": "Transmission Atlas Map",
+      "route": "https://www.unwindcode.ai/transmissions/#transmission-atlas-title",
+      "asset": "https://www.unwindcode.ai/assets/visuals/transmission-atlas-map.svg",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A lightweight proof-library board that explains how public transmissions become field notes, architecture proof, safety gates, product signals, Web3 boundaries, and collaboration routes.",
+      "trust_boundary": "The SVG remains decorative and textless; the public meaning is carried by semantic details/summary controls, bilingual labels, ImageObject schema, proof links, and asset-governance metadata.",
+      "motion_policy": "Lightweight SVG/CSS only, reduced-motion safe, no JavaScript animation dependency, and no WebGL on mobile."
+    },
+    {
+      "id": "authority_gate_console",
+      "name": "Authority Gate Console",
+      "route": "https://www.unwindcode.ai/proof/#authority-gate-title",
+      "asset": "https://www.unwindcode.ai/assets/visuals/authority-gate-console.svg",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A lightweight approval-gate console that explains how generated code, filesystem writes, money movement, public publishing, and Web3 broadcast requests become governed review paths before action.",
+      "trust_boundary": "The SVG remains decorative and textless; the public meaning is carried by native radio controls, bilingual labels, ImageObject schema, proof links, and asset-governance metadata.",
+      "motion_policy": "Lightweight SVG/CSS only, reduced-motion safe, no JavaScript animation dependency, and no WebGL on mobile."
+    },
+    {
+      "id": "trust_diligence_console",
+      "name": "Trust Diligence Console",
+      "route": "https://www.unwindcode.ai/proof/#trust-diligence-title",
+      "asset": "https://www.unwindcode.ai/assets/visuals/trust-diligence-console.svg",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A lightweight proof-page diligence console that routes builders, investors, users, protocols, and collaborators to the right evidence path, authority boundary, and next action before they trust an AI organism.",
+      "trust_boundary": "The SVG remains decorative and textless; the public meaning is carried by native radio controls, bilingual diligence panels, ImageObject schema, proof links, and asset-governance metadata.",
+      "motion_policy": "Lightweight SVG/CSS only, reduced-motion safe, no JavaScript animation dependency, and no WebGL on mobile."
+    },
+    {
+      "id": "asset_governance_ledger",
+      "name": "Asset Governance Ledger",
+      "route": "https://www.unwindcode.ai/proof/#asset-governance-title",
+      "asset": "https://www.unwindcode.ai/assets/visuals/asset-governance-ledger.svg",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A lightweight proof-page asset governance ledger showing how visuals pass purpose, text, motion, and discovery governance before becoming public proof surfaces.",
+      "trust_boundary": "The SVG remains decorative and textless; public meaning is carried by semantic bilingual cards, ImageObject schema, manifest metadata, llms.txt, and tests.",
+      "motion_policy": "Lightweight SVG/CSS only, reduced-motion safe, no JavaScript animation dependency, and no WebGL on mobile."
+    },
+    {
+      "id": "transmission_25_social_carousel",
+      "name": "Transmission 25 Social Carousel",
+      "route": "https://www.unwindcode.ai/transmissions/25-the-homepage-learned-to-pulse.html#social-proof-packet",
+      "asset": "https://www.unwindcode.ai/social/transmission-25-homepage-pulse-carousel/ready-to-upload/01-homepage-learned-to-pulse.png",
+      "download_packet": "https://www.unwindcode.ai/social/transmission-25-homepage-pulse-carousel/downloads/transmission-25-homepage-pulse-carousel.zip",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A four-slide Instagram-ready proof packet for Transmission 25, with upload-ready 1080px exports, lightweight previews, a bundled ZIP, and a caption packet.",
+      "trust_boundary": "The raster slides are distribution artifacts; the canonical proof remains inspectable through the transmission HTML, caption markdown, asset manifest, llms.txt, and regression tests.",
+      "motion_policy": "Static PNG exports and static HTML preview only; no animation, script dependency, video, or WebGL."
+    },
+    {
+      "id": "transmission_27_social_carousel",
+      "name": "Transmission 27 Instagram Carousel",
+      "route": "https://www.unwindcode.ai/transmissions/27-the-quotation-cell.html#social-proof-packet",
+      "asset": "https://www.unwindcode.ai/social/transmission-27-quotation-cell/ready-to-upload/01-quotation-cell.png",
+      "download_packet": "https://www.unwindcode.ai/social/transmission-27-quotation-cell/downloads/transmission-27-quotation-cell.zip",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A four-slide Instagram-ready proof packet for Transmission 27, with upload-ready 1080px exports, lightweight previews, a bundled ZIP, and a caption packet.",
+      "trust_boundary": "The raster slides are distribution artifacts; the canonical proof remains inspectable through the transmission HTML, caption markdown, asset manifest, llms.txt, and regression tests.",
+      "motion_policy": "Static PNG exports and static HTML preview only; no animation, script dependency, video, or WebGL."
+    }
+  ],
+  "proof_artifacts": [
+    {
+      "id": "transmission_21",
+      "type": "whitepaper",
+      "status": "public",
+      "trust_question": "Does the AI organism architecture have a written operating model?",
+      "proves": "The Brain is framed as a human-governed cognitive organism with memory, approvals, public proof, Web3 safety, and bounded cell growth.",
+      "url": "https://www.unwindcode.ai/transmissions/21-the-unwind-brain-checkpoint-white-paper.html"
+    },
+    {
+      "id": "transmission_22",
+      "type": "financial_safety",
+      "status": "public",
+      "trust_question": "How does the Financial Survival Organism avoid premature money motion?",
+      "proves": "Financial organisms start with interpretation and clarity before transaction authority.",
+      "url": "https://www.unwindcode.ai/transmissions/22-the-monad-hand-clarity-before-motion.html"
+    },
+    {
+      "id": "transmission_23",
+      "type": "safety_gate",
+      "status": "public",
+      "trust_question": "Can a high-risk organism refuse or pause itself?",
+      "proves": "Unsafe execution belongs behind refusal, review, and human approval gates.",
+      "url": "https://www.unwindcode.ai/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html"
+    },
+    {
+      "id": "transmission_24",
+      "type": "product_form",
+      "status": "public",
+      "trust_question": "Is Infinity Mirror becoming a real product path rather than another dashboard?",
+      "proves": "Human-facing organisms need product clarity, reflection, and identity continuity before additional controls.",
+      "url": "https://www.unwindcode.ai/transmissions/24-the-mirror-found-its-form.html"
+    },
+    {
+      "id": "transmission_25",
+      "type": "interface_proof",
+      "status": "public",
+      "trust_question": "Does the homepage make AI organisms understandable before asking visitors to convert?",
+      "proves": "The hero now explains signal, cortex, memory, proof, and authority boundaries through semantic copy, governed asset metadata, regression tests, and a shareable social proof packet.",
+      "url": "https://www.unwindcode.ai/transmissions/25-the-homepage-learned-to-pulse.html"
+    },
+    {
+      "id": "transmission_26_social_carousel",
+      "name": "Transmission 26 Instagram Carousel",
+      "asset": "https://www.unwindcode.ai/social/transmission-26-property-sales-intelligence-cell/ready-to-upload/01-property-sales-intelligence-cell.png",
+      "download_packet": "https://www.unwindcode.ai/social/transmission-26-property-sales-intelligence-cell/downloads/transmission-26-property-sales-intelligence-cell.zip",
+      "format": "image/png",
+      "dimensions": {
+        "width": 1080,
+        "height": 1080
+      },
+      "coverage": "Four upload-ready Instagram carousel frames for Transmission 26, plus 540px page previews, a bundled ZIP, and a caption packet.",
+      "trust_boundary": "The social slides summarize proof beats, but the durable claim remains backed by the transmission page, manifest entry, ai-services metadata, and tests.",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json"
+    },
+    {
+      "id": "transmission_26",
+      "type": "domain_cell_boundary",
+      "status": "public",
+      "trust_question": "Can a real estate sales-intelligence cell improve signal without taking communication authority?",
+      "proves": "The public cell is bounded to permitted source review, intent qualification, evidence preservation, compliance posture, and human approval before outreach.",
+      "url": "https://www.unwindcode.ai/transmissions/26-property-sales-intelligence-cell.html",
+      "audience": "real_estate_teams",
+      "authority_boundary": "No SMS, email, call, import activation, campaign enrollment, or public claim escalation without human approval.",
+      "interface_boundary": "The authority scale is rendered as semantic HTML and shared CSS, with no third-party chart runtime, inline style block, or canvas dependency."
+    },
+    {
+      "id": "transmission_27_social_carousel",
+      "name": "Transmission 27 Instagram Carousel",
+      "asset": "https://www.unwindcode.ai/social/transmission-27-quotation-cell/ready-to-upload/01-quotation-cell.png",
+      "download_packet": "https://www.unwindcode.ai/social/transmission-27-quotation-cell/downloads/transmission-27-quotation-cell.zip",
+      "format": "image/png",
+      "dimensions": {
+        "width": 1080,
+        "height": 1080
+      },
+      "coverage": "Four upload-ready Instagram carousel frames for Transmission 27, plus 540px page previews, a bundled ZIP, and a caption packet.",
+      "trust_boundary": "The social slides summarize proof beats, but the durable claim remains backed by the transmission page, manifest entry, ai-services metadata, and tests.",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json"
+    },
+    {
+      "id": "transmission_27",
+      "type": "domain_cell_boundary",
+      "status": "public",
+      "trust_question": "Can a quotation cell prepare quote packages without taking commercial authority?",
+      "proves": "The public cell is bounded to intake, supplier memory, correction loops, transaction readiness, and human approval before commitment, with a manual Brain protocol and organism build recipe recorded as public proof.",
+      "url": "https://www.unwindcode.ai/transmissions/27-the-quotation-cell.html",
+      "audience": "operators_and_sales_teams",
+      "authority_boundary": "No promise of price, available supply, unattended purchase, fulfillment, legal status, or final commercial outcome without human approval.",
+      "privacy_boundary": "Public copy abstracts the domain cell and does not name private businesses or active client implementations.",
+      "execution_mode": "manual_brain_protocol_until_runtime_is_live",
+      "builder_use": "Use the page as a whitepaper-style build record for assembling a Quotation Cell: command surface, quote package schema, supplier memory, correction reducer, readiness gate, approval receipt, metadata, tests, and deployment smoke."
+    }
+  ],
+  "social_preview_assets": [
+    {
+      "id": "unwindcode_lab_preview",
+      "name": "Unwind Code Lab Social Preview",
+      "asset": "https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg",
+      "format": "image/svg+xml",
+      "dimensions": {
+        "width": 1200,
+        "height": 630
+      },
+      "coverage": "Default Open Graph and Twitter preview image for public lab pages and transmission articles, showing the shared organism core plus creator, reflection, Web3 trust, and brain-cell architecture motifs.",
+      "trust_boundary": "The SVG is presentational and textless; page-native title, description, canonical URL, schema, and metadata carry the specific public claim.",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json"
+    },
+    {
+      "id": "transmission_25_social_carousel",
+      "name": "Transmission 25 Instagram Carousel",
+      "asset": "https://www.unwindcode.ai/social/transmission-25-homepage-pulse-carousel/ready-to-upload/01-homepage-learned-to-pulse.png",
+      "download_packet": "https://www.unwindcode.ai/social/transmission-25-homepage-pulse-carousel/downloads/transmission-25-homepage-pulse-carousel.zip",
+      "format": "image/png",
+      "dimensions": {
+        "width": 1080,
+        "height": 1080
+      },
+      "coverage": "Four upload-ready Instagram carousel frames for Transmission 25, plus 540px page previews, a bundled ZIP, and a caption packet.",
+      "trust_boundary": "The social slides summarize proof beats, but the durable claim remains backed by the transmission page, manifest entry, ai-services metadata, and tests.",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json"
+    }
+  ],
+  "transmission_library": {
+    "url": "https://www.unwindcode.ai/transmissions/",
+    "description": "The public field-note archive for AI organism architecture, Web3 safety, product form, proof loops, and Unwind Code philosophy.",
+    "publication_rule": "A transmission is not treated as approved and posted on the main website until its social proof packet is visible on the page, discoverable through metadata, and downloadable as manual-posting Instagram carousel assets.",
+    "social_packet_standard": {
+      "required_for": "approved_or_posted_main_site_transmissions",
+      "default_slide_count": 4,
+      "effective_from_transmission": 25,
+      "packet_files": [
+        "carousel.html",
+        "caption.md",
+        "README.md",
+        "exports/slide-01.png",
+        "previews/slide-01-preview.png",
+        "ready-to-upload/01-*.png",
+        "downloads/transmission-XX-slug.zip"
+      ],
+      "posting_gate": "Prepared for creator review only; do not auto-post to Instagram or any social network."
+    },
+    "social_packet_desk": {
+      "url": "https://www.unwindcode.ai/transmissions/#social-packet-desk",
+      "purpose": "A visible archive section where visitors can open, download, and inspect post-ready Instagram carousel packets for post-gate transmissions without leaving the proof library.",
+      "current_packets": [
+        "transmission_25_social_carousel",
+        "transmission_26_social_carousel",
+        "transmission_27_social_carousel"
+      ],
+      "authority_boundary": "The desk prepares manual posting assets only; no social network posting, public distribution, or claim escalation happens without creator approval."
+    },
+    "total_transmissions": 27,
+    "reader_lanes": [
+      {
+        "lane": "whitepaper",
+        "entry": "Transmission 21",
+        "url": "https://www.unwindcode.ai/transmissions/21-the-unwind-brain-checkpoint-white-paper.html",
+        "use_for": "Understand the Brain as a human-governed cognitive organism."
+      },
+      {
+        "lane": "safety_gate",
+        "entry": "Transmission 23",
+        "url": "https://www.unwindcode.ai/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html",
+        "use_for": "Inspect refusal, approval, and high-risk boundary behavior."
+      },
+      {
+        "lane": "product_form",
+        "entry": "Transmission 24",
+        "url": "https://www.unwindcode.ai/transmissions/24-the-mirror-found-its-form.html",
+        "use_for": "See Infinity Mirror becoming a legible human-facing organism."
+      },
+      {
+        "lane": "web3_boundary",
+        "entry": "Transmission 22",
+        "url": "https://www.unwindcode.ai/transmissions/22-the-monad-hand-clarity-before-motion.html",
+        "use_for": "Understand Financial Organisms as clarity-first and simulation-first."
+      },
+      {
+        "lane": "organisms_not_apps",
+        "entry": "Transmission 03",
+        "url": "https://www.unwindcode.ai/transmissions/03-organisms-not-apps.html",
+        "use_for": "Learn the core distinction between static apps and AI organisms."
+      }
+    ],
+    "latest": {
+      "id": "transmission_27",
+      "title": "The Quotation Cell",
+      "url": "https://www.unwindcode.ai/transmissions/27-the-quotation-cell.html",
+      "lane": "domain_cell_boundary",
+      "use_for": "Understand quoting as a governed transaction packet and manual Brain build record with supplier evidence, correction memory, readiness state, proof ledger, organism recipe, and approval before commitment."
+    }
+  },
+  "proof_urls": [
+    "https://www.unwindcode.ai/proof/",
+    "https://www.unwindcode.ai/transmissions/21-the-unwind-brain-checkpoint-white-paper.html",
+    "https://www.unwindcode.ai/transmissions/22-the-monad-hand-clarity-before-motion.html",
+    "https://www.unwindcode.ai/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html",
+    "https://www.unwindcode.ai/transmissions/24-the-mirror-found-its-form.html",
+    "https://www.unwindcode.ai/transmissions/25-the-homepage-learned-to-pulse.html",
+    "https://www.unwindcode.ai/transmissions/26-property-sales-intelligence-cell.html",
+    "https://www.unwindcode.ai/transmissions/27-the-quotation-cell.html"
+  ],
+  "proof_route_questions": [
+    {
+      "question": "Can this be built?",
+      "evidence_path": "Architecture map",
+      "url": "https://www.unwindcode.ai/architecture/"
+    },
+    {
+      "question": "Can this be trusted?",
+      "evidence_path": "Proof ledger",
+      "url": "https://www.unwindcode.ai/proof/"
+    },
+    {
+      "question": "Can value move safely?",
+      "evidence_path": "Web3 boundary",
+      "url": "https://www.unwindcode.ai/organisms/financial-organisms/"
+    },
+    {
+      "question": "Can we build this together?",
+      "evidence_path": "Collaboration packet",
+      "url": "https://www.unwindcode.ai/build-with-us/"
+    }
+  ],
+  "engagement_modes": [
+    {
+      "id": "architecture_review",
+      "name": "Architecture review",
+      "best_for": "Teams with a serious workflow, unclear autonomy boundary, or scattered AI experiments.",
+      "deliverable": "Organism map, risk boundary, first-cell plan, and proof checklist.",
+      "proof_bar": "The system can be explained as cortex, memory, gateway, cells, immune gate, and proof loop.",
+      "authority_boundary": "No tool authority until the architecture names what must stay human.",
+      "url": "https://www.unwindcode.ai/build-with-us/#engagement-fit-title"
+    },
+    {
+      "id": "prototype_organism",
+      "name": "Prototype organism",
+      "best_for": "Founders, creators, or operators who need a working organism path instead of another pitch deck.",
+      "deliverable": "A bounded prototype, reviewable outputs, handoff notes, and next proof questions.",
+      "proof_bar": "The prototype shows state, decision logic, output boundary, and what still requires approval.",
+      "authority_boundary": "Filesystem writes, public posting, spending, and Web3 motion stay off by default.",
+      "url": "https://www.unwindcode.ai/build-with-us/#engagement-fit-title"
+    },
+    {
+      "id": "proof_loop_audit",
+      "name": "Proof-loop audit",
+      "best_for": "AI products that sound powerful but do not yet show what exists, what is bounded, or what is unproven.",
+      "deliverable": "Evidence ledger, status labels, proof gaps, and safer public language.",
+      "proof_bar": "Every major claim points to an artifact, test, transmission, metric, or explicit unknown.",
+      "authority_boundary": "Private reasoning stays private; public proof only carries reviewed claims.",
+      "url": "https://www.unwindcode.ai/build-with-us/#engagement-fit-title"
+    },
+    {
+      "id": "web3_simulation_lane",
+      "name": "Web3 simulation lane",
+      "best_for": "Protocols, funds, or operators exploring agentic Web3 workflows without hidden broadcast risk.",
+      "deliverable": "Read-only data map, simulation ledger, unsigned packet shape, and approval gate design.",
+      "proof_bar": "The lane proves no private keys, no hidden broadcast, no money motion by default.",
+      "authority_boundary": "Signing and broadcast remain human-controlled outside the organism.",
+      "url": "https://www.unwindcode.ai/build-with-us/#engagement-fit-title"
+    },
+    {
+      "id": "product_organism",
+      "name": "Product organism",
+      "best_for": "Teams ready to turn a validated organism path into a usable interface, workflow, or public product.",
+      "deliverable": "Product surface, organism loop, proof layer, launch packet, and iteration roadmap.",
+      "proof_bar": "Users can understand what it does, what it cannot do, and why the next action is safe.",
+      "authority_boundary": "Launch scope keeps high-risk autonomy behind explicit review and rollback paths.",
+      "url": "https://www.unwindcode.ai/build-with-us/#engagement-fit-title"
+    }
+  ],
+  "collaboration_paths": [
+    {
+      "audience": "builders",
+      "next_action": "Study the organism stack and map a workflow into cortex, memory, gateway, cells, safety gates, and proof.",
+      "url": "https://www.unwindcode.ai/architecture/"
+    },
+    {
+      "audience": "creators",
+      "next_action": "Explore Visual Cortex as the creator intelligence path for transforming brand context, scripts, and creative intent into reviewable media plans.",
+      "url": "https://www.unwindcode.ai/organisms/visual-cortex/"
+    },
+    {
+      "audience": "investors",
+      "next_action": "Inspect proof, status labels, transmissions, and bounded Web3 posture before a conversation.",
+      "url": "https://www.unwindcode.ai/proof/"
+    },
+    {
+      "audience": "users",
+      "next_action": "Explore the human-facing Infinity Mirror prototype and join early access.",
+      "url": "https://www.unwindcode.ai/organisms/infinity-mirror/"
+    },
+    {
+      "audience": "protocols",
+      "next_action": "Review Web3 simulation boundaries: read-only research, risk scoring, unsigned packets, and no hidden wallet authority.",
+      "url": "https://www.unwindcode.ai/organisms/financial-organisms/"
+    },
+    {
+      "audience": "collaborators",
+      "next_action": "Send a goal, domain, authority boundary, and proof requirement through the Build With Us path.",
+      "url": "https://www.unwindcode.ai/build-with-us/"
+    }
+  ],
+  "subscription_signal_paths": [
+    {
+      "audience": "builders",
+      "receives": "Architecture patterns, cell growth decisions, implementation checkpoints, and memory-system notes.",
+      "proof_filter": "Public-safe build trails, tests, diagrams, and release notes.",
+      "boundary": "No private repo context, credentials, or unreviewed implementation details.",
+      "url": "https://www.unwindcode.ai/#cta"
+    },
+    {
+      "audience": "investors",
+      "receives": "Status shifts, public artifacts, safety gates, and bounded Web3 posture.",
+      "proof_filter": "Claims attached to public pages, transmissions, schema, test coverage, or explicit unknowns.",
+      "boundary": "No financial promises, hidden metrics, or live Web3 authority implied by a subscriber update.",
+      "url": "https://www.unwindcode.ai/#cta"
+    },
+    {
+      "audience": "users",
+      "receives": "Infinity Mirror access windows, human-facing product signals, and reflection-loop updates.",
+      "proof_filter": "Prototype status, human boundary, and what the organism will not decide for the user.",
+      "boundary": "No care, identity, diagnosis, or life decision is outsourced to automation.",
+      "url": "https://www.unwindcode.ai/#cta"
+    },
+    {
+      "audience": "collaborators",
+      "receives": "Sprint openings, audit lanes, prototype windows, Web3 simulation paths, and collaboration criteria.",
+      "proof_filter": "Each opening names fit, expected artifact, authority boundary, and first useful proof.",
+      "boundary": "No engagement starts without a clear domain, risk edge, owner, and review path.",
+      "url": "https://www.unwindcode.ai/#cta"
+    }
+  ],
+  "conversation_gateway": {
+    "url": "https://www.unwindcode.ai/#cta",
+    "purpose": "A governed chat intake point for visitors who need the organism ecosystem routed into a clear next step.",
+    "safe_topics": [
+      "AI organism architecture",
+      "proof artifacts",
+      "transmissions",
+      "collaboration paths",
+      "build-with-us fit"
+    ],
+    "starter_prompts": [
+      {
+        "audience": "builders",
+        "prompt": "Map my product idea into an organism path with proof and boundaries.",
+        "expected_return": "An organism route, first proof artifact, authority boundary, and next page to inspect."
+      },
+      {
+        "audience": "investors",
+        "prompt": "Show me the proof packet an investor should inspect first.",
+        "expected_return": "A proof-led route through status, transmissions, safety gates, and bounded Web3 posture."
+      },
+      {
+        "audience": "users",
+        "prompt": "Help me choose between Infinity Mirror and the other organism paths.",
+        "expected_return": "A human-facing product path with prototype state, proof source, and what the organism will not decide."
+      },
+      {
+        "audience": "collaborators",
+        "prompt": "Turn my collaboration idea into a bounded first packet.",
+        "expected_return": "A first-packet outline naming domain, risk edge, owner, proof bar, and review path."
+      }
+    ],
+    "human_approval_required_for": [
+      "filesystem changes",
+      "money movement",
+      "public posts",
+      "Web3 transactions"
+    ],
+    "boundary": "The chat can explain, route, and draft. It does not silently take authority over files, money, public publishing, or Web3 movement."
+  },
+  "contact": {
+    "primary_url": "https://www.unwindcode.ai/build-with-us/",
+    "subscribe_url": "https://www.unwindcode.ai/#cta"
+  },
+  "assets": [
+    {
+      "id": "transmission_26_social_carousel",
+      "name": "Transmission 26 Social Carousel",
+      "route": "https://www.unwindcode.ai/transmissions/26-property-sales-intelligence-cell.html#social-proof-packet",
+      "asset": "https://www.unwindcode.ai/social/transmission-26-property-sales-intelligence-cell/ready-to-upload/01-property-sales-intelligence-cell.png",
+      "download_packet": "https://www.unwindcode.ai/social/transmission-26-property-sales-intelligence-cell/downloads/transmission-26-property-sales-intelligence-cell.zip",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A four-slide Instagram-ready proof packet for Transmission 26, with upload-ready 1080px exports, lightweight previews, a bundled ZIP, and a caption packet.",
+      "trust_boundary": "The raster slides are distribution artifacts; the canonical proof remains inspectable through the transmission HTML, caption markdown, asset manifest, llms.txt, and regression tests.",
+      "motion_policy": "Static PNG exports and static HTML preview only; no animation, video, or WebGL."
+    },
+    {
+      "id": "transmission_27_social_carousel",
+      "name": "Transmission 27 Social Carousel",
+      "route": "https://www.unwindcode.ai/transmissions/27-the-quotation-cell.html#social-proof-packet",
+      "asset": "https://www.unwindcode.ai/social/transmission-27-quotation-cell/ready-to-upload/01-quotation-cell.png",
+      "download_packet": "https://www.unwindcode.ai/social/transmission-27-quotation-cell/downloads/transmission-27-quotation-cell.zip",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "A four-slide Instagram-ready proof packet for Transmission 27, with upload-ready 1080px exports, lightweight previews, a bundled ZIP, and a caption packet.",
+      "trust_boundary": "The raster slides are distribution artifacts; the canonical proof remains inspectable through the transmission HTML, caption markdown, asset manifest, llms.txt, and regression tests.",
+      "motion_policy": "Static PNG exports and static HTML preview only; no animation, video, or WebGL."
+    }
+  ]
+}

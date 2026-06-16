@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="620" viewBox="0 0 960 620" role="presentation" aria-hidden="true">
+  <defs>
+    <linearGradient id="signal-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#06161a"/>
+      <stop offset=".46" stop-color="#080d19"/>
+      <stop offset="1" stop-color="#170d20"/>
+    </linearGradient>
+    <linearGradient id="signal-teal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8af6e6"/>
+      <stop offset="1" stop-color="#0d9488"/>
+    </linearGradient>
+    <linearGradient id="signal-amber" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f4d99b"/>
+      <stop offset="1" stop-color="#8e682c"/>
+    </linearGradient>
+    <linearGradient id="signal-violet" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a86bff"/>
+      <stop offset="1" stop-color="#4d3078"/>
+    </linearGradient>
+    <filter id="signal-glow" x="-35%" y="-35%" width="170%" height="170%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+    <style>
+      .signal-grid { stroke: rgba(238, 244, 255, .075); stroke-width: 1; }
+      .signal-ring { fill: none; stroke-width: 1.4; }
+      .signal-line { fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+      .signal-card { fill: rgba(7, 12, 24, .76); stroke: rgba(238, 244, 255, .15); stroke-width: 1; }
+      .signal-packet { fill: rgba(238, 244, 255, .06); stroke: rgba(238, 244, 255, .13); stroke-width: 1; }
+      .signal-flow { stroke-dasharray: 11 17; animation: signal-flow 7.6s linear infinite; }
+      .signal-pulse { transform-origin: 480px 310px; animation: signal-pulse 5.5s ease-in-out infinite; }
+      .signal-drift { animation: signal-drift 8s ease-in-out infinite; }
+      @keyframes signal-flow {
+        from { stroke-dashoffset: 0; }
+        to { stroke-dashoffset: -112; }
+      }
+      @keyframes signal-pulse {
+        0%, 100% { opacity: .58; transform: scale(.985); }
+        50% { opacity: 1; transform: scale(1.014); }
+      }
+      @keyframes signal-drift {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .signal-flow,
+        .signal-pulse,
+        .signal-drift {
+          animation: none !important;
+        }
+      }
+    </style>
+  </defs>
+
+  <rect width="960" height="620" rx="32" fill="url(#signal-bg)"/>
+  <path d="M0 94H960M0 188H960M0 282H960M0 376H960M0 470H960M0 564H960M96 0V620M192 0V620M288 0V620M384 0V620M480 0V620M576 0V620M672 0V620M768 0V620M864 0V620" class="signal-grid"/>
+  <path d="M96 488C238 382 326 350 480 310C636 270 724 232 864 126" fill="none" stroke="rgba(138,246,230,.12)" stroke-width="62" filter="url(#signal-glow)"/>
+  <path d="M102 112C238 214 342 260 480 310C624 362 728 406 860 514" fill="none" stroke="rgba(244,217,155,.1)" stroke-width="70" filter="url(#signal-glow)"/>
+
+  <g class="signal-pulse">
+    <circle cx="480" cy="310" r="226" class="signal-ring" stroke="rgba(138,246,230,.18)"/>
+    <circle cx="480" cy="310" r="164" class="signal-ring" stroke="rgba(244,217,155,.2)"/>
+    <circle cx="480" cy="310" r="92" class="signal-ring" stroke="rgba(168,107,255,.23)"/>
+  </g>
+
+  <g>
+    <path d="M480 310L222 158" class="signal-line signal-flow" stroke="url(#signal-teal)"/>
+    <path d="M480 310L738 158" class="signal-line signal-flow" stroke="url(#signal-amber)"/>
+    <path d="M480 310L744 462" class="signal-line signal-flow" stroke="url(#signal-violet)"/>
+    <path d="M480 310L216 462" class="signal-line signal-flow" stroke="url(#signal-teal)"/>
+  </g>
+
+  <g class="signal-drift">
+    <rect x="384" y="214" width="192" height="192" rx="42" fill="rgba(6, 10, 22, .9)" stroke="rgba(238,244,255,.22)"/>
+    <circle cx="480" cy="310" r="62" fill="none" stroke="url(#signal-amber)" stroke-width="3"/>
+    <circle cx="480" cy="310" r="28" fill="url(#signal-teal)" opacity=".68"/>
+    <path d="M480 240L542 310L480 380L418 310Z" fill="none" stroke="url(#signal-violet)" stroke-width="2.5"/>
+  </g>
+
+  <g>
+    <rect x="116" y="98" width="212" height="120" rx="24" class="signal-card"/>
+    <path d="M158 142H286M158 172H246" class="signal-line" stroke="url(#signal-teal)" opacity=".72"/>
+    <rect x="156" y="184" width="54" height="12" rx="6" class="signal-packet"/>
+  </g>
+
+  <g>
+    <rect x="632" y="98" width="212" height="120" rx="24" class="signal-card"/>
+    <path d="M674 142H802M674 172H762" class="signal-line" stroke="url(#signal-amber)" opacity=".72"/>
+    <rect x="674" y="184" width="54" height="12" rx="6" class="signal-packet"/>
+  </g>
+
+  <g>
+    <rect x="632" y="402" width="212" height="120" rx="24" class="signal-card"/>
+    <path d="M674 446H802M674 476H762" class="signal-line" stroke="url(#signal-violet)" opacity=".72"/>
+    <rect x="674" y="488" width="54" height="12" rx="6" class="signal-packet"/>
+  </g>
+
+  <g>
+    <rect x="116" y="402" width="212" height="120" rx="24" class="signal-card"/>
+    <path d="M158 446H286M158 476H246" class="signal-line" stroke="url(#signal-teal)" opacity=".72"/>
+    <rect x="158" y="488" width="54" height="12" rx="6" class="signal-packet"/>
+  </g>
+
+  <path d="M480 106V170M480 450V514M276 310H340M620 310H684" stroke="rgba(238,244,255,.16)" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="480" cy="106" r="6" fill="#f4d99b"/>
+  <circle cx="480" cy="514" r="6" fill="#8af6e6"/>
+  <circle cx="276" cy="310" r="6" fill="#a86bff"/>
+  <circle cx="684" cy="310" r="6" fill="#f4d99b"/>
+</svg>

@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 640" role="presentation" aria-hidden="true">
+  <defs>
+    <linearGradient id="vcPacketPanel" x1="104" x2="936" y1="102" y2="538" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0d9488" stop-opacity=".15"/>
+      <stop offset=".46" stop-color="#e9cf97" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#9b59f5" stop-opacity=".16"/>
+    </linearGradient>
+    <linearGradient id="vcPacketRail" x1="140" x2="900" y1="320" y2="320" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0d9488" stop-opacity=".18"/>
+      <stop offset=".3" stop-color="#0d9488" stop-opacity=".82"/>
+      <stop offset=".58" stop-color="#e9cf97" stop-opacity=".78"/>
+      <stop offset="1" stop-color="#9b59f5" stop-opacity=".22"/>
+    </linearGradient>
+    <radialGradient id="vcMemoryGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0d9488" stop-opacity=".56"/>
+      <stop offset="68%" stop-color="#0d9488" stop-opacity=".12"/>
+      <stop offset="100%" stop-color="#06060c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vcCellGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#e9cf97" stop-opacity=".62"/>
+      <stop offset="62%" stop-color="#e9cf97" stop-opacity=".14"/>
+      <stop offset="100%" stop-color="#06060c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vcReviewGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#9b59f5" stop-opacity=".42"/>
+      <stop offset="72%" stop-color="#9b59f5" stop-opacity=".1"/>
+      <stop offset="100%" stop-color="#06060c" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="vcPacketBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+  </defs>
+
+  <style>
+    .vc-packet-rail {
+      fill: none;
+      stroke: url(#vcPacketRail);
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-dasharray: 11 17;
+      animation: vc-packet-rail 24s linear infinite;
+    }
+
+    .vc-packet-node {
+      transform-origin: center;
+      animation: vc-packet-node 8s ease-in-out infinite;
+    }
+
+    .vc-packet-node:nth-of-type(2) {
+      animation-delay: -2.5s;
+    }
+
+    .vc-packet-node:nth-of-type(3) {
+      animation-delay: -5s;
+    }
+
+    .vc-packet-dot {
+      fill: #e9cf97;
+      opacity: .7;
+      animation: vc-packet-dot 4.2s ease-in-out infinite;
+    }
+
+    .vc-packet-dot:nth-child(2) {
+      animation-delay: -1.4s;
+    }
+
+    .vc-packet-dot:nth-child(3) {
+      animation-delay: -2.8s;
+    }
+
+    .vc-review-fence {
+      stroke-dasharray: 8 12;
+      animation: vc-review-fence 12s linear infinite;
+    }
+
+    @keyframes vc-packet-rail {
+      to { stroke-dashoffset: -240; }
+    }
+
+    @keyframes vc-packet-node {
+      0%, 100% { opacity: .44; transform: scale(.96); }
+      50% { opacity: .86; transform: scale(1.06); }
+    }
+
+    @keyframes vc-packet-dot {
+      0%, 100% { opacity: .18; transform: translateX(-8px) scale(.72); }
+      50% { opacity: .84; transform: translateX(8px) scale(1); }
+    }
+
+    @keyframes vc-review-fence {
+      to { stroke-dashoffset: -120; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .vc-packet-rail,
+      .vc-packet-node,
+      .vc-packet-dot,
+      .vc-review-fence {
+        animation: none !important;
+      }
+    }
+  </style>
+
+  <rect x="52" y="72" width="936" height="496" rx="34" fill="#070812" opacity=".56"/>
+  <rect x="82" y="102" width="876" height="436" rx="28" fill="url(#vcPacketPanel)" opacity=".72"/>
+  <path d="M110 152h820M110 488h820" stroke="#f0eef6" stroke-opacity=".06"/>
+  <path d="M314 118v404M524 118v404M734 118v404" stroke="#f0eef6" stroke-opacity=".05"/>
+
+  <g fill="none" stroke="#f0eef6" stroke-opacity=".042">
+    <path d="M136 198h768M136 250h768M136 302h768M136 354h768M136 406h768M136 458h768"/>
+    <path d="M164 144v352M228 144v352M292 144v352M378 144v352M442 144v352M506 144v352M592 144v352M656 144v352M804 144v352M868 144v352"/>
+  </g>
+
+  <path class="vc-packet-rail" d="M154 320c88-72 152-72 214 0s142 72 202 0 146-72 318 0"/>
+  <path class="vc-review-fence" d="M744 146v348" fill="none" stroke="#e9cf97" stroke-opacity=".32" stroke-width="1.5"/>
+  <path class="vc-review-fence" d="M820 146v348" fill="none" stroke="#9b59f5" stroke-opacity=".24" stroke-width="1.5"/>
+
+  <g>
+    <circle class="vc-packet-node" cx="220" cy="320" r="98" fill="url(#vcMemoryGlow)" filter="url(#vcPacketBlur)"/>
+    <circle class="vc-packet-node" cx="520" cy="320" r="118" fill="url(#vcCellGlow)" filter="url(#vcPacketBlur)"/>
+    <circle class="vc-packet-node" cx="824" cy="320" r="96" fill="url(#vcReviewGlow)" filter="url(#vcPacketBlur)"/>
+  </g>
+
+  <g fill="#06060c" stroke="#f0eef6" stroke-opacity=".14">
+    <rect x="150" y="236" width="140" height="168" rx="22"/>
+    <rect x="420" y="216" width="200" height="208" rx="26"/>
+    <rect x="760" y="238" width="132" height="164" rx="22"/>
+  </g>
+
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M188 282h66M188 318h66M188 354h42" stroke="#0d9488" stroke-opacity=".86" stroke-width="2.4"/>
+    <path d="M464 268h112M464 308h112M464 348h72" stroke="#e9cf97" stroke-opacity=".72" stroke-width="2.4"/>
+    <path d="M456 386c34-42 58-42 92 0 24-30 48-40 84-30" stroke="#e9cf97" stroke-opacity=".84" stroke-width="2.8"/>
+    <path d="M798 288h58M798 320h58M798 352h38" stroke="#9b59f5" stroke-opacity=".82" stroke-width="2.4"/>
+    <path d="M790 260h74c12 0 22 10 22 22v90c0 12-10 22-22 22h-74c-12 0-22-10-22-22v-90c0-12 10-22 22-22Z" stroke="#9b59f5" stroke-opacity=".44" stroke-width="1.7"/>
+  </g>
+
+  <g fill="#0d9488" opacity=".24">
+    <path d="M336 228l22 14-22 14-22-14Z"/>
+    <path d="M336 290l22 14-22 14-22-14Z"/>
+    <path d="M336 352l22 14-22 14-22-14Z"/>
+  </g>
+
+  <g>
+    <circle class="vc-packet-dot" cx="340" cy="320" r="4.4"/>
+    <circle class="vc-packet-dot" cx="520" cy="320" r="5.2"/>
+    <circle class="vc-packet-dot" cx="704" cy="320" r="4.4"/>
+  </g>
+
+  <g fill="#f0eef6" opacity=".16">
+    <circle cx="122" cy="132" r="2"/>
+    <circle cx="184" cy="510" r="1.7"/>
+    <circle cx="492" cy="122" r="1.9"/>
+    <circle cx="914" cy="158" r="1.7"/>
+    <circle cx="914" cy="500" r="2"/>
+    <circle cx="722" cy="520" r="1.5"/>
+  </g>
+</svg>
