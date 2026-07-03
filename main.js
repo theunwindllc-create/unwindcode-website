@@ -236,6 +236,76 @@ function addMessage(role, text) {
     chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
+function appendText(parent, tagName, className, text) {
+    const el = document.createElement(tagName);
+    el.className = className;
+    el.textContent = text;
+    parent.appendChild(el);
+    return el;
+}
+
+function renderGroundingReview(payload) {
+    const display = payload?.display || {};
+    const grounding = payload?.grounding || {};
+    const citations = grounding.citation_display?.items || [];
+    const qualifications = grounding.required_qualifications || [];
+    const refusalRules = grounding.refusal_rules || [];
+    const shouldRenderReview =
+        display.mode === 'grounding_review_required' &&
+        display.component === 'citation_review_card' &&
+        display.answer_generation === 'disabled' &&
+        display.allow_freeform_answer === false;
+
+    if (!shouldRenderReview) {
+        addMessage('organism', 'The organism encountered interference. Please try again.');
+        return;
+    }
+
+    const card = document.createElement('div');
+    card.className = 'chat-msg organism grounding-review-card';
+    appendText(card, 'strong', 'grounding-review-title', 'Grounding review required before answer.');
+    appendText(card, 'p', 'grounding-review-body', 'The organism found public sources, but answer synthesis is disabled until citations, claim qualifications, and refusal rules are reviewed.');
+
+    if (display.render_citations && citations.length > 0) {
+        appendText(card, 'span', 'grounding-review-label', 'Citations');
+        const list = document.createElement('ol');
+        list.className = 'grounding-review-citations';
+        citations.forEach((citation) => {
+            const item = document.createElement('li');
+            item.textContent = citation.display_text || `${citation.label || 'Public source'} - ${citation.route || '/'}`;
+            list.appendChild(item);
+        });
+        card.appendChild(list);
+    }
+
+    if (display.render_claim_qualifications && qualifications.length > 0) {
+        appendText(card, 'span', 'grounding-review-label', 'Claim qualifications');
+        const list = document.createElement('ul');
+        list.className = 'grounding-review-qualifications';
+        qualifications.forEach((qualification) => {
+            const item = document.createElement('li');
+            item.textContent = `${qualification.claim_id}: ${qualification.claim_status}, ${qualification.evidence_status}, ${qualification.risk_level} risk`;
+            list.appendChild(item);
+        });
+        card.appendChild(list);
+    }
+
+    if (display.render_refusal_rules && refusalRules.length > 0) {
+        appendText(card, 'span', 'grounding-review-label', 'Refusal rules');
+        const rules = document.createElement('ul');
+        rules.className = 'grounding-review-refusal-rules';
+        refusalRules.forEach((rule) => {
+            const item = document.createElement('li');
+            item.textContent = rule;
+            rules.appendChild(item);
+        });
+        card.appendChild(rules);
+    }
+
+    chatMessages.appendChild(card);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
 function showTyping() {
     const div = document.createElement('div');
     div.className = 'chat-typing';
@@ -285,6 +355,9 @@ chatForm.addEventListener('submit', async (e) => {
             const data = await res.json();
             conversationId = data.conversation_id;
             addMessage('organism', data.reply);
+        } else if (res.status === 409) {
+            const data = await res.json();
+            renderGroundingReview(data);
         } else {
             addMessage('organism', 'The organism encountered interference. Please try again.');
         }

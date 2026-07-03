@@ -1,6 +1,11 @@
 import assert from 'node:assert/strict';
+import { mkdtemp, rm, writeFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import test from 'node:test';
+import { pathToFileURL } from 'node:url';
 
+import { createPublicRegistriesLoader } from '../api/_shared/public-search.js';
 import searchHandler from '../api/search.js';
 import * as searchApi from '../api/search.js';
 import transmissionsHandler from '../api/transmissions.js';
@@ -28,6 +33,123 @@ function createMockResponse() {
     },
   };
 }
+
+function invalidDigestAssetPackage() {
+  return {
+    id: 'bad-search-asset-package',
+    type: 'social-carousel',
+    title: 'Bad Search Asset Package',
+    summary: 'Synthetic invalid asset package for loader validation tests.',
+    source_route: '/transmissions/24-the-mirror-found-its-form.html',
+    source_files: ['social/bad-search-asset-package/README.md'],
+    alt_text: 'Synthetic invalid asset package used to verify search loader provenance checks.',
+    asset_package_sha256: 'a'.repeat(64),
+    authority_boundary: {
+      posting_authority: false,
+      wallet_authority: false,
+      paid_media_authority: false,
+      on_chain_attestation_authority: false,
+      approval_state: 'creator_approval_required',
+      allowed_uses: [
+        'manual_review',
+        'provenance_lookup',
+        'local_asset_inspection',
+        'manual_social_post_after_creator_approval',
+      ],
+      prohibited_uses: [
+        'automated_public_posting',
+        'wallet_signing',
+        'paid_media_activation',
+        'on_chain_publication',
+        'unreviewed_rag_answer_evidence',
+      ],
+    },
+    approval_record_schema: {
+      schema_version: '2026-06-06.public-asset-approval-record.v1',
+      storage_boundary: {
+        public_record_only: true,
+        secrets_excluded: true,
+        raw_prompts_excluded: true,
+        private_notes_excluded: true,
+        on_chain_sensitive_data_excluded: true,
+      },
+      required_fields: [
+        'approval_id',
+        'asset_package_id',
+        'asset_package_sha256',
+        'approved_by_role',
+        'approved_at',
+        'approved_scope',
+        'source_file_hashes_verified',
+        'generated_file_hashes_verified',
+      ],
+      allowed_approval_scopes: ['manual_social_publication'],
+      prohibited_record_content: ['private_approver_identity', 'raw_prompts', 'private_notes'],
+    },
+    provenance: {
+      created_from: 'test-renderer',
+      source_files: ['social/bad-search-asset-package/README.md'],
+      source_file_hashes: [
+        {
+          path: 'social/bad-search-asset-package/README.md',
+          sha256: 'b'.repeat(64),
+          bytes: 10,
+        },
+      ],
+      generated_files: [
+        {
+          path: 'social/bad-search-asset-package/exports/slide-01.png',
+          sha256: 'c'.repeat(64),
+          bytes: 20,
+        },
+      ],
+    },
+    rights: {
+      usage_scope: 'Prepared for validation tests only.',
+      license_notes: 'Synthetic package.',
+    },
+    approval_gates: ['Creator approval is required before publication.'],
+    review_status: 'creator_approval_required',
+    publication_status: 'prepared_not_posted',
+    manual_approval_required: true,
+    confidence: 'high',
+    approval_records: [],
+  };
+}
+
+test('public search registry loader fails closed when asset provenance digests are invalid', async (t) => {
+  const tempDir = await mkdtemp(join(tmpdir(), 'unwind-search-assets-'));
+  t.after(() => rm(tempDir, { recursive: true, force: true }));
+
+  const assetsPath = join(tempDir, 'assets.json');
+  await writeFile(
+    assetsPath,
+    JSON.stringify(
+      {
+        schema_version: '2026-06-06.public-asset-registry.v1',
+        review_status: 'public_safe_draft',
+        packages: [invalidDigestAssetPackage()],
+      },
+      null,
+      2,
+    ),
+  );
+
+  const loader = createPublicRegistriesLoader({
+    registryUrls: {
+      architecture: new URL('../public/data/architecture.json', import.meta.url),
+      assets: pathToFileURL(assetsPath),
+      claims: new URL('../public/data/claims.json', import.meta.url),
+      organisms: new URL('../public/data/organisms.json', import.meta.url),
+      transmissions: new URL('../public/data/transmissions.json', import.meta.url),
+    },
+  });
+
+  await assert.rejects(
+    () => loader.loadPublicRegistries(),
+    /Asset package digest is not canonical/,
+  );
+});
 
 test('searches public registries with claim-aware context', async () => {
   const req = {
@@ -175,6 +297,35 @@ test('searches one public registry type without dropping claim references', asyn
   );
 });
 
+test('indexes nested organism claim reference text with supporting snippets', async () => {
+  const req = {
+    method: 'GET',
+    query: { type: 'organism', q: 'roadmap framing' },
+  };
+  const res = createMockResponse();
+
+  await searchHandler(req, res);
+
+  assert.equal(res.statusCode, 200);
+  assert.equal(res.body.success, true);
+  assert.equal(res.body.filters.type, 'organism');
+  assert.ok(res.body.results.length >= 1);
+  assert.ok(res.body.results.every((result) => result.type === 'organism'));
+
+  const mirrorOrganism = res.body.results.find((result) => result.id === 'infinity-mirror');
+  assert.ok(
+    mirrorOrganism,
+    'organism search should match public claim-reference purpose text',
+  );
+  assert.deepEqual(mirrorOrganism.matched_terms, ['roadmap', 'framing']);
+  assert.match(mirrorOrganism.snippet, /roadmap framing/i);
+  assert.ok(
+    mirrorOrganism.claim_context.referenced_claim_ids.includes('future-independent-organisms'),
+    'claim context should survive when the nested claim reference caused the match',
+  );
+  assert.equal(mirrorOrganism.claim_context.requires_qualification, true);
+});
+
 test('search preserves memory layers for organism and architecture results', async () => {
   const organismReq = {
     method: 'GET',
@@ -226,6 +377,35 @@ test('search preserves memory layers for organism and architecture results', asy
     private_memory_excluded: true,
     runtime_memory_excluded: true,
   });
+});
+
+test('architecture search shows matched claim-reference support snippets', async () => {
+  const req = {
+    method: 'GET',
+    query: { type: 'architecture', q: 'deployment proof' },
+  };
+  const res = createMockResponse();
+
+  await searchHandler(req, res);
+
+  assert.equal(res.statusCode, 200);
+  assert.equal(res.body.success, true);
+  assert.equal(res.body.filters.type, 'architecture');
+
+  const memoryArchitecture = res.body.results.find(
+    (result) => result.id === 'four-tier-memory-architecture',
+  );
+  assert.ok(
+    memoryArchitecture,
+    'architecture search should match public claim-reference purpose text',
+  );
+  assert.deepEqual(memoryArchitecture.matched_terms, ['deployment', 'proof']);
+  assert.match(memoryArchitecture.snippet, /deployment proof/i);
+  assert.ok(
+    memoryArchitecture.claim_context.referenced_claim_ids.includes('future-independent-organisms'),
+    'claim context should survive architecture claim-reference matches',
+  );
+  assert.equal(memoryArchitecture.claim_context.requires_qualification, true);
 });
 
 test('filters public search results by memory layer without enabling synthesis', async () => {
@@ -389,17 +569,40 @@ test('asset search flags approval-required packages before RAG use', async () =>
   assert.ok(assetPackage.authority_boundary.prohibited_uses.includes('automated_public_posting'));
   assert.ok(assetPackage.authority_boundary.prohibited_uses.includes('wallet_signing'));
   assert.equal(
-    typeof assetPackage.approval_record_schema,
-    'object',
-    'search results should expose asset approval record schema',
-  );
-  assert.equal(
-    assetPackage.approval_record_schema.schema_version,
+    assetPackage.approval_record_schema_version,
     '2026-06-06.public-asset-approval-record.v1',
   );
-  assert.ok(assetPackage.approval_record_schema.required_fields.includes('asset_package_sha256'));
-  assert.ok(assetPackage.approval_record_schema.required_fields.includes('approved_by_role'));
-  assert.equal(assetPackage.approval_records.length, 0);
+  assert.equal(
+    Object.hasOwn(assetPackage, 'approval_record_schema'),
+    false,
+    'search results should expose the schema version without the full approval schema',
+  );
+  assert.deepEqual(
+    assetPackage.source_files,
+    [],
+    'search results should not expose internal creator packet source paths for approval-required assets',
+  );
+  for (const forbiddenAssetPath of [
+    'social/',
+    'caption.md',
+    'caption.txt',
+    'carousel.html',
+    'exports/',
+    'ready-to-upload',
+    'downloads/',
+  ]) {
+    assert.equal(
+      JSON.stringify(assetPackage).includes(forbiddenAssetPath),
+      false,
+      `asset search results should not expose internal ${forbiddenAssetPath} paths`,
+    );
+  }
+  assert.equal(assetPackage.approval_record_count, 0);
+  assert.equal(
+    Object.hasOwn(assetPackage, 'approval_records'),
+    false,
+    'search results should summarize approval records without exposing raw records',
+  );
   assert.ok(assetPackage.review_flags.includes('asset_manual_approval_required'));
   assert.ok(assetPackage.review_flags.includes('asset_publication_not_posted'));
   assert.ok(assetPackage.review_flags.includes('asset_review_not_public_safe'));
@@ -443,6 +646,20 @@ test('rejects unsafe search inputs and write methods', async () => {
   assert.equal(postRes.headers.allow, 'GET, HEAD, OPTIONS');
   assert.equal(postRes.headers['cache-control'], 'no-store');
   assert.deepEqual(postRes.body, { success: false, error: 'Method not allowed' });
+});
+
+test('returns bodyless no-store errors for invalid search HEAD requests', async () => {
+  const req = {
+    method: 'HEAD',
+    query: { q: 'financial '.repeat(40) },
+  };
+  const res = createMockResponse();
+
+  await searchHandler(req, res);
+
+  assert.equal(res.statusCode, 400);
+  assert.equal(res.headers['cache-control'], 'no-store');
+  assert.equal(res.body, '');
 });
 
 test('returns 429 when durable search rate limit denies the request', async (t) => {
@@ -537,6 +754,73 @@ test('fails closed in production when search rate limiting is not configured', a
   assert.equal(loaded, false);
 });
 
+test('fails closed for search HEAD in production when rate limiting is not configured', async (t) => {
+  const previousEnv = { ...process.env };
+  const previousFetch = globalThis.fetch;
+
+  t.after(() => {
+    process.env = previousEnv;
+    globalThis.fetch = previousFetch;
+  });
+
+  process.env.VERCEL_ENV = 'production';
+  delete process.env.RATE_LIMIT_REST_URL;
+  delete process.env.RATE_LIMIT_REST_TOKEN;
+  delete process.env.RATE_LIMIT_SALT;
+
+  let loaded = false;
+  const handler = searchApi.createSearchHandler({
+    buildPublicSearchPayload: async () => {
+      loaded = true;
+      return { payload: { query: '', filters: {}, ranking: {}, results: [] } };
+    },
+  });
+  const req = {
+    method: 'HEAD',
+    query: { q: 'financial' },
+  };
+  const res = createMockResponse();
+
+  await handler(req, res);
+
+  assert.equal(res.statusCode, 503);
+  assert.equal(res.headers['cache-control'], 'no-store');
+  assert.equal(res.headers['retry-after'], '60');
+  assert.equal(res.body, '');
+  assert.equal(loaded, false);
+});
+
+test('successful search HEAD validates public registries without returning a body', async () => {
+  assert.equal(typeof searchApi.createSearchHandler, 'function');
+
+  let loaded = false;
+  const handler = searchApi.createSearchHandler({
+    buildPublicSearchPayload: async () => {
+      loaded = true;
+      return {
+        payload: {
+          query: 'financial',
+          filters: {},
+          ranking: {},
+          results: [],
+        },
+      };
+    },
+  });
+  const req = {
+    method: 'HEAD',
+    query: { q: 'financial' },
+  };
+  const res = createMockResponse();
+
+  await handler(req, res);
+
+  assert.equal(res.statusCode, 200);
+  assert.equal(res.headers['cache-control'], 'private, no-store');
+  assert.equal(res.body, '');
+  assert.equal(loaded, true);
+});
+
 test('search registry loader failures are non-cacheable and generic', async (t) => {
   assert.equal(typeof searchApi.createSearchHandler, 'function');
 
@@ -557,6 +841,27 @@ test('search registry loader failures are non-cacheable and generic', async (t) 
   assert.equal(res.headers['cache-control'], 'no-store');
   assert.deepEqual(res.body, { success: false, error: 'Unable to load public search registries' });
   assert.equal(JSON.stringify(res.body).includes('/private/path'), false);
+});
+
+test('search HEAD registry loader failures are non-cacheable and bodyless', async () => {
+  assert.equal(typeof searchApi.createSearchHandler, 'function');
+
+  const failingHandler = searchApi.createSearchHandler({
+    buildPublicSearchPayload: async () => {
+      throw new Error('/private/path/claims.json parse failed for financial query');
+    },
+  });
+  const req = {
+    method: 'HEAD',
+    query: { q: 'financial' },
+  };
+  const res = createMockResponse();
+
+  await failingHandler(req, res);
+
+  assert.equal(res.statusCode, 500);
+  assert.equal(res.headers['cache-control'], 'no-store');
+  assert.equal(res.body, '');
 });
 
 test('search output avoids secrets and private runtime material', async () => {

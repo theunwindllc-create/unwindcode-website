@@ -92,6 +92,25 @@ test('rejects malformed architecture lookup values', async () => {
   assert.deepEqual(res.body, { success: false, error: 'Invalid architecture id' });
 });
 
+test('rejects malformed architecture filters before loading the registry', async () => {
+  const handler = architectureApi.createArchitectureHandler({
+    loadRegistry: async () => {
+      throw new Error('registry should not be loaded for invalid filters');
+    },
+  });
+  const req = {
+    method: 'GET',
+    query: { category: '../memory' },
+  };
+  const res = createMockResponse();
+
+  await handler(req, res);
+
+  assert.equal(res.statusCode, 400);
+  assert.equal(res.headers['cache-control'], 'no-store');
+  assert.deepEqual(res.body, { success: false, error: 'Invalid category' });
+});
+
 test('returns non-cacheable errors for unknown architecture concepts', async () => {
   const req = {
     method: 'GET',
@@ -119,6 +138,97 @@ test('rejects write methods on the public architecture registry', async () => {
   assert.equal(res.headers.allow, 'GET, HEAD, OPTIONS');
   assert.equal(res.headers['cache-control'], 'no-store');
   assert.deepEqual(res.body, { success: false, error: 'Method not allowed' });
+});
+
+test('returns 429 when durable architecture rate limit denies the request', async (t) => {
+  const previousEnv = { ...process.env };
+  const previousFetch = globalThis.fetch;
+
+  t.after(() => {
+    process.env = previousEnv;
+    globalThis.fetch = previousFetch;
+  });
+
+  process.env.RATE_LIMIT_REST_URL = 'https://limits.example.test/check';
+  process.env.RATE_LIMIT_REST_TOKEN = 'limit-token';
+  process.env.RATE_LIMIT_SALT = 'test-salt';
+
+  const calls = [];
+  globalThis.fetch = async (url, options) => {
+    calls.push({ url, options });
+    return new Response(
+      JSON.stringify({
+        allowed: false,
+        retry_after: 45,
+      }),
+      {
+        status: 200,
+        headers: { 'content-type': 'application/json' },
+      },
+    );
+  };
+
+  const req = {
+    method: 'GET',
+    headers: {
+      'x-forwarded-for': '203.0.113.8',
+    },
+    query: { id: 'four-tier-memory-architecture' },
+  };
+  const res = createMockResponse();
+
+  await architectureHandler(req, res);
+
+  assert.equal(res.statusCode, 429);
+  assert.equal(res.headers['retry-after'], '45');
+  assert.equal(res.headers['cache-control'], 'no-store');
+  assert.deepEqual(res.body, { success: false, error: 'Too many requests' });
+  assert.equal(calls.length, 1);
+  assert.equal(calls[0].url, 'https://limits.example.test/check');
+
+  const limitBody = JSON.parse(calls[0].options.body);
+  assert.equal(limitBody.route, '/api/architecture');
+  assert.equal(limitBody.limit, 60);
+  assert.equal(limitBody.window_seconds, 60);
+  assert.match(limitBody.key, /^sha256:/);
+  assert.equal(calls[0].options.body.includes('four-tier-memory-architecture'), false);
+  assert.equal(calls[0].options.body.includes('203.0.113.8'), false);
+});
+
+test('fails closed in production when architecture rate limiting is not configured', async (t) => {
+  const previousEnv = { ...process.env };
+  const previousFetch = globalThis.fetch;
+
+  t.after(() => {
+    process.env = previousEnv;
+    globalThis.fetch = previousFetch;
+  });
+
+  process.env.VERCEL_ENV = 'production';
+  delete process.env.RATE_LIMIT_REST_URL;
+  delete process.env.RATE_LIMIT_REST_TOKEN;
+  delete process.env.RATE_LIMIT_SALT;
+
+  let called = false;
+  globalThis.fetch = async () => {
+    called = true;
+    return new Response('{}');
+  };
+
+  const req = {
+    method: 'GET',
+    headers: {},
+    query: {},
+  };
+  const res = createMockResponse();
+
+  await architectureHandler(req, res);
+
+  assert.equal(res.statusCode, 503);
+  assert.equal(res.headers['retry-after'], '60');
+  assert.equal(res.headers['cache-control'], 'no-store');
+  assert.deepEqual(res.body, { success: false, error: 'Request limit unavailable' });
+  assert.equal(called, false);
 });
 
 test('architecture registry loader failures are non-cacheable and generic', async () => {

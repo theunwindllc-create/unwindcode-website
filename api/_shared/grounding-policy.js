@@ -192,11 +192,18 @@ function buildSources(results, citations) {
       type: result.type,
       title: result.title,
       route: result.route,
+      alt_text: result.alt_text,
       snippet: result.snippet,
       match_score: result.match_score,
       matched_terms: result.matched_terms,
       review_status: result.review_status,
       asset_package_sha256: result.asset_package_sha256,
+      publication_status: result.publication_status,
+      manual_approval_required: result.manual_approval_required,
+      approval_context: result.approval_context,
+      approval_record_count: result.approval_record_count,
+      approval_record_available: result.approval_record_available,
+      authority_boundary: result.authority_boundary,
       memory_layers: result.memory_layers ? [...result.memory_layers] : undefined,
       memory_context: result.memory_context
         ? {
@@ -252,7 +259,12 @@ function baseBoundaries(extraBoundaries = {}) {
   };
 }
 
-export function buildGroundingPacket({ results, registries, extraBoundaries = {} }) {
+export function buildGroundingPacket({
+  results,
+  registries,
+  extraBoundaries = {},
+  extraBlockedReasons = [],
+}) {
   const citations = buildCitations(results);
   const citationDisplay = buildCitationDisplay(citations);
   const requiredQualifications = buildRequiredQualifications(results, registries.claims);
@@ -266,6 +278,7 @@ export function buildGroundingPacket({ results, registries, extraBoundaries = {}
     reviewFlags,
     requiredQualifications,
     citations,
+    extraBlockedReasons,
   });
   const sources = attachPacketAnswerSafety(baseSources, answerPolicy);
 

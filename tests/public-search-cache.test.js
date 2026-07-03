@@ -63,7 +63,14 @@ test('reloads memoized registries when public JSON file signatures change', asyn
 
   await Promise.all([
     writeFile(files.architecture, JSON.stringify({ version: 1, concepts: [] })),
-    writeFile(files.assets, JSON.stringify({ version: 1, packages: [] })),
+    writeFile(
+      files.assets,
+      JSON.stringify({
+        schema_version: '2026-06-06.public-asset-registry.v1',
+        review_status: 'public_safe_draft',
+        packages: [],
+      }),
+    ),
     writeFile(files.claims, JSON.stringify({ version: 1, claims: [] })),
     writeFile(files.organisms, JSON.stringify({ version: 1, organisms: [] })),
     writeFile(files.transmissions, JSON.stringify({ version: 1, transmissions: [] })),

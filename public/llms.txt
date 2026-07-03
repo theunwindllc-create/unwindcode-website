@@ -15,6 +15,8 @@ This file is a public-safe guide for AI crawlers and retrieval systems. It inten
 - Public index: the website exposes registries, search, grounding packets, claim context, asset provenance, and refusal rules without answer-generation authority.
 - Memory control plane: the Brain memory work exposes metadata-only recent views, health, action queues, triage, and reviewed repair boundaries without exposing stored memory content.
 - Agent-readable organism: public routes, manifests, registries, grounding packets, proof ledgers, and authority boundaries let future agents understand Unwind without inferring hidden execution permission.
+- Operator readiness layer: content-free memory triage, operator contracts, workbench cards, smoke packets, sandbox checks, dynamic-cell health, and consciousness sync state let the operator inspect readiness before authority is opened.
+- Active Source-of-Truth Gate: publication governance checks that the live domain, local source tree, archive, discovery metadata, data registries, public APIs, and internal asset boundaries describe the same public organism before deployment authority opens.
 
 ## Public RAG Seed Routes
 
@@ -28,6 +30,8 @@ This file is a public-safe guide for AI crawlers and retrieval systems. It inten
 - Public Index Protocol guide: https://www.unwindcode.ai/transmissions/27-the-site-became-a-public-index.html
 - Memory Control Plane guide: https://www.unwindcode.ai/transmissions/28-the-memory-control-plane.html
 - Agent-Readable Organism guide: https://www.unwindcode.ai/transmissions/29-the-agent-readable-organism.html
+- Operator Readiness Layer guide: https://www.unwindcode.ai/transmissions/30-the-operator-readiness-layer.html
+- Active Source-of-Truth Gate guide: https://www.unwindcode.ai/transmissions/31-the-active-source-of-truth-gate.html
 
 ## Retrieval Guidance
 

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transmission 31 Active Source-of-Truth Gate Carousel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&family=JetBrains+Mono:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --void: #05060a;
+      --panel: rgba(13, 16, 25, 0.84);
+      --ink: #f7f1e8;
+      --muted: rgba(247, 241, 232, 0.69);
+      --faint: rgba(247, 241, 232, 0.14);
+      --gold: #d8b66b;
+      --cyan: #73d7d0;
+      --violet: #9c8bff;
+      --coral: #e27d67;
+      --green: #9bd37b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      overflow: hidden;
+      background: #020204;
+      color: var(--ink);
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    body { display: grid; place-items: center; }
+    .slide {
+      position: relative;
+      display: none;
+      width: 1080px;
+      height: 1080px;
+      overflow: hidden;
+      grid-template-rows: auto 1fr auto;
+      padding: 70px;
+      background:
+        radial-gradient(circle at 14% 12%, rgba(115, 215, 208, 0.22), transparent 30%),
+        radial-gradient(circle at 88% 20%, rgba(216, 182, 107, 0.18), transparent 28%),
+        radial-gradient(circle at 48% 90%, rgba(156, 139, 255, 0.13), transparent 30%),
+        linear-gradient(142deg, #111a22 0%, #070910 58%, #020204 100%);
+    }
+    .slide:target { display: grid; }
+    body:not(:has(.slide:target)) #slide-1 { display: grid; }
+    .slide::before {
+      content: "";
+      position: absolute;
+      inset: 44px;
+      border: 1px solid rgba(247, 241, 232, 0.14);
+      border-radius: 36px;
+      pointer-events: none;
+    }
+    .slide::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(115, 215, 208, 0.11) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(216, 182, 107, 0.10) 1px, transparent 1px);
+      background-size: 58px 58px;
+      opacity: 0.52;
+      mask-image: linear-gradient(145deg, rgba(0,0,0,0.9), rgba(0,0,0,0.08));
+      pointer-events: none;
+    }
+    .top, .content, .bottom { position: relative; z-index: 2; }
+    .top, .bottom { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; font-size: 25px; font-weight: 900; }
+    .brand span:first-child, .brand b { color: var(--gold); }
+    .kicker {
+      color: var(--cyan);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 18px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .content { display: grid; align-content: center; gap: 30px; max-width: 930px; }
+    h1 { max-width: 910px; font-size: 88px; line-height: 0.96; font-weight: 900; letter-spacing: 0; }
+    h2 { max-width: 910px; font-size: 66px; line-height: 1.03; font-weight: 900; letter-spacing: 0; }
+    p { max-width: 870px; color: var(--muted); font-size: 34px; line-height: 1.27; font-weight: 650; }
+    .gold { color: var(--gold); }
+    .cyan { color: var(--cyan); }
+    .violet { color: var(--violet); }
+    .coral { color: var(--coral); }
+    .green { color: var(--green); }
+    .bottom { color: rgba(247, 241, 232, 0.54); font-family: "JetBrains Mono", monospace; font-size: 17px; font-weight: 800; }
+    .stamp {
+      display: inline-flex;
+      width: max-content;
+      border: 1px solid rgba(216, 182, 107, 0.38);
+      border-radius: 999px;
+      padding: 12px 16px;
+      color: var(--gold);
+      background: rgba(216, 182, 107, 0.08);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 18px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .rings {
+      position: absolute;
+      right: 76px;
+      top: 150px;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      border: 1px solid rgba(115, 215, 208, 0.28);
+      opacity: 0.88;
+    }
+    .rings::before,
+    .rings::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(216, 182, 107, 0.24);
+    }
+    .rings::before { inset: 58px; }
+    .rings::after { inset: 118px; background: rgba(156, 139, 255, 0.10); }
+    .grid-2,
+    .grid-3 {
+      display: grid;
+      gap: 18px;
+      max-width: 930px;
+    }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .card,
+    .proof,
+    .threat {
+      border: 1px solid var(--faint);
+      border-radius: 26px;
+      background: var(--panel);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.20);
+      padding: 24px;
+    }
+    .card { min-height: 170px; }
+    .proof { min-height: 160px; }
+    .threat { min-height: 150px; border-color: rgba(226, 125, 103, 0.26); background: rgba(24, 12, 16, 0.76); }
+    .card strong,
+    .proof strong,
+    .threat strong {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--ink);
+      font-size: 27px;
+      line-height: 1.08;
+      font-weight: 900;
+    }
+    .proof strong { color: var(--cyan); }
+    .threat strong { color: var(--coral); }
+    .card span,
+    .proof span,
+    .threat span {
+      display: block;
+      color: var(--muted);
+      font-size: 21px;
+      line-height: 1.28;
+      font-weight: 650;
+    }
+    .rail {
+      display: grid;
+      gap: 14px;
+      max-width: 910px;
+    }
+    .step {
+      display: grid;
+      grid-template-columns: 66px 1fr;
+      gap: 20px;
+      align-items: center;
+      border: 1px solid var(--faint);
+      border-radius: 24px;
+      padding: 20px;
+      background: rgba(13, 16, 25, 0.80);
+    }
+    .step b {
+      display: grid;
+      place-items: center;
+      width: 66px;
+      height: 66px;
+      border: 1px solid rgba(115, 215, 208, 0.44);
+      border-radius: 18px;
+      color: var(--cyan);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 22px;
+    }
+    .step strong { display: block; font-size: 27px; line-height: 1.1; margin-bottom: 4px; }
+    .step span { color: var(--muted); font-size: 22px; line-height: 1.25; font-weight: 650; }
+    .seal {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 18px;
+      max-width: 920px;
+    }
+    .seal-box {
+      border: 1px solid rgba(216, 182, 107, 0.30);
+      border-radius: 28px;
+      padding: 30px;
+      background: rgba(216, 182, 107, 0.08);
+    }
+    .seal-box strong { display: block; color: var(--gold); font-size: 40px; line-height: 1.04; margin-bottom: 18px; }
+    .seal-box span { color: var(--muted); font-size: 26px; line-height: 1.22; font-weight: 700; }
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 930px;
+    }
+    .mini {
+      min-height: 142px;
+      border: 1px solid var(--faint);
+      border-radius: 22px;
+      padding: 18px;
+      background: rgba(13, 16, 25, 0.80);
+    }
+    .mini b {
+      display: block;
+      color: var(--gold);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+    .mini strong {
+      display: block;
+      font-size: 22px;
+      line-height: 1.08;
+      margin-bottom: 8px;
+    }
+    .mini span {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.22;
+      font-weight: 650;
+    }
+  </style>
+</head>
+<body>
+  <section id="slide-1" class="slide">
+    <div class="top"><div class="brand"><span>∞</span> unwind<b>code</b></div><div class="kicker">Transmission 031</div></div>
+    <div class="rings"></div>
+    <div class="content">
+      <span class="stamp">Publication Governance</span>
+      <h1><span class="cyan">Ready</span> is not live truth</h1>
+      <p>A green build can still be the wrong public body. The Brain must prove identity before it mutates production.</p>
+    </div>
+    <div class="bottom"><span>The Active Source-of-Truth Gate</span><span>01 / 08</span></div>
+  </section>
+
+  <section id="slide-2" class="slide">
+    <div class="top"><div class="brand"><span>∞</span> unwind<b>code</b></div><div class="kicker">Why it matters</div></div>
+    <div class="content">
+      <h2>The site has to know <span class="gold">which body</span> the world sees.</h2>
+      <p>Local source, deployed artifact, active alias, archive, metadata, and public APIs can drift apart. Publication begins by proving they describe the same organism.</p>
+    </div>
+    <div class="bottom"><span>Publication is identity transfer</span><span>02 / 08</span></div>
+  </section>
+
+  <section id="slide-3" class="slide">
+    <div class="top"><div class="brand"><span>∞</span> unwind<b>code</b></div><div class="kicker">Five proofs</div></div>
+    <div class="content">
+      <h2>The gate checks five <span class="cyan">truth surfaces</span>.</h2>
+      <div class="grid-3">
+        <div class="proof"><strong>Live lane</strong><span>Which deployment receives the active domain?</span></div>
+        <div class="proof"><strong>Local source</strong><span>Does the worktree contain every public route already live?</span></div>
+        <div class="proof"><strong>Discovery</strong><span>Do homepage, archive, sitemap, LLMS, and AI services agree?</span></div>
+        <div class="proof"><strong>Public APIs</strong><span>Do status, search, grounding, transmissions, and assets prove the same state?</span></div>
+        <div class="proof"><strong>Internal boundary</strong><span>Are carousel packets still creator-only?</span></div>
+        <div class="proof"><strong>Approval lock</strong><span>Does mutation wait for the creator?</span></div>
+      </div>
+    </div>
+    <div class="bottom"><span>No source without boundary</span><span>03 / 08</span></div>
+  </section>
+
+  <section id="slide-4" class="slide">
+    <div class="top"><div class="brand"><span>∞</span> unwind<b>code</b></div><div class="kicker">Gate protocol</div></div>
+    <div class="content">
+      <h2>Inspect. Compare. Verify. <span class="gold">Classify.</span> Ask.</h2>
+      <div class="rail">
+        <div class="step"><b>01</b><div><strong>Inspect active domain</strong><span>Fetch what readers and agents actually see.</span></div></div>
+        <div class="step"><b>02</b><div><strong>Compare local source</strong><span>Confirm local contains every public live route.</span></div></div>
+        <div class="step"><b>03</b><div><strong>Verify contracts</strong><span>Check discovery files, data JSON, and public API state.</span></div></div>
+        <div class="step"><b>04</b><div><strong>Ask before mutation</strong><span>Deploy, alias, and posting authority stay human-gated.</span></div></div>
+      </div>
+    </div>
+    <div class="bottom"><span>The hand does not move until the gate passes</span><span>04 / 08</span></div>
+  </section>
+
+  <section id="slide-5" class="slide">
+    <div class="top"><div class="brand"><span>∞</span> unwind<b>code</b></div><div class="kicker">Threat model</div></div>
+    <div class="content">
+      <h2>Most publication failures are <span class="coral">identity failures</span>.</h2>
+      <div class="grid-2">
+        <div class="threat"><strong>Stale lane</strong><span>The domain serves an older deployment.</span></div>
+        <div class="threat"><strong>Live-ahead drift</strong><span>Production has routes missing locally.</span></div>
+        <div class="threat"><strong>Discovery split</strong><span>Page, sitemap, LLMS, and archive disagree.</span></div>
+        <div class="threat"><strong>API split</strong><span>Status or retrieval contracts cannot prove the page.</span></div>
+        <div class="threat"><strong>Social packet leak</strong><span>Internal posting assets become public CTAs.</span></div>
+        <div class="threat"><strong>Green build illusion</strong><span>Tests pass, but nobody verified the active body.</span></div>
+      </div>
+    </div>
+    <div class="bottom"><span>Stale truth is still drift</span><span>05 / 08</span></div>
+  </section>
+
+  <section id="slide-6" class="slide">
+    <div class="top"><div class="brand"><span>∞</span> unwind<b>code</b></div><div class="kicker">Next cell</div></div>
+    <div class="content">
+      <h2>Build the <span class="green">Release Identity Controller</span>.</h2>
+      <div class="mini-grid">
+        <div class="mini"><b>01</b><strong>Proof packet</strong><span>Latest route, live route, lane, counts, APIs.</span></div>
+        <div class="mini"><b>02</b><strong>Failure labels</strong><span>Stale lane, live-ahead, missing data, API split.</span></div>
+        <div class="mini"><b>03</b><strong>Hold state</strong><span>Stop deploy and alias commands until reconciled.</span></div>
+        <div class="mini"><b>04</b><strong>Memory write</strong><span>Passed gates and failed gates become proof memory.</span></div>
+      </div>
+      <p>The cell does not publish. It tells the operator whether publication is allowed to be considered.</p>
+    </div>
+    <div class="bottom"><span>Proof before production mutation</span><span>06 / 08</span></div>
+  </section>
+
+  <section id="slide-7" class="slide">
+    <div class="top"><div class="brand"><span>∞</span> unwind<b>code</b></div><div class="kicker">Approval boundary</div></div>
+    <div class="content">
+      <div class="seal">
+        <div class="seal-box"><strong>Proof opens clarity.</strong><span>It does not open deployment authority.</span></div>
+        <div class="seal-box"><strong>The creator still publishes.</strong><span>Deploying, aliasing, posting, syncing, spending, signing, and mutation remain gated.</span></div>
+      </div>
+      <p>The Brain may prepare the release package. The human decides whether the public body changes.</p>
+    </div>
+    <div class="bottom"><span>Approval before deploy</span><span>07 / 08</span></div>
+  </section>
+
+  <section id="slide-8" class="slide">
+    <div class="top"><div class="brand"><span>∞</span> unwind<b>code</b></div><div class="kicker">Next-cell memory</div></div>
+    <div class="content">
+      <span class="stamp">Transmission 31</span>
+      <h2>Know which body you are writing into <span class="gold">before you write</span>.</h2>
+      <p>A living website does not just publish. It remembers which public body is active, proves the body is current, and waits for approval before changing it.</p>
+    </div>
+    <div class="bottom"><span>Read the guide on UnwindCode.ai</span><span>08 / 08</span></div>
+  </section>
+</body>
+</html>

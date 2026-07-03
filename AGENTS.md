@@ -8,6 +8,8 @@
 - **Domain:** unwindcode.ai
 - **Auto-deploy:** Push to `main` → Vercel builds and deploys automatically
 - **Build:** `npx vite build` (multi-page via `vite.config.js`)
+- **Local parity check:** `npm run check:public-parity` compares the latest reviewed transmission across `/api/status`, sitemap, `llms.txt`, `ai-services.json`, homepage, and archive, and runs fixed public-safe `/api/search` plus `/api/grounding` contract smoke checks using local public sources only.
+- **Live parity check:** `npm run check:public-parity:live` runs the same read-only checks against `https://www.unwindcode.ai`; use it only when network/live production verification is intended.
 
 ## Pre-Build Research Requirement
 
@@ -100,6 +102,7 @@ vercel.json                         ← Clean URL routing
 
 - `public/ai-services.json` lists only active public API surfaces in this package: `/api/architecture`, `/api/assets`, `/api/chat`, `/api/claims`, `/api/grounding`, `/api/organisms`, `/api/search`, `/api/status`, `/api/transmissions`, and `/api/subscribe`.
 - Keep service descriptions bounded to current behavior, source-backed public routes, source files, and safety boundaries.
+- Keep `public/ai-services.json` source files limited to public controllers, registries, tests, and docs. Do not advertise creator-only social packet paths, captions, ready-to-upload folders, downloads, or exports in public service discovery.
 - Do not copy route-rich worktree metadata into this package unless those routes exist here and the claims have matching public proof.
 
 ## Public Registry Search
@@ -107,6 +110,7 @@ vercel.json                         ← Clean URL routing
 - `api/search.js` exposes read-only `GET /api/search?q=<query>` over `public/data/architecture.json`, `public/data/assets.json`, `public/data/claims.json`, `public/data/organisms.json`, and `public/data/transmissions.json`.
 - Supported filters are `type`, `claim_status`, `evidence_status`, `risk_level`, and `memory_layer`; filters must preserve claim status, evidence status, risk labels, citations, source files, claim references, and public memory labels when available.
 - Search results include deterministic lexical rank, match score, matched terms, compact public-safe snippets, and claim-context summaries for downstream RAG or chat grounding.
+- Search indexing may include explicit public claim-reference fields (`claim_id`, statuses, `risk_level`, and `purpose`) so organism, architecture, and transmission retrieval can find safety qualifications and show matched architecture/organism support snippets without indexing arbitrary nested objects.
 - Architecture, organism, and transmission search results must preserve public `memory_layers` and `memory_context` while excluding private memory, runtime memory, user memory, and unstated embeddings.
 - Keep search lexical and public-registry scoped until a reviewed RAG/answering layer is added. Do not search private repository files, private prompts, user submissions, runtime evidence, credentials, hidden procedures, or provider configuration.
 - `/api/search` responses must keep `answer_generation: disabled`, `synthesis_requires_grounding: true`, and retrieval-only boundaries. Search snippets are not generated answers; downstream answer work must request `/api/grounding`, render citations, and review claim qualifications first.
@@ -114,8 +118,9 @@ vercel.json                         ← Clean URL routing
 - `api/_shared/public-search.js` memoizes public JSON registries in process with file size/mtime invalidation and freezes the cached object. Do not add runtime/private evidence to that loader.
 - High-risk Web3, approval-gated, and financial search results must retain claim context or sensitive-topic review flags before any downstream chat or answer generation.
 - Approval-required asset search results must retain approval context, asset review flags, `public_safe: false`, and `requires_human_review: true` before any downstream grounding or answer generation.
+- Asset search results are a minimized retrieval projection, not the full asset ledger: omit raw `approval_records`, full approval schemas, and internal creator packet paths such as `social/`, `exports/`, `ready-to-upload`, `downloads/`, caption files, and carousel HTML. Keep only public review flags, authority boundaries, approval-record counts, schema version, and public route/registry citations. Use `/api/assets` for the detailed public provenance contract.
 - Query-bearing `/api/search` responses must stay `private, no-store`; validation, method, and loader failures must stay `no-store`.
-- Valid `/api/search` retrieval requests must pass the shared durable rate-limit hook before public registry loading. Limiter payloads must contain only salted route/client hashes plus limit/window metadata, never raw query text, snippets, source files, or registry results.
+- Valid `/api/search` retrieval requests, including `HEAD`, must pass query/filter validation, the shared durable rate-limit hook, public registry loading, and asset provenance validation before success. Limiter payloads must contain only salted route/client hashes plus limit/window metadata, never raw query text, snippets, source files, or registry results. `HEAD` success and error responses must remain bodyless.
 
 ## Public Grounding Packet
 
@@ -128,8 +133,9 @@ vercel.json                         ← Clean URL routing
 - Treat `answer_safety.public_metadata_safe` separately from `answer_safety.answer_safe`; public source metadata is never standalone answer permission.
 - `api/_shared/public-search.js` is the shared public-registry search helper used by both `/api/search` and `/api/grounding`; keep it limited to public JSON registries.
 - Approval-required asset grounding sources must preserve asset review flags and blocked answer-policy reasons until a human has reviewed publication and usage permissions.
+- Asset grounding citations must inherit the minimized asset retrieval projection: cite public routes or `public/data/assets.json`, never creator-only packet files. Grounding sources may carry safe alt text, approval context, approval-record counts, and authority boundaries, but not raw approval records or internal packet paths.
 - Query-bearing `/api/grounding` responses must stay `private, no-store`; validation, method, and loader failures must stay `no-store`.
-- Valid `/api/grounding` retrieval requests must pass the shared durable rate-limit hook before packet assembly. Limiter payloads must contain only salted route/client hashes plus limit/window metadata, never raw query text, citations, snippets, qualifications, or packet contents.
+- Valid `/api/grounding` retrieval requests, including `HEAD`, must pass query/filter validation, the shared durable rate-limit hook, public registry loading, asset provenance validation, and grounding packet assembly before success. Limiter payloads must contain only salted route/client hashes plus limit/window metadata, never raw query text, citations, snippets, qualifications, or packet contents. `HEAD` success and error responses must remain bodyless.
 
 ## Public Claim Registry
 
@@ -144,19 +150,32 @@ vercel.json                         ← Clean URL routing
 - `public/data/assets.json` is the active public-safe registry for reviewed asset packages in this package.
 - `api/assets.js` exposes read-only `GET /api/assets`, `GET /api/assets?id=<asset-package-id>`, `GET /api/assets?review_status=<status>`, and `GET /api/assets?publication_status=<status>` responses for future asset workflow, provenance, and review use.
 - Keep asset metadata limited to source files, source-file hashes, generated artifact paths, generated-file hashes, byte counts, alt text, review status, publication status, approval gates, authority boundaries, and public-safe approval record schemas. Do not include private prompts, credentials, provider configuration, user data, unpublished drafts, or public posting authority.
-- Asset packages must carry a canonical `asset_package_sha256` that binds package identity, source hashes, generated hashes, approval schema version, and authority boundaries before future approval records or attestations reference the package.
+- Asset packages must carry a canonical `asset_package_sha256` that binds package identity, public display metadata, source-file lists, source hashes, generated hashes, rights, approval gates, the full public approval schema, review/publication state, confidence, and authority boundaries before future approval records or attestations reference the package.
+- Canonical asset package inputs are mandatory: `packages` must be an array, each package must include non-empty public metadata, non-empty source/generated hash records, a public approval-record schema, rights, approval gates, review/publication state, confidence, and a deny-by-default authority boundary before a digest can be accepted.
+- `/api/assets` must recompute `asset_package_sha256` from the canonical package fields before responding; a syntactically valid but noncanonical or incomplete digest must fail closed before public API or retrieval output.
+- `/api/search` and `/api/grounding` must load assets through the shared public registry loader, which runs the same asset registry validator before indexing provenance for retrieval or grounding packets.
+- Asset registry tests and runtime validation must verify every listed source file has exactly one matching source-file hash entry, and every listed generated file carries byte/hash provenance, so public provenance cannot drift silently.
 - Valid `/api/assets` reads must pass the shared durable rate-limit hook before registry or metadata loading. Limiter payloads must contain only salted route/client hashes plus limit/window metadata, never asset ids, filters, source files, generated asset paths, registry contents, or raw client addresses.
-- Asset authority boundaries must deny automated posting, wallet signing, paid media activation, on-chain publication, and unreviewed RAG answer authority unless a future reviewed approval record explicitly changes the state.
+- Asset authority boundaries must deny automated posting, wallet signing, paid media activation, on-chain publication, and unreviewed RAG answer authority unless a future reviewed non-public approval lane explicitly changes the state. The public `/api/assets` validator must fail closed if core high-risk authority booleans are missing or true, if optional authority booleans are present and true, if `allowed_uses` includes unsupported/prohibited actions, or if baseline prohibited-use labels are missing.
 - Approval record schemas must remain public-safe and role-based only. Exclude private approver identities, raw prompts, private notes, credentials, sensitive user data, wallet secret material, and sensitive on-chain data; keep `approval_records` empty unless a reviewed approval actually exists.
 - Future asset approval records must match both `asset_package_id` and canonical `asset_package_sha256`; mismatches must fail closed before public API or retrieval output.
+- Future asset approval records must contain exactly the code-owned public approval-record fields, use an allowed approval scope, carry a valid role/timestamp, and set source/generated hash verification booleans to `true`. The embedded registry schema is descriptive, not self-authorizing; any schema version drift, storage-boundary drift, extra/private field, missing required field, unsupported scope, invalid role/timestamp, or unverified hash state must fail closed before `/api/assets` responds.
 - Keep `/api/assets` success responses public-cacheable only for public registry metadata, with short revalidation plus `ETag`/`Last-Modified` validators while approval or publication state is present; validation, method, not-found, and loader failures must stay generic and `no-store`.
 
 ## Public Backend Status
 
 - `api/status.js` exposes read-only `GET /api/status` status metadata aggregated from `public/ai-services.json`, `public/data/assets.json`, `public/data/architecture.json`, `public/data/claims.json`, `public/data/organisms.json`, and `public/data/transmissions.json`.
 - Keep the status endpoint public-safe and aggregate-only. Do not include environment values, provider keys, user submissions, runtime evidence, private prompts, owner manifests, deployment details, or secret configured state.
+- `/api/status` must validate `public/data/assets.json` through the shared asset registry validator before reporting asset counts or overall public-safe status; an invalid asset digest or unsafe authority boundary must fail closed with a generic no-store error.
+- Status may expose the latest reviewed public transmission pointer from the transmission registry. Treat it as local registry observability, not production deployment proof.
+- Status may expose public transmission numbering gaps to support parity checks. Treat gaps as descriptive registry metadata, not proof of missing hidden routes or failed deployment.
 - Status may expose public operational-control booleans and endpoint lists from `public/ai-services.json`, such as durable rate limiting, production fail-closed behavior, same-origin guards, and answer-generation-disabled surfaces. Do not expose live env configuration, limiter tokens, salts, raw client addresses, raw query text, provider health, or deployment proof.
+- `/api/status` `HEAD` must call the same public status reader as `GET` before success, including asset provenance validation, and must return bodyless `no-store` failures if status loading or validation fails.
 - `/api/status` success responses may be public-cacheable, but method errors and public metadata loader failures must be generic and `no-store`; cached status must refresh when public metadata source file signatures change.
+- `scripts/check-public-parity.mjs` is the public-proof parity checker. Local mode must stay local-file scoped plus local read-only status/search/grounding handler checks; live mode must stay read-only and clearly separate live production verification from local registry proof. Keep internal `/social/` assets out of sitemap, `llms.txt`, homepage, archive discovery, and minimized RAG retrieval outputs.
+- Live parity must classify `/api/search` and `/api/grounding` `429`/`503` responses as endpoint-specific fail-closed RAG contract states with safe `HTTP_<status>` codes, not as generic deployment reachability failures.
+- Parity RAG smoke must use fixed public-safe queries only and never accept credentials, private prompts, sensitive notes, arbitrary user queries, POST bodies, or provider/chat prompts.
+- Future parity checks may add a reviewed `/api/chat` grounding-gate smoke path, but ordinary chat/provider forwarding must stay out of default parity.
 
 ## Design System Tokens (style.css)
 

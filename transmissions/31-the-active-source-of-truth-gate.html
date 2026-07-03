@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Transmission 31: The Active Source-of-Truth Gate | Unwind Code</title>
+  <meta name="description" content="A whitepaper-grade Brain guide for the Active Source-of-Truth Gate: live-lane identity, local parity, discovery metadata, registry truth, API contract proof, and approval before production mutation." />
+  <meta name="theme-color" content="#06060c" />
+  <link rel="canonical" href="https://www.unwindcode.ai/transmissions/31-the-active-source-of-truth-gate.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="The Active Source-of-Truth Gate" />
+  <meta property="og:description" content="How the Unwind Brain proves the active public site is the same organism as the local source tree before publishing a new transmission." />
+  <meta property="og:url" content="https://www.unwindcode.ai/transmissions/31-the-active-source-of-truth-gate.html" />
+  <meta property="og:site_name" content="Unwind Code" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="The Active Source-of-Truth Gate" />
+  <meta name="twitter:description" content="A compact whitepaper for live-lane identity, publication parity, and proof-before-deploy architecture." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Active Source-of-Truth Gate",
+    "description": "A whitepaper-grade Brain guide for the Active Source-of-Truth Gate: live-lane identity, local parity, discovery metadata, registry truth, API contract proof, and approval before production mutation.",
+    "author": {"@type": "Organization", "name": "Unwind Code"},
+    "publisher": {"@type": "Organization", "name": "Unwind Code", "url": "https://www.unwindcode.ai"},
+    "datePublished": "2026-07-01",
+    "dateModified": "2026-07-01",
+    "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/31-the-active-source-of-truth-gate.html"
+  }
+  </script>
+  <style>
+    :root {
+      --stg-ink: #f6f2e9;
+      --stg-muted: rgba(246, 242, 233, 0.7);
+      --stg-line: rgba(246, 242, 233, 0.12);
+      --stg-gold: #d7b86a;
+      --stg-cyan: #73d7d0;
+      --stg-iris: #9c8bff;
+      --stg-coral: #e27d67;
+      --stg-green: #9bd37b;
+      --stg-panel: rgba(13, 16, 23, 0.82);
+      --stg-panel-strong: rgba(19, 22, 31, 0.94);
+    }
+    .stg-page {
+      background: var(--bg-void);
+      color: var(--text-primary);
+      overflow-x: hidden;
+    }
+    .stg-page *, .stg-page *::before, .stg-page *::after {
+      box-sizing: border-box;
+    }
+    .stg-hero {
+      position: relative;
+      min-height: 94vh;
+      padding: 152px 0 76px;
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      border-bottom: 1px solid var(--stg-line);
+      background:
+        radial-gradient(circle at 12% 18%, rgba(115, 215, 208, 0.17), transparent 26%),
+        radial-gradient(circle at 88% 22%, rgba(215, 184, 106, 0.18), transparent 27%),
+        radial-gradient(circle at 50% 100%, rgba(156, 139, 255, 0.13), transparent 31%),
+        linear-gradient(145deg, rgba(5, 7, 13, 0.99), rgba(3, 5, 10, 1));
+    }
+    .stg-hero::before {
+      content: "";
+      position: absolute;
+      inset: -20%;
+      opacity: 0.18;
+      background-image:
+        linear-gradient(rgba(246, 242, 233, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(246, 242, 233, 0.08) 1px, transparent 1px);
+      background-size: 64px 64px;
+      transform: rotate(5deg);
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.96), transparent 84%);
+    }
+    .stg-hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(330px, 0.72fr);
+      gap: 44px;
+      align-items: center;
+    }
+    .stg-kicker {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid rgba(115, 215, 208, 0.34);
+      border-radius: 999px;
+      padding: 8px 13px;
+      background: rgba(115, 215, 208, 0.08);
+      color: var(--stg-cyan);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .stg-hero h1 {
+      max-width: 960px;
+      margin: 22px 0 24px;
+      font-size: 5.08rem;
+      line-height: 0.96;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+    .stg-hero-sub {
+      max-width: 850px;
+      color: var(--stg-muted);
+      font-size: 1.08rem;
+      line-height: 1.78;
+    }
+    .stg-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+    .stg-meta span {
+      border: 1px solid var(--stg-line);
+      border-radius: 999px;
+      padding: 9px 12px;
+      background: rgba(13, 15, 24, 0.68);
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      font-weight: 760;
+      text-transform: uppercase;
+    }
+    .stg-gate-card {
+      border: 1px solid rgba(215, 184, 106, 0.27);
+      border-radius: 28px;
+      padding: 26px;
+      background:
+        linear-gradient(135deg, rgba(215, 184, 106, 0.12), transparent 38%),
+        linear-gradient(315deg, rgba(115, 215, 208, 0.1), transparent 44%),
+        var(--stg-panel);
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.34);
+    }
+    .stg-gate-card h2 {
+      margin-bottom: 18px;
+      color: var(--stg-gold);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.86rem;
+      text-transform: uppercase;
+    }
+    .stg-gate-stack {
+      display: grid;
+      gap: 12px;
+    }
+    .stg-gate-row {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 13px;
+      align-items: start;
+      border: 1px solid var(--stg-line);
+      border-radius: 18px;
+      padding: 15px;
+      background: rgba(6, 8, 14, 0.48);
+    }
+    .stg-gate-row b {
+      display: grid;
+      place-items: center;
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      border: 1px solid rgba(115, 215, 208, 0.28);
+      color: var(--stg-cyan);
+      font-family: "JetBrains Mono", monospace;
+    }
+    .stg-gate-row strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--stg-ink);
+    }
+    .stg-gate-row span {
+      color: var(--stg-muted);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+    .stg-section {
+      padding: 82px 0;
+      border-bottom: 1px solid var(--stg-line);
+    }
+    .stg-section-head {
+      max-width: 980px;
+      margin-bottom: 28px;
+    }
+    .stg-section-num {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--stg-gold);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .stg-section h2 {
+      font-size: 2.72rem;
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+    .stg-prose {
+      max-width: 930px;
+      color: var(--stg-muted);
+      font-size: 1.03rem;
+      line-height: 1.85;
+    }
+    .stg-prose p {
+      margin: 0 0 22px;
+    }
+    .stg-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 30px;
+    }
+    .stg-card {
+      border: 1px solid var(--stg-line);
+      border-radius: 8px;
+      padding: 21px;
+      background: var(--stg-panel);
+    }
+    .stg-card strong {
+      display: block;
+      margin-bottom: 9px;
+      color: var(--stg-ink);
+      font-size: 1rem;
+    }
+    .stg-card span {
+      color: var(--stg-muted);
+      line-height: 1.63;
+      font-size: 0.95rem;
+    }
+    .stg-protocol {
+      display: grid;
+      gap: 13px;
+      margin-top: 30px;
+      counter-reset: gate;
+    }
+    .stg-protocol-row {
+      position: relative;
+      display: grid;
+      grid-template-columns: 76px 1fr;
+      gap: 18px;
+      align-items: start;
+      border: 1px solid var(--stg-line);
+      border-radius: 8px;
+      padding: 20px;
+      background: rgba(12, 15, 22, 0.8);
+    }
+    .stg-protocol-row::before {
+      counter-increment: gate;
+      content: counter(gate, decimal-leading-zero);
+      display: grid;
+      place-items: center;
+      width: 54px;
+      height: 54px;
+      border-radius: 17px;
+      border: 1px solid rgba(215, 184, 106, 0.35);
+      color: var(--stg-gold);
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 800;
+    }
+    .stg-protocol-row h3 {
+      margin: 2px 0 8px;
+      color: var(--stg-ink);
+      font-size: 1.14rem;
+    }
+    .stg-protocol-row p {
+      margin: 0;
+      color: var(--stg-muted);
+      line-height: 1.68;
+    }
+    .stg-matrix {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      margin-top: 32px;
+      border: 1px solid var(--stg-line);
+      background: var(--stg-line);
+    }
+    .stg-matrix div {
+      min-height: 112px;
+      padding: 16px;
+      background: rgba(10, 12, 19, 0.94);
+    }
+    .stg-matrix b {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--stg-cyan);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.74rem;
+      text-transform: uppercase;
+    }
+    .stg-matrix span {
+      color: var(--stg-muted);
+      font-size: 0.91rem;
+      line-height: 1.54;
+    }
+    .stg-callout {
+      margin-top: 30px;
+      border-left: 3px solid var(--stg-gold);
+      padding: 22px 24px;
+      background: rgba(215, 184, 106, 0.08);
+      color: var(--stg-ink);
+      line-height: 1.75;
+    }
+    .stg-ledger {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 30px;
+    }
+    .stg-ledger-item {
+      border: 1px solid var(--stg-line);
+      border-radius: 8px;
+      padding: 19px;
+      background: var(--stg-panel-strong);
+    }
+    .stg-ledger-item b {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--stg-green);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+    }
+    .stg-ledger-item span {
+      color: var(--stg-muted);
+      line-height: 1.62;
+    }
+    .stg-final {
+      background:
+        radial-gradient(circle at 12% 10%, rgba(115, 215, 208, 0.1), transparent 24%),
+        radial-gradient(circle at 86% 88%, rgba(215, 184, 106, 0.11), transparent 28%),
+        linear-gradient(180deg, rgba(10, 12, 19, 0.92), rgba(4, 5, 10, 1));
+    }
+    .stg-final-box {
+      border: 1px solid rgba(115, 215, 208, 0.25);
+      border-radius: 8px;
+      padding: 30px;
+      background: rgba(9, 11, 18, 0.78);
+    }
+    .stg-final-box h2 {
+      margin-bottom: 16px;
+    }
+    .stg-final-box p {
+      color: var(--stg-muted);
+      line-height: 1.82;
+      max-width: 920px;
+    }
+    @media (max-width: 980px) {
+      .stg-hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .stg-hero h1 {
+        font-size: 3.65rem;
+      }
+      .stg-grid,
+      .stg-matrix,
+      .stg-ledger {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 620px) {
+      .stg-hero {
+        padding: 126px 0 56px;
+      }
+      .stg-hero h1 {
+        font-size: 2.75rem;
+      }
+      .stg-section h2 {
+        font-size: 2.1rem;
+      }
+      .stg-protocol-row,
+      .stg-gate-row {
+        grid-template-columns: 1fr;
+      }
+      .stg-protocol-row::before {
+        width: 48px;
+        height: 48px;
+      }
+    }
+  </style>
+</head>
+<body class="stg-page">
+  <nav id="nav" class="scrolled">
+    <a href="/" class="nav-brand">
+      <span class="nav-glyph">∞</span>
+      <span class="nav-name">unwind<span class="nav-accent">code</span></span>
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-links" id="nav-links">
+      <a href="/#organisms">Organisms</a>
+      <a href="/#architecture">Architecture</a>
+      <a href="/#philosophy">Philosophy</a>
+      <a href="/#vision">Vision</a>
+      <a href="/transmissions/" class="active">Transmissions</a>
+    </div>
+    <div class="nav-actions">
+      <a href="/#cta" class="nav-cta">Get in Touch</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="stg-hero">
+      <div class="container">
+        <div class="stg-hero-grid">
+          <div>
+            <span class="stg-kicker">Transmission 031 / Publication Governance</span>
+            <h1>The Active Source-of-Truth Gate</h1>
+            <p class="stg-hero-sub">A living public Brain cannot publish from hope. Before a transmission reaches production, the organism must prove that the active public lane, the local source tree, the archive, the discovery files, the registries, and the API contracts describe the same body.</p>
+            <div class="stg-meta">
+              <span>July 2026</span>
+              <span>Manual Brain Mode</span>
+              <span>Public proof</span>
+              <span>Approval before deploy</span>
+            </div>
+          </div>
+          <aside class="stg-gate-card" aria-label="Source truth gate overview">
+            <h2>Gate shape</h2>
+            <div class="stg-gate-stack">
+              <div class="stg-gate-row"><b>01</b><div><strong>Live lane</strong><span>The active domain must point at the intended current site, not an older deployment that happens to be ready.</span></div></div>
+              <div class="stg-gate-row"><b>02</b><div><strong>Local source</strong><span>The worktree must contain every public route and registry entry already visible on production.</span></div></div>
+              <div class="stg-gate-row"><b>03</b><div><strong>Discovery truth</strong><span>Homepage, archive, sitemap, LLMS, AI services metadata, and data JSON must all agree.</span></div></div>
+              <div class="stg-gate-row"><b>04</b><div><strong>Mutation boundary</strong><span>Deployment, aliasing, posting, and registry authority stay closed until identity is proven.</span></div></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="stg-section" id="thesis">
+      <div class="container">
+        <div class="stg-section-head">
+          <span class="stg-section-num">01 / Thesis</span>
+          <h2>Publication is identity transfer, not file upload.</h2>
+        </div>
+        <div class="stg-prose">
+          <p>The hardest part of a public cognitive organism is not writing the next page. The hard part is proving that the page is being added to the same public organism readers already trust. A site can have a green build, a valid deployment, and a working route while still being the wrong public lane.</p>
+          <p>The Active Source-of-Truth Gate is the organism's proprioception layer for publication. It asks: where is my body in public? Which deployment is receiving the domain? Which archive does the world see? Which metadata files are visible to crawlers and agents? Which public APIs are able to speak the same registry truth? If those answers diverge, the Brain must not publish. It must stop, name the drift, and reconcile the lane.</p>
+          <p>This is not bureaucracy. It is care. A Brain that can update itself without knowing which body is live will eventually overwrite proof with performance. The gate makes production mutation a reviewed act.</p>
+        </div>
+        <div class="stg-callout"><strong>Transmission decision:</strong> this topic passed the gate because live production verification exposed a split between the active public lane and the newer local transmission registry. The public lesson is larger than the incident: every living site needs a source-of-truth organ before it can safely evolve.</div>
+      </div>
+    </section>
+
+    <section class="stg-section" id="why-now">
+      <div class="container">
+        <div class="stg-section-head">
+          <span class="stg-section-num">02 / Ecosystem signal</span>
+          <h2>The system learned that Ready does not mean current.</h2>
+        </div>
+        <div class="stg-prose">
+          <p>Manual Brain Mode compared the local website package against the active public domain. Locally, the public parity checker recognized Transmission 30 as the latest Brain guide and confirmed the homepage, archive, sitemap, LLMS, AI services metadata, status, search, and grounding contracts agreed. On the active public domain, the alias was still serving an older public lane. The archive exposed older transmission state and internal social packet links, while newer data JSON surfaces were missing.</p>
+          <p>That split matters because readers, search crawlers, and agent clients do not experience our intentions. They experience the active domain. If the local source says the organism has grown but the public alias serves another body, the Brain has a memory problem at publication time.</p>
+          <p>So the next cell is not another content cell. The next cell is a publication identity cell: a gate that proves the organism is about to mutate the correct public body.</p>
+        </div>
+        <div class="stg-grid" aria-label="Why this gate matters">
+          <div class="stg-card"><strong>For readers</strong><span>The newest guide should be findable from the homepage and archive without stale cards or hidden distribution tools.</span></div>
+          <div class="stg-card"><strong>For agents</strong><span>Machine-readable files must cite the same latest route that the visible website promotes.</span></div>
+          <div class="stg-card"><strong>For the Brain</strong><span>Publication memory must distinguish local readiness from live production truth.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stg-section" id="terms">
+      <div class="container">
+        <div class="stg-section-head">
+          <span class="stg-section-num">03 / Definitions</span>
+          <h2>Six terms the organism must keep separate.</h2>
+        </div>
+        <div class="stg-grid">
+          <div class="stg-card"><strong>Local source tree</strong><span>The files in the active worktree. It can pass tests and still not be public.</span></div>
+          <div class="stg-card"><strong>Build artifact</strong><span>The generated deployment output. It can be valid and still not be the active alias.</span></div>
+          <div class="stg-card"><strong>Active public lane</strong><span>The deployment actually receiving `www.unwindcode.ai` traffic at the moment of verification.</span></div>
+          <div class="stg-card"><strong>Discovery surface</strong><span>Homepage, archive, sitemap, LLMS, AI services metadata, and data registries exposed to humans and agents.</span></div>
+          <div class="stg-card"><strong>Contract surface</strong><span>Public APIs that report status, retrieval, grounding, transmission metadata, and asset provenance.</span></div>
+          <div class="stg-card"><strong>Mutation authority</strong><span>The permission to deploy, alias, publish, post, or update public state. It must remain human-gated.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stg-section" id="organism-pattern">
+      <div class="container">
+        <div class="stg-section-head">
+          <span class="stg-section-num">04 / Organism pattern</span>
+          <h2>The source-of-truth cell has five organs.</h2>
+        </div>
+        <div class="stg-protocol">
+          <div class="stg-protocol-row"><div><h3>Identity inspector</h3><p>Reads the active domain and deployment metadata, then records which public lane is actually serving `www.unwindcode.ai`. It treats a ready deployment as one signal, not as final proof.</p></div></div>
+          <div class="stg-protocol-row"><div><h3>Surface comparator</h3><p>Compares live homepage, archive, sitemap, LLMS, AI services metadata, and public data files against the local worktree. The latest transmission must be consistent across all of them.</p></div></div>
+          <div class="stg-protocol-row"><div><h3>Contract verifier</h3><p>Checks public status, search, grounding, transmission, and asset endpoints. Fail-closed API responses are recorded honestly; missing or stale contracts block publication.</p></div></div>
+          <div class="stg-protocol-row"><div><h3>Internal boundary guard</h3><p>Confirms creator-only carousel packets, captions, ZIPs, and ready-to-upload files remain outside public pages, sitemap, LLMS, and visitor-facing CTAs unless a public campaign surface was explicitly approved.</p></div></div>
+          <div class="stg-protocol-row"><div><h3>Approval lock</h3><p>Stops deployment, aliasing, public posting, and registry mutation until the gate passes and the creator gives fresh current-thread approval for the exact production action.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stg-section" id="protocol">
+      <div class="container">
+        <div class="stg-section-head">
+          <span class="stg-section-num">05 / Protocol</span>
+          <h2>The gate runs before the publish button exists.</h2>
+        </div>
+        <div class="stg-prose">
+          <p>The correct sequence is conservative. First, inspect the active worktree and preserve unrelated local changes. Second, prove local parity across page, archive, data registries, discovery files, and tests. Third, fetch production directly from the active domain. Fourth, inspect the active deployment lane. Fifth, classify every difference before any production mutation.</p>
+        </div>
+        <div class="stg-matrix" aria-label="Active Source of Truth gate checklist">
+          <div><b>Live alias</b><span>Does the active domain point at the intended current project and lane?</span></div>
+          <div><b>Latest route</b><span>Does production expose the same latest transmission the local registry expects?</span></div>
+          <div><b>Homepage</b><span>Does the first public surface promote the same latest guide?</span></div>
+          <div><b>Archive</b><span>Does the transmission library count and order match local truth?</span></div>
+          <div><b>Sitemap</b><span>Does crawler discovery include the new public route and exclude internal packet routes?</span></div>
+          <div><b>LLMS</b><span>Does agent-readable discovery cite the same guide, without creator-only assets?</span></div>
+          <div><b>AI services</b><span>Do service citations and source routes include the latest public registry state?</span></div>
+          <div><b>Data JSON</b><span>Do transmission and asset registries exist and match local public metadata?</span></div>
+          <div><b>Status API</b><span>Does public status report the same latest transmission and registry counts?</span></div>
+          <div><b>Search API</b><span>Does retrieval stay citation-backed, answer-generation disabled, and public-safe?</span></div>
+          <div><b>Grounding API</b><span>Does grounding return citations and refusal-policy scaffolding before any synthesis?</span></div>
+          <div><b>Social boundary</b><span>Are carousel packets still internal creator material, not visitor-facing site controls?</span></div>
+        </div>
+        <div class="stg-callout"><strong>Fail rule:</strong> if any surface is older than local, newer than local, missing, or serving from the wrong lane, the Brain does not deploy. It records a drift memo or local proof package and waits for reconciliation.</div>
+      </div>
+    </section>
+
+    <section class="stg-section" id="failure-modes">
+      <div class="container">
+        <div class="stg-section-head">
+          <span class="stg-section-num">06 / Threat model</span>
+          <h2>Most publication failures are identity failures.</h2>
+        </div>
+        <div class="stg-grid">
+          <div class="stg-card"><strong>Stale lane drift</strong><span>The domain points at an older deployment. New local work may be correct, but public readers see a previous body.</span></div>
+          <div class="stg-card"><strong>Live-ahead drift</strong><span>Production contains a route or metadata entry absent from local. Deploying from local would erase public memory.</span></div>
+          <div class="stg-card"><strong>Discovery split</strong><span>The page exists, but sitemap, LLMS, AI services metadata, or data registries do not cite it.</span></div>
+          <div class="stg-card"><strong>API contract split</strong><span>Static files look current, but status, search, grounding, transmission, or asset endpoints cannot prove the same state.</span></div>
+          <div class="stg-card"><strong>Internal asset leak</strong><span>Creator-only social assets become public navigation, making an internal distribution packet look like visitor documentation.</span></div>
+          <div class="stg-card"><strong>Green build illusion</strong><span>Tests and build pass locally, but nobody checked which public body the alias actually serves.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stg-section" id="build-recipe">
+      <div class="container">
+        <div class="stg-section-head">
+          <span class="stg-section-num">07 / Build recipe</span>
+          <h2>How to build the Source Truth Cell.</h2>
+        </div>
+        <div class="stg-protocol">
+          <div class="stg-protocol-row"><div><h3>Create a normalized proof packet</h3><p>Store latest route, transmission number, archive count, metadata file presence, API status, social-boundary result, live deployment lane, and timestamp. Keep the packet public-safe: no credentials, headers, private prompts, or provider internals.</p></div></div>
+          <div class="stg-protocol-row"><div><h3>Compare local and live as separate authorities</h3><p>Local proof is not live proof. Live proof is not source proof. The cell should report both and require them to converge before mutation authority opens.</p></div></div>
+          <div class="stg-protocol-row"><div><h3>Classify failures instead of flattening them</h3><p>Use labels such as `stale_live_lane`, `live_ahead_of_local`, `missing_data_registry`, `public_social_link_exposed`, `api_fail_closed`, and `wrong_project_lane` so the next agent knows whether to hold, reconcile, or ask the creator.</p></div></div>
+          <div class="stg-protocol-row"><div><h3>Connect the gate to deployment commands</h3><p>Deploy, alias, and production mutation commands should require a passing source-truth packet plus explicit human approval. The gate is not advisory decoration; it is the lock before the hand moves.</p></div></div>
+          <div class="stg-protocol-row"><div><h3>Write the result back into memory</h3><p>Every failed gate should become a watch memo. Every passed gate should become a proof ledger entry. That is how the Brain learns publication hygiene as memory, not as a one-time checklist.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stg-section" id="approval-boundary">
+      <div class="container">
+        <div class="stg-section-head">
+          <span class="stg-section-num">08 / Approval boundary</span>
+          <h2>The Brain may prepare. The creator still publishes.</h2>
+        </div>
+        <div class="stg-prose">
+          <p>The Source Truth Cell does not grant deployment authority. It grants clarity. The Brain can prepare the transmission, generate internal posting assets, compute provenance, run tests, build the site, inspect production, and say whether the gate passed. It cannot infer permission to mutate `www.unwindcode.ai`, switch aliases, push public code, post to social platforms, activate paid media, move money, sign transactions, or rewrite memory that affects public trust.</p>
+          <p>This keeps the Unwind principle intact: money as armor, not god; lower the suffering; increase the clarity; preserve the light. Clarity means the system tells the creator when the site is not the body they think it is. Preservation means it stops before overwriting evidence.</p>
+        </div>
+        <div class="stg-callout">Posting assets for this transmission remain internal creator material. They are not part of the public guide surface unless a separate campaign page is explicitly approved.</div>
+      </div>
+    </section>
+
+    <section class="stg-section" id="proof-ledger">
+      <div class="container">
+        <div class="stg-section-head">
+          <span class="stg-section-num">09 / Proof ledger</span>
+          <h2>What this transmission records.</h2>
+        </div>
+        <div class="stg-ledger">
+          <div class="stg-ledger-item"><b>Manual Brain Mode</b><span>The runtime did not autonomously publish this record. The protocol was manually executed from local and live production evidence.</span></div>
+          <div class="stg-ledger-item"><b>Local source truth</b><span>The local website package had a newer transmission registry and local public parity path than the active public lane.</span></div>
+          <div class="stg-ledger-item"><b>Live drift context</b><span>The active public domain was verified before writing T31 and showed stale-lane behavior. That finding is treated as a hold condition for upload.</span></div>
+          <div class="stg-ledger-item"><b>Skill memory</b><span>The transmission workflow now requires the Active Source-of-Truth Gate before upload, deploy, alias, or production-complete claims.</span></div>
+          <div class="stg-ledger-item"><b>Public metadata</b><span>This page is designed to update the archive, homepage, sitemap, LLMS, AI services metadata, and public transmission registry together in the local package.</span></div>
+          <div class="stg-ledger-item"><b>Internal assets</b><span>The Instagram carousel packet is prepared for creator review only. It is excluded from public discovery surfaces by default.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stg-section stg-final" id="next-cell-memory">
+      <div class="container">
+        <div class="stg-final-box">
+          <span class="stg-section-num">10 / Next-cell memory</span>
+          <h2>The next cell is a Release Identity Controller.</h2>
+          <p>The Brain should grow a Release Identity Controller that runs before every public mutation. It should produce a small, inspectable packet: local latest route, live latest route, domain lane, registry counts, discovery agreement, API contract state, internal asset boundary, failure classification, and required human decision. If the packet passes, the creator can approve publication from a place of clarity. If it fails, the Brain holds the line.</p>
+          <p>That is how a site becomes a living organism without becoming reckless. It does not just write. It knows which body it is writing into.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <div class="footer-brand"><span class="nav-glyph">∞</span> unwind<span>code</span></div>
+          <p>Building cognitive organisms for a more human future.</p>
+        </div>
+        <div class="footer-col"><h5>Organisms</h5><a href="/#organisms">Financial</a><a href="/#organisms">Creative</a><a href="/#organisms">Business</a></div>
+        <div class="footer-col"><h5>Learn</h5><a href="/#architecture">Architecture</a><a href="/#philosophy">Philosophy</a><a href="/#vision">Vision 2030</a></div>
+        <div class="footer-col"><h5>Connect</h5><a href="/#cta">Contact</a><a href="/transmissions/">Transmissions</a></div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Unwind Code</span><span>Made with clarity, courage, and code.</span></div>
+    </div>
+  </footer>
+
+  <script src="/main.js"></script>
+</body>
+</html>

@@ -5,6 +5,7 @@ import {
 } from './_shared/rate-limit.js';
 import {
   buildPublicSearchPayload,
+  loadPublicRegistries,
   parsePublicSearchParams,
 } from './_shared/public-search.js';
 import {
@@ -92,6 +93,34 @@ const CHAT_SITE_CLAIM_GROUNDING_PATTERNS = [
     query: 'independent organisms',
   },
 ];
+const CHAT_CLAIM_QUERY_STOPWORDS = new Set([
+  'a',
+  'about',
+  'an',
+  'and',
+  'are',
+  'can',
+  'does',
+  'do',
+  'for',
+  'from',
+  'how',
+  'i',
+  'is',
+  'it',
+  'mean',
+  'me',
+  'of',
+  'on',
+  'or',
+  'the',
+  'this',
+  'to',
+  'what',
+  'with',
+  'you',
+  'your',
+]);
 function getHeader(headers, name) {
   if (!headers) return '';
   const direct = headers[name] || headers[name.toLowerCase()];
@@ -253,6 +282,61 @@ function chatGroundingQuery(message) {
   return siteClaimMatch?.query || message.slice(0, 160);
 }
 
+function tokenizeClaimGroundingText(value) {
+  return String(value || '')
+    .toLowerCase()
+    .match(/[a-z0-9]+/gu) || [];
+}
+
+function meaningfulClaimTokens(value) {
+  return tokenizeClaimGroundingText(value).filter((token) => !CHAT_CLAIM_QUERY_STOPWORDS.has(token));
+}
+
+function claimNeedsChatGrounding(claim) {
+  return (
+    claim.risk_level === 'high' ||
+    ['needs_context', 'safety_qualified', 'future_vision'].includes(claim.claim_status) ||
+    claim.evidence_status !== 'source_backed'
+  );
+}
+
+function claimSearchParts(claim) {
+  return [
+    claim.id,
+    claim.category,
+    claim.text,
+    claim.public_label,
+    claim.claim_status,
+    claim.evidence_status,
+    claim.risk_level,
+    claim.interpretation_boundary,
+  ].join(' ');
+}
+
+function claimGroundingQueryFromMessage(message, claimsRegistry) {
+  const messageTokens = new Set(meaningfulClaimTokens(message));
+  if (messageTokens.size === 0) {
+    return '';
+  }
+
+  const matches = (claimsRegistry.claims || [])
+    .filter(claimNeedsChatGrounding)
+    .map((claim) => {
+      const claimTokens = meaningfulClaimTokens(claimSearchParts(claim));
+      const matchedTokens = [...new Set(claimTokens.filter((token) => messageTokens.has(token)))];
+
+      return { claim, matchedTokens };
+    })
+    .filter(({ matchedTokens }) => matchedTokens.length >= 2)
+    .sort((first, second) => {
+      const scoreDelta = second.matchedTokens.length - first.matchedTokens.length;
+      if (scoreDelta !== 0) return scoreDelta;
+      return first.claim.id.localeCompare(second.claim.id);
+    });
+
+  return matches[0]?.matchedTokens.slice(0, 6).join(' ') || '';
+}
+
 function addChatGroundingAliases(packet) {
   return {
     ...packet,
@@ -261,13 +345,30 @@ function addChatGroundingAliases(packet) {
   };
 }
 
+function chatGroundingDisplayContract() {
+  return {
+    mode: 'grounding_review_required',
+    component: 'citation_review_card',
+    answer_generation: 'disabled',
+    render_required: true,
+    render_citations: true,
+    render_claim_qualifications: true,
+    render_refusal_rules: true,
+    allow_freeform_answer: false,
+  };
+}
+
 async function buildChatGroundingGate(message) {
-  if (!shouldEvaluateChatGrounding(message)) {
+  const publicRegistries = await loadPublicRegistries();
+  const claimGroundingQuery = claimGroundingQueryFromMessage(message, publicRegistries.claims);
+  const riskyDomainPrompt = shouldEvaluateChatGrounding(message);
+
+  if (!claimGroundingQuery && !riskyDomainPrompt) {
     return { blocked: false };
   }
 
   const parsed = parsePublicSearchParams(
-    { q: chatGroundingQuery(message) },
+    { q: claimGroundingQuery || chatGroundingQuery(message) },
     {
       invalidQueryError: 'Invalid chat grounding query',
       missingInputError: 'Chat grounding query required',
@@ -287,6 +388,9 @@ async function buildChatGroundingGate(message) {
   const packet = buildGroundingPacket({
     results: payload.results,
     registries,
+    extraBlockedReasons: riskyDomainPrompt
+      ? ['risk_domain_requires_grounding_review', 'policy_requires_chat_grounding_review']
+      : [],
     extraBoundaries: {
       upstream_answer_not_requested: true,
     },
@@ -449,6 +553,7 @@ export default async function chatHandler(req, res) {
       sendJson(res, 409, {
         success: false,
         error: 'Grounding review required before chat answer',
+        display: chatGroundingDisplayContract(),
         grounding: groundingGate.grounding,
       });
       return;

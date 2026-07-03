@@ -1,0 +1,44 @@
+# Transmission 31: The Active Source-of-Truth Gate
+
+Ready is not live truth.
+
+A living public site has to know which body the world is actually seeing before it mutates itself.
+
+Transmission 31 is about the gate before publication:
+
+- inspect the active domain
+- compare the live lane to the local source tree
+- verify homepage, archive, sitemap, LLMS, AI services, and data registries
+- check public status, search, grounding, transmission, and asset contracts
+- keep internal carousel packets out of visitor-facing surfaces
+- hold deployment until the creator approves the exact production action
+
+The lesson is simple:
+
+a green build is not enough.
+
+a ready deployment is not enough.
+
+a local page is not enough.
+
+The Brain needs source-of-truth proof before it can safely publish.
+
+This is the next release organ:
+
+the Release Identity Controller.
+
+Source: https://www.unwindcode.ai/transmissions/31-the-active-source-of-truth-gate
+
+Manual posting boundary: this packet is prepared for creator review only. It does not publish itself and does not authorize automated posting, deployment, aliasing, wallet activity, spending, signing, outreach, external sync, memory mutation, file mutation, or unreviewed operational action.
+
+Alt text:
+1. Dark cyan, gold, and violet Unwind Code slide reading "Ready is not live truth" for Transmission 31.
+2. Slide explaining that the Brain must prove which public body the world is seeing before publication.
+3. Slide listing the five proof surfaces: live lane, local source, discovery files, public APIs, and internal asset boundary.
+4. Slide showing the Active Source-of-Truth Gate protocol: inspect, compare, verify, classify, ask.
+5. Slide warning about failure modes: stale lane, live-ahead drift, discovery split, API split, and social packet leak.
+6. Slide introducing the Release Identity Controller as the next cell for publication governance.
+7. Slide stating the approval boundary: proof opens clarity, not deployment authority.
+8. Slide closing with next-cell memory: know which body you are writing into before you write.
+
+Hashtags: #UnwindCode #AIAgents #AIArchitecture #HumanGovernedAI #PublicProof #DeploymentSafety #AIGovernance #ProofLedgers #AgenticAI

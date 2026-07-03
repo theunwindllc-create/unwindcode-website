@@ -31,6 +31,108 @@ function createMockResponse() {
   };
 }
 
+function minimalStatusRegistries() {
+  return {
+    services: {
+      review_status: 'public_safe',
+      services: [
+        {
+          id: 'asset-registry',
+          endpoint: '/api/assets',
+          operational_controls: { durable_rate_limit: true },
+        },
+      ],
+    },
+    architecture: { review_status: 'public_safe', concepts: [] },
+    claims: { review_status: 'public_safe', claims: [] },
+    organisms: { review_status: 'public_safe', organisms: [] },
+    transmissions: { review_status: 'public_safe', transmissions: [] },
+  };
+}
+
+function invalidDigestAssetPackage() {
+  return {
+    id: 'status-invalid-asset-package',
+    type: 'social-carousel',
+    title: 'Status Invalid Asset Package',
+    summary: 'Synthetic invalid asset package for status validation.',
+    source_route: '/transmissions/24-the-mirror-found-its-form.html',
+    asset_package_sha256: 'a'.repeat(64),
+    source_files: ['social/status-invalid-asset-package/README.md'],
+    alt_text: 'Synthetic invalid asset package used to verify status validation.',
+    provenance: {
+      created_from: 'test-renderer',
+      source_files: ['social/status-invalid-asset-package/README.md'],
+      source_file_hashes: [
+        {
+          path: 'social/status-invalid-asset-package/README.md',
+          sha256: 'b'.repeat(64),
+          bytes: 10,
+        },
+      ],
+      generated_files: [
+        {
+          path: 'social/status-invalid-asset-package/exports/slide-01.png',
+          sha256: 'c'.repeat(64),
+          bytes: 20,
+        },
+      ],
+    },
+    rights: {
+      usage_scope: 'Prepared for validation tests only.',
+      license_notes: 'Synthetic package.',
+    },
+    approval_gates: ['Creator approval is required before publication.'],
+    authority_boundary: {
+      posting_authority: false,
+      wallet_authority: false,
+      paid_media_authority: false,
+      on_chain_attestation_authority: false,
+      approval_state: 'creator_approval_required',
+      allowed_uses: [
+        'manual_review',
+        'provenance_lookup',
+        'local_asset_inspection',
+        'manual_social_post_after_creator_approval',
+      ],
+      prohibited_uses: [
+        'automated_public_posting',
+        'wallet_signing',
+        'paid_media_activation',
+        'on_chain_publication',
+        'unreviewed_rag_answer_evidence',
+      ],
+    },
+    approval_record_schema: {
+      schema_version: '2026-06-06.public-asset-approval-record.v1',
+      storage_boundary: {
+        public_record_only: true,
+        secrets_excluded: true,
+        raw_prompts_excluded: true,
+        private_notes_excluded: true,
+        on_chain_sensitive_data_excluded: true,
+      },
+      required_fields: [
+        'approval_id',
+        'asset_package_id',
+        'asset_package_sha256',
+        'approved_by_role',
+        'approved_at',
+        'approved_scope',
+        'source_file_hashes_verified',
+        'generated_file_hashes_verified',
+      ],
+      allowed_approval_scopes: ['manual_social_publication'],
+      prohibited_record_content: ['private_approver_identity', 'raw_prompts', 'private_notes'],
+    },
+    approval_records: [],
+    review_status: 'creator_approval_required',
+    publication_status: 'prepared_not_posted',
+    manual_approval_required: true,
+    confidence: 'high',
+  };
+}
+
 test('returns public-safe backend status from active registries', async () => {
   const req = {
     method: 'GET',
@@ -59,16 +161,31 @@ test('returns public-safe backend status from active registries', async () => {
     'transmission-registry',
   ]);
   assert.equal(res.body.status.services.count, 10);
-  assert.equal(res.body.status.registries.assets.count, 5);
-  assert.equal(res.body.status.registries.assets.creator_approval_required_count, 5);
-  assert.equal(res.body.status.registries.assets.prepared_not_posted_count, 5);
+  assert.equal(res.body.status.registries.assets.count, 7);
+  assert.equal(res.body.status.registries.assets.creator_approval_required_count, 7);
+  assert.equal(res.body.status.registries.assets.prepared_not_posted_count, 7);
   assert.equal(res.body.status.registries.architecture.count, 5);
   assert.equal(res.body.status.registries.claims.count, 6);
   assert.equal(res.body.status.registries.claims.needs_context_count, 2);
   assert.equal(res.body.status.registries.claims.safety_qualified_count, 2);
   assert.equal(res.body.status.registries.organisms.count, 5);
-  assert.equal(res.body.status.registries.transmissions.count, 28);
+  assert.equal(res.body.status.registries.transmissions.count, 30);
+  assert.deepEqual(res.body.status.registries.transmissions.latest_public_transmission, {
+    id: '31-the-active-source-of-truth-gate',
+    transmission_number: 31,
+    title: 'Transmission 31: The Active Source-of-Truth Gate',
+    route: '/transmissions/31-the-active-source-of-truth-gate.html',
+    source_file: 'transmissions/31-the-active-source-of-truth-gate.html',
+    review_status: 'public_safe',
+  });
+  assert.deepEqual(res.body.status.registries.transmissions.numbering, {
+    latest_number: 31,
+    published_count: 30,
+    has_gaps: true,
+    missing_numbers: [25],
+  });
   assert.deepEqual(res.body.status.operational_controls.durable_rate_limited_endpoints.sort(), [
+    '/api/architecture',
     '/api/assets',
     '/api/chat',
     '/api/claims',
@@ -79,6 +196,7 @@ test('returns public-safe backend status from active registries', async () => {
     '/api/transmissions',
   ]);
   assert.deepEqual(res.body.status.operational_controls.production_fail_closed_endpoints.sort(), [
+    '/api/architecture',
     '/api/assets',
     '/api/chat',
     '/api/claims',
@@ -91,6 +209,10 @@ test('returns public-safe backend status from active registries', async () => {
   assert.deepEqual(res.body.status.operational_controls.answer_generation_disabled_endpoints, [
     '/api/grounding',
     '/api/search',
+  ]);
+  assert.deepEqual(res.body.status.operational_controls.grounding_review_required_endpoints, [
+    '/api/chat',
+    '/api/grounding',
   ]);
   assert.deepEqual(res.body.status.operational_controls.same_origin_guarded_endpoints.sort(), [
     '/api/chat',
@@ -138,6 +260,29 @@ test('rejects write methods on the public backend status endpoint', async () => 
   assert.deepEqual(res.body, { success: false, error: 'Method not allowed' });
 });
 
+test('successful status HEAD validates backend status without returning a body', async () => {
+  assert.equal(typeof statusApi.createStatusHandler, 'function');
+
+  let loaded = false;
+  const handler = statusApi.createStatusHandler({
+    readStatus: async () => {
+      loaded = true;
+      return {
+        schema_version: 'test-status',
+        review_status: 'public_safe',
+      };
+    },
+  });
+  const res = createMockResponse();
+
+  await handler({ method: 'HEAD', query: {} }, res);
+
+  assert.equal(res.statusCode, 200);
+  assert.match(res.headers['cache-control'], /public/);
+  assert.equal(res.body, '');
+  assert.equal(loaded, true);
+});
+
 test('status registry loader failures are non-cacheable and generic', async () => {
   assert.equal(typeof statusApi.createStatusHandler, 'function');
 
@@ -158,6 +303,70 @@ test('status registry loader failures are non-cacheable and generic', async () =
   assert.equal(res.headers['cache-control'], 'no-store');
   assert.deepEqual(res.body, { success: false, error: 'Unable to load backend status' });
   assert.equal(JSON.stringify(res.body).includes('/private/path'), false);
+});
+
+test('status HEAD registry loader failures are non-cacheable and bodyless', async () => {
+  assert.equal(typeof statusApi.createStatusHandler, 'function');
+
+  const failingHandler = statusApi.createStatusHandler({
+    readStatus: async () => {
+      throw new Error('/private/path/status source failed');
+    },
+  });
+  const req = {
+    method: 'HEAD',
+    query: {},
+  };
+  const res = createMockResponse();
+
+  await failingHandler(req, res);
+
+  assert.equal(res.statusCode, 500);
+  assert.equal(res.headers['cache-control'], 'no-store');
+  assert.equal(res.body, '');
+});
+
+test('status fails closed when public asset provenance validation fails', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'unwind-status-invalid-assets-'));
+  const servicesPath = join(dir, 'ai-services.json');
+  const architecturePath = join(dir, 'architecture.json');
+  const assetsPath = join(dir, 'assets.json');
+  const claimsPath = join(dir, 'claims.json');
+  const organismsPath = join(dir, 'organisms.json');
+  const transmissionsPath = join(dir, 'transmissions.json');
+  const registries = minimalStatusRegistries();
+  const writeJson = (file, data) => writeFile(file, JSON.stringify(data), 'utf8');
+
+  await Promise.all([
+    writeJson(servicesPath, registries.services),
+    writeJson(architecturePath, registries.architecture),
+    writeJson(assetsPath, {
+      schema_version: '2026-06-06.public-asset-registry.v1',
+      review_status: 'public_safe_draft',
+      packages: [invalidDigestAssetPackage()],
+    }),
+    writeJson(claimsPath, registries.claims),
+    writeJson(organismsPath, registries.organisms),
+    writeJson(transmissionsPath, registries.transmissions),
+  ]);
+
+  const handler = statusApi.createStatusHandler({
+    urls: {
+      services: new URL(`file://${servicesPath}`),
+      architecture: new URL(`file://${architecturePath}`),
+      assets: new URL(`file://${assetsPath}`),
+      claims: new URL(`file://${claimsPath}`),
+      organisms: new URL(`file://${organismsPath}`),
+      transmissions: new URL(`file://${transmissionsPath}`),
+    },
+  });
+  const res = createMockResponse();
+
+  await handler({ method: 'GET', query: {} }, res);
+
+  assert.equal(res.statusCode, 500);
+  assert.equal(res.headers['cache-control'], 'no-store');
+  assert.deepEqual(res.body, { success: false, error: 'Unable to load backend status' });
 });
 
 test('status cache reloads when public metadata source signatures change', async () => {
@@ -184,7 +393,11 @@ test('status cache reloads when public metadata source signatures change', async
       ],
     }),
     writeJson(architecturePath, { review_status: 'public_safe', concepts: [] }),
-    writeJson(assetsPath, { review_status: 'public_safe', packages: [] }),
+    writeJson(assetsPath, {
+      schema_version: '2026-06-06.public-asset-registry.v1',
+      review_status: 'public_safe_draft',
+      packages: [],
+    }),
     writeJson(claimsPath, { review_status: 'public_safe', claims: [] }),
     writeJson(organismsPath, { review_status: 'public_safe', organisms: [] }),
     writeJson(transmissionsPath, { review_status: 'public_safe', transmissions: [] }),

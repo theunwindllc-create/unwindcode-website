@@ -136,6 +136,32 @@ test('supports type filters while preserving grounding policy', async () => {
   assert.ok(res.body.packet.answer_policy.blocked_reasons.includes('policy_requires_answer_endpoint_review'));
 });
 
+test('grounding indexes nested organism claim reference text with visible support', async () => {
+  const req = {
+    method: 'GET',
+    query: { q: 'roadmap framing', type: 'organism' },
+  };
+  const res = createMockResponse();
+
+  await groundingHandler(req, res);
+
+  assert.equal(res.statusCode, 200);
+  assert.equal(res.body.success, true);
+  assert.equal(res.body.filters.type, 'organism');
+
+  const source = res.body.packet.sources.find((entry) => entry.id === 'infinity-mirror');
+  assert.ok(
+    source,
+    'grounding should include organisms matched through public claim-reference purpose text',
+  );
+  assert.deepEqual(source.matched_terms, ['roadmap', 'framing']);
+  assert.match(source.snippet, /roadmap framing/i);
+  assert.ok(source.claim_context.referenced_claim_ids.includes('future-independent-organisms'));
+  assert.equal(source.claim_context.requires_qualification, true);
+  assert.ok(res.body.packet.review_flags.includes('future_vision_claim'));
+  assert.ok(res.body.packet.answer_policy.blocked_reasons.includes('future_vision_label_required'));
+});
+
 test('grounding sources preserve memory layers while synthesis stays disabled', async () => {
   const req = {
     method: 'GET',
@@ -162,6 +188,34 @@ test('grounding sources preserve memory layers while synthesis stays disabled', 
   });
   assert.equal(source.answer_generation, 'disabled');
   assert.equal(source.answer_safety.synthesis_allowed, false);
+});
+
+test('grounding shows architecture claim-reference support snippets', async () => {
+  const req = {
+    method: 'GET',
+    query: { q: 'deployment proof', type: 'architecture' },
+  };
+  const res = createMockResponse();
+
+  await groundingHandler(req, res);
+
+  assert.equal(res.statusCode, 200);
+  assert.equal(res.body.success, true);
+  assert.equal(res.body.filters.type, 'architecture');
+
+  const source = res.body.packet.sources.find(
+    (entry) => entry.id === 'four-tier-memory-architecture',
+  );
+  assert.ok(
+    source,
+    'grounding should include architecture matched through public claim-reference purpose text',
+  );
+  assert.deepEqual(source.matched_terms, ['deployment', 'proof']);
+  assert.match(source.snippet, /deployment proof/i);
+  assert.ok(source.claim_context.referenced_claim_ids.includes('future-independent-organisms'));
+  assert.equal(source.claim_context.requires_qualification, true);
+  assert.ok(res.body.packet.review_flags.includes('future_vision_claim'));
+  assert.ok(res.body.packet.answer_policy.blocked_reasons.includes('future_vision_label_required'));
 });
 
 test('grounding source memory context layers are defensively copied', async () => {
@@ -279,7 +333,37 @@ test('asset grounding preserves approval-required review flags', async () => {
     (entry) => entry.id === 'transmission-24-mirror-carousel',
   );
   assert.ok(source, 'mirror carousel asset should be returned as a grounding source');
+  assert.equal(
+    JSON.stringify(res.body).includes('social/'),
+    false,
+    'asset grounding packets should not expose internal creator packet source paths',
+  );
+  for (const forbiddenAssetPath of [
+    'caption.md',
+    'caption.txt',
+    'carousel.html',
+    'exports/',
+    'ready-to-upload',
+    'downloads/',
+  ]) {
+    assert.equal(
+      JSON.stringify(res.body).includes(forbiddenAssetPath),
+      false,
+      `asset grounding packets should not expose internal ${forbiddenAssetPath} paths`,
+    );
+  }
+  assert.ok(
+    res.body.packet.citations.every((citation) => !String(citation.source_file || '').startsWith('social/')),
+    'asset grounding citations should cite public registry routes/files only',
+  );
   assert.match(source.asset_package_sha256, /^[a-f0-9]{64}$/);
+  assert.match(source.alt_text, /mirror/i);
+  assert.equal(source.manual_approval_required, true);
+  assert.equal(source.publication_status, 'prepared_not_posted');
+  assert.equal(source.approval_record_count, 0);
+  assert.equal(source.approval_context.requires_review, true);
+  assert.equal(source.authority_boundary.posting_authority, false);
+  assert.equal(source.authority_boundary.wallet_authority, false);
   assert.equal(source.public_safe, false);
   assert.equal(source.answer_generation, 'disabled');
   assert.equal(source.answer_safety.public_metadata_safe, false);
@@ -327,6 +411,20 @@ test('rejects unsafe grounding inputs and write methods', async () => {
   assert.equal(postRes.headers.allow, 'GET, HEAD, OPTIONS');
   assert.equal(postRes.headers['cache-control'], 'no-store');
   assert.deepEqual(postRes.body, { success: false, error: 'Method not allowed' });
+});
+
+test('returns bodyless no-store errors for invalid grounding HEAD requests', async () => {
+  const req = {
+    method: 'HEAD',
+    query: { q: 'proof '.repeat(40) },
+  };
+  const res = createMockResponse();
+
+  await groundingHandler(req, res);
+
+  assert.equal(res.statusCode, 400);
+  assert.equal(res.headers['cache-control'], 'no-store');
+  assert.equal(res.body, '');
 });
 
 test('returns 429 when durable grounding rate limit denies the request', async (t) => {
@@ -421,6 +519,76 @@ test('fails closed in production when grounding rate limiting is not configured'
   assert.equal(loaded, false);
 });
 
+test('fails closed for grounding HEAD in production when rate limiting is not configured', async (t) => {
+  const previousEnv = { ...process.env };
+  const previousFetch = globalThis.fetch;
+
+  t.after(() => {
+    process.env = previousEnv;
+    globalThis.fetch = previousFetch;
+  });
+
+  process.env.VERCEL_ENV = 'production';
+  delete process.env.RATE_LIMIT_REST_URL;
+  delete process.env.RATE_LIMIT_REST_TOKEN;
+  delete process.env.RATE_LIMIT_SALT;
+
+  let loaded = false;
+  const handler = groundingApi.createGroundingHandler({
+    buildPublicSearchPayload: async () => {
+      loaded = true;
+      return { payload: { query: '', filters: {}, ranking: {}, results: [] } };
+    },
+  });
+  const req = {
+    method: 'HEAD',
+    query: { q: 'financial' },
+  };
+  const res = createMockResponse();
+
+  await handler(req, res);
+
+  assert.equal(res.statusCode, 503);
+  assert.equal(res.headers['cache-control'], 'no-store');
+  assert.equal(res.headers['retry-after'], '60');
+  assert.equal(res.body, '');
+  assert.equal(loaded, false);
+});
+
+test('successful grounding HEAD validates public registries without returning a body', async () => {
+  assert.equal(typeof groundingApi.createGroundingHandler, 'function');
+
+  let loaded = false;
+  const handler = groundingApi.createGroundingHandler({
+    buildPublicSearchPayload: async () => {
+      loaded = true;
+      return {
+        payload: {
+          query: 'financial',
+          filters: {},
+          ranking: {},
+          results: [],
+        },
+        registries: {
+          claims: { claims: [] },
+        },
+      };
+    },
+  });
+  const req = {
+    method: 'HEAD',
+    query: { q: 'financial' },
+  };
+  const res = createMockResponse();
+
+  await handler(req, res);
+
+  assert.equal(res.statusCode, 200);
+  assert.equal(res.headers['cache-control'], 'private, no-store');
+  assert.equal(res.body, '');
+  assert.equal(loaded, true);
+});
+
 test('grounding registry loader failures are non-cacheable and generic', async (t) => {
   assert.equal(typeof groundingApi.createGroundingHandler, 'function');
 
@@ -441,6 +609,27 @@ test('grounding registry loader failures are non-cacheable and generic', async (
   assert.equal(res.headers['cache-control'], 'no-store');
   assert.deepEqual(res.body, { success: false, error: 'Unable to build public grounding packet' });
   assert.equal(JSON.stringify(res.body).includes('/private/path'), false);
+});
+
+test('grounding HEAD registry loader failures are non-cacheable and bodyless', async () => {
+  assert.equal(typeof groundingApi.createGroundingHandler, 'function');
+
+  const failingHandler = groundingApi.createGroundingHandler({
+    buildPublicSearchPayload: async () => {
+      throw new Error('/private/path/transmissions.json parse failed for grounding query');
+    },
+  });
+  const req = {
+    method: 'HEAD',
+    query: { q: 'financial' },
+  };
+  const res = createMockResponse();
+
+  await failingHandler(req, res);
+
+  assert.equal(res.statusCode, 500);
+  assert.equal(res.headers['cache-control'], 'no-store');
+  assert.equal(res.body, '');
 });
 
 test('grounding packet avoids secrets and private runtime material', async () => {

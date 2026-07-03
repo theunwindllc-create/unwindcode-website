@@ -25,6 +25,12 @@ function sendError(res, status, error) {
   sendJson(res, status, { success: false, error });
 }
 
+function sendHeadError(res, status) {
+  res.setHeader('Cache-Control', ERROR_CACHE_CONTROL);
+  res.status(status);
+  res.end();
+}
+
 function positiveInteger(value, fallback) {
   const parsed = Number.parseInt(value, 10);
   return Number.isInteger(parsed) && parsed > 0 ? parsed : fallback;
@@ -43,6 +49,44 @@ function getRateLimitConfig() {
   };
 }
 
+async function enforceRateLimit(req, res) {
+  const rateLimitConfig = getRateLimitConfig();
+  const rateLimit = await checkDurableRateLimit({
+    req,
+    route: '/api/search',
+    limit: rateLimitConfig.limit,
+    windowSeconds: rateLimitConfig.windowSeconds,
+  });
+
+  if (rateLimit.allowed) {
+    return true;
+  }
+
+  res.setHeader('Cache-Control', ERROR_CACHE_CONTROL);
+
+  if (rateLimit.unavailable) {
+    if (req.method === 'HEAD') {
+      res.setHeader('Retry-After', rateLimit.retryAfter);
+      res.status(503);
+      res.end();
+      return false;
+    }
+
+    sendRateLimitUnavailableResponse(res, rateLimit.retryAfter);
+    return false;
+  }
+
+  if (req.method === 'HEAD') {
+    res.setHeader('Retry-After', rateLimit.retryAfter);
+    res.status(429);
+    res.end();
+    return false;
+  }
+
+  sendRateLimitResponse(res, rateLimit.retryAfter);
+  return false;
+}
+
 export function createSearchHandler(deps = {}) {
   const buildPublicSearchPayload =
     deps.buildPublicSearchPayload || defaultBuildPublicSearchPayload;
@@ -58,14 +102,9 @@ export function createSearchHandler(deps = {}) {
       return;
     }
 
-    if (req.method === 'HEAD') {
-      res.setHeader('Cache-Control', QUERY_RESPONSE_CACHE_CONTROL);
-      res.status(200);
-      res.end();
-      return;
-    }
+    const isHeadRequest = req.method === 'HEAD';
 
-    if (req.method !== 'GET') {
+    if (req.method !== 'GET' && !isHeadRequest) {
       res.setHeader('Allow', ALLOWED_METHODS);
       sendError(res, 405, 'Method not allowed');
       return;
@@ -74,26 +113,16 @@ export function createSearchHandler(deps = {}) {
     const parsed = parsePublicSearchParams(req.query);
 
     if (!parsed.ok) {
+      if (isHeadRequest) {
+        sendHeadError(res, parsed.status);
+        return;
+      }
+
       sendError(res, parsed.status, parsed.error);
       return;
     }
 
-    const rateLimitConfig = getRateLimitConfig();
-    const rateLimit = await checkDurableRateLimit({
-      req,
-      route: '/api/search',
-      limit: rateLimitConfig.limit,
-      windowSeconds: rateLimitConfig.windowSeconds,
-    });
-    if (!rateLimit.allowed) {
-      res.setHeader('Cache-Control', ERROR_CACHE_CONTROL);
-
-      if (rateLimit.unavailable) {
-        sendRateLimitUnavailableResponse(res, rateLimit.retryAfter);
-        return;
-      }
-
-      sendRateLimitResponse(res, rateLimit.retryAfter);
+    if (!(await enforceRateLimit(req, res))) {
       return;
     }
 
@@ -106,6 +135,12 @@ export function createSearchHandler(deps = {}) {
       });
 
       res.setHeader('Cache-Control', QUERY_RESPONSE_CACHE_CONTROL);
+      if (isHeadRequest) {
+        res.status(200);
+        res.end();
+        return;
+      }
+
       sendJson(res, 200, {
         success: true,
         answer_generation: 'disabled',
@@ -131,6 +166,11 @@ export function createSearchHandler(deps = {}) {
         },
       });
     } catch {
+      if (isHeadRequest) {
+        sendHeadError(res, 500);
+        return;
+      }
+
       sendError(res, 500, 'Unable to load public search registries');
     }
   };

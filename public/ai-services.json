@@ -21,6 +21,7 @@
         "same_origin_guarded": true,
         "durable_rate_limit": true,
         "production_fail_closed": true,
+        "grounding_review_required": true,
         "metadata_only_logging": true
       },
       "capabilities": [
@@ -68,13 +69,21 @@
         "Returns one public architecture concept by id when requested.",
         "Filters public architecture concepts by category.",
         "Includes claim references that preserve public claim status, evidence status, and risk labels during retrieval.",
+        "Applies durable pre-read rate limiting before registry loading for valid lookup requests.",
         "Returns non-cacheable generic errors for malformed inputs, unknown ids, write methods, and registry-loader failures."
       ],
       "safety_boundaries": [
         "Registry content is limited to public architecture concepts, active source routes, public source files, citations, confidence labels, claim references, and review status.",
         "Private notes, exact approval mechanics, provider configuration, deployment procedures, and operational commands are not included.",
+        "Rate-limit checks use salted route/client hashes only and do not send concept ids, categories, source files, registry content, or raw client addresses to the limiter.",
+        "Production requests fail closed when durable rate-limit configuration is missing or unavailable.",
         "Error responses must stay generic and no-store so parser details, filesystem paths, and transient error states are not public-cached."
       ],
+      "operational_controls": {
+        "durable_rate_limit": true,
+        "production_fail_closed": true,
+        "limiter_payload": "salted_route_client_hash_only"
+      },
       "source_routes": [
         "/",
         "/transmissions/15-how-we-give-machines-a-mind.html",
@@ -109,6 +118,12 @@
       "capabilities": [
         "Aggregates active public service ids, endpoints, and review state from public AI-service metadata.",
         "Reports public asset, architecture, organism, and transmission registry counts and review counts.",
+        "Validates public asset provenance with the shared asset registry validator before reporting asset counts or public-safe status.",
+        "Routes HEAD status checks through the same public metadata and asset provenance validation path before returning bodyless success.",
+        "Reports the latest public transmission pointer from the transmission registry by highest reviewed transmission number.",
+        "Reports public transmission numbering gaps so agents can distinguish published count from latest transmission number during parity checks.",
+        "Supports public parity checks that verify fixed public-safe search and grounding smoke queries before advertised RAG routes count as proven.",
+        "Classifies live search and grounding parity 429 or 503 responses as endpoint-specific fail-closed RAG contract states with safe HTTP status codes.",
         "Reports public operational-control endpoint lists for durable rate limiting, production fail-closed behavior, same-origin guards, and answer-generation-disabled surfaces.",
         "Refreshes cached public status when source metadata file signatures change.",
         "Returns generic no-store errors for write methods and public metadata loader failures.",
@@ -116,6 +131,12 @@
       ],
       "safety_boundaries": [
         "Status output is limited to public metadata files and static registry counts.",
+        "Asset status counts are reported only after canonical digest, approval schema, and authority-boundary validation succeeds.",
+        "HEAD status success is a public metadata validation signal, not live provider health, deployment proof, or an authenticated readiness check.",
+        "Public parity RAG smoke uses fixed public-safe queries only and must not include credentials, private prompts, sensitive notes, arbitrary user queries, POST bodies, or provider chat prompts.",
+        "Live RAG parity endpoint failures may report endpoint path, fixed query id, failure class, and safe HTTP status code only; they must not include request headers, stack traces, prompts, provider diagnostics, or credentials.",
+        "Latest transmission status reflects the local public registry only and does not prove production deployment or publication on its own.",
+        "Transmission numbering gaps are descriptive registry metadata, not an error state or hidden-route disclosure.",
         "Operational controls are aggregate public booleans and endpoint lists, not live env configuration or provider health.",
         "The endpoint must not expose environment values, provider keys, user submissions, runtime evidence, private prompts, owner manifests, or deployment details.",
         "Status output must not imply live provider health, authenticated admin access, or production deployment proof."
@@ -125,6 +146,7 @@
       ],
       "source_files": [
         "api/status.js",
+        "api/assets.js",
         "public/ai-services.json",
         "public/data/assets.json",
         "public/data/architecture.json",
@@ -159,27 +181,33 @@
       },
       "capabilities": [
         "Searches public architecture, asset, claim, organism, and transmission registries without reading private repository content.",
+        "Validates the public asset registry with the shared asset provenance validator before indexing asset packages for retrieval.",
         "Returns citations, source files, review status, and claim references with each result when available.",
         "Returns deterministic lexical ranks, match scores, matched terms, compact snippets, and claim-context summaries for retrieval-ready display.",
         "Returns public memory_layers and memory_context fields for architecture, organism, and transmission retrieval results.",
         "Returns answer generation disabled with a grounding-required answer policy so snippets are not treated as synthesized answers.",
         "Marks each result snippet as not an answer and as an evidence excerpt that requires grounding before synthesis.",
         "Marks approval-required asset packages with approval context, review flags, public safety state, and human-review requirements before downstream RAG use.",
+        "Minimizes asset retrieval output by excluding internal creator packet paths, raw approval records, and full approval schemas while preserving review flags, authority boundaries, approval-record counts, and schema version.",
         "Uses file-signature-aware in-process memoization for public registry JSON while keeping query responses private and non-cacheable.",
         "Uses the shared durable rate-limit hook before registry loading, with route-specific limit and window settings.",
+        "Routes HEAD search checks through query validation, durable rate limiting, public registry loading, and asset provenance validation before returning bodyless success.",
         "Supports bounded type, claim-status, evidence-status, risk-level, and memory_layer filters for claim-aware and memory-aware retrieval.",
         "Returns query-bearing responses with private no-store cache headers and errors with no-store cache headers.",
         "Rejects write methods and malformed search inputs."
       ],
       "safety_boundaries": [
         "Search output is limited to reviewed public metadata files and active public routes.",
+        "Asset registry digests must be canonical and based on complete public metadata, source/generated provenance, rights, approval gates, approval schema, review/publication state, confidence, and authority-boundary inputs before search can expose asset metadata.",
         "Search snippets are retrieval scaffolding only; downstream answers must request a grounding packet and render citations and claim qualifications first.",
         "Submitted query text is echoed only in private, non-cacheable responses and should not be stored in shared caches.",
+        "HEAD search errors remain bodyless and non-cacheable so validation or registry failures cannot be mistaken for successful retrieval.",
         "Rate-limit checks use salted route/client hashes and limit-window metadata only; query text, snippets, and registry results are not sent to the limiter.",
         "Private prompts, credentials, user submissions, provider configuration, runtime evidence, owner manifests, and deployment details are not included.",
         "private memory, runtime memory, user memory, and unstated embeddings are excluded from public search outputs.",
         "High-risk Web3 and financial results must retain claim status, evidence status, risk labels, or claim references before downstream answer generation.",
-        "Approval-required or unposted asset results must retain review flags and human-review requirements before downstream answer generation."
+        "Approval-required or unposted asset results must retain review flags and human-review requirements before downstream answer generation.",
+        "Asset search results must not expose internal creator packet paths, raw approval records, or full approval schemas; citations should use public routes or public registry files."
       ],
       "source_routes": [
         "/",
@@ -189,6 +217,7 @@
       ],
       "source_files": [
         "api/search.js",
+        "api/assets.js",
         "api/_shared/rate-limit.js",
         "api/_shared/public-search.js",
         "public/data/architecture.json",
@@ -226,33 +255,40 @@
         "durable_rate_limit": true,
         "production_fail_closed": true,
         "answer_generation_disabled": true,
+        "grounding_review_required": true,
         "query_responses_private_no_store": true,
         "write_methods_rejected": true
       },
       "capabilities": [
         "Builds a top-five grounding packet from public architecture, asset, claim, organism, and transmission registries.",
+        "Validates the public asset registry with the shared asset provenance validator before assembling asset grounding sources.",
         "Returns source snippets, citation indexes, required claim qualifications, and refusal rules for downstream RAG or chat grounding.",
         "Returns frontend-ready numbered citation display metadata and per-source citation display references while keeping answer generation disabled.",
         "Returns machine-readable answer policy and review flags so synthesis remains blocked until citation and claim rendering are reviewed.",
         "Marks every grounding source with answer generation disabled, source policy, retrieval semantics, and answer safety fields that separate public metadata safety from answer safety and inherit packet-level review decisions.",
         "Preserves public memory_layers and memory_context on grounding sources before any answer synthesis.",
         "Carries approval-required asset review flags and blocked answer-policy reasons into grounding packets.",
+        "Carries safe asset alt text, approval context, approval-record count, publication/manual-review state, and authority boundaries into grounding sources while excluding internal packet paths and raw approval records.",
         "Uses the file-signature-aware memoized public-registry loader so repeated grounding requests do not reread every registry file in the same process.",
         "Uses the shared durable rate-limit hook before grounding packet assembly, with route-specific limit and window settings.",
+        "Routes HEAD grounding checks through query validation, durable rate limiting, public registry loading, asset provenance validation, and grounding packet assembly before returning bodyless success.",
         "Keeps answer generation disabled so public outputs can be reviewed before any synthesis layer is added.",
         "Returns query-bearing responses with private no-store cache headers and errors with no-store cache headers.",
         "Rejects write methods and malformed grounding inputs."
       ],
       "safety_boundaries": [
         "Grounding packets are retrieval scaffolding only and must not be treated as generated answers or operational proof.",
+        "Asset registry digests must be canonical and based on complete public metadata, source/generated provenance, rights, approval gates, approval schema, review/publication state, confidence, and authority-boundary inputs before grounding can expose asset metadata.",
         "Citation display metadata is for rendering reviewed public citations before an answer; it does not grant answer synthesis, wallet authority, current deployment proof, or execution authority.",
         "Individual grounding sources are citation scaffolds only; public metadata safety does not make a source answer-safe, and detached sources must preserve packet-level review requirements.",
         "Submitted grounding query text is echoed only in private, non-cacheable responses and should not be stored in shared caches.",
+        "HEAD grounding errors remain bodyless and non-cacheable so validation, registry, or packet assembly failures cannot be mistaken for a successful grounding contract.",
         "Rate-limit checks use salted route/client hashes and limit-window metadata only; query text, citations, snippets, qualifications, and packet contents are not sent to the limiter.",
         "Private prompts, credentials, user submissions, runtime evidence, provider configuration, owner manifests, and deployment details are excluded.",
         "private memory, runtime memory, user memory, and unstated embeddings are excluded from public grounding packets.",
         "High-risk Web3 and financial packets must preserve claim qualifications and refusal rules before downstream answer generation.",
-        "Approval-required asset sources must preserve manual-approval and publication-status review flags before downstream answer generation."
+        "Approval-required asset sources must preserve manual-approval and publication-status review flags before downstream answer generation.",
+        "Asset grounding citations must use public routes or public registry files, not creator-only packet paths, and raw approval records must remain excluded."
       ],
       "source_routes": [
         "/",
@@ -262,6 +298,7 @@
       ],
       "source_files": [
         "api/grounding.js",
+        "api/assets.js",
         "api/_shared/grounding-policy.js",
         "api/_shared/rate-limit.js",
         "api/_shared/public-search.js",
@@ -303,20 +340,31 @@
       "capabilities": [
         "Returns reviewed public-safe asset package metadata with source-file and generated-file hashes plus authority boundaries and approval record schemas for provenance and future asset workflows.",
         "Returns canonical asset_package_sha256 values so future approvals and attestations bind to a reviewed package digest.",
+        "Recomputes package digests from required public metadata, source/generated provenance, rights, approval gates, approval schema, review/publication state, confidence, and authority-boundary inputs before serving asset packages.",
         "Returns one asset package by id when requested.",
         "Filters asset packages by review status or publication status.",
+        "Fails closed when registry packages are missing, package provenance inputs are incomplete, or stored digests do not match the canonical payload.",
+        "Fails closed when listed source files and source hash paths do not match exactly.",
         "Keeps approval records empty until a reviewed approval exists, while exposing the public-safe fields future approval records must use.",
         "Fails closed when future approval records reference a different asset package id or package digest.",
+        "Fails closed when future approval record schemas or records drift from the code-owned public allowlist.",
+        "Fails closed when asset authority boundaries grant high-risk posting, wallet, paid-media, on-chain, deployment, answer-generation, mutation, outreach, lead-import, or external-sync authority.",
+        "Fails closed when authority-boundary allowed uses grant prohibited actions or required prohibited-use labels are missing.",
         "Uses the shared durable rate-limit hook before registry loading, with route-specific limit and window settings.",
         "Returns ETag and Last-Modified validators with a short revalidation cache policy for successful public asset metadata reads.",
-        "Returns generic no-store errors for validation, method, not-found, and registry-loader failures."
+        "Returns generic no-store errors for validation, method, not-found, and registry-loader failures without success validators on unknown asset lookups."
       ],
       "safety_boundaries": [
         "Registry content is limited to source files, source-file hashes, generated artifact hashes, byte counts, alt text, review status, publication status, approval gates, authority boundaries, and public approval record schemas.",
+        "Every listed source-file and generated-file hash should match current package bytes before asset provenance is trusted.",
+        "Every listed source file should have exactly one matching source-file hash record.",
         "Private notes, credentials, provider configuration, user data, unpublished drafts, and public posting authority are not included.",
         "Approval record schemas must remain role-based and public-safe, excluding personal approver identities, generation-input text, credentials, internal notes, sensitive user data, and sensitive on-chain data.",
         "Asset provenance does not grant automated posting, wallet signing, paid media activation, on-chain publication, or unreviewed RAG answer authority.",
         "Future approval records must match the package's canonical asset_package_sha256 before publication or provenance use.",
+        "Future approval records must contain only the code-owned public field allowlist; embedded schemas are descriptive and cannot authorize private fields.",
+        "Asset authority boundaries must keep high-risk authority booleans false unless a future non-public approval lane is explicitly designed.",
+        "Authority-boundary allowed and prohibited use labels are code-owned public vocabularies, not self-authorizing free text.",
         "Limiter payloads contain salted route/client hashes only and must not include asset ids, filters, source file paths, generated asset paths, registry contents, or raw client addresses.",
         "Approval-bearing asset metadata should remain validator-aware so caches can revalidate before relying on publication state."
       ],
@@ -325,29 +373,15 @@
         "/transmissions/26-property-sales-intelligence-cell.html",
         "/transmissions/27-the-site-became-a-public-index.html",
         "/transmissions/28-the-memory-control-plane.html",
-        "/transmissions/29-the-agent-readable-organism.html"
+        "/transmissions/29-the-agent-readable-organism.html",
+        "/transmissions/30-the-operator-readiness-layer.html",
+        "/transmissions/31-the-active-source-of-truth-gate.html"
       ],
       "source_files": [
         "api/assets.js",
         "public/data/assets.json",
-        "social/transmission-24-mirror-carousel/README.md",
-        "social/transmission-24-mirror-carousel/caption.md",
-        "social/transmission-24-mirror-carousel/carousel.html",
-        "social/transmission-26-property-sales-intelligence-cell-carousel/README.md",
-        "social/transmission-26-property-sales-intelligence-cell-carousel/caption.md",
-        "social/transmission-26-property-sales-intelligence-cell-carousel/carousel.html",
         "tests/asset-registry.test.js",
-        "tests/assets-api.test.js",
-        "social/transmission-27-site-public-index-carousel/README.md",
-        "social/transmission-27-site-public-index-carousel/caption.md",
-        "social/transmission-27-site-public-index-carousel/carousel.html",
-        "social/transmission-28-memory-control-plane-carousel/README.md",
-        "social/transmission-28-memory-control-plane-carousel/caption.md",
-        "social/transmission-28-memory-control-plane-carousel/carousel.html",
-        "social/transmission-29-agent-readable-organism-carousel/README.md",
-        "social/transmission-29-agent-readable-organism-carousel/caption.md",
-        "social/transmission-29-agent-readable-organism-carousel/caption.txt",
-        "social/transmission-29-agent-readable-organism-carousel/carousel.html"
+        "tests/assets-api.test.js"
       ],
       "citations": [
         {
@@ -369,6 +403,14 @@
         {
           "label": "Transmission 29 Agent-Readable Organism guide",
           "route": "/transmissions/29-the-agent-readable-organism.html"
+        },
+        {
+          "label": "Transmission 30 Operator Readiness Layer guide",
+          "route": "/transmissions/30-the-operator-readiness-layer.html"
+        },
+        {
+          "label": "Transmission 31 Active Source-of-Truth Gate guide",
+          "route": "/transmissions/31-the-active-source-of-truth-gate.html"
         }
       ],
       "review_status": "public_safe"
@@ -502,7 +544,9 @@
         "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html",
         "/transmissions/27-the-site-became-a-public-index.html",
         "/transmissions/28-the-memory-control-plane.html",
-        "/transmissions/29-the-agent-readable-organism.html"
+        "/transmissions/29-the-agent-readable-organism.html",
+        "/transmissions/30-the-operator-readiness-layer.html",
+        "/transmissions/31-the-active-source-of-truth-gate.html"
       ],
       "source_files": [
         "api/transmissions.js",
@@ -530,6 +574,14 @@
         {
           "label": "Transmission 29 agent-readable organism",
           "route": "/transmissions/29-the-agent-readable-organism.html"
+        },
+        {
+          "label": "Transmission 30 operator readiness layer",
+          "route": "/transmissions/30-the-operator-readiness-layer.html"
+        },
+        {
+          "label": "Transmission 31 active source-of-truth gate",
+          "route": "/transmissions/31-the-active-source-of-truth-gate.html"
         }
       ],
       "review_status": "public_safe"

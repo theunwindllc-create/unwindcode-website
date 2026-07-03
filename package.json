@@ -7,6 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "check:public-parity": "node scripts/check-public-parity.mjs",
+    "check:public-parity:live": "node scripts/check-public-parity.mjs --live",
     "test": "node --test tests/*.test.js"
   },
   "devDependencies": {

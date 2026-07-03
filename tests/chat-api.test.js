@@ -733,6 +733,104 @@ test('blocks high-risk financial chat prompts before returning bare upstream ans
   assert.equal(JSON.stringify(res.body).includes('Bare upstream financial answer'), false);
 });
 
+test('blocked chat responses expose a frontend-safe grounding display contract', async (t) => {
+  const previousEnv = { ...process.env };
+  const previousFetch = globalThis.fetch;
+
+  t.after(() => {
+    process.env = previousEnv;
+    globalThis.fetch = previousFetch;
+  });
+
+  process.env.SUPABASE_URL = 'https://example.supabase.co';
+  process.env.SUPABASE_ANON_KEY = 'anon-key';
+
+  let called = false;
+  globalThis.fetch = async () => {
+    called = true;
+    return new Response(JSON.stringify({ reply: 'Unsafe answer should not render.' }), {
+      status: 200,
+      headers: { 'content-type': 'application/json' },
+    });
+  };
+
+  const req = {
+    method: 'POST',
+    headers: {
+      origin: 'https://www.unwindcode.ai',
+    },
+    body: {
+      message: 'financial organisms real markets',
+    },
+  };
+  const res = createMockResponse();
+
+  await chatHandler(req, res);
+
+  assert.equal(res.statusCode, 409);
+  assert.equal(called, false);
+  assert.deepEqual(res.body.display, {
+    mode: 'grounding_review_required',
+    component: 'citation_review_card',
+    answer_generation: 'disabled',
+    render_required: true,
+    render_citations: true,
+    render_claim_qualifications: true,
+    render_refusal_rules: true,
+    allow_freeform_answer: false,
+  });
+  assert.equal(res.body.grounding.citation_display.mode, 'numbered_public_citations');
+  assert.ok(res.body.grounding.citation_display.items.length >= 1);
+  assert.equal('reply' in res.body, false);
+  assert.equal(JSON.stringify(res.body).includes('Unsafe answer'), false);
+});
+
+test('blocks claim-registry chat prompts before upstream answers', async (t) => {
+  const previousEnv = { ...process.env };
+  const previousFetch = globalThis.fetch;
+
+  t.after(() => {
+    process.env = previousEnv;
+    globalThis.fetch = previousFetch;
+  });
+
+  process.env.SUPABASE_URL = 'https://example.supabase.co';
+  process.env.SUPABASE_ANON_KEY = 'anon-key';
+
+  let called = false;
+  globalThis.fetch = async () => {
+    called = true;
+    return new Response(JSON.stringify({ reply: 'Bare blockchain status answer should not be returned.' }), {
+      status: 200,
+      headers: { 'content-type': 'application/json' },
+    });
+  };
+
+  const req = {
+    method: 'POST',
+    headers: {
+      origin: 'https://www.unwindcode.ai',
+    },
+    body: {
+      message: 'What does the 3 Live Blockchains stat mean?',
+    },
+  };
+  const res = createMockResponse();
+
+  await chatHandler(req, res);
+
+  assert.equal(res.statusCode, 409);
+  assert.equal(called, false);
+  assert.equal(res.body.error, 'Grounding review required before chat answer');
+  assert.ok(res.body.grounding.review_flags.includes('high_risk_claim'));
+  assert.ok(
+    res.body.grounding.required_qualifications.some(
+      (qualification) => qualification.claim_id === 'hero-live-blockchains-stat',
+    ),
+  );
+  assert.equal('reply' in res.body, false);
+});
+
 test('blocks risky-domain chat prompts when public grounding has no reviewed match', async (t) => {
   const previousEnv = { ...process.env };
   const previousFetch = globalThis.fetch;

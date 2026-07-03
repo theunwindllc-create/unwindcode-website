@@ -150,16 +150,27 @@ test('ai services asset registry metadata cites registered asset package sources
       `asset-registry service metadata should cite ${assetPackage.source_route}`,
     );
 
-    for (const sourceFile of assetPackage.source_files) {
-      assert.ok(
-        assetService.source_files.includes(sourceFile),
-        `asset-registry service metadata should cite ${sourceFile}`,
-      );
-    }
-
     assert.ok(
       assetService.citations.some((citation) => citation.route === assetPackage.source_route),
       `asset-registry service metadata should cite package route ${assetPackage.source_route}`,
     );
+
+    for (const sourceFile of assetPackage.source_files) {
+      assert.equal(
+        assetService.source_files.includes(sourceFile),
+        false,
+        `asset-registry service discovery should not advertise creator packet file ${sourceFile}`,
+      );
+    }
   }
+
+  assert.ok(assetService.source_files.includes('api/assets.js'));
+  assert.ok(assetService.source_files.includes('public/data/assets.json'));
+  assert.equal(
+    assetService.source_files.some((sourceFile) =>
+      /(^social\/|caption\.(md|txt)$|carousel\.html$|exports\/|ready-to-upload|downloads\/)/u.test(sourceFile),
+    ),
+    false,
+    'asset-registry service metadata should keep creator-only packet paths out of public discovery',
+  );
 });

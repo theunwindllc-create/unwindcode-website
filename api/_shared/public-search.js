@@ -7,6 +7,7 @@ import {
   matchedClaimsForTransmission,
   unique,
 } from './claim-context.js';
+import { validateAssetRegistry } from '../assets.js';
 
 const REGISTRY_URLS = {
   architecture: new URL('../../public/data/architecture.json', import.meta.url),
@@ -24,6 +25,15 @@ const MEMORY_LAYER_PATTERN = /^(working|procedural|semantic|episodic)$/;
 const MAX_QUERY_LENGTH = 160;
 const TYPE_ORDER = ['claim', 'organism', 'architecture', 'transmission', 'asset'];
 const PUBLIC_ASSET_PUBLICATION_STATUSES = new Set(['public', 'published']);
+const PUBLIC_ASSET_REGISTRY_SOURCE_FILE = 'public/data/assets.json';
+const INTERNAL_ASSET_SOURCE_FILE_PATTERNS = [
+  /^social\//iu,
+  /(?:^|\/)exports\//iu,
+  /(?:^|\/)ready-to-upload(?:\/|$)/iu,
+  /(?:^|\/)downloads\//iu,
+  /(?:^|\/)caption(?:\.[a-z0-9_-]+)?$/iu,
+  /(?:^|\/)carousel\.html$/iu,
+];
 
 async function readJson(url) {
   return JSON.parse(await readFile(url, 'utf8'));
@@ -62,6 +72,8 @@ async function readPublicRegistries(registryUrls) {
     readJson(registryUrls.organisms),
     readJson(registryUrls.transmissions),
   ]);
+
+  validateAssetRegistry(assets);
 
   return deepFreeze({ architecture, assets, claims, organisms, transmissions });
 }
@@ -181,25 +193,41 @@ function citationsFromRoutes(routes, sourceFiles) {
   }));
 }
 
+function flattenSearchText(value) {
+  if (!value) {
+    return [];
+  }
+
+  if (Array.isArray(value)) {
+    return value.flatMap(flattenSearchText);
+  }
+
+  if (typeof value === 'object') {
+    return [];
+  }
+
+  return [value];
+}
+
 function toSearchText(parts) {
-  return parts
-    .flatMap((part) => {
-      if (!part) {
-        return [];
-      }
+  return flattenSearchText(parts).join(' ').toLowerCase();
+}
 
-      if (Array.isArray(part)) {
-        return part;
-      }
+function claimReferenceSearchParts(claimReferences = []) {
+  return claimReferences.flatMap((reference) => [
+    reference.claim_id,
+    reference.claim_status,
+    reference.evidence_status,
+    reference.risk_level,
+    reference.purpose,
+  ]);
+}
 
-      if (typeof part === 'object') {
-        return Object.values(part);
-      }
-
-      return [part];
-    })
-    .join(' ')
-    .toLowerCase();
+function claimReferenceSnippetCandidates(claimReferences = []) {
+  return claimReferences.flatMap((reference) => [
+    reference.purpose,
+    reference.claim_id,
+  ]).filter(Boolean);
 }
 
 function tokenizeQuery(query) {
@@ -234,6 +262,7 @@ function buildMemoryContext(layers, source) {
 function normalizeArchitecture(concept) {
   const sourceRoutes = concept.source_routes || [];
   const memoryLayers = normalizeMemoryLayers(concept.memory_layers);
+  const claimReferences = concept.claim_references || [];
 
   return {
     type: 'architecture',
@@ -247,7 +276,8 @@ function normalizeArchitecture(concept) {
     confidence: concept.confidence,
     memory_layers: memoryLayers,
     memory_context: buildMemoryContext(memoryLayers, 'public_architecture_registry'),
-    claim_references: concept.claim_references || [],
+    claim_references: claimReferences,
+    snippet_candidates: claimReferenceSnippetCandidates(claimReferences),
     search_text: toSearchText([
       concept.id,
       concept.category,
@@ -256,32 +286,40 @@ function normalizeArchitecture(concept) {
       concept.claims,
       concept.memory_layers,
       concept.safety_boundaries,
-      concept.claim_references,
+      claimReferenceSearchParts(claimReferences),
     ]),
   };
 }
 
 function normalizeAsset(assetPackage) {
-  const sourceFiles = assetPackage.source_files || assetPackage.provenance?.source_files || [];
-  const routes = assetPackage.source_route ? [assetPackage.source_route] : [];
   const approvalContext = buildAssetApprovalContext(assetPackage);
+  const sourceFiles = publicAssetSearchSourceFiles(assetPackage);
+  const citationSourceFiles = sourceFiles.length > 0
+    ? sourceFiles
+    : [PUBLIC_ASSET_REGISTRY_SOURCE_FILE];
+  const routes = assetPackage.source_route ? [assetPackage.source_route] : [];
+  const approvalRecords = Array.isArray(assetPackage.approval_records)
+    ? assetPackage.approval_records
+    : [];
 
   return {
     type: 'asset',
     id: assetPackage.id,
     title: assetPackage.title,
     summary: assetPackage.summary,
+    alt_text: assetPackage.alt_text,
     route: assetPackage.source_route || '/',
     source_files: sourceFiles,
-    citations: citationsFromRoutes(routes, sourceFiles),
+    citations: citationsFromRoutes(routes, citationSourceFiles),
     review_status: assetPackage.review_status,
     asset_package_sha256: assetPackage.asset_package_sha256,
     publication_status: assetPackage.publication_status,
     manual_approval_required: Boolean(assetPackage.manual_approval_required),
     approval_context: approvalContext,
     authority_boundary: assetPackage.authority_boundary,
-    approval_record_schema: assetPackage.approval_record_schema,
-    approval_records: assetPackage.approval_records || [],
+    approval_record_schema_version: assetPackage.approval_record_schema?.schema_version,
+    approval_record_count: approvalRecords.length,
+    approval_record_available: approvalRecords.length > 0,
     public_safe: !approvalContext.requires_review,
     requires_human_review: approvalContext.requires_review,
     review_flags: approvalContext.review_flags,
@@ -297,6 +335,24 @@ function normalizeAsset(assetPackage) {
       assetPackage.review_status,
     ]),
   };
+}
+
+function publicAssetSearchSourceFiles(assetPackage) {
+  const sourceFiles = assetPackage.source_files || assetPackage.provenance?.source_files || [];
+
+  return sourceFiles.filter((sourceFile) => {
+    const normalized = String(sourceFile || '');
+
+    if (!normalized) {
+      return false;
+    }
+
+    return !isInternalAssetSourceFile(normalized);
+  });
+}
+
+function isInternalAssetSourceFile(sourceFile) {
+  return INTERNAL_ASSET_SOURCE_FILE_PATTERNS.some((pattern) => pattern.test(sourceFile));
 }
 
 function buildAssetApprovalContext(assetPackage) {
@@ -353,6 +409,7 @@ function normalizeClaim(claim) {
 function normalizeOrganism(organism) {
   const routes = organism.site_routes || [];
   const memoryLayers = normalizeMemoryLayers(organism.memory_model);
+  const claimReferences = organism.claim_references || [];
 
   return {
     type: 'organism',
@@ -365,7 +422,8 @@ function normalizeOrganism(organism) {
     review_status: organism.review_status,
     memory_layers: memoryLayers,
     memory_context: buildMemoryContext(memoryLayers, 'public_organism_registry'),
-    claim_references: organism.claim_references || [],
+    claim_references: claimReferences,
+    snippet_candidates: claimReferenceSnippetCandidates(claimReferences),
     search_text: toSearchText([
       organism.id,
       organism.name,
@@ -374,7 +432,7 @@ function normalizeOrganism(organism) {
       organism.capabilities,
       organism.safety_boundaries,
       organism.memory_model,
-      organism.claim_references,
+      claimReferenceSearchParts(claimReferences),
     ]),
   };
 }
@@ -406,7 +464,7 @@ function normalizeTransmission(transmission, claimsRegistry) {
       transmission.summary,
       transmission.topic_tags,
       transmission.memory_layers,
-      claimReferences,
+      claimReferenceSearchParts(claimReferences),
     ]),
   };
 }
@@ -424,7 +482,7 @@ function buildSearchEntries(registries) {
 }
 
 function stripSearchText(entry) {
-  const { search_text: _searchText, ...publicEntry } = entry;
+  const { search_text: _searchText, snippet_candidates: _snippetCandidates, ...publicEntry } = entry;
   return publicEntry;
 }
 
@@ -461,7 +519,12 @@ function compactSnippet(text, tokens) {
 }
 
 function buildSnippet(entry, tokens) {
-  const candidates = [entry.summary, entry.title, entry.interpretation_boundary].filter(Boolean);
+  const candidates = [
+    ...(entry.snippet_candidates || []),
+    entry.summary,
+    entry.title,
+    entry.interpretation_boundary,
+  ].filter(Boolean);
   const match = candidates.find((candidate) =>
     tokens.some((token) => String(candidate).toLowerCase().includes(token)),
   );

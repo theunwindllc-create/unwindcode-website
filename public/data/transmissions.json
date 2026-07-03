@@ -366,6 +366,32 @@
       "citations": [{"label": "Published transmission", "route": "/transmissions/29-the-agent-readable-organism.html", "source_file": "transmissions/29-the-agent-readable-organism.html"}],
       "confidence": "high",
       "review_status": "public_safe"
+    },
+    {
+      "id": "30-the-operator-readiness-layer",
+      "transmission_number": 30,
+      "title": "Transmission 30: The Operator Readiness Layer",
+      "summary": "Brain guide and compact whitepaper record for the Operator Readiness Layer: content-free memory triage, operator contracts, workbench cards, smoke packets, focused validation, and approval boundaries before authority.",
+      "route": "/transmissions/30-the-operator-readiness-layer.html",
+      "source_file": "transmissions/30-the-operator-readiness-layer.html",
+      "topic_tags": ["operator-readiness", "memory", "approval-gates", "workbench"],
+      "memory_layers": ["working", "procedural", "semantic"],
+      "citations": [{"label": "Published transmission", "route": "/transmissions/30-the-operator-readiness-layer.html", "source_file": "transmissions/30-the-operator-readiness-layer.html"}],
+      "confidence": "high",
+      "review_status": "public_safe"
+    },
+    {
+      "id": "31-the-active-source-of-truth-gate",
+      "transmission_number": 31,
+      "title": "Transmission 31: The Active Source-of-Truth Gate",
+      "summary": "Brain guide and compact whitepaper record for the Active Source-of-Truth Gate: live-lane identity, local parity, discovery metadata, registry truth, API contract proof, internal asset boundaries, and approval before production mutation.",
+      "route": "/transmissions/31-the-active-source-of-truth-gate.html",
+      "source_file": "transmissions/31-the-active-source-of-truth-gate.html",
+      "topic_tags": ["public-proof", "deployment-governance", "retrieval-safety", "approval-gates"],
+      "memory_layers": ["procedural", "semantic", "episodic"],
+      "citations": [{"label": "Published transmission", "route": "/transmissions/31-the-active-source-of-truth-gate.html", "source_file": "transmissions/31-the-active-source-of-truth-gate.html"}],
+      "confidence": "high",
+      "review_status": "public_safe"
     }
   ]
 }

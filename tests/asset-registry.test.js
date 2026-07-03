@@ -48,15 +48,91 @@ function canonicalAssetPackageDigest(assetPackage) {
   const canonicalPayload = {
     id: assetPackage.id,
     type: assetPackage.type,
+    title: assetPackage.title,
+    summary: assetPackage.summary,
     source_route: assetPackage.source_route,
-    source_file_hashes: assetPackage.provenance.source_file_hashes,
-    generated_files: assetPackage.provenance.generated_files,
-    approval_record_schema_version: assetPackage.approval_record_schema.schema_version,
+    source_files: assetPackage.source_files,
+    alt_text: assetPackage.alt_text,
+    provenance: {
+      created_from: assetPackage.provenance.created_from,
+      source_files: assetPackage.provenance.source_files,
+      source_file_hashes: assetPackage.provenance.source_file_hashes,
+      generated_files: assetPackage.provenance.generated_files,
+    },
+    rights: assetPackage.rights,
+    approval_gates: assetPackage.approval_gates,
     authority_boundary: assetPackage.authority_boundary,
+    approval_record_schema: assetPackage.approval_record_schema,
+    review_status: assetPackage.review_status,
+    publication_status: assetPackage.publication_status,
+    manual_approval_required: assetPackage.manual_approval_required,
+    confidence: assetPackage.confidence,
   };
 
   return createHash('sha256').update(stableStringify(canonicalPayload)).digest('hex');
 }
+
+function sortedUnique(values, message) {
+  const unique = new Set(values);
+  assert.equal(unique.size, values.length, message);
+  return [...unique].sort();
+}
+
+test('asset registry hash provenance matches every listed source and generated file', async () => {
+  const registry = await loadRegistry();
+
+  for (const assetPackage of registry.packages) {
+    assert.equal(
+      assetPackage.asset_package_sha256,
+      canonicalAssetPackageDigest(assetPackage),
+      `${assetPackage.id} canonical package digest must match its public trust payload`,
+    );
+    assert.equal(
+      Array.isArray(assetPackage.provenance.source_file_hashes),
+      true,
+      `${assetPackage.id} source hash provenance should be an array`,
+    );
+    assert.deepEqual(
+      sortedUnique(
+        assetPackage.provenance.source_file_hashes.map((entry) => entry.path),
+        `${assetPackage.id} source hash paths should not contain duplicates`,
+      ),
+      sortedUnique(
+        assetPackage.provenance.source_files,
+        `${assetPackage.id} provenance source files should not contain duplicates`,
+      ),
+      `${assetPackage.id} source hash paths should cover every listed provenance source file`,
+    );
+    assert.equal(
+      Array.isArray(assetPackage.provenance.generated_files),
+      true,
+      `${assetPackage.id} generated file provenance should be an array`,
+    );
+
+    for (const fileRecord of [
+      ...assetPackage.provenance.source_file_hashes,
+      ...assetPackage.provenance.generated_files,
+    ]) {
+      assert.match(fileRecord.path, /^social\/[a-z0-9-]+\/.+/);
+      assert.match(fileRecord.sha256, /^[a-f0-9]{64}$/);
+      assert.equal(Number.isInteger(fileRecord.bytes), true);
+      assert.ok(fileRecord.bytes > 0);
+      await assertSourceFileExists(fileRecord.path);
+
+      const actual = await sha256File(fileRecord.path);
+      assert.equal(
+        fileRecord.bytes,
+        actual.bytes.length,
+        `${assetPackage.id} ${fileRecord.path} byte count must match`,
+      );
+      assert.equal(
+        fileRecord.sha256,
+        actual.sha256,
+        `${assetPackage.id} ${fileRecord.path} hash must match`,
+      );
+    }
+  }
+});
 
 test('asset registry records public-safe provenance for reviewed asset packages', async () => {
   const registry = await loadRegistry();
@@ -78,7 +154,7 @@ test('asset registry records public-safe provenance for reviewed asset packages'
   assert.equal(
     assetPackage.asset_package_sha256,
     canonicalAssetPackageDigest(assetPackage),
-    'asset package digest should bind source hashes, generated hashes, approval schema, and authority boundary',
+    'asset package digest should bind the public trust payload',
   );
   assert.equal(
     typeof assetPackage.authority_boundary,
@@ -209,7 +285,7 @@ test('property sales intelligence carousel is registered as a prepared-only pack
   assert.equal(
     assetPackage.asset_package_sha256,
     canonicalAssetPackageDigest(assetPackage),
-    'asset package digest should bind Transmission 26 provenance and authority boundary',
+    'asset package digest should bind Transmission 26 public trust payload',
   );
   assert.ok(assetPackage.alt_text.includes('consent'));
   assert.equal(assetPackage.provenance.source_files.length, 3);
@@ -259,7 +335,7 @@ test('agent-readable organism carousel is registered as a prepared-only package'
   assert.equal(
     assetPackage.asset_package_sha256,
     canonicalAssetPackageDigest(assetPackage),
-    'asset package digest should bind Transmission 29 provenance and authority boundary',
+    'asset package digest should bind Transmission 29 public trust payload',
   );
   assert.ok(assetPackage.alt_text.includes('Agent Readiness Cell'));
   assert.equal(assetPackage.provenance.source_files.length, 4);
@@ -275,6 +351,110 @@ test('agent-readable organism carousel is registered as a prepared-only package'
 
   for (const generatedFile of assetPackage.provenance.generated_files) {
     assert.match(generatedFile.path, /^social\/transmission-29-agent-readable-organism-carousel\/exports\/slide-[0-9]{2}\.png$/);
+    const actual = await sha256File(generatedFile.path);
+    assert.equal(generatedFile.bytes, actual.bytes.length, `${generatedFile.path} byte count must match`);
+    assert.equal(generatedFile.sha256, actual.sha256, `${generatedFile.path} hash must match`);
+  }
+});
+
+test('operator readiness layer carousel is registered as a prepared-only package', async () => {
+  const registry = await loadRegistry();
+  const assetPackage = registry.packages.find(
+    (candidate) => candidate.id === 'transmission-30-operator-readiness-layer-carousel',
+  );
+
+  assert.ok(assetPackage, 'Transmission 30 carousel should be registered');
+  assert.equal(assetPackage.type, 'social-carousel');
+  assert.equal(assetPackage.source_route, '/transmissions/30-the-operator-readiness-layer.html');
+  assert.equal(assetPackage.review_status, 'creator_approval_required');
+  assert.equal(assetPackage.publication_status, 'prepared_not_posted');
+  assert.equal(assetPackage.manual_approval_required, true);
+  assert.equal(assetPackage.authority_boundary.posting_authority, false);
+  assert.equal(assetPackage.authority_boundary.deployment_authority, false);
+  assert.equal(assetPackage.authority_boundary.answer_generation_authority, false);
+  assert.equal(assetPackage.authority_boundary.memory_mutation_authority, false);
+  assert.equal(assetPackage.authority_boundary.file_mutation_authority, false);
+  assert.equal(assetPackage.authority_boundary.outreach_authority, false);
+  assert.equal(assetPackage.authority_boundary.external_sync_authority, false);
+  assert.ok(assetPackage.authority_boundary.allowed_uses.includes('manual_review'));
+  assert.ok(assetPackage.authority_boundary.allowed_uses.includes('manual_social_post_after_creator_approval'));
+  assert.ok(assetPackage.authority_boundary.prohibited_uses.includes('automated_public_posting'));
+  assert.ok(assetPackage.authority_boundary.prohibited_uses.includes('unreviewed_deployment'));
+  assert.ok(assetPackage.authority_boundary.prohibited_uses.includes('unreviewed_memory_mutation'));
+  assert.ok(assetPackage.authority_boundary.prohibited_uses.includes('unreviewed_file_mutation'));
+  assert.ok(assetPackage.authority_boundary.prohibited_uses.includes('unreviewed_external_sync'));
+  assert.match(assetPackage.asset_package_sha256, /^[a-f0-9]{64}$/);
+  assert.equal(
+    assetPackage.asset_package_sha256,
+    canonicalAssetPackageDigest(assetPackage),
+    'asset package digest should bind Transmission 30 public trust payload',
+  );
+  assert.ok(assetPackage.alt_text.includes('Operator Readiness Cell'));
+  assert.equal(assetPackage.provenance.source_files.length, 4);
+  assert.equal(assetPackage.provenance.source_file_hashes.length, 4);
+  assert.equal(assetPackage.provenance.generated_files.length, 8);
+
+  for (const sourceFileHash of assetPackage.provenance.source_file_hashes) {
+    assert.match(sourceFileHash.path, /^social\/transmission-30-operator-readiness-layer-carousel\/((README|caption)\.(md|txt)|carousel\.html)$/);
+    const actual = await sha256File(sourceFileHash.path);
+    assert.equal(sourceFileHash.bytes, actual.bytes.length, `${sourceFileHash.path} byte count must match`);
+    assert.equal(sourceFileHash.sha256, actual.sha256, `${sourceFileHash.path} hash must match`);
+  }
+
+  for (const generatedFile of assetPackage.provenance.generated_files) {
+    assert.match(generatedFile.path, /^social\/transmission-30-operator-readiness-layer-carousel\/exports\/slide-[0-9]{2}\.png$/);
+    const actual = await sha256File(generatedFile.path);
+    assert.equal(generatedFile.bytes, actual.bytes.length, `${generatedFile.path} byte count must match`);
+    assert.equal(generatedFile.sha256, actual.sha256, `${generatedFile.path} hash must match`);
+  }
+});
+
+test('active source-of-truth gate carousel is registered as a prepared-only package', async () => {
+  const registry = await loadRegistry();
+  const assetPackage = registry.packages.find(
+    (candidate) => candidate.id === 'transmission-31-active-source-of-truth-gate-carousel',
+  );
+
+  assert.ok(assetPackage, 'Transmission 31 carousel should be registered');
+  assert.equal(assetPackage.type, 'social-carousel');
+  assert.equal(assetPackage.source_route, '/transmissions/31-the-active-source-of-truth-gate.html');
+  assert.equal(assetPackage.review_status, 'creator_approval_required');
+  assert.equal(assetPackage.publication_status, 'prepared_not_posted');
+  assert.equal(assetPackage.manual_approval_required, true);
+  assert.equal(assetPackage.authority_boundary.posting_authority, false);
+  assert.equal(assetPackage.authority_boundary.deployment_authority, false);
+  assert.equal(assetPackage.authority_boundary.answer_generation_authority, false);
+  assert.equal(assetPackage.authority_boundary.memory_mutation_authority, false);
+  assert.equal(assetPackage.authority_boundary.file_mutation_authority, false);
+  assert.equal(assetPackage.authority_boundary.outreach_authority, false);
+  assert.equal(assetPackage.authority_boundary.external_sync_authority, false);
+  assert.ok(assetPackage.authority_boundary.allowed_uses.includes('manual_review'));
+  assert.ok(assetPackage.authority_boundary.allowed_uses.includes('manual_social_post_after_creator_approval'));
+  assert.ok(assetPackage.authority_boundary.prohibited_uses.includes('automated_public_posting'));
+  assert.ok(assetPackage.authority_boundary.prohibited_uses.includes('unreviewed_deployment'));
+  assert.ok(assetPackage.authority_boundary.prohibited_uses.includes('unreviewed_memory_mutation'));
+  assert.ok(assetPackage.authority_boundary.prohibited_uses.includes('unreviewed_file_mutation'));
+  assert.ok(assetPackage.authority_boundary.prohibited_uses.includes('unreviewed_external_sync'));
+  assert.match(assetPackage.asset_package_sha256, /^[a-f0-9]{64}$/);
+  assert.equal(
+    assetPackage.asset_package_sha256,
+    canonicalAssetPackageDigest(assetPackage),
+    'asset package digest should bind Transmission 31 public trust payload',
+  );
+  assert.ok(assetPackage.alt_text.includes('Release Identity Controller'));
+  assert.equal(assetPackage.provenance.source_files.length, 4);
+  assert.equal(assetPackage.provenance.source_file_hashes.length, 4);
+  assert.equal(assetPackage.provenance.generated_files.length, 8);
+
+  for (const sourceFileHash of assetPackage.provenance.source_file_hashes) {
+    assert.match(sourceFileHash.path, /^social\/transmission-31-active-source-of-truth-gate-carousel\/((README|caption)\.(md|txt)|carousel\.html)$/);
+    const actual = await sha256File(sourceFileHash.path);
+    assert.equal(sourceFileHash.bytes, actual.bytes.length, `${sourceFileHash.path} byte count must match`);
+    assert.equal(sourceFileHash.sha256, actual.sha256, `${sourceFileHash.path} hash must match`);
+  }
+
+  for (const generatedFile of assetPackage.provenance.generated_files) {
+    assert.match(generatedFile.path, /^social\/transmission-31-active-source-of-truth-gate-carousel\/exports\/slide-[0-9]{2}\.png$/);
     const actual = await sha256File(generatedFile.path);
     assert.equal(generatedFile.bytes, actual.bytes.length, `${generatedFile.path} byte count must match`);
     assert.equal(generatedFile.sha256, actual.sha256, `${generatedFile.path} hash must match`);

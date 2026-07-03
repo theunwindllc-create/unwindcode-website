@@ -1,5 +1,6 @@
 import { readFile } from 'node:fs/promises';
 import { stat } from 'node:fs/promises';
+import { validateAssetRegistry } from './assets.js';
 
 const STATUS_URLS = {
   services: new URL('../public/ai-services.json', import.meta.url),
@@ -57,6 +58,7 @@ function operationalControls(services) {
     durable_rate_limited_endpoints: endpointsWhere('durable_rate_limit'),
     production_fail_closed_endpoints: endpointsWhere('production_fail_closed'),
     answer_generation_disabled_endpoints: endpointsWhere('answer_generation_disabled'),
+    grounding_review_required_endpoints: endpointsWhere('grounding_review_required'),
     same_origin_guarded_endpoints: endpointsWhere('same_origin_guarded'),
     limiter_payload_boundary: {
       salted_route_client_hashes_only: true,
@@ -75,6 +77,58 @@ function registryStatus(registry, collectionName) {
     count: collection.length,
     review_status: registry.review_status,
     public_safe_count: collection.filter((entry) => entry.review_status === 'public_safe').length,
+  };
+}
+
+function latestPublicTransmission(transmissions) {
+  const latest = transmissions
+    .filter((entry) => entry.review_status === 'public_safe')
+    .sort((a, b) => b.transmission_number - a.transmission_number)[0];
+
+  if (!latest) {
+    return null;
+  }
+
+  return {
+    id: latest.id,
+    transmission_number: latest.transmission_number,
+    title: latest.title,
+    route: latest.route,
+    source_file: latest.source_file,
+    review_status: latest.review_status,
+  };
+}
+
+function transmissionNumbering(transmissions) {
+  const numbers = transmissions
+    .map((entry) => entry.transmission_number)
+    .filter((number) => Number.isInteger(number))
+    .sort((a, b) => a - b);
+  const latestNumber = numbers.at(-1) || 0;
+  const numberSet = new Set(numbers);
+  const missingNumbers = [];
+
+  for (let number = 1; number <= latestNumber; number += 1) {
+    if (!numberSet.has(number)) {
+      missingNumbers.push(number);
+    }
+  }
+
+  return {
+    latest_number: latestNumber,
+    published_count: numbers.length,
+    has_gaps: missingNumbers.length > 0,
+    missing_numbers: missingNumbers,
+  };
+}
+
+function transmissionStatus(registry) {
+  const baseStatus = registryStatus(registry, 'transmissions');
+
+  return {
+    ...baseStatus,
+    latest_public_transmission: latestPublicTransmission(registry.transmissions),
+    numbering: transmissionNumbering(registry.transmissions),
   };
 }
 
@@ -115,6 +169,8 @@ async function buildStatus(urls = STATUS_URLS) {
     readJson(urls.transmissions),
   ]);
 
+  validateAssetRegistry(assets);
+
   return {
     schema_version: '2026-06-06.public-backend-status.v1',
     review_status: 'public_safe',
@@ -133,7 +189,7 @@ async function buildStatus(urls = STATUS_URLS) {
       assets: assetStatus(assets),
       claims: claimStatus(claims),
       organisms: registryStatus(organisms, 'organisms'),
-      transmissions: registryStatus(transmissions, 'transmissions'),
+      transmissions: transmissionStatus(transmissions),
     },
     boundaries: {
       public_only: true,
@@ -182,9 +238,16 @@ export function createStatusHandler(deps = {}) {
     }
 
     if (req.method === 'HEAD') {
-      res.setHeader('Cache-Control', SUCCESS_CACHE_CONTROL);
-      res.status(200);
-      res.end();
+      try {
+        await readStatus();
+        res.setHeader('Cache-Control', SUCCESS_CACHE_CONTROL);
+        res.status(200);
+        res.end();
+      } catch {
+        res.setHeader('Cache-Control', ERROR_CACHE_CONTROL);
+        res.status(500);
+        res.end();
+      }
       return;
     }
 

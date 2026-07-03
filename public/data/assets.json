@@ -14,7 +14,7 @@
       "title": "Transmission 24 Mirror Carousel",
       "summary": "A prepared twelve-slide square carousel for Transmission 24 that explains Infinity Mirror as a visual surface shaped by user signal rather than another admin-like wellness dashboard.",
       "source_route": "/transmissions/24-the-mirror-found-its-form.html",
-      "asset_package_sha256": "2e6ad72871c7b49b1e2032a9cdfff571fadad3d8d418985fd7a745b0756c002b",
+      "asset_package_sha256": "4db11401d9eb45080fa56a95063dcb717c97983f30f50aa5a6cc9a9c63c4d23b",
       "source_files": [
         "social/transmission-24-mirror-carousel/README.md",
         "social/transmission-24-mirror-carousel/caption.md",
@@ -221,7 +221,7 @@
       "title": "Transmission 26 Property Sales Intelligence Cell Carousel",
       "summary": "A prepared eight-slide square carousel for Transmission 26 that frames real estate property sales intelligence as source-aware, consent-first CRM architecture with human approval and proof before outreach.",
       "source_route": "/transmissions/26-property-sales-intelligence-cell.html",
-      "asset_package_sha256": "3b5bb5bab4b7398aa88ebc6d3aee1f02c500c86373832db350c15495ceef508a",
+      "asset_package_sha256": "890c132626941b21a82e6aa816fecaaaf50be737087010d562fb5ee417c73667",
       "source_files": [
         "social/transmission-26-property-sales-intelligence-cell-carousel/README.md",
         "social/transmission-26-property-sales-intelligence-cell-carousel/caption.md",
@@ -401,7 +401,7 @@
       "title": "Transmission 27 Site Public Index Carousel",
       "summary": "A prepared four-slide square carousel for Transmission 27 that frames UnwindCode.ai as a public-safe index for registries, search, grounding packets, claim context, asset provenance, and refusal boundaries.",
       "source_route": "/transmissions/27-the-site-became-a-public-index.html",
-      "asset_package_sha256": "65ae07c5a29865a219ae9dbd2b6d2857f58a778c259f37802f6f97866675f24f",
+      "asset_package_sha256": "9910f23395d6c24f15e6c94145352e816edbb8e7a90570b49042eb51a95bc8bb",
       "source_files": [
         "social/transmission-27-site-public-index-carousel/README.md",
         "social/transmission-27-site-public-index-carousel/caption.md",
@@ -548,7 +548,7 @@
       "title": "Transmission 28 Memory Control Plane Carousel",
       "summary": "A prepared four-slide square carousel for Transmission 28 that frames Brain memory as an operator control plane for metadata-only inspection, health, action queues, triage, reviewed writes, and receipt hygiene.",
       "source_route": "/transmissions/28-the-memory-control-plane.html",
-      "asset_package_sha256": "b6df401ac332c95079b9747e49275b4b852393fdab1bb1283f8f7602a4a2454a",
+      "asset_package_sha256": "688862b642a861e8802c3c927859eba40c71d3adfb8b42d8fee57ef69688eac6",
       "source_files": [
         "social/transmission-28-memory-control-plane-carousel/README.md",
         "social/transmission-28-memory-control-plane-carousel/caption.md",
@@ -566,20 +566,20 @@
           {
             "path": "social/transmission-28-memory-control-plane-carousel/README.md",
             "mime_type": "text/markdown",
-            "bytes": 875,
-            "sha256": "019ecbabdfbd81d5348a9ccce459521dd1133d82852ce58fb8011f320266924e"
+            "bytes": 1164,
+            "sha256": "b867238c6753ae0b5b6076fc2fb729cdbdc9c9a4fef5f131981d05d46bc7438e"
           },
           {
             "path": "social/transmission-28-memory-control-plane-carousel/caption.md",
             "mime_type": "text/markdown",
-            "bytes": 1398,
-            "sha256": "bae6d31e16e4d97f7fc0169e0534025389adc6d7006916aa2f55288f92462c0d"
+            "bytes": 1762,
+            "sha256": "62875e86bf3a85e4f7f7fe715e46dafc5342e7d213bb468b2cd3d62079f54dd6"
           },
           {
             "path": "social/transmission-28-memory-control-plane-carousel/carousel.html",
             "mime_type": "text/html",
-            "bytes": 7203,
-            "sha256": "c6d7ff4c52381efc6fb4d1088c73fe08f42c5c6afd9283b8786ca111909e5d5d"
+            "bytes": 12485,
+            "sha256": "2d6806386595aef5b0df59e4ba4961ea31b499616058cfe36a4cd31a1266ffc7"
           }
         ],
         "generated_files": [
@@ -588,32 +588,32 @@
             "mime_type": "image/png",
             "width": 1080,
             "height": 1080,
-            "bytes": 633159,
-            "sha256": "2027879c3d600ec424a0f9e9dbbbfbbb39640bdce463b96270c4bdbd1761fbd4"
+            "bytes": 628875,
+            "sha256": "423c50812aa68fa09fdc7faa59fdc19f156dfc6b7d2c7421b32bd24405d0ca32"
           },
           {
             "path": "social/transmission-28-memory-control-plane-carousel/exports/slide-02.png",
             "mime_type": "image/png",
             "width": 1080,
             "height": 1080,
-            "bytes": 596656,
-            "sha256": "0482dcb0dd2b43ddec29c442721889acec9fb32f507997f992cf11cfca30085e"
+            "bytes": 556894,
+            "sha256": "de0fd9ee85bd38b5b6df0b4cb2d292270293298399739472bfdc08b982558732"
           },
           {
             "path": "social/transmission-28-memory-control-plane-carousel/exports/slide-03.png",
             "mime_type": "image/png",
             "width": 1080,
             "height": 1080,
-            "bytes": 585173,
-            "sha256": "88fd81342850b4f877da7adab8dc006d5ac68261e10765d67aa2e1201891b0fa"
+            "bytes": 533721,
+            "sha256": "e14f78e89229ff193cfb39a61b052cf0725691c6f2dad9e4a19408e0c15bd13d"
           },
           {
             "path": "social/transmission-28-memory-control-plane-carousel/exports/slide-04.png",
             "mime_type": "image/png",
             "width": 1080,
             "height": 1080,
-            "bytes": 645323,
-            "sha256": "90ec7ca77e9c144d7a093735de5e565d01a2a8c842f2a45ee0536e3b88e91a91"
+            "bytes": 542003,
+            "sha256": "45f54a3367eaf4db1483e94609c7647fbbee5e0abd21da0afe0ad282084b1fc3"
           }
         ]
       },
@@ -696,7 +696,7 @@
       "title": "Transmission 29 Agent-Readable Organism Carousel",
       "summary": "A prepared six-slide square carousel for Transmission 29 that explains the agent-readable organism: public contracts, machine-readable routes, grounding packets, approval boundaries, threat model, and the Agent Readiness Cell.",
       "source_route": "/transmissions/29-the-agent-readable-organism.html",
-      "asset_package_sha256": "5e8bfc87d9cbb4bc2e12e5009c033e7bb81b0d76a3aed1bff68f609699cf50b4",
+      "asset_package_sha256": "da6bff2a8d13b4220df6e20d225abd65099f737622ad742da84ab86b4cd6beb2",
       "source_files": [
         "social/transmission-29-agent-readable-organism-carousel/README.md",
         "social/transmission-29-agent-readable-organism-carousel/caption.md",
@@ -825,6 +825,394 @@
           "unreviewed_memory_mutation",
           "unreviewed_file_mutation",
           "outreach_activation"
+        ]
+      },
+      "approval_record_schema": {
+        "schema_version": "2026-06-06.public-asset-approval-record.v1",
+        "storage_boundary": {
+          "public_record_only": true,
+          "secrets_excluded": true,
+          "raw_prompts_excluded": true,
+          "private_notes_excluded": true,
+          "on_chain_sensitive_data_excluded": true
+        },
+        "required_fields": [
+          "approval_id",
+          "asset_package_id",
+          "asset_package_sha256",
+          "approved_by_role",
+          "approved_at",
+          "approved_scope",
+          "source_file_hashes_verified",
+          "generated_file_hashes_verified"
+        ],
+        "allowed_approval_scopes": [
+          "manual_social_publication",
+          "site_asset_publication",
+          "provenance_attestation"
+        ],
+        "prohibited_record_content": [
+          "private_approver_identity",
+          "raw_prompts",
+          "private_notes",
+          "wallet_secret_material",
+          "service_credentials",
+          "sensitive_user_data"
+        ]
+      },
+      "approval_records": [],
+      "review_status": "creator_approval_required",
+      "publication_status": "prepared_not_posted",
+      "manual_approval_required": true,
+      "confidence": "high"
+    },
+    {
+      "id": "transmission-30-operator-readiness-layer-carousel",
+      "type": "social-carousel",
+      "title": "Transmission 30 Operator Readiness Layer Carousel",
+      "summary": "A prepared eight-slide square carousel for Transmission 30 that explains the Operator Readiness Layer: readiness before authority, content-free memory triage, workbench cards, smoke packets, threat model, approval boundaries, and the next Operator Readiness Cell.",
+      "source_route": "/transmissions/30-the-operator-readiness-layer.html",
+      "asset_package_sha256": "cd638c3eb5c2d8bd61a3cc04c97a01abb3ae3ef409fe1dfd92c4031ca808842b",
+      "source_files": [
+        "social/transmission-30-operator-readiness-layer-carousel/README.md",
+        "social/transmission-30-operator-readiness-layer-carousel/caption.md",
+        "social/transmission-30-operator-readiness-layer-carousel/caption.txt",
+        "social/transmission-30-operator-readiness-layer-carousel/carousel.html"
+      ],
+      "alt_text": "Eight-slide dark theme carousel for Unwind Code Transmission 30 explaining the Operator Readiness Layer, readiness before authority, local proof, memory triage, workbench cards, smoke packets, threat model, approval boundaries, and the Operator Readiness Cell.",
+      "provenance": {
+        "created_from": "local-html-carousel-render",
+        "source_files": [
+          "social/transmission-30-operator-readiness-layer-carousel/README.md",
+          "social/transmission-30-operator-readiness-layer-carousel/caption.md",
+          "social/transmission-30-operator-readiness-layer-carousel/caption.txt",
+          "social/transmission-30-operator-readiness-layer-carousel/carousel.html"
+        ],
+        "source_file_hashes": [
+          {
+            "path": "social/transmission-30-operator-readiness-layer-carousel/README.md",
+            "mime_type": "text/markdown",
+            "bytes": 1463,
+            "sha256": "d2583f578a500b06ba3febdd112bb255f146b11b526c563ccf8a1fa1204303b1"
+          },
+          {
+            "path": "social/transmission-30-operator-readiness-layer-carousel/caption.md",
+            "mime_type": "text/markdown",
+            "bytes": 2723,
+            "sha256": "e5274e70bc9567e2152fc4bf0c2f52ceeb438197248dfbfb1e384ebdc5a53a2f"
+          },
+          {
+            "path": "social/transmission-30-operator-readiness-layer-carousel/caption.txt",
+            "mime_type": "text/plain",
+            "bytes": 2721,
+            "sha256": "eacdd1ca38e05f2a75d37c3d4ca56607cb20b39cb9d1aa5238b8b39fc5e4f748"
+          },
+          {
+            "path": "social/transmission-30-operator-readiness-layer-carousel/carousel.html",
+            "mime_type": "text/html",
+            "bytes": 15644,
+            "sha256": "fddd4ea2f69dda38cb021bcb2a1531d34f7689a3435a927e13ab2871c186e689"
+          }
+        ],
+        "generated_files": [
+          {
+            "path": "social/transmission-30-operator-readiness-layer-carousel/exports/slide-01.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 731201,
+            "sha256": "dbda4f039ba3a21cfcb3d5af1cc6d42057dabfd874d140f497d9b13a7ca50dd7"
+          },
+          {
+            "path": "social/transmission-30-operator-readiness-layer-carousel/exports/slide-02.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 646128,
+            "sha256": "00f2fc61265bd78c4f11545a8a1af1c15ff9c4c1dd457f1f8a103d87ae3f9db8"
+          },
+          {
+            "path": "social/transmission-30-operator-readiness-layer-carousel/exports/slide-03.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 637527,
+            "sha256": "b28647570c04f8fb9b7bb4566474444a9f89ce9f4d08b5513ba5dd4c3a7f10b4"
+          },
+          {
+            "path": "social/transmission-30-operator-readiness-layer-carousel/exports/slide-04.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 669727,
+            "sha256": "738c6b3a2b17833202c38b25aea2aa3a788def77f4b65d1b89b581cca10db0b7"
+          },
+          {
+            "path": "social/transmission-30-operator-readiness-layer-carousel/exports/slide-05.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 694028,
+            "sha256": "0b6acb2a7e8100c95140f6c3988de3fb7c7050f10e47fc208bb3f2617ddc86de"
+          },
+          {
+            "path": "social/transmission-30-operator-readiness-layer-carousel/exports/slide-06.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 639357,
+            "sha256": "e17218d48d1fa2c66973af9eef39419684ee5a4ab56b6c3c54703b48f8f01d1a"
+          },
+          {
+            "path": "social/transmission-30-operator-readiness-layer-carousel/exports/slide-07.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 748689,
+            "sha256": "26168a262f09c21513a4fbf60eaa398afc64632abcb8db877d53a25e6c4c09d9"
+          },
+          {
+            "path": "social/transmission-30-operator-readiness-layer-carousel/exports/slide-08.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 761452,
+            "sha256": "55f408031c494aee55c10190d523858abf2ad29e39e154f65ffbbb3c882d33b7"
+          }
+        ]
+      },
+      "rights": {
+        "usage_scope": "Prepared for UnwindCode.ai social channels after manual approval only.",
+        "license_notes": "Owner-created site and social asset package; external licensing is not asserted by this registry."
+      },
+      "approval_gates": [
+        "Creator approval is required before public posting.",
+        "Caption, alt text, generated slides, and source route must be reviewed together.",
+        "No automated public publishing, deployment, wallet, external sync, memory mutation, file mutation, outreach, paid media, or answer-generation authority is granted by this registry."
+      ],
+      "authority_boundary": {
+        "posting_authority": false,
+        "wallet_authority": false,
+        "paid_media_authority": false,
+        "on_chain_attestation_authority": false,
+        "deployment_authority": false,
+        "answer_generation_authority": false,
+        "memory_mutation_authority": false,
+        "file_mutation_authority": false,
+        "outreach_authority": false,
+        "external_sync_authority": false,
+        "approval_state": "creator_approval_required",
+        "allowed_uses": [
+          "manual_review",
+          "provenance_lookup",
+          "local_asset_inspection",
+          "manual_social_post_after_creator_approval"
+        ],
+        "prohibited_uses": [
+          "automated_public_posting",
+          "wallet_signing",
+          "paid_media_activation",
+          "on_chain_publication",
+          "unreviewed_rag_answer_evidence",
+          "unreviewed_deployment",
+          "unreviewed_memory_mutation",
+          "unreviewed_file_mutation",
+          "outreach_activation",
+          "unreviewed_external_sync"
+        ]
+      },
+      "approval_record_schema": {
+        "schema_version": "2026-06-06.public-asset-approval-record.v1",
+        "storage_boundary": {
+          "public_record_only": true,
+          "secrets_excluded": true,
+          "raw_prompts_excluded": true,
+          "private_notes_excluded": true,
+          "on_chain_sensitive_data_excluded": true
+        },
+        "required_fields": [
+          "approval_id",
+          "asset_package_id",
+          "asset_package_sha256",
+          "approved_by_role",
+          "approved_at",
+          "approved_scope",
+          "source_file_hashes_verified",
+          "generated_file_hashes_verified"
+        ],
+        "allowed_approval_scopes": [
+          "manual_social_publication",
+          "site_asset_publication",
+          "provenance_attestation"
+        ],
+        "prohibited_record_content": [
+          "private_approver_identity",
+          "raw_prompts",
+          "private_notes",
+          "wallet_secret_material",
+          "service_credentials",
+          "sensitive_user_data"
+        ]
+      },
+      "approval_records": [],
+      "review_status": "creator_approval_required",
+      "publication_status": "prepared_not_posted",
+      "manual_approval_required": true,
+      "confidence": "high"
+    },
+    {
+      "id": "transmission-31-active-source-of-truth-gate-carousel",
+      "type": "social-carousel",
+      "title": "Transmission 31 Active Source-of-Truth Gate Carousel",
+      "summary": "A prepared eight-slide square carousel for Transmission 31 that explains the Active Source-of-Truth Gate: Ready is not live truth, publication identity, proof surfaces, gate protocol, failure modes, the Release Identity Controller, approval boundaries, and next-cell memory.",
+      "source_route": "/transmissions/31-the-active-source-of-truth-gate.html",
+      "asset_package_sha256": "bf30eec247316238ff27405118fc6e196bf92803cf9ae15ba8afc12f1be01744",
+      "source_files": [
+        "social/transmission-31-active-source-of-truth-gate-carousel/README.md",
+        "social/transmission-31-active-source-of-truth-gate-carousel/caption.md",
+        "social/transmission-31-active-source-of-truth-gate-carousel/caption.txt",
+        "social/transmission-31-active-source-of-truth-gate-carousel/carousel.html"
+      ],
+      "alt_text": "Eight-slide dark theme carousel for Unwind Code Transmission 31 explaining the Active Source-of-Truth Gate, live-lane proof, local source parity, public discovery checks, API contract checks, internal asset boundaries, the Release Identity Controller, and approval before deployment.",
+      "provenance": {
+        "created_from": "local-html-carousel-render",
+        "source_files": [
+          "social/transmission-31-active-source-of-truth-gate-carousel/README.md",
+          "social/transmission-31-active-source-of-truth-gate-carousel/caption.md",
+          "social/transmission-31-active-source-of-truth-gate-carousel/caption.txt",
+          "social/transmission-31-active-source-of-truth-gate-carousel/carousel.html"
+        ],
+        "source_file_hashes": [
+          {
+            "path": "social/transmission-31-active-source-of-truth-gate-carousel/README.md",
+            "mime_type": "text/markdown",
+            "bytes": 1492,
+            "sha256": "a0a9b70c7dd6adac198062fb2927c3e205f67d92998f12c75ba4c46accc3daca"
+          },
+          {
+            "path": "social/transmission-31-active-source-of-truth-gate-carousel/caption.md",
+            "mime_type": "text/markdown",
+            "bytes": 2210,
+            "sha256": "4169513a30c72f9e5c6a111516ab3fe5db23792b386a06bfd05cd23da6f05487"
+          },
+          {
+            "path": "social/transmission-31-active-source-of-truth-gate-carousel/caption.txt",
+            "mime_type": "text/plain",
+            "bytes": 2208,
+            "sha256": "3e1de9dc65481d50b7f9e8ff0633cc8d0c30ed286edc11c4ce81dd843be2112c"
+          },
+          {
+            "path": "social/transmission-31-active-source-of-truth-gate-carousel/carousel.html",
+            "mime_type": "text/html",
+            "bytes": 14684,
+            "sha256": "91cc325669575d345c3393b4bf9fa89f64cafcb4fa6d8013c817f4ba906e170f"
+          }
+        ],
+        "generated_files": [
+          {
+            "path": "social/transmission-31-active-source-of-truth-gate-carousel/exports/slide-01.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 743664,
+            "sha256": "181949ed5c44fc3cb708e6e0fe92591d46d19dcf9c41edc2aa07a76f0511c7a1"
+          },
+          {
+            "path": "social/transmission-31-active-source-of-truth-gate-carousel/exports/slide-02.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 736240,
+            "sha256": "f89573f85cf43c187f35cf390b66a28f2a3c5399e830a626ddb3187289ea35cb"
+          },
+          {
+            "path": "social/transmission-31-active-source-of-truth-gate-carousel/exports/slide-03.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 661919,
+            "sha256": "ba78850e5ed9e4130239edc4270092917ab31cdc1d8d2bb0ef315986b758294a"
+          },
+          {
+            "path": "social/transmission-31-active-source-of-truth-gate-carousel/exports/slide-04.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 636362,
+            "sha256": "54f84a2a30066745101f5de305a04f2d9b6d04f70ade0f28b4faf04539644d72"
+          },
+          {
+            "path": "social/transmission-31-active-source-of-truth-gate-carousel/exports/slide-05.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 653382,
+            "sha256": "0c304d9c3a0350d439f5ddb330355aca4ace35283f07f9ced21536f453bf8891"
+          },
+          {
+            "path": "social/transmission-31-active-source-of-truth-gate-carousel/exports/slide-06.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 714992,
+            "sha256": "45a28f59aa6f0c8310eb764b3ca4fb84ab54cd94ac3f021fb754941e2bacf554"
+          },
+          {
+            "path": "social/transmission-31-active-source-of-truth-gate-carousel/exports/slide-07.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 751261,
+            "sha256": "44119aef4bd1e2028946e9fb30e63364a584a15d43ae7aea068a9391c92b3728"
+          },
+          {
+            "path": "social/transmission-31-active-source-of-truth-gate-carousel/exports/slide-08.png",
+            "mime_type": "image/png",
+            "width": 1080,
+            "height": 1080,
+            "bytes": 740051,
+            "sha256": "a5e16114a46cbbb4df9c5e86a4859440ff0630345f3525fa7b26c03af746a5f3"
+          }
+        ]
+      },
+      "rights": {
+        "usage_scope": "Prepared for UnwindCode.ai social channels after manual approval only.",
+        "license_notes": "Owner-created site and social asset package; external licensing is not asserted by this registry."
+      },
+      "approval_gates": [
+        "Creator approval is required before public posting.",
+        "Caption, alt text, generated slides, and source route must be reviewed together.",
+        "No automated public publishing, deployment, aliasing, wallet, external sync, memory mutation, file mutation, outreach, paid media, or answer-generation authority is granted by this registry."
+      ],
+      "authority_boundary": {
+        "posting_authority": false,
+        "wallet_authority": false,
+        "paid_media_authority": false,
+        "on_chain_attestation_authority": false,
+        "deployment_authority": false,
+        "answer_generation_authority": false,
+        "memory_mutation_authority": false,
+        "file_mutation_authority": false,
+        "outreach_authority": false,
+        "external_sync_authority": false,
+        "approval_state": "creator_approval_required",
+        "allowed_uses": [
+          "manual_review",
+          "provenance_lookup",
+          "local_asset_inspection",
+          "manual_social_post_after_creator_approval"
+        ],
+        "prohibited_uses": [
+          "automated_public_posting",
+          "wallet_signing",
+          "paid_media_activation",
+          "on_chain_publication",
+          "unreviewed_rag_answer_evidence",
+          "unreviewed_deployment",
+          "unreviewed_memory_mutation",
+          "unreviewed_file_mutation",
+          "outreach_activation",
+          "unreviewed_external_sync"
         ]
       },
       "approval_record_schema": {

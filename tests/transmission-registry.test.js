@@ -82,6 +82,8 @@ test('public transmission pages keep posting assets internal', async () => {
     '../transmissions/27-the-site-became-a-public-index.html',
     '../transmissions/28-the-memory-control-plane.html',
     '../transmissions/29-the-agent-readable-organism.html',
+    '../transmissions/30-the-operator-readiness-layer.html',
+    '../transmissions/31-the-active-source-of-truth-gate.html',
   ];
 
   for (const pagePath of publicPages) {
@@ -97,6 +99,8 @@ test('new local transmissions read as Brain guides and compact whitepaper notes'
   const publicIndex = await readFile(new URL('../transmissions/27-the-site-became-a-public-index.html', import.meta.url), 'utf8');
   const memoryControlPlane = await readFile(new URL('../transmissions/28-the-memory-control-plane.html', import.meta.url), 'utf8');
   const agentReadableOrganism = await readFile(new URL('../transmissions/29-the-agent-readable-organism.html', import.meta.url), 'utf8');
+  const operatorReadinessLayer = await readFile(new URL('../transmissions/30-the-operator-readiness-layer.html', import.meta.url), 'utf8');
+  const activeSourceOfTruthGate = await readFile(new URL('../transmissions/31-the-active-source-of-truth-gate.html', import.meta.url), 'utf8');
 
   assert.match(publicIndex, /Public Index Protocol/);
   assert.match(publicIndex, /Context without coordinates becomes agent entropy/i);
@@ -130,13 +134,31 @@ test('new local transmissions read as Brain guides and compact whitepaper notes'
   assert.match(agentReadableOrganism, /https:\/\/vercel\.com\/changelog\/program-agent-harnesses-with-ai-sdk/);
   assert.match(agentReadableOrganism, /https:\/\/openai\.com\/index\/the-next-evolution-of-the-agents-sdk\//);
   assert.match(agentReadableOrganism, /https:\/\/blog\.cloudflare\.com\/agent-readiness\//);
+
+  assert.match(operatorReadinessLayer, /Operator Readiness Layer/);
+  assert.match(operatorReadinessLayer, /Readiness before authority/i);
+  assert.match(operatorReadinessLayer, /content-free memory triage/i);
+  assert.match(operatorReadinessLayer, /Operator Readiness Cell/);
+  assert.match(operatorReadinessLayer, /Manual Brain Mode/i);
+  assert.match(operatorReadinessLayer, /Ready is confused with allowed/i);
+  assert.match(operatorReadinessLayer, /next-cell memory/i);
+  assert.match(operatorReadinessLayer, /Posting assets for this transmission remain internal creator material/i);
+
+  assert.match(activeSourceOfTruthGate, /Active Source-of-Truth Gate/);
+  assert.match(activeSourceOfTruthGate, /Publication is identity transfer/i);
+  assert.match(activeSourceOfTruthGate, /Ready does not mean current/i);
+  assert.match(activeSourceOfTruthGate, /live-lane identity/i);
+  assert.match(activeSourceOfTruthGate, /Internal boundary guard/i);
+  assert.match(activeSourceOfTruthGate, /Release Identity Controller/i);
+  assert.match(activeSourceOfTruthGate, /Manual Brain Mode/i);
+  assert.match(activeSourceOfTruthGate, /Posting assets for this transmission remain internal creator material/i);
 });
 
 test('transmission archive is a guide library, not a public posting desk', async () => {
   const archive = await readFile(new URL('../transmissions/index.html', import.meta.url), 'utf8');
 
   assert.match(archive, /whitepaper-style records/i);
-  assert.match(archive, /29<\/span> transmissions published/);
+  assert.match(archive, /31<\/span> transmissions published/);
   assert.equal(archive.includes('id="social-packet-desk"'), false);
   assert.equal(/Social Packet Desk|Open carousel|Download ZIP|View caption/i.test(archive), false);
   assert.equal(/\/social\/transmission-[^"']+/i.test(archive), false);
