@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 720" role="presentation" aria-hidden="true">
+  <defs>
+    <radialGradient id="field" cx="50%" cy="50%" r="72%">
+      <stop offset="0%" stop-color="#1c1830" stop-opacity="0.86"/>
+      <stop offset="56%" stop-color="#080914" stop-opacity="0.58"/>
+      <stop offset="100%" stop-color="#06060c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="pathA" x1="92" y1="128" x2="988" y2="592" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0d9488" stop-opacity="0.08"/>
+      <stop offset="0.38" stop-color="#9b59f5" stop-opacity="0.36"/>
+      <stop offset="0.72" stop-color="#d6a84f" stop-opacity="0.46"/>
+      <stop offset="1" stop-color="#0d9488" stop-opacity="0.16"/>
+    </linearGradient>
+    <linearGradient id="pathB" x1="160" y1="610" x2="940" y2="90" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#d6a84f" stop-opacity="0.1"/>
+      <stop offset="0.5" stop-color="#0d9488" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#9b59f5" stop-opacity="0.22"/>
+    </linearGradient>
+    <filter id="nodeGlow" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur stdDeviation="9" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.42 0 0 0 0 0.24 0 0 0 0 0.74 0 0 0 0.42 0"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <style>
+      .guide { fill: none; stroke: rgba(240, 238, 246, 0.12); stroke-width: 1; }
+      .flow { fill: none; stroke-width: 2; stroke-linecap: round; stroke-dasharray: 18 20; animation: move 18s linear infinite; }
+      .return { animation-duration: 24s; animation-direction: reverse; opacity: 0.74; }
+      .node { filter: url(#nodeGlow); }
+      .pulse { animation: breathe 6s ease-in-out infinite; transform-origin: center; }
+      @keyframes move { to { stroke-dashoffset: -320; } }
+      @keyframes breathe {
+        0%, 100% { opacity: 0.72; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.035); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .flow, .pulse { animation: none; }
+      }
+    </style>
+  </defs>
+  <rect width="1080" height="720" fill="url(#field)"/>
+  <path class="guide" d="M166 154 C354 70 724 72 914 154"/>
+  <path class="guide" d="M166 566 C354 650 724 648 914 566"/>
+  <path class="guide" d="M170 160 C258 320 266 408 170 560"/>
+  <path class="guide" d="M910 160 C822 320 814 408 910 560"/>
+  <path class="flow" d="M162 152 C308 104 432 118 540 214 C650 312 766 342 918 154" stroke="url(#pathA)"/>
+  <path class="flow return" d="M918 566 C760 624 642 596 540 506 C430 410 306 384 162 566" stroke="url(#pathB)"/>
+  <path class="flow" d="M196 360 C304 250 420 226 540 360 C660 494 782 466 884 360" stroke="url(#pathA)" opacity="0.64"/>
+  <g class="node">
+    <circle cx="162" cy="152" r="42" fill="rgba(13, 148, 136, 0.12)" stroke="rgba(13, 148, 136, 0.42)" stroke-width="1"/>
+    <circle cx="540" cy="214" r="50" fill="rgba(155, 89, 245, 0.12)" stroke="rgba(155, 89, 245, 0.44)" stroke-width="1"/>
+    <circle cx="918" cy="154" r="42" fill="rgba(214, 168, 79, 0.1)" stroke="rgba(214, 168, 79, 0.42)" stroke-width="1"/>
+    <circle cx="162" cy="566" r="42" fill="rgba(240, 238, 246, 0.045)" stroke="rgba(240, 238, 246, 0.22)" stroke-width="1"/>
+    <circle cx="540" cy="506" r="50" fill="rgba(13, 148, 136, 0.1)" stroke="rgba(13, 148, 136, 0.38)" stroke-width="1"/>
+    <circle cx="918" cy="566" r="42" fill="rgba(155, 89, 245, 0.1)" stroke="rgba(155, 89, 245, 0.36)" stroke-width="1"/>
+  </g>
+  <g class="pulse">
+    <circle cx="540" cy="360" r="112" fill="rgba(155, 89, 245, 0.07)" stroke="rgba(214, 168, 79, 0.26)" stroke-width="1"/>
+    <circle cx="540" cy="360" r="62" fill="rgba(240, 238, 246, 0.035)" stroke="rgba(155, 89, 245, 0.34)" stroke-width="1"/>
+  </g>
+  <g fill="rgba(240, 238, 246, 0.34)">
+    <circle cx="354" cy="164" r="3"/>
+    <circle cx="728" cy="168" r="3"/>
+    <circle cx="354" cy="552" r="3"/>
+    <circle cx="728" cy="552" r="3"/>
+    <circle cx="470" cy="302" r="2"/>
+    <circle cx="610" cy="416" r="2"/>
+    <circle cx="540" cy="360" r="3"/>
+  </g>
+</svg>

@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "check:public-parity": "node scripts/check-public-parity.mjs",
     "check:public-parity:live": "node scripts/check-public-parity.mjs --live",
+    "transmission:brain": "node scripts/unwind-transmission-brain.mjs",
     "test": "node --test tests/*.test.js"
   },
   "devDependencies": {

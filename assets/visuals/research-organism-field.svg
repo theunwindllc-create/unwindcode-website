@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 720" role="presentation" aria-hidden="true">
+  <defs>
+    <radialGradient id="researchCore" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#77d9c4" stop-opacity="0.72"/>
+      <stop offset="54%" stop-color="#9b59f5" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#06060c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="researchLine" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#77d9c4" stop-opacity="0.1"/>
+      <stop offset="52%" stop-color="#d6a84f" stop-opacity="0.58"/>
+      <stop offset="100%" stop-color="#9b59f5" stop-opacity="0.12"/>
+    </linearGradient>
+    <style>
+      .research-grid { opacity: 0.22; }
+      .research-route { fill: none; stroke: url(#researchLine); stroke-width: 2; stroke-linecap: round; stroke-dasharray: 12 18; animation: researchRoute 9s linear infinite; }
+      .research-orbit { fill: none; stroke: rgba(240, 238, 246, 0.14); stroke-width: 1; }
+      .research-node { fill: rgba(6, 6, 12, 0.84); stroke: rgba(119, 217, 196, 0.42); stroke-width: 2; }
+      .research-node.is-proof { stroke: rgba(214, 168, 79, 0.62); }
+      .research-pulse { fill: #77d9c4; opacity: 0.82; animation: researchPulse 3.6s ease-in-out infinite; transform-origin: center; }
+      .research-pulse.is-proof { fill: #d6a84f; animation-delay: 0.9s; }
+      @keyframes researchRoute {
+        to { stroke-dashoffset: -120; }
+      }
+      @keyframes researchPulse {
+        0%, 100% { opacity: 0.38; transform: scale(0.82); }
+        50% { opacity: 0.92; transform: scale(1.12); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .research-route,
+        .research-pulse { animation: none; }
+      }
+    </style>
+  </defs>
+
+  <rect width="1080" height="720" rx="36" fill="#06060c"/>
+  <g class="research-grid" stroke="#f0eef6" stroke-width="1">
+    <path d="M120 80v560M240 80v560M360 80v560M480 80v560M600 80v560M720 80v560M840 80v560M960 80v560"/>
+    <path d="M80 120h920M80 240h920M80 360h920M80 480h920M80 600h920"/>
+  </g>
+  <circle cx="540" cy="360" r="250" fill="url(#researchCore)"/>
+  <ellipse class="research-orbit" cx="540" cy="360" rx="360" ry="156"/>
+  <ellipse class="research-orbit" cx="540" cy="360" rx="300" ry="230" transform="rotate(-22 540 360)"/>
+  <path class="research-route" d="M210 360 C310 155 450 142 540 268 C630 142 786 158 870 360 C768 568 630 578 540 452 C448 580 304 565 210 360Z"/>
+  <path class="research-route" d="M275 220 C424 306 462 412 540 452 C620 410 662 304 805 220" opacity="0.62"/>
+
+  <g>
+    <circle class="research-node" cx="210" cy="360" r="42"/>
+    <circle class="research-pulse" cx="210" cy="360" r="10"/>
+    <circle class="research-node" cx="540" cy="268" r="42"/>
+    <circle class="research-pulse" cx="540" cy="268" r="10"/>
+    <circle class="research-node" cx="870" cy="360" r="42"/>
+    <circle class="research-pulse" cx="870" cy="360" r="10"/>
+    <circle class="research-node is-proof" cx="540" cy="452" r="46"/>
+    <circle class="research-pulse is-proof" cx="540" cy="452" r="12"/>
+  </g>
+
+  <g fill="none" stroke="#f0eef6" stroke-opacity="0.16">
+    <path d="M188 344h44M188 360h44M188 376h28"/>
+    <path d="M518 252h44M518 268h44M518 284h28"/>
+    <path d="M848 344h44M848 360h44M848 376h28"/>
+    <path d="M516 438h48M516 454h48M516 470h32"/>
+  </g>
+</svg>

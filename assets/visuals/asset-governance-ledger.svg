@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="720" viewBox="0 0 1080 720" role="presentation" aria-hidden="true" focusable="false">
+  <defs>
+    <radialGradient id="agl-bg" cx="50%" cy="46%" r="70%">
+      <stop offset="0" stop-color="#163949" stop-opacity=".92"/>
+      <stop offset=".58" stop-color="#0c1628" stop-opacity=".96"/>
+      <stop offset="1" stop-color="#05070d"/>
+    </radialGradient>
+    <linearGradient id="agl-cyan" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7fcfc1"/>
+      <stop offset="1" stop-color="#7c5cff"/>
+    </linearGradient>
+    <linearGradient id="agl-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f3dca4"/>
+      <stop offset="1" stop-color="#b8842f"/>
+    </linearGradient>
+    <pattern id="agl-grid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M36 0H0v36" fill="none" stroke="#7fcfc1" stroke-opacity=".08" stroke-width="1"/>
+      <circle cx="0" cy="0" r="1.4" fill="#f3dca4" fill-opacity=".18"/>
+    </pattern>
+    <filter id="agl-soft-shadow" x="-35%" y="-35%" width="170%" height="170%">
+      <feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#000" flood-opacity=".36"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="18" flood-color="#7fcfc1" flood-opacity=".16"/>
+    </filter>
+    <style>
+      .agl-line{fill:none;stroke:#7fcfc1;stroke-opacity:.26;stroke-width:2}
+      .agl-rail{fill:none;stroke:url(#agl-cyan);stroke-width:4;stroke-linecap:round;stroke-opacity:.78;stroke-dasharray:14 18;animation:agl-flow 9s linear infinite}
+      .agl-card{fill:#091528;stroke:#7fcfc1;stroke-opacity:.26;stroke-width:2;filter:url(#agl-soft-shadow)}
+      .agl-card-hot{stroke:#f3dca4;stroke-opacity:.34}
+      .agl-chip{fill:#7fcfc1;fill-opacity:.14;stroke:#7fcfc1;stroke-opacity:.34}
+      .agl-chip-warm{fill:#f3dca4;fill-opacity:.14;stroke:#f3dca4;stroke-opacity:.38}
+      .agl-core{fill:#08111f;stroke:url(#agl-cyan);stroke-width:3;filter:url(#agl-soft-shadow)}
+      .agl-pulse{transform-origin:540px 360px;animation:agl-pulse 4.8s ease-in-out infinite}
+      .agl-float-a{animation:agl-float-a 8s ease-in-out infinite}
+      .agl-float-b{animation:agl-float-b 10s ease-in-out infinite}
+      @keyframes agl-flow{to{stroke-dashoffset:-128}}
+      @keyframes agl-pulse{0%,100%{transform:scale(1);opacity:.82}50%{transform:scale(1.055);opacity:.36}}
+      @keyframes agl-float-a{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-10px,0)}}
+      @keyframes agl-float-b{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(10px,6px,0)}}
+      @media (prefers-reduced-motion: reduce){.agl-rail,.agl-pulse,.agl-float-a,.agl-float-b{animation:none}}
+    </style>
+  </defs>
+  <rect width="1080" height="720" fill="url(#agl-bg)"/>
+  <rect width="1080" height="720" fill="url(#agl-grid)" opacity=".5"/>
+  <path d="M78 604C220 506 260 310 406 310c112 0 128 122 239 122 118 0 146-176 348-242" class="agl-rail"/>
+  <path d="M92 134c118 50 212 52 318 12 168-64 328-34 508 94" class="agl-line"/>
+  <path d="M166 592h758" class="agl-line" opacity=".42"/>
+  <g class="agl-pulse">
+    <circle cx="540" cy="360" r="170" fill="none" stroke="#7fcfc1" stroke-opacity=".12" stroke-width="2"/>
+    <circle cx="540" cy="360" r="118" fill="none" stroke="#f3dca4" stroke-opacity=".13" stroke-width="2"/>
+  </g>
+  <g>
+    <circle cx="540" cy="360" r="86" class="agl-core"/>
+    <path d="M540 283l58 28v72c0 40-24 72-58 91-34-19-58-51-58-91v-72z" fill="url(#agl-cyan)" opacity=".2"/>
+    <path d="M508 354l24 24 48-58" fill="none" stroke="#f3dca4" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" opacity=".86"/>
+    <circle cx="540" cy="360" r="38" fill="none" stroke="#7fcfc1" stroke-opacity=".35" stroke-width="2"/>
+  </g>
+  <g class="agl-float-a">
+    <rect x="86" y="96" width="266" height="154" rx="8" class="agl-card"/>
+    <circle cx="126" cy="136" r="16" class="agl-chip"/>
+    <path d="M164 126h128M164 154h94M126 182h174M126 210h116" class="agl-line"/>
+    <path d="M116 138l8 8 18-22" fill="none" stroke="#7fcfc1" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g class="agl-float-b">
+    <rect x="728" y="108" width="262" height="162" rx="8" class="agl-card agl-card-hot"/>
+    <rect x="768" y="148" width="52" height="52" rx="8" class="agl-chip-warm"/>
+    <path d="M846 144h96M846 172h76M768 226h174" class="agl-line"/>
+    <path d="M787 174h15M794 166v15" fill="none" stroke="#f3dca4" stroke-width="7" stroke-linecap="round"/>
+  </g>
+  <g class="agl-float-b">
+    <rect x="110" y="428" width="286" height="172" rx="8" class="agl-card agl-card-hot"/>
+    <path d="M152 472h190M152 512h136M152 552h206" class="agl-line"/>
+    <circle cx="333" cy="470" r="22" class="agl-chip-warm"/>
+    <path d="M321 470h24M333 458v24" fill="none" stroke="#f3dca4" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <g class="agl-float-a">
+    <rect x="702" y="436" width="286" height="164" rx="8" class="agl-card"/>
+    <path d="M744 476h202M744 516h124M744 556h178" class="agl-line"/>
+    <circle cx="930" cy="520" r="26" class="agl-chip"/>
+    <path d="M917 520l9 10 20-28" fill="none" stroke="#7fcfc1" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g opacity=".9">
+    <path d="M352 174c86 32 120 90 150 137" class="agl-rail"/>
+    <path d="M718 192c-92 30-132 88-164 132" class="agl-rail"/>
+    <path d="M394 514c70-18 116-58 148-112" class="agl-rail"/>
+    <path d="M702 516c-82-22-126-66-158-116" class="agl-rail"/>
+  </g>
+  <g opacity=".76">
+    <rect x="472" y="98" width="136" height="52" rx="26" fill="#091528" stroke="#7fcfc1" stroke-opacity=".32"/>
+    <circle cx="510" cy="124" r="9" fill="#7fcfc1"/>
+    <circle cx="540" cy="124" r="9" fill="#f3dca4"/>
+    <circle cx="570" cy="124" r="9" fill="#7c5cff"/>
+    <rect x="462" y="570" width="156" height="54" rx="8" fill="#091528" stroke="#f3dca4" stroke-opacity=".32"/>
+    <path d="M494 598h92M494 582h52M494 614h72" class="agl-line"/>
+  </g>
+</svg>

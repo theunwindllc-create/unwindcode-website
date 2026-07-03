@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 680" role="presentation" aria-hidden="true" focusable="false">
+  <style>
+    .radar-ring { fill: none; stroke: rgba(240, 238, 246, 0.1); stroke-width: 1; }
+    .radar-sweep { transform-origin: 540px 340px; animation: radar-sweep 16s linear infinite; }
+    .radar-orbit { fill: none; stroke-linecap: round; stroke-dasharray: 14 20; animation: radar-flow 18s linear infinite; }
+    .radar-node { transform-origin: center; animation: radar-node 6.8s ease-in-out infinite; }
+    .radar-node:nth-of-type(2) { animation-delay: -1.3s; }
+    .radar-node:nth-of-type(3) { animation-delay: -2.6s; }
+    .radar-node:nth-of-type(4) { animation-delay: -3.9s; }
+    .radar-signal { animation: radar-signal 5.8s ease-in-out infinite; }
+    @keyframes radar-sweep {
+      to { transform: rotate(360deg); }
+    }
+    @keyframes radar-flow {
+      to { stroke-dashoffset: -320; }
+    }
+    @keyframes radar-node {
+      0%, 100% { opacity: 0.72; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.035); }
+    }
+    @keyframes radar-signal {
+      0%, 100% { opacity: 0.28; }
+      50% { opacity: 0.74; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .radar-sweep,
+      .radar-orbit,
+      .radar-node,
+      .radar-signal {
+        animation: none !important;
+      }
+    }
+  </style>
+  <defs>
+    <radialGradient id="readiness-bg" cx="50%" cy="50%" r="72%">
+      <stop offset="0%" stop-color="#162a2b" stop-opacity="0.84"/>
+      <stop offset="48%" stop-color="#0b111d" stop-opacity="0.82"/>
+      <stop offset="100%" stop-color="#06060c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="readiness-sweep" x1="540" y1="100" x2="540" y2="340" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7fcfc1" stop-opacity="0.46"/>
+      <stop offset="1" stop-color="#7fcfc1" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="readiness-orbit-a" x1="184" y1="158" x2="898" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0d9488" stop-opacity="0.12"/>
+      <stop offset="0.48" stop-color="#d6a84f" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#9b59f5" stop-opacity="0.2"/>
+    </linearGradient>
+    <linearGradient id="readiness-orbit-b" x1="170" y1="520" x2="914" y2="142" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9b59f5" stop-opacity="0.2"/>
+      <stop offset="0.46" stop-color="#0d9488" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#d6a84f" stop-opacity="0.18"/>
+    </linearGradient>
+    <filter id="readiness-glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="11" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.45 0 0 0 0 0.77 0 0 0 0 0.72 0 0 0 0.34 0"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1080" height="680" fill="url(#readiness-bg)"/>
+  <path d="M92 104H988M92 576H988M124 136V544M956 136V544" fill="none" stroke="#F0EEF6" stroke-opacity="0.055"/>
+  <g class="radar-signal">
+    <path d="M160 168H920M160 252H920M160 428H920M160 512H920M248 112V568M416 112V568M664 112V568M832 112V568" stroke="#F0EEF6" stroke-opacity="0.055"/>
+  </g>
+
+  <g transform="translate(540 340)">
+    <circle class="radar-ring" r="64"/>
+    <circle class="radar-ring" r="124" opacity="0.74"/>
+    <circle class="radar-ring" r="188" opacity="0.52"/>
+    <circle class="radar-ring" r="252" opacity="0.34"/>
+    <path class="radar-sweep" d="M0 0L0 -256A256 256 0 0 1 142 -213Z" fill="url(#readiness-sweep)"/>
+    <path class="radar-orbit" d="M-286 -112C-156 -262 158 -262 286 -112C406 28 336 236 120 282C-90 326 -352 210 -340 30C-336 -28 -318 -72 -286 -112Z" stroke="url(#readiness-orbit-a)" stroke-width="3"/>
+    <path class="radar-orbit" d="M-302 138C-170 284 158 286 300 122C416 -12 330 -208 104 -272C-118 -336 -354 -214 -350 -24C-348 38 -334 88 -302 138Z" stroke="url(#readiness-orbit-b)" stroke-width="2" opacity="0.78"/>
+    <path d="M0 -254V254M-254 0H254M-180 -180L180 180M-180 180L180 -180" stroke="#F0EEF6" stroke-opacity="0.08"/>
+    <circle r="12" fill="#e9cf97" fill-opacity="0.72"/>
+  </g>
+
+  <g fill="none" stroke="#F0EEF6" stroke-opacity="0.12">
+    <path d="M324 206L540 340L780 204M324 472L540 340L780 478M324 206V472M780 204V478"/>
+  </g>
+
+  <g class="radar-node" filter="url(#readiness-glow)">
+    <rect x="244" y="142" width="160" height="128" rx="28" fill="#0d9488" fill-opacity="0.13" stroke="#0d9488" stroke-opacity="0.58"/>
+    <circle cx="324" cy="206" r="34" fill="#0d9488" fill-opacity="0.16" stroke="#7fcfc1" stroke-opacity="0.54"/>
+    <path d="M300 206H348M324 182V230" stroke="#7fcfc1" stroke-opacity="0.56" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <g class="radar-node" filter="url(#readiness-glow)">
+    <rect x="700" y="140" width="160" height="128" rx="28" fill="#9b59f5" fill-opacity="0.13" stroke="#9b59f5" stroke-opacity="0.56"/>
+    <circle cx="780" cy="204" r="34" fill="#9b59f5" fill-opacity="0.14" stroke="#a78bfa" stroke-opacity="0.52"/>
+    <circle cx="780" cy="204" r="15" stroke="#a78bfa" stroke-opacity="0.58" stroke-width="3"/>
+  </g>
+  <g class="radar-node" filter="url(#readiness-glow)">
+    <rect x="244" y="408" width="160" height="128" rx="28" fill="#d6a84f" fill-opacity="0.12" stroke="#d6a84f" stroke-opacity="0.56"/>
+    <circle cx="324" cy="472" r="34" fill="#d6a84f" fill-opacity="0.13" stroke="#e9cf97" stroke-opacity="0.52"/>
+    <path d="M300 482L318 458L336 474L350 448" stroke="#e9cf97" stroke-opacity="0.62" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g class="radar-node" filter="url(#readiness-glow)">
+    <rect x="700" y="414" width="160" height="128" rx="28" fill="#f0eef6" fill-opacity="0.06" stroke="#f0eef6" stroke-opacity="0.26"/>
+    <circle cx="780" cy="478" r="34" fill="#f0eef6" fill-opacity="0.05" stroke="#f0eef6" stroke-opacity="0.26"/>
+    <path d="M756 478H804M780 454V502M764 462L796 494M796 462L764 494" stroke="#f0eef6" stroke-opacity="0.36" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <g class="radar-signal" fill="#F0EEF6" fill-opacity="0.32">
+    <circle cx="184" cy="186" r="4"/>
+    <circle cx="912" cy="180" r="4"/>
+    <circle cx="166" cy="510" r="4"/>
+    <circle cx="914" cy="512" r="4"/>
+    <circle cx="540" cy="112" r="5"/>
+    <circle cx="540" cy="568" r="5"/>
+  </g>
+</svg>

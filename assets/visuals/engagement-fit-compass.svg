@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 720" role="presentation" aria-hidden="true" focusable="false">
+  <defs>
+    <radialGradient id="efc-core" cx="50%" cy="50%" r="58%">
+      <stop offset="0%" stop-color="#d6a84f" stop-opacity=".28"/>
+      <stop offset="42%" stop-color="#0d9488" stop-opacity=".15"/>
+      <stop offset="100%" stop-color="#06060c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="efc-line" x1="10%" y1="8%" x2="92%" y2="90%">
+      <stop offset="0%" stop-color="#7fcfc1" stop-opacity=".82"/>
+      <stop offset="50%" stop-color="#d6a84f" stop-opacity=".72"/>
+      <stop offset="100%" stop-color="#9b59f5" stop-opacity=".76"/>
+    </linearGradient>
+    <linearGradient id="efc-panel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0eef6" stop-opacity=".13"/>
+      <stop offset="100%" stop-color="#f0eef6" stop-opacity=".02"/>
+    </linearGradient>
+    <filter id="efc-glow" x="-35%" y="-35%" width="170%" height="170%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <style>
+      .efc-grid { stroke: rgba(240,238,246,.075); stroke-width: 1; }
+      .efc-ring { fill: none; stroke: url(#efc-line); stroke-width: 1.5; opacity: .42; }
+      .efc-route { fill: none; stroke: url(#efc-line); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; opacity: .68; }
+      .efc-dash { stroke-dasharray: 16 22; animation: efc-dash 20s linear infinite; }
+      .efc-panel { fill: url(#efc-panel); stroke: rgba(240,238,246,.16); stroke-width: 1; }
+      .efc-node { fill: #07111b; stroke: url(#efc-line); stroke-width: 2; filter: url(#efc-glow); }
+      .efc-dot { fill: #7fcfc1; filter: url(#efc-glow); }
+      .efc-gold { fill: #d6a84f; filter: url(#efc-glow); }
+      .efc-violet { fill: #9b59f5; filter: url(#efc-glow); }
+      .efc-float-a { animation: efc-float-a 10s ease-in-out infinite; transform-origin: center; }
+      .efc-float-b { animation: efc-float-b 12s ease-in-out infinite; transform-origin: center; }
+      .efc-pulse { animation: efc-pulse 5.4s ease-in-out infinite; transform-origin: center; }
+      @keyframes efc-dash { to { stroke-dashoffset: -260; } }
+      @keyframes efc-float-a { 50% { transform: translate3d(0,-12px,0) scale(1.01); } }
+      @keyframes efc-float-b { 50% { transform: translate3d(10px,7px,0) scale(.994); } }
+      @keyframes efc-pulse { 50% { opacity: .46; transform: scale(1.08); } }
+      @media (prefers-reduced-motion: reduce) {
+        .efc-dash, .efc-float-a, .efc-float-b, .efc-pulse { animation: none; }
+      }
+    </style>
+  </defs>
+
+  <rect width="1080" height="720" fill="#06060c"/>
+  <rect x="34" y="34" width="1012" height="652" rx="30" fill="#08101a" opacity=".76"/>
+  <path class="efc-grid" d="M100 100h880M100 220h880M100 340h880M100 460h880M100 580h880M180 78v564M340 78v564M500 78v564M660 78v564M820 78v564"/>
+  <circle cx="540" cy="360" r="292" fill="url(#efc-core)"/>
+  <circle class="efc-ring efc-pulse" cx="540" cy="360" r="254"/>
+  <circle class="efc-ring" cx="540" cy="360" r="176"/>
+  <circle class="efc-ring" cx="540" cy="360" r="96"/>
+
+  <path class="efc-route efc-dash" d="M206 178C340 118 456 168 540 328C624 168 742 118 876 178"/>
+  <path class="efc-route efc-dash" d="M162 362C300 328 418 338 540 360C660 382 784 392 918 354"/>
+  <path class="efc-route efc-dash" d="M206 548C346 602 466 546 540 392C620 548 742 602 876 548"/>
+
+  <g>
+    <path class="efc-panel" d="M394 264h292a30 30 0 0 1 30 30v132a30 30 0 0 1-30 30H394a30 30 0 0 1-30-30V294a30 30 0 0 1 30-30Z"/>
+    <circle class="efc-node" cx="540" cy="360" r="42"/>
+    <path class="efc-route" d="M504 360h-74M576 360h74M540 324v-70M540 396v70"/>
+    <circle class="efc-dot efc-pulse" cx="540" cy="360" r="13"/>
+  </g>
+
+  <g class="efc-float-a">
+    <path class="efc-panel" d="M108 118h220a24 24 0 0 1 24 24v112a24 24 0 0 1-24 24H108a24 24 0 0 1-24-24V142a24 24 0 0 1 24-24Z"/>
+    <circle class="efc-node" cx="352" cy="198" r="16"/>
+    <path class="efc-route" d="M132 164h122M132 200h86M132 236h132"/>
+  </g>
+
+  <g class="efc-float-b">
+    <path class="efc-panel" d="M752 112h224a24 24 0 0 1 24 24v118a24 24 0 0 1-24 24H752a24 24 0 0 1-24-24V136a24 24 0 0 1 24-24Z"/>
+    <circle class="efc-node" cx="728" cy="198" r="16"/>
+    <path class="efc-route" d="M786 156h132M786 196h94M786 234h118"/>
+  </g>
+
+  <g class="efc-float-b">
+    <path class="efc-panel" d="M86 430h252a24 24 0 0 1 24 24v126a24 24 0 0 1-24 24H86a24 24 0 0 1-24-24V454a24 24 0 0 1 24-24Z"/>
+    <circle class="efc-node" cx="362" cy="516" r="16"/>
+    <path class="efc-route" d="M128 476h118M128 516h162M128 556h90"/>
+  </g>
+
+  <g class="efc-float-a">
+    <path class="efc-panel" d="M748 430h248a24 24 0 0 1 24 24v126a24 24 0 0 1-24 24H748a24 24 0 0 1-24-24V454a24 24 0 0 1 24-24Z"/>
+    <circle class="efc-node" cx="724" cy="516" r="16"/>
+    <path class="efc-route" d="M790 476h116M790 516h152M790 556h88"/>
+  </g>
+
+  <g opacity=".88">
+    <circle class="efc-dot" cx="190" cy="168" r="5"/>
+    <circle class="efc-gold" cx="250" cy="206" r="5"/>
+    <circle class="efc-violet" cx="298" cy="238" r="5"/>
+    <circle class="efc-dot" cx="802" cy="162" r="5"/>
+    <circle class="efc-gold" cx="864" cy="202" r="5"/>
+    <circle class="efc-violet" cx="930" cy="236" r="5"/>
+    <circle class="efc-dot" cx="144" cy="482" r="5"/>
+    <circle class="efc-gold" cx="224" cy="520" r="5"/>
+    <circle class="efc-violet" cx="300" cy="560" r="5"/>
+    <circle class="efc-dot" cx="800" cy="482" r="5"/>
+    <circle class="efc-gold" cx="874" cy="520" r="5"/>
+    <circle class="efc-violet" cx="946" cy="560" r="5"/>
+  </g>
+
+  <path d="M64 64h128M64 64v128M1016 656H888M1016 656V528" fill="none" stroke="rgba(127,207,193,.42)" stroke-width="2"/>
+  <path d="M1016 64H888M1016 64v128M64 656h128M64 656V528" fill="none" stroke="rgba(214,168,79,.32)" stroke-width="2"/>
+</svg>

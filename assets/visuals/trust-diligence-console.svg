@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 720" role="presentation" aria-hidden="true" focusable="false">
+  <defs>
+    <radialGradient id="tdc-core" cx="50%" cy="48%" r="60%">
+      <stop offset="0%" stop-color="#7fcfc1" stop-opacity=".24"/>
+      <stop offset="42%" stop-color="#6e2dbe" stop-opacity=".12"/>
+      <stop offset="100%" stop-color="#06060c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="tdc-line" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7fcfc1" stop-opacity=".8"/>
+      <stop offset="52%" stop-color="#d6a84f" stop-opacity=".62"/>
+      <stop offset="100%" stop-color="#9b59f5" stop-opacity=".7"/>
+    </linearGradient>
+    <linearGradient id="tdc-panel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0eef6" stop-opacity=".14"/>
+      <stop offset="100%" stop-color="#f0eef6" stop-opacity=".02"/>
+    </linearGradient>
+    <filter id="tdc-glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <style>
+      .tdc-grid { stroke: rgba(240,238,246,.08); stroke-width: 1; }
+      .tdc-ring { fill: none; stroke: url(#tdc-line); stroke-width: 1.6; opacity: .46; }
+      .tdc-line { stroke: url(#tdc-line); stroke-width: 2.2; stroke-linecap: round; opacity: .7; }
+      .tdc-panel { fill: url(#tdc-panel); stroke: rgba(240,238,246,.16); stroke-width: 1; }
+      .tdc-node { fill: #07111b; stroke: url(#tdc-line); stroke-width: 2; filter: url(#tdc-glow); }
+      .tdc-dot { fill: #7fcfc1; filter: url(#tdc-glow); }
+      .tdc-gold { fill: #d6a84f; }
+      .tdc-violet { fill: #9b59f5; }
+      .tdc-stream { stroke-dasharray: 14 20; animation: tdc-dash 18s linear infinite; }
+      .tdc-float-a { animation: tdc-float-a 9s ease-in-out infinite; transform-origin: center; }
+      .tdc-float-b { animation: tdc-float-b 11s ease-in-out infinite; transform-origin: center; }
+      .tdc-pulse { animation: tdc-pulse 4.8s ease-in-out infinite; transform-origin: center; }
+      @keyframes tdc-dash { to { stroke-dashoffset: -220; } }
+      @keyframes tdc-float-a { 50% { transform: translate3d(0,-10px,0) scale(1.012); } }
+      @keyframes tdc-float-b { 50% { transform: translate3d(8px,6px,0) scale(.992); } }
+      @keyframes tdc-pulse { 50% { opacity: .42; transform: scale(1.08); } }
+      @media (prefers-reduced-motion: reduce) {
+        .tdc-stream, .tdc-float-a, .tdc-float-b, .tdc-pulse { animation: none; }
+      }
+    </style>
+  </defs>
+
+  <rect width="1080" height="720" fill="#06060c"/>
+  <rect x="32" y="32" width="1016" height="656" rx="26" fill="#08101a" opacity=".72"/>
+  <path class="tdc-grid" d="M120 76v568M240 76v568M360 76v568M480 76v568M600 76v568M720 76v568M840 76v568M960 76v568M76 120h928M76 240h928M76 360h928M76 480h928M76 600h928"/>
+  <circle cx="540" cy="360" r="300" fill="url(#tdc-core)"/>
+  <circle class="tdc-ring tdc-pulse" cx="540" cy="360" r="264"/>
+  <circle class="tdc-ring" cx="540" cy="360" r="194"/>
+  <circle class="tdc-ring" cx="540" cy="360" r="118"/>
+
+  <g class="tdc-float-a">
+    <path class="tdc-panel" d="M112 128h250a22 22 0 0 1 22 22v120a22 22 0 0 1-22 22H112a22 22 0 0 1-22-22V150a22 22 0 0 1 22-22Z"/>
+    <path class="tdc-line tdc-stream" d="M384 210C452 204 478 252 522 310"/>
+    <circle class="tdc-node" cx="384" cy="210" r="16"/>
+  </g>
+
+  <g class="tdc-float-b">
+    <path class="tdc-panel" d="M706 96h252a22 22 0 0 1 22 22v128a22 22 0 0 1-22 22H706a22 22 0 0 1-22-22V118a22 22 0 0 1 22-22Z"/>
+    <path class="tdc-line tdc-stream" d="M684 204C624 208 584 250 548 314"/>
+    <circle class="tdc-node" cx="684" cy="204" r="16"/>
+  </g>
+
+  <g>
+    <path class="tdc-panel" d="M396 276h288a28 28 0 0 1 28 28v116a28 28 0 0 1-28 28H396a28 28 0 0 1-28-28V304a28 28 0 0 1 28-28Z"/>
+    <circle class="tdc-node" cx="540" cy="360" r="34"/>
+    <circle class="tdc-dot tdc-pulse" cx="540" cy="360" r="12"/>
+    <path class="tdc-line" d="M462 328h44M574 328h44M462 392h44M574 392h44"/>
+    <path class="tdc-line" d="M540 326v-42M540 394v42"/>
+  </g>
+
+  <g class="tdc-float-a">
+    <path class="tdc-panel" d="M100 444h268a22 22 0 0 1 22 22v118a22 22 0 0 1-22 22H100a22 22 0 0 1-22-22V466a22 22 0 0 1 22-22Z"/>
+    <path class="tdc-line tdc-stream" d="M390 512C456 504 492 458 528 412"/>
+    <circle class="tdc-node" cx="390" cy="512" r="16"/>
+  </g>
+
+  <g class="tdc-float-b">
+    <path class="tdc-panel" d="M710 430h270a22 22 0 0 1 22 22v132a22 22 0 0 1-22 22H710a22 22 0 0 1-22-22V452a22 22 0 0 1 22-22Z"/>
+    <path class="tdc-line tdc-stream" d="M688 516C626 504 594 462 552 410"/>
+    <circle class="tdc-node" cx="688" cy="516" r="16"/>
+  </g>
+
+  <g opacity=".86">
+    <circle class="tdc-dot" cx="176" cy="174" r="5"/>
+    <circle class="tdc-gold" cx="224" cy="206" r="5"/>
+    <circle class="tdc-violet" cx="286" cy="244" r="5"/>
+    <circle class="tdc-dot" cx="760" cy="154" r="5"/>
+    <circle class="tdc-gold" cx="824" cy="202" r="5"/>
+    <circle class="tdc-violet" cx="910" cy="232" r="5"/>
+    <circle class="tdc-dot" cx="158" cy="492" r="5"/>
+    <circle class="tdc-gold" cx="248" cy="532" r="5"/>
+    <circle class="tdc-violet" cx="318" cy="558" r="5"/>
+    <circle class="tdc-dot" cx="766" cy="488" r="5"/>
+    <circle class="tdc-gold" cx="846" cy="528" r="5"/>
+    <circle class="tdc-violet" cx="934" cy="560" r="5"/>
+  </g>
+
+  <path d="M52 52h120M52 52v120M1028 668H908M1028 668V548" fill="none" stroke="rgba(127,207,193,.42)" stroke-width="2"/>
+  <path d="M1028 52H908M1028 52v120M52 668h120M52 668V548" fill="none" stroke="rgba(214,168,79,.32)" stroke-width="2"/>
+</svg>

@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 720" role="presentation" aria-hidden="true">
+  <defs>
+    <radialGradient id="fit-bg" cx="52%" cy="48%" r="68%">
+      <stop offset="0%" stop-color="#1c1730" stop-opacity="0.88"/>
+      <stop offset="52%" stop-color="#0b1018" stop-opacity="0.76"/>
+      <stop offset="100%" stop-color="#06060c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fit-rail-a" x1="180" y1="112" x2="900" y2="608" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0d9488" stop-opacity="0.12"/>
+      <stop offset="0.48" stop-color="#d6a84f" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#9b59f5" stop-opacity="0.16"/>
+    </linearGradient>
+    <linearGradient id="fit-rail-b" x1="188" y1="606" x2="898" y2="110" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9b59f5" stop-opacity="0.12"/>
+      <stop offset="0.5" stop-color="#0d9488" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#d6a84f" stop-opacity="0.16"/>
+    </linearGradient>
+    <filter id="fit-glow" x="-24%" y="-24%" width="148%" height="148%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.56 0 0 0 0 0.42 0 0 0 0 0.74 0 0 0 0.28 0"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <style>
+      .fit-grid { fill: none; stroke: rgba(240, 238, 246, 0.1); stroke-width: 1; }
+      .fit-rail { fill: none; stroke-linecap: round; stroke-width: 2; stroke-dasharray: 18 20; animation: fit-drift 16s linear infinite; }
+      .fit-node { filter: url(#fit-glow); transform-origin: center; animation: fit-pulse 6s ease-in-out infinite; }
+      .fit-node:nth-of-type(2) { animation-delay: -1.2s; }
+      .fit-node:nth-of-type(3) { animation-delay: -2.4s; }
+      .fit-node:nth-of-type(4) { animation-delay: -3.6s; }
+      @keyframes fit-drift { to { stroke-dashoffset: -280; } }
+      @keyframes fit-pulse {
+        0%, 100% { opacity: 0.74; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.035); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .fit-rail, .fit-node { animation: none; }
+      }
+    </style>
+  </defs>
+  <rect width="1080" height="720" fill="url(#fit-bg)"/>
+  <path class="fit-grid" d="M156 168 H924 M156 300 H924 M156 432 H924 M156 564 H924 M252 108 V612 M444 108 V612 M636 108 V612 M828 108 V612"/>
+  <path class="fit-rail" d="M222 206 C364 106 694 104 858 206 C970 278 958 442 836 520 C672 622 372 612 222 512 C108 436 106 282 222 206Z" stroke="url(#fit-rail-a)"/>
+  <path class="fit-rail" d="M232 506 C356 610 724 602 846 506 C972 406 928 248 780 188 C620 124 386 130 254 210 C120 292 116 408 232 506Z" stroke="url(#fit-rail-b)" opacity="0.84"/>
+  <path d="M252 300 L444 168 L636 300 L828 168 M252 432 L444 564 L636 432 L828 564 M444 168 V564 M636 300 V432" fill="none" stroke="rgba(240,238,246,0.13)" stroke-width="1"/>
+  <g class="fit-node">
+    <rect x="196" y="246" width="112" height="112" rx="24" fill="rgba(13, 148, 136, 0.13)" stroke="rgba(13, 148, 136, 0.52)"/>
+    <circle cx="252" cy="302" r="25" fill="rgba(240,238,246,0.04)" stroke="rgba(13,148,136,0.38)"/>
+  </g>
+  <g class="fit-node">
+    <rect x="388" y="112" width="112" height="112" rx="24" fill="rgba(155, 89, 245, 0.13)" stroke="rgba(155, 89, 245, 0.5)"/>
+    <circle cx="444" cy="168" r="25" fill="rgba(240,238,246,0.04)" stroke="rgba(155,89,245,0.38)"/>
+  </g>
+  <g class="fit-node">
+    <rect x="580" y="244" width="112" height="112" rx="24" fill="rgba(214, 168, 79, 0.12)" stroke="rgba(214, 168, 79, 0.5)"/>
+    <circle cx="636" cy="300" r="25" fill="rgba(240,238,246,0.04)" stroke="rgba(214,168,79,0.38)"/>
+  </g>
+  <g class="fit-node">
+    <rect x="772" y="510" width="112" height="112" rx="24" fill="rgba(240, 238, 246, 0.055)" stroke="rgba(240, 238, 246, 0.26)"/>
+    <circle cx="828" cy="566" r="25" fill="rgba(240,238,246,0.04)" stroke="rgba(240,238,246,0.2)"/>
+  </g>
+  <g fill="rgba(240,238,246,0.34)">
+    <circle cx="252" cy="432" r="4"/>
+    <circle cx="444" cy="564" r="4"/>
+    <circle cx="636" cy="432" r="4"/>
+    <circle cx="828" cy="168" r="4"/>
+    <circle cx="540" cy="360" r="5"/>
+  </g>
+  <g fill="none" stroke="rgba(240,238,246,0.2)" stroke-width="1.2">
+    <circle cx="540" cy="360" r="54"/>
+    <circle cx="540" cy="360" r="86" opacity="0.48"/>
+    <circle cx="540" cy="360" r="126" opacity="0.26"/>
+  </g>
+</svg>

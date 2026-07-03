@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 640" role="presentation" aria-hidden="true">
+  <defs>
+    <radialGradient id="sessionField" cx="50%" cy="48%" r="62%">
+      <stop offset="0%" stop-color="#e9cf97" stop-opacity=".24"/>
+      <stop offset="45%" stop-color="#0d9488" stop-opacity=".13"/>
+      <stop offset="100%" stop-color="#06060c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sessionRail" x1="132" x2="908" y1="320" y2="320" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0d9488" stop-opacity=".13"/>
+      <stop offset=".38" stop-color="#0d9488" stop-opacity=".7"/>
+      <stop offset=".68" stop-color="#e9cf97" stop-opacity=".68"/>
+      <stop offset="1" stop-color="#9b59f5" stop-opacity=".34"/>
+    </linearGradient>
+    <linearGradient id="sessionGlass" x1="206" x2="834" y1="150" y2="490" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f0eef6" stop-opacity=".04"/>
+      <stop offset=".5" stop-color="#0d9488" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#e9cf97" stop-opacity=".05"/>
+    </linearGradient>
+    <filter id="sessionBlur" x="-42%" y="-42%" width="184%" height="184%">
+      <feGaussianBlur stdDeviation="19"/>
+    </filter>
+  </defs>
+
+  <style>
+    .session-orbit {
+      fill: none;
+      stroke: url(#sessionRail);
+      stroke-width: 2.4;
+      stroke-linecap: round;
+      stroke-dasharray: 14 19;
+      animation: session-orbit-shift 20s linear infinite;
+    }
+
+    .session-breathe {
+      transform-origin: center;
+      animation: session-breathe 7.6s ease-in-out infinite;
+    }
+
+    .session-breathe.alt {
+      animation-delay: -3.8s;
+    }
+
+    .session-dot {
+      fill: #e9cf97;
+      opacity: .76;
+      animation: session-dot 4.6s ease-in-out infinite;
+    }
+
+    .session-dot:nth-of-type(2n) {
+      animation-delay: -2.3s;
+    }
+
+    @keyframes session-orbit-shift {
+      to { stroke-dashoffset: -270; }
+    }
+
+    @keyframes session-breathe {
+      0%, 100% { opacity: .58; transform: scale(.986); }
+      50% { opacity: .95; transform: scale(1.032); }
+    }
+
+    @keyframes session-dot {
+      0%, 100% { opacity: .18; transform: scale(.7); }
+      50% { opacity: .9; transform: scale(1); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .session-orbit,
+      .session-breathe,
+      .session-dot {
+        animation: none !important;
+      }
+    }
+  </style>
+
+  <rect x="54" y="64" width="932" height="512" rx="34" fill="#080812" opacity=".36"/>
+  <path d="M112 116h816c34 0 62 28 62 62v284c0 34-28 62-62 62H112c-34 0-62-28-62-62V178c0-34 28-62 62-62Z" fill="url(#sessionGlass)" stroke="#f0eef6" stroke-opacity=".075"/>
+  <path d="M128 164h784M128 476h784M286 132v376M520 132v376M754 132v376" fill="none" stroke="#f0eef6" stroke-opacity=".045" stroke-dasharray="8 12"/>
+
+  <g filter="url(#sessionBlur)">
+    <ellipse class="session-breathe" cx="520" cy="320" rx="296" ry="176" fill="url(#sessionField)"/>
+    <circle class="session-breathe alt" cx="520" cy="320" r="126" fill="#0d9488" opacity=".11"/>
+  </g>
+
+  <path d="M164 320c88-98 206-148 356-148s268 50 356 148c-88 98-206 148-356 148S252 418 164 320Z" fill="none" stroke="#f0eef6" stroke-opacity=".075"/>
+  <path class="session-orbit" d="M172 320c86-86 196-130 348-130s262 44 348 130c-86 86-196 130-348 130S258 406 172 320Z"/>
+  <path class="session-orbit" d="M282 320c60-54 130-80 238-80s178 26 238 80c-60 54-130 80-238 80s-178-26-238-80Z" opacity=".55"/>
+
+  <g fill="#06060c" stroke="#f0eef6" stroke-opacity=".14">
+    <rect x="128" y="236" width="144" height="168" rx="22"/>
+    <rect x="310" y="166" width="150" height="116" rx="22"/>
+    <rect x="580" y="166" width="150" height="116" rx="22"/>
+    <rect x="768" y="236" width="144" height="168" rx="22"/>
+    <rect x="310" y="374" width="150" height="100" rx="22"/>
+    <rect x="580" y="374" width="150" height="100" rx="22"/>
+  </g>
+
+  <g class="session-breathe">
+    <path d="M456 320c42-54 86-54 128 0-42 54-86 54-128 0Z" fill="#06060c" stroke="#e9cf97" stroke-opacity=".68" stroke-width="2.2"/>
+    <circle cx="520" cy="320" r="30" fill="none" stroke="#0d9488" stroke-opacity=".62" stroke-width="2.1"/>
+    <circle cx="520" cy="320" r="6" fill="#e9cf97" opacity=".86"/>
+  </g>
+
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M162 286h78M162 318h48M162 350h66" stroke="#0d9488" stroke-opacity=".72" stroke-width="2.4"/>
+    <path d="M344 208h82M344 238h50" stroke="#e9cf97" stroke-opacity=".7" stroke-width="2.4"/>
+    <path d="M616 208c20-20 54-20 74 0M616 238c20 20 54 20 74 0" stroke="#0d9488" stroke-opacity=".67" stroke-width="2.4"/>
+    <path d="M802 298l30 30 50-62M802 350h60" stroke="#e9cf97" stroke-opacity=".76" stroke-width="2.6"/>
+    <path d="M344 420h76M344 448h44" stroke="#f0eef6" stroke-opacity=".26" stroke-width="2"/>
+    <path d="M614 416v34M638 406v44M662 424v26M686 412v38" stroke="#0d9488" stroke-opacity=".6" stroke-width="2.2"/>
+  </g>
+
+  <g>
+    <circle class="session-dot" cx="172" cy="320" r="4"/>
+    <circle class="session-dot" cx="386" cy="224" r="4"/>
+    <circle class="session-dot" cx="520" cy="190" r="4.5"/>
+    <circle class="session-dot" cx="654" cy="224" r="4"/>
+    <circle class="session-dot" cx="868" cy="320" r="4"/>
+    <circle class="session-dot" cx="654" cy="422" r="4"/>
+    <circle class="session-dot" cx="386" cy="422" r="4"/>
+  </g>
+</svg>

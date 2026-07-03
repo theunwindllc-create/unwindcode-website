@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 640" role="presentation" aria-hidden="true">
+  <defs>
+    <linearGradient id="visionPanel" x1="112" x2="928" y1="104" y2="536" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0d9488" stop-opacity=".14"/>
+      <stop offset=".46" stop-color="#e9cf97" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#9b59f5" stop-opacity=".16"/>
+    </linearGradient>
+    <linearGradient id="visionRail" x1="132" x2="908" y1="320" y2="320" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0d9488" stop-opacity=".72"/>
+      <stop offset=".34" stop-color="#e9cf97" stop-opacity=".68"/>
+      <stop offset=".7" stop-color="#9b59f5" stop-opacity=".62"/>
+      <stop offset="1" stop-color="#0d9488" stop-opacity=".28"/>
+    </linearGradient>
+    <radialGradient id="visionCore" cx="50%" cy="50%" r="58%">
+      <stop offset="0%" stop-color="#e9cf97" stop-opacity=".26"/>
+      <stop offset="50%" stop-color="#0d9488" stop-opacity=".14"/>
+      <stop offset="100%" stop-color="#06060c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="visionFuture" cx="50%" cy="50%" r="54%">
+      <stop offset="0%" stop-color="#9b59f5" stop-opacity=".32"/>
+      <stop offset="64%" stop-color="#9b59f5" stop-opacity=".08"/>
+      <stop offset="100%" stop-color="#06060c" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="visionBlur" x="-36%" y="-36%" width="172%" height="172%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <style>
+    .vision-rail {
+      fill: none;
+      stroke: url(#visionRail);
+      stroke-width: 2.6;
+      stroke-linecap: round;
+      stroke-dasharray: 16 18;
+      animation: vision-rail-shift 24s linear infinite;
+    }
+
+    .vision-orbit {
+      fill: none;
+      stroke: #f0eef6;
+      stroke-opacity: .08;
+      stroke-width: 1;
+      transform-origin: 520px 320px;
+      animation: vision-orbit-turn 36s linear infinite;
+    }
+
+    .vision-field {
+      transform-origin: center;
+      animation: vision-field-breathe 8.4s ease-in-out infinite;
+    }
+
+    .vision-field.future {
+      animation-delay: -4.2s;
+    }
+
+    .vision-dot {
+      fill: #e9cf97;
+      opacity: .7;
+      animation: vision-dot-pulse 4.8s ease-in-out infinite;
+    }
+
+    .vision-dot:nth-of-type(2n) {
+      animation-delay: -2.4s;
+      fill: #0d9488;
+    }
+
+    .vision-dot:nth-of-type(3n) {
+      animation-delay: -1.2s;
+      fill: #9b59f5;
+    }
+
+    @keyframes vision-rail-shift {
+      to { stroke-dashoffset: -306; }
+    }
+
+    @keyframes vision-orbit-turn {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes vision-field-breathe {
+      0%, 100% { opacity: .54; transform: scale(.982); }
+      50% { opacity: .94; transform: scale(1.034); }
+    }
+
+    @keyframes vision-dot-pulse {
+      0%, 100% { opacity: .2; transform: scale(.72); }
+      50% { opacity: .9; transform: scale(1); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .vision-rail,
+      .vision-orbit,
+      .vision-field,
+      .vision-dot {
+        animation: none !important;
+      }
+    }
+  </style>
+
+  <rect x="54" y="64" width="932" height="512" rx="34" fill="#080812" opacity=".36"/>
+  <path d="M112 108h816c34 0 62 28 62 62v300c0 34-28 62-62 62H112c-34 0-62-28-62-62V170c0-34 28-62 62-62Z" fill="url(#visionPanel)" stroke="#f0eef6" stroke-opacity=".08"/>
+  <path d="M126 160h788M126 480h788M204 128v384M360 128v384M520 128v384M680 128v384M836 128v384" fill="none" stroke="#f0eef6" stroke-opacity=".046" stroke-dasharray="8 12"/>
+
+  <g filter="url(#visionBlur)">
+    <circle class="vision-field" cx="336" cy="320" r="130" fill="url(#visionCore)"/>
+    <circle class="vision-field future" cx="720" cy="320" r="152" fill="url(#visionFuture)"/>
+  </g>
+
+  <g>
+    <ellipse class="vision-orbit" cx="520" cy="320" rx="300" ry="104"/>
+    <ellipse class="vision-orbit" cx="520" cy="320" rx="238" ry="168"/>
+    <ellipse class="vision-orbit" cx="520" cy="320" rx="388" ry="214" transform="rotate(-10 520 320)"/>
+  </g>
+
+  <path class="vision-rail" d="M132 342C222 254 318 242 404 320s146 88 226 4 156-92 278 20"/>
+  <path class="vision-rail" d="M166 454c96-64 184-62 264 6s178 66 270-4 134-70 184-18" opacity=".45"/>
+
+  <g fill="#06060c" stroke="#f0eef6" stroke-opacity=".15">
+    <rect x="136" y="242" width="106" height="154" rx="20"/>
+    <rect x="286" y="196" width="112" height="104" rx="20"/>
+    <rect x="464" y="224" width="112" height="192" rx="24"/>
+    <rect x="642" y="196" width="112" height="104" rx="20"/>
+    <rect x="798" y="242" width="106" height="154" rx="20"/>
+    <rect x="464" y="452" width="112" height="54" rx="16"/>
+  </g>
+
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M166 286h46M166 318h64M166 350h38" stroke="#0d9488" stroke-opacity=".68" stroke-width="2.4"/>
+    <path d="M316 236h48M316 260h34" stroke="#e9cf97" stroke-opacity=".72" stroke-width="2.4"/>
+    <path d="M496 304h48M520 280v80M486 340h68" stroke="#0d9488" stroke-opacity=".58" stroke-width="2.2"/>
+    <path d="M674 232c24-18 46-18 70 0v34c-24 18-46 18-70 0Z" stroke="#9b59f5" stroke-opacity=".68" stroke-width="2.4"/>
+    <path d="M830 292l24 24 42-58M828 348h46" stroke="#e9cf97" stroke-opacity=".74" stroke-width="2.6"/>
+    <path d="M494 474h52M494 492h34" stroke="#f0eef6" stroke-opacity=".28" stroke-width="2"/>
+  </g>
+
+  <g>
+    <circle class="vision-dot" cx="132" cy="342" r="4.2"/>
+    <circle class="vision-dot" cx="318" cy="250" r="4.4"/>
+    <circle class="vision-dot" cx="520" cy="320" r="5.2"/>
+    <circle class="vision-dot" cx="696" cy="246" r="4.4"/>
+    <circle class="vision-dot" cx="908" cy="344" r="4.2"/>
+    <circle class="vision-dot" cx="520" cy="474" r="4.2"/>
+  </g>
+</svg>

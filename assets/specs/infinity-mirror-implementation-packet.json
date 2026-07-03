@@ -1,0 +1,623 @@
+{
+  "id": "infinity-mirror-implementation-packet",
+  "name": "Infinity Mirror Implementation Packet",
+  "version": "2026-06-13",
+  "status": "local-proof",
+  "route": "/organisms/infinity-mirror/experience/",
+  "purpose": "Make the Infinity Mirror experience implementation-ready for a future React/Next migration without weakening the current static, semantic, proof-first route.",
+  "non_clone_boundary": "The Anthropic 81K Interviews experience is used only as a research and interaction-pattern reference. The Unwind implementation uses its own visual language: infinity, reflection, brain cells, proof gates, organism routes, and human authority.",
+  "current_stack_gate": {
+    "current_site": "Vite plus semantic HTML, CSS, and dependency-free JavaScript.",
+    "current_package_dependencies": ["vite"],
+    "do_not_import_until_migration": ["framer-motion", "gsap", "three", "tailwindcss", "next", "react"],
+    "install_command_when_migration_is_approved": "npm install next react react-dom framer-motion gsap three tailwindcss @tailwindcss/postcss",
+    "reason": "The public route already proves the story with semantic HTML, SVG, CSS, and bounded requestAnimationFrame islands. Motion libraries should enter only as isolated leaf runtimes during a planned React/Next migration."
+  },
+  "remix_design_concept_review": [
+    {
+      "source": "reference/screenshots/mirror.png and mvp/screens-home.jsx",
+      "concept": "Persistent mirror shell with a visible growth-stage meter.",
+      "decision": "adopt_now",
+      "site_translation": "Keep the route anchored around a durable mirror shell, proof stages, explicit growth gates, and a visible MirrorShellSpecimen instead of treating the portal as a one-time hero decoration.",
+      "boundary": "Growth stages describe proof maturity, not user destiny or identity truth."
+    },
+    {
+      "source": "reference/screenshots/guidance.png",
+      "concept": "Quiet prompt chamber with gentle prompt, Socratic challenge, pattern reflection, and future-self prompts.",
+      "decision": "adopt_now",
+      "site_translation": "Translate prompts into proof-path questions that help builders, users, investors, and collaborators pick a next route without pressure.",
+      "boundary": "Prompts may invite reflection; they do not provide therapy, diagnosis, or hidden profiling."
+    },
+    {
+      "source": "screenshots/artifact.png and screen-feedback.jsx",
+      "concept": "Returned artifact as an object the user can keep, correct, deepen, or close.",
+      "decision": "adopt_now",
+      "site_translation": "Keep the returned artifact specimen and repair ledger as the strongest product metaphor: every reflection returns as reviewable evidence before memory or motion accepts it.",
+      "boundary": "The artifact is a review packet, not a final authority or public broadcast."
+    },
+    {
+      "source": "experience/mirror-engine.js",
+      "concept": "Scroll descent engine that moves from self to memory, split, lattice, current, evolution, and return.",
+      "decision": "prototype_next",
+      "site_translation": "Use the current dependency-free canvas field as the proof baseline, then move deeper descent motion into optional GSAP or Three leaf components only after migration approval.",
+      "boundary": "The cinematic field remains decorative; semantic HTML owns meaning."
+    },
+    {
+      "source": "reference/screenshots/signal-map.png and mvp/screens-map.jsx",
+      "concept": "Signal map and memory geography.",
+      "decision": "prototype_next",
+      "site_translation": "Expose memory geography as inspectable proof maps and organism routes, not as hidden personalization.",
+      "boundary": "No hidden memory map, camera intake, or sensitive inference ships without explicit consent and proof."
+    },
+    {
+      "source": "mvp/archetypes.jsx and screenshots/dob.png",
+      "concept": "Birth-frequency archetypes.",
+      "decision": "block_until_proof",
+      "site_translation": "Replace birth-date identity claims with reversible lenses such as Architect, Cartographer, Translator, and Ritualist.",
+      "boundary": "The system can offer a lens; it cannot claim identity truth."
+    }
+  ],
+  "phase_coverage": [
+    {
+      "phase": "Phase 1 - Experience Reverse Engineering",
+      "evidence": "assets/specs/infinity-mirror-experience-audit.md",
+      "current_site_surface": "#mirror-phase-proof-ledger, #mirror-experience-audit, #mirror-source-ledger, #mirror-desire-translation, and #mirror-emotional-progression",
+      "proof_rule": "Expose a source-backed long-form audit plus ten visible reverse-engineering lenses with purpose, why it works, and Unwind reinterpretation before citing source scale, method, tensions, delivery gaps, choreography, emotional progression, and non-clone boundary. Translate Anthropic desire categories and emotional journey beats into organism routes, proof gates, and authority stops without copying participant quotes, inventing personas, or profiling emotion."
+    },
+    {
+      "phase": "Phase 2 - Infinity Mirror Conceptualization",
+      "evidence": "organisms/infinity-mirror/experience/index.html#mirror-experience-hero",
+      "current_site_surface": "#mirror-experience-hero, #mirror-cognitive-evolution-trace, and #mirror-phase-proof-ledger",
+      "proof_rule": "The infinity mark is a portal and threshold, not decoration."
+    },
+    {
+      "phase": "Phase 3 - Website Story Arc",
+      "evidence": "organisms/infinity-mirror/experience/index.html",
+      "current_site_surface": "Mirror, Reflection, Brain, Organisms, Recursive Growth, #mirror-cognitive-evolution-trace, Proof, #mirror-authority-gradient, Join Evolution, #mirror-evolution-entry-protocol, and #mirror-phase-proof-ledger",
+      "proof_rule": "Every chapter must have semantic headings, route links, and a proof or authority boundary."
+    },
+    {
+      "phase": "Phase 4 - Motion System",
+      "evidence": "organisms/infinity-mirror/experience/index.html#mirror-scroll-choreography and organisms/infinity-mirror/experience/index.html#mirror-motion-contract",
+      "current_site_surface": "#mirror-phase-proof-ledger, #mirror-scroll-choreography, and #mirror-motion-contract",
+      "proof_rule": "The scroll choreography map names seven story acts with focus, motion, and proof return before the motion contract names trigger, animation, timing, duration, easing, and performance strategy."
+    },
+    {
+      "phase": "Phase 5 - Visual Exploration",
+      "evidence": "assets/visuals/infinity-mirror-portal.svg",
+      "current_site_surface": "#mirror-phase-proof-ledger, #mirror-cognitive-evolution-trace, portal, #mirror-reflection-navigation, #mirror-state-sequencer, tunnel, organism visualizer, architecture maps, dynamic infinity symbol",
+      "proof_rule": "The infinity mark can act as portal, navigator, tunnel, organism visualizer, and doorway only when route, proof, and boundary remain semantic HTML outside SVG, canvas, or WebGL."
+    },
+    {
+      "phase": "Phase 6 - Implementation Plan",
+      "evidence": "docs/experience/infinity-mirror-interface-blueprint.md#phase-6-implementation-plan",
+      "current_site_surface": "#mirror-phase-proof-ledger, #mirror-build-ledger, and #mirror-evolution-entry-protocol",
+      "proof_rule": "Component tree, architecture, assets, design tokens, accessibility, mobile, SEO, and rollout gates stay inspectable."
+    },
+    {
+      "phase": "Phase 7 - Execution",
+      "evidence": "assets/specs/infinity-mirror-implementation-packet.json",
+      "current_site_surface": "#mirror-phase-proof-ledger, #mirror-execution-packet, #mirror-runtime-handoff, #mirror-depth-gate, #mirror-code-handoff",
+      "proof_rule": "Future React, Framer, GSAP, Three/WebGL, Tailwind, and asset code paths are separated into leaf contracts with cleanup, fallbacks, mobile shutdown, stop conditions, and depth readiness gates."
+    }
+  ],
+  "component_tree": [
+    "InfinityMirrorExperiencePage",
+    "MirrorHero",
+    "InfiniteReflectionNavigator",
+    "MirrorStateSequencer",
+    "ReflectionComparison",
+    "SignalReflectionPlane",
+    "HumanSignalAtlas",
+    "DesireTranslationWall",
+    "MirrorRouteCompass",
+    "DeliveryCalibration",
+    "RoleSignalConstellation",
+    "AdaptiveMirrorEngine",
+    "SignalComposer",
+    "MemoryConsentLedger",
+    "RemixConceptFitMatrix",
+    "MirrorShellSpecimen",
+    "MirrorProductLoop",
+    "ReturnedArtifactSpecimen",
+    "ArtifactRepairLedger",
+    "MirrorDescentProtocol",
+    "RecursiveBrainTunnel",
+    "BrainCellNetwork",
+    "BrainRouteConsole",
+    "BrainSignalHandoff",
+    "OrganismOrbit",
+    "RecursiveGrowthTimeline",
+    "CognitiveEvolutionTrace",
+    "FloatingArchitectureMaps",
+    "PhaseProofLedger",
+    "ScrollChoreographyMap",
+    "EmotionalProgressionRail",
+    "MotionContractLedger",
+    "ExperienceAuditConsole",
+    "SourceTranslationLedger",
+    "EngineTranslationLedger",
+    "InterfaceBuildLedger",
+    "RuntimeHandoffMatrix",
+    "MirrorDepthGate",
+    "RuntimeCodeHandoff",
+    "InfinitySymbolLanguage",
+    "ProofCascade",
+    "ProofObservatory",
+    "AuthorityGradient",
+    "JoinEvolutionRoutes",
+    "FirstArtifactRouter",
+    "EvolutionEntryProtocol"
+  ],
+  "react_next_architecture": {
+    "route_file": "app/organisms/infinity-mirror/experience/page.tsx",
+    "content_file": "lib/mirror/infinityMirrorContent.ts",
+    "server_rule": "The page and all meaning-bearing chapters render as server components first.",
+    "client_rule": "Only motion islands use 'use client'. No critical copy, proof claim, CTA, route, or status label depends on hydration.",
+    "metadata_rule": "Next metadata must mirror the current title, description, canonical, OpenGraph image, ImageObject schema, llms.txt, ai-services.json, sitemap, and asset manifest entries.",
+    "page_contract": [
+      "Render <main data-experience=\"infinity-mirror\">.",
+      "Render each chapter from typed data.",
+      "Render proof routes as real anchors.",
+      "Mount Framer, GSAP, and Three islands after semantic content.",
+      "Disable motion islands for reduced motion and compact screens."
+    ]
+  },
+  "motion_architecture": [
+    {
+      "lane": "CSS_SVG_CURRENT",
+      "owns": "Current production route: portal pulse, story rail, proof cards, semantic fallback graphics.",
+      "trigger": "Page load, viewport entry, hash navigation.",
+      "animation": "Opacity, transform, SVG line draw, low-cost ambient scan.",
+      "duration": "240ms to 1.2s reveal states; 5.8s to 13s ambient loops.",
+      "easing": "cubic-bezier(0.16, 1, 0.3, 1) for reveals; ease-in-out for ambient loops.",
+      "performance": "Transform and opacity only. No layout animation. Reduced-motion freezes to semantic sections.",
+      "fallback": "Static HTML and SVG remain readable."
+    },
+    {
+      "lane": "FRAMER_LEAF",
+      "owns": "Chapter reveals, lens swaps, route-card microinteractions, shared active states.",
+      "trigger": "whileInView and user selection only.",
+      "animation": "Staggered cell reveal, active lens layout state, tactile route-card state.",
+      "duration": "0.24s quick response, 0.64s chapter reveal.",
+      "easing": "spring stiffness 100 damping 20, or cubic-bezier(0.16, 1, 0.3, 1) for non-spring reveals.",
+      "performance": "Isolated client leaf. No global scroll listener. No parent rerender loop.",
+      "fallback": "Semantic list and buttons remain visible without Framer."
+    },
+    {
+      "lane": "GSAP_PORTAL",
+      "owns": "Optional pinned desktop portal fracture sequence only.",
+      "trigger": "Desktop viewport, reduced-motion false, approved migration.",
+      "animation": "Pinned portal scale, mirror plane reveal, shard split, brain-cell wake.",
+      "duration": "Scrubbed across roughly 520 percent scroll distance.",
+      "easing": "ScrollTrigger scrub with transform-only state changes.",
+      "performance": "One timeline in one client component, gsap.context cleanup, no mobile pinning.",
+      "fallback": "Current CSS/SVG portal route."
+    },
+    {
+      "lane": "THREE_WEBGL_GATE",
+      "owns": "Optional desktop recursive brain tunnel and depth particles.",
+      "trigger": "Desktop viewport, visible canvas, reduced-motion false.",
+      "animation": "Instanced lemniscate particles, slow depth rotation, proof nodes surfacing.",
+      "duration": "60fps target, DPR capped at 1.5, pauses offscreen.",
+      "easing": "Shader time easing; camera and group transforms only.",
+      "performance": "Dispose renderer, geometry, material, and RAF on cleanup. Disable under 900px.",
+      "fallback": "Current recursive brain tunnel HTML/SVG."
+    }
+  ],
+  "implementation_files": [
+    {
+      "path": "app/organisms/infinity-mirror/experience/page.tsx",
+      "type": "server-component",
+      "responsibility": "Render semantic chapters, schema, proof routes, and static fallbacks before any motion hydrates.",
+      "contract": [
+        "Import typed chapter data from lib/mirror/infinityMirrorContent.ts.",
+        "Render headings with stable ids used by hash navigation.",
+        "Render MirrorPortalTimeline, MirrorChapterMotion, and MirrorBrainTunnelGate after static content.",
+        "No risky side effects, no browser-only APIs, no generated copy."
+      ]
+    },
+    {
+      "path": "components/mirror/MirrorRouteCompass.tsx",
+      "type": "server-component",
+      "responsibility": "Render the semantic route compass so 81K human desire signals map into mirror chapter, proof return, authority stop, and CTA fields before adaptive runtime behavior.",
+      "contract": [
+        "Read from mirrorRouteCompassEntries.",
+        "Expose #mirror-route-compass and data-runtime-owner=\"semantic-route-compass\".",
+        "Render chapter, proofReturn, authorityStop, href, and cta for every route.",
+        "Stay server-rendered with no identity inference, storage, data submission, model call, build start, spending, deploy, public posting, Web3 broadcast, status-change, or autonomy authority."
+      ]
+    },
+    {
+      "path": "components/mirror/MirrorStateSequencer.client.tsx",
+      "type": "react-client-leaf",
+      "responsibility": "Handle local selected-story-state for Mirror, Reflection, Brain, Organisms, Growth, Proof, and Join without storage, network, file, execution, deploy, public posting, identity inference, status-change, or autonomy authority.",
+      "contract": [
+        "Start with 'use client'.",
+        "Read from mirrorStateSequencerPackets.",
+        "Expose #mirror-state-sequencer and data-runtime-owner=\"bounded-state-sequencer\".",
+        "Use native buttons with aria-pressed and an aria-live state packet.",
+        "Map each state to signal, organism response, proof return, boundary lock, and next chapter link.",
+        "Do not store memory, call a network, execute code, write files, deploy, post, infer identity, change status, or grant autonomy."
+      ]
+    },
+    {
+      "path": "components/mirror/MirrorChapterMotion.client.tsx",
+      "type": "framer-client-leaf",
+      "responsibility": "Handle viewport reveals, lens selection states, and route-card microinteractions.",
+      "contract": [
+        "Start with 'use client'.",
+        "Use useReducedMotion.",
+        "Animate transform and opacity only.",
+        "Do not own scroll position.",
+        "Do not store global state."
+      ]
+    },
+    {
+      "path": "components/mirror/PhaseProofLedger.tsx",
+      "type": "server-component",
+      "responsibility": "Render the seven build phases as evidence, visible surface, and authority boundary before future runtime work can claim more.",
+      "contract": [
+        "Read from phaseProofLedgerEntries.",
+        "Expose #mirror-phase-proof-ledger.",
+        "Render evidence, surfaceHref, surfaceLabel, and boundary for every phase.",
+        "Stay server-rendered with no storage, network, file, execution, deploy, posting, status-change, or autonomy authority."
+      ]
+    },
+    {
+      "path": "components/mirror/CognitiveEvolutionTrace.tsx",
+      "type": "server-component",
+      "responsibility": "Render the six-step cognitive evolution trace between recursive growth and proof so signal, memory, cells, sandbox, proof, and next loop each carry a proof lock.",
+      "contract": [
+        "Read from cognitiveEvolutionTraceSteps.",
+        "Expose #mirror-cognitive-evolution-trace.",
+        "Render evolves and proofLock for every step.",
+        "Stay server-rendered with no storage, network, file, execution, spend, deploy, posting, Web3 broadcast, status-change, or autonomy authority."
+      ]
+    },
+    {
+      "path": "components/mirror/FirstArtifactRouter.tsx",
+      "type": "server-component",
+      "responsibility": "Render the Join Evolution first artifact router so builders, investors, researchers, and partners each see what to bring, what first artifact returns, where proof lives, and what approval boundary remains.",
+      "contract": [
+        "Read from firstArtifactRoutes.",
+        "Expose #mirror-first-artifact-router and data-runtime-owner=\"semantic-first-artifact-router\".",
+        "Render bring, firstArtifact, proofRoute, approvalBoundary, href, and cta for every role.",
+        "Stay server-rendered with no data submission, lead creation, storage, network, file, execution, spend, deploy, posting, Web3 broadcast, status-change, identity inference, or autonomy authority."
+      ]
+    },
+    {
+      "path": "components/mirror/EvolutionEntryProtocol.tsx",
+      "type": "server-component",
+      "responsibility": "Render the Join Evolution entry protocol so signal, boundary, first proof, and next loop are explicit before conversion becomes a commitment.",
+      "contract": [
+        "Read from evolutionEntryProtocolSteps.",
+        "Expose #mirror-evolution-entry-protocol.",
+        "Render input and proofOutput for every step.",
+        "Stay server-rendered with no storage, network, file, execution, spend, deploy, posting, Web3 broadcast, status-change, identity inference, or autonomy authority."
+      ]
+    },
+    {
+      "path": "components/mirror/EmotionalProgressionRail.client.tsx",
+      "type": "react-client-leaf",
+      "responsibility": "Handle local selected-emotion state for the emotional progression rail without profiling, storage, network, file, execution, deploy, public posting, or identity authority.",
+      "contract": [
+        "Start with 'use client'.",
+        "Read from mirrorEmotionalProgressionPackets.",
+        "Expose #mirror-emotional-progression and data-runtime-owner=\"bounded-emotional-progress\".",
+        "Use native buttons with aria-pressed and an aria-live proof packet.",
+        "Map each state to feeling, organism route, proof return, and authority boundary.",
+        "Do not store, infer, execute, deploy, post, or claim identity authority."
+      ]
+    },
+    {
+      "path": "components/mirror/ProofObservatory.client.tsx",
+      "type": "react-client-leaf",
+      "responsibility": "Handle local selected-proof-lane state for Architecture, Metrics, Deployments, and Status without live telemetry, storage, file, execution, deploy, public posting, status-change, or autonomy authority.",
+      "contract": [
+        "Start with 'use client'.",
+        "Read from mirrorProofObservatoryPackets.",
+        "Expose #mirror-proof-observatory and data-runtime-owner=\"bounded-proof-observatory\".",
+        "Use native buttons with aria-pressed and an aria-live proof packet.",
+        "Map each lane to evidence path, current signal, authority boundary, and next artifact link.",
+        "Do not read live telemetry, store hidden state, execute code, write files, deploy, post, change production status, or grant autonomy."
+      ]
+    },
+    {
+      "path": "components/mirror/AuthorityGradient.tsx",
+      "type": "server-component",
+      "responsibility": "Render the Proof chapter authority ladder so observe, reflect, draft, sandbox, approval, and public-motion rungs each name allowed action and required proof before higher-risk motion.",
+      "contract": [
+        "Read from authorityGradientRungs.",
+        "Expose #mirror-authority-gradient.",
+        "Render canDo and proofRequired for every rung.",
+        "Stay server-rendered with no hidden memory, identity authority, wallet control, storage, network, file, execution, spend, deploy, posting, Web3 broadcast, status-change, or autonomy authority."
+      ]
+    },
+    {
+      "path": "components/mirror/MemoryConsentLedger.tsx",
+      "type": "server-component",
+      "responsibility": "Render the Reflection chapter memory consent states so ephemeral, proposed, reviewed, and integrated memory each name what can be held, required proof, and human control.",
+      "contract": [
+        "Read from memoryConsentStates.",
+        "Expose #mirror-memory-consent and data-runtime-owner=\"semantic-memory-consent-ledger\".",
+        "Render canHold, proofRequired, and humanControl for every consent state.",
+        "Stay server-rendered with no diagnosis, identity authority, hidden profiling, wallet control, storage, network, file, execution, deploy, public posting, or autonomy authority."
+      ]
+    },
+    {
+      "path": "components/mirror/MirrorPortalTimeline.client.tsx",
+      "type": "gsap-client-leaf",
+      "responsibility": "Optional desktop pinned hero portal sequence.",
+      "contract": [
+        "Start with 'use client'.",
+        "Register ScrollTrigger inside useEffect.",
+        "Return ctx.revert() cleanup.",
+        "Skip on reduced motion and max-width 760px.",
+        "Animate only transform and opacity."
+      ]
+    },
+    {
+      "path": "components/mirror/MirrorBrainTunnelGate.client.tsx",
+      "type": "three-client-leaf",
+      "responsibility": "Optional desktop WebGL tunnel with semantic fallback.",
+      "contract": [
+        "Start with 'use client'.",
+        "Skip on reduced motion and max-width 900px.",
+        "Cap devicePixelRatio at 1.5.",
+        "Pause when offscreen.",
+        "Dispose renderer, geometry, material, textures, and RAF."
+      ]
+    },
+    {
+      "path": "tailwind.config.ts",
+      "type": "design-token-config",
+      "responsibility": "Mirror tokens for void, reflection, proof, organism, boundary, radius, and easing.",
+      "contract": [
+        "Use 8px card radius unless a design-system migration explicitly changes it.",
+        "Keep dominant palette black graphite plus teal and proof gold.",
+        "Avoid one-note purple-blue AI gradients.",
+        "Expose mirror easing as cubic-bezier(0.16, 1, 0.3, 1)."
+      ]
+    },
+    {
+      "path": "lib/mirror/infinityMirrorAssets.ts",
+      "type": "asset-contract",
+      "responsibility": "Name required SVG, manifest, discovery, schema, and social packet assets.",
+      "contract": [
+        "No critical text in SVG, canvas, or WebGL.",
+        "Every visual asset has a manifest entry.",
+        "Every public release updates llms.txt, ai-services.json, sitemap, and tests.",
+        "Public deployment waits for explicit approval."
+      ]
+    },
+    {
+      "path": "assets/specs/infinity-mirror-runtime-code-handoff.md",
+      "type": "runtime-code-handoff",
+      "responsibility": "Provide implementation-ready React, server-rendered Infinite Reflection Navigator, Desire Translation Wall, Mirror Route Compass, Adaptive Mirror Engine, Memory Consent Ledger, Mirror Shell Specimen, Mirror Product Loop, Returned Artifact Specimen, Mirror Descent Protocol, Recursive Brain Tunnel, Brain Cell Network, Brain Route Console, Brain Signal Handoff, Living Organism Visualizer, Recursive Growth Timeline, Floating Architecture Maps, Proof Cascade, Proof Observatory, Authority Gradient, Scroll Choreography Map, Emotional Progression Rail, Motion Contract Ledger, Experience Audit Console, Source Translation Ledger, Engine Translation Ledger, Interface Build Ledger, Runtime Handoff Matrix, Mirror Depth Gate, Infinity Symbol Language, Join Evolution Routes, the Signal Composer client leaf, Framer, GSAP, Three/WebGL, Tailwind, and asset snippets without importing them into the current Vite route.",
+      "contract": [
+        "Keep code snippets behind explicit migration approval.",
+        "Preserve story anchors, reflection lenses, route, proof, and authority boundary as semantic content.",
+        "Preserve desire category, organism route, proof gate, and authority stop as semantic content.",
+        "Preserve route compass chapter, proof return, authority stop, href, and CTA data as semantic content.",
+        "Preserve adaptive mirror lens, capture, translate, keep, and boundary grammar as semantic content.",
+        "Preserve signal composer packet, lens, artifact, proof path, brain cells, and authority lock as typed content.",
+        "Preserve memory consent state, can-hold, proof-required, and human-control data as semantic content.",
+        "Preserve mirror shell, product loop, returned artifact, and descent protocol data as semantic content.",
+        "Preserve recursive tunnel steps, brain route stages, and brain signal handoff packets as semantic content.",
+        "Preserve brain cell signal, path, proof, and authority stop as semantic content.",
+        "Preserve organism signal, memory, authority, and proof paths as semantic links.",
+        "Preserve growth gate signal, verification, and authority stop as semantic content.",
+        "Preserve architecture pane route, proof, and boundary as semantic content.",
+        "Preserve proof cascade claim, evidence, artifact, and boundary as semantic content.",
+        "Preserve authority gradient allowed-action and required-proof data as semantic content.",
+        "Preserve seven scroll acts, proof observatory packets, emotional progression packets, and seven infinity symbol states as semantic content.",
+        "Preserve trigger, animation, timing, duration, easing, and performance strategy as semantic content.",
+        "Preserve audit lens purpose, why-it-works, and Unwind reinterpretation data as semantic content.",
+        "Preserve source translation, engine translation, interface build, runtime handoff, and depth readiness gate data as semantic content.",
+        "Preserve join role, next action, proof path, and authority boundary as semantic anchors.",
+        "Every client runtime starts as an isolated leaf with cleanup.",
+        "Static HTML and SVG remain the fallback and source of meaning.",
+        "Deploy only after explicit approval."
+      ]
+    },
+    {
+      "path": "assets/specs/infinity-mirror-runtime-kit/",
+      "type": "static-runtime-source-kit",
+      "responsibility": "Provide inspectable source files for the future React/Next page, InfiniteReflectionNavigator server component, DesireTranslationWall server component, MirrorRouteCompass server component, AdaptiveMirrorEngine server component, SignalComposer client leaf, MemoryConsentLedger server component, MirrorShellSpecimen server component, MirrorProductLoop server component, ReturnedArtifactSpecimen server component, MirrorDescentProtocol server component, RecursiveBrainTunnel server component, BrainCellNetwork server component, BrainRouteConsole server component, BrainSignalHandoff client leaf, LivingOrganismVisualizer server component, RecursiveGrowthTimeline server component, CognitiveEvolutionTrace server component, FloatingArchitectureMaps server component, PhaseProofLedger server component, ProofCascade server component, ProofObservatory client leaf, AuthorityGradient server component, ScrollChoreographyMap server component, EmotionalProgressionRail client leaf, MotionContractLedger server component, ExperienceAuditConsole server component, SourceTranslationLedger server component, EngineTranslationLedger server component, InterfaceBuildLedger server component, RuntimeHandoffMatrix server component, MirrorDepthGate server component, InfinitySymbolLanguage server component, JoinEvolutionRoutes server component, FirstArtifactRouter server component, EvolutionEntryProtocol server component, Framer leaf, GSAP portal, Three/WebGL gate, Tailwind tokens, content model, and asset rules.",
+      "contract": [
+        "The kit remains a static builder artifact until migration approval.",
+        "The current Vite route must not import the kit.",
+        "InfiniteReflectionNavigator must stay server-rendered and read from the content model.",
+        "DesireTranslationWall must stay server-rendered and read from the content model.",
+        "MirrorRouteCompass must stay server-rendered and read from mirrorRouteCompassEntries.",
+        "AdaptiveMirrorEngine must stay server-rendered and read from the content model.",
+        "SignalComposer must stay an isolated client leaf and read from the content model without storage, network, file, deploy, posting, or identity authority.",
+        "MemoryConsentLedger must stay server-rendered and read from the content model without diagnosis, identity authority, hidden profiling, wallet control, network, file, deploy, public posting, or autonomy authority.",
+        "MirrorShellSpecimen, MirrorProductLoop, ReturnedArtifactSpecimen, and MirrorDescentProtocol must stay server-rendered and read from the content model.",
+        "RecursiveBrainTunnel and BrainRouteConsole must stay server-rendered and read from the content model.",
+        "BrainSignalHandoff must stay an isolated client leaf and read from the content model without storage, network, file, execution, deploy, posting, or identity authority.",
+        "BrainCellNetwork and LivingOrganismVisualizer must stay server-rendered and read from the content model.",
+        "RecursiveGrowthTimeline, CognitiveEvolutionTrace, FloatingArchitectureMaps, PhaseProofLedger, and ProofCascade must stay server-rendered and read from the content model.",
+        "ProofObservatory must stay an isolated client leaf and read from mirrorProofObservatoryPackets without live telemetry, storage, file, execution, deploy, posting, status-change, or autonomy authority.",
+        "AuthorityGradient must stay server-rendered and read from authorityGradientRungs without hidden memory, identity authority, wallet control, deployment, posting, status-change, or autonomy authority.",
+        "ScrollChoreographyMap and InfinitySymbolLanguage must stay server-rendered and read from the content model.",
+        "EmotionalProgressionRail must stay an isolated client leaf and read from mirrorEmotionalProgressionPackets without emotional profiling, identity inference, storage, network, file, execution, deploy, posting, or identity authority.",
+        "MotionContractLedger must stay server-rendered and read from the content model.",
+        "ExperienceAuditConsole, SourceTranslationLedger, EngineTranslationLedger, InterfaceBuildLedger, RuntimeHandoffMatrix, and MirrorDepthGate must stay server-rendered and read from the content model.",
+        "JoinEvolutionRoutes must stay server-rendered and read from the content model.",
+        "FirstArtifactRouter must stay server-rendered and read from firstArtifactRoutes.",
+        "EvolutionEntryProtocol must stay server-rendered and read from evolutionEntryProtocolSteps.",
+        "Source files must preserve semantic-first rendering, cleanup, reduced-motion behavior, compact-screen behavior, and explicit deployment approval.",
+        "Build output must copy the kit under dist/assets/specs/ for local inspection."
+      ]
+    }
+  ],
+  "tailwind_tokens": {
+    "colors": {
+      "mirror.void": "#030307",
+      "mirror.graphite": "#090B12",
+      "mirror.reflection": "#B9F7EF",
+      "mirror.proof": "#D6A84F",
+      "mirror.organism": "#7D53FF",
+      "mirror.boundary": "#13B8A6"
+    },
+    "radius": {
+      "mirror": "8px"
+    },
+    "easing": {
+      "mirror": "cubic-bezier(0.16, 1, 0.3, 1)"
+    },
+    "spacing_rule": "Desktop layouts may be asymmetric; mobile collapses to one column with no horizontal overflow.",
+    "typography_rule": "Use high-end sans plus mono for labels. Do not rely on oversized headlines or gradient text."
+  },
+  "asset_requirements": [
+    {
+      "id": "infinity-mirror-portal-svg",
+      "path": "assets/visuals/infinity-mirror-portal.svg",
+      "required": true,
+      "rule": "Textless, presentational, reduced-motion aware."
+    },
+    {
+      "id": "implementation-packet-json",
+      "path": "assets/specs/infinity-mirror-implementation-packet.json",
+      "required": true,
+      "rule": "Machine-readable handoff for Phase 6 and Phase 7."
+    },
+    {
+      "id": "experience-audit",
+      "path": "assets/specs/infinity-mirror-experience-audit.md",
+      "required": true,
+      "rule": "Source-backed Phase 1 audit covering information architecture, storytelling, scroll choreography, motion, hierarchy, typography, transitions, attention, emotion, performance, and non-clone boundary."
+    },
+    {
+      "id": "engine-concept-analysis",
+      "path": "assets/specs/infinity-mirror-engine-concept-analysis.md",
+      "required": true,
+      "rule": "Package-specific analysis that sorts the local Infinity Mirror ZIP concepts into adopt now, prototype next, and block until proof decisions."
+    },
+    {
+      "id": "runtime-code-handoff",
+      "path": "assets/specs/infinity-mirror-runtime-code-handoff.md",
+      "required": true,
+      "rule": "Implementation-ready Markdown handoff for the future React/Next, Framer, GSAP, Three/WebGL, Tailwind, and asset migration."
+    },
+    {
+      "id": "runtime-source-kit",
+      "path": "assets/specs/infinity-mirror-runtime-kit/README.md",
+      "required": true,
+      "rule": "Static source kit containing implementation-ready migration files, including InfiniteReflectionNavigator, DesireTranslationWall, MirrorRouteCompass, AdaptiveMirrorEngine, SignalComposer, MemoryConsentLedger, MirrorShellSpecimen, MirrorProductLoop, ReturnedArtifactSpecimen, MirrorDescentProtocol, RecursiveBrainTunnel, BrainCellNetwork, BrainRouteConsole, BrainSignalHandoff, LivingOrganismVisualizer, RecursiveGrowthTimeline, FloatingArchitectureMaps, ProofCascade, ProofObservatory, ScrollChoreographyMap, MotionContractLedger, ExperienceAuditConsole, SourceTranslationLedger, EngineTranslationLedger, InterfaceBuildLedger, RuntimeHandoffMatrix, MirrorDepthGate, InfinitySymbolLanguage, JoinEvolutionRoutes, FirstArtifactRouter, and EvolutionEntryProtocol, without importing future dependencies into the current route."
+    },
+    {
+      "id": "asset-manifest",
+      "path": "assets/asset-manifest.json",
+      "required": true,
+      "rule": "Every immersive surface and public proof packet is discoverable."
+    },
+    {
+      "id": "ai-services",
+      "path": "ai-services.json",
+      "required": true,
+      "rule": "External AI readers can inspect purpose, trust boundary, and motion policy."
+    },
+    {
+      "id": "llms",
+      "path": "llms.txt",
+      "required": true,
+      "rule": "Summarize the public route, source translation, implementation packet, and approval gates."
+    }
+  ],
+  "accessibility_plan": [
+    "All critical meaning ships in semantic HTML before motion.",
+    "Every visual runtime has a static fallback.",
+    "Respect prefers-reduced-motion.",
+    "Avoid scroll hijacking on mobile.",
+    "Keep focusable controls native where possible.",
+    "Do not use canvas, SVG, or WebGL as the only carrier of text.",
+    "Hash targets must land below fixed navigation.",
+    "All public links are real anchors."
+  ],
+  "mobile_adaptation": [
+    "Disable canvas field under 760px.",
+    "Disable Three/WebGL under 900px.",
+    "Avoid pinned GSAP timelines on mobile.",
+    "Collapse asymmetric grids to one column.",
+    "Keep story rail semantic even when decorative rail freezes.",
+    "No horizontal overflow allowed.",
+    "Touch controls must have visible labels and focus states."
+  ],
+  "seo_preservation": [
+    "Keep canonical URL https://www.unwindcode.ai/organisms/infinity-mirror/experience/.",
+    "Preserve title and meta description from current route.",
+    "Preserve OpenGraph and Twitter social preview.",
+    "Preserve ImageObject schema for the portal asset.",
+    "Keep route listed in sitemap.xml.",
+    "Keep llms.txt and ai-services.json synchronized.",
+    "Do not hide headings behind client-only rendering."
+  ],
+  "production_rollout_plan": [
+    "Keep current static route as the baseline proof.",
+    "Create React/Next migration in an isolated branch or worktree only after approval.",
+    "Add dependencies explicitly and record them in package.json.",
+    "Port semantic chapters before motion islands.",
+    "Add Framer leaf for non-critical chapter motion.",
+    "Add GSAP portal only after semantic and Framer checks pass.",
+    "Add Three/WebGL tunnel only after static fallback and mobile gates are verified.",
+    "Run syntax, JSON parse, focused metadata tests, full npm test, npm run build, and browser smoke locally.",
+    "Package transmission and social carousel only after approval.",
+    "Deploy only after explicit user approval."
+  ],
+  "acceptance_checks": [
+    "The route renders without JavaScript.",
+    "Experience audit exists and is linked from #mirror-experience-audit.",
+    "Engine concept analysis exists and is linked from #mirror-engine-concept-packet.",
+    "The route remains meaningful under prefers-reduced-motion.",
+    "No critical text is hidden in SVG, canvas, or WebGL.",
+    "Signal composer exists at #mirror-signal-composer and updates lens, artifact, boundary, proof fields, and the Brain signal handoff without hidden memory or network authority.",
+    "Memory consent ledger exists at #mirror-memory-consent and maps ephemeral, proposed, reviewed, and integrated memory states into can-hold, proof-required, and human-control fields without diagnosis, identity authority, hidden profiling, wallet control, network, file, deployment, public posting, or autonomy authority.",
+    "Story rail active state is derived from the canonical seven chapter anchors, not incidental proof or analysis sections.",
+    "Mirror state sequencer exists at #mirror-state-sequencer and maps Mirror, Reflection, Brain, Organisms, Growth, Proof, and Join into signal, organism response, proof return, boundary lock, and next chapter route without storage, network, execution, deployment, posting, identity inference, status change, or autonomy authority.",
+    "Infinity symbol language exists at #mirror-infinity-language and maps seven symbol states to proof and boundary meaning.",
+    "Scroll choreography map exists at #mirror-scroll-choreography and maps seven story acts to focus, motion, and proof return.",
+    "Emotional progression rail exists at #mirror-emotional-progression and maps curiosity, unease, recognition, wonder, relief, and agency into organism route, proof return, and authority boundary without emotional profiling.",
+    "Proof observatory exists at #mirror-proof-observatory and maps Architecture, Metrics, Deployments, and Status into evidence path, current signal, authority boundary, and next artifact link without live telemetry or production status changes.",
+    "Desire translation wall exists at #mirror-desire-translation and maps Anthropic desire categories into organism routes, proof gates, and authority stops without copying quotes.",
+    "Mirror route compass exists at #mirror-route-compass and maps 81K human desire signals into mirror chapter, proof return, authority stop, and CTA fields without identity inference, storage, data submission, model calls, build starts, spending, deployment, posting, Web3 broadcast, status-change, or autonomy authority.",
+    "Motion libraries are isolated to client leaf components.",
+    "Every runtime has cleanup, fallback, and stop condition.",
+    "Runtime code handoff exists and is linked from #mirror-code-handoff.",
+    "Runtime source kit exists, is linked from #mirror-code-handoff, and is copied to dist/assets/specs/.",
+    "Runtime source kit includes InfiniteReflectionNavigator as a server-rendered component backed by mirrorStoryAnchors and reflectionNavigatorLenses.",
+    "Runtime source kit includes DesireTranslationWall as a server-rendered component backed by desireTranslationRoutes.",
+    "Runtime source kit includes MirrorRouteCompass as a server-rendered component backed by mirrorRouteCompassEntries with chapter, proofReturn, authorityStop, href, and cta data.",
+    "Runtime source kit includes AdaptiveMirrorEngine as a server-rendered component backed by adaptiveMirrorLenses.",
+    "Runtime source kit includes SignalComposer as an isolated client leaf backed by signalComposerPackets and no storage, network, file, deploy, posting, or identity authority.",
+    "Runtime source kit includes MemoryConsentLedger as a server-rendered component backed by memoryConsentStates with no diagnosis, identity authority, hidden profiling, wallet control, network, file, deploy, posting, or autonomy authority.",
+    "Runtime source kit includes MirrorStateSequencer as an isolated client leaf backed by mirrorStateSequencerPackets with no storage, network, file, execution, deploy, posting, identity inference, status-change, or autonomy authority.",
+    "Runtime source kit includes MirrorShellSpecimen, MirrorProductLoop, ReturnedArtifactSpecimen, and MirrorDescentProtocol as server-rendered components backed by mirrorShellRules, mirrorProductLoopSteps, artifactDecisionLabels, returnedArtifactFields, artifactRepairSteps, and mirrorDescentStages.",
+    "Runtime source kit includes RecursiveBrainTunnel as a server-rendered component backed by recursiveBrainTunnelSteps.",
+    "Runtime source kit includes BrainRouteConsole as a server-rendered component backed by defaultBrainSignalHandoff and brainRouteStages.",
+    "Runtime source kit includes BrainSignalHandoff as an isolated client leaf backed by brainSignalHandoffPackets and brainRouteStages with no storage, network, file, execution, deploy, posting, or identity authority.",
+    "Runtime source kit includes BrainCellNetwork and LivingOrganismVisualizer as server-rendered components backed by brainCellNetworkNodes and livingOrganismNodes.",
+    "Runtime source kit includes RecursiveGrowthTimeline, CognitiveEvolutionTrace, FloatingArchitectureMaps, PhaseProofLedger, and ProofCascade as server-rendered components backed by recursiveGrowthGates, cognitiveEvolutionTraceSteps, architectureMapPanes, phaseProofLedgerEntries, and proofCascadeSteps.",
+    "Cognitive evolution trace exists at #mirror-cognitive-evolution-trace and maps signal, memory, cells, sandbox, proof, and next loop into evolves and proof lock fields without storage, network, execution, spending, deployment, posting, Web3 broadcast, status-change, or autonomy authority.",
+    "Phase proof ledger exists at #mirror-phase-proof-ledger and maps the seven build phases into evidence, visible surface, and authority boundary without storage, network, execution, deployment, posting, status-change, or autonomy authority.",
+    "Runtime source kit includes ScrollChoreographyMap and InfinitySymbolLanguage as server-rendered components backed by scrollChoreographyActs and infinitySymbolStates.",
+    "Runtime source kit includes EmotionalProgressionRail as an isolated client leaf backed by mirrorEmotionalProgressionPackets with no emotional profiling, identity inference, storage, network, file, execution, deploy, posting, or identity authority.",
+    "Runtime source kit includes ProofObservatory as an isolated client leaf backed by mirrorProofObservatoryPackets with no live telemetry, storage, file, execution, deploy, posting, status-change, or autonomy authority.",
+    "Runtime source kit includes AuthorityGradient as a server-rendered component backed by authorityGradientRungs with no hidden memory, identity authority, wallet control, deploy, posting, status-change, or autonomy authority.",
+    "Authority gradient exists at #mirror-authority-gradient and maps observe, reflect, draft, sandbox, approval, and public motion into allowed action and required proof fields without storage, network, execution, spending, deployment, posting, Web3 broadcast, status-change, identity inference, wallet control, or autonomy authority.",
+    "Runtime source kit includes MotionContractLedger as a server-rendered component backed by motionContracts with trigger, animation, timing, duration, easing, and performance.",
+    "Runtime source kit includes ExperienceAuditConsole as a server-rendered component backed by experienceAuditLenses with purpose, works, and reinterpret fields.",
+    "Runtime source kit includes SourceTranslationLedger, EngineTranslationLedger, InterfaceBuildLedger, RuntimeHandoffMatrix, and MirrorDepthGate as server-rendered components backed by sourceTranslationLedgerEntries, engineTranslationLedgerEntries, interfaceBuildStages, runtimeHandoffLanes, and mirrorDepthGateLanes.",
+    "Mirror depth gate exists at #mirror-depth-gate and maps semantic, Framer, GSAP, and Three/WebGL depth lanes into trigger, allowed behavior, proof needed, fallback, and kill switch without storage, network, execution, spending, deployment, posting, Web3 broadcast, status-change, identity inference, or autonomy authority.",
+    "Runtime source kit includes JoinEvolutionRoutes as a server-rendered component backed by joinRoutes with role, next action, proof, and boundary.",
+    "Runtime source kit includes FirstArtifactRouter as a server-rendered component backed by firstArtifactRoutes with bring, firstArtifact, proofRoute, approvalBoundary, href, and cta data.",
+    "First artifact router exists at #mirror-first-artifact-router and maps builder, investor, researcher, and partner roles into bring, first artifact, proof route, and approval boundary fields without data submission, lead creation, storage, network, execution, spending, deployment, posting, Web3 broadcast, status-change, identity inference, or autonomy authority.",
+    "Runtime source kit includes EvolutionEntryProtocol as a server-rendered component backed by evolutionEntryProtocolSteps with signal, boundary, first proof, next loop, input, and proof output data.",
+    "Evolution entry protocol exists at #mirror-evolution-entry-protocol and maps signal, boundary, first proof, and next loop into input and proof output fields without storage, network, execution, spending, deployment, posting, Web3 broadcast, status-change, identity inference, or autonomy authority.",
+    "No mobile horizontal overflow.",
+    "Metadata, manifest, llms.txt, ai-services.json, sitemap, and tests match the visible page.",
+    "Public deployment remains gated by explicit approval."
+  ]
+}

@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 640" role="presentation" aria-hidden="true">
+  <defs>
+    <radialGradient id="mirrorField" cx="50%" cy="48%" r="60%">
+      <stop offset="0%" stop-color="#e9cf97" stop-opacity=".22"/>
+      <stop offset="48%" stop-color="#0d9488" stop-opacity=".12"/>
+      <stop offset="100%" stop-color="#06060c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="mirrorRail" x1="190" x2="850" y1="320" y2="320" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0d9488" stop-opacity=".1"/>
+      <stop offset=".36" stop-color="#0d9488" stop-opacity=".56"/>
+      <stop offset=".66" stop-color="#e9cf97" stop-opacity=".7"/>
+      <stop offset="1" stop-color="#f0eef6" stop-opacity=".12"/>
+    </linearGradient>
+    <filter id="mirrorBlur" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <style>
+    .mirror-orbit {
+      fill: none;
+      stroke: url(#mirrorRail);
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-dasharray: 16 18;
+      animation: mirror-rail-shift 22s linear infinite;
+    }
+
+    .mirror-breathe {
+      transform-origin: center;
+      animation: mirror-breathe 7.2s ease-in-out infinite;
+    }
+
+    .mirror-core {
+      animation-delay: -3.6s;
+    }
+
+    .mirror-pulse {
+      fill: #e9cf97;
+      opacity: .72;
+      animation: mirror-pulse 4.4s ease-in-out infinite;
+    }
+
+    .mirror-pulse:nth-of-type(odd) {
+      animation-delay: -2.2s;
+    }
+
+    @keyframes mirror-rail-shift {
+      to { stroke-dashoffset: -280; }
+    }
+
+    @keyframes mirror-breathe {
+      0%, 100% { opacity: .6; transform: scale(.985); }
+      50% { opacity: .96; transform: scale(1.035); }
+    }
+
+    @keyframes mirror-pulse {
+      0%, 100% { opacity: .2; transform: scale(.72); }
+      50% { opacity: .86; transform: scale(1); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .mirror-orbit,
+      .mirror-breathe,
+      .mirror-pulse {
+        animation: none !important;
+      }
+    }
+  </style>
+
+  <rect x="44" y="58" width="952" height="524" rx="34" fill="#080812" opacity=".38"/>
+  <path d="M112 112h816c38 0 68 30 68 68v280c0 38-30 68-68 68H112c-38 0-68-30-68-68V180c0-38 30-68 68-68Z" fill="none" stroke="#f0eef6" stroke-opacity=".07"/>
+  <rect x="78" y="146" width="884" height="348" rx="174" fill="url(#mirrorField)" filter="url(#mirrorBlur)" opacity=".74"/>
+  <path d="M156 320c92-118 216-176 364-176s272 58 364 176c-92 118-216 176-364 176s-272-58-364-176Z" fill="none" stroke="#f0eef6" stroke-opacity=".07"/>
+  <path class="mirror-orbit" d="M188 320c88-88 194-132 332-132s244 44 332 132c-88 88-194 132-332 132s-244-44-332-132Z"/>
+  <path class="mirror-orbit" d="M292 320c58-54 126-82 228-82s170 28 228 82c-58 54-126 82-228 82s-170-28-228-82Z" opacity=".64"/>
+
+  <g class="mirror-breathe">
+    <circle cx="520" cy="320" r="116" fill="rgba(240,238,246,.035)" stroke="rgba(233,207,151,.28)" stroke-width="1"/>
+    <circle cx="520" cy="320" r="66" fill="rgba(13,148,136,.075)" stroke="rgba(13,148,136,.34)" stroke-width="1"/>
+  </g>
+  <g class="mirror-breathe mirror-core">
+    <path d="M468 320c34-44 70-44 104 0-34 44-70 44-104 0Z" fill="#06060c" stroke="#e9cf97" stroke-opacity=".76" stroke-width="2.2"/>
+    <circle cx="520" cy="320" r="24" fill="none" stroke="#e9cf97" stroke-opacity=".64" stroke-width="2.1"/>
+    <circle cx="520" cy="320" r="5.5" fill="#e9cf97" opacity=".86"/>
+  </g>
+
+  <g fill="#06060c" stroke="#f0eef6" stroke-opacity=".14">
+    <rect x="132" y="242" width="136" height="156" rx="22"/>
+    <rect x="286" y="160" width="136" height="116" rx="22"/>
+    <rect x="618" y="160" width="136" height="116" rx="22"/>
+    <rect x="772" y="242" width="136" height="156" rx="22"/>
+    <rect x="286" y="364" width="136" height="116" rx="22"/>
+    <rect x="618" y="364" width="136" height="116" rx="22"/>
+  </g>
+
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M164 288h72M164 318h46M164 348h62" stroke="#0d9488" stroke-opacity=".78" stroke-width="2.3"/>
+    <path d="M320 204c18-18 50-18 68 0M320 232c18 18 50 18 68 0" stroke="#e9cf97" stroke-opacity=".66" stroke-width="2.3"/>
+    <path d="M652 204h68M652 232h44" stroke="#0d9488" stroke-opacity=".72" stroke-width="2.3"/>
+    <path d="M804 304l28 28 48-58M804 352h58" stroke="#e9cf97" stroke-opacity=".76" stroke-width="2.5"/>
+    <path d="M318 408h72M318 438h42" stroke="#f0eef6" stroke-opacity=".25" stroke-width="2"/>
+    <path d="M650 408v44M672 408v44M694 408v44M716 408v44" stroke="#0d9488" stroke-opacity=".58" stroke-width="2"/>
+  </g>
+
+  <g>
+    <circle class="mirror-pulse" cx="188" cy="320" r="4"/>
+    <circle class="mirror-pulse" cx="336" cy="218" r="4"/>
+    <circle class="mirror-pulse" cx="520" cy="188" r="4.5"/>
+    <circle class="mirror-pulse" cx="704" cy="218" r="4"/>
+    <circle class="mirror-pulse" cx="852" cy="320" r="4"/>
+    <circle class="mirror-pulse" cx="704" cy="422" r="4"/>
+    <circle class="mirror-pulse" cx="336" cy="422" r="4"/>
+  </g>
+
+  <g fill="#f0eef6" opacity=".18">
+    <circle cx="132" cy="164" r="1.8"/>
+    <circle cx="914" cy="164" r="1.8"/>
+    <circle cx="132" cy="474" r="1.6"/>
+    <circle cx="914" cy="474" r="1.6"/>
+    <circle cx="520" cy="132" r="1.7"/>
+    <circle cx="520" cy="508" r="1.7"/>
+  </g>
+</svg>

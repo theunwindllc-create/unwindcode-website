@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 660" role="presentation" aria-hidden="true">
+  <defs>
+    <linearGradient id="packet-bg" x1="78" y1="78" x2="1002" y2="582" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0d9488" stop-opacity=".26"/>
+      <stop offset=".52" stop-color="#d6a84f" stop-opacity=".2"/>
+      <stop offset="1" stop-color="#6e2dbe" stop-opacity=".22"/>
+    </linearGradient>
+    <linearGradient id="packet-teal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#31d0c2"/>
+      <stop offset="1" stop-color="#0d615b"/>
+    </linearGradient>
+    <linearGradient id="packet-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f1d792"/>
+      <stop offset="1" stop-color="#8f6c2d"/>
+    </linearGradient>
+    <linearGradient id="packet-violet" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#b488ff"/>
+      <stop offset="1" stop-color="#5c2b92"/>
+    </linearGradient>
+    <radialGradient id="packet-core" cx="50%" cy="50%" r="52%">
+      <stop offset="0" stop-color="#f0eef6" stop-opacity=".82"/>
+      <stop offset=".26" stop-color="#d6a84f" stop-opacity=".58"/>
+      <stop offset="1" stop-color="#0d9488" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="packet-soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+    <style>
+      .route{fill:none;stroke-linecap:round;stroke-linejoin:round}
+      .packet-pulse{animation:packet-pulse 6s ease-in-out infinite}
+      .packet-drift-a{animation:packet-drift-a 10s ease-in-out infinite}
+      .packet-drift-b{animation:packet-drift-b 12s ease-in-out infinite}
+      .packet-dash{animation:packet-dash 14s linear infinite}
+      @keyframes packet-pulse{0%,100%{opacity:.34;transform:scale(.98)}50%{opacity:.78;transform:scale(1.04)}}
+      @keyframes packet-drift-a{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+      @keyframes packet-drift-b{0%,100%{transform:translateY(0)}50%{transform:translateY(12px)}}
+      @keyframes packet-dash{to{stroke-dashoffset:-240}}
+      @media (prefers-reduced-motion: reduce){
+        .packet-pulse,.packet-drift-a,.packet-drift-b,.packet-dash{animation:none!important}
+      }
+    </style>
+  </defs>
+
+  <rect x="48" y="54" width="984" height="552" rx="36" fill="#080912" opacity=".96"/>
+  <rect x="78" y="86" width="924" height="488" rx="30" fill="url(#packet-bg)" opacity=".54"/>
+  <path d="M128 334c116-118 238-126 366-26 142 112 278 132 456-8" class="route packet-dash" stroke="#0d9488" stroke-width="2" stroke-dasharray="12 20" opacity=".48"/>
+  <path d="M132 432c160-80 302-66 410 4 138 88 266 62 400-76" class="route packet-dash" stroke="#d6a84f" stroke-width="2" stroke-dasharray="9 18" opacity=".42"/>
+  <path d="M164 226c134 16 202 80 296 142 132 88 292 88 448-50" class="route packet-dash" stroke="#9b59f5" stroke-width="2" stroke-dasharray="8 18" opacity=".4"/>
+
+  <g opacity=".22">
+    <path d="M120 150h840M120 510h840" stroke="#f0eef6"/>
+    <path d="M214 122v412M356 122v412M498 122v412M640 122v412M782 122v412M924 122v412" stroke="#f0eef6" opacity=".35"/>
+  </g>
+
+  <circle class="packet-pulse" cx="542" cy="332" r="136" fill="url(#packet-core)" filter="url(#packet-soft)" opacity=".66"/>
+
+  <g class="packet-drift-a">
+    <rect x="440" y="226" width="204" height="184" rx="30" fill="#06060c"/>
+    <path d="M486 276h112M486 312h74M486 348h104" stroke="url(#packet-gold)" stroke-width="4" stroke-linecap="round"/>
+    <path d="M462 252l80 64 80-64" fill="none" stroke="url(#packet-teal)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity=".76"/>
+    <circle cx="542" cy="356" r="8" fill="#d6a84f"/>
+  </g>
+
+  <g class="packet-drift-b">
+    <rect x="138" y="260" width="164" height="154" rx="24" fill="#06060c"/>
+    <path d="M174 308h88M174 340h58M174 372h76" stroke="url(#packet-teal)" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="150" cy="340" r="5" fill="#f1d792"/>
+  </g>
+
+  <g class="packet-drift-a">
+    <rect x="326" y="142" width="182" height="126" rx="24" fill="#06060c"/>
+    <path d="M368 184h96M368 216h58" stroke="url(#packet-gold)" stroke-width="3" stroke-linecap="round"/>
+    <path d="M492 176l34 34-34 34" fill="none" stroke="url(#packet-teal)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <g class="packet-drift-b">
+    <rect x="656" y="146" width="184" height="130" rx="24" fill="#06060c"/>
+    <path d="M708 194h80M696 226h104" stroke="url(#packet-violet)" stroke-width="3" stroke-linecap="round"/>
+    <path d="M748 172l70 40-70 40-70-40z" fill="none" stroke="url(#packet-violet)" stroke-width="3"/>
+  </g>
+
+  <g class="packet-drift-a">
+    <rect x="772" y="372" width="172" height="136" rx="24" fill="#06060c"/>
+    <path d="M810 434l34 34 70-88" fill="none" stroke="url(#packet-gold)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="876" cy="432" r="6" fill="#f1d792"/>
+  </g>
+
+  <g class="packet-drift-b">
+    <rect x="328" y="448" width="196" height="86" rx="22" fill="#06060c"/>
+    <path d="M372 484h102M372 506h62" stroke="url(#packet-gold)" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="500" cy="496" r="7" fill="#0d9488"/>
+  </g>
+
+  <g opacity=".46">
+    <circle cx="116" cy="164" r="3" fill="#f0eef6"/>
+    <circle cx="218" cy="150" r="4" fill="#d6a84f"/>
+    <circle cx="542" cy="126" r="3" fill="#f0eef6"/>
+    <circle cx="942" cy="170" r="3" fill="#f0eef6"/>
+    <circle cx="126" cy="514" r="3" fill="#f0eef6"/>
+    <circle cx="596" cy="532" r="3" fill="#f0eef6"/>
+    <circle cx="916" cy="512" r="4" fill="#d6a84f"/>
+  </g>
+</svg>

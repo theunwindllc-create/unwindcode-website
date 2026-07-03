@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 640" role="presentation" aria-hidden="true">
+  <defs>
+    <linearGradient id="pipelineRail" x1="96" x2="944" y1="320" y2="320" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0d9488" stop-opacity=".08"/>
+      <stop offset=".34" stop-color="#0d9488" stop-opacity=".54"/>
+      <stop offset=".62" stop-color="#e9cf97" stop-opacity=".72"/>
+      <stop offset="1" stop-color="#f0eef6" stop-opacity=".12"/>
+    </linearGradient>
+    <radialGradient id="cortexHalo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#e9cf97" stop-opacity=".48"/>
+      <stop offset="58%" stop-color="#0d9488" stop-opacity=".13"/>
+      <stop offset="100%" stop-color="#06060c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="blueprintHalo" cx="50%" cy="50%" r="54%">
+      <stop offset="0%" stop-color="#0d9488" stop-opacity=".36"/>
+      <stop offset="70%" stop-color="#9b59f5" stop-opacity=".08"/>
+      <stop offset="100%" stop-color="#06060c" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softBlur" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <style>
+    .vc-rail {
+      fill: none;
+      stroke: url(#pipelineRail);
+      stroke-width: 2.4;
+      stroke-linecap: round;
+      stroke-dasharray: 16 18;
+      animation: vc-rail-shift 20s linear infinite;
+    }
+
+    .vc-pulse {
+      transform-origin: center;
+      animation: vc-pulse 7s ease-in-out infinite;
+    }
+
+    .vc-output {
+      animation-delay: -2.8s;
+    }
+
+    .vc-spark {
+      fill: #e9cf97;
+      opacity: .7;
+      animation: vc-spark 4s ease-in-out infinite;
+    }
+
+    .vc-spark:nth-of-type(odd) {
+      animation-delay: -2s;
+    }
+
+    @keyframes vc-rail-shift {
+      to { stroke-dashoffset: -260; }
+    }
+
+    @keyframes vc-pulse {
+      0%, 100% { opacity: .62; transform: scale(.98); }
+      50% { opacity: .95; transform: scale(1.04); }
+    }
+
+    @keyframes vc-spark {
+      0%, 100% { opacity: .2; transform: scale(.72); }
+      50% { opacity: .88; transform: scale(1); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .vc-rail,
+      .vc-pulse,
+      .vc-spark {
+        animation: none !important;
+      }
+    }
+  </style>
+
+  <rect x="44" y="58" width="952" height="524" rx="34" fill="#080812" opacity=".38"/>
+  <path d="M112 112h816c38 0 68 30 68 68v280c0 38-30 68-68 68H112c-38 0-68-30-68-68V180c0-38 30-68 68-68Z" fill="none" stroke="#f0eef6" stroke-opacity=".07"/>
+  <path d="M148 156h744M148 484h744" fill="none" stroke="#f0eef6" stroke-opacity=".045"/>
+  <path d="M334 132v376M704 132v376" fill="none" stroke="#f0eef6" stroke-opacity=".05" stroke-dasharray="8 12"/>
+
+  <g opacity=".98">
+    <path class="vc-rail" d="M112 320C220 244 286 252 360 320s120 76 160 0 118-78 172 0 138 84 236 0"/>
+    <path d="M186 428C286 374 352 382 438 430" fill="none" stroke="#0d9488" stroke-opacity=".12" stroke-width="1.2" stroke-dasharray="8 12"/>
+    <path d="M602 208C696 246 774 250 884 206" fill="none" stroke="#e9cf97" stroke-opacity=".12" stroke-width="1.2" stroke-dasharray="8 12"/>
+  </g>
+
+  <g>
+    <circle class="vc-pulse" cx="520" cy="320" r="136" fill="url(#cortexHalo)" filter="url(#softBlur)"/>
+    <circle class="vc-pulse vc-output" cx="790" cy="320" r="124" fill="url(#blueprintHalo)" filter="url(#softBlur)"/>
+  </g>
+
+  <g fill="#06060c" stroke="#f0eef6" stroke-opacity=".15">
+    <rect x="144" y="214" width="136" height="168" rx="18"/>
+    <rect x="170" y="242" width="136" height="168" rx="18" opacity=".86"/>
+    <rect x="736" y="202" width="164" height="116" rx="18"/>
+    <rect x="736" y="342" width="164" height="116" rx="18" opacity=".9"/>
+    <rect x="434" y="232" width="172" height="176" rx="30"/>
+  </g>
+
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M192 286h72M192 314h54M192 342h68" stroke="#0d9488" stroke-opacity=".8" stroke-width="2.4"/>
+    <path d="M216 260h60M216 288h40M216 316h56M216 344h32" stroke="#f0eef6" stroke-opacity=".24" stroke-width="2"/>
+    <path d="M462 320c40-52 76-52 116 0-40 52-76 52-116 0Z" stroke="#e9cf97" stroke-opacity=".76" stroke-width="2.3"/>
+    <circle cx="520" cy="320" r="26" stroke="#e9cf97" stroke-opacity=".62" stroke-width="2.2"/>
+    <path d="M520 276v-32M520 396v-32M476 280l-22-22M586 390l-22-22M586 250l-22 22M454 382l22-22" stroke="#0d9488" stroke-opacity=".42" stroke-width="1.8"/>
+    <path d="M770 232h96M770 260h50M770 288h74" stroke="#0d9488" stroke-opacity=".74" stroke-width="2.3"/>
+    <path d="M774 384l28 28 58-64" stroke="#e9cf97" stroke-opacity=".78" stroke-width="2.6"/>
+    <path d="M840 382l30 18-30 18Z" stroke="#0d9488" stroke-opacity=".58" stroke-width="2"/>
+  </g>
+
+  <g fill="#06060c" stroke="#e9cf97" stroke-opacity=".22">
+    <rect x="390" y="466" width="260" height="58" rx="16"/>
+    <path d="M430 494h92M548 494h54" stroke="#e9cf97" stroke-opacity=".48" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <g>
+    <circle class="vc-spark" cx="136" cy="320" r="4"/>
+    <circle class="vc-spark" cx="334" cy="320" r="4"/>
+    <circle class="vc-spark" cx="520" cy="320" r="5"/>
+    <circle class="vc-spark" cx="704" cy="320" r="4"/>
+    <circle class="vc-spark" cx="910" cy="320" r="4"/>
+    <circle class="vc-spark" cx="520" cy="494" r="4"/>
+  </g>
+
+  <g fill="#f0eef6" opacity=".18">
+    <circle cx="116" cy="152" r="1.8"/>
+    <circle cx="158" cy="482" r="1.5"/>
+    <circle cx="932" cy="156" r="2"/>
+    <circle cx="912" cy="484" r="1.6"/>
+    <circle cx="374" cy="172" r="1.7"/>
+    <circle cx="684" cy="470" r="1.7"/>
+  </g>
+</svg>

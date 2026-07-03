@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="720" viewBox="0 0 1080 720" fill="none" role="presentation" aria-hidden="true" focusable="false">
+  <defs>
+    <radialGradient id="ois-core" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(540 360) rotate(90) scale(260 360)">
+      <stop stop-color="#13B8A6" stop-opacity="0.2"/>
+      <stop offset="0.42" stop-color="#9B59F5" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#06060C" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ois-panel-a" x1="158" y1="142" x2="404" y2="322" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9B59F5" stop-opacity="0.54"/>
+      <stop offset="1" stop-color="#13B8A6" stop-opacity="0.16"/>
+    </linearGradient>
+    <linearGradient id="ois-panel-b" x1="676" y1="142" x2="922" y2="322" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#13B8A6" stop-opacity="0.56"/>
+      <stop offset="1" stop-color="#D6A84F" stop-opacity="0.16"/>
+    </linearGradient>
+    <linearGradient id="ois-panel-c" x1="158" y1="398" x2="404" y2="578" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D6A84F" stop-opacity="0.52"/>
+      <stop offset="1" stop-color="#9B59F5" stop-opacity="0.14"/>
+    </linearGradient>
+    <linearGradient id="ois-panel-d" x1="676" y1="398" x2="922" y2="578" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9B59F5" stop-opacity="0.42"/>
+      <stop offset="0.5" stop-color="#13B8A6" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#D6A84F" stop-opacity="0.16"/>
+    </linearGradient>
+    <filter id="ois-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.07 0 0 0 0 0.72 0 0 0 0 0.65 0 0 0 0.34 0"/>
+      <feBlend in="SourceGraphic"/>
+    </filter>
+    <style>
+      .ois-flow { stroke-dasharray: 10 18; animation: ois-flow 13s linear infinite; }
+      .ois-pulse { animation: ois-pulse 5.4s ease-in-out infinite; transform-origin: center; }
+      .ois-float-a { animation: ois-float-a 11s ease-in-out infinite; }
+      .ois-float-b { animation: ois-float-b 12s ease-in-out infinite; }
+      .ois-float-c { animation: ois-float-c 13s ease-in-out infinite; }
+      .ois-float-d { animation: ois-float-d 12.5s ease-in-out infinite; }
+      @keyframes ois-flow { to { stroke-dashoffset: -112; } }
+      @keyframes ois-pulse { 0%, 100% { opacity: 0.58; transform: scale(1); } 50% { opacity: 0.95; transform: scale(1.035); } }
+      @keyframes ois-float-a { 0%, 100% { transform: translate3d(0, 0, 0); } 50% { transform: translate3d(6px, -8px, 0); } }
+      @keyframes ois-float-b { 0%, 100% { transform: translate3d(0, 0, 0); } 50% { transform: translate3d(-7px, -6px, 0); } }
+      @keyframes ois-float-c { 0%, 100% { transform: translate3d(0, 0, 0); } 50% { transform: translate3d(7px, 7px, 0); } }
+      @keyframes ois-float-d { 0%, 100% { transform: translate3d(0, 0, 0); } 50% { transform: translate3d(-6px, 8px, 0); } }
+      @media (prefers-reduced-motion: reduce) {
+        .ois-flow,
+        .ois-pulse,
+        .ois-float-a,
+        .ois-float-b,
+        .ois-float-c,
+        .ois-float-d {
+          animation: none !important;
+        }
+      }
+    </style>
+  </defs>
+  <rect width="1080" height="720" fill="#06060C"/>
+  <path d="M0 0h1080v720H0z" fill="url(#ois-core)"/>
+  <g opacity="0.14">
+    <path d="M120 104H960M120 216H960M120 328H960M120 440H960M120 552H960" stroke="#F0EEF6"/>
+    <path d="M188 72V648M348 72V648M508 72V648M668 72V648M828 72V648" stroke="#F0EEF6"/>
+  </g>
+  <g filter="url(#ois-glow)">
+    <path d="M540 126l86 50v100l-86 50-86-50V176l86-50z" fill="#06060C" fill-opacity="0.76" stroke="#13B8A6" stroke-opacity="0.42" stroke-width="2"/>
+    <path d="M540 394l86 50v100l-86 50-86-50V444l86-50z" fill="#06060C" fill-opacity="0.78" stroke="#D6A84F" stroke-opacity="0.38" stroke-width="2"/>
+    <path d="M540 326v68" stroke="#F0EEF6" stroke-opacity="0.22" stroke-width="2"/>
+    <circle class="ois-pulse" cx="540" cy="226" r="34" fill="#13B8A6" fill-opacity="0.22" stroke="#F0EEF6" stroke-opacity="0.24"/>
+    <circle class="ois-pulse" cx="540" cy="494" r="34" fill="#D6A84F" fill-opacity="0.18" stroke="#F0EEF6" stroke-opacity="0.22"/>
+  </g>
+  <g stroke="#13B8A6" stroke-width="3" stroke-linecap="round" opacity="0.7">
+    <path class="ois-flow" d="M402 236C448 236 482 230 506 226"/>
+    <path class="ois-flow" d="M678 236C632 236 598 230 574 226"/>
+    <path class="ois-flow" d="M402 488C450 488 484 492 506 494"/>
+    <path class="ois-flow" d="M678 488C632 488 598 492 574 494"/>
+  </g>
+  <g class="ois-float-a">
+    <rect x="150" y="128" width="250" height="204" rx="8" fill="url(#ois-panel-a)" fill-opacity="0.58" stroke="#F0EEF6" stroke-opacity="0.12"/>
+    <rect x="180" y="162" width="190" height="20" rx="4" fill="#F0EEF6" fill-opacity="0.16"/>
+    <rect x="180" y="204" width="142" height="16" rx="4" fill="#13B8A6" fill-opacity="0.22"/>
+    <rect x="180" y="238" width="168" height="16" rx="4" fill="#F0EEF6" fill-opacity="0.1"/>
+    <path d="M212 288l42-24 42 24v40h-84v-40z" fill="#06060C" fill-opacity="0.36" stroke="#D6A84F" stroke-opacity="0.34"/>
+    <circle cx="332" cy="292" r="26" fill="#9B59F5" fill-opacity="0.22" stroke="#F0EEF6" stroke-opacity="0.12"/>
+  </g>
+  <g class="ois-float-b">
+    <rect x="680" y="128" width="250" height="204" rx="8" fill="url(#ois-panel-b)" fill-opacity="0.58" stroke="#F0EEF6" stroke-opacity="0.12"/>
+    <circle cx="804" cy="222" r="54" fill="#06060C" fill-opacity="0.34" stroke="#13B8A6" stroke-opacity="0.34"/>
+    <path d="M750 222c26-48 82-48 108 0-26 48-82 48-108 0z" stroke="#F0EEF6" stroke-opacity="0.2" stroke-width="2"/>
+    <circle cx="804" cy="222" r="16" fill="#D6A84F" fill-opacity="0.32"/>
+    <path d="M724 294h160" stroke="#F0EEF6" stroke-opacity="0.12" stroke-width="12" stroke-linecap="round"/>
+  </g>
+  <g class="ois-float-c">
+    <rect x="150" y="388" width="250" height="204" rx="8" fill="url(#ois-panel-c)" fill-opacity="0.58" stroke="#F0EEF6" stroke-opacity="0.12"/>
+    <path d="M202 456h146M202 492h146M202 528h98" stroke="#F0EEF6" stroke-opacity="0.14" stroke-width="14" stroke-linecap="round"/>
+    <path d="M318 428l34 20v40l-34 20-34-20v-40l34-20z" fill="#06060C" fill-opacity="0.38" stroke="#9B59F5" stroke-opacity="0.4"/>
+    <path d="M318 446v44M300 456l36 22M336 456l-36 22" stroke="#13B8A6" stroke-opacity="0.36" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <g class="ois-float-d">
+    <rect x="680" y="388" width="250" height="204" rx="8" fill="url(#ois-panel-d)" fill-opacity="0.58" stroke="#F0EEF6" stroke-opacity="0.12"/>
+    <rect x="724" y="430" width="60" height="60" rx="8" fill="#06060C" fill-opacity="0.36" stroke="#13B8A6" stroke-opacity="0.35"/>
+    <rect x="826" y="430" width="60" height="60" rx="8" fill="#06060C" fill-opacity="0.36" stroke="#D6A84F" stroke-opacity="0.32"/>
+    <rect x="724" y="520" width="162" height="18" rx="5" fill="#F0EEF6" fill-opacity="0.14"/>
+    <path d="M784 460h42M754 490v30M856 490v30" stroke="#F0EEF6" stroke-opacity="0.18" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <g opacity="0.5">
+    <circle cx="98" cy="92" r="4" fill="#13B8A6"/>
+    <circle cx="976" cy="96" r="5" fill="#D6A84F"/>
+    <circle cx="104" cy="628" r="5" fill="#9B59F5"/>
+    <circle cx="984" cy="624" r="4" fill="#13B8A6"/>
+  </g>
+</svg>

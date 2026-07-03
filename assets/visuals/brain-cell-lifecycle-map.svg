@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 640" role="presentation" aria-hidden="true">
+  <defs>
+    <linearGradient id="cellRail" x1="120" x2="920" y1="320" y2="320" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0d9488" stop-opacity=".08"/>
+      <stop offset=".3" stop-color="#0d9488" stop-opacity=".55"/>
+      <stop offset=".58" stop-color="#e9cf97" stop-opacity=".7"/>
+      <stop offset=".82" stop-color="#9b59f5" stop-opacity=".36"/>
+      <stop offset="1" stop-color="#f0eef6" stop-opacity=".1"/>
+    </linearGradient>
+    <radialGradient id="cellCoreGlow" cx="50%" cy="50%" r="52%">
+      <stop offset="0%" stop-color="#e9cf97" stop-opacity=".48"/>
+      <stop offset="56%" stop-color="#0d9488" stop-opacity=".12"/>
+      <stop offset="100%" stop-color="#06060c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="immuneGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#9b59f5" stop-opacity=".32"/>
+      <stop offset="68%" stop-color="#9b59f5" stop-opacity=".08"/>
+      <stop offset="100%" stop-color="#06060c" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="cellBlur" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <style>
+    .cell-rail {
+      fill: none;
+      stroke: url(#cellRail);
+      stroke-width: 2.4;
+      stroke-linecap: round;
+      stroke-dasharray: 16 18;
+      animation: cell-rail-shift 21s linear infinite;
+    }
+
+    .cell-breathe {
+      transform-origin: center;
+      animation: cell-breathe 7s ease-in-out infinite;
+    }
+
+    .cell-immune {
+      animation-delay: -3.5s;
+    }
+
+    .cell-dot {
+      fill: #e9cf97;
+      opacity: .72;
+      animation: cell-dot 4s ease-in-out infinite;
+    }
+
+    .cell-dot:nth-of-type(odd) {
+      animation-delay: -2s;
+    }
+
+    @keyframes cell-rail-shift {
+      to { stroke-dashoffset: -280; }
+    }
+
+    @keyframes cell-breathe {
+      0%, 100% { opacity: .62; transform: scale(.985); }
+      50% { opacity: .96; transform: scale(1.035); }
+    }
+
+    @keyframes cell-dot {
+      0%, 100% { opacity: .2; transform: scale(.72); }
+      50% { opacity: .9; transform: scale(1); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cell-rail,
+      .cell-breathe,
+      .cell-dot {
+        animation: none !important;
+      }
+    }
+  </style>
+
+  <rect x="44" y="58" width="952" height="524" rx="34" fill="#080812" opacity=".38"/>
+  <path d="M112 112h816c38 0 68 30 68 68v280c0 38-30 68-68 68H112c-38 0-68-30-68-68V180c0-38 30-68 68-68Z" fill="none" stroke="#f0eef6" stroke-opacity=".07"/>
+  <path d="M148 160h744M148 480h744M334 132v376M704 132v376" fill="none" stroke="#f0eef6" stroke-opacity=".045" stroke-dasharray="8 12"/>
+
+  <g opacity=".98">
+    <path class="cell-rail" d="M120 320C212 232 300 226 374 320s140 100 194 0 140-96 194 0 102 88 158 0"/>
+    <path class="cell-rail" d="M200 430C312 364 406 386 520 430s208 50 320-30" opacity=".48"/>
+  </g>
+
+  <g>
+    <circle class="cell-breathe" cx="520" cy="320" r="132" fill="url(#cellCoreGlow)" filter="url(#cellBlur)"/>
+    <circle class="cell-breathe cell-immune" cx="750" cy="320" r="118" fill="url(#immuneGlow)" filter="url(#cellBlur)"/>
+  </g>
+
+  <g fill="#06060c" stroke="#f0eef6" stroke-opacity=".15">
+    <rect x="138" y="244" width="132" height="152" rx="20"/>
+    <rect x="300" y="170" width="144" height="118" rx="22"/>
+    <rect x="448" y="232" width="144" height="176" rx="28"/>
+    <rect x="616" y="170" width="144" height="118" rx="22"/>
+    <rect x="770" y="244" width="132" height="152" rx="20"/>
+    <rect x="448" y="444" width="144" height="58" rx="16"/>
+  </g>
+
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M170 288h68M170 318h42M170 348h58" stroke="#0d9488" stroke-opacity=".78" stroke-width="2.3"/>
+    <path d="M334 212h76M334 240h46" stroke="#e9cf97" stroke-opacity=".72" stroke-width="2.3"/>
+    <path d="M476 320h88M520 276v88M490 290l60 60M550 290l-60 60" stroke="#0d9488" stroke-opacity=".58" stroke-width="2.1"/>
+    <path d="M648 212c24-20 56-20 80 0v40c-24 20-56 20-80 0Z" stroke="#9b59f5" stroke-opacity=".64" stroke-width="2.3"/>
+    <path d="M806 300l28 28 48-58M806 352h58" stroke="#e9cf97" stroke-opacity=".78" stroke-width="2.5"/>
+    <path d="M484 474h72M484 492h44" stroke="#e9cf97" stroke-opacity=".52" stroke-width="2"/>
+  </g>
+
+  <g>
+    <circle class="cell-dot" cx="146" cy="320" r="4"/>
+    <circle class="cell-dot" cx="334" cy="238" r="4"/>
+    <circle class="cell-dot" cx="520" cy="320" r="5"/>
+    <circle class="cell-dot" cx="704" cy="238" r="4"/>
+    <circle class="cell-dot" cx="862" cy="320" r="4"/>
+    <circle class="cell-dot" cx="520" cy="474" r="4"/>
+  </g>
+
+  <g fill="#f0eef6" opacity=".18">
+    <circle cx="118" cy="154" r="1.8"/>
+    <circle cx="922" cy="154" r="1.8"/>
+    <circle cx="118" cy="486" r="1.6"/>
+    <circle cx="922" cy="486" r="1.6"/>
+    <circle cx="520" cy="132" r="1.7"/>
+    <circle cx="520" cy="510" r="1.7"/>
+  </g>
+</svg>

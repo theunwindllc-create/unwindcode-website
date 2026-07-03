@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 640" role="presentation" aria-hidden="true">
+  <defs>
+    <linearGradient id="runPanel" x1="104" x2="936" y1="112" y2="528" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0d9488" stop-opacity=".13"/>
+      <stop offset=".48" stop-color="#e9cf97" stop-opacity=".1"/>
+      <stop offset="1" stop-color="#9b59f5" stop-opacity=".15"/>
+    </linearGradient>
+    <linearGradient id="runRail" x1="126" x2="914" y1="320" y2="320" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0d9488" stop-opacity=".16"/>
+      <stop offset=".28" stop-color="#0d9488" stop-opacity=".72"/>
+      <stop offset=".58" stop-color="#e9cf97" stop-opacity=".7"/>
+      <stop offset="1" stop-color="#9b59f5" stop-opacity=".45"/>
+    </linearGradient>
+    <radialGradient id="runCore" cx="50%" cy="50%" r="56%">
+      <stop offset="0%" stop-color="#0d9488" stop-opacity=".32"/>
+      <stop offset="52%" stop-color="#e9cf97" stop-opacity=".12"/>
+      <stop offset="100%" stop-color="#06060c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="runProof" cx="50%" cy="50%" r="54%">
+      <stop offset="0%" stop-color="#9b59f5" stop-opacity=".3"/>
+      <stop offset="64%" stop-color="#9b59f5" stop-opacity=".08"/>
+      <stop offset="100%" stop-color="#06060c" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="runBlur" x="-38%" y="-38%" width="176%" height="176%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <style>
+    .run-rail {
+      fill: none;
+      stroke: url(#runRail);
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-dasharray: 13 18;
+      animation: run-rail-shift 20s linear infinite;
+    }
+
+    .run-field {
+      transform-origin: center;
+      animation: run-field-breathe 7.8s ease-in-out infinite;
+    }
+
+    .run-proof {
+      animation-delay: -3.9s;
+    }
+
+    .run-dot {
+      fill: #e9cf97;
+      opacity: .74;
+      animation: run-dot-pulse 4.6s ease-in-out infinite;
+    }
+
+    .run-dot:nth-of-type(2n) {
+      animation-delay: -2.3s;
+    }
+
+    @keyframes run-rail-shift {
+      to { stroke-dashoffset: -270; }
+    }
+
+    @keyframes run-field-breathe {
+      0%, 100% { opacity: .58; transform: scale(.984); }
+      50% { opacity: .96; transform: scale(1.03); }
+    }
+
+    @keyframes run-dot-pulse {
+      0%, 100% { opacity: .18; transform: scale(.7); }
+      50% { opacity: .92; transform: scale(1); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .run-rail,
+      .run-field,
+      .run-dot {
+        animation: none !important;
+      }
+    }
+  </style>
+
+  <rect x="54" y="64" width="932" height="512" rx="34" fill="#080812" opacity=".36"/>
+  <path d="M112 116h816c34 0 62 28 62 62v284c0 34-28 62-62 62H112c-34 0-62-28-62-62V178c0-34 28-62 62-62Z" fill="url(#runPanel)" stroke="#f0eef6" stroke-opacity=".075"/>
+  <path d="M126 164h788M126 476h788M232 132v376M398 132v376M562 132v376M728 132v376" fill="none" stroke="#f0eef6" stroke-opacity=".045" stroke-dasharray="8 12"/>
+
+  <g filter="url(#runBlur)">
+    <circle class="run-field" cx="398" cy="320" r="128" fill="url(#runCore)"/>
+    <circle class="run-field run-proof" cx="704" cy="320" r="140" fill="url(#runProof)"/>
+  </g>
+
+  <path class="run-rail" d="M126 320C204 244 286 244 350 320s126 78 164 0 116-80 164 0 126 76 236-2"/>
+  <path class="run-rail" d="M178 430c92-46 172-38 242 18s178 58 252-8 134-68 198-18" opacity=".48"/>
+
+  <g fill="#06060c" stroke="#f0eef6" stroke-opacity=".14">
+    <rect x="134" y="244" width="126" height="152" rx="20"/>
+    <rect x="296" y="174" width="132" height="116" rx="22"/>
+    <rect x="454" y="232" width="132" height="176" rx="24"/>
+    <rect x="612" y="174" width="132" height="116" rx="22"/>
+    <rect x="780" y="244" width="126" height="152" rx="20"/>
+    <rect x="454" y="444" width="132" height="58" rx="16"/>
+  </g>
+
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M164 288h64M164 318h40M164 348h58" stroke="#0d9488" stroke-opacity=".72" stroke-width="2.4"/>
+    <path d="M328 214h68M328 244h46" stroke="#e9cf97" stroke-opacity=".68" stroke-width="2.4"/>
+    <path d="M486 320h68M520 286v68M494 296l52 52M546 296l-52 52" stroke="#0d9488" stroke-opacity=".6" stroke-width="2.2"/>
+    <path d="M644 214c22-18 50-18 72 0v38c-22 18-50 18-72 0Z" stroke="#9b59f5" stroke-opacity=".68" stroke-width="2.4"/>
+    <path d="M812 298l28 28 48-58M812 350h58" stroke="#e9cf97" stroke-opacity=".76" stroke-width="2.6"/>
+    <path d="M488 474h68M488 492h42" stroke="#f0eef6" stroke-opacity=".28" stroke-width="2"/>
+  </g>
+
+  <g>
+    <circle class="run-dot" cx="126" cy="320" r="4"/>
+    <circle class="run-dot" cx="332" cy="238" r="4"/>
+    <circle class="run-dot" cx="520" cy="320" r="5"/>
+    <circle class="run-dot" cx="676" cy="238" r="4"/>
+    <circle class="run-dot" cx="914" cy="320" r="4"/>
+    <circle class="run-dot" cx="520" cy="474" r="4"/>
+  </g>
+</svg>

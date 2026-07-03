@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Public Proof Ledger | Unwind Code</title>
+  <meta name="description" content="Read the public proof behind Unwind Code: transmissions, architecture notes, safety gates, status labels, and evidence for governed AI organisms." />
+  <meta name="keywords" content="AI proof, AI agent safety, public proof loop, Web3 simulation proof, AI architecture evidence" />
+  <meta name="theme-color" content="#06060c" />
+  <link rel="canonical" href="https://www.unwindcode.ai/proof/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Public Proof Ledger | Unwind Code" />
+  <meta property="og:description" content="Read the public proof behind Unwind Code: transmissions, architecture notes, safety gates, status labels, and evidence for governed AI organisms." />
+  <meta property="og:url" content="https://www.unwindcode.ai/proof/" />
+  <meta property="og:site_name" content="Unwind Code" />
+  <meta property="og:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
+  <meta property="og:image:type" content="image/svg+xml" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Unwind Code AI organism architecture lab visual" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Public Proof Ledger | Unwind Code" />
+  <meta name="twitter:description" content="Read the public proof behind Unwind Code: transmissions, architecture notes, safety gates, status labels, and evidence for governed AI organisms." />
+  <meta name="twitter:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
+  <meta name="twitter:image:alt" content="Unwind Code AI organism architecture lab visual" />
+  <link rel="stylesheet" href="/style.css?v=20260615-system-state" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","name":"Public Proof Ledger","url":"https://www.unwindcode.ai/proof/","description":"Public proof artifacts for the Unwind Code AI organism ecosystem: transmissions, safety boundaries, status labels, and evidence for governed autonomous systems.","inLanguage":["en","es"],"about":["AI agent safety","public proof loop","AI organism evidence","Web3 simulation boundaries","human-in-the-loop AI"],"mainEntity":{"@id":"https://www.unwindcode.ai/proof/#artifact-list"}},{"@type":"ItemList","@id":"https://www.unwindcode.ai/proof/#artifact-list","name":"Unwind Code proof artifacts","itemListElement":[{"@type":"ListItem","position":1,"url":"https://www.unwindcode.ai/transmissions/27-the-quotation-cell.html","name":"Transmission 27: The Quotation Cell"},{"@type":"ListItem","position":2,"url":"https://www.unwindcode.ai/transmissions/26-property-sales-intelligence-cell.html","name":"Transmission 26: The Property Sales Intelligence Cell"},{"@type":"ListItem","position":3,"url":"https://www.unwindcode.ai/transmissions/25-the-homepage-learned-to-pulse.html","name":"Transmission 25: The Homepage Learned to Pulse"},{"@type":"ListItem","position":4,"url":"https://www.unwindcode.ai/transmissions/24-the-mirror-found-its-form.html","name":"Transmission 24: The Mirror Found Its Form"},{"@type":"ListItem","position":5,"url":"https://www.unwindcode.ai/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html","name":"Transmission 23: The SEC Gate"},{"@type":"ListItem","position":6,"url":"https://www.unwindcode.ai/transmissions/22-the-monad-hand-clarity-before-motion.html","name":"Transmission 22: The Monad Hand"},{"@type":"ListItem","position":7,"url":"https://www.unwindcode.ai/transmissions/21-the-unwind-brain-checkpoint-white-paper.html","name":"Transmission 21: The Unwind Brain Whitepaper"}]},{"@type":"DefinedTerm","name":"Public Proof Ledger","inDefinedTermSet":"Unwind Code trust architecture","description":"A public evidence surface that maps AI organism claims to artifacts, status, safety boundaries, and next inspection routes."},{"@type":"DefinedTerm","name":"Proof Loop","inDefinedTermSet":"Unwind Code organism architecture","description":"The organism layer that records tests, transmissions, review packets, architecture decisions, status labels, and safety gates so progress remains inspectable."},{"@type":"ImageObject","@id":"https://www.unwindcode.ai/proof/#trust-diligence-console-asset","name":"Unwind Code Trust Diligence Console","contentUrl":"https://www.unwindcode.ai/assets/visuals/trust-diligence-console.svg","encodingFormat":"image/svg+xml","description":"A lightweight SVG trust-diligence console showing how builders, investors, users, protocols, and collaborators inspect proof, boundaries, and next routes."},{"@type":"ImageObject","@id":"https://www.unwindcode.ai/proof/#asset-governance-ledger-asset","name":"Unwind Code Asset Governance Ledger","contentUrl":"https://www.unwindcode.ai/assets/visuals/asset-governance-ledger.svg","encodingFormat":"image/svg+xml","description":"A lightweight SVG asset governance ledger showing how visuals pass purpose, text, motion, and discovery governance before becoming public proof surfaces."},{"@type":"ImageObject","@id":"https://www.unwindcode.ai/proof/#authority-gate-console-asset","name":"Unwind Code Authority Gate Console","contentUrl":"https://www.unwindcode.ai/assets/visuals/authority-gate-console.svg","encodingFormat":"image/svg+xml","description":"A lightweight SVG approval-gate map showing how generated code, filesystem writes, money movement, public posts, and Web3 broadcasts stay behind sandbox, review, approval, publish-packet, and no-broadcast boundaries."}]}</script>
+</head>
+<body class="lab-page">
+  <nav id="nav" class="scrolled">
+    <a href="/" class="nav-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="/" data-i18n="nav.home">Home</a>
+      <a href="/organisms/" data-i18n="nav.organisms">Organisms</a>
+      <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
+      <a href="/proof/" class="active" aria-current="page" data-i18n="nav.proof">Proof</a>
+      <a href="/transmissions/" data-i18n="nav.blog">Transmissions</a>
+      <a href="/philosophy/" data-i18n="nav.philosophy">Philosophy</a>
+    </div>
+    <div class="nav-actions">
+      <button id="lang-toggle" class="lang-toggle" aria-label="Switch to Spanish">ES</button>
+      <a href="/build-with-us/" class="nav-cta" data-i18n="nav.cta">Build With Us</a>
+    </div>
+  </nav>
+  <main>
+    <section class="lab-hero">
+      <div class="container">
+        <span class="lab-kicker" data-i18n="proofPage.hero.kicker">Public proof ledger</span>
+        <h1 data-i18n="proofPage.hero.title">Trust comes from artifacts, not adjectives.</h1>
+        <p data-i18n="proofPage.hero.desc">Unwind Code turns the build process into evidence: transmissions, whitepapers, architecture decisions, safety gates, and status labels that make the organism ecosystem inspectable.</p>
+        <div class="lab-actions">
+          <a href="/transmissions/" class="btn btn-primary"><span data-i18n="proofPage.hero.primary">Read archive</span><span class="btn-arrow">→</span></a>
+          <a href="/architecture/" class="btn btn-ghost" data-i18n="proofPage.hero.secondary">Study architecture</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="proof-register" class="lab-section proof-register" aria-labelledby="proof-register-title">
+      <div class="container">
+        <div class="proof-register-layout">
+          <div class="lab-section-header">
+            <span class="lab-kicker" data-i18n="proofPage.register.kicker">Evidence register</span>
+            <h2 id="proof-register-title" data-i18n="proofPage.register.title">Start with public artifacts, then inspect the boundary they prove.</h2>
+            <p class="lab-section-lead" data-i18n="proofPage.register.desc">Each row answers a trust question: what exists, what it proves, what risk boundary it supports, and where to inspect the source.</p>
+          </div>
+          <div class="proof-metrics" aria-label="Proof ledger scope">
+            <div class="proof-metric">
+              <strong data-i18n="proofPage.metric.artifacts.value">7</strong>
+              <span data-i18n="proofPage.metric.artifacts.label">public artifacts</span>
+            </div>
+            <div class="proof-metric">
+              <strong data-i18n="proofPage.metric.boundaries.value">5</strong>
+              <span data-i18n="proofPage.metric.boundaries.label">authority boundaries</span>
+            </div>
+            <div class="proof-metric">
+              <strong data-i18n="proofPage.metric.status.value">3</strong>
+              <span data-i18n="proofPage.metric.status.label">status classes</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proof-list proof-artifact-list">
+          <a class="proof-row proof-artifact-row" href="/transmissions/27-the-quotation-cell.html">
+            <span class="proof-id" data-i18n="proofPage.artifact.27.id">Transmission 27</span>
+            <div class="proof-row-copy">
+              <span class="status-label" data-i18n="proofPage.artifact.27.type">Transaction readiness</span>
+              <h3 data-i18n="proofPage.artifact.27.title">The Quotation Cell</h3>
+              <p data-i18n="proofPage.artifact.27.desc">Turns quoting into a governed packet: supplier evidence, correction memory, readiness state, and approval before commitment.</p>
+            </div>
+            <dl class="proof-row-meta">
+              <div><dt data-i18n="proofPage.meta.status">Status</dt><dd data-i18n="proofPage.status.public">Public</dd></div>
+              <div><dt data-i18n="proofPage.meta.proves">Proves</dt><dd data-i18n="proofPage.artifact.27.proves">Commercial action can stay reviewable before a human commits.</dd></div>
+            </dl>
+            <span class="lab-link" data-i18n="proofPage.artifact.cta">Open</span>
+          </a>
+          <a class="proof-row proof-artifact-row" href="/transmissions/26-property-sales-intelligence-cell.html">
+            <span class="proof-id" data-i18n="proofPage.artifact.26.id">Transmission 26</span>
+            <div class="proof-row-copy">
+              <span class="status-label" data-i18n="proofPage.artifact.26.type">Bounded sales cell</span>
+              <h3 data-i18n="proofPage.artifact.26.title">The Property Sales Intelligence Cell</h3>
+              <p data-i18n="proofPage.artifact.26.desc">Shows permitted-source review, intent qualification, evidence preservation, compliance posture, and human approval before outreach.</p>
+            </div>
+            <dl class="proof-row-meta">
+              <div><dt data-i18n="proofPage.meta.status">Status</dt><dd data-i18n="proofPage.status.public">Public</dd></div>
+              <div><dt data-i18n="proofPage.meta.proves">Proves</dt><dd data-i18n="proofPage.artifact.26.proves">Agentic sales work can be bounded before external motion.</dd></div>
+            </dl>
+            <span class="lab-link" data-i18n="proofPage.artifact.cta">Open</span>
+          </a>
+          <a class="proof-row proof-artifact-row" href="/transmissions/25-the-homepage-learned-to-pulse.html">
+            <span class="proof-id" data-i18n="proofPage.artifact.25.id">Transmission 25</span>
+            <div class="proof-row-copy">
+              <span class="status-label" data-i18n="proofPage.artifact.25.type">Interface proof</span>
+              <h3 data-i18n="proofPage.artifact.25.title">The Homepage Learned to Pulse</h3>
+              <p data-i18n="proofPage.artifact.25.desc">Documents the organism-pulse hero, semantic asset governance, proof metadata, and post-ready social packet.</p>
+            </div>
+            <dl class="proof-row-meta">
+              <div><dt data-i18n="proofPage.meta.status">Status</dt><dd data-i18n="proofPage.status.public">Public</dd></div>
+              <div><dt data-i18n="proofPage.meta.proves">Proves</dt><dd data-i18n="proofPage.artifact.25.proves">The homepage claim is backed by schema, manifest, tests, and shareable release assets.</dd></div>
+            </dl>
+            <span class="lab-link" data-i18n="proofPage.artifact.cta">Open</span>
+          </a>
+          <a class="proof-row proof-artifact-row" href="/transmissions/21-the-unwind-brain-checkpoint-white-paper.html">
+            <span class="proof-id" data-i18n="proofPage.artifact.21.id">Transmission 21</span>
+            <div class="proof-row-copy">
+              <span class="status-label" data-i18n="proofPage.artifact.21.type">Whitepaper</span>
+              <h3 data-i18n="proofPage.artifact.21.title">The Unwind Brain Whitepaper</h3>
+              <p data-i18n="proofPage.artifact.21.desc">Defines the Brain as a human-governed cognitive organism: memory, approvals, public proof, Web3 safety, and bounded cell growth.</p>
+            </div>
+            <dl class="proof-row-meta">
+              <div><dt data-i18n="proofPage.meta.status">Status</dt><dd data-i18n="proofPage.status.public">Public</dd></div>
+              <div><dt data-i18n="proofPage.meta.proves">Proves</dt><dd data-i18n="proofPage.artifact.21.proves">The organism architecture has a written operating model.</dd></div>
+            </dl>
+            <span class="lab-link" data-i18n="proofPage.artifact.cta">Open</span>
+          </a>
+          <a class="proof-row proof-artifact-row" href="/transmissions/22-the-monad-hand-clarity-before-motion.html">
+            <span class="proof-id" data-i18n="proofPage.artifact.22.id">Transmission 22</span>
+            <div class="proof-row-copy">
+              <span class="status-label" data-i18n="proofPage.artifact.22.type">Financial safety</span>
+              <h3 data-i18n="proofPage.artifact.22.title">The Monad Hand</h3>
+              <p data-i18n="proofPage.artifact.22.desc">Shows why the Financial Survival Organism chooses clarity before financial motion.</p>
+            </div>
+            <dl class="proof-row-meta">
+              <div><dt data-i18n="proofPage.meta.status">Status</dt><dd data-i18n="proofPage.status.public">Public</dd></div>
+              <div><dt data-i18n="proofPage.meta.proves">Proves</dt><dd data-i18n="proofPage.artifact.22.proves">Money decisions start with interpretation, not transaction authority.</dd></div>
+            </dl>
+            <span class="lab-link" data-i18n="proofPage.artifact.cta">Open</span>
+          </a>
+          <a class="proof-row proof-artifact-row" href="/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html">
+            <span class="proof-id" data-i18n="proofPage.artifact.23.id">Transmission 23</span>
+            <div class="proof-row-copy">
+              <span class="status-label" data-i18n="proofPage.artifact.23.type">Safety gate</span>
+              <h3 data-i18n="proofPage.artifact.23.title">The SEC Gate</h3>
+              <p data-i18n="proofPage.artifact.23.desc">Explains how an organism can lock its own hands before unsafe execution.</p>
+            </div>
+            <dl class="proof-row-meta">
+              <div><dt data-i18n="proofPage.meta.status">Status</dt><dd data-i18n="proofPage.status.public">Public</dd></div>
+              <div><dt data-i18n="proofPage.meta.proves">Proves</dt><dd data-i18n="proofPage.artifact.23.proves">High-risk action belongs behind refusal, review, and approval gates.</dd></div>
+            </dl>
+            <span class="lab-link" data-i18n="proofPage.artifact.cta">Open</span>
+          </a>
+          <a class="proof-row proof-artifact-row" href="/transmissions/24-the-mirror-found-its-form.html">
+            <span class="proof-id" data-i18n="proofPage.artifact.24.id">Transmission 24</span>
+            <div class="proof-row-copy">
+              <span class="status-label" data-i18n="proofPage.artifact.24.type">Product form</span>
+              <h3 data-i18n="proofPage.artifact.24.title">The Mirror Found Its Form</h3>
+              <p data-i18n="proofPage.artifact.24.desc">Documents the Infinity Mirror product grammar and why the user-facing organism is not another dashboard.</p>
+            </div>
+            <dl class="proof-row-meta">
+              <div><dt data-i18n="proofPage.meta.status">Status</dt><dd data-i18n="proofPage.status.public">Public</dd></div>
+              <div><dt data-i18n="proofPage.meta.proves">Proves</dt><dd data-i18n="proofPage.artifact.24.proves">Human-facing organisms need product clarity before more controls.</dd></div>
+            </dl>
+            <span class="lab-link" data-i18n="proofPage.artifact.cta">Open</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="lab-section trust-diligence-section" aria-labelledby="trust-diligence-title">
+      <div class="container">
+        <div class="trust-diligence-layout">
+          <div class="trust-diligence-copy">
+            <span class="status-label" data-i18n="proofPage.diligence.kicker">Trust diligence console</span>
+            <h2 id="trust-diligence-title" data-i18n="proofPage.diligence.title">Different visitors inspect different proof before they trust the organism.</h2>
+            <p class="lab-section-lead" data-i18n="proofPage.diligence.desc">The ledger now routes due diligence by intent. Choose the visitor lens, then inspect the evidence, authority boundary, and next route that should come before conviction.</p>
+            <div class="trust-diligence-actions">
+              <a class="lab-link" href="/transmissions/" data-i18n="proofPage.diligence.archive">Read transmissions</a>
+              <a class="lab-link" href="/build-with-us/" data-i18n="proofPage.diligence.packet">Start a proof packet</a>
+            </div>
+          </div>
+          <div class="trust-diligence-board" data-asset-id="trust-diligence-console" aria-label="Trust diligence console">
+            <img class="trust-diligence-asset" src="/assets/visuals/trust-diligence-console.svg" width="1080" height="720" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+            <fieldset class="trust-diligence-selector">
+              <legend data-i18n="proofPage.diligence.legend">Choose a diligence lens</legend>
+              <input class="trust-diligence-radio" type="radio" id="diligence-builder" name="trust-diligence" checked />
+              <input class="trust-diligence-radio" type="radio" id="diligence-investor" name="trust-diligence" />
+              <input class="trust-diligence-radio" type="radio" id="diligence-user" name="trust-diligence" />
+              <input class="trust-diligence-radio" type="radio" id="diligence-protocol" name="trust-diligence" />
+              <input class="trust-diligence-radio" type="radio" id="diligence-collaborator" name="trust-diligence" />
+              <div class="trust-diligence-tabs">
+                <label for="diligence-builder"><span data-i18n="proofPage.diligence.builder.tab">Builder</span><strong data-i18n="proofPage.diligence.builder.status">Architecture proof</strong></label>
+                <label for="diligence-investor"><span data-i18n="proofPage.diligence.investor.tab">Investor</span><strong data-i18n="proofPage.diligence.investor.status">Status proof</strong></label>
+                <label for="diligence-user"><span data-i18n="proofPage.diligence.user.tab">User</span><strong data-i18n="proofPage.diligence.user.status">Product proof</strong></label>
+                <label for="diligence-protocol"><span data-i18n="proofPage.diligence.protocol.tab">Protocol</span><strong data-i18n="proofPage.diligence.protocol.status">Web3 proof</strong></label>
+                <label for="diligence-collaborator"><span data-i18n="proofPage.diligence.collab.tab">Collaborator</span><strong data-i18n="proofPage.diligence.collab.status">Sprint proof</strong></label>
+              </div>
+              <div class="trust-diligence-panels">
+                <article class="trust-diligence-panel diligence-panel-builder">
+                  <span class="status-label" data-i18n="proofPage.diligence.builder.status">Architecture proof</span>
+                  <h3 data-i18n="proofPage.diligence.builder.title">A builder should see how the system is assembled before touching tools.</h3>
+                  <dl>
+                    <div><dt data-i18n="proofPage.diligence.meta.evidence">Evidence path</dt><dd data-i18n="proofPage.diligence.builder.evidence">Architecture map, Brain Cell lifecycle, runtime console, and whitepaper transmission.</dd></div>
+                    <div><dt data-i18n="proofPage.diligence.meta.boundary">Boundary</dt><dd data-i18n="proofPage.diligence.builder.boundary">Generated cells stay inert until tests, sandbox evidence, review, and approval pass.</dd></div>
+                    <div><dt data-i18n="proofPage.diligence.meta.next">Next route</dt><dd><a href="/architecture/" data-i18n="proofPage.diligence.builder.next">Study the organism stack</a></dd></div>
+                  </dl>
+                </article>
+                <article class="trust-diligence-panel diligence-panel-investor">
+                  <span class="status-label" data-i18n="proofPage.diligence.investor.status">Status proof</span>
+                  <h3 data-i18n="proofPage.diligence.investor.title">An investor should see status, proof gaps, and restraint before conviction.</h3>
+                  <dl>
+                    <div><dt data-i18n="proofPage.diligence.meta.evidence">Evidence path</dt><dd data-i18n="proofPage.diligence.investor.evidence">Seven public artifacts, social proof packets, status labels, metadata, and explicit authority gates.</dd></div>
+                    <div><dt data-i18n="proofPage.diligence.meta.boundary">Boundary</dt><dd data-i18n="proofPage.diligence.investor.boundary">No financial promises, hidden metrics, private deal claims, or live Web3 authority are implied.</dd></div>
+                    <div><dt data-i18n="proofPage.diligence.meta.next">Next route</dt><dd><a href="/transmissions/" data-i18n="proofPage.diligence.investor.next">Read the proof library</a></dd></div>
+                  </dl>
+                </article>
+                <article class="trust-diligence-panel diligence-panel-user">
+                  <span class="status-label" data-i18n="proofPage.diligence.user.status">Product proof</span>
+                  <h3 data-i18n="proofPage.diligence.user.title">A user should know what is safe to try and what the organism will not decide.</h3>
+                  <dl>
+                    <div><dt data-i18n="proofPage.diligence.meta.evidence">Evidence path</dt><dd data-i18n="proofPage.diligence.user.evidence">Infinity Mirror product form, session console, reflection loop, prototype status, and human boundary copy.</dd></div>
+                    <div><dt data-i18n="proofPage.diligence.meta.boundary">Boundary</dt><dd data-i18n="proofPage.diligence.user.boundary">No diagnosis, care decision, identity judgment, or life choice is outsourced to automation.</dd></div>
+                    <div><dt data-i18n="proofPage.diligence.meta.next">Next route</dt><dd><a href="/organisms/infinity-mirror/" data-i18n="proofPage.diligence.user.next">Inspect Infinity Mirror</a></dd></div>
+                  </dl>
+                </article>
+                <article class="trust-diligence-panel diligence-panel-protocol">
+                  <span class="status-label" data-i18n="proofPage.diligence.protocol.status">Web3 proof</span>
+                  <h3 data-i18n="proofPage.diligence.protocol.title">A protocol should inspect how on-chain intelligence stops before money motion.</h3>
+                  <dl>
+                    <div><dt data-i18n="proofPage.diligence.meta.evidence">Evidence path</dt><dd data-i18n="proofPage.diligence.protocol.evidence">Web3 trust-layer map, simulation console, Monad Hand, SEC Gate, and unsigned packet posture.</dd></div>
+                    <div><dt data-i18n="proofPage.diligence.meta.boundary">Boundary</dt><dd data-i18n="proofPage.diligence.protocol.boundary">No private keys, no hidden wallet path, no live money motion, and no broadcast by default.</dd></div>
+                    <div><dt data-i18n="proofPage.diligence.meta.next">Next route</dt><dd><a href="/organisms/financial-organisms/" data-i18n="proofPage.diligence.protocol.next">Inspect Web3 boundaries</a></dd></div>
+                  </dl>
+                </article>
+                <article class="trust-diligence-panel diligence-panel-collaborator">
+                  <span class="status-label" data-i18n="proofPage.diligence.collab.status">Sprint proof</span>
+                  <h3 data-i18n="proofPage.diligence.collab.title">A collaborator should see the first sprint proof before work begins.</h3>
+                  <dl>
+                    <div><dt data-i18n="proofPage.diligence.meta.evidence">Evidence path</dt><dd data-i18n="proofPage.diligence.collab.evidence">Collaboration packet, engagement fit, authority boundary, expected artifact, and first useful proof.</dd></div>
+                    <div><dt data-i18n="proofPage.diligence.meta.boundary">Boundary</dt><dd data-i18n="proofPage.diligence.collab.boundary">No engagement starts without domain, owner, risk edge, review path, and public-safe proof bar.</dd></div>
+                    <div><dt data-i18n="proofPage.diligence.meta.next">Next route</dt><dd><a href="/build-with-us/" data-i18n="proofPage.diligence.collab.next">Open Build With Us</a></dd></div>
+                  </dl>
+                </article>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lab-section asset-governance-section" aria-labelledby="asset-governance-title">
+      <div class="container">
+        <div class="asset-governance-layout">
+          <div class="asset-governance-copy">
+            <span class="status-label" data-i18n="proofPage.assets.kicker">Asset governance ledger</span>
+            <h2 id="asset-governance-title" data-i18n="proofPage.assets.title">The visuals are governed proof surfaces, not decoration.</h2>
+            <p class="lab-section-lead" data-i18n="proofPage.assets.desc">Every immersive asset has to explain architecture, clarify trust, guide a route, or make an authority boundary inspectable. The manifest records why it exists and how it behaves.</p>
+            <div class="asset-governance-actions">
+              <a class="lab-link" href="/assets/asset-manifest.json" data-i18n="proofPage.assets.manifest">Open asset manifest</a>
+              <a class="lab-link" href="/build-with-us/" data-i18n="proofPage.assets.build">Build a proofed asset</a>
+            </div>
+          </div>
+          <div class="asset-governance-board" data-asset-id="asset-governance-ledger" aria-label="Asset governance ledger">
+            <img class="asset-governance-asset" src="/assets/visuals/asset-governance-ledger.svg" width="1080" height="720" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+            <div class="asset-governance-cards">
+              <article class="asset-governance-card">
+                <span data-i18n="proofPage.assets.purpose.label">Purpose filter</span>
+                <h3 data-i18n="proofPage.assets.purpose.title">Every visual must earn its place.</h3>
+                <p data-i18n="proofPage.assets.purpose.desc">Assets explain the organism ecosystem, clarify architecture, build trust, route visitors, or expose proof.</p>
+              </article>
+              <article class="asset-governance-card">
+                <span data-i18n="proofPage.assets.text.label">Text boundary</span>
+                <h3 data-i18n="proofPage.assets.text.title">Meaning stays inspectable outside the image.</h3>
+                <p data-i18n="proofPage.assets.text.desc">Critical labels and claims live in HTML, translations, schema, tests, llms.txt, ai-services.json, and the manifest.</p>
+              </article>
+              <article class="asset-governance-card">
+                <span data-i18n="proofPage.assets.motion.label">Motion policy</span>
+                <h3 data-i18n="proofPage.assets.motion.title">Immersion stays lightweight and respectful.</h3>
+                <p data-i18n="proofPage.assets.motion.desc">SVG and CSS motion come first, reduced-motion users get static proof, and heavy 3D never blocks comprehension.</p>
+              </article>
+              <article class="asset-governance-card">
+                <span data-i18n="proofPage.assets.discovery.label">Discovery trail</span>
+                <h3 data-i18n="proofPage.assets.discovery.title">Crawlers and future agents can find the asset contract.</h3>
+                <p data-i18n="proofPage.assets.discovery.desc">The build copies the asset, manifest, llms.txt, ai-services.json, and sitemap so the public proof trail survives deployment.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lab-section proof-cycle-section" aria-labelledby="proof-cycle-title">
+      <div class="container">
+        <div class="lab-section-header">
+          <span class="lab-kicker" data-i18n="proofPage.cycle.kicker">Verification loop</span>
+          <h2 id="proof-cycle-title" data-i18n="proofPage.cycle.title">A claim is not trusted until it leaves a trail.</h2>
+          <p class="lab-section-lead" data-i18n="proofPage.cycle.desc">The proof loop is the public face of governance: claims become artifacts, artifacts name boundaries, and boundaries point to reviewable evidence.</p>
+        </div>
+        <ol class="proof-cycle">
+          <li><span>01</span><h3 data-i18n="proofPage.cycle.claim.title">Claim</h3><p data-i18n="proofPage.cycle.claim.desc">State what the organism can do without inflating autonomy.</p></li>
+          <li><span>02</span><h3 data-i18n="proofPage.cycle.artifact.title">Artifact</h3><p data-i18n="proofPage.cycle.artifact.desc">Link the claim to a transmission, architecture note, test, or release packet.</p></li>
+          <li><span>03</span><h3 data-i18n="proofPage.cycle.boundary.title">Boundary</h3><p data-i18n="proofPage.cycle.boundary.desc">Name what the system cannot do without human authority.</p></li>
+          <li><span>04</span><h3 data-i18n="proofPage.cycle.review.title">Review</h3><p data-i18n="proofPage.cycle.review.desc">Make sandbox, safety, and status evidence readable before action.</p></li>
+          <li><span>05</span><h3 data-i18n="proofPage.cycle.memory.title">Memory</h3><p data-i18n="proofPage.cycle.memory.desc">Preserve the lesson so the next organism run starts sharper.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="lab-section" aria-labelledby="proof-safety-title">
+      <div class="container">
+        <h2 id="proof-safety-title" data-i18n="proofPage.safety.title">Safety boundaries that visitors can understand.</h2>
+        <p class="lab-section-lead" data-i18n="proofPage.safety.desc">The public story stays credible because the site names where autonomy stops.</p>
+        <div class="safety-flow">
+          <div class="safety-step"><span>01</span><h3 data-i18n="proofPage.safety.code.title">Generated code</h3><p data-i18n="proofPage.safety.code.desc">Runs in sandbox before integration.</p></div>
+          <div class="safety-step"><span>02</span><h3 data-i18n="proofPage.safety.files.title">Filesystem</h3><p data-i18n="proofPage.safety.files.desc">Writes are explicit and reviewable.</p></div>
+          <div class="safety-step"><span>03</span><h3 data-i18n="proofPage.safety.money.title">Money</h3><p data-i18n="proofPage.safety.money.desc">Financial motion requires proof and human approval.</p></div>
+          <div class="safety-step"><span>04</span><h3 data-i18n="proofPage.safety.public.title">Public posts</h3><p data-i18n="proofPage.safety.public.desc">External publishing needs a reviewed packet.</p></div>
+          <div class="safety-step"><span>05</span><h3 data-i18n="proofPage.safety.status.title">Status labels</h3><p data-i18n="proofPage.safety.status.desc">Prototype, research, and live claims stay separate.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lab-section authority-gate-section" aria-labelledby="authority-gate-title">
+      <div class="container">
+        <div class="authority-gate-layout">
+          <div class="authority-gate-copy">
+            <span class="status-label" data-i18n="proofPage.gate.kicker">Authority gate console</span>
+            <h2 id="authority-gate-title" data-i18n="proofPage.gate.title">The organism must prove why it should act before it receives authority.</h2>
+            <p class="lab-section-lead" data-i18n="proofPage.gate.desc">Generated capability is useful only when visitors can see the stop signs. This console turns each high-risk action into a request, immune response, evidence trail, and human authority boundary.</p>
+            <div class="authority-gate-actions">
+              <a class="lab-link" href="/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html" data-i18n="proofPage.gate.sec">Read the SEC Gate</a>
+              <a class="lab-link" href="/build-with-us/" data-i18n="proofPage.gate.review">Design an approval path</a>
+            </div>
+          </div>
+          <div class="authority-gate-board" data-asset-id="authority-gate-console" aria-label="Authority gate decision console">
+            <img class="authority-gate-asset" src="/assets/visuals/authority-gate-console.svg" width="1080" height="720" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+            <fieldset class="authority-gate-selector">
+              <legend data-i18n="proofPage.gate.legend">Choose a high-risk action</legend>
+              <input class="authority-gate-radio" type="radio" id="gate-code" name="authority-gate" checked />
+              <input class="authority-gate-radio" type="radio" id="gate-files" name="authority-gate" />
+              <input class="authority-gate-radio" type="radio" id="gate-money" name="authority-gate" />
+              <input class="authority-gate-radio" type="radio" id="gate-public" name="authority-gate" />
+              <input class="authority-gate-radio" type="radio" id="gate-web3" name="authority-gate" />
+              <div class="authority-gate-tabs">
+                <label for="gate-code"><span data-i18n="proofPage.gate.code.tab">Code</span><strong data-i18n="proofPage.gate.code.status">Sandbox</strong></label>
+                <label for="gate-files"><span data-i18n="proofPage.gate.files.tab">Files</span><strong data-i18n="proofPage.gate.files.status">Review</strong></label>
+                <label for="gate-money"><span data-i18n="proofPage.gate.money.tab">Money</span><strong data-i18n="proofPage.gate.money.status">Approval</strong></label>
+                <label for="gate-public"><span data-i18n="proofPage.gate.public.tab">Public</span><strong data-i18n="proofPage.gate.public.status">Publish packet</strong></label>
+                <label for="gate-web3"><span data-i18n="proofPage.gate.web3.tab">Web3</span><strong data-i18n="proofPage.gate.web3.status">No broadcast</strong></label>
+              </div>
+              <div class="authority-gate-panels">
+                <article class="authority-gate-panel gate-panel-code">
+                  <span class="status-label" data-i18n="proofPage.gate.code.status">Sandbox</span>
+                  <h3 data-i18n="proofPage.gate.code.title">Generated code stays quarantined until it proves itself.</h3>
+                  <dl>
+                    <div><dt data-i18n="proofPage.gate.meta.request">Request</dt><dd data-i18n="proofPage.gate.code.request">A new cell, patch, or self-evolution proposal wants source access.</dd></div>
+                    <div><dt data-i18n="proofPage.gate.meta.response">Immune response</dt><dd data-i18n="proofPage.gate.code.response">Run in sandbox, test the behavior, and deny host authority by default.</dd></div>
+                    <div><dt data-i18n="proofPage.gate.meta.evidence">Evidence</dt><dd data-i18n="proofPage.gate.code.evidence">Diff, tests, sandbox result, rollback note, and proof artifact.</dd></div>
+                    <div><dt data-i18n="proofPage.gate.meta.authority">Human authority</dt><dd data-i18n="proofPage.gate.code.authority">A creator approves integration before the organism can load the capability.</dd></div>
+                  </dl>
+                </article>
+                <article class="authority-gate-panel gate-panel-files">
+                  <span class="status-label" data-i18n="proofPage.gate.files.status">Review</span>
+                  <h3 data-i18n="proofPage.gate.files.title">Filesystem writes become scoped, reversible review packets.</h3>
+                  <dl>
+                    <div><dt data-i18n="proofPage.gate.meta.request">Request</dt><dd data-i18n="proofPage.gate.files.request">The organism wants to create, edit, delete, or reorganize files.</dd></div>
+                    <div><dt data-i18n="proofPage.gate.meta.response">Immune response</dt><dd data-i18n="proofPage.gate.files.response">Expose the exact path, diff, ownership boundary, and rollback route.</dd></div>
+                    <div><dt data-i18n="proofPage.gate.meta.evidence">Evidence</dt><dd data-i18n="proofPage.gate.files.evidence">Patch preview, affected routes, tests, and filesystem truth docs.</dd></div>
+                    <div><dt data-i18n="proofPage.gate.meta.authority">Human authority</dt><dd data-i18n="proofPage.gate.files.authority">Only scoped, reviewable writes cross the gate; destructive host actions pause.</dd></div>
+                  </dl>
+                </article>
+                <article class="authority-gate-panel gate-panel-money">
+                  <span class="status-label" data-i18n="proofPage.gate.money.status">Approval</span>
+                  <h3 data-i18n="proofPage.gate.money.title">Financial motion starts as interpretation, never silent execution.</h3>
+                  <dl>
+                    <div><dt data-i18n="proofPage.gate.meta.request">Request</dt><dd data-i18n="proofPage.gate.money.request">A financial organism identifies a bill, opportunity, debt move, or risk.</dd></div>
+                    <div><dt data-i18n="proofPage.gate.meta.response">Immune response</dt><dd data-i18n="proofPage.gate.money.response">Simulate, classify risk, explain tradeoffs, and keep transaction authority closed.</dd></div>
+                    <div><dt data-i18n="proofPage.gate.meta.evidence">Evidence</dt><dd data-i18n="proofPage.gate.money.evidence">Scenario packet, assumptions, constraints, and approval checklist.</dd></div>
+                    <div><dt data-i18n="proofPage.gate.meta.authority">Human authority</dt><dd data-i18n="proofPage.gate.money.authority">Money moves only after explicit operator consent.</dd></div>
+                  </dl>
+                </article>
+                <article class="authority-gate-panel gate-panel-public">
+                  <span class="status-label" data-i18n="proofPage.gate.public.status">Publish packet</span>
+                  <h3 data-i18n="proofPage.gate.public.title">Public output waits for a reviewed publishing packet.</h3>
+                  <dl>
+                    <div><dt data-i18n="proofPage.gate.meta.request">Request</dt><dd data-i18n="proofPage.gate.public.request">The organism wants to publish a post, transmission, release note, or public reply.</dd></div>
+                    <div><dt data-i18n="proofPage.gate.meta.response">Immune response</dt><dd data-i18n="proofPage.gate.public.response">Draft, cite sources, name claims, and separate private reasoning from public language.</dd></div>
+                    <div><dt data-i18n="proofPage.gate.meta.evidence">Evidence</dt><dd data-i18n="proofPage.gate.public.evidence">Preview copy, destination, proof links, status label, and reviewer decision.</dd></div>
+                    <div><dt data-i18n="proofPage.gate.meta.authority">Human authority</dt><dd data-i18n="proofPage.gate.public.authority">No external post leaves the lab without a human publish decision.</dd></div>
+                  </dl>
+                </article>
+                <article class="authority-gate-panel gate-panel-web3">
+                  <span class="status-label" data-i18n="proofPage.gate.web3.status">No broadcast</span>
+                  <h3 data-i18n="proofPage.gate.web3.title">On-chain intelligence stays read-only until authority is explicit.</h3>
+                  <dl>
+                    <div><dt data-i18n="proofPage.gate.meta.request">Request</dt><dd data-i18n="proofPage.gate.web3.request">A Web3 workflow asks for wallet context, signing, or transaction broadcast.</dd></div>
+                    <div><dt data-i18n="proofPage.gate.meta.response">Immune response</dt><dd data-i18n="proofPage.gate.web3.response">Use read-only data, simulate outcomes, and produce unsigned packets only.</dd></div>
+                    <div><dt data-i18n="proofPage.gate.meta.evidence">Evidence</dt><dd data-i18n="proofPage.gate.web3.evidence">Risk score, unsigned transaction shape, chain assumptions, and no-private-key proof.</dd></div>
+                    <div><dt data-i18n="proofPage.gate.meta.authority">Human authority</dt><dd data-i18n="proofPage.gate.web3.authority">Broadcast remains locked by default; signing never hides inside the organism.</dd></div>
+                  </dl>
+                </article>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lab-section proof-conversion" aria-labelledby="proof-conversion-title">
+      <div class="container">
+        <div class="proof-conversion-panel">
+          <div>
+            <span class="lab-kicker" data-i18n="proofPage.conversion.kicker">Use the ledger</span>
+            <h2 id="proof-conversion-title" data-i18n="proofPage.conversion.title">Need an organism people can trust before it acts?</h2>
+            <p class="lab-section-lead" data-i18n="proofPage.conversion.desc">Bring a goal, an authority boundary, and the proof your audience would need. The lab can turn it into an architecture review, prototype organism, or proof-loop audit.</p>
+          </div>
+          <div class="lab-actions">
+            <a href="/build-with-us/" class="btn btn-primary"><span data-i18n="proofPage.conversion.primary">Build with proof</span><span class="btn-arrow">→</span></a>
+            <a href="/organisms/" class="btn btn-ghost" data-i18n="proofPage.conversion.secondary">Explore organisms</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer id="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span><p class="footer-desc">Intelligence that evolves.<br />No claim without a trail.</p></div><div class="footer-col"><h5>Proof</h5><a href="/transmissions/">Transmissions</a><a href="/architecture/">Architecture</a><a href="/philosophy/">Philosophy</a></div><div class="footer-col"><h5>Organisms</h5><a href="/organisms/">All Organisms</a><a href="/organisms/financial-organisms/">Financial Organisms</a><a href="/organisms/infinity-mirror/">Infinity Mirror</a></div><div class="footer-col"><h5>Next</h5><a href="/build-with-us/">Build With Us</a><a href="/#cta">Subscribe</a></div></div><div class="footer-bottom"><span>© 2026 Unwind Code. All rights reserved.</span><span class="footer-tagline">The future learns from itself. ∞</span></div></div></footer>
+  <script type="module" src="/main.js?v=20260615-system-state"></script>
+</body>
+</html>

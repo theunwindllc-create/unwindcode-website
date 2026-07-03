@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" role="presentation" aria-hidden="true">
+  <defs>
+    <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#e9cf97" stop-opacity=".72"/>
+      <stop offset="42%" stop-color="#0d9488" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#06060c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0eef6" stop-opacity=".68"/>
+      <stop offset="58%" stop-color="#9b59f5" stop-opacity=".2"/>
+      <stop offset="100%" stop-color="#06060c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="routeGradient" x1="110" x2="850" y1="130" y2="510" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#9b59f5" stop-opacity=".1"/>
+      <stop offset=".34" stop-color="#0d9488" stop-opacity=".72"/>
+      <stop offset=".68" stop-color="#d6a84f" stop-opacity=".58"/>
+      <stop offset="1" stop-color="#9b59f5" stop-opacity=".18"/>
+    </linearGradient>
+    <filter id="softBlur" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <style>
+    .route {
+      fill: none;
+      stroke: url(#routeGradient);
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-dasharray: 10 17;
+      opacity: .7;
+      animation: route-flow 18s linear infinite;
+    }
+
+    .node-halo {
+      fill: url(#nodeGlow);
+      filter: url(#softBlur);
+      opacity: .52;
+      transform-origin: center;
+      animation: node-breathe 7s ease-in-out infinite;
+    }
+
+    .core-halo {
+      fill: url(#coreGlow);
+      filter: url(#softBlur);
+      opacity: .72;
+      transform-origin: center;
+      animation: core-breathe 8s ease-in-out infinite;
+    }
+
+    .packet {
+      fill: #e9cf97;
+      opacity: .76;
+      animation: packet-pulse 3.4s ease-in-out infinite;
+    }
+
+    .route:nth-of-type(2) { animation-delay: -3s; }
+    .route:nth-of-type(3) { animation-delay: -6s; }
+    .route:nth-of-type(4) { animation-delay: -9s; }
+    .route:nth-of-type(5) { animation-delay: -12s; }
+    .route:nth-of-type(6) { animation-delay: -15s; }
+    .node-halo:nth-of-type(odd) { animation-delay: -2.8s; }
+    .packet:nth-of-type(odd) { animation-delay: -1.7s; }
+
+    @keyframes route-flow {
+      to { stroke-dashoffset: -216; }
+    }
+
+    @keyframes node-breathe {
+      0%, 100% { opacity: .38; transform: scale(.96); }
+      50% { opacity: .68; transform: scale(1.06); }
+    }
+
+    @keyframes core-breathe {
+      0%, 100% { opacity: .56; transform: scale(.98); }
+      50% { opacity: .86; transform: scale(1.05); }
+    }
+
+    @keyframes packet-pulse {
+      0%, 100% { opacity: .22; transform: scale(.72); }
+      50% { opacity: .9; transform: scale(1); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .route,
+      .node-halo,
+      .core-halo,
+      .packet {
+        animation: none !important;
+      }
+    }
+  </style>
+
+  <rect width="960" height="640" rx="36" fill="#080812" opacity=".18"/>
+  <path d="M128 100h704c42 0 76 34 76 76v288c0 42-34 76-76 76H128c-42 0-76-34-76-76V176c0-42 34-76 76-76Z" fill="none" stroke="#f0eef6" stroke-opacity=".06"/>
+  <path d="M160 320h640" stroke="#f0eef6" stroke-opacity=".05"/>
+  <path d="M480 130v380" stroke="#f0eef6" stroke-opacity=".05"/>
+
+  <g opacity=".98">
+    <path class="route" d="M480 320C384 270 306 194 166 154"/>
+    <path class="route" d="M480 320C352 314 286 278 148 306"/>
+    <path class="route" d="M480 320C354 388 292 460 170 494"/>
+    <path class="route" d="M480 320C594 224 664 170 804 142"/>
+    <path class="route" d="M480 320C612 320 694 304 828 326"/>
+    <path class="route" d="M480 320C590 394 678 472 814 504"/>
+  </g>
+
+  <circle class="core-halo" cx="480" cy="320" r="118"/>
+  <circle cx="480" cy="320" r="64" fill="#06060c" stroke="#e9cf97" stroke-opacity=".34" stroke-width="1.5"/>
+  <circle cx="480" cy="320" r="38" fill="#0d9488" fill-opacity=".11" stroke="#0d9488" stroke-opacity=".5"/>
+  <path d="M456 320h48M480 296v48" stroke="#e9cf97" stroke-opacity=".8" stroke-width="2" stroke-linecap="round"/>
+
+  <g>
+    <circle class="node-halo" cx="166" cy="154" r="56"/>
+    <circle class="node-halo" cx="148" cy="306" r="52"/>
+    <circle class="node-halo" cx="170" cy="494" r="58"/>
+    <circle class="node-halo" cx="804" cy="142" r="54"/>
+    <circle class="node-halo" cx="828" cy="326" r="56"/>
+    <circle class="node-halo" cx="814" cy="504" r="52"/>
+  </g>
+
+  <g fill="#06060c" stroke="#f0eef6" stroke-opacity=".16">
+    <circle cx="166" cy="154" r="24"/>
+    <circle cx="148" cy="306" r="22"/>
+    <circle cx="170" cy="494" r="25"/>
+    <circle cx="804" cy="142" r="23"/>
+    <circle cx="828" cy="326" r="24"/>
+    <circle cx="814" cy="504" r="22"/>
+  </g>
+
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M154 154h24M166 142v24" stroke="#9b59f5" stroke-opacity=".72" stroke-width="1.8"/>
+    <path d="M136 310l9 9 17-24" stroke="#0d9488" stroke-opacity=".82" stroke-width="2"/>
+    <path d="M158 486h24l-12 18Z" stroke="#e9cf97" stroke-opacity=".74" stroke-width="1.8"/>
+    <path d="M794 134h20v20h-20Z" stroke="#0d9488" stroke-opacity=".78" stroke-width="1.8"/>
+    <path d="M814 326h28M828 312v28" stroke="#e9cf97" stroke-opacity=".76" stroke-width="1.8"/>
+    <path d="M804 498c8-8 18-8 26 0M804 510c8 8 18 8 26 0" stroke="#9b59f5" stroke-opacity=".78" stroke-width="1.8"/>
+  </g>
+
+  <g>
+    <circle class="packet" cx="308" cy="228" r="4"/>
+    <circle class="packet" cx="304" cy="304" r="3.8"/>
+    <circle class="packet" cx="308" cy="426" r="4.2"/>
+    <circle class="packet" cx="640" cy="220" r="3.8"/>
+    <circle class="packet" cx="674" cy="318" r="4"/>
+    <circle class="packet" cx="656" cy="428" r="3.8"/>
+  </g>
+</svg>
