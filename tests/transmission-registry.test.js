@@ -58,7 +58,6 @@ test('transmission registry is public safe retrieval seed data', async () => {
   assert.equal(/\bsk-[A-Za-z0-9]+\b/.test(raw), false);
   assert.equal(/wallet_private_key|service-role|raw prompt|hidden repo/i.test(raw), false);
   assert.equal(raw.includes('owner-filled-redacted-manifest'), false);
-  assert.equal(raw.includes('25-the-homepage-learned-to-pulse'), false);
   assert.equal(raw.includes('/organisms/'), false);
   assert.equal(raw.includes('/architecture/'), false);
   assert.equal(raw.includes('/proof/'), false);

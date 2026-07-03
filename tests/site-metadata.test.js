@@ -7127,7 +7127,7 @@ test('transmissions archive is a bilingual proof library with reader lanes', asy
 
   assert.equal(source.includes('onclick='), false, 'transmissions archive should not use inline click handlers');
   assert.equal(source.includes('style='), false, 'transmissions archive should not use inline styles');
-  assert.equal(source.match(/<a href="\/transmissions\/[^"]+\.html" class="tx-card"/g)?.length ?? 0, 27, 'transmissions archive should preserve 27 transmission cards');
+  assert.equal(source.match(/<a href="\/transmissions\/[^"]+\.html" class="tx-card"/g)?.length ?? 0, 32, 'transmissions archive should preserve 32 transmission cards');
   assert.equal(source.match(/class="tx-path-card/g)?.length ?? 0, 5, 'transmissions archive should expose five reader lanes');
 
   for (const snippet of [
@@ -7148,7 +7148,7 @@ test('transmissions archive is a bilingual proof library with reader lanes', asy
     '"@type":"BlogPosting"',
     '"@type":"ItemList"',
     '"@id":"https://www.unwindcode.ai/transmissions/#transmission-list"',
-    '"numberOfItems":27',
+    '"numberOfItems":32',
     '"@type":"DefinedTerm"',
     '"name":"Transmission"',
     '"inLanguage":["en","es"]',
@@ -7179,7 +7179,7 @@ test('transmissions archive is a bilingual proof library with reader lanes', asy
 
   for (const snippet of [
     'Transmission Library',
-    '27 dispatches as a proof library',
+    '31 dispatches as a proof library',
     'Transmission 25 documents the homepage Organism Pulse Field',
     'whitepaper, safety gate, product form, Web3 boundary',
   ]) {
@@ -7189,7 +7189,7 @@ test('transmissions archive is a bilingual proof library with reader lanes', asy
   for (const snippet of [
     '"name": "Transmission"',
     '"transmission_library"',
-    '"total_transmissions": 27',
+    '"total_transmissions": 31',
     '"id": "transmission_25"',
     '"id": "transmission_26"',
     '"id": "transmission_27"',
@@ -7289,6 +7289,9 @@ test('post-gate transmissions expose complete Instagram carousel packets from th
   const manifest = JSON.parse(await readFile(new URL('../assets/asset-manifest.json', import.meta.url), 'utf8'));
   const effectiveFrom = services.transmission_library?.social_packet_standard?.effective_from_transmission ?? 25;
   const currentDeskPackets = services.transmission_library?.social_packet_desk?.current_packets ?? [];
+  // Post-merge governance: legacy release pages 25 and 27 keep their public packet
+  // sections; every later transmission keeps posting assets internal creator material.
+  const PUBLICLY_SURFACED_PACKET_NUMBERS = new Set([25, 27]);
   const publicRoutes = new Map();
 
   for (const match of archive.matchAll(/href="\/transmissions\/(\d{2})-([^"]+\.html)"/g)) {
@@ -7313,7 +7316,12 @@ test('post-gate transmissions expose complete Instagram carousel packets from th
     assert.equal(asset.route, route, `${id} should point at its transmission page`);
     assert.equal(asset.surface, '#social-proof-packet', `${id} should surface on the page packet section`);
     assert.equal(asset.format, 'image/png', `${id} should be an upload-ready PNG packet`);
-    assert.equal(asset.status, 'production', `${id} should be production once post-gate`);
+    const publiclySurfaced = PUBLICLY_SURFACED_PACKET_NUMBERS.has(number);
+    assert.equal(
+      asset.status,
+      publiclySurfaced ? 'production' : 'internal',
+      `${id} should be production when surfaced and internal creator material otherwise`,
+    );
     assert.ok(asset.file.includes('/ready-to-upload/'), `${id} should point to an upload-ready frame`);
     assert.ok(asset.download_packet?.endsWith('.zip'), `${id} should expose a ZIP packet`);
 
@@ -7343,17 +7351,23 @@ test('post-gate transmissions expose complete Instagram carousel packets from th
     assert.ok(uploadFiles.length >= 4, `${id} should have at least four upload-ready PNGs`);
     assert.ok(previewFiles.length >= 4, `${id} should have at least four 540px previews`);
     assert.ok(exportFiles.length >= 4, `${id} should have at least four rendered exports`);
-    assert.ok(transmissionPage.includes('id="social-proof-packet"'), `${route} missing visible packet section`);
-    assert.ok(transmissionPage.includes(`/${carouselPath}#slide-1`), `${route} missing open carousel action`);
-    assert.ok(transmissionPage.includes(`/${asset.download_packet}`), `${route} missing ZIP download action`);
-    assert.ok(transmissionPage.includes(`/${captionPath}`), `${route} missing caption action`);
 
-    for (const file of uploadFiles.slice(0, 4)) {
-      assert.ok(transmissionPage.includes(`/${packetDir}/ready-to-upload/${file}`), `${route} missing upload frame ${file}`);
-    }
+    if (publiclySurfaced) {
+      assert.ok(transmissionPage.includes('id="social-proof-packet"'), `${route} missing visible packet section`);
+      assert.ok(transmissionPage.includes(`/${carouselPath}#slide-1`), `${route} missing open carousel action`);
+      assert.ok(transmissionPage.includes(`/${asset.download_packet}`), `${route} missing ZIP download action`);
+      assert.ok(transmissionPage.includes(`/${captionPath}`), `${route} missing caption action`);
 
-    for (const file of previewFiles.slice(0, 4)) {
-      assert.ok(transmissionPage.includes(`/${packetDir}/previews/${file}`), `${route} missing preview frame ${file}`);
+      for (const file of uploadFiles.slice(0, 4)) {
+        assert.ok(transmissionPage.includes(`/${packetDir}/ready-to-upload/${file}`), `${route} missing upload frame ${file}`);
+      }
+
+      for (const file of previewFiles.slice(0, 4)) {
+        assert.ok(transmissionPage.includes(`/${packetDir}/previews/${file}`), `${route} missing preview frame ${file}`);
+      }
+    } else {
+      assert.equal(transmissionPage.includes('id="social-proof-packet"'), false, `${route} must keep posting assets internal`);
+      assert.equal(/\/social\/transmission-[^"']+/i.test(transmissionPage), false, `${route} must not link internal posting assets`);
     }
 
     assert.ok(llms.includes(`Transmission ${number} social carousel: ${carouselUrl}#slide-1`), `llms missing Transmission ${number} carousel`);
@@ -7364,9 +7378,6 @@ test('post-gate transmissions expose complete Instagram carousel packets from th
 
     if (latestPostGateRoutes.includes(number)) {
       assert.ok(currentDeskPackets.includes(aiId), `Social Packet Desk metadata missing ${aiId}`);
-      assert.ok(archive.includes(`/${carouselPath}#slide-1`), `archive desk missing Transmission ${number} carousel action`);
-      assert.ok(archive.includes(`/${asset.download_packet}`), `archive desk missing Transmission ${number} ZIP action`);
-      assert.ok(archive.includes(`/${captionPath}`), `archive desk missing Transmission ${number} caption action`);
     }
   }
 });
@@ -7394,18 +7405,6 @@ test('transmissions page exposes a governed transmission atlas map', async () =>
     'data-i18n="txPage.atlas.route.desc"',
     'href="/proof/"',
     'href="/build-with-us/"',
-    'id="social-packet-desk"',
-    'class="lab-section tx-social-desk"',
-    'aria-labelledby="tx-social-desk-title"',
-    'data-i18n="txPage.social.kicker"',
-    'data-i18n="txPage.social.title"',
-    'class="tx-social-desk-grid"',
-    'class="tx-social-desk-card is-latest"',
-    '/social/transmission-27-quotation-cell/previews/slide-01-preview.png',
-    '/social/transmission-27-quotation-cell/downloads/transmission-27-quotation-cell.zip',
-    '/social/transmission-26-property-sales-intelligence-cell/previews/slide-01-preview.png',
-    '/social/transmission-25-homepage-pulse-carousel/previews/slide-01-preview.png',
-    'aria-label="Upload-ready transmission carousel packets"',
     '"@type":"ImageObject"',
     '"@id":"https://www.unwindcode.ai/transmissions/#transmission-atlas-map-asset"',
     '"contentUrl":"https://www.unwindcode.ai/assets/visuals/transmission-atlas-map.svg"',

@@ -172,6 +172,9 @@ test('posted transmissions after the social packet gate cannot bypass the IG car
   const manifestById = new Map(manifest.assets.map(asset => [asset.id, asset]));
   const postedRoutes = archivedTransmissionRoutes(archive)
     .filter(([number]) => number >= effectiveFrom);
+  // Post-merge governance: legacy release pages 25 and 27 keep their public packet
+  // sections; later transmissions keep posting assets internal creator material.
+  const publiclySurfacedNumbers = new Set([25, 27]);
 
   assert.ok(postedRoutes.length >= 3, 'expected post-gate public transmissions in the archive');
 
@@ -180,23 +183,33 @@ test('posted transmissions after the social packet gate cannot bypass the IG car
     const assetId = `transmission-${number}-social-carousel`;
     const aiServicesId = `transmission_${number}_social_carousel`;
     const asset = manifestById.get(assetId);
+    const publiclySurfaced = publiclySurfacedNumbers.has(number);
 
     assert.ok(asset, `${route} is posted after the social packet gate but missing ${assetId}`);
     assert.equal(asset.route, route, `${assetId} should point back to its transmission page`);
     assert.equal(asset.surface, '#social-proof-packet', `${assetId} should declare the page packet surface`);
-    assert.equal(asset.status, 'production', `${assetId} should be production once the transmission is posted`);
+    assert.equal(
+      asset.status,
+      publiclySurfaced ? 'production' : 'internal',
+      `${assetId} should be production when surfaced and internal creator material otherwise`,
+    );
 
     const packetRoot = asset.file.replace(/\/ready-to-upload\/[^/]+$/, '');
     const page = await readFile(new URL(`..${route}`, import.meta.url), 'utf8');
     const carouselUrl = `${canonicalBase}${packetRoot}/carousel.html#slide-1`;
     const downloadUrl = `${canonicalBase}${asset.download_packet}`;
 
-    assert.ok(page.includes('id="social-proof-packet"'), `${route} missing visible social proof packet`);
-    assert.ok(page.includes(`/${packetRoot}/carousel.html#slide-1`), `${route} missing carousel opener`);
-    assert.ok(page.includes(`/${asset.download_packet}`), `${route} missing packet ZIP link`);
-    assert.ok(page.includes(`/${packetRoot}/caption.md`), `${route} missing caption packet link`);
-    assert.ok(page.includes(`/${packetRoot}/previews/slide-01-preview.png`), `${route} missing first preview`);
-    assert.ok(page.includes(`/${packetRoot}/ready-to-upload/01-`), `${route} missing upload-ready frame link`);
+    if (publiclySurfaced) {
+      assert.ok(page.includes('id="social-proof-packet"'), `${route} missing visible social proof packet`);
+      assert.ok(page.includes(`/${packetRoot}/carousel.html#slide-1`), `${route} missing carousel opener`);
+      assert.ok(page.includes(`/${asset.download_packet}`), `${route} missing packet ZIP link`);
+      assert.ok(page.includes(`/${packetRoot}/caption.md`), `${route} missing caption packet link`);
+      assert.ok(page.includes(`/${packetRoot}/previews/slide-01-preview.png`), `${route} missing first preview`);
+      assert.ok(page.includes(`/${packetRoot}/ready-to-upload/01-`), `${route} missing upload-ready frame link`);
+    } else {
+      assert.equal(page.includes('id="social-proof-packet"'), false, `${route} must keep posting assets internal`);
+      assert.equal(/\/social\/transmission-[^"']+/i.test(page), false, `${route} must not link internal posting assets`);
+    }
     assert.ok(sitemap.includes(`${canonicalBase}${route.slice(1)}`), `sitemap missing posted ${route}`);
     assert.ok(sitemap.includes(`${canonicalBase}${packetRoot}/carousel.html`), `sitemap missing carousel for Transmission ${padded}`);
     assert.ok(llms.includes(`Transmission ${number} social carousel: ${carouselUrl}`), `llms missing carousel for Transmission ${padded}`);

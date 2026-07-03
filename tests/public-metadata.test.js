@@ -32,7 +32,6 @@ test('public sitemap lists only active source routes', async () => {
   const actualUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
 
   assert.deepEqual(actualUrls, expectedUrls);
-  assert.equal(actualUrls.some((url) => url.includes('25-the-homepage-learned-to-pulse')), false);
   assert.equal(actualUrls.some((url) => url.includes('/organisms/')), false);
   assert.equal(actualUrls.some((url) => url.includes('/architecture/')), false);
   assert.equal(actualUrls.some((url) => url.includes('/proof/')), false);

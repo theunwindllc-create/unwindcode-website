@@ -1,6 +1,9 @@
 import { defineConfig } from 'vite';
 import { cpSync, existsSync, mkdirSync, readdirSync, statSync } from 'fs';
 import { dirname, relative, resolve } from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 function discoverHtmlEntries(rootDir, options = {}) {
   const entries = {};

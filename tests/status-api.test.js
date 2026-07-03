@@ -169,7 +169,7 @@ test('returns public-safe backend status from active registries', async () => {
   assert.equal(res.body.status.registries.claims.needs_context_count, 2);
   assert.equal(res.body.status.registries.claims.safety_qualified_count, 2);
   assert.equal(res.body.status.registries.organisms.count, 5);
-  assert.equal(res.body.status.registries.transmissions.count, 30);
+  assert.equal(res.body.status.registries.transmissions.count, 32);
   assert.deepEqual(res.body.status.registries.transmissions.latest_public_transmission, {
     id: '31-the-active-source-of-truth-gate',
     transmission_number: 31,
@@ -180,9 +180,9 @@ test('returns public-safe backend status from active registries', async () => {
   });
   assert.deepEqual(res.body.status.registries.transmissions.numbering, {
     latest_number: 31,
-    published_count: 30,
-    has_gaps: true,
-    missing_numbers: [25],
+    published_count: 32,
+    has_gaps: false,
+    missing_numbers: [],
   });
   assert.deepEqual(res.body.status.operational_controls.durable_rate_limited_endpoints.sort(), [
     '/api/architecture',

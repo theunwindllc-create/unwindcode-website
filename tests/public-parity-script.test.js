@@ -15,9 +15,9 @@ test('public parity checker compares latest transmission across discovery surfac
   });
   assert.deepEqual(report.transmission_numbering, {
     latest_number: 31,
-    published_count: 30,
-    has_gaps: true,
-    missing_numbers: [25],
+    published_count: 32,
+    has_gaps: false,
+    missing_numbers: [],
   });
 
   const checkNames = report.checks.map((check) => check.name).sort();
@@ -99,9 +99,9 @@ test('public parity checker can verify live discovery surfaces without using loc
               latest_public_transmission: latestStatus,
               numbering: {
                 latest_number: 31,
-                published_count: 30,
-                has_gaps: true,
-                missing_numbers: [25],
+                published_count: 32,
+                has_gaps: false,
+                missing_numbers: [],
               },
             },
           },
@@ -188,9 +188,9 @@ test('public parity checker fails when live public RAG contracts are unavailable
               latest_public_transmission: latestStatus,
               numbering: {
                 latest_number: 31,
-                published_count: 30,
-                has_gaps: true,
-                missing_numbers: [25],
+                published_count: 32,
+                has_gaps: false,
+                missing_numbers: [],
               },
             },
           },
@@ -247,9 +247,9 @@ test('public parity checker classifies live RAG fail-closed HTTP states by endpo
               latest_public_transmission: latestStatus,
               numbering: {
                 latest_number: 31,
-                published_count: 30,
-                has_gaps: true,
-                missing_numbers: [25],
+                published_count: 32,
+                has_gaps: false,
+                missing_numbers: [],
               },
             },
           },

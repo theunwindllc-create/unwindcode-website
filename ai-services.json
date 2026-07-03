@@ -847,6 +847,50 @@
       "purpose": "A four-slide Instagram-ready proof packet for Transmission 27, with upload-ready 1080px exports, lightweight previews, a bundled ZIP, and a caption packet.",
       "trust_boundary": "The raster slides are distribution artifacts; the canonical proof remains inspectable through the transmission HTML, caption markdown, asset manifest, llms.txt, and regression tests.",
       "motion_policy": "Static PNG exports and static HTML preview only; no animation, script dependency, video, or WebGL."
+    },
+    {
+      "id": "transmission_28_social_carousel",
+      "name": "Transmission 28 Instagram Carousel",
+      "route": "https://www.unwindcode.ai/transmissions/28-the-memory-control-plane.html",
+      "asset": "https://www.unwindcode.ai/social/transmission-28-memory-control-plane-carousel/ready-to-upload/01-memory-control-plane.png",
+      "download_packet": "https://www.unwindcode.ai/social/transmission-28-memory-control-plane-carousel/downloads/transmission-28-memory-control-plane-carousel.zip",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "An internal 6-slide Instagram-ready proof packet for Transmission 28, with upload-ready 1080px exports, lightweight previews, a bundled ZIP, and a caption packet. Prepared for manual creator posting only.",
+      "trust_boundary": "The raster slides are distribution artifacts; the canonical proof remains inspectable through the transmission HTML, caption markdown, asset manifest, llms.txt, and regression tests.",
+      "motion_policy": "Static PNG exports and static HTML preview only; no animation, script dependency, video, or WebGL."
+    },
+    {
+      "id": "transmission_29_social_carousel",
+      "name": "Transmission 29 Instagram Carousel",
+      "route": "https://www.unwindcode.ai/transmissions/29-the-agent-readable-organism.html",
+      "asset": "https://www.unwindcode.ai/social/transmission-29-agent-readable-organism-carousel/ready-to-upload/01-agent-readable-organism.png",
+      "download_packet": "https://www.unwindcode.ai/social/transmission-29-agent-readable-organism-carousel/downloads/transmission-29-agent-readable-organism-carousel.zip",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "An internal 6-slide Instagram-ready proof packet for Transmission 29, with upload-ready 1080px exports, lightweight previews, a bundled ZIP, and a caption packet. Prepared for manual creator posting only.",
+      "trust_boundary": "The raster slides are distribution artifacts; the canonical proof remains inspectable through the transmission HTML, caption markdown, asset manifest, llms.txt, and regression tests.",
+      "motion_policy": "Static PNG exports and static HTML preview only; no animation, script dependency, video, or WebGL."
+    },
+    {
+      "id": "transmission_30_social_carousel",
+      "name": "Transmission 30 Instagram Carousel",
+      "route": "https://www.unwindcode.ai/transmissions/30-the-operator-readiness-layer.html",
+      "asset": "https://www.unwindcode.ai/social/transmission-30-operator-readiness-layer-carousel/ready-to-upload/01-operator-readiness-layer.png",
+      "download_packet": "https://www.unwindcode.ai/social/transmission-30-operator-readiness-layer-carousel/downloads/transmission-30-operator-readiness-layer-carousel.zip",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "An internal 8-slide Instagram-ready proof packet for Transmission 30, with upload-ready 1080px exports, lightweight previews, a bundled ZIP, and a caption packet. Prepared for manual creator posting only.",
+      "trust_boundary": "The raster slides are distribution artifacts; the canonical proof remains inspectable through the transmission HTML, caption markdown, asset manifest, llms.txt, and regression tests.",
+      "motion_policy": "Static PNG exports and static HTML preview only; no animation, script dependency, video, or WebGL."
+    },
+    {
+      "id": "transmission_31_social_carousel",
+      "name": "Transmission 31 Instagram Carousel",
+      "route": "https://www.unwindcode.ai/transmissions/31-the-active-source-of-truth-gate.html",
+      "asset": "https://www.unwindcode.ai/social/transmission-31-active-source-of-truth-gate-carousel/ready-to-upload/01-active-source-of-truth-gate.png",
+      "download_packet": "https://www.unwindcode.ai/social/transmission-31-active-source-of-truth-gate-carousel/downloads/transmission-31-active-source-of-truth-gate-carousel.zip",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "An internal 8-slide Instagram-ready proof packet for Transmission 31, with upload-ready 1080px exports, lightweight previews, a bundled ZIP, and a caption packet. Prepared for manual creator posting only.",
+      "trust_boundary": "The raster slides are distribution artifacts; the canonical proof remains inspectable through the transmission HTML, caption markdown, asset manifest, llms.txt, and regression tests.",
+      "motion_policy": "Static PNG exports and static HTML preview only; no animation, script dependency, video, or WebGL."
     }
   ],
   "proof_artifacts": [
@@ -997,11 +1041,15 @@
       "current_packets": [
         "transmission_25_social_carousel",
         "transmission_26_social_carousel",
-        "transmission_27_social_carousel"
+        "transmission_27_social_carousel",
+        "transmission_28_social_carousel",
+        "transmission_29_social_carousel",
+        "transmission_30_social_carousel",
+        "transmission_31_social_carousel"
       ],
       "authority_boundary": "The desk prepares manual posting assets only; no social network posting, public distribution, or claim escalation happens without creator approval."
     },
-    "total_transmissions": 27,
+    "total_transmissions": 31,
     "reader_lanes": [
       {
         "lane": "whitepaper",

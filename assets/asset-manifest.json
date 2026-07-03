@@ -1404,7 +1404,7 @@
       "route": "/transmissions/26-property-sales-intelligence-cell.html",
       "surface": "#social-proof-packet",
       "format": "image/png",
-      "status": "production",
+      "status": "internal",
       "purpose": "Turn Transmission 26 into a four-slide Instagram proof packet that makes the real estate cell, source permission, bounded judgment, and human approval boundary shareable without overstating automation authority.",
       "trust_value": "Extends the public proof loop into social distribution by pairing upload-ready 1080px frames, lightweight 540px previews, a bundled ZIP, a caption packet, and durable download links with the transmission page.",
       "accessibility": "The page previews use semantic links, descriptive alt text, visible slide labels, and downloadable source images. The social images contain presentation copy, while the canonical meaning remains in HTML, metadata, and the caption packet.",
@@ -1463,6 +1463,98 @@
       },
       "owner": "Website Development Team",
       "last_reviewed": "2026-06-08"
+    },
+    {
+      "id": "transmission-28-social-carousel",
+      "name": "Transmission 27 Social Carousel",
+      "file": "social/transmission-28-memory-control-plane-carousel/ready-to-upload/01-memory-control-plane.png",
+      "download_packet": "social/transmission-28-memory-control-plane-carousel/downloads/transmission-28-memory-control-plane-carousel.zip",
+      "route": "/transmissions/28-the-memory-control-plane.html",
+      "surface": "#social-proof-packet",
+      "format": "image/png",
+      "status": "internal",
+      "purpose": "Internal creator carousel packet for Transmission 28 covering memory as a governed workload: capture, index, health, review queues, mutation receipts, and operator authority. Prepared for manual posting only; the public page keeps posting assets internal.",
+      "trust_value": "Extends the public proof loop into social distribution by pairing upload-ready 1080px frames, lightweight 540px previews, a bundled ZIP, a caption packet, and durable download links with the transmission page.",
+      "accessibility": "The page previews use semantic links, descriptive alt text, visible slide labels, and downloadable source images. The social images contain presentation copy, while the canonical meaning remains in HTML, metadata, and the caption packet.",
+      "text_policy": "Social slide copy is acceptable for the raster artifact, but the site-native explanation, labels, links, and proof claims remain in HTML, llms.txt, ai-services.json, and this manifest.",
+      "motion_policy": "Static PNG exports with no animation, video, WebGL, or runtime interaction dependency.",
+      "performance": {
+        "loading": "lazy",
+        "dependencies": [],
+        "target_size_kb": 520,
+        "mobile_policy": "The transmission page loads 540px preview variants lazily and links to the ZIP plus 1080px downloads only on explicit user action."
+      },
+      "owner": "Website Development Team",
+      "last_reviewed": "2026-06-07"
+    },
+    {
+      "id": "transmission-29-social-carousel",
+      "name": "Transmission 27 Social Carousel",
+      "file": "social/transmission-29-agent-readable-organism-carousel/ready-to-upload/01-agent-readable-organism.png",
+      "download_packet": "social/transmission-29-agent-readable-organism-carousel/downloads/transmission-29-agent-readable-organism-carousel.zip",
+      "route": "/transmissions/29-the-agent-readable-organism.html",
+      "surface": "#social-proof-packet",
+      "format": "image/png",
+      "status": "internal",
+      "purpose": "Internal creator carousel packet for Transmission 29 covering the agent-readable public contract layer: routes, manifests, grounding packets, proof ledgers, and approval boundaries. Prepared for manual posting only; the public page keeps posting assets internal.",
+      "trust_value": "Extends the public proof loop into social distribution by pairing upload-ready 1080px frames, lightweight 540px previews, a bundled ZIP, a caption packet, and durable download links with the transmission page.",
+      "accessibility": "The page previews use semantic links, descriptive alt text, visible slide labels, and downloadable source images. The social images contain presentation copy, while the canonical meaning remains in HTML, metadata, and the caption packet.",
+      "text_policy": "Social slide copy is acceptable for the raster artifact, but the site-native explanation, labels, links, and proof claims remain in HTML, llms.txt, ai-services.json, and this manifest.",
+      "motion_policy": "Static PNG exports with no animation, video, WebGL, or runtime interaction dependency.",
+      "performance": {
+        "loading": "lazy",
+        "dependencies": [],
+        "target_size_kb": 520,
+        "mobile_policy": "The transmission page loads 540px preview variants lazily and links to the ZIP plus 1080px downloads only on explicit user action."
+      },
+      "owner": "Website Development Team",
+      "last_reviewed": "2026-06-07"
+    },
+    {
+      "id": "transmission-30-social-carousel",
+      "name": "Transmission 27 Social Carousel",
+      "file": "social/transmission-30-operator-readiness-layer-carousel/ready-to-upload/01-operator-readiness-layer.png",
+      "download_packet": "social/transmission-30-operator-readiness-layer-carousel/downloads/transmission-30-operator-readiness-layer-carousel.zip",
+      "route": "/transmissions/30-the-operator-readiness-layer.html",
+      "surface": "#social-proof-packet",
+      "format": "image/png",
+      "status": "internal",
+      "purpose": "Internal creator carousel packet for Transmission 30 covering readiness before authority: content-free memory triage, operator contracts, workbench cards, and smoke packets. Prepared for manual posting only; the public page keeps posting assets internal.",
+      "trust_value": "Extends the public proof loop into social distribution by pairing upload-ready 1080px frames, lightweight 540px previews, a bundled ZIP, a caption packet, and durable download links with the transmission page.",
+      "accessibility": "The page previews use semantic links, descriptive alt text, visible slide labels, and downloadable source images. The social images contain presentation copy, while the canonical meaning remains in HTML, metadata, and the caption packet.",
+      "text_policy": "Social slide copy is acceptable for the raster artifact, but the site-native explanation, labels, links, and proof claims remain in HTML, llms.txt, ai-services.json, and this manifest.",
+      "motion_policy": "Static PNG exports with no animation, video, WebGL, or runtime interaction dependency.",
+      "performance": {
+        "loading": "lazy",
+        "dependencies": [],
+        "target_size_kb": 520,
+        "mobile_policy": "The transmission page loads 540px preview variants lazily and links to the ZIP plus 1080px downloads only on explicit user action."
+      },
+      "owner": "Website Development Team",
+      "last_reviewed": "2026-06-07"
+    },
+    {
+      "id": "transmission-31-social-carousel",
+      "name": "Transmission 27 Social Carousel",
+      "file": "social/transmission-31-active-source-of-truth-gate-carousel/ready-to-upload/01-active-source-of-truth-gate.png",
+      "download_packet": "social/transmission-31-active-source-of-truth-gate-carousel/downloads/transmission-31-active-source-of-truth-gate-carousel.zip",
+      "route": "/transmissions/31-the-active-source-of-truth-gate.html",
+      "surface": "#social-proof-packet",
+      "format": "image/png",
+      "status": "internal",
+      "purpose": "Internal creator carousel packet for Transmission 31 covering publication identity: live-lane proof, local parity, discovery metadata, registry truth, and approval before deploy. Prepared for manual posting only; the public page keeps posting assets internal.",
+      "trust_value": "Extends the public proof loop into social distribution by pairing upload-ready 1080px frames, lightweight 540px previews, a bundled ZIP, a caption packet, and durable download links with the transmission page.",
+      "accessibility": "The page previews use semantic links, descriptive alt text, visible slide labels, and downloadable source images. The social images contain presentation copy, while the canonical meaning remains in HTML, metadata, and the caption packet.",
+      "text_policy": "Social slide copy is acceptable for the raster artifact, but the site-native explanation, labels, links, and proof claims remain in HTML, llms.txt, ai-services.json, and this manifest.",
+      "motion_policy": "Static PNG exports with no animation, video, WebGL, or runtime interaction dependency.",
+      "performance": {
+        "loading": "lazy",
+        "dependencies": [],
+        "target_size_kb": 520,
+        "mobile_policy": "The transmission page loads 540px preview variants lazily and links to the ZIP plus 1080px downloads only on explicit user action."
+      },
+      "owner": "Website Development Team",
+      "last_reviewed": "2026-06-07"
     }
   ]
 }
