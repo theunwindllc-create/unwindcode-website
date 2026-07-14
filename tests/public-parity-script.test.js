@@ -8,14 +8,14 @@ test('public parity checker compares latest transmission across discovery surfac
 
   assert.equal(report.success, true);
   assert.deepEqual(report.latest_public_transmission, {
-    id: '31-the-active-source-of-truth-gate',
-    transmission_number: 31,
-    route: '/transmissions/31-the-active-source-of-truth-gate',
-    source_file: 'transmissions/31-the-active-source-of-truth-gate.html',
+    id: '32-the-silent-truncation',
+    transmission_number: 32,
+    route: '/transmissions/32-the-silent-truncation',
+    source_file: 'transmissions/32-the-silent-truncation.html',
   });
   assert.deepEqual(report.transmission_numbering, {
-    latest_number: 31,
-    published_count: 32,
+    latest_number: 32,
+    published_count: 33,
     has_gaps: false,
     missing_numbers: [],
   });
@@ -48,13 +48,13 @@ test('public parity checker compares latest transmission across discovery surfac
 });
 
 test('public parity checker can verify live discovery surfaces without using local files as proof', async () => {
-  const latestRoute = '/transmissions/31-the-active-source-of-truth-gate';
+  const latestRoute = '/transmissions/32-the-silent-truncation';
   const latestStatus = {
-    id: '31-the-active-source-of-truth-gate',
-    transmission_number: 31,
-    title: 'Transmission 31: The Active Source-of-Truth Gate',
+    id: '32-the-silent-truncation',
+    transmission_number: 32,
+    title: 'Transmission 32: The Silent Truncation',
     route: latestRoute,
-    source_file: 'transmissions/31-the-active-source-of-truth-gate.html',
+    source_file: 'transmissions/32-the-silent-truncation.html',
     review_status: 'public_safe',
   };
   const responses = new Map([
@@ -98,8 +98,8 @@ test('public parity checker can verify live discovery surfaces without using loc
             transmissions: {
               latest_public_transmission: latestStatus,
               numbering: {
-                latest_number: 31,
-                published_count: 32,
+                latest_number: 32,
+                published_count: 33,
                 has_gaps: false,
                 missing_numbers: [],
               },
@@ -144,13 +144,13 @@ test('public parity checker can verify live discovery surfaces without using loc
 });
 
 test('public parity checker fails when live public RAG contracts are unavailable', async () => {
-  const latestRoute = '/transmissions/31-the-active-source-of-truth-gate';
+  const latestRoute = '/transmissions/32-the-silent-truncation';
   const latestStatus = {
-    id: '31-the-active-source-of-truth-gate',
-    transmission_number: 31,
-    title: 'Transmission 31: The Active Source-of-Truth Gate',
+    id: '32-the-silent-truncation',
+    transmission_number: 32,
+    title: 'Transmission 32: The Silent Truncation',
     route: latestRoute,
-    source_file: 'transmissions/31-the-active-source-of-truth-gate.html',
+    source_file: 'transmissions/32-the-silent-truncation.html',
     review_status: 'public_safe',
   };
   const responses = new Map([
@@ -187,8 +187,8 @@ test('public parity checker fails when live public RAG contracts are unavailable
             transmissions: {
               latest_public_transmission: latestStatus,
               numbering: {
-                latest_number: 31,
-                published_count: 32,
+                latest_number: 32,
+                published_count: 33,
                 has_gaps: false,
                 missing_numbers: [],
               },
@@ -222,13 +222,13 @@ test('public parity checker fails when live public RAG contracts are unavailable
 });
 
 test('public parity checker classifies live RAG fail-closed HTTP states by endpoint', async () => {
-  const latestRoute = '/transmissions/31-the-active-source-of-truth-gate';
+  const latestRoute = '/transmissions/32-the-silent-truncation';
   const latestStatus = {
-    id: '31-the-active-source-of-truth-gate',
-    transmission_number: 31,
-    title: 'Transmission 31: The Active Source-of-Truth Gate',
+    id: '32-the-silent-truncation',
+    transmission_number: 32,
+    title: 'Transmission 32: The Silent Truncation',
     route: latestRoute,
-    source_file: 'transmissions/31-the-active-source-of-truth-gate.html',
+    source_file: 'transmissions/32-the-silent-truncation.html',
     review_status: 'public_safe',
   };
   const responses = new Map([
@@ -246,8 +246,8 @@ test('public parity checker classifies live RAG fail-closed HTTP states by endpo
             transmissions: {
               latest_public_transmission: latestStatus,
               numbering: {
-                latest_number: 31,
-                published_count: 32,
+                latest_number: 32,
+                published_count: 33,
                 has_gaps: false,
                 missing_numbers: [],
               },
@@ -326,7 +326,7 @@ test('public parity checker classifies live RAG fail-closed HTTP states by endpo
 });
 
 test('public parity checker reports incompatible live status contracts without throwing', async () => {
-  const latestRoute = '/transmissions/31-the-active-source-of-truth-gate';
+  const latestRoute = '/transmissions/32-the-silent-truncation';
   const responses = new Map([
     ['https://www.unwindcode.ai/', `<a href="${latestRoute}">latest</a>`],
     ['https://www.unwindcode.ai/transmissions', `<a href="${latestRoute}">latest</a>`],

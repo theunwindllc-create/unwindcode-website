@@ -4,6 +4,34 @@
   "generated_from": "active-site-public-html",
   "transmissions": [
     {
+      "id": "32-the-silent-truncation",
+      "transmission_number": 32,
+      "title": "Transmission 32: The Silent Truncation",
+      "summary": "Brain guide and compact whitepaper record for the Silent Truncation: the valid-but-wrong failure class, dead presentation law from a two-brace merge wound, name/form URL parity, provenance digest continuity, the seven-step healing protocol, and immune coverage for the organism’s skin.",
+      "route": "/transmissions/32-the-silent-truncation",
+      "source_file": "transmissions/32-the-silent-truncation.html",
+      "topic_tags": [
+        "failure-theory",
+        "public-proof",
+        "structural-invariants",
+        "presentation-integrity"
+      ],
+      "memory_layers": [
+        "procedural",
+        "semantic",
+        "episodic"
+      ],
+      "citations": [
+        {
+          "label": "Published transmission",
+          "route": "/transmissions/32-the-silent-truncation",
+          "source_file": "transmissions/32-the-silent-truncation.html"
+        }
+      ],
+      "confidence": "high",
+      "review_status": "public_safe"
+    },
+    {
       "id": "01-entropy-of-agents",
       "transmission_number": 1,
       "title": "Transmission 01: Entropy Of Agents",

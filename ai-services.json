@@ -891,6 +891,17 @@
       "purpose": "An internal 8-slide Instagram-ready proof packet for Transmission 31, with upload-ready 1080px exports, lightweight previews, a bundled ZIP, and a caption packet. Prepared for manual creator posting only.",
       "trust_boundary": "The raster slides are distribution artifacts; the canonical proof remains inspectable through the transmission HTML, caption markdown, asset manifest, llms.txt, and regression tests.",
       "motion_policy": "Static PNG exports and static HTML preview only; no animation, script dependency, video, or WebGL."
+    },
+    {
+      "id": "transmission_32_social_carousel",
+      "name": "Transmission 32 Instagram Carousel",
+      "route": "https://www.unwindcode.ai/transmissions/32-the-silent-truncation",
+      "asset": "https://www.unwindcode.ai/social/transmission-32-silent-truncation-carousel/ready-to-upload/01-silent-truncation.png",
+      "download_packet": "https://www.unwindcode.ai/social/transmission-32-silent-truncation-carousel/downloads/transmission-32-silent-truncation-carousel.zip",
+      "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
+      "purpose": "An internal 4-slide Instagram-ready proof packet for Transmission 32, with upload-ready 1080px frames, 540px previews, a caption packet, and a bundled ZIP, prepared for manual creator posting only.",
+      "trust_boundary": "The raster slides are distribution artifacts; the canonical proof remains inspectable through the transmission HTML, caption markdown, asset manifest, llms.txt, and regression tests.",
+      "motion_policy": "Static PNG exports and static HTML preview only; no animation, script dependency, video, or WebGL."
     }
   ],
   "proof_artifacts": [
@@ -1045,11 +1056,12 @@
         "transmission_28_social_carousel",
         "transmission_29_social_carousel",
         "transmission_30_social_carousel",
-        "transmission_31_social_carousel"
+        "transmission_31_social_carousel",
+        "transmission_32_social_carousel"
       ],
       "authority_boundary": "The desk prepares manual posting assets only; no social network posting, public distribution, or claim escalation happens without creator approval."
     },
-    "total_transmissions": 31,
+    "total_transmissions": 32,
     "reader_lanes": [
       {
         "lane": "whitepaper",
@@ -1083,11 +1095,11 @@
       }
     ],
     "latest": {
-      "id": "transmission_27",
-      "title": "The Quotation Cell",
-      "url": "https://www.unwindcode.ai/transmissions/27-the-quotation-cell",
-      "lane": "domain_cell_boundary",
-      "use_for": "Understand quoting as a governed transaction packet and manual Brain build record with supplier evidence, correction memory, readiness state, proof ledger, organism recipe, and approval before commitment."
+      "id": "transmission_32",
+      "title": "The Silent Truncation",
+      "url": "https://www.unwindcode.ai/transmissions/32-the-silent-truncation",
+      "lane": "failure_theory_boundary",
+      "use_for": "Understand the valid-but-wrong failure class and the three structural invariants — integrity, name/form parity, provenance continuity — that keep an organism’s presentation and discovery layers from rotting silently."
     }
   },
   "proof_urls": [

@@ -1253,6 +1253,152 @@
       "publication_status": "prepared_not_posted",
       "manual_approval_required": true,
       "confidence": "high"
+    },
+    {
+      "id": "transmission-32-silent-truncation-carousel",
+      "type": "social-carousel",
+      "title": "Transmission 32 Silent Truncation Carousel",
+      "summary": "A prepared four-slide square carousel for Transmission 32 that explains the Silent Truncation: valid-but-wrong input, the two-brace wound that killed 1,300 lines of presentation law with green builds, and the three structural invariants that now make truncation loud.",
+      "source_route": "/transmissions/32-the-silent-truncation",
+      "asset_package_sha256": "e1a4da2793132fe3d04b1f97492ca85468a90c1beb941470c86fa717edb13f60",
+      "source_files": [
+        "social/transmission-32-silent-truncation-carousel/README.md",
+        "social/transmission-32-silent-truncation-carousel/caption.md",
+        "social/transmission-32-silent-truncation-carousel/caption.txt",
+        "social/transmission-32-silent-truncation-carousel/carousel.html"
+      ],
+      "alt_text": "Four-slide dark theme carousel for Unwind Code Transmission 32 explaining the Silent Truncation failure class, the CSS wound, the valid-but-wrong theory, and the three healing invariants.",
+      "provenance": {
+        "created_from": "local-html-carousel-render",
+        "source_files": [
+          "social/transmission-32-silent-truncation-carousel/README.md",
+          "social/transmission-32-silent-truncation-carousel/caption.md",
+          "social/transmission-32-silent-truncation-carousel/caption.txt",
+          "social/transmission-32-silent-truncation-carousel/carousel.html"
+        ],
+        "source_file_hashes": [
+          {
+            "path": "social/transmission-32-silent-truncation-carousel/README.md",
+            "sha256": "21f05452a417f8ce74aad33c83fb19cfa93fcd3bef19a823e006217931b6be96",
+            "bytes": 1394
+          },
+          {
+            "path": "social/transmission-32-silent-truncation-carousel/caption.md",
+            "sha256": "d8acd73cd67d9460ab2f7907074f317c3ca2f7bee6087704da047aa7e400f2f2",
+            "bytes": 2373
+          },
+          {
+            "path": "social/transmission-32-silent-truncation-carousel/caption.txt",
+            "sha256": "82a4e626e4f49e2ff816ec77f11d8d9e7ad4b13eda1e2ad79d709de8c01b5475",
+            "bytes": 2371
+          },
+          {
+            "path": "social/transmission-32-silent-truncation-carousel/carousel.html",
+            "sha256": "7a17b2771999cc19c1f6e697dfe2145744af75193127b2e6867b8f7e41df0e66",
+            "bytes": 9747
+          }
+        ],
+        "generated_files": [
+          {
+            "path": "social/transmission-32-silent-truncation-carousel/exports/slide-01.png",
+            "sha256": "20c9a21a9f3ba8a28a6cc429c62b7dfc608f4a1f6117c63b56bad910ce61d83b",
+            "bytes": 670026
+          },
+          {
+            "path": "social/transmission-32-silent-truncation-carousel/exports/slide-02.png",
+            "sha256": "7083a52d9954952c1c856648a5c904fd010d06093bb394ac1da0bcdeea296146",
+            "bytes": 599903
+          },
+          {
+            "path": "social/transmission-32-silent-truncation-carousel/exports/slide-03.png",
+            "sha256": "9b5f8b13961b225c388edb87a28b0dc12a055316d6b2ca9d2fd4dcedb000c712",
+            "bytes": 667408
+          },
+          {
+            "path": "social/transmission-32-silent-truncation-carousel/exports/slide-04.png",
+            "sha256": "5fd52316019523fc85c03368a347c0de068b06471e3187cac26ceeaadb5aafa3",
+            "bytes": 541961
+          }
+        ]
+      },
+      "rights": {
+        "usage_scope": "Prepared for UnwindCode.ai social channels after manual approval only.",
+        "license_notes": "Owner-created site and social asset package; external licensing is not asserted by this registry."
+      },
+      "approval_gates": [
+        "Creator approval is required before public posting.",
+        "Caption, alt text, generated slides, and source route must be reviewed together.",
+        "No automated public publishing, deployment, aliasing, wallet, external sync, memory mutation, file mutation, outreach, paid media, or answer-generation authority is granted by this registry."
+      ],
+      "authority_boundary": {
+        "posting_authority": false,
+        "wallet_authority": false,
+        "paid_media_authority": false,
+        "on_chain_attestation_authority": false,
+        "deployment_authority": false,
+        "answer_generation_authority": false,
+        "memory_mutation_authority": false,
+        "file_mutation_authority": false,
+        "outreach_authority": false,
+        "external_sync_authority": false,
+        "approval_state": "creator_approval_required",
+        "allowed_uses": [
+          "manual_review",
+          "provenance_lookup",
+          "local_asset_inspection",
+          "manual_social_post_after_creator_approval"
+        ],
+        "prohibited_uses": [
+          "automated_public_posting",
+          "wallet_signing",
+          "paid_media_activation",
+          "on_chain_publication",
+          "unreviewed_rag_answer_evidence",
+          "unreviewed_deployment",
+          "unreviewed_memory_mutation",
+          "unreviewed_file_mutation",
+          "outreach_activation",
+          "unreviewed_external_sync"
+        ]
+      },
+      "approval_record_schema": {
+        "schema_version": "2026-06-06.public-asset-approval-record.v1",
+        "storage_boundary": {
+          "public_record_only": true,
+          "secrets_excluded": true,
+          "raw_prompts_excluded": true,
+          "private_notes_excluded": true,
+          "on_chain_sensitive_data_excluded": true
+        },
+        "required_fields": [
+          "approval_id",
+          "asset_package_id",
+          "asset_package_sha256",
+          "approved_by_role",
+          "approved_at",
+          "approved_scope",
+          "source_file_hashes_verified",
+          "generated_file_hashes_verified"
+        ],
+        "allowed_approval_scopes": [
+          "manual_social_publication",
+          "site_asset_publication",
+          "provenance_attestation"
+        ],
+        "prohibited_record_content": [
+          "private_approver_identity",
+          "raw_prompts",
+          "private_notes",
+          "wallet_secret_material",
+          "service_credentials",
+          "sensitive_user_data"
+        ]
+      },
+      "approval_records": [],
+      "review_status": "creator_approval_required",
+      "publication_status": "prepared_not_posted",
+      "manual_approval_required": true,
+      "confidence": "high"
     }
   ]
 }

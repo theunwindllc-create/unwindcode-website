@@ -12,7 +12,7 @@ const REGISTRY = path.join(ROOT, 'public/data/assets.json');
 
 async function sha256File(relativePath) {
   const bytes = await readFile(path.join(ROOT, relativePath));
-  return createHash('sha256').update(bytes).digest('hex');
+  return { sha256: createHash('sha256').update(bytes).digest('hex'), bytes: bytes.length };
 }
 
 const registry = JSON.parse(await readFile(REGISTRY, 'utf8'));
@@ -23,8 +23,9 @@ for (const pkg of registry.packages) {
   for (const listName of ['source_file_hashes', 'generated_files']) {
     for (const entry of pkg.provenance?.[listName] ?? []) {
       const actual = await sha256File(entry.path);
-      if (entry.sha256 !== actual) {
-        entry.sha256 = actual;
+      if (entry.sha256 !== actual.sha256 || entry.bytes !== actual.bytes) {
+        entry.sha256 = actual.sha256;
+        entry.bytes = actual.bytes;
         fileHashChanged = true;
       }
     }

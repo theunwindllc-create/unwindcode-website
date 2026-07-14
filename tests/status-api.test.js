@@ -161,26 +161,26 @@ test('returns public-safe backend status from active registries', async () => {
     'transmission-registry',
   ]);
   assert.equal(res.body.status.services.count, 10);
-  assert.equal(res.body.status.registries.assets.count, 7);
-  assert.equal(res.body.status.registries.assets.creator_approval_required_count, 7);
-  assert.equal(res.body.status.registries.assets.prepared_not_posted_count, 7);
+  assert.equal(res.body.status.registries.assets.count, 8);
+  assert.equal(res.body.status.registries.assets.creator_approval_required_count, 8);
+  assert.equal(res.body.status.registries.assets.prepared_not_posted_count, 8);
   assert.equal(res.body.status.registries.architecture.count, 5);
   assert.equal(res.body.status.registries.claims.count, 6);
   assert.equal(res.body.status.registries.claims.needs_context_count, 2);
   assert.equal(res.body.status.registries.claims.safety_qualified_count, 2);
   assert.equal(res.body.status.registries.organisms.count, 5);
-  assert.equal(res.body.status.registries.transmissions.count, 32);
+  assert.equal(res.body.status.registries.transmissions.count, 33);
   assert.deepEqual(res.body.status.registries.transmissions.latest_public_transmission, {
-    id: '31-the-active-source-of-truth-gate',
-    transmission_number: 31,
-    title: 'Transmission 31: The Active Source-of-Truth Gate',
-    route: '/transmissions/31-the-active-source-of-truth-gate',
-    source_file: 'transmissions/31-the-active-source-of-truth-gate.html',
+    id: '32-the-silent-truncation',
+    transmission_number: 32,
+    title: 'Transmission 32: The Silent Truncation',
+    route: '/transmissions/32-the-silent-truncation',
+    source_file: 'transmissions/32-the-silent-truncation.html',
     review_status: 'public_safe',
   });
   assert.deepEqual(res.body.status.registries.transmissions.numbering, {
-    latest_number: 31,
-    published_count: 32,
+    latest_number: 32,
+    published_count: 33,
     has_gaps: false,
     missing_numbers: [],
   });

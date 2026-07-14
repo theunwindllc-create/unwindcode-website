@@ -1555,6 +1555,29 @@
       },
       "owner": "Website Development Team",
       "last_reviewed": "2026-06-07"
+    },
+    {
+      "id": "transmission-32-social-carousel",
+      "name": "Transmission 32 Social Carousel",
+      "file": "social/transmission-32-silent-truncation-carousel/ready-to-upload/01-silent-truncation.png",
+      "download_packet": "social/transmission-32-silent-truncation-carousel/downloads/transmission-32-silent-truncation-carousel.zip",
+      "route": "/transmissions/32-the-silent-truncation",
+      "surface": "#social-proof-packet",
+      "format": "image/png",
+      "status": "internal",
+      "purpose": "Internal creator carousel packet for Transmission 32 covering the Silent Truncation failure record: valid-but-wrong input, the two-brace wound, name/form URL parity, and the three structural invariants. Prepared for manual posting only; the public page keeps posting assets internal.",
+      "trust_value": "Extends the public proof loop into social distribution by pairing upload-ready 1080px frames, lightweight 540px previews, a bundled ZIP, a caption packet, and durable download links with the transmission page.",
+      "accessibility": "The page previews use semantic links, descriptive alt text, visible slide labels, and downloadable source images. The social images contain presentation copy, while the canonical meaning remains in HTML, metadata, and the caption packet.",
+      "text_policy": "Social slide copy is acceptable for the raster artifact, but the site-native explanation, labels, links, and proof claims remain in HTML, llms.txt, ai-services.json, and this manifest.",
+      "motion_policy": "Static PNG exports with no animation, video, WebGL, or runtime interaction dependency.",
+      "performance": {
+        "loading": "lazy",
+        "dependencies": [],
+        "target_size_kb": 520,
+        "mobile_policy": "The transmission page loads 540px preview variants lazily and links to the ZIP plus 1080px downloads only on explicit user action."
+      },
+      "owner": "Website Development Team",
+      "last_reviewed": "2026-07-14"
     }
   ]
 }

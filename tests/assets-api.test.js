@@ -191,7 +191,7 @@ test('returns the public asset provenance registry with cache headers', async ()
   assert.match(res.headers['last-modified'], /^[A-Z][a-z]{2}, /);
   assert.equal(res.body.success, true);
   assert.equal(res.body.registry.review_status, 'public_safe_draft');
-  assert.equal(res.body.registry.packages.length, 7);
+  assert.equal(res.body.registry.packages.length, 8);
   assert.ok(
     res.body.registry.packages.some(
       (assetPackage) => assetPackage.id === 'transmission-26-property-sales-intelligence-cell-carousel',
@@ -252,7 +252,7 @@ test('filters public asset packages by publication status', async () => {
 
   assert.equal(res.statusCode, 200);
   assert.equal(res.body.success, true);
-  assert.equal(res.body.packages.length, 7);
+  assert.equal(res.body.packages.length, 8);
   assert.ok(
     res.body.packages.every((assetPackage) => assetPackage.publication_status === 'prepared_not_posted'),
     'publication status filter should only return matching asset packages',

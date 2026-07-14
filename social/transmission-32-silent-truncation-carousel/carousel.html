@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transmission 32 Silent Truncation Carousel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&family=JetBrains+Mono:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --void: #05060a;
+      --panel: rgba(13, 15, 23, 0.86);
+      --ink: #f4f1ea;
+      --muted: rgba(244, 241, 234, 0.7);
+      --faint: rgba(244, 241, 234, 0.14);
+      --rose: #e2798f;
+      --cyan: #74d4cd;
+      --gold: #d8b96c;
+      --violet: #9d8cff;
+      --green: #9cd47d;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      overflow: hidden;
+      background: #020204;
+      color: var(--ink);
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    body { display: grid; place-items: center; }
+    .slide {
+      position: relative;
+      display: none;
+      width: 1080px;
+      height: 1080px;
+      overflow: hidden;
+      grid-template-rows: auto 1fr auto;
+      padding: 70px;
+      background:
+        radial-gradient(circle at 14% 12%, rgba(226, 121, 143, 0.2), transparent 30%),
+        radial-gradient(circle at 88% 20%, rgba(116, 212, 205, 0.16), transparent 28%),
+        radial-gradient(circle at 48% 92%, rgba(157, 140, 255, 0.12), transparent 30%),
+        linear-gradient(142deg, #1a1118 0%, #080711 58%, #020204 100%);
+    }
+    .slide:target { display: grid; }
+    body:not(:has(.slide:target)) #slide-1 { display: grid; }
+    .slide::before {
+      content: "";
+      position: absolute;
+      inset: 44px;
+      border: 1px solid rgba(244, 241, 234, 0.14);
+      border-radius: 36px;
+      pointer-events: none;
+    }
+    .slide::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.14;
+      background-image:
+        linear-gradient(rgba(244, 241, 234, 0.09) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(244, 241, 234, 0.09) 1px, transparent 1px);
+      background-size: 72px 72px;
+      pointer-events: none;
+    }
+    .top {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 24px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+    .top .brand b { color: var(--ink); }
+    .top .brand span { color: var(--violet); }
+    .mid { position: relative; z-index: 1; display: grid; align-content: center; gap: 34px; }
+    .bottom {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 23px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .kicker {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 12px;
+      border: 1.5px solid rgba(226, 121, 143, 0.44);
+      border-radius: 999px;
+      padding: 14px 24px;
+      background: rgba(226, 121, 143, 0.1);
+      color: var(--rose);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 25px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    h1 { font-size: 92px; line-height: 1.0; font-weight: 900; letter-spacing: -0.02em; }
+    h2 { font-size: 66px; line-height: 1.04; font-weight: 900; letter-spacing: -0.015em; }
+    .sub { max-width: 850px; color: var(--muted); font-size: 34px; line-height: 1.5; font-weight: 500; }
+    .sub b { color: var(--ink); font-weight: 700; }
+    .code {
+      border: 1.5px solid var(--faint);
+      border-radius: 24px;
+      background: var(--panel);
+      padding: 34px 38px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 30px;
+      line-height: 1.62;
+      color: var(--muted);
+    }
+    .code .sel { color: var(--cyan); }
+    .code .cut { color: var(--rose); font-weight: 800; }
+    .code .ghost { opacity: 0.45; }
+    .stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .stat {
+      border: 1.5px solid var(--faint);
+      border-radius: 24px;
+      background: var(--panel);
+      padding: 30px 34px;
+      display: grid;
+      gap: 8px;
+    }
+    .stat b { font-family: "JetBrains Mono", monospace; font-size: 52px; font-weight: 800; color: var(--rose); }
+    .stat.good b { color: var(--green); }
+    .stat span { font-size: 25px; color: var(--muted); line-height: 1.35; }
+    .law {
+      border: 1.5px solid var(--faint);
+      border-radius: 24px;
+      background: var(--panel);
+      padding: 32px 36px;
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+    .law i {
+      display: grid;
+      place-items: center;
+      width: 96px;
+      height: 96px;
+      border-radius: 26px;
+      font-style: normal;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 36px;
+      font-weight: 800;
+    }
+    .law:nth-child(1) i { background: rgba(226, 121, 143, 0.16); color: var(--rose); border: 1.5px solid rgba(226, 121, 143, 0.4); }
+    .law:nth-child(2) i { background: rgba(116, 212, 205, 0.13); color: var(--cyan); border: 1.5px solid rgba(116, 212, 205, 0.38); }
+    .law:nth-child(3) i { background: rgba(216, 185, 108, 0.14); color: var(--gold); border: 1.5px solid rgba(216, 185, 108, 0.4); }
+    .law h3 { font-size: 36px; font-weight: 800; margin-bottom: 8px; }
+    .law p { font-size: 27px; line-height: 1.42; color: var(--muted); }
+    .cta-box {
+      border: 1.5px solid rgba(156, 212, 125, 0.4);
+      border-radius: 24px;
+      background: rgba(156, 212, 125, 0.08);
+      padding: 34px 38px;
+      font-size: 30px;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+    .cta-box b { color: var(--green); }
+  </style>
+</head>
+<body>
+
+  <section class="slide" id="slide-1" aria-label="Slide 1 of 4">
+    <div class="top"><span class="brand"><b>unwind</b><span>code</span></span><span>Transmission 32</span></div>
+    <div class="mid">
+      <span class="kicker">Failure Theory · Public Build Record</span>
+      <h1>The most dangerous failures don't crash.</h1>
+      <p class="sub">They are <b>absorbed as valid input</b>. Our system was wounded for eleven days — and every build stayed green. This is the record of how we found it, named it, and made it impossible to hide.</p>
+    </div>
+    <div class="bottom"><span>The Silent Truncation</span><span>01 / 04 →</span></div>
+  </section>
+
+  <section class="slide" id="slide-2" aria-label="Slide 2 of 4">
+    <div class="top"><span class="brand"><b>unwind</b><span>code</span></span><span>Transmission 32</span></div>
+    <div class="mid">
+      <h2>One missing brace. 1,300 lines of law — dead.</h2>
+      <div class="code">.tx-social-previews img <span class="cut">{</span><br>
+&nbsp;&nbsp;object-fit: cover;<br>
+<span class="cut">/* merge cut here — brace never closed */</span><br>
+<span class="ghost">/* everything below became CSS "nesting":<br>
+&nbsp;&nbsp;&nbsp;1,300 lines re-parented under an &lt;img&gt;,<br>
+&nbsp;&nbsp;&nbsp;matching nothing. Build: green. */</span></div>
+      <p class="sub">Under native CSS nesting, the wound was <b>legal syntax</b>. No error. No failing test. Every mobile rule and every lab-page style silently stopped existing in production.</p>
+    </div>
+    <div class="bottom"><span>The wound</span><span>02 / 04 →</span></div>
+  </section>
+
+  <section class="slide" id="slide-3" aria-label="Slide 3 of 4">
+    <div class="top"><span class="brand"><b>unwind</b><span>code</span></span><span>Transmission 32</span></div>
+    <div class="mid">
+      <h2>The failure class: valid-but-wrong.</h2>
+      <p class="sub">Modern tooling chose reinterpretation over rejection — and the same week, a second silent wound surfaced: <b>61 of 62 sitemap URLs</b> redirected away from the pages they named.</p>
+      <div class="stat-row">
+        <div class="stat"><b>11 days</b><span>skin dead in production, builds green the whole time</span></div>
+        <div class="stat"><b>61 / 62</b><span>published URLs disagreeing with their served form</span></div>
+      </div>
+      <p class="sub">A parser that accepts corruption as meaning turns your own system into a <b>liar about itself</b>.</p>
+    </div>
+    <div class="bottom"><span>The class</span><span>03 / 04 →</span></div>
+  </section>
+
+  <section class="slide" id="slide-4" aria-label="Slide 4 of 4">
+    <div class="top"><span class="brand"><b>unwind</b><span>code</span></span><span>Transmission 32</span></div>
+    <div class="mid">
+      <div class="law"><i>I</i><div><h3>Structural integrity</h3><p>The artifact must parse to what was written — verified in the build, not by eyeballs.</p></div></div>
+      <div class="law"><i>II</i><div><h3>Name / form parity</h3><p>Every URL the system publishes about itself resolves directly to the surface it names.</p></div></div>
+      <div class="law"><i>III</i><div><h3>Provenance continuity</h3><p>Names and hashes stay bound under change — a chain that can drift can be forged.</p></div></div>
+      <div class="cta-box"><b>Healed and live-verified:</b> 62/62 URLs answer 200 · 0 poisoned selectors · 0 broken phone layouts. Read the full whitepaper record → unwindcode.ai/transmissions/32-the-silent-truncation</div>
+    </div>
+    <div class="bottom"><span>The law</span><span>04 / 04</span></div>
+  </section>
+
+</body>
+</html>

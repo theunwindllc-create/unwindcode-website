@@ -100,6 +100,7 @@ test('new local transmissions read as Brain guides and compact whitepaper notes'
   const agentReadableOrganism = await readFile(new URL('../transmissions/29-the-agent-readable-organism.html', import.meta.url), 'utf8');
   const operatorReadinessLayer = await readFile(new URL('../transmissions/30-the-operator-readiness-layer.html', import.meta.url), 'utf8');
   const activeSourceOfTruthGate = await readFile(new URL('../transmissions/31-the-active-source-of-truth-gate.html', import.meta.url), 'utf8');
+  const silentTruncation = await readFile(new URL('../transmissions/32-the-silent-truncation.html', import.meta.url), 'utf8');
 
   assert.match(publicIndex, /Public Index Protocol/);
   assert.match(publicIndex, /Context without coordinates becomes agent entropy/i);
@@ -151,13 +152,23 @@ test('new local transmissions read as Brain guides and compact whitepaper notes'
   assert.match(activeSourceOfTruthGate, /Release Identity Controller/i);
   assert.match(activeSourceOfTruthGate, /Manual Brain Mode/i);
   assert.match(activeSourceOfTruthGate, /Posting assets for this transmission remain internal creator material/i);
+
+  assert.match(silentTruncation, /The Silent Truncation/);
+  assert.match(silentTruncation, /absorbed as valid input/i);
+  assert.match(silentTruncation, /valid-but-wrong/i);
+  assert.match(silentTruncation, /name\/form parity/i);
+  assert.match(silentTruncation, /provenance continuity/i);
+  assert.match(silentTruncation, /04 \/ Build recipe/);
+  assert.match(silentTruncation, /Manual Brain Mode/i);
+  assert.match(silentTruncation, /next-cell memory/i);
+  assert.match(silentTruncation, /posting assets\s+for this transmission remain internal creator material/i);
 });
 
 test('transmission archive is a guide library, not a public posting desk', async () => {
   const archive = await readFile(new URL('../transmissions/index.html', import.meta.url), 'utf8');
 
   assert.match(archive, /whitepaper-style records/i);
-  assert.match(archive, /31<\/span> transmissions published/);
+  assert.match(archive, /32<\/span> transmissions published/);
   assert.equal(archive.includes('id="social-packet-desk"'), false);
   assert.equal(/Social Packet Desk|Open carousel|Download ZIP|View caption/i.test(archive), false);
   assert.equal(/\/social\/transmission-[^"']+/i.test(archive), false);

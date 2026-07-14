@@ -102,21 +102,21 @@ test('transmission 26 publishes the brain-selected real estate cell with bounded
     assert.equal(transmission.toLowerCase().includes(blocked.toLowerCase()), false);
   }
 
-  assert.ok(archive.includes('"numberOfItems":32'), 'archive JSON-LD should count 32 transmissions');
+  assert.ok(archive.includes('"numberOfItems":33'), 'archive JSON-LD should count 33 transmissions');
   assert.ok(archive.includes('/transmissions/26-property-sales-intelligence-cell'), 'archive missing Transmission 26 route');
-  assert.ok(archive.includes('<dt>31</dt>'), 'archive metric should show 31 transmissions');
+  assert.ok(archive.includes('<dt>32</dt>'), 'archive metric should show 32 transmissions');
   assert.ok(homepage.includes('/transmissions/27-the-quotation-cell'), 'homepage latest teaser should point to Transmission 27');
   assert.ok(sitemap.includes('https://www.unwindcode.ai/transmissions/26-property-sales-intelligence-cell'), 'sitemap missing Transmission 26');
   assert.ok(sitemap.includes('https://www.unwindcode.ai/social/transmission-26-property-sales-intelligence-cell/carousel'), 'sitemap missing Transmission 26 carousel');
   assert.ok(llms.includes('Transmission 26: https://www.unwindcode.ai/transmissions/26-property-sales-intelligence-cell'), 'llms missing Transmission 26');
   assert.ok(llms.includes('Transmission 26 social carousel: https://www.unwindcode.ai/social/transmission-26-property-sales-intelligence-cell/carousel#slide-1'), 'llms missing Transmission 26 carousel');
   assert.ok(llms.includes('https://www.unwindcode.ai/social/transmission-26-property-sales-intelligence-cell/downloads/transmission-26-property-sales-intelligence-cell.zip'), 'llms missing Transmission 26 carousel ZIP');
-  assert.ok(llms.includes('31 dispatches as a proof library'), 'llms should update library count');
+  assert.ok(llms.includes('32 dispatches as a proof library'), 'llms should update library count');
   assert.ok(llms.includes('dependency-free semantic HTML and shared CSS'), 'llms missing Transmission 26 dependency-free authority scale note');
   assert.ok(services.includes('"id": "transmission_26"'), 'ai-services missing Transmission 26 proof artifact');
   assert.ok(services.includes('"id": "transmission_26_social_carousel"'), 'ai-services missing Transmission 26 social carousel');
   assert.ok(services.includes('"download_packet": "https://www.unwindcode.ai/social/transmission-26-property-sales-intelligence-cell/downloads/transmission-26-property-sales-intelligence-cell.zip"'), 'ai-services missing Transmission 26 carousel ZIP');
-  assert.ok(services.includes('"total_transmissions": 31'), 'ai-services should update transmission count');
+  assert.ok(services.includes('"total_transmissions": 32'), 'ai-services should update transmission count');
   assert.ok(services.includes('"audience": "real_estate_teams"'), 'ai-services missing real estate audience boundary');
   assert.ok(services.includes('"interface_boundary": "The authority scale is rendered as semantic HTML and shared CSS'), 'ai-services missing dependency-free interface boundary');
 
@@ -189,20 +189,20 @@ test('transmission 27 publishes the quotation cell without private business name
     assert.equal(carousel.toLowerCase().includes(lowered), false, `Transmission 27 carousel contains ${blocked}`);
   }
 
-  assert.ok(archive.includes('"numberOfItems":32'), 'archive JSON-LD should count 32 transmissions');
+  assert.ok(archive.includes('"numberOfItems":33'), 'archive JSON-LD should count 33 transmissions');
   assert.ok(archive.includes('/transmissions/27-the-quotation-cell'), 'archive missing Transmission 27 route');
-  assert.ok(archive.includes('<dt>31</dt>'), 'archive metric should show 31 transmissions');
+  assert.ok(archive.includes('<dt>32</dt>'), 'archive metric should show 32 transmissions');
   assert.ok(homepage.includes('/transmissions/27-the-quotation-cell'), 'homepage missing Transmission 27 teaser');
   assert.ok(sitemap.includes('https://www.unwindcode.ai/transmissions/27-the-quotation-cell'), 'sitemap missing Transmission 27');
   assert.ok(sitemap.includes('https://www.unwindcode.ai/social/transmission-27-quotation-cell/carousel'), 'sitemap missing Transmission 27 carousel');
   assert.ok(llms.includes('Transmission 27: https://www.unwindcode.ai/transmissions/27-the-quotation-cell'), 'llms missing Transmission 27');
   assert.ok(llms.includes('Transmission 27 social carousel: https://www.unwindcode.ai/social/transmission-27-quotation-cell/carousel#slide-1'), 'llms missing Transmission 27 carousel');
   assert.ok(llms.includes('https://www.unwindcode.ai/social/transmission-27-quotation-cell/downloads/transmission-27-quotation-cell.zip'), 'llms missing Transmission 27 carousel ZIP');
-  assert.ok(llms.includes('31 dispatches as a proof library'), 'llms should update library count');
+  assert.ok(llms.includes('32 dispatches as a proof library'), 'llms should update library count');
   assert.ok(services.includes('"id": "transmission_27"'), 'ai-services missing Transmission 27 proof artifact');
   assert.ok(services.includes('"id": "transmission_27_social_carousel"'), 'ai-services missing Transmission 27 social carousel');
   assert.ok(services.includes('"privacy_boundary": "Public copy abstracts the domain cell'), 'ai-services missing private business name boundary');
-  assert.ok(services.includes('"total_transmissions": 31'), 'ai-services should update transmission count');
+  assert.ok(services.includes('"total_transmissions": 32'), 'ai-services should update transmission count');
 
   const asset = manifest.assets.find(item => item.id === 'transmission-27-social-carousel');
   assert.ok(asset, 'asset manifest missing Transmission 27 social carousel');

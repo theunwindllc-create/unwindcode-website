@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Transmission 32: The Silent Truncation | Unwind Code</title>
+  <meta name="description" content="A whitepaper-grade Brain guide for the Silent Truncation: how valid-but-wrong input killed the organism's presentation layer without a symptom, and the three structural invariants — integrity, name/form parity, provenance continuity — that now make truncation loud." />
+  <meta name="theme-color" content="#06060c" />
+  <link rel="canonical" href="https://www.unwindcode.ai/transmissions/32-the-silent-truncation" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="The Silent Truncation" />
+  <meta property="og:description" content="The most dangerous failures do not crash. They are absorbed as valid input. How one missing brace silenced 1,300 lines of law, and how the organism learned to feel that pain." />
+  <meta property="og:url" content="https://www.unwindcode.ai/transmissions/32-the-silent-truncation" />
+  <meta property="og:site_name" content="Unwind Code" />
+  <meta property="og:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
+  <meta property="og:image:type" content="image/svg+xml" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Unwind Code AI organism architecture lab visual" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Silent Truncation" />
+  <meta name="twitter:description" content="A compact whitepaper for the valid-but-wrong failure class: structural invariants, name/form parity, and provenance continuity as immune-system organs." />
+  <meta name="twitter:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
+  <meta name="twitter:image:alt" content="Unwind Code AI organism architecture lab visual" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Silent Truncation",
+    "description": "A whitepaper-grade Brain guide for the Silent Truncation: valid-but-wrong input, dead presentation law, name/form parity, and provenance continuity as enforced organism invariants.",
+    "author": {"@type": "Organization", "name": "Unwind Code"},
+    "publisher": {"@type": "Organization", "name": "Unwind Code", "url": "https://www.unwindcode.ai"},
+    "datePublished": "2026-07-14",
+    "dateModified": "2026-07-14",
+    "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/32-the-silent-truncation"
+  }
+  </script>
+  <style>
+    :root {
+      --slt-ink: #f4f1ea;
+      --slt-muted: rgba(244, 241, 234, 0.68);
+      --slt-line: rgba(244, 241, 234, 0.12);
+      --slt-rose: #e2798f;
+      --slt-cyan: #74d4cd;
+      --slt-gold: #d8b96c;
+      --slt-iris: #9d8cff;
+      --slt-green: #9cd47d;
+      --slt-panel: rgba(13, 15, 22, 0.84);
+      --slt-panel-strong: rgba(18, 21, 30, 0.95);
+    }
+    .slt-page { background: var(--bg-void); color: var(--text-primary); overflow-x: hidden; }
+    .slt-page *, .slt-page *::before, .slt-page *::after { box-sizing: border-box; }
+
+    .slt-hero {
+      position: relative;
+      min-height: 92vh;
+      padding: 150px 0 74px;
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      border-bottom: 1px solid var(--slt-line);
+      background:
+        radial-gradient(circle at 14% 20%, rgba(226, 121, 143, 0.16), transparent 27%),
+        radial-gradient(circle at 86% 24%, rgba(116, 212, 205, 0.15), transparent 28%),
+        radial-gradient(circle at 52% 100%, rgba(157, 140, 255, 0.12), transparent 30%),
+        linear-gradient(147deg, rgba(5, 7, 13, 0.99), rgba(3, 5, 10, 1));
+    }
+    .slt-hero::before {
+      content: "";
+      position: absolute;
+      inset: -18%;
+      opacity: 0.16;
+      background-image:
+        linear-gradient(rgba(244, 241, 234, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(244, 241, 234, 0.08) 1px, transparent 1px);
+      background-size: 62px 62px;
+      transform: rotate(-4deg);
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.95), transparent 82%);
+    }
+    .slt-hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.04fr) minmax(320px, 0.7fr);
+      gap: 42px;
+      align-items: center;
+    }
+    .slt-kicker {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid rgba(226, 121, 143, 0.36);
+      border-radius: 999px;
+      padding: 8px 13px;
+      background: rgba(226, 121, 143, 0.09);
+      color: var(--slt-rose);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .slt-hero h1 {
+      max-width: 940px;
+      margin: 22px 0 22px;
+      font-size: clamp(2.6rem, 7vw, 5rem);
+      line-height: 0.97;
+      font-weight: 900;
+    }
+    .slt-hero-sub {
+      max-width: 640px;
+      color: var(--slt-muted);
+      font-size: 1.06rem;
+      line-height: 1.75;
+    }
+    .slt-hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .slt-hero-meta span {
+      border: 1px solid var(--slt-line);
+      border-radius: 999px;
+      padding: 7px 12px;
+      color: var(--slt-muted);
+      background: rgba(10, 12, 18, 0.6);
+    }
+    .slt-wound {
+      position: relative;
+      border: 1px solid var(--slt-line);
+      border-radius: 12px;
+      background: var(--slt-panel-strong);
+      padding: 22px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.8rem;
+      line-height: 1.7;
+      color: var(--slt-muted);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+    .slt-wound-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      color: var(--slt-ink);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .slt-wound-title em { color: var(--slt-rose); font-style: normal; }
+    .slt-wound code { color: var(--slt-cyan); }
+    .slt-wound .cut { color: var(--slt-rose); font-weight: 700; }
+    .slt-wound .ghost { opacity: 0.42; }
+
+    .slt-section { padding: 78px 0; border-bottom: 1px solid var(--slt-line); }
+    .slt-section-head {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 14px;
+      font-family: "JetBrains Mono", monospace;
+    }
+    .slt-section-head .num { color: var(--slt-gold); font-size: 0.86rem; font-weight: 700; }
+    .slt-section-head h2 { font-size: clamp(1.7rem, 3.4vw, 2.5rem); font-weight: 800; letter-spacing: -0.02em; }
+    .slt-lead { max-width: 760px; color: var(--slt-muted); font-size: 1.02rem; line-height: 1.78; margin-bottom: 16px; }
+    .slt-prose { max-width: 760px; color: var(--slt-muted); font-size: 0.96rem; line-height: 1.8; }
+    .slt-prose + .slt-prose { margin-top: 14px; }
+    .slt-prose strong { color: var(--slt-ink); }
+    .slt-prose code { font-family: "JetBrains Mono", monospace; font-size: 0.85em; color: var(--slt-cyan); }
+
+    /* ── Interactive 1: truncation poisoning console ── */
+    .slt-poison {
+      margin-top: 34px;
+      border: 1px solid var(--slt-line);
+      border-radius: 12px;
+      background: var(--slt-panel);
+      overflow: hidden;
+    }
+    .slt-poison-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--slt-line);
+    }
+    .slt-poison-bar h3 { font-size: 0.95rem; font-weight: 700; }
+    .slt-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(226, 121, 143, 0.4);
+      border-radius: 999px;
+      background: rgba(226, 121, 143, 0.1);
+      color: var(--slt-ink);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 9px 15px;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .slt-toggle:hover, .slt-toggle:focus-visible { background: rgba(226, 121, 143, 0.2); }
+    .slt-toggle[aria-pressed="true"] { border-color: rgba(156, 212, 125, 0.5); background: rgba(156, 212, 125, 0.12); }
+    .slt-poison-grid { display: grid; grid-template-columns: 1fr 1fr; }
+    .slt-poison-col { padding: 20px; font-family: "JetBrains Mono", monospace; font-size: 0.76rem; line-height: 1.8; }
+    .slt-poison-col + .slt-poison-col { border-left: 1px solid var(--slt-line); }
+    .slt-poison-col h4 {
+      margin-bottom: 12px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--slt-muted);
+    }
+    .slt-poison-col pre { white-space: pre-wrap; word-break: break-word; margin: 0; }
+    .slt-brace { color: var(--slt-rose); font-weight: 700; }
+    .slt-sel { color: var(--slt-cyan); }
+    .slt-dead { color: var(--slt-rose); }
+    .slt-alive { color: var(--slt-green); }
+    .slt-poison-verdict {
+      padding: 14px 20px;
+      border-top: 1px solid var(--slt-line);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.76rem;
+      color: var(--slt-muted);
+    }
+    .slt-poison-verdict strong { color: var(--slt-rose); }
+    .slt-poison[data-state="healed"] .slt-poison-verdict strong { color: var(--slt-green); }
+
+    /* ── Interactive 2: invariant explorer ── */
+    .slt-invariants { margin-top: 34px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .slt-invariant {
+      border: 1px solid var(--slt-line);
+      border-radius: 12px;
+      background: var(--slt-panel);
+      padding: 0;
+      overflow: hidden;
+    }
+    .slt-invariant > summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 18px;
+      display: grid;
+      gap: 8px;
+    }
+    .slt-invariant > summary::-webkit-details-marker { display: none; }
+    .slt-invariant .tag {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.64rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+    .slt-invariant:nth-of-type(1) .tag { color: var(--slt-rose); }
+    .slt-invariant:nth-of-type(2) .tag { color: var(--slt-cyan); }
+    .slt-invariant:nth-of-type(3) .tag { color: var(--slt-gold); }
+    .slt-invariant h3 { font-size: 1rem; font-weight: 700; line-height: 1.35; }
+    .slt-invariant[open] { border-color: rgba(244, 241, 234, 0.3); }
+    .slt-invariant-body { padding: 0 18px 18px; display: grid; gap: 10px; }
+    .slt-invariant-body p { font-size: 0.86rem; line-height: 1.7; color: var(--slt-muted); }
+    .slt-invariant-body .row { border-top: 1px solid var(--slt-line); padding-top: 10px; }
+    .slt-invariant-body .row b {
+      display: block;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.62rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--slt-ink);
+      margin-bottom: 4px;
+    }
+
+    /* ── Interactive 3: healing protocol timeline ── */
+    .slt-protocol { margin-top: 34px; display: grid; gap: 0; }
+    .slt-step { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 16px; }
+    .slt-step-rail { display: grid; justify-items: center; grid-template-rows: auto 1fr; }
+    .slt-step-dot {
+      width: 30px; height: 30px;
+      display: grid; place-items: center;
+      border-radius: 50%;
+      border: 1px solid var(--slt-line);
+      background: var(--slt-panel-strong);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.62rem;
+      font-weight: 800;
+      color: var(--slt-gold);
+    }
+    .slt-step-line { width: 1px; background: var(--slt-line); }
+    .slt-step:last-child .slt-step-line { display: none; }
+    .slt-step-card { padding: 2px 0 30px; }
+    .slt-step-card button {
+      all: unset;
+      box-sizing: border-box;
+      cursor: pointer;
+      display: block;
+      width: 100%;
+      border: 1px solid var(--slt-line);
+      border-radius: 10px;
+      background: var(--slt-panel);
+      padding: 14px 16px;
+      transition: border-color 0.2s ease;
+    }
+    .slt-step-card button:hover, .slt-step-card button:focus-visible { border-color: rgba(244, 241, 234, 0.34); }
+    .slt-step-card h3 { font-size: 0.95rem; font-weight: 700; }
+    .slt-step-card .slt-step-detail { display: none; margin-top: 10px; font-size: 0.86rem; line-height: 1.7; color: var(--slt-muted); }
+    .slt-step-card [aria-expanded="true"] .slt-step-detail { display: block; }
+    .slt-step-card [aria-expanded="true"] { border-color: rgba(116, 212, 205, 0.42); }
+
+    /* ── Interactive 4: proof ledger console ── */
+    .slt-ledger { margin-top: 34px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .slt-ledger-card {
+      border: 1px solid var(--slt-line);
+      border-radius: 12px;
+      background: var(--slt-panel);
+      padding: 18px;
+      display: grid;
+      gap: 10px;
+    }
+    .slt-ledger-card h3 { font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; font-family: "JetBrains Mono", monospace; color: var(--slt-muted); }
+    .slt-meter { display: grid; gap: 6px; }
+    .slt-meter-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: center; font-size: 0.84rem; color: var(--slt-muted); }
+    .slt-meter-row strong { font-family: "JetBrains Mono", monospace; color: var(--slt-ink); }
+    .slt-meter-bar { height: 7px; border-radius: 999px; background: rgba(244, 241, 234, 0.08); overflow: hidden; }
+    .slt-meter-fill { display: block; height: 100%; width: 0; border-radius: inherit; transition: width 1s ease; }
+    .slt-meter-fill.bad { background: linear-gradient(90deg, rgba(226,121,143,0.9), rgba(226,121,143,0.5)); }
+    .slt-meter-fill.good { background: linear-gradient(90deg, rgba(156,212,125,0.9), rgba(116,212,205,0.6)); }
+    .slt-ledger-note { font-size: 0.8rem; line-height: 1.65; color: var(--slt-muted); }
+    .slt-ledger-note code { font-family: "JetBrains Mono", monospace; color: var(--slt-cyan); font-size: 0.9em; }
+
+    .slt-boundary {
+      margin-top: 34px;
+      border: 1px solid rgba(216, 185, 108, 0.34);
+      border-radius: 12px;
+      background: rgba(216, 185, 108, 0.07);
+      padding: 20px;
+    }
+    .slt-boundary h3 {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--slt-gold);
+      margin-bottom: 10px;
+    }
+    .slt-boundary p { max-width: 780px; font-size: 0.92rem; line-height: 1.75; color: var(--slt-muted); }
+
+    .slt-cta { padding: 78px 0 96px; text-align: left; }
+    .slt-cta-links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 24px; }
+
+    @media (max-width: 900px) {
+      .slt-hero { min-height: 0; padding: 132px 0 58px; }
+      .slt-hero-grid { grid-template-columns: 1fr; gap: 30px; }
+      .slt-poison-grid { grid-template-columns: 1fr; }
+      .slt-poison-col + .slt-poison-col { border-left: 0; border-top: 1px solid var(--slt-line); }
+      .slt-invariants { grid-template-columns: 1fr; }
+      .slt-ledger { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="tx-page slt-page tx-release-page">
+
+  <nav id="nav" class="scrolled">
+    <a href="/" class="nav-brand" aria-label="Unwind Code home">
+      <span class="nav-glyph">∞</span>
+      <span class="nav-name">unwind<span class="nav-accent">code</span></span>
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="nav-links">
+      <a href="/">Home</a>
+      <a href="/organisms">Organisms</a>
+      <a href="/architecture">Architecture</a>
+      <a href="/proof">Proof</a>
+      <a href="/transmissions" class="active" aria-current="page">Transmissions</a>
+      <a href="/philosophy">Philosophy</a>
+    </div>
+    <div class="nav-actions">
+      <a href="/build-with-us" class="nav-cta">Build With Us</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HERO -->
+    <header class="slt-hero">
+      <div class="container slt-hero-grid">
+        <div>
+          <span class="slt-kicker">Transmission 32 · Failure Theory · Manual Brain Mode</span>
+          <h1>The Silent Truncation</h1>
+          <p class="slt-hero-sub">
+            The most dangerous failures do not crash. They are absorbed as valid input.
+            On 2026-07-03 a merge cut two closing braces out of this organism's stylesheet, and under
+            native CSS nesting the wound was legal syntax: the final 1,300 lines of presentation law —
+            every mobile rule, every lab-page style — were silently re-parented under an image element
+            that never contained them. Builds stayed green. Tests stayed green. The skin was dead for
+            eleven days, because no gate had been told the skin was an organ worth guarding.
+          </p>
+          <div class="slt-hero-meta">
+            <span>Field: valid-but-wrong input</span>
+            <span>Wound: 2 braces, 1,300 dead lines</span>
+            <span>Healed: commit 48ee77d</span>
+          </div>
+        </div>
+        <figure class="slt-wound" aria-label="The exact wound: a CSS rule truncated mid-block">
+          <figcaption class="slt-wound-title"><span>style.css · line 7676</span><em>the wound</em></figcaption>
+          <pre>.tx-social-kicker <span class="slt-brace">{</span>
+  display: inline-block;
+  margin-bottom: 12px;
+  color: var(--accent-hot);
+<span class="cut">/* merge cut here — no closing brace */</span>
+.tx-next-section <span class="slt-brace">{</span>
+  border-bottom: 0;
+<span class="slt-brace">}</span>
+<span class="ghost">/* …1,300 lines of law, now
+   descendants of an &lt;img&gt;,
+   matching nothing, forever */</span></pre>
+        </figure>
+      </div>
+    </header>
+
+    <div class="container">
+
+      <!-- 01 THESIS -->
+      <section class="slt-section" aria-labelledby="slt-thesis">
+        <div class="slt-section-head"><span class="num">01 / Thesis</span></div>
+        <h2 id="slt-thesis">Ergonomics turned corruption into a feature.</h2>
+        <p class="slt-lead">
+          Every layer of modern tooling has chosen reinterpretation over rejection. CSS nesting made a
+          missing brace a feature. Clean-URL routing made a wrong link a redirect. Permissive registries
+          made a stale digest just data. Each choice is locally reasonable and globally corrosive,
+          because the organism loses its ability to feel pain in exactly the layers it shows the world.
+        </p>
+        <p class="slt-prose">
+          We name this failure class <strong>valid-but-wrong</strong>: input that a parser accepts and
+          executes with semantics the author never intended. It is distinct from an error, which is
+          rejected, and from a bug, which is wrong logic inside right structure. Valid-but-wrong is
+          right structure grown around wrong meaning — and it is invisible precisely because everything
+          downstream keeps working.
+        </p>
+        <p class="slt-prose">
+          The same week the stylesheet died, a second silent disagreement surfaced: 61 of 62 sitemap
+          URLs and all 46 canonical tags pointed at redirecting variants of the organism's own pages.
+          The organism's public <strong>name</strong> disagreed with its served <strong>form</strong>,
+          and search infrastructure recorded the disagreement as indexing failure. Two wounds, one
+          class: the platform absorbed both as valid.
+        </p>
+
+        <!-- INTERACTIVE 1 -->
+        <div class="slt-poison" id="slt-poison" data-state="wounded">
+          <div class="slt-poison-bar">
+            <h3>Truncation console — watch one brace kill 1,300 lines</h3>
+            <button class="slt-toggle" id="slt-poison-toggle" aria-pressed="false">Close the brace</button>
+          </div>
+          <div class="slt-poison-grid">
+            <div class="slt-poison-col">
+              <h4>What the author wrote</h4>
+              <pre id="slt-poison-src"><span class="slt-sel">.tx-social-previews img</span> <span class="slt-brace">{</span>
+  object-fit: cover;
+<span class="slt-brace" id="slt-the-brace">/* } missing */</span>
+
+<span class="slt-sel">@media (max-width: 900px)</span> <span class="slt-brace">{</span>
+  <span class="slt-sel">.transmission-atlas-layout</span> <span class="slt-brace">{</span>
+    grid-template-columns: 1fr;
+  <span class="slt-brace">}</span>
+<span class="slt-brace">}</span></pre>
+            </div>
+            <div class="slt-poison-col">
+              <h4>What the bundler shipped</h4>
+              <pre id="slt-poison-out"><span class="slt-dead">.tx-social-previews img
+  .transmission-atlas-layout {
+  /* nested: matches nothing.
+     Mobile collapse: DEAD.
+     Lab pages: DEAD.
+     Build: green. */
+}</span></pre>
+            </div>
+          </div>
+          <p class="slt-poison-verdict" id="slt-poison-verdict">
+            State: <strong>wounded</strong> — the parser accepted the truncation as CSS nesting. No error, no warning a human read, no failing test.
+          </p>
+        </div>
+      </section>
+
+      <!-- 02 THEORY -->
+      <section class="slt-section" aria-labelledby="slt-theory">
+        <div class="slt-section-head"><span class="num">02 / Theory</span></div>
+        <h2 id="slt-theory">Fail-closed systems reject. Fail-silent systems reinterpret.</h2>
+        <p class="slt-lead">
+          An organism that grows by merging generated or restored material — grafts, cells, recovered
+          branches — must assume merges can truncate, and must hold invariants that make truncation loud.
+        </p>
+        <p class="slt-prose">
+          The Unwind execution layers already fail closed: money motion, file writes, and public posting
+          stop at approval gates. But the presentation and discovery layers — the skin and the name —
+          had no such gates, because they were treated as assets rather than claims. The theory shift of
+          this transmission: <strong>everything the organism publishes about itself is a claim</strong>,
+          and claims need verification organs. The skin is an organ. The name is an organ. Both can rot
+          silently if the immune system cannot see them.
+        </p>
+
+        <!-- INTERACTIVE 2 -->
+        <div class="slt-invariants">
+          <details class="slt-invariant" open>
+            <summary>
+              <span class="tag">Invariant I</span>
+              <h3>Structural integrity — the artifact parses to what was written.</h3>
+            </summary>
+            <div class="slt-invariant-body">
+              <p>The stylesheet must balance to depth zero, and the built bundle must contain no selector nested under a leaf element. The poisoning signature is greppable; the balance scan is one pass over the file.</p>
+              <div class="row"><b>Signal</b>Brace depth ≠ 0; descendant-of-<code>img</code> selectors in the bundle.</div>
+              <div class="row"><b>Gate</b>Verified before deploy; a wound this shape can no longer ship quietly.</div>
+            </div>
+          </details>
+          <details class="slt-invariant">
+            <summary>
+              <span class="tag">Invariant II</span>
+              <h3>Name/form parity — every published URL resolves to the surface it names.</h3>
+            </summary>
+            <div class="slt-invariant-body">
+              <p>Canonicals, sitemap entries, internal links, and registry routes must return the page directly — no redirects, no drift. Routes are names; files are files; the two never mix.</p>
+              <div class="row"><b>Signal</b>A sitemap URL answering 308 instead of 200; a canonical pointing away from its own page.</div>
+              <div class="row"><b>Gate</b>The URL Contract: extensionless routes, no trailing slashes, enforced across sitemap, metadata, links, and registries.</div>
+            </div>
+          </details>
+          <details class="slt-invariant">
+            <summary>
+              <span class="tag">Invariant III</span>
+              <h3>Provenance continuity — names and hashes stay bound under change.</h3>
+            </summary>
+            <div class="slt-invariant-body">
+              <p>Asset packages bind route names and file hashes into a canonical digest; approval records reference the digest. Renaming a route or touching a registered file without recomputing breaks the chain — and the registry fails closed.</p>
+              <div class="row"><b>Signal</b>A digest that no longer matches its canonical payload.</div>
+              <div class="row"><b>Gate</b>Mechanical renames recompute digests in one reviewed step; content changes require a fresh human approval record.</div>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- 03 PROTOCOL -->
+      <section class="slt-section" aria-labelledby="slt-protocol-title">
+        <div class="slt-section-head"><span class="num">03 / Protocol</span></div>
+        <h2 id="slt-protocol-title">The healing protocol, as it actually ran.</h2>
+        <p class="slt-lead">
+          Seven steps, each producing evidence the next step could stand on. Restore from history, never
+          rewrite from memory.
+        </p>
+
+        <!-- INTERACTIVE 3 -->
+        <div class="slt-protocol" id="slt-protocol">
+          <div class="slt-step">
+            <div class="slt-step-rail"><span class="slt-step-dot">01</span><span class="slt-step-line"></span></div>
+            <div class="slt-step-card"><button type="button" aria-expanded="false"><h3>Observe — render the organism the way a phone does.</h3>
+              <span class="slt-step-detail">Emulated 390px viewport across thirteen key pages. Probe: does the page scroll sideways; which elements cross the viewport edge. The transmissions library measured 576px wide on a 390px screen.</span></button></div>
+          </div>
+          <div class="slt-step">
+            <div class="slt-step-rail"><span class="slt-step-dot">02</span><span class="slt-step-line"></span></div>
+            <div class="slt-step-card"><button type="button" aria-expanded="false"><h3>Localize — scan structure, not symptoms.</h3>
+              <span class="slt-step-detail">A brace-balance pass over the stylesheet found depth 2 at end-of-file and named both unclosed blocks with line numbers. Grepping the shipped bundle for the poisoned descendant prefix confirmed the blast radius.</span></button></div>
+          </div>
+          <div class="slt-step">
+            <div class="slt-step-rail"><span class="slt-step-dot">03</span><span class="slt-step-line"></span></div>
+            <div class="slt-step-card"><button type="button" aria-expanded="false"><h3>Restore — recover the truncated declarations from history.</h3>
+              <span class="slt-step-detail">The intact rules existed in an earlier commit. Restoration copied them verbatim; nothing was reconstructed from memory, so nothing could be quietly wrong twice.</span></button></div>
+          </div>
+          <div class="slt-step">
+            <div class="slt-step-rail"><span class="slt-step-dot">04</span><span class="slt-step-line"></span></div>
+            <div class="slt-step-card"><button type="button" aria-expanded="false"><h3>Rename — align every published name with the served form.</h3>
+              <span class="slt-step-detail">Sitemaps, canonicals, og:urls, internal links, registry routes, and llms.txt moved to the extensionless, slash-free form the platform actually serves. Old URLs still redirect inward; the organism no longer emits them about itself.</span></button></div>
+          </div>
+          <div class="slt-step">
+            <div class="slt-step-rail"><span class="slt-step-dot">05</span><span class="slt-step-line"></span></div>
+            <div class="slt-step-card"><button type="button" aria-expanded="false"><h3>Re-bind — recompute provenance under the new names.</h3>
+              <span class="slt-step-detail">Route strings participate in asset-package digests. A single reviewed migration refreshed file hashes, package digests, and approval-record references — the chain stayed continuous instead of being deleted and re-asserted.</span></button></div>
+          </div>
+          <div class="slt-step">
+            <div class="slt-step-rail"><span class="slt-step-dot">06</span><span class="slt-step-line"></span></div>
+            <div class="slt-step-card"><button type="button" aria-expanded="false"><h3>Re-arm — teach the immune system the platform's own semantics.</h3>
+              <span class="slt-step-detail">The test suite now resolves routes exactly as the host does — extensionless route, then file, then directory index — so the spec can no longer certify names the platform will not serve.</span></button></div>
+          </div>
+          <div class="slt-step">
+            <div class="slt-step-rail"><span class="slt-step-dot">07</span><span class="slt-step-line"></span></div>
+            <div class="slt-step-card"><button type="button" aria-expanded="false"><h3>Prove — publish evidence a reader can re-run.</h3>
+              <span class="slt-step-detail">Every sitemap URL answers 200. Zero horizontal overflow at 390px across thirteen pages. Zero poisoned selectors in the bundle. The claims in this transmission are checkable today, from outside.</span></button></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 BUILD RECIPE -->
+      <section class="slt-section" aria-labelledby="slt-recipe">
+        <div class="slt-section-head"><span class="num">04 / Build recipe</span></div>
+        <h2 id="slt-recipe">How the Brain should use this failure class.</h2>
+        <p class="slt-lead">
+          A future cell inheriting this memory should treat any merge, restore, or generated artifact as
+          a suspect until three questions answer clean.
+        </p>
+        <p class="slt-prose">
+          <strong>Does the artifact parse to what was written?</strong> Run the structural invariant for
+          the format at hand — brace balance for CSS, schema validation for JSON, well-formedness for XML —
+          and inspect the <em>compiled</em> output for reinterpretation signatures, not just the source.
+        </p>
+        <p class="slt-prose">
+          <strong>Does every name the system publishes resolve to its form?</strong> Walk the sitemap,
+          canonicals, and registry routes; anything that redirects or 404s is the system lying about
+          itself. Fix the name or the form, never tolerate the drift.
+        </p>
+        <p class="slt-prose">
+          <strong>Is provenance still bound?</strong> If names or files changed, digests must be
+          recomputed in the same reviewed change — a provenance chain that can drift is a provenance
+          chain that can be forged.
+        </p>
+
+        <!-- INTERACTIVE 4 -->
+        <div class="slt-ledger">
+          <div class="slt-ledger-card">
+            <h3>Before — 2026-07-03 → 07-14</h3>
+            <div class="slt-meter">
+              <div class="slt-meter-row"><span>Sitemap URLs redirecting</span><strong>61 / 62</strong></div>
+              <div class="slt-meter-bar"><span class="slt-meter-fill bad" data-w="98"></span></div>
+              <div class="slt-meter-row"><span>Stylesheet law dead in production</span><strong>~1,300 lines</strong></div>
+              <div class="slt-meter-bar"><span class="slt-meter-fill bad" data-w="100"></span></div>
+              <div class="slt-meter-row"><span>Library page width on a 390px phone</span><strong>576px</strong></div>
+              <div class="slt-meter-bar"><span class="slt-meter-fill bad" data-w="68"></span></div>
+            </div>
+            <p class="slt-ledger-note">Eleven days wounded. Builds green the entire time.</p>
+          </div>
+          <div class="slt-ledger-card">
+            <h3>After — commit <span style="text-transform:none">48ee77d</span>, live-verified</h3>
+            <div class="slt-meter">
+              <div class="slt-meter-row"><span>Sitemap URLs answering 200</span><strong>62 / 62</strong></div>
+              <div class="slt-meter-bar"><span class="slt-meter-fill good" data-w="100"></span></div>
+              <div class="slt-meter-row"><span>Poisoned selectors in the shipped bundle</span><strong>0</strong></div>
+              <div class="slt-meter-bar"><span class="slt-meter-fill good" data-w="100"></span></div>
+              <div class="slt-meter-row"><span>Pages overflowing at 390px (of 13 probed)</span><strong>0</strong></div>
+              <div class="slt-meter-bar"><span class="slt-meter-fill good" data-w="100"></span></div>
+            </div>
+            <p class="slt-ledger-note">Verification is re-runnable: probe the live sitemap, measure the live pages, grep the live bundle.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 APPROVAL BOUNDARY -->
+      <section class="slt-section" aria-labelledby="slt-boundary-title">
+        <div class="slt-section-head"><span class="num">05 / Approval boundary</span></div>
+        <h2 id="slt-boundary-title">What this healing did not claim.</h2>
+        <div class="slt-boundary">
+          <h3>Manual Brain Mode — stated plainly</h3>
+          <p>
+            This healing was performed in an operator-directed agent session under explicit human
+            authority — not by an unattended loop. Provenance digests were recomputed only for the
+            mechanical rename of already-approved content; content changes still require a fresh human
+            approval record. Publishing this transmission required creator approval, and posting assets
+            for this transmission remain internal creator material: no automatic social posting, no
+            live wallet authority, no unreviewed autonomous action is implied or claimed.
+          </p>
+        </div>
+      </section>
+
+      <!-- 06 NEXT-CELL MEMORY -->
+      <section class="slt-section" aria-labelledby="slt-memory">
+        <div class="slt-section-head"><span class="num">06 / Next-cell memory</span></div>
+        <h2 id="slt-memory">What the next cell inherits.</h2>
+        <p class="slt-prose">
+          <strong>Open gate:</strong> the organism still carries one deliberate spec conflict — the
+          shipped discovery files list production social packets while the live parity contract forbids
+          social links on discovery surfaces. Which spec wins is a creator decision, recorded here so it
+          cannot become another silent disagreement.
+        </p>
+        <p class="slt-prose">
+          <strong>Candidate invariants for the next build:</strong> a structural-integrity check in the
+          build path that fails on brace imbalance and bundle-poisoning signatures; a live sitemap-200
+          probe inside the parity checker; and a rendered-width gate that treats horizontal overflow at
+          phone width as a failing state, not a cosmetic one. Ready is not the same as verified —
+          <strong>the skin is an organ, and organs get immune coverage.</strong>
+        </p>
+      </section>
+
+      <!-- CTA -->
+      <div class="slt-cta">
+        <h2 style="font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 800;">Inspect the organism yourself.</h2>
+        <p class="slt-prose" style="margin-top: 12px;">
+          The proof ledger holds the artifacts. The architecture page holds the operating model this
+          transmission hardened. The archive holds the thirty-one records before this one.
+        </p>
+        <div class="slt-cta-links">
+          <a class="btn btn-primary" href="/proof"><span>Open the proof ledger</span><span class="btn-arrow">→</span></a>
+          <a class="btn btn-ghost" href="/transmissions">Back to transmissions</a>
+          <a class="btn btn-ghost" href="/architecture">See the architecture</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer id="footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="/" class="nav-brand" aria-label="Unwind Code home">
+          <span class="nav-glyph">∞</span>
+          <span class="nav-name">unwind<span class="nav-accent">code</span></span>
+        </a>
+        <p class="footer-tag">Intelligence that evolves, under proof.</p>
+      </div>
+      <nav aria-label="Footer">
+        <a href="/organisms">Organisms</a>
+        <a href="/architecture">Architecture</a>
+        <a href="/proof">Proof</a>
+        <a href="/transmissions">Transmissions</a>
+        <a href="/build-with-us">Build With Us</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script type="module">
+    // Nav toggle (matches sitewide behavior)
+    const navToggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', String(open));
+      });
+    }
+
+    // Interactive 1: truncation console
+    const poison = document.getElementById('slt-poison');
+    const poisonToggle = document.getElementById('slt-poison-toggle');
+    const poisonBrace = document.getElementById('slt-the-brace');
+    const poisonOut = document.getElementById('slt-poison-out');
+    const poisonVerdict = document.getElementById('slt-poison-verdict');
+    if (poisonToggle) {
+      poisonToggle.addEventListener('click', () => {
+        const healed = poison.dataset.state !== 'healed';
+        poison.dataset.state = healed ? 'healed' : 'wounded';
+        poisonToggle.setAttribute('aria-pressed', String(healed));
+        poisonToggle.textContent = healed ? 'Cut the brace again' : 'Close the brace';
+        if (healed) {
+          poisonBrace.textContent = '}';
+          poisonBrace.className = 'slt-alive';
+          poisonOut.innerHTML = '<span class="slt-alive">.tx-social-previews img {\n  object-fit: cover;\n}\n@media (max-width: 900px) {\n  .transmission-atlas-layout {\n    grid-template-columns: 1fr;\n  }\n  /* Mobile collapse: ALIVE. */\n}</span>';
+          poisonVerdict.innerHTML = 'State: <strong>healed</strong> — one character restored 1,300 lines of law. The invariant, not the eyeball, is what notices next time.';
+        } else {
+          poisonBrace.textContent = '/* } missing */';
+          poisonBrace.className = 'slt-brace';
+          poisonOut.innerHTML = '<span class="slt-dead">.tx-social-previews img\n  .transmission-atlas-layout {\n  /* nested: matches nothing.\n     Mobile collapse: DEAD.\n     Lab pages: DEAD.\n     Build: green. */\n}</span>';
+          poisonVerdict.innerHTML = 'State: <strong>wounded</strong> — the parser accepted the truncation as CSS nesting. No error, no warning a human read, no failing test.';
+        }
+      });
+    }
+
+    // Interactive 3: protocol step expanders
+    document.querySelectorAll('#slt-protocol .slt-step-card button').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+      });
+    });
+
+    // Interactive 4: proof meters animate in view
+    const fills = document.querySelectorAll('.slt-meter-fill');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.width = `${entry.target.dataset.w}%`;
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    fills.forEach((fill) => io.observe(fill));
+  </script>
+</body>
+</html>
