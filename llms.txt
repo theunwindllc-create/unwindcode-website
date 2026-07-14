@@ -176,6 +176,10 @@ Unwind Code is an AI + Web3 architecture lab building governed AI organisms: mem
 - Transmission 25: https://www.unwindcode.ai/transmissions/25-the-homepage-learned-to-pulse
 - Transmission 26: https://www.unwindcode.ai/transmissions/26-property-sales-intelligence-cell
 - Transmission 27: https://www.unwindcode.ai/transmissions/27-the-quotation-cell
+- Transmission 28: https://www.unwindcode.ai/transmissions/28-the-memory-control-plane
+- Transmission 29: https://www.unwindcode.ai/transmissions/29-the-agent-readable-organism
+- Transmission 30: https://www.unwindcode.ai/transmissions/30-the-operator-readiness-layer
+- Transmission 31: https://www.unwindcode.ai/transmissions/31-the-active-source-of-truth-gate
 
 ## Transmission Library
 

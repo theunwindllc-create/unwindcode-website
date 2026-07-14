@@ -1,7 +1,7 @@
 # Unwind Code Website — Agent Instructions
 
 ## Repository
-`~/unwind-brain/unwind-website/unwindcode-website/`
+`~/unwind-brain/unwind-website/unwindcode-website/` (symlink; real location: `~/unwind-brain-external/unwind-website/unwindcode-website/`)
 
 ## Deployment
 - **Platform:** Vercel (connected to GitHub)
@@ -102,23 +102,63 @@ const chartColors = {
 };
 ```
 
+## URL Contract (locked 2026-07-14 — do not regress)
+
+Vercel serves **clean URLs** (`vercel.json`: `cleanUrls: true`, `trailingSlash: false`). Every URL the
+site publishes about itself MUST use the served form, or Google Search Console fills with
+"Page with redirect" errors (this happened; commit `48ee77d` fixed 61 of 62 sitemap URLs being 308s):
+
+- Page routes are **extensionless**: `/transmissions/27-the-quotation-cell`, never `...-cell.html`.
+- Directory pages have **no trailing slash**: `/organisms`, `/proof`, `/build-with-us`. Root stays `/`.
+- This applies to: `sitemap.xml` + `public/sitemap.xml` `<loc>` entries, `<link rel="canonical">`,
+  `og:url`, JSON-LD url fields, internal `<a href>` links, `llms.txt` + `public/llms.txt`,
+  `ai-services.json`, and every `route` / `source_route` / `site_routes` value in `public/data/*.json`.
+- **Disk-path fields keep `.html`**: `source_file`, `path`, provenance hash entries, and any
+  file read/write target. Routes are names; files are files. Never confuse the two.
+- The transmission HTML **file** is still created as `transmissions/NN-slug.html` — Vercel serves it
+  at the extensionless route automatically.
+- Old `.html` URLs 308-redirect to the clean form (fine for inbound links; never emit them yourself).
+- Registered asset provenance hashes bind `source_route` + file contents. After changing any
+  registered file or route, run `node scripts/recompute-asset-digests.mjs` (refreshes file sha256
+  entries, package digests, and approval-record digest references), then `npm test`.
+- Local clean-URL verification: `npx serve dist -l 4199` honors cleanUrls; `vite preview` does NOT
+  resolve extensionless routes — do not use it to judge routing.
+- Two discovery surfaces exist on purpose: root `sitemap.xml`/`llms.txt`/`ai-services.json` are what
+  ships (the Vite plugin copies them into `dist`, overwriting the `public/` copies); `public/sitemap.xml`
+  + `public/llms.txt` are the reduced public-RAG-seed surface that local parity and tests validate.
+  Update BOTH when adding a transmission.
+
 ## Adding a New Transmission
 
-1. Create `transmissions/NN-your-slug.html` using Transmission 15 as template
-2. Include at least 3 interactive elements from the table above
-3. Update `transmissions/index.html` — add new card at top of archive grid, update featured card
-4. Update `index.html` — swap first blog card to the new post
-5. Run `npm run build` to verify (Vite auto-discovers new HTML files)
-6. `git add -A && git commit && git push origin main`
-7. Vercel deploys automatically
+1. **Pick the next number** — check `transmissions/` for collisions first (07/08/09 share one slug
+   and two different files claim 27; do not add a third collision). Next free number: 32.
+2. Create `transmissions/NN-your-slug.html` using Transmission 15 as template. The page's canonical,
+   og:url, and JSON-LD urls use the extensionless route `https://www.unwindcode.ai/transmissions/NN-your-slug`.
+3. Include at least 3 interactive elements from the table above.
+4. Update `transmissions/index.html` — add new card at top of archive grid (href without `.html`),
+   update featured card and the JSON-LD `numberOfItems` count.
+5. Update `index.html` — swap first blog card to the new post (href without `.html`).
+6. Add the extensionless URL to **both** `sitemap.xml` and `public/sitemap.xml`, and list the route in
+   **both** `llms.txt` (Recommended Proof Artifacts) and `public/llms.txt`.
+7. Register the transmission in `public/data/transmissions.json` (`route` extensionless,
+   `source_file` with `.html`) and update `ai-services.json` metadata.
+8. If a social packet ships with it, register it and run `node scripts/recompute-asset-digests.mjs`.
+9. Run `npm test` (311+ tests must stay green) and `npm run check:public-parity`.
+10. Run `npm run build`, then `npx serve dist -l 4199` and load the extensionless route to verify.
+11. `git add -A && git commit && git push origin main` — ALWAYS commit before deploying.
+12. Deploy: `npx vercel deploy --prod --yes` (project `jesus-casares-s-projects/dist`). Verify live:
+    the new route returns 200 and appears in `https://www.unwindcode.ai/sitemap.xml`.
 
 ## SEO Checklist (per transmission)
 
 - [ ] `<title>` with transmission number and `| Unwind Code`
 - [ ] `<meta name="description">` — compelling 1-liner
-- [ ] `<link rel="canonical">` — full URL
+- [ ] `<link rel="canonical">` — full URL, **extensionless, no trailing slash**
+- [ ] `og:url` matches the canonical exactly
 - [ ] Open Graph: `og:type`, `og:title`, `og:description`
 - [ ] JSON-LD `Article` schema with author, publisher, dates
+- [ ] Route present in both sitemaps and both llms.txt files
+
 
 ## Voice & Tone
 
