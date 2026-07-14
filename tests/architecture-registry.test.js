@@ -33,7 +33,18 @@ async function assertRouteExists(route) {
     return;
   }
 
-  await access(new URL(pathname.slice(1), ROOT));
+  const relative = pathname.slice(1);
+  if (/\.[a-z0-9]+$/iu.test(relative)) {
+    await access(new URL(relative, ROOT));
+    return;
+  }
+
+  // Clean URLs: an extensionless route serves `<path>.html`, else `<path>/index.html`.
+  try {
+    await access(new URL(`${relative}.html`, ROOT));
+  } catch {
+    await access(new URL(`${relative}/index.html`, ROOT));
+  }
 }
 
 async function assertSourceFileExists(sourceFile) {
@@ -105,7 +116,7 @@ test('architecture registry does not expose private or inactive material', async
   assert.equal(/\bsk-[A-Za-z0-9]+\b/.test(raw), false);
   assert.equal(/wallet_private_key|service-role|raw prompt|hidden repo/i.test(raw), false);
   assert.equal(raw.includes('owner-filled-redacted-manifest'), false);
-  assert.equal(raw.includes('/architecture/'), false);
-  assert.equal(raw.includes('/proof/'), false);
+  assert.equal(raw.includes('/architecture'), false);
+  assert.equal(raw.includes('/proof'), false);
   assert.equal(raw.includes('25-the-homepage-learned-to-pulse'), false);
 });

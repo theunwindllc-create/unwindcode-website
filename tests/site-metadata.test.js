@@ -3,18 +3,18 @@ import { access, readdir, readFile } from 'node:fs/promises';
 import test from 'node:test';
 
 const pageChecks = [
-  ['../index.html', ['AI Organisms Built With Proof', 'application/ld+json', '/organisms/', '/proof/']],
+  ['../index.html', ['AI Organisms Built With Proof', 'application/ld+json', '/organisms', '/proof']],
   ['../organisms/index.html', ['Visual Cortex', 'Infinity Mirror', 'Financial Organisms', 'Brain Cell Architecture', 'Research Organisms']],
   ['../architecture/index.html', ['Cortex', 'Memory', 'Gateway', 'Immune System', 'Proof Loop']],
   ['../proof/index.html', ['Transmission 21', 'Transmission 22', 'Transmission 23', 'Transmission 24']],
-  ['../llms.txt', ['AI organisms', 'Organisms vs apps', 'Collaboration Paths', 'https://www.unwindcode.ai/organisms/', 'Proof Loop']],
+  ['../llms.txt', ['AI organisms', 'Organisms vs apps', 'Collaboration Paths', 'https://www.unwindcode.ai/organisms', 'Proof Loop']],
   ['../ai-services.json', ['defined_terms', 'collaboration_paths', 'subscription_signal_paths', 'conversation_gateway', 'proof_route_questions', 'engagement_modes', 'organism_architecture', 'web3_simulation', 'human_approval']],
   ['../assets/specs/infinity-mirror-implementation-packet.json', ['infinity-mirror-implementation-packet', 'remix_design_concept_review', 'block_until_proof', 'Public deployment remains gated by explicit approval.']],
   ['../assets/specs/infinity-mirror-experience-audit.md', ['Infinity Mirror Experience Audit', 'Information Architecture', 'Storytelling Flow', 'Scroll Choreography', 'Performance Techniques', 'Non-Clone Boundary']],
   ['../assets/specs/unwindcode-experience-evolution-audit.md', ['UnwindCode.ai Experience Evolution Audit', 'UX Audit', 'Design Research', 'Information Architecture Improvements', 'Motion Architecture', 'Mobile Strategy', 'SEO Preservation', 'React Architecture', 'Next.js Structure', 'Framer Motion Specs', 'Three.js Opportunities', 'Design Tokens', 'Performance Budgets', 'Non-Clone Boundary']],
   ['../assets/specs/infinity-mirror-runtime-code-handoff.md', ['Infinity Mirror Runtime Code Handoff', 'DesireTranslationWall.tsx', 'MirrorRouteCompass.tsx', 'RecursiveBrainTunnel.tsx', 'BrainCellNetwork.tsx', 'BrainRouteConsole.tsx', 'BrainSignalHandoff.client.tsx', 'LivingOrganismVisualizer.tsx', 'RecursiveGrowthTimeline.tsx', 'CognitiveEvolutionTrace.tsx', 'FloatingArchitectureMaps.tsx', 'PhaseProofLedger.tsx', 'ProofCascade.tsx', 'MirrorStateSequencer.client.tsx', 'ProofObservatory.client.tsx', 'ScrollChoreographyMap.tsx', 'EmotionalProgressionRail.client.tsx', 'MotionContractLedger.tsx', 'ExperienceAuditConsole.tsx', 'SourceTranslationLedger.tsx', 'EngineTranslationLedger.tsx', 'InterfaceBuildLedger.tsx', 'RuntimeHandoffMatrix.tsx', 'MirrorDepthGate.tsx', 'InfinitySymbolLanguage.tsx', 'FirstArtifactRouter.tsx', 'EvolutionEntryProtocol.tsx', 'MirrorChapterMotion.client.tsx', 'MirrorPortalTimeline.client.tsx', 'MirrorBrainTunnelGate.client.tsx', 'tailwind.config.ts', 'Deploy only after explicit approval.']],
   ['../assets/specs/infinity-mirror-runtime-kit/README.md', ['Infinity Mirror Runtime Kit', 'app/organisms/infinity-mirror/experience/page.tsx', 'DesireTranslationWall.tsx', 'MirrorRouteCompass.tsx', 'RecursiveBrainTunnel.tsx', 'BrainCellNetwork.tsx', 'BrainRouteConsole.tsx', 'BrainSignalHandoff.client.tsx', 'LivingOrganismVisualizer.tsx', 'RecursiveGrowthTimeline.tsx', 'CognitiveEvolutionTrace.tsx', 'FloatingArchitectureMaps.tsx', 'PhaseProofLedger.tsx', 'ProofCascade.tsx', 'MirrorStateSequencer.client.tsx', 'ProofObservatory.client.tsx', 'AuthorityGradient.tsx', 'ScrollChoreographyMap.tsx', 'EmotionalProgressionRail.client.tsx', 'MotionContractLedger.tsx', 'ExperienceAuditConsole.tsx', 'SourceTranslationLedger.tsx', 'EngineTranslationLedger.tsx', 'InterfaceBuildLedger.tsx', 'RuntimeHandoffMatrix.tsx', 'MirrorDepthGate.tsx', 'InfinitySymbolLanguage.tsx', 'FirstArtifactRouter.tsx', 'EvolutionEntryProtocol.tsx', 'MirrorPortalTimeline.client.tsx', 'Public deployment waits for explicit approval.']],
-  ['../sitemap.xml', ['https://www.unwindcode.ai/organisms/', 'https://www.unwindcode.ai/proof/']],
+  ['../sitemap.xml', ['https://www.unwindcode.ai/organisms', 'https://www.unwindcode.ai/proof']],
 ];
 
 for (const [relativePath, expectedSnippets] of pageChecks) {
@@ -298,8 +298,8 @@ test('homepage gives first-time visitors role-specific next paths', async () => 
 
   assert.ok(source.includes('id="paths"'), 'homepage missing visitor paths section');
   assert.ok(source.includes('aria-label="Visitor paths"'), 'visitor paths should be named for assistive tech');
-  assert.ok(source.includes('href="/organisms/"'), 'hero should route directly to durable organisms page');
-  assert.ok(source.includes('href="/architecture/"'), 'hero should route directly to durable architecture page');
+  assert.ok(source.includes('href="/organisms"'), 'hero should route directly to durable organisms page');
+  assert.ok(source.includes('href="/architecture"'), 'hero should route directly to durable architecture page');
 
   for (const snippet of [
     'data-i18n="paths.builders.label"',
@@ -307,10 +307,10 @@ test('homepage gives first-time visitors role-specific next paths', async () => 
     'data-i18n="paths.users.label"',
     'data-i18n="paths.subscribers.label"',
     'data-i18n="paths.collaborators.label"',
-    'href="/proof/"',
-    'href="/organisms/infinity-mirror/"',
-    'href="/transmissions/"',
-    'href="/build-with-us/"',
+    'href="/proof"',
+    'href="/organisms/infinity-mirror"',
+    'href="/transmissions"',
+    'href="/build-with-us"',
   ]) {
     assert.ok(source.includes(snippet), `homepage missing visitor path snippet ${snippet}`);
   }
@@ -359,10 +359,10 @@ test('homepage offers proof-route bridge before deeper organism education', asyn
     'data-i18n="proofRoute.proof.title"',
     'data-i18n="proofRoute.web3.title"',
     'data-i18n="proofRoute.collab.title"',
-    'href="/architecture/"',
-    'href="/proof/"',
-    'href="/organisms/financial-organisms/"',
-    'href="/build-with-us/"',
+    'href="/architecture"',
+    'href="/proof"',
+    'href="/organisms/financial-organisms"',
+    'href="/build-with-us"',
   ]) {
     assert.ok(source.includes(snippet), `homepage missing proof-route snippet ${snippet}`);
   }
@@ -557,11 +557,11 @@ test('homepage exposes an interactive governed visitor pathfinder', async () => 
     'id="pathfinder-collaborator"',
     'data-i18n="pathfinder.creator.status"',
     'data-i18n="pathfinder.protocol.boundary"',
-    'href="/organisms/visual-cortex/"',
-    'href="/organisms/infinity-mirror/"',
-    'href="/organisms/financial-organisms/"',
-    'href="/proof/"',
-    'href="/build-with-us/"',
+    'href="/organisms/visual-cortex"',
+    'href="/organisms/infinity-mirror"',
+    'href="/organisms/financial-organisms"',
+    'href="/proof"',
+    'href="/build-with-us"',
     '"@id":"https://www.unwindcode.ai/#visitor-pathway-map-asset"',
     '"contentUrl":"https://www.unwindcode.ai/assets/visuals/visitor-pathway-map.svg"',
   ]) {
@@ -626,12 +626,12 @@ test('homepage exposes a governed immersive organism map asset', async () => {
     'aria-labelledby="ecosystem-map-title"',
     'data-asset-id="organism-ecosystem-map"',
     'assets/visuals/organism-ecosystem-map.svg',
-    'href="/architecture/"',
-    'href="/organisms/visual-cortex/"',
-    'href="/organisms/infinity-mirror/"',
-    'href="/organisms/financial-organisms/"',
-    'href="/organisms/brain-cell-architecture/"',
-    'href="/organisms/research-organisms/"',
+    'href="/architecture"',
+    'href="/organisms/visual-cortex"',
+    'href="/organisms/infinity-mirror"',
+    'href="/organisms/financial-organisms"',
+    'href="/organisms/brain-cell-architecture"',
+    'href="/organisms/research-organisms"',
     'data-i18n="map.node.core.title"',
     'data-i18n="map.node.research.title"',
     'data-i18n="map.legend.memory.desc"',
@@ -708,26 +708,26 @@ test('asset manifest governs every immersive SVG visual', async () => {
     ['homepage-doctrine-gateway', 'assets/visuals/homepage-doctrine-gateway.svg', '/'],
     ['visitor-pathway-map', 'assets/visuals/visitor-pathway-map.svg', '/'],
     ['subscriber-signal-beacon', 'assets/visuals/subscriber-signal-beacon.svg', '/'],
-    ['research-organism-field', 'assets/visuals/research-organism-field.svg', '/organisms/research-organisms/'],
-    ['vision-roadmap-observatory', 'assets/visuals/vision-roadmap-observatory.svg', '/vision/'],
-    ['operating-doctrine-compass', 'assets/visuals/operating-doctrine-compass.svg', '/philosophy/'],
-    ['infinity-mirror-reflection-loop', 'assets/visuals/infinity-mirror-reflection-loop.svg', '/organisms/infinity-mirror/'],
-    ['infinity-mirror-session-console', 'assets/visuals/infinity-mirror-session-console.svg', '/organisms/infinity-mirror/'],
-    ['infinity-mirror-portal', 'assets/visuals/infinity-mirror-portal.svg', '/organisms/infinity-mirror/experience/'],
-    ['visual-cortex-pipeline-map', 'assets/visuals/visual-cortex-pipeline-map.svg', '/organisms/visual-cortex/'],
-    ['brain-cell-lifecycle-map', 'assets/visuals/brain-cell-lifecycle-map.svg', '/organisms/brain-cell-architecture/'],
-    ['organism-stack-glyphs', 'assets/visuals/organism-stack-glyphs.svg', '/architecture/'],
-    ['cognitive-flow-map', 'assets/visuals/cognitive-flow-map.svg', '/architecture/'],
-    ['architecture-run-inspector', 'assets/visuals/architecture-run-inspector.svg', '/architecture/'],
-    ['memory-continuity-map', 'assets/visuals/memory-continuity-map.svg', '/architecture/'],
-    ['web3-trust-layer-map', 'assets/visuals/web3-trust-layer-map.svg', '/organisms/financial-organisms/'],
-    ['collaboration-packet-map', 'assets/visuals/collaboration-packet-map.svg', '/build-with-us/'],
-    ['engagement-fit-compass', 'assets/visuals/engagement-fit-compass.svg', '/build-with-us/'],
-    ['organism-identity-constellation', 'assets/visuals/organism-identity-constellation.svg', '/organisms/'],
-    ['organism-interface-specimens', 'assets/visuals/organism-interface-specimens.svg', '/organisms/'],
-    ['transmission-atlas-map', 'assets/visuals/transmission-atlas-map.svg', '/transmissions/'],
-    ['trust-diligence-console', 'assets/visuals/trust-diligence-console.svg', '/proof/'],
-    ['asset-governance-ledger', 'assets/visuals/asset-governance-ledger.svg', '/proof/'],
+    ['research-organism-field', 'assets/visuals/research-organism-field.svg', '/organisms/research-organisms'],
+    ['vision-roadmap-observatory', 'assets/visuals/vision-roadmap-observatory.svg', '/vision'],
+    ['operating-doctrine-compass', 'assets/visuals/operating-doctrine-compass.svg', '/philosophy'],
+    ['infinity-mirror-reflection-loop', 'assets/visuals/infinity-mirror-reflection-loop.svg', '/organisms/infinity-mirror'],
+    ['infinity-mirror-session-console', 'assets/visuals/infinity-mirror-session-console.svg', '/organisms/infinity-mirror'],
+    ['infinity-mirror-portal', 'assets/visuals/infinity-mirror-portal.svg', '/organisms/infinity-mirror/experience'],
+    ['visual-cortex-pipeline-map', 'assets/visuals/visual-cortex-pipeline-map.svg', '/organisms/visual-cortex'],
+    ['brain-cell-lifecycle-map', 'assets/visuals/brain-cell-lifecycle-map.svg', '/organisms/brain-cell-architecture'],
+    ['organism-stack-glyphs', 'assets/visuals/organism-stack-glyphs.svg', '/architecture'],
+    ['cognitive-flow-map', 'assets/visuals/cognitive-flow-map.svg', '/architecture'],
+    ['architecture-run-inspector', 'assets/visuals/architecture-run-inspector.svg', '/architecture'],
+    ['memory-continuity-map', 'assets/visuals/memory-continuity-map.svg', '/architecture'],
+    ['web3-trust-layer-map', 'assets/visuals/web3-trust-layer-map.svg', '/organisms/financial-organisms'],
+    ['collaboration-packet-map', 'assets/visuals/collaboration-packet-map.svg', '/build-with-us'],
+    ['engagement-fit-compass', 'assets/visuals/engagement-fit-compass.svg', '/build-with-us'],
+    ['organism-identity-constellation', 'assets/visuals/organism-identity-constellation.svg', '/organisms'],
+    ['organism-interface-specimens', 'assets/visuals/organism-interface-specimens.svg', '/organisms'],
+    ['transmission-atlas-map', 'assets/visuals/transmission-atlas-map.svg', '/transmissions'],
+    ['trust-diligence-console', 'assets/visuals/trust-diligence-console.svg', '/proof'],
+    ['asset-governance-ledger', 'assets/visuals/asset-governance-ledger.svg', '/proof'],
   ];
 
   for (const [id, file, route] of expectedAssets) {
@@ -779,11 +779,11 @@ test('organism index is a bilingual, machine-readable ecosystem map', async () =
     '"@type":"ItemList"',
     '"itemListElement"',
     '"@id":"https://www.unwindcode.ai/organisms/#organism-list"',
-    '"url":"https://www.unwindcode.ai/organisms/visual-cortex/"',
-    '"url":"https://www.unwindcode.ai/organisms/infinity-mirror/"',
-    '"url":"https://www.unwindcode.ai/organisms/financial-organisms/"',
-    '"url":"https://www.unwindcode.ai/organisms/brain-cell-architecture/"',
-    '"url":"https://www.unwindcode.ai/organisms/research-organisms/"',
+    '"url":"https://www.unwindcode.ai/organisms/visual-cortex"',
+    '"url":"https://www.unwindcode.ai/organisms/infinity-mirror"',
+    '"url":"https://www.unwindcode.ai/organisms/financial-organisms"',
+    '"url":"https://www.unwindcode.ai/organisms/brain-cell-architecture"',
+    '"url":"https://www.unwindcode.ai/organisms/research-organisms"',
   ]) {
     assert.ok(source.includes(snippet), `organism index missing ecosystem snippet ${snippet}`);
   }
@@ -881,7 +881,7 @@ test('research organisms page exposes source-bound research before publication c
     'id="research-organism-field-title"',
     'data-asset-id="research-organism-field"',
     'assets/visuals/research-organism-field.svg',
-    'href="/transmissions/"',
+    'href="/transmissions"',
     'href="/vision/#vision-observatory-title"',
     'href="/proof/#asset-governance-title"',
     'href="/proof/#authority-gate-title"',
@@ -920,18 +920,18 @@ test('research organisms page exposes source-bound research before publication c
   assert.ok(services.includes('"id": "research_organism_field"'), 'ai-services missing research organism field');
   assert.ok(llms.includes('Research Organisms Capability Ledger'), 'llms.txt missing research capability ledger');
   assert.ok(llms.includes('Research Organism Field'), 'llms.txt missing research organism field');
-  assert.ok(sitemap.includes('https://www.unwindcode.ai/organisms/research-organisms/'), 'sitemap missing Research Organisms route');
+  assert.ok(sitemap.includes('https://www.unwindcode.ai/organisms/research-organisms'), 'sitemap missing Research Organisms route');
 
   const ledgerAsset = manifest.assets.find(item => item.id === 'research-organisms-capability-ledger');
   assert.ok(ledgerAsset, 'asset manifest missing research capability ledger');
-  assert.equal(ledgerAsset.route, '/organisms/research-organisms/');
+  assert.equal(ledgerAsset.route, '/organisms/research-organisms');
   assert.equal(ledgerAsset.surface, '#research-organisms-capability-title');
   assert.deepEqual(ledgerAsset.performance.dependencies, []);
 
   const fieldAsset = manifest.assets.find(item => item.id === 'research-organism-field');
   assert.ok(fieldAsset, 'asset manifest missing research organism field');
   assert.equal(fieldAsset.file, 'assets/visuals/research-organism-field.svg');
-  assert.equal(fieldAsset.route, '/organisms/research-organisms/');
+  assert.equal(fieldAsset.route, '/organisms/research-organisms');
   assert.equal(fieldAsset.surface, '#research-organism-field-title');
   assert.match(fieldAsset.accessibility, /semantic bilingual steps/);
   assert.deepEqual(fieldAsset.performance.dependencies, []);
@@ -965,7 +965,7 @@ test('infinity mirror page exposes a governed reflection loop map', async () => 
     'data-i18n="detail.im.loop.title"',
     'data-i18n="detail.im.loop.state.title"',
     'data-i18n="detail.im.loop.boundary.desc"',
-    'href="/transmissions/24-the-mirror-found-its-form.html"',
+    'href="/transmissions/24-the-mirror-found-its-form"',
     'href="/#cta"',
     '"@type":"ImageObject"',
     '"@id":"https://www.unwindcode.ai/organisms/infinity-mirror/#infinity-mirror-reflection-loop-asset"',
@@ -997,7 +997,7 @@ test('infinity mirror page exposes a governed reflection loop map', async () => 
   const asset = manifest.assets.find(item => item.id === 'infinity-mirror-reflection-loop');
   assert.ok(asset, 'asset manifest missing Infinity Mirror reflection loop');
   assert.equal(asset.file, 'assets/visuals/infinity-mirror-reflection-loop.svg');
-  assert.equal(asset.route, '/organisms/infinity-mirror/');
+  assert.equal(asset.route, '/organisms/infinity-mirror');
   assert.equal(asset.surface, '#infinity-mirror-loop-title');
   assert.match(asset.accessibility, /details\/summary/);
   assert.match(asset.text_policy, /No embedded UI text/);
@@ -1039,7 +1039,7 @@ test('infinity mirror page exposes an inspectable reflection session console', a
     'data-i18n="detail.im.session.identity.boundary"',
     'data-i18n="detail.im.session.launch.boundary"',
     'data-i18n="detail.im.session.loop.boundary"',
-    'href="/transmissions/24-the-mirror-found-its-form.html"',
+    'href="/transmissions/24-the-mirror-found-its-form"',
     'href="/#cta"',
     '"@type":"ImageObject"',
     '"@id":"https://www.unwindcode.ai/organisms/infinity-mirror/#infinity-mirror-session-console-asset"',
@@ -1077,7 +1077,7 @@ test('infinity mirror page exposes an inspectable reflection session console', a
   const asset = manifest.assets.find(item => item.id === 'infinity-mirror-session-console');
   assert.ok(asset, 'asset manifest missing Infinity Mirror session console');
   assert.equal(asset.file, 'assets/visuals/infinity-mirror-session-console.svg');
-  assert.equal(asset.route, '/organisms/infinity-mirror/');
+  assert.equal(asset.route, '/organisms/infinity-mirror');
   assert.equal(asset.surface, '#infinity-mirror-session-title');
   assert.match(asset.accessibility, /native radio controls/);
   assert.match(asset.text_policy, /No embedded UI text/);
@@ -1245,7 +1245,7 @@ test('infinity mirror experience turns the blueprint into a semantic portal rout
 
   for (const snippet of [
     '<title>Infinity Mirror Interface - Self-Evolving AI Organisms | Unwind Code</title>',
-    '<link rel="canonical" href="https://www.unwindcode.ai/organisms/infinity-mirror/experience/" />',
+    '<link rel="canonical" href="https://www.unwindcode.ai/organisms/infinity-mirror/experience" />',
     'content="Enter a black reflective void where the infinity symbol becomes a portal into AI organisms, brain cells, recursive growth, and proof-bound cognitive evolution."',
     'body class="lab-page mirror-experience-page"',
     'id="mirror-experience-hero"',
@@ -1455,7 +1455,7 @@ test('infinity mirror experience turns the blueprint into a semantic portal rout
     'data-proof-observatory-control="status"',
     'data-proof-observatory-output="evidence"',
     'data-proof-observatory-output="boundary"',
-    'data-proof-observatory-link href="/architecture/"',
+    'data-proof-observatory-link href="/architecture"',
     'id="mirror-authority-gradient"',
     'class="mirror-authority-gradient"',
     'data-i18n-aria-label="mirrorExp.authorityGradient.aria"',
@@ -1504,15 +1504,15 @@ test('infinity mirror experience turns the blueprint into a semantic portal rout
     'data-entry-step="artifact"',
     'data-entry-step="loop"',
     'data-i18n="mirrorExp.entryProtocol.loop.proof"',
-    'href="/organisms/infinity-mirror/"',
-    'href="/architecture/"',
-    'href="/proof/"',
-    'href="/build-with-us/"',
-    'href="/vision/"',
+    'href="/organisms/infinity-mirror"',
+    'href="/architecture"',
+    'href="/proof"',
+    'href="/build-with-us"',
+    'href="/vision"',
     'href="/vision/#vision-observatory-title"',
-    'href="/organisms/visual-cortex/"',
-    'href="/organisms/financial-organisms/"',
-    'href="/organisms/brain-cell-architecture/"',
+    'href="/organisms/visual-cortex"',
+    'href="/organisms/financial-organisms"',
+    'href="/organisms/brain-cell-architecture"',
     'href="/proof/#proof-register-title"',
     'href="/transmissions/#transmission-atlas-title"',
     'href="/proof/#authority-gate-title"',
@@ -2834,7 +2834,7 @@ test('infinity mirror experience turns the blueprint into a semantic portal rout
   const runtimeFieldAsset = manifest.assets.find(item => item.id === 'infinity-mirror-runtime-field');
   assert.ok(runtimeFieldAsset, 'asset manifest missing Infinity Mirror runtime field');
   assert.equal(runtimeFieldAsset.file, 'main.js#mirror-runtime-field');
-  assert.equal(runtimeFieldAsset.route, '/organisms/infinity-mirror/experience/');
+  assert.equal(runtimeFieldAsset.route, '/organisms/infinity-mirror/experience');
   assert.equal(runtimeFieldAsset.surface, '#mirror-experience-hero');
   assert.match(runtimeFieldAsset.accessibility, /aria-hidden/);
   assert.match(runtimeFieldAsset.text_policy, /No embedded UI text/);
@@ -2846,7 +2846,7 @@ test('infinity mirror experience turns the blueprint into a semantic portal rout
   const brainRoutePulseAsset = manifest.assets.find(item => item.id === 'infinity-mirror-brain-route-pulse');
   assert.ok(brainRoutePulseAsset, 'asset manifest missing Infinity Mirror brain route pulse');
   assert.equal(brainRoutePulseAsset.file, 'main.js#mirror-brain-route-pulse');
-  assert.equal(brainRoutePulseAsset.route, '/organisms/infinity-mirror/experience/');
+  assert.equal(brainRoutePulseAsset.route, '/organisms/infinity-mirror/experience');
   assert.equal(brainRoutePulseAsset.surface, '#mirror-brain-title');
   assert.match(brainRoutePulseAsset.purpose, /signal handoff/);
   assert.match(brainRoutePulseAsset.trust_value, /signal, cells, authority, and proof/);
@@ -2862,7 +2862,7 @@ test('infinity mirror experience turns the blueprint into a semantic portal rout
   const stateSequencerAsset = manifest.assets.find(item => item.id === 'infinity-mirror-state-sequencer');
   assert.ok(stateSequencerAsset, 'asset manifest missing Infinity Mirror state sequencer');
   assert.equal(stateSequencerAsset.file, 'main.js#mirror-state-sequencer');
-  assert.equal(stateSequencerAsset.route, '/organisms/infinity-mirror/experience/');
+  assert.equal(stateSequencerAsset.route, '/organisms/infinity-mirror/experience');
   assert.equal(stateSequencerAsset.surface, '#mirror-state-sequencer');
   assert.match(stateSequencerAsset.purpose, /seven Infinity Mirror chapters/);
   assert.match(stateSequencerAsset.trust_value, /proof artifact/);
@@ -2876,7 +2876,7 @@ test('infinity mirror experience turns the blueprint into a semantic portal rout
   const cognitiveTraceAsset = manifest.assets.find(item => item.id === 'infinity-mirror-cognitive-evolution-trace');
   assert.ok(cognitiveTraceAsset, 'asset manifest missing Infinity Mirror cognitive evolution trace');
   assert.equal(cognitiveTraceAsset.file, 'organisms/infinity-mirror/experience/index.html#mirror-cognitive-evolution-trace');
-  assert.equal(cognitiveTraceAsset.route, '/organisms/infinity-mirror/experience/');
+  assert.equal(cognitiveTraceAsset.route, '/organisms/infinity-mirror/experience');
   assert.equal(cognitiveTraceAsset.surface, '#mirror-cognitive-evolution-trace');
   assert.match(cognitiveTraceAsset.purpose, /signal to memory, cells, sandbox, proof, and next loop/);
   assert.match(cognitiveTraceAsset.trust_value, /proof locks/);
@@ -2887,7 +2887,7 @@ test('infinity mirror experience turns the blueprint into a semantic portal rout
   const routeCompassAsset = manifest.assets.find(item => item.id === 'infinity-mirror-route-compass');
   assert.ok(routeCompassAsset, 'asset manifest missing Infinity Mirror route compass');
   assert.equal(routeCompassAsset.file, 'organisms/infinity-mirror/experience/index.html#mirror-route-compass');
-  assert.equal(routeCompassAsset.route, '/organisms/infinity-mirror/experience/');
+  assert.equal(routeCompassAsset.route, '/organisms/infinity-mirror/experience');
   assert.equal(routeCompassAsset.surface, '#mirror-route-compass');
   assert.match(routeCompassAsset.purpose, /81K human desire signals/);
   assert.match(routeCompassAsset.trust_value, /proof return/);
@@ -2899,7 +2899,7 @@ test('infinity mirror experience turns the blueprint into a semantic portal rout
   const firstArtifactAsset = manifest.assets.find(item => item.id === 'infinity-mirror-first-artifact-router');
   assert.ok(firstArtifactAsset, 'asset manifest missing Infinity Mirror first artifact router');
   assert.equal(firstArtifactAsset.file, 'organisms/infinity-mirror/experience/index.html#mirror-first-artifact-router');
-  assert.equal(firstArtifactAsset.route, '/organisms/infinity-mirror/experience/');
+  assert.equal(firstArtifactAsset.route, '/organisms/infinity-mirror/experience');
   assert.equal(firstArtifactAsset.surface, '#mirror-first-artifact-router');
   assert.match(firstArtifactAsset.purpose, /builders, investors, researchers, and partners/);
   assert.match(firstArtifactAsset.trust_value, /what first artifact returns/);
@@ -2911,7 +2911,7 @@ test('infinity mirror experience turns the blueprint into a semantic portal rout
   const entryProtocolAsset = manifest.assets.find(item => item.id === 'infinity-mirror-evolution-entry-protocol');
   assert.ok(entryProtocolAsset, 'asset manifest missing Infinity Mirror evolution entry protocol');
   assert.equal(entryProtocolAsset.file, 'organisms/infinity-mirror/experience/index.html#mirror-evolution-entry-protocol');
-  assert.equal(entryProtocolAsset.route, '/organisms/infinity-mirror/experience/');
+  assert.equal(entryProtocolAsset.route, '/organisms/infinity-mirror/experience');
   assert.equal(entryProtocolAsset.surface, '#mirror-evolution-entry-protocol');
   assert.match(entryProtocolAsset.purpose, /signal, boundary, first proof, and next loop/);
   assert.match(entryProtocolAsset.trust_value, /one reviewable artifact/);
@@ -2922,7 +2922,7 @@ test('infinity mirror experience turns the blueprint into a semantic portal rout
   const phaseLedgerAsset = manifest.assets.find(item => item.id === 'infinity-mirror-phase-proof-ledger');
   assert.ok(phaseLedgerAsset, 'asset manifest missing Infinity Mirror phase proof ledger');
   assert.equal(phaseLedgerAsset.file, 'organisms/infinity-mirror/experience/index.html#mirror-phase-proof-ledger');
-  assert.equal(phaseLedgerAsset.route, '/organisms/infinity-mirror/experience/');
+  assert.equal(phaseLedgerAsset.route, '/organisms/infinity-mirror/experience');
   assert.equal(phaseLedgerAsset.surface, '#mirror-phase-proof-ledger');
   assert.match(phaseLedgerAsset.purpose, /seven Infinity Mirror build phases/);
   assert.match(phaseLedgerAsset.trust_value, /phase coverage inspectable/);
@@ -2933,7 +2933,7 @@ test('infinity mirror experience turns the blueprint into a semantic portal rout
   const depthGateAsset = manifest.assets.find(item => item.id === 'infinity-mirror-depth-gate');
   assert.ok(depthGateAsset, 'asset manifest missing Infinity Mirror depth readiness gate');
   assert.equal(depthGateAsset.file, 'organisms/infinity-mirror/experience/index.html#mirror-depth-gate');
-  assert.equal(depthGateAsset.route, '/organisms/infinity-mirror/experience/');
+  assert.equal(depthGateAsset.route, '/organisms/infinity-mirror/experience');
   assert.equal(depthGateAsset.surface, '#mirror-depth-gate');
   assert.match(depthGateAsset.purpose, /cinematic depth into release criteria/);
   assert.match(depthGateAsset.trust_value, /hidden authority/);
@@ -2944,7 +2944,7 @@ test('infinity mirror experience turns the blueprint into a semantic portal rout
   const emotionalProgressionAsset = manifest.assets.find(item => item.id === 'infinity-mirror-emotional-progression');
   assert.ok(emotionalProgressionAsset, 'asset manifest missing Infinity Mirror emotional progression rail');
   assert.equal(emotionalProgressionAsset.file, 'main.js#mirror-emotional-progression');
-  assert.equal(emotionalProgressionAsset.route, '/organisms/infinity-mirror/experience/');
+  assert.equal(emotionalProgressionAsset.route, '/organisms/infinity-mirror/experience');
   assert.equal(emotionalProgressionAsset.surface, '#mirror-emotional-progression');
   assert.match(emotionalProgressionAsset.purpose, /curiosity, unease, recognition, wonder, relief, or agency/);
   assert.match(emotionalProgressionAsset.trust_value, /organism route, proof return, and authority boundary/);
@@ -2957,7 +2957,7 @@ test('infinity mirror experience turns the blueprint into a semantic portal rout
   const proofObservatoryAsset = manifest.assets.find(item => item.id === 'infinity-mirror-proof-observatory');
   assert.ok(proofObservatoryAsset, 'asset manifest missing Infinity Mirror proof observatory');
   assert.equal(proofObservatoryAsset.file, 'main.js#mirror-proof-observatory');
-  assert.equal(proofObservatoryAsset.route, '/organisms/infinity-mirror/experience/');
+  assert.equal(proofObservatoryAsset.route, '/organisms/infinity-mirror/experience');
   assert.equal(proofObservatoryAsset.surface, '#mirror-proof-observatory');
   assert.match(proofObservatoryAsset.purpose, /Architecture, Metrics, Deployments, or Status/);
   assert.match(proofObservatoryAsset.trust_value, /visible proof instrument/);
@@ -2969,7 +2969,7 @@ test('infinity mirror experience turns the blueprint into a semantic portal rout
   const authorityGradientAsset = manifest.assets.find(item => item.id === 'infinity-mirror-authority-gradient');
   assert.ok(authorityGradientAsset, 'asset manifest missing Infinity Mirror authority gradient');
   assert.equal(authorityGradientAsset.file, 'organisms/infinity-mirror/experience/index.html#mirror-authority-gradient');
-  assert.equal(authorityGradientAsset.route, '/organisms/infinity-mirror/experience/');
+  assert.equal(authorityGradientAsset.route, '/organisms/infinity-mirror/experience');
   assert.equal(authorityGradientAsset.surface, '#mirror-authority-gradient');
   assert.match(authorityGradientAsset.purpose, /observe, reflect, draft, sandbox, approval, and public-motion/);
   assert.match(authorityGradientAsset.trust_value, /permission ladder/);
@@ -2981,7 +2981,7 @@ test('infinity mirror experience turns the blueprint into a semantic portal rout
   const organismGrowthRelayAsset = manifest.assets.find(item => item.id === 'infinity-mirror-organism-growth-relay');
   assert.ok(organismGrowthRelayAsset, 'asset manifest missing Infinity Mirror organism growth relay');
   assert.equal(organismGrowthRelayAsset.file, 'main.js#mirror-organism-growth-relay');
-  assert.equal(organismGrowthRelayAsset.route, '/organisms/infinity-mirror/experience/');
+  assert.equal(organismGrowthRelayAsset.route, '/organisms/infinity-mirror/experience');
   assert.equal(organismGrowthRelayAsset.surface, '#mirror-organisms-title');
   assert.match(organismGrowthRelayAsset.purpose, /Visual Cortex, Infinity Mirror, Financial Organism, and Research Organisms/);
   assert.match(organismGrowthRelayAsset.trust_value, /hidden autonomy/);
@@ -2995,7 +2995,7 @@ test('infinity mirror experience turns the blueprint into a semantic portal rout
   const adaptiveArtifactRelayAsset = manifest.assets.find(item => item.id === 'infinity-mirror-adaptive-artifact-relay');
   assert.ok(adaptiveArtifactRelayAsset, 'asset manifest missing Infinity Mirror adaptive artifact relay');
   assert.equal(adaptiveArtifactRelayAsset.file, 'main.js#mirror-adaptive-artifact-relay');
-  assert.equal(adaptiveArtifactRelayAsset.route, '/organisms/infinity-mirror/experience/');
+  assert.equal(adaptiveArtifactRelayAsset.route, '/organisms/infinity-mirror/experience');
   assert.equal(adaptiveArtifactRelayAsset.surface, '#mirror-reflection-title');
   assert.match(adaptiveArtifactRelayAsset.purpose, /Architect, Cartographer, Translator, and Ritualist/);
   assert.match(adaptiveArtifactRelayAsset.trust_value, /reversible/);
@@ -3009,7 +3009,7 @@ test('infinity mirror experience turns the blueprint into a semantic portal rout
 	  const signalComposerAsset = manifest.assets.find(item => item.id === 'infinity-mirror-signal-composer');
 	  assert.ok(signalComposerAsset, 'asset manifest missing Infinity Mirror signal composer');
 	  assert.equal(signalComposerAsset.file, 'main.js#mirror-signal-composer');
-	  assert.equal(signalComposerAsset.route, '/organisms/infinity-mirror/experience/');
+	  assert.equal(signalComposerAsset.route, '/organisms/infinity-mirror/experience');
 	  assert.equal(signalComposerAsset.surface, '#mirror-signal-composer');
 	  assert.match(signalComposerAsset.purpose, /mental room, build stuck, trust proof, or quiet listen/);
 	  assert.match(signalComposerAsset.trust_value, /hidden memory/);
@@ -3022,7 +3022,7 @@ test('infinity mirror experience turns the blueprint into a semantic portal rout
 	  const memoryConsentAsset = manifest.assets.find(item => item.id === 'infinity-mirror-memory-consent-ledger');
 	  assert.ok(memoryConsentAsset, 'asset manifest missing Infinity Mirror memory consent ledger');
 	  assert.equal(memoryConsentAsset.file, 'organisms/infinity-mirror/experience/index.html#mirror-memory-consent');
-	  assert.equal(memoryConsentAsset.route, '/organisms/infinity-mirror/experience/');
+	  assert.equal(memoryConsentAsset.route, '/organisms/infinity-mirror/experience');
 	  assert.equal(memoryConsentAsset.surface, '#mirror-memory-consent');
 	  assert.match(memoryConsentAsset.purpose, /ephemeral, proposed, reviewed, and integrated/);
 	  assert.match(memoryConsentAsset.trust_value, /visible consent ladder/);
@@ -3036,7 +3036,7 @@ test('infinity mirror experience turns the blueprint into a semantic portal rout
 	  const experienceAuditAsset = manifest.assets.find(item => item.id === 'infinity-mirror-experience-audit');
   assert.ok(experienceAuditAsset, 'asset manifest missing Infinity Mirror experience audit');
   assert.equal(experienceAuditAsset.file, 'assets/specs/infinity-mirror-experience-audit.md');
-  assert.equal(experienceAuditAsset.route, '/organisms/infinity-mirror/experience/');
+  assert.equal(experienceAuditAsset.route, '/organisms/infinity-mirror/experience');
   assert.equal(experienceAuditAsset.surface, '#mirror-experience-audit');
   assert.equal(experienceAuditAsset.format, 'text/markdown');
   assert.match(experienceAuditAsset.purpose, /Phase 1 reverse-engineering audit/);
@@ -3048,7 +3048,7 @@ test('infinity mirror experience turns the blueprint into a semantic portal rout
   const engineConceptAsset = manifest.assets.find(item => item.id === 'infinity-mirror-engine-concept-analysis');
   assert.ok(engineConceptAsset, 'asset manifest missing Infinity Mirror engine concept analysis');
   assert.equal(engineConceptAsset.file, 'assets/specs/infinity-mirror-engine-concept-analysis.md');
-  assert.equal(engineConceptAsset.route, '/organisms/infinity-mirror/experience/');
+  assert.equal(engineConceptAsset.route, '/organisms/infinity-mirror/experience');
   assert.equal(engineConceptAsset.surface, '#mirror-engine-concept-packet');
   assert.equal(engineConceptAsset.format, 'text/markdown');
   assert.match(engineConceptAsset.purpose, /uploaded Infinity Mirror ZIP/);
@@ -3061,7 +3061,7 @@ test('infinity mirror experience turns the blueprint into a semantic portal rout
   const implementationPacketAsset = manifest.assets.find(item => item.id === 'infinity-mirror-implementation-packet');
   assert.ok(implementationPacketAsset, 'asset manifest missing Infinity Mirror implementation packet');
   assert.equal(implementationPacketAsset.file, 'assets/specs/infinity-mirror-implementation-packet.json');
-  assert.equal(implementationPacketAsset.route, '/organisms/infinity-mirror/experience/');
+  assert.equal(implementationPacketAsset.route, '/organisms/infinity-mirror/experience');
   assert.equal(implementationPacketAsset.surface, '#mirror-execution-packet');
   assert.equal(implementationPacketAsset.format, 'application/json');
   assert.match(implementationPacketAsset.purpose, /Remix concept review/);
@@ -3075,7 +3075,7 @@ test('infinity mirror experience turns the blueprint into a semantic portal rout
   const codeHandoffAsset = manifest.assets.find(item => item.id === 'infinity-mirror-runtime-code-handoff');
   assert.ok(codeHandoffAsset, 'asset manifest missing Infinity Mirror runtime code handoff');
   assert.equal(codeHandoffAsset.file, 'assets/specs/infinity-mirror-runtime-code-handoff.md');
-  assert.equal(codeHandoffAsset.route, '/organisms/infinity-mirror/experience/');
+  assert.equal(codeHandoffAsset.route, '/organisms/infinity-mirror/experience');
   assert.equal(codeHandoffAsset.surface, '#mirror-code-handoff');
   assert.equal(codeHandoffAsset.format, 'text/markdown');
   assert.match(codeHandoffAsset.purpose, /implementation-ready React, server-rendered Desire Translation Wall, Mirror Route Compass, Brain Cell Network, Living Organism Visualizer, Recursive Growth Timeline, Floating Architecture Maps, Proof Cascade, Proof Observatory, Scroll Choreography Map, Motion Contract Ledger, Infinity Symbol Language, Framer, GSAP, Three\/WebGL, Tailwind, and asset code contracts/);
@@ -3094,7 +3094,7 @@ test('infinity mirror experience turns the blueprint into a semantic portal rout
   const sourceKitAsset = manifest.assets.find(item => item.id === 'infinity-mirror-runtime-source-kit');
   assert.ok(sourceKitAsset, 'asset manifest missing Infinity Mirror runtime source kit');
   assert.equal(sourceKitAsset.file, 'assets/specs/infinity-mirror-runtime-kit/README.md');
-  assert.equal(sourceKitAsset.route, '/organisms/infinity-mirror/experience/');
+  assert.equal(sourceKitAsset.route, '/organisms/infinity-mirror/experience');
   assert.equal(sourceKitAsset.surface, '#mirror-code-handoff');
   assert.equal(sourceKitAsset.format, 'source-kit');
   assert.match(sourceKitAsset.purpose, /server-rendered Desire Translation Wall, Mirror Route Compass, Brain Cell Network, Living Organism Visualizer, Recursive Growth Timeline/);
@@ -3743,7 +3743,7 @@ test('infinity mirror experience turns the blueprint into a semantic portal rout
   const asset = manifest.assets.find(item => item.id === 'infinity-mirror-portal');
   assert.ok(asset, 'asset manifest missing Infinity Mirror portal');
   assert.equal(asset.file, 'assets/visuals/infinity-mirror-portal.svg');
-  assert.equal(asset.route, '/organisms/infinity-mirror/experience/');
+  assert.equal(asset.route, '/organisms/infinity-mirror/experience');
   assert.equal(asset.surface, '#mirror-experience-hero');
   assert.match(asset.accessibility, /semantic HTML sections/);
   assert.match(asset.text_policy, /No embedded UI text/);
@@ -3907,8 +3907,8 @@ test('infinity mirror experience turns the blueprint into a semantic portal rout
   assert.ok(llms.includes('inspectable brain route console'), 'llms.txt missing Infinity Mirror brain route console');
   assert.ok(llms.includes('six-gate recursive growth loop field'), 'llms.txt missing Infinity Mirror recursive growth loop');
   assert.ok(llms.includes('claim-to-artifact proof cascade'), 'llms.txt missing Infinity Mirror proof cascade');
-  assert.ok(llms.includes('https://www.unwindcode.ai/organisms/infinity-mirror/experience/'), 'llms.txt missing Infinity Mirror experience URL');
-  assert.ok(sitemap.includes('https://www.unwindcode.ai/organisms/infinity-mirror/experience/'), 'sitemap missing Infinity Mirror experience route');
+  assert.ok(llms.includes('https://www.unwindcode.ai/organisms/infinity-mirror/experience'), 'llms.txt missing Infinity Mirror experience URL');
+  assert.ok(sitemap.includes('https://www.unwindcode.ai/organisms/infinity-mirror/experience'), 'sitemap missing Infinity Mirror experience route');
   assert.ok(services.includes('"id": "infinity_mirror_portal"'), 'ai-services missing Infinity Mirror portal asset');
   assert.ok(services.includes('"id": "infinity_mirror_state_sequencer"'), 'ai-services missing Infinity Mirror state sequencer');
   assert.ok(services.includes('Mirror State Sequencer is local state only'), 'ai-services missing Infinity Mirror state sequencer local-state rule');
@@ -4069,7 +4069,7 @@ test('infinity mirror experience turns the blueprint into a semantic portal rout
   assert.ok(llms.includes('dynamic Infinity doorway'), 'llms.txt missing Infinity Mirror dynamic doorway');
   assert.ok(llms.includes('role-specific proof, boundary, next-step, and first-packet paths'), 'llms.txt missing Infinity Mirror role-specific doorway paths');
   assert.ok(services.includes('architecture, metrics, deployments, status, researcher, and partner links'), 'ai-services missing Infinity Mirror portal proof and join paths');
-  assert.ok(productPage.includes('href="/organisms/infinity-mirror/experience/"'), 'Infinity Mirror product page should link to the experience');
+  assert.ok(productPage.includes('href="/organisms/infinity-mirror/experience"'), 'Infinity Mirror product page should link to the experience');
 });
 
 test('visual cortex page exposes a capability ledger before creator pipeline motion', async () => {
@@ -4185,8 +4185,8 @@ test('visual cortex page exposes a governed creator pipeline map', async () => {
     'data-i18n="detail.vc.pipeline.title"',
     'data-i18n="detail.vc.pipeline.raw.title"',
     'data-i18n="detail.vc.pipeline.review.desc"',
-    'href="/transmissions/13-the-creator-organ-autonomous-content-production-at-scale.html"',
-    'href="/build-with-us/"',
+    'href="/transmissions/13-the-creator-organ-autonomous-content-production-at-scale"',
+    'href="/build-with-us"',
     '"@type":"ImageObject"',
     '"@id":"https://www.unwindcode.ai/organisms/visual-cortex/#visual-cortex-pipeline-map-asset"',
     '"contentUrl":"https://www.unwindcode.ai/assets/visuals/visual-cortex-pipeline-map.svg"',
@@ -4217,7 +4217,7 @@ test('visual cortex page exposes a governed creator pipeline map', async () => {
   const asset = manifest.assets.find(item => item.id === 'visual-cortex-pipeline-map');
   assert.ok(asset, 'asset manifest missing Visual Cortex pipeline map');
   assert.equal(asset.file, 'assets/visuals/visual-cortex-pipeline-map.svg');
-  assert.equal(asset.route, '/organisms/visual-cortex/');
+  assert.equal(asset.route, '/organisms/visual-cortex');
   assert.equal(asset.surface, '#visual-cortex-pipeline-title');
   assert.match(asset.accessibility, /details\/summary/);
   assert.match(asset.text_policy, /No embedded UI text/);
@@ -4261,8 +4261,8 @@ test('visual cortex page exposes an inspectable production packet console', asyn
     'data-i18n="detail.vc.packet.reel.boundary"',
     'data-i18n="detail.vc.packet.demo.boundary"',
     'data-i18n="detail.vc.packet.landing.boundary"',
-    'href="/transmissions/13-the-creator-organ-autonomous-content-production-at-scale.html"',
-    'href="/build-with-us/"',
+    'href="/transmissions/13-the-creator-organ-autonomous-content-production-at-scale"',
+    'href="/build-with-us"',
     '"@id":"https://www.unwindcode.ai/organisms/visual-cortex/#visual-cortex-production-console-asset"',
     '"contentUrl":"https://www.unwindcode.ai/assets/visuals/visual-cortex-production-console.svg"',
   ]) {
@@ -4304,7 +4304,7 @@ test('visual cortex page exposes an inspectable production packet console', asyn
   const asset = manifest.assets.find(item => item.id === 'visual-cortex-production-console');
   assert.ok(asset, 'asset manifest missing Visual Cortex production console');
   assert.equal(asset.file, 'assets/visuals/visual-cortex-production-console.svg');
-  assert.equal(asset.route, '/organisms/visual-cortex/');
+  assert.equal(asset.route, '/organisms/visual-cortex');
   assert.equal(asset.surface, '#visual-cortex-packet-title');
   assert.match(asset.accessibility, /native radio controls/);
   assert.match(asset.text_policy, /No embedded UI text/);
@@ -4357,7 +4357,7 @@ test('brain cell architecture page exposes a capability ledger before self-evolu
     'data-i18n="detail.bc.capability.sandbox.tool"',
     'data-i18n="detail.bc.capability.integration.blocked"',
     'href="#brain-cell-lifecycle-title"',
-    'href="/transmissions/19-the-cell-swap-protocol.html"',
+    'href="/transmissions/19-the-cell-swap-protocol"',
     'href="#brain-cell-runtime-title"',
     'href="/proof/#authority-gate-title"',
   ]) {
@@ -4438,8 +4438,8 @@ test('brain cell architecture page exposes a governed lifecycle map', async () =
     'data-i18n="detail.bc.lifecycle.title"',
     'data-i18n="detail.bc.lifecycle.signal.title"',
     'data-i18n="detail.bc.lifecycle.integrated.desc"',
-    'href="/transmissions/21-the-unwind-brain-checkpoint-white-paper.html"',
-    'href="/build-with-us/"',
+    'href="/transmissions/21-the-unwind-brain-checkpoint-white-paper"',
+    'href="/build-with-us"',
     '"@type":"ImageObject"',
     '"@id":"https://www.unwindcode.ai/organisms/brain-cell-architecture/#brain-cell-lifecycle-map-asset"',
     '"contentUrl":"https://www.unwindcode.ai/assets/visuals/brain-cell-lifecycle-map.svg"',
@@ -4470,7 +4470,7 @@ test('brain cell architecture page exposes a governed lifecycle map', async () =
   const asset = manifest.assets.find(item => item.id === 'brain-cell-lifecycle-map');
   assert.ok(asset, 'asset manifest missing Brain Cell lifecycle map');
   assert.equal(asset.file, 'assets/visuals/brain-cell-lifecycle-map.svg');
-  assert.equal(asset.route, '/organisms/brain-cell-architecture/');
+  assert.equal(asset.route, '/organisms/brain-cell-architecture');
   assert.equal(asset.surface, '#brain-cell-lifecycle-title');
   assert.match(asset.accessibility, /details\/summary/);
   assert.match(asset.text_policy, /No embedded UI text/);
@@ -4512,8 +4512,8 @@ test('brain cell architecture page exposes an inspectable runtime console', asyn
     'data-i18n="detail.bc.runtime.repair.boundary"',
     'data-i18n="detail.bc.runtime.approval.boundary"',
     'data-i18n="detail.bc.runtime.integrate.boundary"',
-    'href="/proof/"',
-    'href="/build-with-us/"',
+    'href="/proof"',
+    'href="/build-with-us"',
     '"@type":"ImageObject"',
     '"@id":"https://www.unwindcode.ai/organisms/brain-cell-architecture/#brain-cell-runtime-console-asset"',
     '"contentUrl":"https://www.unwindcode.ai/assets/visuals/brain-cell-runtime-console.svg"',
@@ -4550,7 +4550,7 @@ test('brain cell architecture page exposes an inspectable runtime console', asyn
   const asset = manifest.assets.find(item => item.id === 'brain-cell-runtime-console');
   assert.ok(asset, 'asset manifest missing Brain Cell runtime console');
   assert.equal(asset.file, 'assets/visuals/brain-cell-runtime-console.svg');
-  assert.equal(asset.route, '/organisms/brain-cell-architecture/');
+  assert.equal(asset.route, '/organisms/brain-cell-architecture');
   assert.equal(asset.surface, '#brain-cell-runtime-title');
   assert.match(asset.accessibility, /native radio controls/);
   assert.match(asset.text_policy, /No embedded UI text/);
@@ -4684,8 +4684,8 @@ test('financial organisms page exposes a governed Web3 trust-layer map', async (
     'data-i18n="detail.fo.trust.title"',
     'data-i18n="detail.fo.trust.read.title"',
     'data-i18n="detail.fo.trust.locked.desc"',
-    'href="/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html"',
-    'href="/proof/"',
+    'href="/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands"',
+    'href="/proof"',
     '"@type":"ImageObject"',
     '"@id":"https://www.unwindcode.ai/organisms/financial-organisms/#web3-trust-layer-map-asset"',
     '"contentUrl":"https://www.unwindcode.ai/assets/visuals/web3-trust-layer-map.svg"',
@@ -4716,7 +4716,7 @@ test('financial organisms page exposes a governed Web3 trust-layer map', async (
   const asset = manifest.assets.find(item => item.id === 'web3-trust-layer-map');
   assert.ok(asset, 'asset manifest missing Web3 trust-layer map');
   assert.equal(asset.file, 'assets/visuals/web3-trust-layer-map.svg');
-  assert.equal(asset.route, '/organisms/financial-organisms/');
+  assert.equal(asset.route, '/organisms/financial-organisms');
   assert.equal(asset.surface, '#web3-trust-layer-title');
   assert.match(asset.accessibility, /details\/summary/);
   assert.match(asset.text_policy, /No embedded UI text/);
@@ -4760,8 +4760,8 @@ test('financial organisms page exposes an inspectable Web3 simulation console', 
     'data-i18n="detail.fo.sim.yield.authority"',
     'data-i18n="detail.fo.sim.risk.authority"',
     'data-i18n="detail.fo.sim.governance.authority"',
-    'href="/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html"',
-    'href="/build-with-us/"',
+    'href="/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands"',
+    'href="/build-with-us"',
     '"@id":"https://www.unwindcode.ai/organisms/financial-organisms/#web3-simulation-console-asset"',
     '"contentUrl":"https://www.unwindcode.ai/assets/visuals/web3-simulation-console.svg"',
   ]) {
@@ -4803,7 +4803,7 @@ test('financial organisms page exposes an inspectable Web3 simulation console', 
   const asset = manifest.assets.find(item => item.id === 'web3-simulation-console');
   assert.ok(asset, 'asset manifest missing Web3 simulation console');
   assert.equal(asset.file, 'assets/visuals/web3-simulation-console.svg');
-  assert.equal(asset.route, '/organisms/financial-organisms/');
+  assert.equal(asset.route, '/organisms/financial-organisms');
   assert.equal(asset.surface, '#web3-simulation-console-title');
   assert.match(asset.accessibility, /native radio controls/);
   assert.match(asset.text_policy, /No embedded UI text/);
@@ -4898,7 +4898,7 @@ test('architecture page explains the organism stack as a bilingual operating mod
   const asset = manifest.assets.find(item => item.id === 'cognitive-flow-map');
   assert.ok(asset, 'asset manifest missing cognitive flow map');
   assert.equal(asset.file, 'assets/visuals/cognitive-flow-map.svg');
-  assert.equal(asset.route, '/architecture/');
+  assert.equal(asset.route, '/architecture');
   assert.match(asset.accessibility, /details\/summary/);
   assert.match(asset.text_policy, /No embedded UI text/);
   assert.match(asset.motion_policy, /prefers-reduced-motion/);
@@ -4943,8 +4943,8 @@ test('architecture page exposes a governed organism stack glyph system', async (
     'data-i18n="archPage.glyph.gateway.desc"',
     'data-i18n="archPage.glyph.immune.desc"',
     'data-i18n="archPage.glyph.proofLoop.desc"',
-    'href="/proof/" data-i18n="archPage.glyph.proof"',
-    'href="/build-with-us/" data-i18n="archPage.glyph.review"',
+    'href="/proof" data-i18n="archPage.glyph.proof"',
+    'href="/build-with-us" data-i18n="archPage.glyph.review"',
     '"@id":"https://www.unwindcode.ai/architecture/#organism-stack-glyphs-asset"',
     '"contentUrl":"https://www.unwindcode.ai/assets/visuals/organism-stack-glyphs.svg"',
   ]) {
@@ -4986,7 +4986,7 @@ test('architecture page exposes a governed organism stack glyph system', async (
   const asset = manifest.assets.find(item => item.id === 'organism-stack-glyphs');
   assert.ok(asset, 'asset manifest missing organism stack glyphs');
   assert.equal(asset.file, 'assets/visuals/organism-stack-glyphs.svg');
-  assert.equal(asset.route, '/architecture/');
+  assert.equal(asset.route, '/architecture');
   assert.equal(asset.surface, '#stack-glyph-title');
   assert.match(asset.accessibility, /details\/summary/);
   assert.match(asset.text_policy, /No embedded UI text/);
@@ -5031,8 +5031,8 @@ test('architecture page exposes an inspectable organism run inspector', async ()
     'data-i18n="archPage.run.prototype.immune"',
     'data-i18n="archPage.run.web3.immune"',
     'data-i18n="archPage.run.evolution.proof"',
-    'href="/proof/"',
-    'href="/build-with-us/"',
+    'href="/proof"',
+    'href="/build-with-us"',
     '"@type":"ImageObject"',
     '"@id":"https://www.unwindcode.ai/architecture/#architecture-run-inspector-asset"',
     '"contentUrl":"https://www.unwindcode.ai/assets/visuals/architecture-run-inspector.svg"',
@@ -5080,7 +5080,7 @@ test('architecture page exposes an inspectable organism run inspector', async ()
   const asset = manifest.assets.find(item => item.id === 'architecture-run-inspector');
   assert.ok(asset, 'asset manifest missing architecture run inspector');
   assert.equal(asset.file, 'assets/visuals/architecture-run-inspector.svg');
-  assert.equal(asset.route, '/architecture/');
+  assert.equal(asset.route, '/architecture');
   assert.equal(asset.surface, '#architecture-run-title');
   assert.match(asset.accessibility, /native radio controls/);
   assert.match(asset.text_policy, /No embedded UI text/);
@@ -5119,8 +5119,8 @@ test('architecture page exposes a governed memory continuity map', async () => {
     'data-i18n="archPage.memory.title"',
     'data-i18n="archPage.memory.working.title"',
     'data-i18n="archPage.memory.boundary.desc"',
-    'href="/transmissions/21-the-unwind-brain-checkpoint-white-paper.html"',
-    'href="/build-with-us/"',
+    'href="/transmissions/21-the-unwind-brain-checkpoint-white-paper"',
+    'href="/build-with-us"',
     '"@type":"ImageObject"',
     '"@id":"https://www.unwindcode.ai/architecture/#memory-continuity-map-asset"',
     '"contentUrl":"https://www.unwindcode.ai/assets/visuals/memory-continuity-map.svg"',
@@ -5151,7 +5151,7 @@ test('architecture page exposes a governed memory continuity map', async () => {
   const asset = manifest.assets.find(item => item.id === 'memory-continuity-map');
   assert.ok(asset, 'asset manifest missing memory continuity map');
   assert.equal(asset.file, 'assets/visuals/memory-continuity-map.svg');
-  assert.equal(asset.route, '/architecture/');
+  assert.equal(asset.route, '/architecture');
   assert.equal(asset.surface, '#memory-continuity-title');
   assert.match(asset.accessibility, /details\/summary/);
   assert.match(asset.text_policy, /No embedded UI text/);
@@ -5173,11 +5173,11 @@ test('homepage organism cards link to durable pages with status and safety conte
   const i18n = await readFile(new URL('../i18n.js', import.meta.url), 'utf8');
 
   for (const snippet of [
-    'href="/organisms/visual-cortex/"',
-    'href="/organisms/infinity-mirror/"',
-    'href="/organisms/financial-organisms/"',
-    'href="/organisms/brain-cell-architecture/"',
-    'href="/organisms/research-organisms/"',
+    'href="/organisms/visual-cortex"',
+    'href="/organisms/infinity-mirror"',
+    'href="/organisms/financial-organisms"',
+    'href="/organisms/brain-cell-architecture"',
+    'href="/organisms/research-organisms"',
     'class="organism-link"',
     'data-i18n="org.vc.status"',
     'data-i18n="org.im.status"',
@@ -5272,11 +5272,11 @@ test('homepage exposes an organism readiness radar before deeper architecture', 
     'data-i18n="org.readiness.fo.boundary"',
     'data-i18n="org.readiness.bc.proof"',
     'data-i18n="org.readiness.ro.proof"',
-    'href="/organisms/visual-cortex/"',
-    'href="/organisms/infinity-mirror/"',
-    'href="/organisms/financial-organisms/"',
-    'href="/organisms/brain-cell-architecture/"',
-    'href="/organisms/research-organisms/"',
+    'href="/organisms/visual-cortex"',
+    'href="/organisms/infinity-mirror"',
+    'href="/organisms/financial-organisms"',
+    'href="/organisms/brain-cell-architecture"',
+    'href="/organisms/research-organisms"',
     '"@id":"https://www.unwindcode.ai/#organism-readiness-radar-asset"',
     '"contentUrl":"https://www.unwindcode.ai/assets/visuals/organism-readiness-radar.svg"',
   ]) {
@@ -5374,7 +5374,7 @@ test('homepage architecture section exposes a proof runway before memory detail'
     'data-i18n="arch.runway.cells.title"',
     'data-i18n="arch.runway.gate.title"',
     'data-i18n="arch.runway.proof.title"',
-    'href="/architecture/"',
+    'href="/architecture"',
     '"@id":"https://www.unwindcode.ai/#architecture-proof-runway-asset"',
     '"contentUrl":"https://www.unwindcode.ai/assets/visuals/architecture-proof-runway.svg"',
   ]) {
@@ -5546,11 +5546,11 @@ test('homepage exposes a living system state console before doctrine', async () 
     'data-i18n="system.state.transmissions.title"',
     'data-i18n="system.state.web3.title"',
     'data-i18n="system.state.subscribe.title"',
-    'href="/organisms/"',
+    'href="/organisms"',
     'href="#cta"',
-    'href="/transmissions/"',
-    'href="/organisms/financial-organisms/"',
-    'href="/build-with-us/"',
+    'href="/transmissions"',
+    'href="/organisms/financial-organisms"',
+    'href="/build-with-us"',
   ]) {
     assert.ok(source.includes(snippet), `homepage missing system state snippet ${snippet}`);
   }
@@ -5641,7 +5641,7 @@ test('homepage philosophy section exposes the prime directive as product doctrin
     'data-i18n="phil.gateway.clarity.label"',
     'data-i18n="phil.gateway.authority.label"',
     'data-i18n="phil.gateway.proof.label"',
-    'href="/philosophy/"',
+    'href="/philosophy"',
     '"@id":"https://www.unwindcode.ai/#homepage-doctrine-gateway-asset"',
     '"contentUrl":"https://www.unwindcode.ai/assets/visuals/homepage-doctrine-gateway.svg"',
   ]) {
@@ -5725,10 +5725,10 @@ test('organism index exposes a governed fit matrix for choosing the right organi
     'data-i18n="orgIndex.fit.im.boundary"',
     'data-i18n="orgIndex.fit.fo.proof"',
     'data-i18n="orgIndex.fit.bc.cta"',
-    'href="/organisms/visual-cortex/"',
-    'href="/organisms/infinity-mirror/"',
-    'href="/organisms/financial-organisms/"',
-    'href="/organisms/brain-cell-architecture/"',
+    'href="/organisms/visual-cortex"',
+    'href="/organisms/infinity-mirror"',
+    'href="/organisms/financial-organisms"',
+    'href="/organisms/brain-cell-architecture"',
     '"@id":"https://www.unwindcode.ai/organisms/#organism-fit-matrix-asset"',
     '"contentUrl":"https://www.unwindcode.ai/assets/visuals/organism-fit-matrix.svg"',
   ]) {
@@ -5761,7 +5761,7 @@ test('organism index exposes a governed fit matrix for choosing the right organi
   const asset = manifest.assets.find(item => item.id === 'organism-fit-matrix');
   assert.ok(asset, 'asset manifest missing organism fit matrix');
   assert.equal(asset.file, 'assets/visuals/organism-fit-matrix.svg');
-  assert.equal(asset.route, '/organisms/');
+  assert.equal(asset.route, '/organisms');
   assert.equal(asset.surface, '#organism-fit-title');
   assert.match(asset.accessibility, /native radio inputs/);
   assert.match(asset.text_policy, /No embedded UI text/);
@@ -5807,11 +5807,11 @@ test('organism index exposes a canonical state ledger for proof-bound organism m
     'data-i18n="orgIndex.state.proof"',
     'data-i18n="orgIndex.state.blocked"',
     'href="/organisms/visual-cortex/#visual-cortex-packet-title"',
-    'href="/organisms/infinity-mirror/experience/"',
+    'href="/organisms/infinity-mirror/experience"',
     'href="/organisms/financial-organisms/#web3-simulation-console-title"',
     'href="/organisms/brain-cell-architecture/#brain-cell-runtime-title"',
     'href="/organisms/research-organisms/#research-organisms-capability-title"',
-    'href="/proof/"',
+    'href="/proof"',
   ]) {
     assert.ok(source.includes(snippet), `organism index missing state ledger snippet ${snippet}`);
   }
@@ -5862,7 +5862,7 @@ test('organism index exposes a canonical state ledger for proof-bound organism m
   const asset = manifest.assets.find(item => item.id === 'organism-state-ledger');
   assert.ok(asset, 'asset manifest missing organism state ledger');
   assert.equal(asset.file, 'organisms/index.html#organism-state-ledger-title');
-  assert.equal(asset.route, '/organisms/');
+  assert.equal(asset.route, '/organisms');
   assert.equal(asset.surface, '#organism-state-ledger-title');
   assert.equal(asset.format, 'semantic/html');
   assert.match(asset.trust_value, /Prototype, Financial Organisms are Research, Brain Cell Architecture is Experimental, and the Public Proof Loop is Live/);
@@ -5896,10 +5896,10 @@ test('organism index exposes an identity constellation for the four organism pat
     'data-i18n="orgIndex.identity.im.boundary"',
     'data-i18n="orgIndex.identity.fo.proof"',
     'data-i18n="orgIndex.identity.bc.cta"',
-    'href="/organisms/visual-cortex/"',
-    'href="/organisms/infinity-mirror/"',
-    'href="/organisms/financial-organisms/"',
-    'href="/organisms/brain-cell-architecture/"',
+    'href="/organisms/visual-cortex"',
+    'href="/organisms/infinity-mirror"',
+    'href="/organisms/financial-organisms"',
+    'href="/organisms/brain-cell-architecture"',
     '"@id":"https://www.unwindcode.ai/organisms/#organism-identity-constellation-asset"',
     '"contentUrl":"https://www.unwindcode.ai/assets/visuals/organism-identity-constellation.svg"',
   ]) {
@@ -5938,7 +5938,7 @@ test('organism index exposes an identity constellation for the four organism pat
   const asset = manifest.assets.find(item => item.id === 'organism-identity-constellation');
   assert.ok(asset, 'asset manifest missing organism identity constellation');
   assert.equal(asset.file, 'assets/visuals/organism-identity-constellation.svg');
-  assert.equal(asset.route, '/organisms/');
+  assert.equal(asset.route, '/organisms');
   assert.equal(asset.surface, '#organism-identity-title');
   assert.match(asset.accessibility, /semantic bilingual cards/);
   assert.match(asset.text_policy, /No embedded UI text/);
@@ -6019,7 +6019,7 @@ test('organism index exposes interface specimens for first proof surfaces', asyn
   const asset = manifest.assets.find(item => item.id === 'organism-interface-specimens');
   assert.ok(asset, 'asset manifest missing organism interface specimens');
   assert.equal(asset.file, 'assets/visuals/organism-interface-specimens.svg');
-  assert.equal(asset.route, '/organisms/');
+  assert.equal(asset.route, '/organisms');
   assert.equal(asset.surface, '#organism-specimen-title');
   assert.match(asset.purpose, /first proof surface/);
   assert.match(asset.trust_value, /inspectable outputs/);
@@ -6089,7 +6089,7 @@ test('homepage explains organisms versus apps before product cards', async () =>
     'data-i18n="primer.lens.proof.title"',
     '"@id":"https://www.unwindcode.ai/#organism-difference-lens-asset"',
     '"contentUrl":"https://www.unwindcode.ai/assets/visuals/organism-difference-lens.svg"',
-    'href="/architecture/" class="primer-link"',
+    'href="/architecture" class="primer-link"',
     '"@type":"DefinedTerm"',
     '"name":"AI organism"',
     '"inDefinedTermSet":"Unwind Code AI organism architecture"',
@@ -6183,8 +6183,8 @@ test('homepage answers core AI organism questions with FAQ schema', async () => 
     'AI agents',
     'Web3 architecture',
     'on-chain intelligence',
-    '/proof/',
-    '/build-with-us/',
+    '/proof',
+    '/build-with-us',
   ]) {
     assert.ok(source.includes(snippet), `homepage missing FAQ snippet ${snippet}`);
   }
@@ -6230,7 +6230,7 @@ test('homepage converts subscribers with a proof-filtered signal console', async
     'id="cta-route-collab"',
     'data-i18n="cta.router.investor.boundary"',
     'data-i18n="cta.router.user.proof"',
-    'href="/organisms/infinity-mirror/"',
+    'href="/organisms/infinity-mirror"',
     'data-i18n="cta.signal.builder.title"',
     'data-i18n="cta.signal.investor.title"',
     'data-i18n="cta.signal.user.title"',
@@ -6241,7 +6241,7 @@ test('homepage converts subscribers with a proof-filtered signal console', async
     'id="email-input"',
     'data-i18n-placeholder="cta.email.placeholder"',
     'id="signup-status"',
-    'href="/build-with-us/"',
+    'href="/build-with-us"',
     '"@id":"https://www.unwindcode.ai/#subscriber-signal-beacon-asset"',
     '"contentUrl":"https://www.unwindcode.ai/assets/visuals/subscriber-signal-beacon.svg"',
   ]) {
@@ -6373,7 +6373,7 @@ test('homepage chat works as an accessible governed conversation gateway', async
     'data-i18n="cta.brain.can.value"',
     'data-i18n="cta.brain.proof.value"',
     'data-i18n="cta.brain.boundary.value"',
-    'href="/proof/"',
+    'href="/proof"',
   ]) {
     assert.ok(source.includes(snippet), `homepage missing chat gateway snippet ${snippet}`);
   }
@@ -6475,10 +6475,10 @@ test('homepage surfaces an inspectable proof ledger snapshot', async () => {
     'data-i18n="proof.home.title"',
     'data-i18n="proof.home.desc"',
     'class="proof-snapshot-grid reveal"',
-    '<a class="proof-snapshot-card primary" href="/proof/">',
-    '<a class="proof-snapshot-card" href="/transmissions/21-the-unwind-brain-checkpoint-white-paper.html">',
-    '<a class="proof-snapshot-card" href="/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html">',
-    '<a class="proof-snapshot-card" href="/organisms/financial-organisms/">',
+    '<a class="proof-snapshot-card primary" href="/proof">',
+    '<a class="proof-snapshot-card" href="/transmissions/21-the-unwind-brain-checkpoint-white-paper">',
+    '<a class="proof-snapshot-card" href="/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands">',
+    '<a class="proof-snapshot-card" href="/organisms/financial-organisms">',
     'data-i18n="proof.home.card.ledger.status"',
     'data-i18n="proof.home.card.whitepaper.status"',
     'data-i18n="proof.home.card.sec.status"',
@@ -6528,9 +6528,9 @@ test('proof page is a bilingual evidence ledger with structured trust artifacts'
 	    'data-i18n="proofPage.artifact.25.title"',
 	    'data-i18n="proofPage.artifact.26.title"',
 	    'data-i18n="proofPage.artifact.27.title"',
-	    'href="/transmissions/25-the-homepage-learned-to-pulse.html"',
-	    'href="/transmissions/26-property-sales-intelligence-cell.html"',
-	    'href="/transmissions/27-the-quotation-cell.html"',
+	    'href="/transmissions/25-the-homepage-learned-to-pulse"',
+	    'href="/transmissions/26-property-sales-intelligence-cell"',
+	    'href="/transmissions/27-the-quotation-cell"',
 	    'data-i18n="proofPage.cycle.claim.title"',
     'data-i18n="proofPage.cycle.boundary.title"',
     'data-i18n="proofPage.safety.money.title"',
@@ -6617,8 +6617,8 @@ test('proof page exposes a trust diligence console for visitor-specific evidence
     'id="diligence-collaborator"',
     'data-i18n="proofPage.diligence.investor.boundary"',
     'data-i18n="proofPage.diligence.protocol.evidence"',
-    'href="/organisms/financial-organisms/"',
-    'href="/build-with-us/"',
+    'href="/organisms/financial-organisms"',
+    'href="/build-with-us"',
     '"@id":"https://www.unwindcode.ai/proof/#trust-diligence-console-asset"',
     '"contentUrl":"https://www.unwindcode.ai/assets/visuals/trust-diligence-console.svg"',
   ]) {
@@ -6656,7 +6656,7 @@ test('proof page exposes a trust diligence console for visitor-specific evidence
   const asset = manifest.assets.find(item => item.id === 'trust-diligence-console');
   assert.ok(asset, 'asset manifest missing trust diligence console');
   assert.equal(asset.file, 'assets/visuals/trust-diligence-console.svg');
-  assert.equal(asset.route, '/proof/');
+  assert.equal(asset.route, '/proof');
   assert.equal(asset.surface, '#trust-diligence-title');
   assert.match(asset.accessibility, /native radio controls/);
   assert.match(asset.text_policy, /No embedded UI text/);
@@ -6696,7 +6696,7 @@ test('proof page exposes an asset governance ledger for immersive proof surfaces
     'class="asset-governance-cards"',
     'class="asset-governance-card"',
     'href="/assets/asset-manifest.json"',
-    'href="/build-with-us/"',
+    'href="/build-with-us"',
     'data-i18n="proofPage.assets.purpose.title"',
     'data-i18n="proofPage.assets.text.title"',
     'data-i18n="proofPage.assets.motion.title"',
@@ -6738,7 +6738,7 @@ test('proof page exposes an asset governance ledger for immersive proof surfaces
   const asset = manifest.assets.find(item => item.id === 'asset-governance-ledger');
   assert.ok(asset, 'asset manifest missing asset governance ledger');
   assert.equal(asset.file, 'assets/visuals/asset-governance-ledger.svg');
-  assert.equal(asset.route, '/proof/');
+  assert.equal(asset.route, '/proof');
   assert.equal(asset.surface, '#asset-governance-title');
   assert.match(asset.accessibility, /semantic bilingual cards/);
   assert.match(asset.text_policy, /No embedded UI text/);
@@ -6785,8 +6785,8 @@ test('proof page exposes a governed authority gate console for high-risk actions
     'data-i18n="proofPage.gate.kicker"',
     'data-i18n="proofPage.gate.money.authority"',
     'data-i18n="proofPage.gate.web3.response"',
-    'href="/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html"',
-    'href="/build-with-us/"',
+    'href="/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands"',
+    'href="/build-with-us"',
     '"@type":"ImageObject"',
     '"@id":"https://www.unwindcode.ai/proof/#authority-gate-console-asset"',
     '"contentUrl":"https://www.unwindcode.ai/assets/visuals/authority-gate-console.svg"',
@@ -6823,7 +6823,7 @@ test('proof page exposes a governed authority gate console for high-risk actions
   const asset = manifest.assets.find(item => item.id === 'authority-gate-console');
   assert.ok(asset, 'asset manifest missing authority gate console');
   assert.equal(asset.file, 'assets/visuals/authority-gate-console.svg');
-  assert.equal(asset.route, '/proof/');
+  assert.equal(asset.route, '/proof');
   assert.equal(asset.surface, '#authority-gate-title');
   assert.match(asset.accessibility, /native radio controls/);
   assert.match(asset.text_policy, /No embedded UI text/);
@@ -6877,7 +6877,7 @@ test('philosophy page turns the prime directive into bilingual operating doctrin
     'data-i18n="philPage.principle.light.title"',
     'class="doctrine-table"',
     'data-i18n="philPage.translation.fo.constraint"',
-    'href="/organisms/financial-organisms/"',
+    'href="/organisms/financial-organisms"',
     'id="philosophy-next-title"',
     '"@type":"DefinedTermSet"',
     '"@id":"https://www.unwindcode.ai/philosophy/#operating-doctrine"',
@@ -6939,7 +6939,7 @@ test('philosophy page turns the prime directive into bilingual operating doctrin
   const asset = manifest.assets.find(item => item.id === 'operating-doctrine-compass');
   assert.ok(asset, 'asset manifest missing operating doctrine compass');
   assert.equal(asset.file, 'assets/visuals/operating-doctrine-compass.svg');
-  assert.equal(asset.route, '/philosophy/');
+  assert.equal(asset.route, '/philosophy');
   assert.equal(asset.surface, '#doctrine-compass-title');
   assert.match(asset.accessibility, /native radio controls/);
   assert.match(asset.text_policy, /No embedded UI text/);
@@ -6999,8 +6999,8 @@ test('vision page turns the long-range thesis into a bilingual proof roadmap', a
     'id="vision-lane-culture"',
     'data-i18n="visPage.observatory.web3.boundary"',
     'data-i18n="visPage.observatory.culture.proof"',
-    'href="/organisms/financial-organisms/"',
-    'href="/build-with-us/"',
+    'href="/organisms/financial-organisms"',
+    'href="/build-with-us"',
     'id="vision-roadmap"',
     'aria-labelledby="vision-roadmap-title"',
     'class="vision-timeline"',
@@ -7082,7 +7082,7 @@ test('vision page turns the long-range thesis into a bilingual proof roadmap', a
   const asset = manifest.assets.find(item => item.id === 'vision-roadmap-observatory');
   assert.ok(asset, 'asset manifest missing vision roadmap observatory');
   assert.equal(asset.file, 'assets/visuals/vision-roadmap-observatory.svg');
-  assert.equal(asset.route, '/vision/');
+  assert.equal(asset.route, '/vision');
   assert.equal(asset.surface, '#vision-observatory-title');
   assert.match(asset.accessibility, /native radio controls/);
   assert.match(asset.text_policy, /No embedded UI text/);
@@ -7127,7 +7127,7 @@ test('transmissions archive is a bilingual proof library with reader lanes', asy
 
   assert.equal(source.includes('onclick='), false, 'transmissions archive should not use inline click handlers');
   assert.equal(source.includes('style='), false, 'transmissions archive should not use inline styles');
-  assert.equal(source.match(/<a href="\/transmissions\/[^"]+\.html" class="tx-card"/g)?.length ?? 0, 32, 'transmissions archive should preserve 32 transmission cards');
+  assert.equal(source.match(/<a href="\/transmissions\/[^"]+" class="tx-card"/g)?.length ?? 0, 32, 'transmissions archive should preserve 32 transmission cards');
   assert.equal(source.match(/class="tx-path-card/g)?.length ?? 0, 5, 'transmissions archive should expose five reader lanes');
 
   for (const snippet of [
@@ -7213,11 +7213,11 @@ test('transmission 25 documents the homepage organism pulse release', async () =
 
   for (const snippet of [
     'Transmission 25: The Homepage Learned to Pulse',
-    'rel="canonical" href="https://www.unwindcode.ai/transmissions/25-the-homepage-learned-to-pulse.html"',
+    'rel="canonical" href="https://www.unwindcode.ai/transmissions/25-the-homepage-learned-to-pulse"',
     '<meta property="og:type" content="article" />',
     '"@type":"Article"',
     '"datePublished":"2026-06-05"',
-    '"mainEntityOfPage":"https://www.unwindcode.ai/transmissions/25-the-homepage-learned-to-pulse.html"',
+    '"mainEntityOfPage":"https://www.unwindcode.ai/transmissions/25-the-homepage-learned-to-pulse"',
     'class="tx-release-console"',
     'assets/visuals/organism-pulse-field.svg',
     'id="social-proof-packet"',
@@ -7227,14 +7227,14 @@ test('transmission 25 documents the homepage organism pulse release', async () =
     '/social/transmission-25-homepage-pulse-carousel/previews/slide-01-preview.png',
     '/social/transmission-25-homepage-pulse-carousel/ready-to-upload/01-homepage-learned-to-pulse.png',
     '/social/transmission-25-homepage-pulse-carousel/downloads/transmission-25-homepage-pulse-carousel.zip',
-    '/social/transmission-25-homepage-pulse-carousel/carousel.html#slide-1',
+    '/social/transmission-25-homepage-pulse-carousel/carousel#slide-1',
     '/social/transmission-25-homepage-pulse-carousel/caption.md',
     'Download packet',
     'download',
     'The public meaning lives in HTML, schema, translations, tests, and the asset manifest.',
     'money, files, public posts, and Web3 broadcast stay approval-gated',
-    'href="/proof/"',
-    'href="/build-with-us/"',
+    'href="/proof"',
+    'href="/build-with-us"',
   ]) {
     assert.ok(source.includes(snippet), `Transmission 25 missing release snippet ${snippet}`);
   }
@@ -7263,10 +7263,10 @@ test('transmission 25 documents the homepage organism pulse release', async () =
     assert.ok(css.includes(snippet), `CSS missing Transmission 25 snippet ${snippet}`);
   }
 
-  assert.ok(sitemap.includes('https://www.unwindcode.ai/transmissions/25-the-homepage-learned-to-pulse.html'), 'sitemap missing Transmission 25');
-  assert.ok(sitemap.includes('https://www.unwindcode.ai/social/transmission-25-homepage-pulse-carousel/carousel.html'), 'sitemap missing Transmission 25 carousel');
-  assert.ok(llms.includes('Transmission 25: https://www.unwindcode.ai/transmissions/25-the-homepage-learned-to-pulse.html'), 'llms missing Transmission 25');
-  assert.ok(llms.includes('Transmission 25 social carousel: https://www.unwindcode.ai/social/transmission-25-homepage-pulse-carousel/carousel.html#slide-1'), 'llms missing Transmission 25 social carousel');
+  assert.ok(sitemap.includes('https://www.unwindcode.ai/transmissions/25-the-homepage-learned-to-pulse'), 'sitemap missing Transmission 25');
+  assert.ok(sitemap.includes('https://www.unwindcode.ai/social/transmission-25-homepage-pulse-carousel/carousel'), 'sitemap missing Transmission 25 carousel');
+  assert.ok(llms.includes('Transmission 25: https://www.unwindcode.ai/transmissions/25-the-homepage-learned-to-pulse'), 'llms missing Transmission 25');
+  assert.ok(llms.includes('Transmission 25 social carousel: https://www.unwindcode.ai/social/transmission-25-homepage-pulse-carousel/carousel#slide-1'), 'llms missing Transmission 25 social carousel');
   assert.ok(llms.includes('https://www.unwindcode.ai/social/transmission-25-homepage-pulse-carousel/downloads/transmission-25-homepage-pulse-carousel.zip'), 'llms missing Transmission 25 carousel ZIP');
   assert.ok(services.includes('"id": "transmission_25"'), 'ai-services missing Transmission 25 proof artifact');
   assert.ok(services.includes('"id": "transmission_25_social_carousel"'), 'ai-services missing Transmission 25 social carousel');
@@ -7294,7 +7294,7 @@ test('post-gate transmissions expose complete Instagram carousel packets from th
   const PUBLICLY_SURFACED_PACKET_NUMBERS = new Set([25, 27]);
   const publicRoutes = new Map();
 
-  for (const match of archive.matchAll(/href="\/transmissions\/(\d{2})-([^"]+\.html)"/g)) {
+  for (const match of archive.matchAll(/href="\/transmissions\/(\d{2})-([^".]+)"/g)) {
     const number = Number(match[1]);
     const route = `/transmissions/${match[1]}-${match[2]}`;
     if (number >= effectiveFrom) {
@@ -7329,9 +7329,9 @@ test('post-gate transmissions expose complete Instagram carousel packets from th
     const carouselPath = `${packetDir}/carousel.html`;
     const captionPath = `${packetDir}/caption.md`;
     const readmePath = `${packetDir}/README.md`;
-    const carouselUrl = `https://www.unwindcode.ai/${carouselPath}`;
+    const carouselUrl = `https://www.unwindcode.ai/${packetDir}/carousel`;
     const downloadUrl = `https://www.unwindcode.ai/${asset.download_packet}`;
-    const transmissionPage = await readFile(new URL(`..${route}`, import.meta.url), 'utf8');
+    const transmissionPage = await readFile(new URL(`..${route}.html`, import.meta.url), 'utf8');
     const uploadFiles = (await readdir(new URL(`../${packetDir}/ready-to-upload/`, import.meta.url)))
       .filter(file => file.endsWith('.png'))
       .sort();
@@ -7354,7 +7354,7 @@ test('post-gate transmissions expose complete Instagram carousel packets from th
 
     if (publiclySurfaced) {
       assert.ok(transmissionPage.includes('id="social-proof-packet"'), `${route} missing visible packet section`);
-      assert.ok(transmissionPage.includes(`/${carouselPath}#slide-1`), `${route} missing open carousel action`);
+      assert.ok(transmissionPage.includes(`/${packetDir}/carousel#slide-1`), `${route} missing open carousel action`);
       assert.ok(transmissionPage.includes(`/${asset.download_packet}`), `${route} missing ZIP download action`);
       assert.ok(transmissionPage.includes(`/${captionPath}`), `${route} missing caption action`);
 
@@ -7403,8 +7403,8 @@ test('transmissions page exposes a governed transmission atlas map', async () =>
     'data-i18n="txPage.atlas.title"',
     'data-i18n="txPage.atlas.field.title"',
     'data-i18n="txPage.atlas.route.desc"',
-    'href="/proof/"',
-    'href="/build-with-us/"',
+    'href="/proof"',
+    'href="/build-with-us"',
     '"@type":"ImageObject"',
     '"@id":"https://www.unwindcode.ai/transmissions/#transmission-atlas-map-asset"',
     '"contentUrl":"https://www.unwindcode.ai/assets/visuals/transmission-atlas-map.svg"',
@@ -7450,7 +7450,7 @@ test('transmissions page exposes a governed transmission atlas map', async () =>
   const asset = manifest.assets.find(item => item.id === 'transmission-atlas-map');
   assert.ok(asset, 'asset manifest missing transmission atlas map');
   assert.equal(asset.file, 'assets/visuals/transmission-atlas-map.svg');
-  assert.equal(asset.route, '/transmissions/');
+  assert.equal(asset.route, '/transmissions');
   assert.equal(asset.surface, '#transmission-atlas-title');
   assert.match(asset.accessibility, /details\/summary/);
   assert.match(asset.text_policy, /No embedded UI text/);
@@ -7478,9 +7478,9 @@ test('homepage transmission teasers are semantic links without inline handlers',
   assert.equal(source.includes('style='), false, 'homepage should not use inline styles for transmission teasers');
 
   for (const snippet of [
-    '<a class="blog-card" href="/transmissions/27-the-quotation-cell.html">',
-    '<a class="blog-card" href="/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html">',
-    '<a class="blog-card" href="/transmissions/21-the-unwind-brain-checkpoint-white-paper.html">',
+    '<a class="blog-card" href="/transmissions/27-the-quotation-cell">',
+    '<a class="blog-card" href="/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands">',
+    '<a class="blog-card" href="/transmissions/21-the-unwind-brain-checkpoint-white-paper">',
     '<span class="blog-read" data-i18n="blog.read">Read Transmission</span>',
     '<div class="blog-archive-action">',
     'data-i18n="blog.archive.cta"',
@@ -7513,10 +7513,10 @@ test('build-with-us page routes every visitor type to a concrete next action', a
     'data-i18n="build.lanes.user.title"',
     'data-i18n="build.lanes.protocol.title"',
     'data-i18n="build.lanes.collaborator.title"',
-    'href="/architecture/"',
-    'href="/proof/"',
-    'href="/organisms/infinity-mirror/"',
-    'href="/organisms/financial-organisms/"',
+    'href="/architecture"',
+    'href="/proof"',
+    'href="/organisms/infinity-mirror"',
+    'href="/organisms/financial-organisms"',
     'href="/#cta"',
     'id="build-brief"',
     'aria-labelledby="build-brief-title"',
@@ -7588,9 +7588,9 @@ test('build-with-us page exposes an engagement fit selector with proof bars', as
     'data-i18n="build.modes.meta.proof"',
     'data-i18n="build.modes.meta.boundary"',
     'data-i18n="build.modes.web3.proof"',
-    'href="/architecture/"',
-    'href="/proof/"',
-    'href="/organisms/financial-organisms/"',
+    'href="/architecture"',
+    'href="/proof"',
+    'href="/organisms/financial-organisms"',
     'href="/#cta"',
   ]) {
     assert.ok(source.includes(snippet), `build-with-us missing engagement fit snippet ${snippet}`);
@@ -7638,7 +7638,7 @@ test('build-with-us page exposes an engagement fit selector with proof bars', as
   const asset = manifest.assets.find(item => item.id === 'engagement-fit-compass');
   assert.ok(asset, 'asset manifest missing engagement fit compass');
   assert.equal(asset.file, 'assets/visuals/engagement-fit-compass.svg');
-  assert.equal(asset.route, '/build-with-us/');
+  assert.equal(asset.route, '/build-with-us');
   assert.equal(asset.surface, '#engagement-fit-title');
   assert.match(asset.accessibility, /native radio controls/);
   assert.match(asset.text_policy, /No embedded UI text/);
@@ -7673,7 +7673,7 @@ test('build-with-us page exposes a governed collaboration packet map', async () 
     'data-i18n="build.packet.title"',
     'data-i18n="build.packet.signalNode.title"',
     'data-i18n="build.packet.sprint.desc"',
-    'href="/proof/"',
+    'href="/proof"',
     'href="/#cta"',
     '"@type":"ImageObject"',
     '"@id":"https://www.unwindcode.ai/build-with-us/#collaboration-packet-map-asset"',
@@ -7705,7 +7705,7 @@ test('build-with-us page exposes a governed collaboration packet map', async () 
   const asset = manifest.assets.find(item => item.id === 'collaboration-packet-map');
   assert.ok(asset, 'asset manifest missing collaboration packet map');
   assert.equal(asset.file, 'assets/visuals/collaboration-packet-map.svg');
-  assert.equal(asset.route, '/build-with-us/');
+  assert.equal(asset.route, '/build-with-us');
   assert.equal(asset.surface, '#collaboration-packet-title');
   assert.match(asset.accessibility, /details\/summary/);
   assert.match(asset.text_policy, /No embedded UI text/);

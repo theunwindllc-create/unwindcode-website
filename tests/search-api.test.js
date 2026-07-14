@@ -40,7 +40,7 @@ function invalidDigestAssetPackage() {
     type: 'social-carousel',
     title: 'Bad Search Asset Package',
     summary: 'Synthetic invalid asset package for loader validation tests.',
-    source_route: '/transmissions/24-the-mirror-found-its-form.html',
+    source_route: '/transmissions/24-the-mirror-found-its-form',
     source_files: ['social/bad-search-asset-package/README.md'],
     alt_text: 'Synthetic invalid asset package used to verify search loader provenance checks.',
     asset_package_sha256: 'a'.repeat(64),

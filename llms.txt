@@ -130,19 +130,19 @@ Unwind Code is an AI + Web3 architecture lab building governed AI organisms: mem
 ## Social Preview Layer
 
 - Default social preview: https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg
-- Transmission 25 social carousel: https://www.unwindcode.ai/social/transmission-25-homepage-pulse-carousel/carousel.html#slide-1
+- Transmission 25 social carousel: https://www.unwindcode.ai/social/transmission-25-homepage-pulse-carousel/carousel#slide-1
 - Transmission 25 carousel download packet: https://www.unwindcode.ai/social/transmission-25-homepage-pulse-carousel/downloads/transmission-25-homepage-pulse-carousel.zip
-- Transmission 26 social carousel: https://www.unwindcode.ai/social/transmission-26-property-sales-intelligence-cell/carousel.html#slide-1
-- Transmission 27 social carousel: https://www.unwindcode.ai/social/transmission-27-quotation-cell/carousel.html#slide-1
+- Transmission 26 social carousel: https://www.unwindcode.ai/social/transmission-26-property-sales-intelligence-cell/carousel#slide-1
+- Transmission 27 social carousel: https://www.unwindcode.ai/social/transmission-27-quotation-cell/carousel#slide-1
 - Transmission 26 carousel download packet: https://www.unwindcode.ai/social/transmission-26-property-sales-intelligence-cell/downloads/transmission-26-property-sales-intelligence-cell.zip
 - Transmission 27 carousel download packet: https://www.unwindcode.ai/social/transmission-27-quotation-cell/downloads/transmission-27-quotation-cell.zip
-- Transmission 28 social carousel: https://www.unwindcode.ai/social/transmission-28-memory-control-plane-carousel/carousel.html#slide-1
+- Transmission 28 social carousel: https://www.unwindcode.ai/social/transmission-28-memory-control-plane-carousel/carousel#slide-1
 - Transmission 28 carousel download packet: https://www.unwindcode.ai/social/transmission-28-memory-control-plane-carousel/downloads/transmission-28-memory-control-plane-carousel.zip
-- Transmission 29 social carousel: https://www.unwindcode.ai/social/transmission-29-agent-readable-organism-carousel/carousel.html#slide-1
+- Transmission 29 social carousel: https://www.unwindcode.ai/social/transmission-29-agent-readable-organism-carousel/carousel#slide-1
 - Transmission 29 carousel download packet: https://www.unwindcode.ai/social/transmission-29-agent-readable-organism-carousel/downloads/transmission-29-agent-readable-organism-carousel.zip
-- Transmission 30 social carousel: https://www.unwindcode.ai/social/transmission-30-operator-readiness-layer-carousel/carousel.html#slide-1
+- Transmission 30 social carousel: https://www.unwindcode.ai/social/transmission-30-operator-readiness-layer-carousel/carousel#slide-1
 - Transmission 30 carousel download packet: https://www.unwindcode.ai/social/transmission-30-operator-readiness-layer-carousel/downloads/transmission-30-operator-readiness-layer-carousel.zip
-- Transmission 31 social carousel: https://www.unwindcode.ai/social/transmission-31-active-source-of-truth-gate-carousel/carousel.html#slide-1
+- Transmission 31 social carousel: https://www.unwindcode.ai/social/transmission-31-active-source-of-truth-gate-carousel/carousel#slide-1
 - Transmission 31 carousel download packet: https://www.unwindcode.ai/social/transmission-31-active-source-of-truth-gate-carousel/downloads/transmission-31-active-source-of-truth-gate-carousel.zip
 - Public lab pages and transmission articles expose Open Graph and Twitter image metadata with a 1200x630 Unwind Code lab preview. The asset is textless and presentational, but visually maps the shared organism core with creator, reflection, Web3 trust, and brain-cell architecture motifs; page-specific titles, descriptions, canonicals, and schema carry the actual claim for social previews and AI crawlers.
 - Social Packet Desk: https://www.unwindcode.ai/transmissions/#social-packet-desk. The archive now exposes the latest post-ready carousel packets with preview images, open links, ZIP downloads, captions, and the manual posting boundary.
@@ -153,29 +153,29 @@ Unwind Code is an AI + Web3 architecture lab building governed AI organisms: mem
 ## Primary URLs
 
 - Home: https://www.unwindcode.ai/
-- Organisms: https://www.unwindcode.ai/organisms/
-- Visual Cortex: https://www.unwindcode.ai/organisms/visual-cortex/
-- Infinity Mirror: https://www.unwindcode.ai/organisms/infinity-mirror/
-- Infinity Mirror Experience: https://www.unwindcode.ai/organisms/infinity-mirror/experience/
-- Financial Organisms: https://www.unwindcode.ai/organisms/financial-organisms/
-- Brain Cell Architecture: https://www.unwindcode.ai/organisms/brain-cell-architecture/
-- Research Organisms: https://www.unwindcode.ai/organisms/research-organisms/
-- Architecture: https://www.unwindcode.ai/architecture/
-- Proof: https://www.unwindcode.ai/proof/
-- Philosophy: https://www.unwindcode.ai/philosophy/
-- Vision: https://www.unwindcode.ai/vision/
-- Build With Us: https://www.unwindcode.ai/build-with-us/
-- Transmissions: https://www.unwindcode.ai/transmissions/
+- Organisms: https://www.unwindcode.ai/organisms
+- Visual Cortex: https://www.unwindcode.ai/organisms/visual-cortex
+- Infinity Mirror: https://www.unwindcode.ai/organisms/infinity-mirror
+- Infinity Mirror Experience: https://www.unwindcode.ai/organisms/infinity-mirror/experience
+- Financial Organisms: https://www.unwindcode.ai/organisms/financial-organisms
+- Brain Cell Architecture: https://www.unwindcode.ai/organisms/brain-cell-architecture
+- Research Organisms: https://www.unwindcode.ai/organisms/research-organisms
+- Architecture: https://www.unwindcode.ai/architecture
+- Proof: https://www.unwindcode.ai/proof
+- Philosophy: https://www.unwindcode.ai/philosophy
+- Vision: https://www.unwindcode.ai/vision
+- Build With Us: https://www.unwindcode.ai/build-with-us
+- Transmissions: https://www.unwindcode.ai/transmissions
 
 ## Recommended Proof Artifacts
 
-- Transmission 21: https://www.unwindcode.ai/transmissions/21-the-unwind-brain-checkpoint-white-paper.html
-- Transmission 22: https://www.unwindcode.ai/transmissions/22-the-monad-hand-clarity-before-motion.html
-- Transmission 23: https://www.unwindcode.ai/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html
-- Transmission 24: https://www.unwindcode.ai/transmissions/24-the-mirror-found-its-form.html
-- Transmission 25: https://www.unwindcode.ai/transmissions/25-the-homepage-learned-to-pulse.html
-- Transmission 26: https://www.unwindcode.ai/transmissions/26-property-sales-intelligence-cell.html
-- Transmission 27: https://www.unwindcode.ai/transmissions/27-the-quotation-cell.html
+- Transmission 21: https://www.unwindcode.ai/transmissions/21-the-unwind-brain-checkpoint-white-paper
+- Transmission 22: https://www.unwindcode.ai/transmissions/22-the-monad-hand-clarity-before-motion
+- Transmission 23: https://www.unwindcode.ai/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands
+- Transmission 24: https://www.unwindcode.ai/transmissions/24-the-mirror-found-its-form
+- Transmission 25: https://www.unwindcode.ai/transmissions/25-the-homepage-learned-to-pulse
+- Transmission 26: https://www.unwindcode.ai/transmissions/26-property-sales-intelligence-cell
+- Transmission 27: https://www.unwindcode.ai/transmissions/27-the-quotation-cell
 
 ## Transmission Library
 
@@ -197,16 +197,16 @@ The vision page frames intelligence that evolves as a staged proof roadmap rathe
 
 - Homepage proof route strip: https://www.unwindcode.ai/#proof-route-title
 - Proof routes answer four conversion questions before deeper navigation: can this be built, can this be trusted, can value move safely, and can we build this together?
-- Builders: https://www.unwindcode.ai/architecture/
-- Creators: https://www.unwindcode.ai/organisms/visual-cortex/
-- Investors: https://www.unwindcode.ai/proof/
-- Users: https://www.unwindcode.ai/organisms/infinity-mirror/
-- Protocols: https://www.unwindcode.ai/organisms/financial-organisms/
-- Collaborators: https://www.unwindcode.ai/build-with-us/
+- Builders: https://www.unwindcode.ai/architecture
+- Creators: https://www.unwindcode.ai/organisms/visual-cortex
+- Investors: https://www.unwindcode.ai/proof
+- Users: https://www.unwindcode.ai/organisms/infinity-mirror
+- Protocols: https://www.unwindcode.ai/organisms/financial-organisms
+- Collaborators: https://www.unwindcode.ai/build-with-us
 
 ## Contact And Collaboration
 
-Use https://www.unwindcode.ai/build-with-us/ for architecture review, prototype organism, proof-loop audit, Web3 simulation lane, product organism build, collaboration, and investment conversation paths.
+Use https://www.unwindcode.ai/build-with-us for architecture review, prototype organism, proof-loop audit, Web3 simulation lane, product organism build, collaboration, and investment conversation paths.
 
 The Build With Us page includes an Engagement Fit selector and Engagement Fit Compass at https://www.unwindcode.ai/build-with-us/#engagement-fit-title. It compares five service modes by best fit, deliverable, proof bar, and authority boundary: architecture review, prototype organism, proof-loop audit, Web3 simulation lane, and product organism.
 

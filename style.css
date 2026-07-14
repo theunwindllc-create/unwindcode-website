@@ -7677,6 +7677,12 @@ body.nav-drawer-open::before {
   display: inline-block;
   margin-bottom: 12px;
   color: var(--accent-hot);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 .tx-next-section {
   border-bottom: 0;
 }
@@ -7761,6 +7767,8 @@ body.nav-drawer-open::before {
   border-radius: var(--radius-sm);
   object-fit: cover;
   background: rgba(15, 15, 30, 0.72);
+}
+
 .tx-release-hero h1 {
   max-width: 760px;
   color: var(--text-primary);

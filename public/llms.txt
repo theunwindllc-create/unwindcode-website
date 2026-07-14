@@ -21,17 +21,17 @@ This file is a public-safe guide for AI crawlers and retrieval systems. It inten
 ## Public RAG Seed Routes
 
 - Homepage: https://www.unwindcode.ai/
-- Transmission archive: https://www.unwindcode.ai/transmissions/
-- Brain checkpoint white paper: https://www.unwindcode.ai/transmissions/21-the-unwind-brain-checkpoint-white-paper.html
-- Monad Hand safety update: https://www.unwindcode.ai/transmissions/22-the-monad-hand-clarity-before-motion.html
-- SEC Gate safety update: https://www.unwindcode.ai/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html
-- Infinity Mirror update: https://www.unwindcode.ai/transmissions/24-the-mirror-found-its-form.html
-- Real Estate Property Sales Intelligence cell: https://www.unwindcode.ai/transmissions/26-property-sales-intelligence-cell.html
-- Public Index Protocol guide: https://www.unwindcode.ai/transmissions/27-the-site-became-a-public-index.html
-- Memory Control Plane guide: https://www.unwindcode.ai/transmissions/28-the-memory-control-plane.html
-- Agent-Readable Organism guide: https://www.unwindcode.ai/transmissions/29-the-agent-readable-organism.html
-- Operator Readiness Layer guide: https://www.unwindcode.ai/transmissions/30-the-operator-readiness-layer.html
-- Active Source-of-Truth Gate guide: https://www.unwindcode.ai/transmissions/31-the-active-source-of-truth-gate.html
+- Transmission archive: https://www.unwindcode.ai/transmissions
+- Brain checkpoint white paper: https://www.unwindcode.ai/transmissions/21-the-unwind-brain-checkpoint-white-paper
+- Monad Hand safety update: https://www.unwindcode.ai/transmissions/22-the-monad-hand-clarity-before-motion
+- SEC Gate safety update: https://www.unwindcode.ai/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands
+- Infinity Mirror update: https://www.unwindcode.ai/transmissions/24-the-mirror-found-its-form
+- Real Estate Property Sales Intelligence cell: https://www.unwindcode.ai/transmissions/26-property-sales-intelligence-cell
+- Public Index Protocol guide: https://www.unwindcode.ai/transmissions/27-the-site-became-a-public-index
+- Memory Control Plane guide: https://www.unwindcode.ai/transmissions/28-the-memory-control-plane
+- Agent-Readable Organism guide: https://www.unwindcode.ai/transmissions/29-the-agent-readable-organism
+- Operator Readiness Layer guide: https://www.unwindcode.ai/transmissions/30-the-operator-readiness-layer
+- Active Source-of-Truth Gate guide: https://www.unwindcode.ai/transmissions/31-the-active-source-of-truth-gate
 
 ## Retrieval Guidance
 

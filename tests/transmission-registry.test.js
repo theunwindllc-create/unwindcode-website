@@ -22,7 +22,7 @@ async function assertFileExists(path) {
 test('transmission registry covers every active public transmission', async () => {
   const registry = await loadRegistry();
   const activeFiles = await activeTransmissionFiles();
-  const expectedRoutes = activeFiles.map((file) => `/transmissions/${file}`);
+  const expectedRoutes = activeFiles.map((file) => `/transmissions/${file.replace(/\.html$/u, '')}`);
   const actualRoutes = registry.transmissions.map((entry) => entry.route).sort();
 
   assert.equal(registry.schema_version, '2026-06-06.public-transmission-registry.v1');
@@ -34,7 +34,7 @@ test('transmission registry covers every active public transmission', async () =
     assert.equal(Number.isInteger(entry.transmission_number), true);
     assert.ok(entry.title.startsWith(`Transmission ${String(entry.transmission_number).padStart(2, '0')}:`));
     assert.ok(entry.summary.length >= 40, `${entry.id} needs a useful summary`);
-    assert.equal(entry.route, `/transmissions/${entry.id}.html`);
+    assert.equal(entry.route, `/transmissions/${entry.id}`);
     assert.equal(entry.source_file, `transmissions/${entry.id}.html`);
     assert.ok(entry.topic_tags.length >= 1, `${entry.id} needs topic tags`);
     assert.ok(entry.memory_layers.length >= 1, `${entry.id} needs memory layers`);
@@ -58,9 +58,9 @@ test('transmission registry is public safe retrieval seed data', async () => {
   assert.equal(/\bsk-[A-Za-z0-9]+\b/.test(raw), false);
   assert.equal(/wallet_private_key|service-role|raw prompt|hidden repo/i.test(raw), false);
   assert.equal(raw.includes('owner-filled-redacted-manifest'), false);
-  assert.equal(raw.includes('/organisms/'), false);
-  assert.equal(raw.includes('/architecture/'), false);
-  assert.equal(raw.includes('/proof/'), false);
+  assert.equal(raw.includes('/organisms'), false);
+  assert.equal(raw.includes('/architecture'), false);
+  assert.equal(raw.includes('/proof'), false);
 });
 
 test('property sales intelligence transmission uses the live canonical slug', async () => {
@@ -69,7 +69,7 @@ test('property sales intelligence transmission uses the live canonical slug', as
 
   assert.ok(entry, 'Transmission 26 should be registered');
   assert.equal(entry.id, '26-property-sales-intelligence-cell');
-  assert.equal(entry.route, '/transmissions/26-property-sales-intelligence-cell.html');
+  assert.equal(entry.route, '/transmissions/26-property-sales-intelligence-cell');
   assert.equal(entry.source_file, 'transmissions/26-property-sales-intelligence-cell.html');
   assert.equal(entry.route.includes('26-the-property-sales-intelligence-cell'), false);
   await assertFileExists(entry.source_file);

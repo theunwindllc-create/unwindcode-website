@@ -132,7 +132,7 @@ function approvalCapableAssetPackage(overrides = {}) {
     type: 'social-carousel',
     title: 'Approval Bearing Package',
     summary: 'Synthetic approval-bearing package used for asset API contract tests.',
-    source_route: '/transmissions/24-the-mirror-found-its-form.html',
+    source_route: '/transmissions/24-the-mirror-found-its-form',
     source_files: ['social/approval-bearing-package/README.md'],
     alt_text: 'Synthetic approval-bearing package for public asset provenance API tests.',
     authority_boundary: safeAuthorityBoundary(),
@@ -527,7 +527,7 @@ test('fails closed when canonical digest inputs are missing even if the digest m
   const incompleteAssetPackage = {
     id: 'incomplete-package',
     type: 'social-carousel',
-    source_route: '/transmissions/24-the-mirror-found-its-form.html',
+    source_route: '/transmissions/24-the-mirror-found-its-form',
     authority_boundary: safeAuthorityBoundary(),
     approval_records: [],
   };

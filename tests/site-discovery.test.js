@@ -4,7 +4,7 @@ import test from 'node:test';
 
 function archivedTransmissionRoutes(source) {
   const routes = new Map();
-  for (const match of source.matchAll(/href="\/transmissions\/(\d{2})-([^"]+\.html)"/g)) {
+  for (const match of source.matchAll(/href="\/transmissions\/(\d{2})-([^".]+)"/g)) {
     const number = Number(match[1]);
     routes.set(number, `/transmissions/${match[1]}-${match[2]}`);
   }
@@ -110,12 +110,12 @@ test('production transmission social carousel packets stay upload-ready and disc
     assert.match(asset.download_packet, new RegExp(`^social/transmission-${number}-[^/]+/downloads/transmission-${number}-[^/]+\\.zip$`));
 
     const packetRoot = asset.file.replace(/\/ready-to-upload\/[^/]+$/, '');
-    const pagePath = `..${asset.route}`;
+    const pagePath = `..${asset.route}.html`;
     const carouselPath = `../${packetRoot}/carousel.html`;
     const captionPath = `../${packetRoot}/caption.md`;
     const readmePath = `../${packetRoot}/README.md`;
     const downloadPath = `../${asset.download_packet}`;
-    const carouselUrl = `${canonicalBase}${packetRoot}/carousel.html#slide-1`;
+    const carouselUrl = `${canonicalBase}${packetRoot}/carousel#slide-1`;
     const downloadUrl = `${canonicalBase}${asset.download_packet}`;
 
     for (const relativePath of [pagePath, carouselPath, captionPath, readmePath, downloadPath, `../${asset.file}`]) {
@@ -145,7 +145,7 @@ test('production transmission social carousel packets stay upload-ready and disc
 
     const page = await readFile(new URL(pagePath, import.meta.url), 'utf8');
     assert.ok(page.includes('id="social-proof-packet"'), `${asset.route} missing visible social packet section`);
-    assert.ok(page.includes(`/${packetRoot}/carousel.html#slide-1`), `${asset.route} missing carousel action`);
+    assert.ok(page.includes(`/${packetRoot}/carousel#slide-1`), `${asset.route} missing carousel action`);
     assert.ok(page.includes(`/${asset.download_packet}`), `${asset.route} missing download packet action`);
     assert.ok(page.includes(`/${packetRoot}/caption.md`), `${asset.route} missing caption packet action`);
     assert.ok(page.includes(`/${packetRoot}/previews/slide-01-preview.png`), `${asset.route} missing preview thumbnails`);
@@ -154,7 +154,7 @@ test('production transmission social carousel packets stay upload-ready and disc
 
     assert.ok(llms.includes(carouselUrl), `llms missing ${carouselUrl}`);
     assert.ok(llms.includes(downloadUrl), `llms missing ${downloadUrl}`);
-    assert.ok(sitemap.includes(`${canonicalBase}${packetRoot}/carousel.html`), `sitemap missing ${packetRoot}/carousel.html`);
+    assert.ok(sitemap.includes(`${canonicalBase}${packetRoot}/carousel`), `sitemap missing ${packetRoot}/carousel.html`);
     assert.ok(servicesSource.includes(`"id":"transmission_${number}_social_carousel"`), `ai-services missing transmission_${number}_social_carousel`);
     assert.ok(servicesSource.includes(downloadUrl), `ai-services missing ${downloadUrl}`);
   }
@@ -195,13 +195,13 @@ test('posted transmissions after the social packet gate cannot bypass the IG car
     );
 
     const packetRoot = asset.file.replace(/\/ready-to-upload\/[^/]+$/, '');
-    const page = await readFile(new URL(`..${route}`, import.meta.url), 'utf8');
-    const carouselUrl = `${canonicalBase}${packetRoot}/carousel.html#slide-1`;
+    const page = await readFile(new URL(`..${route}.html`, import.meta.url), 'utf8');
+    const carouselUrl = `${canonicalBase}${packetRoot}/carousel#slide-1`;
     const downloadUrl = `${canonicalBase}${asset.download_packet}`;
 
     if (publiclySurfaced) {
       assert.ok(page.includes('id="social-proof-packet"'), `${route} missing visible social proof packet`);
-      assert.ok(page.includes(`/${packetRoot}/carousel.html#slide-1`), `${route} missing carousel opener`);
+      assert.ok(page.includes(`/${packetRoot}/carousel#slide-1`), `${route} missing carousel opener`);
       assert.ok(page.includes(`/${asset.download_packet}`), `${route} missing packet ZIP link`);
       assert.ok(page.includes(`/${packetRoot}/caption.md`), `${route} missing caption packet link`);
       assert.ok(page.includes(`/${packetRoot}/previews/slide-01-preview.png`), `${route} missing first preview`);
@@ -211,7 +211,7 @@ test('posted transmissions after the social packet gate cannot bypass the IG car
       assert.equal(/\/social\/transmission-[^"']+/i.test(page), false, `${route} must not link internal posting assets`);
     }
     assert.ok(sitemap.includes(`${canonicalBase}${route.slice(1)}`), `sitemap missing posted ${route}`);
-    assert.ok(sitemap.includes(`${canonicalBase}${packetRoot}/carousel.html`), `sitemap missing carousel for Transmission ${padded}`);
+    assert.ok(sitemap.includes(`${canonicalBase}${packetRoot}/carousel`), `sitemap missing carousel for Transmission ${padded}`);
     assert.ok(llms.includes(`Transmission ${number} social carousel: ${carouselUrl}`), `llms missing carousel for Transmission ${padded}`);
     assert.ok(llms.includes(downloadUrl), `llms missing download packet for Transmission ${padded}`);
     assert.ok(servicesSource.includes(`"id":"${aiServicesId}"`), `ai-services missing ${aiServicesId}`);

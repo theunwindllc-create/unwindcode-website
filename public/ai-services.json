@@ -86,8 +86,8 @@
       },
       "source_routes": [
         "/",
-        "/transmissions/15-how-we-give-machines-a-mind.html",
-        "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html"
+        "/transmissions/15-how-we-give-machines-a-mind",
+        "/transmissions/21-the-unwind-brain-checkpoint-white-paper"
       ],
       "source_files": [
         "api/architecture.js",
@@ -102,7 +102,7 @@
         },
         {
           "label": "How We Give Machines a Mind",
-          "route": "/transmissions/15-how-we-give-machines-a-mind.html"
+          "route": "/transmissions/15-how-we-give-machines-a-mind"
         }
       ],
       "review_status": "public_safe"
@@ -211,9 +211,9 @@
       ],
       "source_routes": [
         "/",
-        "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html",
-        "/transmissions/22-the-monad-hand-clarity-before-motion.html",
-        "/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html"
+        "/transmissions/21-the-unwind-brain-checkpoint-white-paper",
+        "/transmissions/22-the-monad-hand-clarity-before-motion",
+        "/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands"
       ],
       "source_files": [
         "api/search.js",
@@ -234,11 +234,11 @@
         },
         {
           "label": "Brain checkpoint white paper",
-          "route": "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html"
+          "route": "/transmissions/21-the-unwind-brain-checkpoint-white-paper"
         },
         {
           "label": "Monad Hand proof membrane",
-          "route": "/transmissions/22-the-monad-hand-clarity-before-motion.html"
+          "route": "/transmissions/22-the-monad-hand-clarity-before-motion"
         }
       ],
       "review_status": "public_safe"
@@ -292,9 +292,9 @@
       ],
       "source_routes": [
         "/",
-        "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html",
-        "/transmissions/22-the-monad-hand-clarity-before-motion.html",
-        "/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html"
+        "/transmissions/21-the-unwind-brain-checkpoint-white-paper",
+        "/transmissions/22-the-monad-hand-clarity-before-motion",
+        "/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands"
       ],
       "source_files": [
         "api/grounding.js",
@@ -316,11 +316,11 @@
         },
         {
           "label": "Brain checkpoint white paper",
-          "route": "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html"
+          "route": "/transmissions/21-the-unwind-brain-checkpoint-white-paper"
         },
         {
           "label": "SEC Gate financial restraint",
-          "route": "/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html"
+          "route": "/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands"
         }
       ],
       "review_status": "public_safe"
@@ -369,13 +369,13 @@
         "Approval-bearing asset metadata should remain validator-aware so caches can revalidate before relying on publication state."
       ],
       "source_routes": [
-        "/transmissions/24-the-mirror-found-its-form.html",
-        "/transmissions/26-property-sales-intelligence-cell.html",
-        "/transmissions/27-the-site-became-a-public-index.html",
-        "/transmissions/28-the-memory-control-plane.html",
-        "/transmissions/29-the-agent-readable-organism.html",
-        "/transmissions/30-the-operator-readiness-layer.html",
-        "/transmissions/31-the-active-source-of-truth-gate.html"
+        "/transmissions/24-the-mirror-found-its-form",
+        "/transmissions/26-property-sales-intelligence-cell",
+        "/transmissions/27-the-site-became-a-public-index",
+        "/transmissions/28-the-memory-control-plane",
+        "/transmissions/29-the-agent-readable-organism",
+        "/transmissions/30-the-operator-readiness-layer",
+        "/transmissions/31-the-active-source-of-truth-gate"
       ],
       "source_files": [
         "api/assets.js",
@@ -386,31 +386,31 @@
       "citations": [
         {
           "label": "Transmission 24 source page",
-          "route": "/transmissions/24-the-mirror-found-its-form.html"
+          "route": "/transmissions/24-the-mirror-found-its-form"
         },
         {
           "label": "Transmission 26 Property Sales Intelligence Cell",
-          "route": "/transmissions/26-property-sales-intelligence-cell.html"
+          "route": "/transmissions/26-property-sales-intelligence-cell"
         },
         {
           "label": "Transmission 27 Public Index Protocol guide",
-          "route": "/transmissions/27-the-site-became-a-public-index.html"
+          "route": "/transmissions/27-the-site-became-a-public-index"
         },
         {
           "label": "Transmission 28 Memory Control Plane guide",
-          "route": "/transmissions/28-the-memory-control-plane.html"
+          "route": "/transmissions/28-the-memory-control-plane"
         },
         {
           "label": "Transmission 29 Agent-Readable Organism guide",
-          "route": "/transmissions/29-the-agent-readable-organism.html"
+          "route": "/transmissions/29-the-agent-readable-organism"
         },
         {
           "label": "Transmission 30 Operator Readiness Layer guide",
-          "route": "/transmissions/30-the-operator-readiness-layer.html"
+          "route": "/transmissions/30-the-operator-readiness-layer"
         },
         {
           "label": "Transmission 31 Active Source-of-Truth Gate guide",
-          "route": "/transmissions/31-the-active-source-of-truth-gate.html"
+          "route": "/transmissions/31-the-active-source-of-truth-gate"
         }
       ],
       "review_status": "public_safe"
@@ -443,8 +443,8 @@
       ],
       "source_routes": [
         "/",
-        "/transmissions/22-the-monad-hand-clarity-before-motion.html",
-        "/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html"
+        "/transmissions/22-the-monad-hand-clarity-before-motion",
+        "/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands"
       ],
       "source_files": [
         "api/claims.js",
@@ -459,7 +459,7 @@
         },
         {
           "label": "Monad Hand proof membrane",
-          "route": "/transmissions/22-the-monad-hand-clarity-before-motion.html"
+          "route": "/transmissions/22-the-monad-hand-clarity-before-motion"
         }
       ],
       "review_status": "public_safe"
@@ -492,11 +492,11 @@
       ],
       "source_routes": [
         "/",
-        "/transmissions/19-the-cell-swap-protocol.html",
-        "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html",
-        "/transmissions/22-the-monad-hand-clarity-before-motion.html",
-        "/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html",
-        "/transmissions/24-the-mirror-found-its-form.html"
+        "/transmissions/19-the-cell-swap-protocol",
+        "/transmissions/21-the-unwind-brain-checkpoint-white-paper",
+        "/transmissions/22-the-monad-hand-clarity-before-motion",
+        "/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands",
+        "/transmissions/24-the-mirror-found-its-form"
       ],
       "source_files": [
         "api/organisms.js",
@@ -511,7 +511,7 @@
         },
         {
           "label": "Brain checkpoint white paper",
-          "route": "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html"
+          "route": "/transmissions/21-the-unwind-brain-checkpoint-white-paper"
         }
       ],
       "review_status": "public_safe"
@@ -540,13 +540,13 @@
         "Limiter payloads contain salted route/client hashes only and must not include transmission ids, topic filters, source routes, claim context, registry contents, or raw client addresses."
       ],
       "source_routes": [
-        "/transmissions/",
-        "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html",
-        "/transmissions/27-the-site-became-a-public-index.html",
-        "/transmissions/28-the-memory-control-plane.html",
-        "/transmissions/29-the-agent-readable-organism.html",
-        "/transmissions/30-the-operator-readiness-layer.html",
-        "/transmissions/31-the-active-source-of-truth-gate.html"
+        "/transmissions",
+        "/transmissions/21-the-unwind-brain-checkpoint-white-paper",
+        "/transmissions/27-the-site-became-a-public-index",
+        "/transmissions/28-the-memory-control-plane",
+        "/transmissions/29-the-agent-readable-organism",
+        "/transmissions/30-the-operator-readiness-layer",
+        "/transmissions/31-the-active-source-of-truth-gate"
       ],
       "source_files": [
         "api/transmissions.js",
@@ -557,31 +557,31 @@
       "citations": [
         {
           "label": "Transmission archive",
-          "route": "/transmissions/"
+          "route": "/transmissions"
         },
         {
           "label": "Brain checkpoint white paper",
-          "route": "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html"
+          "route": "/transmissions/21-the-unwind-brain-checkpoint-white-paper"
         },
         {
           "label": "Transmission 27 public index protocol",
-          "route": "/transmissions/27-the-site-became-a-public-index.html"
+          "route": "/transmissions/27-the-site-became-a-public-index"
         },
         {
           "label": "Transmission 28 memory control plane",
-          "route": "/transmissions/28-the-memory-control-plane.html"
+          "route": "/transmissions/28-the-memory-control-plane"
         },
         {
           "label": "Transmission 29 agent-readable organism",
-          "route": "/transmissions/29-the-agent-readable-organism.html"
+          "route": "/transmissions/29-the-agent-readable-organism"
         },
         {
           "label": "Transmission 30 operator readiness layer",
-          "route": "/transmissions/30-the-operator-readiness-layer.html"
+          "route": "/transmissions/30-the-operator-readiness-layer"
         },
         {
           "label": "Transmission 31 active source-of-truth gate",
-          "route": "/transmissions/31-the-active-source-of-truth-gate.html"
+          "route": "/transmissions/31-the-active-source-of-truth-gate"
         }
       ],
       "review_status": "public_safe"

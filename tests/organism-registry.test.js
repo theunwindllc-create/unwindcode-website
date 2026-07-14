@@ -39,7 +39,18 @@ async function assertRouteExists(route) {
     return;
   }
 
-  await assertFileExists(pathname.slice(1));
+  const relative = pathname.slice(1);
+  if (/\.[a-z0-9]+$/iu.test(relative)) {
+    await assertFileExists(relative);
+    return;
+  }
+
+  // Clean URLs: an extensionless route serves `<path>.html`, else `<path>/index.html`.
+  try {
+    await assertFileExists(`${relative}.html`);
+  } catch {
+    await assertFileExists(`${relative}/index.html`);
+  }
 }
 
 test('organism registry is public safe and source backed', async () => {

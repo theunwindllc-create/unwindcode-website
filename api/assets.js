@@ -312,7 +312,7 @@ function canonicalPayloadForAssetPackage(assetPackage) {
   };
 }
 
-function canonicalAssetPackageDigest(assetPackage) {
+export function canonicalAssetPackageDigest(assetPackage) {
   const canonicalPayload = {
     ...canonicalPayloadForAssetPackage(assetPackage),
   };

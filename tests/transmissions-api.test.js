@@ -86,7 +86,7 @@ test('decorates direct transmission lookups with inferred claim context', async 
   assert.match(financialQualification.interpretation_boundary, /does not grant or prove autonomous money movement/i);
   assert.ok(
     financialQualification.citations.some(
-      (citation) => citation.route === '/transmissions/22-the-monad-hand-clarity-before-motion.html',
+      (citation) => citation.route === '/transmissions/22-the-monad-hand-clarity-before-motion',
     ),
     'financial claim qualification should include public transmission citation',
   );

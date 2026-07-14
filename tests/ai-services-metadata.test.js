@@ -46,7 +46,18 @@ async function assertRouteExists(route) {
     return;
   }
 
-  await access(new URL(pathname.slice(1), ROOT));
+  const relative = pathname.slice(1);
+  if (/\.[a-z0-9]+$/iu.test(relative)) {
+    await access(new URL(relative, ROOT));
+    return;
+  }
+
+  // Clean URLs: an extensionless route serves `<path>.html`, else `<path>/index.html`.
+  try {
+    await access(new URL(`${relative}.html`, ROOT));
+  } catch {
+    await access(new URL(`${relative}/index.html`, ROOT));
+  }
 }
 
 test('ai services metadata describes bounded active services only', async () => {

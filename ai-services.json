@@ -45,62 +45,62 @@
       "id": "organism_architecture",
       "name": "AI organism architecture",
       "description": "Map goals, memory, tools, channels, safety boundaries, proof artifacts, and specialized cells into a governed AI organism path.",
-      "url": "https://www.unwindcode.ai/architecture/"
+      "url": "https://www.unwindcode.ai/architecture"
     },
     {
       "id": "prototype_organism",
       "name": "Prototype organism build",
       "description": "Design and implement a bounded prototype with cortex, memory, gateway, cells, and reviewable output.",
-      "url": "https://www.unwindcode.ai/build-with-us/"
+      "url": "https://www.unwindcode.ai/build-with-us"
     },
     {
       "id": "proof_loop_audit",
       "name": "Proof-loop audit",
       "description": "Turn agentic system claims into public-safe evidence through status labels, architecture notes, tests, transmissions, and safety gates.",
-      "url": "https://www.unwindcode.ai/proof/"
+      "url": "https://www.unwindcode.ai/proof"
     },
     {
       "id": "web3_simulation",
       "name": "Web3 simulation lane",
       "description": "Research and simulate on-chain intelligence flows with risk scoring, unsigned review packets, and no hidden wallet authority.",
-      "url": "https://www.unwindcode.ai/organisms/financial-organisms/"
+      "url": "https://www.unwindcode.ai/organisms/financial-organisms"
     },
     {
       "id": "human_approval",
       "name": "Human approval boundary design",
       "description": "Design approval gates for filesystem writes, money movement, public posting, generated code, and high-risk automation.",
-      "url": "https://www.unwindcode.ai/philosophy/"
+      "url": "https://www.unwindcode.ai/philosophy"
     }
   ],
   "organisms": [
     {
       "name": "Visual Cortex",
       "status": "prototype",
-      "url": "https://www.unwindcode.ai/organisms/visual-cortex/",
+      "url": "https://www.unwindcode.ai/organisms/visual-cortex",
       "summary": "Creator intelligence for transforming scripts, brand context, and creative goals into production-ready media blueprints."
     },
     {
       "name": "Infinity Mirror",
       "status": "prototype",
-      "url": "https://www.unwindcode.ai/organisms/infinity-mirror/",
+      "url": "https://www.unwindcode.ai/organisms/infinity-mirror",
       "summary": "Personal evolution organism for reflection, state awareness, identity continuity, and clearer next actions."
     },
     {
       "name": "Financial Organisms",
       "status": "research_simulation_first",
-      "url": "https://www.unwindcode.ai/organisms/financial-organisms/",
+      "url": "https://www.unwindcode.ai/organisms/financial-organisms",
       "summary": "Web3 research and simulation organisms with risk scoring, unsigned review packets, and human approval before motion."
     },
     {
       "name": "Brain Cell Architecture",
       "status": "experimental",
-      "url": "https://www.unwindcode.ai/organisms/brain-cell-architecture/",
+      "url": "https://www.unwindcode.ai/organisms/brain-cell-architecture",
       "summary": "The architecture for researching, testing, sandboxing, approving, and integrating new AI organism capabilities."
     },
     {
       "name": "Research Organisms",
       "status": "research",
-      "url": "https://www.unwindcode.ai/organisms/research-organisms/",
+      "url": "https://www.unwindcode.ai/organisms/research-organisms",
       "summary": "Source-bound research systems for turning questions, evidence gaps, experiments, and public proof into reviewed organism knowledge."
     }
   ],
@@ -138,49 +138,49 @@
       "stage": "now",
       "name": "Proof-first public architecture",
       "trust_gate": "Public pages, schema, transmissions, status labels, and proof artifacts make the organism thesis inspectable.",
-      "url": "https://www.unwindcode.ai/proof/"
+      "url": "https://www.unwindcode.ai/proof"
     },
     {
       "stage": "prototype",
       "name": "Infinity Mirror",
       "trust_gate": "Human-facing personal evolution remains a mirror for clarity and next action, not a replacement for judgment.",
-      "url": "https://www.unwindcode.ai/organisms/infinity-mirror/"
+      "url": "https://www.unwindcode.ai/organisms/infinity-mirror"
     },
     {
       "stage": "prototype",
       "name": "Visual Cortex",
       "trust_gate": "Creator intelligence produces reviewable media plans, assumptions, scripts, shots, and production evidence.",
-      "url": "https://www.unwindcode.ai/organisms/visual-cortex/"
+      "url": "https://www.unwindcode.ai/organisms/visual-cortex"
     },
     {
       "stage": "research",
       "name": "Research Organisms",
       "trust_gate": "Research loops keep sources, uncertainty, experiments, caveats, and publication approval visible before claims become public authority.",
-      "url": "https://www.unwindcode.ai/organisms/research-organisms/"
+      "url": "https://www.unwindcode.ai/organisms/research-organisms"
     },
     {
       "stage": "research",
       "name": "Financial Organisms",
       "trust_gate": "Web3 work remains simulation-first, unsigned, no-broadcast, and human-approved before financial motion.",
-      "url": "https://www.unwindcode.ai/organisms/financial-organisms/"
+      "url": "https://www.unwindcode.ai/organisms/financial-organisms"
     },
     {
       "stage": "experimental",
       "name": "Brain Cell Architecture",
       "trust_gate": "New cells must pass research, sandbox verification, approval gates, source control, and proof.",
-      "url": "https://www.unwindcode.ai/organisms/brain-cell-architecture/"
+      "url": "https://www.unwindcode.ai/organisms/brain-cell-architecture"
     },
     {
       "stage": "2028",
       "name": "Uncuba.ai and culture-bearing intelligence",
       "trust_gate": "Culture lanes must preserve identity, creator economics, diaspora memory, and human context.",
-      "url": "https://www.unwindcode.ai/vision/"
+      "url": "https://www.unwindcode.ai/vision"
     },
     {
       "stage": "2030",
       "name": "Governed machine coordination",
       "trust_gate": "Cognitive organisms coordinate across domains only with proof, approval, and replaceable cells.",
-      "url": "https://www.unwindcode.ai/architecture/"
+      "url": "https://www.unwindcode.ai/architecture"
     }
   ],
   "immersive_assets": [
@@ -829,7 +829,7 @@
     {
       "id": "transmission_25_social_carousel",
       "name": "Transmission 25 Social Carousel",
-      "route": "https://www.unwindcode.ai/transmissions/25-the-homepage-learned-to-pulse.html#social-proof-packet",
+      "route": "https://www.unwindcode.ai/transmissions/25-the-homepage-learned-to-pulse#social-proof-packet",
       "asset": "https://www.unwindcode.ai/social/transmission-25-homepage-pulse-carousel/ready-to-upload/01-homepage-learned-to-pulse.png",
       "download_packet": "https://www.unwindcode.ai/social/transmission-25-homepage-pulse-carousel/downloads/transmission-25-homepage-pulse-carousel.zip",
       "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
@@ -840,7 +840,7 @@
     {
       "id": "transmission_27_social_carousel",
       "name": "Transmission 27 Instagram Carousel",
-      "route": "https://www.unwindcode.ai/transmissions/27-the-quotation-cell.html#social-proof-packet",
+      "route": "https://www.unwindcode.ai/transmissions/27-the-quotation-cell#social-proof-packet",
       "asset": "https://www.unwindcode.ai/social/transmission-27-quotation-cell/ready-to-upload/01-quotation-cell.png",
       "download_packet": "https://www.unwindcode.ai/social/transmission-27-quotation-cell/downloads/transmission-27-quotation-cell.zip",
       "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
@@ -851,7 +851,7 @@
     {
       "id": "transmission_28_social_carousel",
       "name": "Transmission 28 Instagram Carousel",
-      "route": "https://www.unwindcode.ai/transmissions/28-the-memory-control-plane.html",
+      "route": "https://www.unwindcode.ai/transmissions/28-the-memory-control-plane",
       "asset": "https://www.unwindcode.ai/social/transmission-28-memory-control-plane-carousel/ready-to-upload/01-memory-control-plane.png",
       "download_packet": "https://www.unwindcode.ai/social/transmission-28-memory-control-plane-carousel/downloads/transmission-28-memory-control-plane-carousel.zip",
       "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
@@ -862,7 +862,7 @@
     {
       "id": "transmission_29_social_carousel",
       "name": "Transmission 29 Instagram Carousel",
-      "route": "https://www.unwindcode.ai/transmissions/29-the-agent-readable-organism.html",
+      "route": "https://www.unwindcode.ai/transmissions/29-the-agent-readable-organism",
       "asset": "https://www.unwindcode.ai/social/transmission-29-agent-readable-organism-carousel/ready-to-upload/01-agent-readable-organism.png",
       "download_packet": "https://www.unwindcode.ai/social/transmission-29-agent-readable-organism-carousel/downloads/transmission-29-agent-readable-organism-carousel.zip",
       "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
@@ -873,7 +873,7 @@
     {
       "id": "transmission_30_social_carousel",
       "name": "Transmission 30 Instagram Carousel",
-      "route": "https://www.unwindcode.ai/transmissions/30-the-operator-readiness-layer.html",
+      "route": "https://www.unwindcode.ai/transmissions/30-the-operator-readiness-layer",
       "asset": "https://www.unwindcode.ai/social/transmission-30-operator-readiness-layer-carousel/ready-to-upload/01-operator-readiness-layer.png",
       "download_packet": "https://www.unwindcode.ai/social/transmission-30-operator-readiness-layer-carousel/downloads/transmission-30-operator-readiness-layer-carousel.zip",
       "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
@@ -884,7 +884,7 @@
     {
       "id": "transmission_31_social_carousel",
       "name": "Transmission 31 Instagram Carousel",
-      "route": "https://www.unwindcode.ai/transmissions/31-the-active-source-of-truth-gate.html",
+      "route": "https://www.unwindcode.ai/transmissions/31-the-active-source-of-truth-gate",
       "asset": "https://www.unwindcode.ai/social/transmission-31-active-source-of-truth-gate-carousel/ready-to-upload/01-active-source-of-truth-gate.png",
       "download_packet": "https://www.unwindcode.ai/social/transmission-31-active-source-of-truth-gate-carousel/downloads/transmission-31-active-source-of-truth-gate-carousel.zip",
       "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
@@ -900,7 +900,7 @@
       "status": "public",
       "trust_question": "Does the AI organism architecture have a written operating model?",
       "proves": "The Brain is framed as a human-governed cognitive organism with memory, approvals, public proof, Web3 safety, and bounded cell growth.",
-      "url": "https://www.unwindcode.ai/transmissions/21-the-unwind-brain-checkpoint-white-paper.html"
+      "url": "https://www.unwindcode.ai/transmissions/21-the-unwind-brain-checkpoint-white-paper"
     },
     {
       "id": "transmission_22",
@@ -908,7 +908,7 @@
       "status": "public",
       "trust_question": "How does the Financial Survival Organism avoid premature money motion?",
       "proves": "Financial organisms start with interpretation and clarity before transaction authority.",
-      "url": "https://www.unwindcode.ai/transmissions/22-the-monad-hand-clarity-before-motion.html"
+      "url": "https://www.unwindcode.ai/transmissions/22-the-monad-hand-clarity-before-motion"
     },
     {
       "id": "transmission_23",
@@ -916,7 +916,7 @@
       "status": "public",
       "trust_question": "Can a high-risk organism refuse or pause itself?",
       "proves": "Unsafe execution belongs behind refusal, review, and human approval gates.",
-      "url": "https://www.unwindcode.ai/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html"
+      "url": "https://www.unwindcode.ai/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands"
     },
     {
       "id": "transmission_24",
@@ -924,7 +924,7 @@
       "status": "public",
       "trust_question": "Is Infinity Mirror becoming a real product path rather than another dashboard?",
       "proves": "Human-facing organisms need product clarity, reflection, and identity continuity before additional controls.",
-      "url": "https://www.unwindcode.ai/transmissions/24-the-mirror-found-its-form.html"
+      "url": "https://www.unwindcode.ai/transmissions/24-the-mirror-found-its-form"
     },
     {
       "id": "transmission_25",
@@ -932,7 +932,7 @@
       "status": "public",
       "trust_question": "Does the homepage make AI organisms understandable before asking visitors to convert?",
       "proves": "The hero now explains signal, cortex, memory, proof, and authority boundaries through semantic copy, governed asset metadata, regression tests, and a shareable social proof packet.",
-      "url": "https://www.unwindcode.ai/transmissions/25-the-homepage-learned-to-pulse.html"
+      "url": "https://www.unwindcode.ai/transmissions/25-the-homepage-learned-to-pulse"
     },
     {
       "id": "transmission_26_social_carousel",
@@ -954,7 +954,7 @@
       "status": "public",
       "trust_question": "Can a real estate sales-intelligence cell improve signal without taking communication authority?",
       "proves": "The public cell is bounded to permitted source review, intent qualification, evidence preservation, compliance posture, and human approval before outreach.",
-      "url": "https://www.unwindcode.ai/transmissions/26-property-sales-intelligence-cell.html",
+      "url": "https://www.unwindcode.ai/transmissions/26-property-sales-intelligence-cell",
       "audience": "real_estate_teams",
       "authority_boundary": "No SMS, email, call, import activation, campaign enrollment, or public claim escalation without human approval.",
       "interface_boundary": "The authority scale is rendered as semantic HTML and shared CSS, with no third-party chart runtime, inline style block, or canvas dependency."
@@ -979,7 +979,7 @@
       "status": "public",
       "trust_question": "Can a quotation cell prepare quote packages without taking commercial authority?",
       "proves": "The public cell is bounded to intake, supplier memory, correction loops, transaction readiness, and human approval before commitment, with a manual Brain protocol and organism build recipe recorded as public proof.",
-      "url": "https://www.unwindcode.ai/transmissions/27-the-quotation-cell.html",
+      "url": "https://www.unwindcode.ai/transmissions/27-the-quotation-cell",
       "audience": "operators_and_sales_teams",
       "authority_boundary": "No promise of price, available supply, unattended purchase, fulfillment, legal status, or final commercial outcome without human approval.",
       "privacy_boundary": "Public copy abstracts the domain cell and does not name private businesses or active client implementations.",
@@ -1017,7 +1017,7 @@
     }
   ],
   "transmission_library": {
-    "url": "https://www.unwindcode.ai/transmissions/",
+    "url": "https://www.unwindcode.ai/transmissions",
     "description": "The public field-note archive for AI organism architecture, Web3 safety, product form, proof loops, and Unwind Code philosophy.",
     "publication_rule": "A transmission is not treated as approved and posted on the main website until its social proof packet is visible on the page, discoverable through metadata, and downloadable as manual-posting Instagram carousel assets.",
     "social_packet_standard": {
@@ -1054,72 +1054,72 @@
       {
         "lane": "whitepaper",
         "entry": "Transmission 21",
-        "url": "https://www.unwindcode.ai/transmissions/21-the-unwind-brain-checkpoint-white-paper.html",
+        "url": "https://www.unwindcode.ai/transmissions/21-the-unwind-brain-checkpoint-white-paper",
         "use_for": "Understand the Brain as a human-governed cognitive organism."
       },
       {
         "lane": "safety_gate",
         "entry": "Transmission 23",
-        "url": "https://www.unwindcode.ai/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html",
+        "url": "https://www.unwindcode.ai/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands",
         "use_for": "Inspect refusal, approval, and high-risk boundary behavior."
       },
       {
         "lane": "product_form",
         "entry": "Transmission 24",
-        "url": "https://www.unwindcode.ai/transmissions/24-the-mirror-found-its-form.html",
+        "url": "https://www.unwindcode.ai/transmissions/24-the-mirror-found-its-form",
         "use_for": "See Infinity Mirror becoming a legible human-facing organism."
       },
       {
         "lane": "web3_boundary",
         "entry": "Transmission 22",
-        "url": "https://www.unwindcode.ai/transmissions/22-the-monad-hand-clarity-before-motion.html",
+        "url": "https://www.unwindcode.ai/transmissions/22-the-monad-hand-clarity-before-motion",
         "use_for": "Understand Financial Organisms as clarity-first and simulation-first."
       },
       {
         "lane": "organisms_not_apps",
         "entry": "Transmission 03",
-        "url": "https://www.unwindcode.ai/transmissions/03-organisms-not-apps.html",
+        "url": "https://www.unwindcode.ai/transmissions/03-organisms-not-apps",
         "use_for": "Learn the core distinction between static apps and AI organisms."
       }
     ],
     "latest": {
       "id": "transmission_27",
       "title": "The Quotation Cell",
-      "url": "https://www.unwindcode.ai/transmissions/27-the-quotation-cell.html",
+      "url": "https://www.unwindcode.ai/transmissions/27-the-quotation-cell",
       "lane": "domain_cell_boundary",
       "use_for": "Understand quoting as a governed transaction packet and manual Brain build record with supplier evidence, correction memory, readiness state, proof ledger, organism recipe, and approval before commitment."
     }
   },
   "proof_urls": [
-    "https://www.unwindcode.ai/proof/",
-    "https://www.unwindcode.ai/transmissions/21-the-unwind-brain-checkpoint-white-paper.html",
-    "https://www.unwindcode.ai/transmissions/22-the-monad-hand-clarity-before-motion.html",
-    "https://www.unwindcode.ai/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html",
-    "https://www.unwindcode.ai/transmissions/24-the-mirror-found-its-form.html",
-    "https://www.unwindcode.ai/transmissions/25-the-homepage-learned-to-pulse.html",
-    "https://www.unwindcode.ai/transmissions/26-property-sales-intelligence-cell.html",
-    "https://www.unwindcode.ai/transmissions/27-the-quotation-cell.html"
+    "https://www.unwindcode.ai/proof",
+    "https://www.unwindcode.ai/transmissions/21-the-unwind-brain-checkpoint-white-paper",
+    "https://www.unwindcode.ai/transmissions/22-the-monad-hand-clarity-before-motion",
+    "https://www.unwindcode.ai/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands",
+    "https://www.unwindcode.ai/transmissions/24-the-mirror-found-its-form",
+    "https://www.unwindcode.ai/transmissions/25-the-homepage-learned-to-pulse",
+    "https://www.unwindcode.ai/transmissions/26-property-sales-intelligence-cell",
+    "https://www.unwindcode.ai/transmissions/27-the-quotation-cell"
   ],
   "proof_route_questions": [
     {
       "question": "Can this be built?",
       "evidence_path": "Architecture map",
-      "url": "https://www.unwindcode.ai/architecture/"
+      "url": "https://www.unwindcode.ai/architecture"
     },
     {
       "question": "Can this be trusted?",
       "evidence_path": "Proof ledger",
-      "url": "https://www.unwindcode.ai/proof/"
+      "url": "https://www.unwindcode.ai/proof"
     },
     {
       "question": "Can value move safely?",
       "evidence_path": "Web3 boundary",
-      "url": "https://www.unwindcode.ai/organisms/financial-organisms/"
+      "url": "https://www.unwindcode.ai/organisms/financial-organisms"
     },
     {
       "question": "Can we build this together?",
       "evidence_path": "Collaboration packet",
-      "url": "https://www.unwindcode.ai/build-with-us/"
+      "url": "https://www.unwindcode.ai/build-with-us"
     }
   ],
   "engagement_modes": [
@@ -1173,32 +1173,32 @@
     {
       "audience": "builders",
       "next_action": "Study the organism stack and map a workflow into cortex, memory, gateway, cells, safety gates, and proof.",
-      "url": "https://www.unwindcode.ai/architecture/"
+      "url": "https://www.unwindcode.ai/architecture"
     },
     {
       "audience": "creators",
       "next_action": "Explore Visual Cortex as the creator intelligence path for transforming brand context, scripts, and creative intent into reviewable media plans.",
-      "url": "https://www.unwindcode.ai/organisms/visual-cortex/"
+      "url": "https://www.unwindcode.ai/organisms/visual-cortex"
     },
     {
       "audience": "investors",
       "next_action": "Inspect proof, status labels, transmissions, and bounded Web3 posture before a conversation.",
-      "url": "https://www.unwindcode.ai/proof/"
+      "url": "https://www.unwindcode.ai/proof"
     },
     {
       "audience": "users",
       "next_action": "Explore the human-facing Infinity Mirror prototype and join early access.",
-      "url": "https://www.unwindcode.ai/organisms/infinity-mirror/"
+      "url": "https://www.unwindcode.ai/organisms/infinity-mirror"
     },
     {
       "audience": "protocols",
       "next_action": "Review Web3 simulation boundaries: read-only research, risk scoring, unsigned packets, and no hidden wallet authority.",
-      "url": "https://www.unwindcode.ai/organisms/financial-organisms/"
+      "url": "https://www.unwindcode.ai/organisms/financial-organisms"
     },
     {
       "audience": "collaborators",
       "next_action": "Send a goal, domain, authority boundary, and proof requirement through the Build With Us path.",
-      "url": "https://www.unwindcode.ai/build-with-us/"
+      "url": "https://www.unwindcode.ai/build-with-us"
     }
   ],
   "subscription_signal_paths": [
@@ -1272,14 +1272,14 @@
     "boundary": "The chat can explain, route, and draft. It does not silently take authority over files, money, public publishing, or Web3 movement."
   },
   "contact": {
-    "primary_url": "https://www.unwindcode.ai/build-with-us/",
+    "primary_url": "https://www.unwindcode.ai/build-with-us",
     "subscribe_url": "https://www.unwindcode.ai/#cta"
   },
   "assets": [
     {
       "id": "transmission_26_social_carousel",
       "name": "Transmission 26 Social Carousel",
-      "route": "https://www.unwindcode.ai/transmissions/26-property-sales-intelligence-cell.html#social-proof-packet",
+      "route": "https://www.unwindcode.ai/transmissions/26-property-sales-intelligence-cell#social-proof-packet",
       "asset": "https://www.unwindcode.ai/social/transmission-26-property-sales-intelligence-cell/ready-to-upload/01-property-sales-intelligence-cell.png",
       "download_packet": "https://www.unwindcode.ai/social/transmission-26-property-sales-intelligence-cell/downloads/transmission-26-property-sales-intelligence-cell.zip",
       "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",
@@ -1290,7 +1290,7 @@
     {
       "id": "transmission_27_social_carousel",
       "name": "Transmission 27 Social Carousel",
-      "route": "https://www.unwindcode.ai/transmissions/27-the-quotation-cell.html#social-proof-packet",
+      "route": "https://www.unwindcode.ai/transmissions/27-the-quotation-cell#social-proof-packet",
       "asset": "https://www.unwindcode.ai/social/transmission-27-quotation-cell/ready-to-upload/01-quotation-cell.png",
       "download_packet": "https://www.unwindcode.ai/social/transmission-27-quotation-cell/downloads/transmission-27-quotation-cell.zip",
       "manifest": "https://www.unwindcode.ai/assets/asset-manifest.json",

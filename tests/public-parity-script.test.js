@@ -10,7 +10,7 @@ test('public parity checker compares latest transmission across discovery surfac
   assert.deepEqual(report.latest_public_transmission, {
     id: '31-the-active-source-of-truth-gate',
     transmission_number: 31,
-    route: '/transmissions/31-the-active-source-of-truth-gate.html',
+    route: '/transmissions/31-the-active-source-of-truth-gate',
     source_file: 'transmissions/31-the-active-source-of-truth-gate.html',
   });
   assert.deepEqual(report.transmission_numbering, {
@@ -48,7 +48,7 @@ test('public parity checker compares latest transmission across discovery surfac
 });
 
 test('public parity checker can verify live discovery surfaces without using local files as proof', async () => {
-  const latestRoute = '/transmissions/31-the-active-source-of-truth-gate.html';
+  const latestRoute = '/transmissions/31-the-active-source-of-truth-gate';
   const latestStatus = {
     id: '31-the-active-source-of-truth-gate',
     transmission_number: 31,
@@ -59,7 +59,7 @@ test('public parity checker can verify live discovery surfaces without using loc
   };
   const responses = new Map([
     ['https://www.unwindcode.ai/', `<a href="${latestRoute}">latest</a>`],
-    ['https://www.unwindcode.ai/transmissions/', `<a href="${latestRoute}">latest</a>`],
+    ['https://www.unwindcode.ai/transmissions', `<a href="${latestRoute}">latest</a>`],
     ['https://www.unwindcode.ai/sitemap.xml', `<loc>https://www.unwindcode.ai${latestRoute}</loc>`],
     ['https://www.unwindcode.ai/llms.txt', `Latest: https://www.unwindcode.ai${latestRoute}`],
     ['https://www.unwindcode.ai/ai-services.json', JSON.stringify({ latestRoute })],
@@ -144,7 +144,7 @@ test('public parity checker can verify live discovery surfaces without using loc
 });
 
 test('public parity checker fails when live public RAG contracts are unavailable', async () => {
-  const latestRoute = '/transmissions/31-the-active-source-of-truth-gate.html';
+  const latestRoute = '/transmissions/31-the-active-source-of-truth-gate';
   const latestStatus = {
     id: '31-the-active-source-of-truth-gate',
     transmission_number: 31,
@@ -155,7 +155,7 @@ test('public parity checker fails when live public RAG contracts are unavailable
   };
   const responses = new Map([
     ['https://www.unwindcode.ai/', `<a href="${latestRoute}">latest</a>`],
-    ['https://www.unwindcode.ai/transmissions/', `<a href="${latestRoute}">latest</a>`],
+    ['https://www.unwindcode.ai/transmissions', `<a href="${latestRoute}">latest</a>`],
     ['https://www.unwindcode.ai/sitemap.xml', `<loc>https://www.unwindcode.ai${latestRoute}</loc>`],
     ['https://www.unwindcode.ai/llms.txt', `Latest: https://www.unwindcode.ai${latestRoute}`],
     ['https://www.unwindcode.ai/ai-services.json', JSON.stringify({ latestRoute })],
@@ -222,7 +222,7 @@ test('public parity checker fails when live public RAG contracts are unavailable
 });
 
 test('public parity checker classifies live RAG fail-closed HTTP states by endpoint', async () => {
-  const latestRoute = '/transmissions/31-the-active-source-of-truth-gate.html';
+  const latestRoute = '/transmissions/31-the-active-source-of-truth-gate';
   const latestStatus = {
     id: '31-the-active-source-of-truth-gate',
     transmission_number: 31,
@@ -233,7 +233,7 @@ test('public parity checker classifies live RAG fail-closed HTTP states by endpo
   };
   const responses = new Map([
     ['https://www.unwindcode.ai/', `<a href="${latestRoute}">latest</a>`],
-    ['https://www.unwindcode.ai/transmissions/', `<a href="${latestRoute}">latest</a>`],
+    ['https://www.unwindcode.ai/transmissions', `<a href="${latestRoute}">latest</a>`],
     ['https://www.unwindcode.ai/sitemap.xml', `<loc>https://www.unwindcode.ai${latestRoute}</loc>`],
     ['https://www.unwindcode.ai/llms.txt', `Latest: https://www.unwindcode.ai${latestRoute}`],
     ['https://www.unwindcode.ai/ai-services.json', JSON.stringify({ latestRoute })],
@@ -326,10 +326,10 @@ test('public parity checker classifies live RAG fail-closed HTTP states by endpo
 });
 
 test('public parity checker reports incompatible live status contracts without throwing', async () => {
-  const latestRoute = '/transmissions/31-the-active-source-of-truth-gate.html';
+  const latestRoute = '/transmissions/31-the-active-source-of-truth-gate';
   const responses = new Map([
     ['https://www.unwindcode.ai/', `<a href="${latestRoute}">latest</a>`],
-    ['https://www.unwindcode.ai/transmissions/', `<a href="${latestRoute}">latest</a>`],
+    ['https://www.unwindcode.ai/transmissions', `<a href="${latestRoute}">latest</a>`],
     ['https://www.unwindcode.ai/sitemap.xml', `<loc>https://www.unwindcode.ai${latestRoute}</loc>`],
     ['https://www.unwindcode.ai/llms.txt', `Latest: https://www.unwindcode.ai${latestRoute}`],
     ['https://www.unwindcode.ai/ai-services.json', JSON.stringify({ latestRoute })],

@@ -229,7 +229,7 @@ async function readLiveSources({ baseUrl, fetcher }) {
       fetcher(liveUrl(normalizedBaseUrl, '/sitemap.xml')),
       fetcher(liveUrl(normalizedBaseUrl, '/llms.txt')),
       fetcher(liveUrl(normalizedBaseUrl, '/ai-services.json')),
-      fetcher(liveUrl(normalizedBaseUrl, '/transmissions/')),
+      fetcher(liveUrl(normalizedBaseUrl, '/transmissions')),
       fetcher(liveUrl(normalizedBaseUrl, '/')),
     ]);
   const parsedStatus = JSON.parse(statusRaw);

@@ -37,7 +37,7 @@
       ],
       "source_routes": [
         "/#architecture",
-        "/transmissions/15-how-we-give-machines-a-mind.html"
+        "/transmissions/15-how-we-give-machines-a-mind"
       ],
       "source_files": [
         "index.html",
@@ -51,11 +51,16 @@
         },
         {
           "label": "How We Give Machines a Mind",
-          "route": "/transmissions/15-how-we-give-machines-a-mind.html",
+          "route": "/transmissions/15-how-we-give-machines-a-mind",
           "source_file": "transmissions/15-how-we-give-machines-a-mind.html"
         }
       ],
-      "memory_layers": ["working", "procedural", "semantic", "episodic"],
+      "memory_layers": [
+        "working",
+        "procedural",
+        "semantic",
+        "episodic"
+      ],
       "safety_boundaries": [
         "This entry describes public architecture concepts only and does not imply runtime activation, deployment authority, or hidden operational access."
       ],
@@ -83,8 +88,8 @@
       ],
       "source_routes": [
         "/#architecture",
-        "/transmissions/15-how-we-give-machines-a-mind.html",
-        "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html"
+        "/transmissions/15-how-we-give-machines-a-mind",
+        "/transmissions/21-the-unwind-brain-checkpoint-white-paper"
       ],
       "source_files": [
         "index.html",
@@ -99,11 +104,16 @@
         },
         {
           "label": "Memory Architecture",
-          "route": "/transmissions/15-how-we-give-machines-a-mind.html",
+          "route": "/transmissions/15-how-we-give-machines-a-mind",
           "source_file": "transmissions/15-how-we-give-machines-a-mind.html"
         }
       ],
-      "memory_layers": ["working", "procedural", "semantic", "episodic"],
+      "memory_layers": [
+        "working",
+        "procedural",
+        "semantic",
+        "episodic"
+      ],
       "safety_boundaries": [
         "Public memory descriptions are retrieval guidance, not permission to store private prompts, user data, secrets, or stale operational conclusions."
       ],
@@ -137,8 +147,8 @@
         }
       ],
       "source_routes": [
-        "/transmissions/16-the-organism-spine.html",
-        "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html"
+        "/transmissions/16-the-organism-spine",
+        "/transmissions/21-the-unwind-brain-checkpoint-white-paper"
       ],
       "source_files": [
         "transmissions/16-the-organism-spine.html",
@@ -147,16 +157,19 @@
       "citations": [
         {
           "label": "The Organism Spine",
-          "route": "/transmissions/16-the-organism-spine.html",
+          "route": "/transmissions/16-the-organism-spine",
           "source_file": "transmissions/16-the-organism-spine.html"
         },
         {
           "label": "Brain checkpoint approval sections",
-          "route": "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html",
+          "route": "/transmissions/21-the-unwind-brain-checkpoint-white-paper",
           "source_file": "transmissions/21-the-unwind-brain-checkpoint-white-paper.html"
         }
       ],
-      "memory_layers": ["procedural", "episodic"],
+      "memory_layers": [
+        "procedural",
+        "episodic"
+      ],
       "safety_boundaries": [
         "This entry describes human-governed approval design and does not expose approval mechanics, credentials, provider access, or executable procedures."
       ],
@@ -190,8 +203,8 @@
         }
       ],
       "source_routes": [
-        "/transmissions/19-the-cell-swap-protocol.html",
-        "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html"
+        "/transmissions/19-the-cell-swap-protocol",
+        "/transmissions/21-the-unwind-brain-checkpoint-white-paper"
       ],
       "source_files": [
         "transmissions/19-the-cell-swap-protocol.html",
@@ -200,11 +213,14 @@
       "citations": [
         {
           "label": "The Cell Swap Protocol",
-          "route": "/transmissions/19-the-cell-swap-protocol.html",
+          "route": "/transmissions/19-the-cell-swap-protocol",
           "source_file": "transmissions/19-the-cell-swap-protocol.html"
         }
       ],
-      "memory_layers": ["procedural", "semantic"],
+      "memory_layers": [
+        "procedural",
+        "semantic"
+      ],
       "safety_boundaries": [
         "This entry is a public governance summary and not an instruction manual for activating unreviewed cells or bypassing simulation and approval gates."
       ],
@@ -238,8 +254,8 @@
         }
       ],
       "source_routes": [
-        "/transmissions/20-the-public-proof-loop.html",
-        "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html"
+        "/transmissions/20-the-public-proof-loop",
+        "/transmissions/21-the-unwind-brain-checkpoint-white-paper"
       ],
       "source_files": [
         "transmissions/20-the-public-proof-loop.html",
@@ -248,16 +264,19 @@
       "citations": [
         {
           "label": "The Public Proof Loop",
-          "route": "/transmissions/20-the-public-proof-loop.html",
+          "route": "/transmissions/20-the-public-proof-loop",
           "source_file": "transmissions/20-the-public-proof-loop.html"
         },
         {
           "label": "Public proof whitepaper sections",
-          "route": "/transmissions/21-the-unwind-brain-checkpoint-white-paper.html",
+          "route": "/transmissions/21-the-unwind-brain-checkpoint-white-paper",
           "source_file": "transmissions/21-the-unwind-brain-checkpoint-white-paper.html"
         }
       ],
-      "memory_layers": ["episodic", "procedural"],
+      "memory_layers": [
+        "episodic",
+        "procedural"
+      ],
       "safety_boundaries": [
         "Public proof should make architecture legible without exposing private prompts, exact review mechanics, credentials, security fingerprints, deployment procedures, or operational commands."
       ],

@@ -56,7 +56,7 @@ function invalidDigestAssetPackage() {
     type: 'social-carousel',
     title: 'Status Invalid Asset Package',
     summary: 'Synthetic invalid asset package for status validation.',
-    source_route: '/transmissions/24-the-mirror-found-its-form.html',
+    source_route: '/transmissions/24-the-mirror-found-its-form',
     asset_package_sha256: 'a'.repeat(64),
     source_files: ['social/status-invalid-asset-package/README.md'],
     alt_text: 'Synthetic invalid asset package used to verify status validation.',
@@ -174,7 +174,7 @@ test('returns public-safe backend status from active registries', async () => {
     id: '31-the-active-source-of-truth-gate',
     transmission_number: 31,
     title: 'Transmission 31: The Active Source-of-Truth Gate',
-    route: '/transmissions/31-the-active-source-of-truth-gate.html',
+    route: '/transmissions/31-the-active-source-of-truth-gate',
     source_file: 'transmissions/31-the-active-source-of-truth-gate.html',
     review_status: 'public_safe',
   });

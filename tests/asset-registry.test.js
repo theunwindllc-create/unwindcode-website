@@ -210,7 +210,7 @@ test('asset registry records public-safe provenance for reviewed asset packages'
   assert.ok(assetPackage.approval_record_schema.prohibited_record_content.includes('raw_prompts'));
   assert.ok(assetPackage.approval_record_schema.prohibited_record_content.includes('wallet_secret_material'));
   assert.deepEqual(assetPackage.approval_records, []);
-  assert.equal(assetPackage.source_route, '/transmissions/24-the-mirror-found-its-form.html');
+  assert.equal(assetPackage.source_route, '/transmissions/24-the-mirror-found-its-form');
   assert.ok(assetPackage.alt_text.length >= 80);
   assert.ok(assetPackage.provenance.source_files.length >= 3);
   assert.equal(
@@ -267,7 +267,7 @@ test('property sales intelligence carousel is registered as a prepared-only pack
 
   assert.ok(assetPackage, 'Transmission 26 carousel should be registered');
   assert.equal(assetPackage.type, 'social-carousel');
-  assert.equal(assetPackage.source_route, '/transmissions/26-property-sales-intelligence-cell.html');
+  assert.equal(assetPackage.source_route, '/transmissions/26-property-sales-intelligence-cell');
   assert.equal(assetPackage.review_status, 'creator_approval_required');
   assert.equal(assetPackage.publication_status, 'prepared_not_posted');
   assert.equal(assetPackage.manual_approval_required, true);
@@ -315,7 +315,7 @@ test('agent-readable organism carousel is registered as a prepared-only package'
 
   assert.ok(assetPackage, 'Transmission 29 carousel should be registered');
   assert.equal(assetPackage.type, 'social-carousel');
-  assert.equal(assetPackage.source_route, '/transmissions/29-the-agent-readable-organism.html');
+  assert.equal(assetPackage.source_route, '/transmissions/29-the-agent-readable-organism');
   assert.equal(assetPackage.review_status, 'creator_approval_required');
   assert.equal(assetPackage.publication_status, 'prepared_not_posted');
   assert.equal(assetPackage.manual_approval_required, true);
@@ -365,7 +365,7 @@ test('operator readiness layer carousel is registered as a prepared-only package
 
   assert.ok(assetPackage, 'Transmission 30 carousel should be registered');
   assert.equal(assetPackage.type, 'social-carousel');
-  assert.equal(assetPackage.source_route, '/transmissions/30-the-operator-readiness-layer.html');
+  assert.equal(assetPackage.source_route, '/transmissions/30-the-operator-readiness-layer');
   assert.equal(assetPackage.review_status, 'creator_approval_required');
   assert.equal(assetPackage.publication_status, 'prepared_not_posted');
   assert.equal(assetPackage.manual_approval_required, true);
@@ -417,7 +417,7 @@ test('active source-of-truth gate carousel is registered as a prepared-only pack
 
   assert.ok(assetPackage, 'Transmission 31 carousel should be registered');
   assert.equal(assetPackage.type, 'social-carousel');
-  assert.equal(assetPackage.source_route, '/transmissions/31-the-active-source-of-truth-gate.html');
+  assert.equal(assetPackage.source_route, '/transmissions/31-the-active-source-of-truth-gate');
   assert.equal(assetPackage.review_status, 'creator_approval_required');
   assert.equal(assetPackage.publication_status, 'prepared_not_posted');
   assert.equal(assetPackage.manual_approval_required, true);

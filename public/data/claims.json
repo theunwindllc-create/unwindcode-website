@@ -67,8 +67,8 @@
       "interpretation_boundary": "This does not grant or prove autonomous money movement; public financial motion remains framed as proof, simulation, and human approval before consequence.",
       "source_routes": [
         "/",
-        "/transmissions/22-the-monad-hand-clarity-before-motion.html",
-        "/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html"
+        "/transmissions/22-the-monad-hand-clarity-before-motion",
+        "/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands"
       ],
       "source_files": [
         "index.html",
@@ -83,12 +83,12 @@
         },
         {
           "label": "Monad Hand safety transmission",
-          "route": "/transmissions/22-the-monad-hand-clarity-before-motion.html",
+          "route": "/transmissions/22-the-monad-hand-clarity-before-motion",
           "source_file": "transmissions/22-the-monad-hand-clarity-before-motion.html"
         },
         {
           "label": "SEC Gate safety transmission",
-          "route": "/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html",
+          "route": "/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands",
           "source_file": "transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html"
         }
       ],
@@ -128,8 +128,8 @@
       "risk_level": "medium",
       "interpretation_boundary": "This safety label should not be expanded into execution authority, wallet access, or public deployment proof.",
       "source_routes": [
-        "/transmissions/22-the-monad-hand-clarity-before-motion.html",
-        "/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html"
+        "/transmissions/22-the-monad-hand-clarity-before-motion",
+        "/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands"
       ],
       "source_files": [
         "transmissions/22-the-monad-hand-clarity-before-motion.html",
@@ -138,12 +138,12 @@
       "citations": [
         {
           "label": "Monad Hand proof membrane",
-          "route": "/transmissions/22-the-monad-hand-clarity-before-motion.html",
+          "route": "/transmissions/22-the-monad-hand-clarity-before-motion",
           "source_file": "transmissions/22-the-monad-hand-clarity-before-motion.html"
         },
         {
           "label": "SEC Gate financial restraint",
-          "route": "/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html",
+          "route": "/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands",
           "source_file": "transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html"
         }
       ],
@@ -159,7 +159,7 @@
       "risk_level": "medium",
       "interpretation_boundary": "This does not prove live CRM deployment, provider credentials, lead imports, autonomous messages, autonomous calls, legal compliance, or permission to contact any person.",
       "source_routes": [
-        "/transmissions/26-property-sales-intelligence-cell.html"
+        "/transmissions/26-property-sales-intelligence-cell"
       ],
       "source_files": [
         "transmissions/26-property-sales-intelligence-cell.html"
@@ -167,7 +167,7 @@
       "citations": [
         {
           "label": "Property Sales Intelligence Cell transmission",
-          "route": "/transmissions/26-property-sales-intelligence-cell.html",
+          "route": "/transmissions/26-property-sales-intelligence-cell",
           "source_file": "transmissions/26-property-sales-intelligence-cell.html"
         }
       ],

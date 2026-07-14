@@ -3,18 +3,19 @@ import { readdir, readFile } from 'node:fs/promises';
 import test from 'node:test';
 
 const CANONICAL_ORIGIN = 'https://www.unwindcode.ai';
-const PROPERTY_SALES_ROUTE = '/transmissions/26-property-sales-intelligence-cell.html';
-const LEGACY_PROPERTY_SALES_ROUTE = '/transmissions/26-the-property-sales-intelligence-cell.html';
+const PROPERTY_SALES_ROUTE = '/transmissions/26-property-sales-intelligence-cell';
+const LEGACY_PROPERTY_SALES_ROUTE = '/transmissions/26-the-property-sales-intelligence-cell';
 
 async function activeRoutePaths() {
   const transmissionFiles = (await readdir(new URL('../transmissions/', import.meta.url)))
     .filter((file) => file.endsWith('.html') && file !== 'index.html')
     .sort();
 
+  // Clean URLs: transmissions serve extensionless, directories without trailing slash.
   return [
     '/',
-    '/transmissions/',
-    ...transmissionFiles.map((file) => `/transmissions/${file}`),
+    '/transmissions',
+    ...transmissionFiles.map((file) => `/transmissions/${file.replace(/\.html$/u, '')}`),
   ];
 }
 
@@ -32,9 +33,9 @@ test('public sitemap lists only active source routes', async () => {
   const actualUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
 
   assert.deepEqual(actualUrls, expectedUrls);
-  assert.equal(actualUrls.some((url) => url.includes('/organisms/')), false);
-  assert.equal(actualUrls.some((url) => url.includes('/architecture/')), false);
-  assert.equal(actualUrls.some((url) => url.includes('/proof/')), false);
+  assert.equal(actualUrls.some((url) => url.includes('/organisms')), false);
+  assert.equal(actualUrls.some((url) => url.includes('/architecture')), false);
+  assert.equal(actualUrls.some((url) => url.includes('/proof')), false);
 });
 
 test('robots file exposes sitemap and keeps crawlers on public routes', async () => {
@@ -60,9 +61,9 @@ test('llms file is public-safe and anchored to live routes', async () => {
   }
 
   assert.equal(llms.includes('25-the-homepage-learned-to-pulse'), false);
-  assert.equal(llms.includes('/organisms/'), false);
-  assert.equal(llms.includes('/architecture/'), false);
-  assert.equal(llms.includes('/proof/'), false);
+  assert.equal(llms.includes('/organisms'), false);
+  assert.equal(llms.includes('/architecture'), false);
+  assert.equal(llms.includes('/proof'), false);
   assert.equal(/SUPABASE_SERVICE_ROLE_KEY|PRIVATE_KEY|BEGIN RSA PRIVATE KEY/i.test(llms), false);
 });
 

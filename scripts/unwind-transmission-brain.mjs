@@ -46,7 +46,7 @@ function assertPublicSafe(text) {
 }
 
 function decide() {
-  const route = `/transmissions/${String(TRANSMISSION_NUMBER).padStart(2, '0')}-${TRANSMISSION_SLUG}.html`;
+  const route = `/transmissions/${String(TRANSMISSION_NUMBER).padStart(2, '0')}-${TRANSMISSION_SLUG}`;
   const decision = {
     generated_at: new Date('2026-06-07T09:30:00-04:00').toISOString(),
     next: {
