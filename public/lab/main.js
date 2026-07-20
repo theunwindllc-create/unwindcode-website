@@ -5,6 +5,7 @@ const clamp01 = v => Math.max(0, Math.min(1, v));
 const lerp = (a, b, t) => a + (b - a) * t;
 const easeInOut = t => t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const isMobile = window.matchMedia('(max-width: 720px)').matches;
 
 /* Debug surface for automated verification */
 window.__unwind = { heroProgress: 0, heroVideoReady: false, activeOrgan: 0, selectedPath: 'collaborators', bootDone: false };
@@ -64,6 +65,10 @@ function sectionProgress(el) {
 function wireVideo(id, { autoplay = false } = {}) {
   const video = document.getElementById(id);
   if (!video) return null;
+  // phones get the lighter encode when one exists
+  if (isMobile && video.dataset.mobileSrc) {
+    video.querySelector('source').src = video.dataset.mobileSrc;
+  }
   const state = { video, ready: false, duration: 0 };
   video.addEventListener('loadedmetadata', () => {
     state.duration = video.duration || 0;
@@ -117,7 +122,7 @@ function mulberry32(seed) {
   };
 }
 
-const PARTICLE_COUNT = 1400;
+const PARTICLE_COUNT = isMobile ? 650 : 1400;
 const rand = mulberry32(20260719);
 const particles = [];
 for (let i = 0; i < PARTICLE_COUNT; i++) {
@@ -391,3 +396,17 @@ function selectPath(key) {
 }
 pathCards.forEach(c => c.addEventListener('click', () => selectPath(c.dataset.path)));
 selectPath('collaborators');
+
+/* ═══════════════ Mobile menu ═══════════════ */
+const burger = document.getElementById('nav-burger');
+const mobileMenu = document.getElementById('mobile-menu');
+
+function setMenu(open) {
+  burger.setAttribute('aria-expanded', String(open));
+  mobileMenu.classList.toggle('open', open);
+  mobileMenu.setAttribute('aria-hidden', String(!open));
+  document.body.classList.toggle('menu-open', open);
+  window.__unwind.menuOpen = open;
+}
+burger.addEventListener('click', () => setMenu(!mobileMenu.classList.contains('open')));
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));

@@ -175,6 +175,8 @@ body.lit .hero-copy { animation: herolit 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
   align-items: center;
   justify-content: space-between;
   padding: 1.1rem 4vw;
+  padding-left: max(4vw, env(safe-area-inset-left));
+  padding-right: max(4vw, env(safe-area-inset-right));
   transition: background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease;
   border-bottom: 1px solid transparent;
 }
@@ -204,13 +206,65 @@ body.lit .hero-copy { animation: herolit 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
 .nav-links a:hover { color: var(--text); }
 .btn-nav { background: var(--accent-soft); border-color: rgba(155, 89, 245, 0.35); }
 .btn-nav:hover { background: var(--accent); color: #fff; }
-@media (max-width: 720px) { .nav-links { display: none; } }
+
+/* mobile nav: burger + full-screen glass drawer */
+.nav-burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px; height: 44px;
+  padding: 10px;
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  cursor: pointer;
+}
+.nav-burger span {
+  display: block; height: 2px; width: 100%;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.nav-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.mobile-menu {
+  position: fixed; inset: 0;
+  z-index: 90;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 1.9rem;
+  background: rgba(6, 6, 12, 0.88);
+  -webkit-backdrop-filter: blur(22px) saturate(140%);
+  backdrop-filter: blur(22px) saturate(140%);
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+.mobile-menu.open { opacity: 1; visibility: visible; }
+.mobile-menu > a:not(.btn) {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.mobile-menu > a:not(.btn):active { color: var(--accent); }
+.mobile-menu .btn { margin-top: 0.8rem; }
+body.menu-open { overflow: hidden; }
+@media (max-width: 720px) {
+  .nav-links, .btn-nav { display: none; }
+  .nav-burger { display: flex; }
+}
 
 /* ═══════════════ Hero — scroll-scrub assembly ═══════════════ */
 .hero { height: 360vh; padding: 0; }
 .hero-sticky {
   position: sticky; top: 0;
   height: 100vh;
+  height: 100svh;
   overflow: hidden;
 }
 #hero-canvas, #hero-video {
@@ -338,6 +392,7 @@ body.lit #hero-video, body.lit #hero-canvas { animation: herosettle 1.7s cubic-b
 .boundary-sticky {
   position: sticky; top: 0;
   height: 100vh;
+  height: 100svh;
   overflow: hidden;
   display: flex; align-items: center; justify-content: center;
 }
@@ -699,6 +754,34 @@ body.lit #hero-video, body.lit #hero-canvas { animation: herosettle 1.7s cubic-b
 /* ═══════════════ Reveal on scroll ═══════════════ */
 .reveal { opacity: 0; transform: translateY(34px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.in { opacity: 1; transform: translateY(0); }
+
+/* ═══════════════ Mobile refinements ═══════════════ */
+@media (max-width: 720px) {
+  section { padding: 5.5rem 6vw; }
+  .hero { height: 300vh; }
+  .hero-copy h1 { font-size: clamp(2.3rem, 10vw, 3.2rem); }
+  .hero-sub { font-size: 0.98rem; }
+  .hero-cta { bottom: 7vh; width: max-content; max-width: 92vw; }
+  .org-node { padding: 0.45rem 0.9rem; font-size: 0.72rem; gap: 0.4rem; }
+  .org-node[data-node="1"] { --x: 22% !important; }
+  .org-node[data-node="2"] { --x: 78% !important; }
+  .boot-title { letter-spacing: 0.32em; text-indent: 0.32em; }
+  .boundary { height: 260vh; }
+  .anatomy-strip { gap: 0.55rem; }
+  .organ { padding: 0.65rem 1.1rem; font-size: 0.8rem; }
+  .organ-line { font-size: 0.9rem; padding: 0.85rem 1.2rem; }
+  .proto { padding: 1.9rem 1.6rem; }
+  .proto-line { min-height: 0; }
+  .metrics { gap: 2.2rem; padding: 4rem 6vw; }
+  .metric { min-width: 130px; }
+  .browser-body { padding: 1.5rem; gap: 1.4rem; }
+  .path-detail { padding: 1.8rem 1.5rem; }
+  .path-toggle { gap: 0.9rem; }
+  .faq-item summary { padding: 1.1rem 1.25rem; font-size: 0.95rem; }
+  .faq-item p { padding: 0 1.25rem 1.2rem; font-size: 0.92rem; }
+  .footer-links { gap: 0.7rem 1.3rem; }
+  .final { min-height: 88svh; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

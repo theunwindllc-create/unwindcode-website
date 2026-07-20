@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>The Lab — Unwind Code | Governed Cognitive Organisms</title>
 <meta name="description" content="Enter the Unwind Code lab: a cinematic tour of governed cognitive organisms — living software with memory, public proof, and hard human authority boundaries." />
 <meta name="theme-color" content="#06060c" />
@@ -46,13 +46,27 @@
     <a href="/transmissions">Transmissions</a>
   </div>
   <a class="btn btn-nav" href="/build-with-us">Build With Us</a>
+  <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- ══════════ MOBILE MENU ══════════ -->
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <a href="#anatomy">Anatomy</a>
+  <a href="#organisms">Organisms</a>
+  <a href="#proof">Proof</a>
+  <a href="#paths">Paths</a>
+  <a href="/transmissions">Transmissions</a>
+  <a href="/home">Console</a>
+  <a class="btn btn-primary" href="/build-with-us">Build With Us</a>
+</div>
 
 <!-- ══════════ HERO — scroll-scrubbed neural assembly ══════════ -->
 <section class="hero" id="top">
   <div class="hero-sticky">
     <canvas id="hero-canvas" aria-hidden="true"></canvas>
-    <video id="hero-video" muted playsinline preload="auto" aria-hidden="true">
+    <video id="hero-video" muted playsinline preload="auto" aria-hidden="true" data-mobile-src="/lab/media/hero-720.mp4">
       <source src="/lab/media/hero.mp4" type="video/mp4" />
     </video>
     <div class="hero-vignette" aria-hidden="true"></div>
