@@ -143,9 +143,12 @@ for (let i = 0; i < PARTICLE_COUNT; i++) {
 let heroProgress = 0;        // rendered (smoothed)
 let heroTarget = 0;          // raw from scroll
 
+/* the hero clip finishes at this fraction of the pin; the rest is the exit dip */
+const SCRUB_END = 0.86;
+
 function drawParticles(time) {
   ctx.clearRect(0, 0, W, H);
-  const p = reducedMotion ? 1 : heroProgress;
+  const p = reducedMotion ? 1 : clamp01(heroProgress / SCRUB_END);
   const settled = p > 0.92;
   const beat = settled ? 1 + Math.sin(time * 0.0035) * 0.25 : 1;
 
@@ -193,6 +196,8 @@ function drawParticles(time) {
 /* Overlay: copy, nodes, lines, CTA driven by progress */
 const heroCopy = document.getElementById('hero-copy');
 const heroCta = document.getElementById('hero-cta');
+const heroExit = document.getElementById('hero-exit');
+const boundaryEnter = document.getElementById('boundary-enter');
 const scrollHint = document.getElementById('scroll-hint');
 const orgCore = document.querySelector('.org-core');
 const orgNodes = [...document.querySelectorAll('.org-node')];
@@ -215,7 +220,17 @@ function updateHeroOverlay(p) {
     line.style.strokeDashoffset = 100 - easeInOut(t) * 100;
   });
 
-  heroCta.classList.toggle('on', p > 0.82);
+  // CTA lives between assembly and the exit dip
+  heroCta.classList.toggle('on', p > 0.58 && p < 0.9);
+
+  // exit dip: fade to void + gentle push-in, so the boundary video rises out of black
+  const exit = easeInOut(clamp01((p - SCRUB_END) / (1 - SCRUB_END)));
+  heroExit.style.opacity = exit;
+  if (exit > 0) {
+    const zoom = `scale(${1 + exit * 0.07})`;
+    canvas.style.transform = zoom;
+    if (heroVideo) heroVideo.video.style.transform = zoom;
+  }
 }
 
 /* ═══════════════ BOUNDARY — pinned organ strip ═══════════════ */
@@ -270,7 +285,7 @@ function onFrame(time) {
       document.getElementById('org-map').style.display = 'none';
       ctx.clearRect(0, 0, W, H);
     }
-    const t = heroProgress * Math.max(heroVideo.duration - 0.05, 0);
+    const t = clamp01(heroProgress / SCRUB_END) * Math.max(heroVideo.duration - 0.05, 0);
     if (Math.abs(heroVideo.video.currentTime - t) > 0.02) {
       heroVideo.video.currentTime = t;
     }
@@ -278,11 +293,10 @@ function onFrame(time) {
     drawParticles(time);
   }
 
-  // boundary organ strip follows scroll unless a click pinned it
-  if (!organPinned) {
-    const bp = sectionProgress(boundarySection);
-    if (bp > 0) setOrgan(Math.min(5, Math.floor(bp * 6)));
-  }
+  // boundary: rise out of the void, then the organ strip follows scroll
+  const bp = sectionProgress(boundarySection);
+  boundaryEnter.style.opacity = 1 - easeInOut(clamp01(bp / 0.08));
+  if (!organPinned && bp > 0) setOrgan(Math.min(5, Math.floor(bp * 6)));
 
   requestAnimationFrame(onFrame);
 }

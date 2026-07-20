@@ -142,7 +142,7 @@ body.booting { overflow: hidden; }
 }
 .boot-flash {
   position: absolute; inset: 0;
-  background: #fff;
+  background: radial-gradient(circle at 50% 50%, #ffffff 0%, #ecdfff 45%, #c9a4ff 100%);
   opacity: 0;
   pointer-events: none;
 }
@@ -207,7 +207,7 @@ body.lit .hero-copy { animation: herolit 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
 @media (max-width: 720px) { .nav-links { display: none; } }
 
 /* ═══════════════ Hero — scroll-scrub assembly ═══════════════ */
-.hero { height: 420vh; padding: 0; }
+.hero { height: 360vh; padding: 0; }
 .hero-sticky {
   position: sticky; top: 0;
   height: 100vh;
@@ -217,9 +217,19 @@ body.lit .hero-copy { animation: herolit 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
+  will-change: transform;
 }
 #hero-video { opacity: 0; transition: opacity 0.8s ease; }
 #hero-video.ready { opacity: 1; }
+body.lit #hero-video, body.lit #hero-canvas { animation: herosettle 1.7s cubic-bezier(0.16, 1, 0.3, 1); }
+@keyframes herosettle { from { transform: scale(1.055); } to { transform: scale(1); } }
+.hero-exit {
+  position: absolute; inset: 0;
+  background: var(--bg);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 30;
+}
 .hero-vignette {
   position: absolute; inset: 0;
   background: radial-gradient(ellipse at 50% 45%, transparent 30%, rgba(6, 6, 12, 0.85) 100%);
@@ -368,6 +378,21 @@ body.lit .hero-copy { animation: herolit 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
 .boundary-scrim {
   position: absolute; inset: 0;
   background: radial-gradient(ellipse at center, rgba(6,6,12,0.35) 0%, rgba(6,6,12,0.88) 100%);
+}
+.boundary-enter {
+  position: absolute; inset: 0;
+  background: var(--bg);
+  opacity: 1;
+  pointer-events: none;
+  z-index: 10;
+}
+.boundary-sticky::after {
+  content: '';
+  position: absolute; left: 0; right: 0; bottom: 0;
+  height: 14vh;
+  background: linear-gradient(transparent, var(--bg));
+  pointer-events: none;
+  z-index: 3;
 }
 .boundary-content {
   position: relative; z-index: 2;
