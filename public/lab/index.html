@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Lab — Unwind Code | Governed Cognitive Organisms</title>
+<meta name="description" content="Enter the Unwind Code lab: a cinematic tour of governed cognitive organisms — living software with memory, public proof, and hard human authority boundaries." />
+<meta name="theme-color" content="#06060c" />
+<link rel="canonical" href="https://www.unwindcode.ai/lab" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="The Lab — Unwind Code" />
+<meta property="og:description" content="A cinematic tour of governed cognitive organisms: memory, proof, and human authority boundaries." />
+<meta property="og:url" content="https://www.unwindcode.ai/lab" />
+<meta property="og:site_name" content="Unwind Code" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext x='32' y='44' font-size='40' text-anchor='middle' fill='%239b59f5'%3E%E2%88%9E%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/lab/styles.css" />
+</head>
+<body class="booting">
+
+<!-- ══════════ BOOT — cinematic entrance ══════════ -->
+<div id="boot" aria-hidden="true">
+  <div class="boot-core">
+    <span class="boot-inf">∞</span>
+    <h2 class="boot-title">UNWIND <em>BRAIN</em></h2>
+    <p class="boot-status" id="boot-status">waking cortex…</p>
+    <div class="boot-bar"><i id="boot-fill"></i></div>
+  </div>
+  <div class="boot-burst" aria-hidden="true"></div>
+  <div class="boot-flash" aria-hidden="true"></div>
+</div>
+
+<!-- ══════════ NAV ══════════ -->
+<nav class="nav" id="nav">
+  <a class="logo" href="/" aria-label="Unwind Code home">
+    <span class="logo-inf">∞</span>
+    <span class="logo-word">unwind<em>code</em></span>
+  </a>
+  <div class="nav-links">
+    <a href="#anatomy">Anatomy</a>
+    <a href="#organisms">Organisms</a>
+    <a href="#proof">Proof</a>
+    <a href="#paths">Paths</a>
+    <a href="/transmissions">Transmissions</a>
+  </div>
+  <a class="btn btn-nav" href="/build-with-us">Build With Us</a>
+</nav>
+
+<!-- ══════════ HERO — scroll-scrubbed neural assembly ══════════ -->
+<section class="hero" id="top">
+  <div class="hero-sticky">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+    <video id="hero-video" muted playsinline preload="auto" aria-hidden="true">
+      <source src="/lab/media/hero.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-vignette" aria-hidden="true"></div>
+
+    <!-- Organism map overlay: assembles with scroll -->
+    <div class="org-map" id="org-map" aria-hidden="true">
+      <svg class="org-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path class="org-line" d="M 50 52 L 50 27" />
+        <path class="org-line" d="M 50 52 L 25 52" />
+        <path class="org-line" d="M 50 52 L 75 52" />
+        <path class="org-line" d="M 50 52 L 50 74" />
+      </svg>
+      <div class="org-core">∞</div>
+      <div class="org-node" data-node="0" style="--x:50%; --y:27%"><i></i>Cortex</div>
+      <div class="org-node" data-node="1" style="--x:25%; --y:52%"><i></i>Memory</div>
+      <div class="org-node" data-node="2" style="--x:75%; --y:52%"><i></i>Cells</div>
+      <div class="org-node" data-node="3" style="--x:50%; --y:74%"><i></i>Proof</div>
+    </div>
+
+    <div class="hero-copy" id="hero-copy">
+      <p class="eyebrow">Unwind Code · AI Architecture Lab</p>
+      <h1>What if your systems could <span class="accent">think for themselves?</span></h1>
+      <p class="hero-sub">We design governed cognitive organisms — living software with memory, public proof, and hard human authority boundaries.</p>
+    </div>
+
+    <div class="hero-cta" id="hero-cta">
+      <p class="hero-cta-line">This is what one looks like.</p>
+      <a class="btn btn-primary" href="#paths">Build With Us</a>
+    </div>
+
+    <div class="scroll-hint" id="scroll-hint"><span></span>Scroll to assemble</div>
+  </div>
+</section>
+
+<!-- ══════════ THE BOUNDARY — anatomy strip pinned over clip 2 ══════════ -->
+<section class="boundary" id="anatomy">
+  <div class="boundary-sticky">
+    <video id="boundary-video" muted playsinline loop preload="metadata" aria-hidden="true">
+      <source src="/lab/media/boundary.mp4" type="video/mp4" />
+    </video>
+    <div class="lanes-fallback" aria-hidden="true">
+      <div class="lane"></div><div class="lane"></div><div class="lane"></div>
+      <div class="lane"></div><div class="lane"></div>
+      <div class="lane-block"><span class="lane-lock">⬢</span> APPROVAL REQUIRED</div>
+    </div>
+    <div class="boundary-scrim" aria-hidden="true"></div>
+
+    <div class="boundary-content">
+      <p class="eyebrow">The Anatomy</p>
+      <h2>Six organs. One boundary.</h2>
+      <p class="section-sub">Every organism is grown from the same governed anatomy — and every dangerous motion stops at a human gate.</p>
+
+      <div class="anatomy-strip" id="anatomy-strip">
+        <button class="organ glass" data-organ="0">Cortex</button>
+        <button class="organ glass" data-organ="1">Memory</button>
+        <button class="organ glass" data-organ="2">Gateway</button>
+        <button class="organ glass" data-organ="3">Cells</button>
+        <button class="organ glass" data-organ="4">Immune System</button>
+        <button class="organ glass" data-organ="5">Proof Loop</button>
+      </div>
+      <p class="organ-line glass" id="organ-line">Reasoning and planning. Decides what to try next.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ORGANISM PROTOTYPES ══════════ -->
+<section class="organisms" id="organisms">
+  <p class="eyebrow">Living Prototypes</p>
+  <h2>Three organisms, already breathing.</h2>
+  <div class="proto-grid">
+    <article class="proto glass reveal">
+      <div class="proto-glyph">◉</div>
+      <h3>Visual Cortex</h3>
+      <p class="proto-line">An eye that directs its own cinema — every frame gated by human review before it reaches the world.</p>
+      <span class="proto-tag">Creative · Autonomous daily loop</span>
+      <a class="proto-link" href="/organisms/visual-cortex">Meet the organism →</a>
+    </article>
+    <article class="proto glass reveal">
+      <div class="proto-glyph">∞</div>
+      <h3>Infinity Mirror</h3>
+      <p class="proto-line">An emotional mirror that listens, remembers, and tunes itself to the person in front of it.</p>
+      <span class="proto-tag">Human · Adaptive EQ</span>
+      <a class="proto-link" href="/organisms/infinity-mirror">Meet the organism →</a>
+    </article>
+    <article class="proto glass reveal">
+      <div class="proto-glyph">◈</div>
+      <h3>Financial Organisms</h3>
+      <p class="proto-line">Capital that survives on proof — capped, cost-shielded, and never alone with the money.</p>
+      <span class="proto-tag">Markets · Hard-gated execution</span>
+      <a class="proto-link" href="/organisms/financial-organisms">Meet the organism →</a>
+    </article>
+  </div>
+</section>
+
+<!-- ══════════ METRICS ══════════ -->
+<section class="metrics" id="metrics">
+  <div class="metric reveal">
+    <span class="metric-num" data-count="5">0</span>
+    <span class="metric-label">Organism paths</span>
+  </div>
+  <div class="metric reveal">
+    <span class="metric-num" data-count="32">0</span>
+    <span class="metric-label">Public transmissions</span>
+  </div>
+  <div class="metric reveal">
+    <span class="metric-num" data-count="0">0</span>
+    <span class="metric-label">Hidden authority paths</span>
+  </div>
+</section>
+
+<!-- ══════════ PRODUCT — Readiness Radar ══════════ -->
+<section class="product" id="proof">
+  <p class="eyebrow">Instrumented, not imagined</p>
+  <h2>Every organism reports its own readiness.</h2>
+  <p class="section-sub">The Readiness Radar scores each organ before an organism earns more autonomy. No score, no leash-length.</p>
+
+  <div class="browser-frame reveal">
+    <div class="browser-bar">
+      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      <span class="browser-url">unwindcode.ai/proof/readiness-radar</span>
+    </div>
+    <div class="browser-body">
+      <div class="radar-wrap">
+        <svg viewBox="0 0 320 320" class="radar" role="img" aria-label="Readiness Radar chart">
+          <g class="radar-grid">
+            <polygon points="160,40 264,100 264,220 160,280 56,220 56,100"/>
+            <polygon points="160,70 238,115 238,205 160,250 82,205 82,115"/>
+            <polygon points="160,100 212,130 212,190 160,220 108,190 108,130"/>
+            <polygon points="160,130 186,145 186,175 160,190 134,175 134,145"/>
+            <line x1="160" y1="160" x2="160" y2="40"/><line x1="160" y1="160" x2="264" y2="100"/>
+            <line x1="160" y1="160" x2="264" y2="220"/><line x1="160" y1="160" x2="160" y2="280"/>
+            <line x1="160" y1="160" x2="56" y2="220"/><line x1="160" y1="160" x2="56" y2="100"/>
+          </g>
+          <polygon class="radar-shape" points="160,52 247,110 232,203 160,244 92,199 100,125"/>
+          <g class="radar-labels">
+            <text x="160" y="28">Perception</text>
+            <text x="284" y="96">Memory</text>
+            <text x="284" y="232">Proof</text>
+            <text x="160" y="300">Governance</text>
+            <text x="36" y="232">Recovery</text>
+            <text x="36" y="96">Autonomy</text>
+          </g>
+        </svg>
+      </div>
+      <div class="radar-side">
+        <h4>FSO · Financial Survival Organism</h4>
+        <ul class="radar-list">
+          <li><b>Perception</b><span class="status ok">3-confirmation death gate</span></li>
+          <li><b>Execution</b><span class="status ok">5% / trade cap live</span></li>
+          <li><b>Cost shield</b><span class="status ok">+2% net-edge floor</span></li>
+          <li><b>Money motion</b><span class="status gate">Human gate · always</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PATHS ══════════ -->
+<section class="paths" id="paths">
+  <p class="eyebrow">Choose your path</p>
+  <h2>Four ways in.</h2>
+  <p class="section-sub">The lab is small on purpose. Pick the door that fits you.</p>
+
+  <div class="path-toggle" id="path-toggle" role="tablist" aria-label="Path selection">
+    <button class="path-card glass" role="tab" data-path="builders" aria-selected="false">
+      <h3>Builders</h3><p>Fork the anatomy.</p>
+    </button>
+    <button class="path-card glass" role="tab" data-path="investors" aria-selected="false">
+      <h3>Investors</h3><p>Back governed intelligence.</p>
+    </button>
+    <button class="path-card glass" role="tab" data-path="users" aria-selected="false">
+      <h3>Users</h3><p>Live with an organism.</p>
+    </button>
+    <button class="path-card glass featured" role="tab" data-path="collaborators" aria-selected="true">
+      <span class="badge">Most alive</span>
+      <h3>Collaborators</h3><p>Grow the lab with us.</p>
+    </button>
+  </div>
+
+  <div class="path-detail glass" id="path-detail" role="tabpanel">
+    <h3 id="path-detail-title">Collaborators</h3>
+    <ul id="path-detail-list"></ul>
+    <a class="btn btn-primary" id="path-detail-cta" href="mailto:theunwindllc@gmail.com">Build With Us</a>
+  </div>
+</section>
+
+<!-- ══════════ FAQ ══════════ -->
+<section class="faq" id="faq">
+  <p class="eyebrow">Questions</p>
+  <h2>Asked, answered, on the record.</h2>
+  <div class="faq-list">
+    <details class="faq-item glass">
+      <summary>What is an AI organism?<span class="faq-icon">+</span></summary>
+      <p>A software system designed like a living thing: a cortex that reasons, memory that persists across every session, cells that do the work, an immune system that watches for drift — and a proof loop that publishes evidence of all of it. It grows by integrating what works, never by quietly rewriting what it was.</p>
+    </details>
+    <details class="faq-item glass">
+      <summary>Where can I inspect proof?<span class="faq-icon">+</span></summary>
+      <p>Every organism ships a public ledger — build artifacts, status labels, and dated transmissions. Inspect the <a href="/proof">proof ledger</a> and read all dispatches in the <a href="/transmissions">transmissions archive</a>. The rule is simple: if a capability isn't in the ledger, treat it as not real.</p>
+    </details>
+    <details class="faq-item glass">
+      <summary>Can an organism move money or publish on its own?<span class="faq-icon">+</span></summary>
+      <p>No. Money motions and outward publications sit behind hard human-approval gates enforced in the architecture, not in a prompt. Zero hidden authority paths is a design invariant — it's one of the three numbers we publish.</p>
+    </details>
+    <details class="faq-item glass">
+      <summary>What happens when an organism fails?<span class="faq-icon">+</span></summary>
+      <p>It fails in public. Incidents go into the same ledger as wins, and the organism metabolizes the failure into new structure — a perception gate, a confirmation rule, an immune response. Failure is food.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ══════════ FINAL CTA over clip 3 ══════════ -->
+<section class="final" id="final">
+  <video id="proof-video" muted playsinline loop preload="metadata" aria-hidden="true">
+    <source src="/lab/media/proof.mp4" type="video/mp4" />
+  </video>
+  <div class="ledger-fallback" aria-hidden="true">
+    <div class="ledger-card glass">
+      <div class="ledger-row"><span class="status ok">shipped</span> transmission-032 · organism heartbeat</div>
+      <div class="ledger-row"><span class="status ok">verified</span> build-artifact · proof-loop v1.4</div>
+      <div class="ledger-row"><span class="status gate">human gate</span> money-motion · held for approval</div>
+      <div class="ledger-row"><span class="status ok">shipped</span> transmission-031 · immune response</div>
+    </div>
+  </div>
+  <div class="final-scrim" aria-hidden="true"></div>
+  <div class="final-content">
+    <h2>Ready to build something<br />that <span class="accent">learns to live?</span></h2>
+    <a class="btn btn-primary btn-big" href="/build-with-us">Build With Us</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <a class="logo" href="/"><span class="logo-inf">∞</span><span class="logo-word">unwind<em>code</em></span></a>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/organisms">Organisms</a>
+    <a href="/architecture">Architecture</a>
+    <a href="/transmissions">Transmissions</a>
+    <a href="/proof">Proof Ledger</a>
+    <a href="/vision">Vision</a>
+    <a href="/philosophy">Philosophy</a>
+    <a href="/build-with-us">Build With Us</a>
+  </div>
+  <p class="tagline">The future learns from itself. <span class="accent">∞</span></p>
+  <p class="fineprint">© 2026 Unwind Code · An AI architecture lab · Governed by humans, grown by organisms</p>
+</footer>
+
+<script src="/lab/main.js"></script>
+</body>
+</html>

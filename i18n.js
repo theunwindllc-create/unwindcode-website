@@ -7,6 +7,7 @@ const translations = {
     en: {
         // Nav
         'nav.home': 'Home',
+        'nav.lab': 'The Lab',
         'nav.organisms': 'Organisms',
         'nav.architecture': 'Architecture',
         'nav.proof': 'Proof',
@@ -3566,6 +3567,7 @@ const translations = {
     es: {
         // Nav
         'nav.home': 'Inicio',
+        'nav.lab': 'El Laboratorio',
         'nav.organisms': 'Organismos',
         'nav.architecture': 'Arquitectura',
         'nav.proof': 'Prueba',
