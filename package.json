@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/promote-lab-homepage.mjs",
     "preview": "vite preview",
     "check:public-parity": "node scripts/check-public-parity.mjs",
     "check:public-parity:live": "node scripts/check-public-parity.mjs --live",
