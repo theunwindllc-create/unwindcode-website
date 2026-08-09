@@ -75,6 +75,37 @@ await check('webhook rejects a timestamp older than five minutes', () =>
   }),
 );
 
+// SECURITY: a stamp far in the future is a forged/replayed t, not clock skew.
+await check('webhook rejects a timestamp far in the future', () =>
+  !verifyWebhookSignature({
+    signatureHeader: webhookHeader,
+    rawBody: webhookBody,
+    secret: webhookSecret,
+    nowSeconds: webhookNow - 3600,
+  }),
+);
+
+// SECURITY: only v0 is trusted; a header carrying only v1 must not authenticate.
+await check('webhook rejects a header missing v0 (only v1 present)', () => {
+  const v1Header = `t=${webhookNow},h=content-type,v1=${webhookDigest}`;
+  return !verifyWebhookSignature({
+    signatureHeader: v1Header,
+    rawBody: webhookBody,
+    secret: webhookSecret,
+    nowSeconds: webhookNow,
+  });
+});
+
+// SECURITY: an empty/missing secret must never validate anything.
+await check('webhook rejects when secret is empty', () =>
+  !verifyWebhookSignature({
+    signatureHeader: webhookHeader,
+    rawBody: webhookBody,
+    secret: '',
+    nowSeconds: webhookNow,
+  }),
+);
+
 await check('JWT builder emits a verifiable ES256 token with Coinbase claims', () => {
   const { privateKey, publicKey } = generateKeyPairSync('ec', { namedCurve: 'prime256v1' });
   const apiKeyName = 'organizations/test-org/apiKeys/test-key';

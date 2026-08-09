@@ -186,6 +186,9 @@ export default async function payHandler(req, res) {
     });
     const response = await fetch(COINBASE_CHECKOUT_URL, {
       method: 'POST',
+      // A bearer-carrying request must never chase a redirect to another host.
+      // The JWT is scoped to this exact URI; a redirect elsewhere is hostile.
+      redirect: 'error',
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',

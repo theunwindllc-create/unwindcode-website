@@ -1,6 +1,9 @@
 import { createHmac, timingSafeEqual } from 'node:crypto';
 
 const WEBHOOK_MAX_AGE_SECONDS = 5 * 60;
+// Reject stamps implausibly ahead of our clock: a genuine Coinbase event is
+// stamped at send time, so meaningful future skew signals a forged/replayed t.
+const WEBHOOK_MAX_FUTURE_SECONDS = 60;
 
 export const config = {
   api: {
@@ -73,7 +76,11 @@ export function verifyWebhookSignature({
   }
 
   const timestamp = Number(timestampValue);
-  if (!Number.isSafeInteger(timestamp) || nowSeconds - timestamp > maxAgeSeconds) {
+  if (
+    !Number.isSafeInteger(timestamp) ||
+    nowSeconds - timestamp > maxAgeSeconds ||
+    timestamp - nowSeconds > WEBHOOK_MAX_FUTURE_SECONDS
+  ) {
     return false;
   }
 
@@ -86,8 +93,18 @@ export function verifyWebhookSignature({
   return timingSafeEqual(expected, received);
 }
 
+function isHttpsUrl(value) {
+  try {
+    return new URL(value).protocol === 'https:';
+  } catch {
+    return false;
+  }
+}
+
 async function forwardLedgerEvent({ url, paySecret, event }) {
   if (!url || !paySecret || !event) return;
+  // Never transmit the bearer secret over a non-TLS or malformed target.
+  if (!isHttpsUrl(url)) return;
 
   try {
     await fetch(url, {
