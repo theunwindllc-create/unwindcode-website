@@ -376,7 +376,8 @@
         "/transmissions/29-the-agent-readable-organism",
         "/transmissions/30-the-operator-readiness-layer",
         "/transmissions/31-the-active-source-of-truth-gate",
-        "/transmissions/32-the-silent-truncation"
+        "/transmissions/32-the-silent-truncation",
+        "/transmissions/33-the-organization-found-its-hands"
       ],
       "source_files": [
         "api/assets.js",
@@ -416,6 +417,10 @@
         {
           "label": "Transmission 32 Silent Truncation guide",
           "route": "/transmissions/32-the-silent-truncation"
+        },
+        {
+          "label": "Transmission 33 Organization Found Its Hands guide",
+          "route": "/transmissions/33-the-organization-found-its-hands"
         }
       ],
       "review_status": "public_safe"
@@ -551,7 +556,9 @@
         "/transmissions/28-the-memory-control-plane",
         "/transmissions/29-the-agent-readable-organism",
         "/transmissions/30-the-operator-readiness-layer",
-        "/transmissions/31-the-active-source-of-truth-gate"
+        "/transmissions/31-the-active-source-of-truth-gate",
+        "/transmissions/32-the-silent-truncation",
+        "/transmissions/33-the-organization-found-its-hands"
       ],
       "source_files": [
         "api/transmissions.js",
@@ -587,6 +594,14 @@
         {
           "label": "Transmission 31 active source-of-truth gate",
           "route": "/transmissions/31-the-active-source-of-truth-gate"
+        },
+        {
+          "label": "Transmission 32 silent truncation",
+          "route": "/transmissions/32-the-silent-truncation"
+        },
+        {
+          "label": "Transmission 33 organization found its hands",
+          "route": "/transmissions/33-the-organization-found-its-hands"
         }
       ],
       "review_status": "public_safe"

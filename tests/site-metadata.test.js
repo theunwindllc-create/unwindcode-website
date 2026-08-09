@@ -7127,7 +7127,7 @@ test('transmissions archive is a bilingual proof library with reader lanes', asy
 
   assert.equal(source.includes('onclick='), false, 'transmissions archive should not use inline click handlers');
   assert.equal(source.includes('style='), false, 'transmissions archive should not use inline styles');
-  assert.equal(source.match(/<a href="\/transmissions\/[^"]+" class="tx-card"/g)?.length ?? 0, 33, 'transmissions archive should preserve 33 transmission cards');
+  assert.equal(source.match(/<a href="\/transmissions\/[^"]+" class="tx-card"/g)?.length ?? 0, 34, 'transmissions archive should preserve 34 transmission pages');
   assert.equal(source.match(/class="tx-path-card/g)?.length ?? 0, 5, 'transmissions archive should expose five reader lanes');
 
   for (const snippet of [
@@ -7148,7 +7148,7 @@ test('transmissions archive is a bilingual proof library with reader lanes', asy
     '"@type":"BlogPosting"',
     '"@type":"ItemList"',
     '"@id":"https://www.unwindcode.ai/transmissions/#transmission-list"',
-    '"numberOfItems":33',
+    '"numberOfItems":34',
     '"@type":"DefinedTerm"',
     '"name":"Transmission"',
     '"inLanguage":["en","es"]',
@@ -7179,7 +7179,7 @@ test('transmissions archive is a bilingual proof library with reader lanes', asy
 
   for (const snippet of [
     'Transmission Library',
-    '32 dispatches as a proof library',
+    '33 dispatches as a proof library',
     'Transmission 25 documents the homepage Organism Pulse Field',
     'whitepaper, safety gate, product form, Web3 boundary',
   ]) {
@@ -7189,7 +7189,7 @@ test('transmissions archive is a bilingual proof library with reader lanes', asy
   for (const snippet of [
     '"name": "Transmission"',
     '"transmission_library"',
-    '"total_transmissions": 32',
+    '"total_transmissions": 33',
     '"id": "transmission_25"',
     '"id": "transmission_26"',
     '"id": "transmission_27"',
@@ -7280,7 +7280,7 @@ test('transmission 25 documents the homepage organism pulse release', async () =
   assert.equal(asset.performance.loading, 'lazy');
 });
 
-test('post-gate transmissions expose complete Instagram carousel packets from the website journey', async () => {
+test('post-gate transmissions expose complete carousel packets only when commissioned', async () => {
   const archive = await readFile(new URL('../transmissions/index.html', import.meta.url), 'utf8');
   const sitemap = await readFile(new URL('../sitemap.xml', import.meta.url), 'utf8');
   const llms = await readFile(new URL('../llms.txt', import.meta.url), 'utf8');
@@ -7312,7 +7312,16 @@ test('post-gate transmissions expose complete Instagram carousel packets from th
     const aiId = `transmission_${number}_social_carousel`;
     const asset = manifest.assets.find(item => item.id === id);
 
-    assert.ok(asset, `asset manifest missing ${id}`);
+    if (!asset) {
+      const transmissionPage = await readFile(new URL(`..${route}.html`, import.meta.url), 'utf8');
+      assert.equal(transmissionPage.includes('id="social-proof-packet"'), false, `${route} must not expose an uncommissioned social packet`);
+      assert.equal(/\/social\/transmission-[^"']+/i.test(transmissionPage), false, `${route} must not link uncommissioned posting assets`);
+      assert.ok(sitemap.includes(`https://www.unwindcode.ai${route}`), `sitemap missing ${route}`);
+      assert.ok(llms.includes(`https://www.unwindcode.ai${route}`), `llms missing ${route}`);
+      assert.ok(servicesText.includes(route), `ai-services missing ${route}`);
+      continue;
+    }
+
     assert.equal(asset.route, route, `${id} should point at its transmission page`);
     assert.equal(asset.surface, '#social-proof-packet', `${id} should surface on the page packet section`);
     assert.equal(asset.format, 'image/png', `${id} should be an upload-ready PNG packet`);

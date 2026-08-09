@@ -91,14 +91,14 @@ test('production transmission social carousel packets stay upload-ready and disc
     .sort((a, b) => a.id.localeCompare(b.id));
 
   assert.ok(carouselAssets.length >= 2, 'expected production transmission social carousel assets');
-  assert.match(services.transmission_library.publication_rule, /not treated as approved and posted/);
-  assert.match(services.transmission_library.publication_rule, /social proof packet/);
-  assert.equal(services.transmission_library.social_packet_standard.required_for, 'approved_or_posted_main_site_transmissions');
+  assert.match(services.transmission_library.publication_rule, /publication-ready/);
+  assert.match(services.transmission_library.publication_rule, /optional internal creator assets/);
+  assert.equal(services.transmission_library.social_packet_standard.required_for, 'creator_requested_distribution_assets');
   assert.equal(services.transmission_library.social_packet_standard.default_slide_count, 4);
   assert.equal(services.transmission_library.social_packet_standard.effective_from_transmission, 25);
   assert.match(services.transmission_library.social_packet_standard.posting_gate, /do not auto-post/);
-  assert.ok(llms.includes('Publication rule: once a transmission is approved for the main website'), 'llms missing social packet publication rule');
-  assert.ok(llms.includes('This gate is enforced for Transmission 25 and later'), 'llms missing social packet enforcement floor');
+  assert.ok(llms.includes('Publication rule: a transmission is publication-ready'), 'llms missing publication readiness rule');
+  assert.ok(llms.includes('Social proof packets are optional internal creator assets'), 'llms missing opt-in social packet rule');
 
   for (const asset of carouselAssets) {
     const [, number] = asset.id.match(/^transmission-(\d+)-social-carousel$/);
@@ -160,7 +160,7 @@ test('production transmission social carousel packets stay upload-ready and disc
   }
 });
 
-test('posted transmissions after the social packet gate cannot bypass the IG carousel packet', async () => {
+test('post-gate transmissions keep social packets opt-in and internal by default', async () => {
   const archive = await readFile(new URL('../transmissions/index.html', import.meta.url), 'utf8');
   const manifest = JSON.parse(await readFile(new URL('../assets/asset-manifest.json', import.meta.url), 'utf8'));
   const services = JSON.parse(await readFile(new URL('../ai-services.json', import.meta.url), 'utf8'));
@@ -185,7 +185,16 @@ test('posted transmissions after the social packet gate cannot bypass the IG car
     const asset = manifestById.get(assetId);
     const publiclySurfaced = publiclySurfacedNumbers.has(number);
 
-    assert.ok(asset, `${route} is posted after the social packet gate but missing ${assetId}`);
+    if (!asset) {
+      const page = await readFile(new URL(`..${route}.html`, import.meta.url), 'utf8');
+      assert.equal(page.includes('id="social-proof-packet"'), false, `${route} must not expose an uncommissioned social packet`);
+      assert.equal(/\/social\/transmission-[^"']+/i.test(page), false, `${route} must not link uncommissioned posting assets`);
+      assert.ok(sitemap.includes(`${canonicalBase}${route.slice(1)}`), `sitemap missing posted ${route}`);
+      assert.ok(llms.includes(`${canonicalBase}${route.slice(1)}`), `llms missing posted ${route}`);
+      assert.ok(servicesSource.includes(route), `ai-services missing posted ${route}`);
+      continue;
+    }
+
     assert.equal(asset.route, route, `${assetId} should point back to its transmission page`);
     assert.equal(asset.surface, '#social-proof-packet', `${assetId} should declare the page packet surface`);
     assert.equal(

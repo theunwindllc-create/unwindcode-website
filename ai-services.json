@@ -1030,9 +1030,9 @@
   "transmission_library": {
     "url": "https://www.unwindcode.ai/transmissions",
     "description": "The public field-note archive for AI organism architecture, Web3 safety, product form, proof loops, and Unwind Code philosophy.",
-    "publication_rule": "A transmission is not treated as approved and posted on the main website until its social proof packet is visible on the page, discoverable through metadata, and downloadable as manual-posting Instagram carousel assets.",
+    "publication_rule": "A transmission is publication-ready when its Brain guide, metadata, archive placement, registries, safety tests, and local verification agree. Social proof packets are optional internal creator assets created only when commissioned and never grant posting authority.",
     "social_packet_standard": {
-      "required_for": "approved_or_posted_main_site_transmissions",
+      "required_for": "creator_requested_distribution_assets",
       "default_slide_count": 4,
       "effective_from_transmission": 25,
       "packet_files": [
@@ -1061,7 +1061,7 @@
       ],
       "authority_boundary": "The desk prepares manual posting assets only; no social network posting, public distribution, or claim escalation happens without creator approval."
     },
-    "total_transmissions": 32,
+    "total_transmissions": 33,
     "reader_lanes": [
       {
         "lane": "whitepaper",
@@ -1095,11 +1095,11 @@
       }
     ],
     "latest": {
-      "id": "transmission_32",
-      "title": "The Silent Truncation",
-      "url": "https://www.unwindcode.ai/transmissions/32-the-silent-truncation",
-      "lane": "failure_theory_boundary",
-      "use_for": "Understand the valid-but-wrong failure class and the three structural invariants — integrity, name/form parity, provenance continuity — that keep an organism’s presentation and discovery layers from rotting silently."
+      "id": "transmission_33",
+      "title": "The Organization Found Its Hands",
+      "url": "https://www.unwindcode.ai/transmissions/33-the-organization-found-its-hands",
+      "lane": "agent_identity_boundary",
+      "use_for": "Understand the difference between prompt-theater and bounded agent execution through identity, child-session receipts, the WAIT LAW, append-only amendment governance, model economics, and human approval."
     }
   },
   "proof_urls": [

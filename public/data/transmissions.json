@@ -4,6 +4,34 @@
   "generated_from": "active-site-public-html",
   "transmissions": [
     {
+      "id": "33-the-organization-found-its-hands",
+      "transmission_number": 33,
+      "title": "Transmission 33: The Organization Found Its Hands",
+      "summary": "Brain guide and compact whitepaper record for the point where prompt-theater became bounded agent execution: identity-shaped work, operator routing, child sessions, the WAIT LAW, append-only amendment governance, model economics, and human approval.",
+      "route": "/transmissions/33-the-organization-found-its-hands",
+      "source_file": "transmissions/33-the-organization-found-its-hands.html",
+      "topic_tags": [
+        "agent-identity",
+        "orchestration",
+        "approval-gates",
+        "organizational-memory"
+      ],
+      "memory_layers": [
+        "procedural",
+        "semantic",
+        "episodic"
+      ],
+      "citations": [
+        {
+          "label": "Public-safe transmission draft",
+          "route": "/transmissions/33-the-organization-found-its-hands",
+          "source_file": "transmissions/33-the-organization-found-its-hands.html"
+        }
+      ],
+      "confidence": "high",
+      "review_status": "public_safe"
+    },
+    {
       "id": "32-the-silent-truncation",
       "transmission_number": 32,
       "title": "Transmission 32: The Silent Truncation",

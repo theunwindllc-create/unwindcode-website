@@ -169,18 +169,18 @@ test('returns public-safe backend status from active registries', async () => {
   assert.equal(res.body.status.registries.claims.needs_context_count, 2);
   assert.equal(res.body.status.registries.claims.safety_qualified_count, 2);
   assert.equal(res.body.status.registries.organisms.count, 5);
-  assert.equal(res.body.status.registries.transmissions.count, 33);
+  assert.equal(res.body.status.registries.transmissions.count, 34);
   assert.deepEqual(res.body.status.registries.transmissions.latest_public_transmission, {
-    id: '32-the-silent-truncation',
-    transmission_number: 32,
-    title: 'Transmission 32: The Silent Truncation',
-    route: '/transmissions/32-the-silent-truncation',
-    source_file: 'transmissions/32-the-silent-truncation.html',
+    id: '33-the-organization-found-its-hands',
+    transmission_number: 33,
+    title: 'Transmission 33: The Organization Found Its Hands',
+    route: '/transmissions/33-the-organization-found-its-hands',
+    source_file: 'transmissions/33-the-organization-found-its-hands.html',
     review_status: 'public_safe',
   });
   assert.deepEqual(res.body.status.registries.transmissions.numbering, {
-    latest_number: 32,
-    published_count: 33,
+    latest_number: 33,
+    published_count: 34,
     has_gaps: false,
     missing_numbers: [],
   });

@@ -83,6 +83,8 @@ test('public transmission pages keep posting assets internal', async () => {
     '../transmissions/29-the-agent-readable-organism.html',
     '../transmissions/30-the-operator-readiness-layer.html',
     '../transmissions/31-the-active-source-of-truth-gate.html',
+    '../transmissions/32-the-silent-truncation.html',
+    '../transmissions/33-the-organization-found-its-hands.html',
   ];
 
   for (const pagePath of publicPages) {
@@ -101,6 +103,7 @@ test('new local transmissions read as Brain guides and compact whitepaper notes'
   const operatorReadinessLayer = await readFile(new URL('../transmissions/30-the-operator-readiness-layer.html', import.meta.url), 'utf8');
   const activeSourceOfTruthGate = await readFile(new URL('../transmissions/31-the-active-source-of-truth-gate.html', import.meta.url), 'utf8');
   const silentTruncation = await readFile(new URL('../transmissions/32-the-silent-truncation.html', import.meta.url), 'utf8');
+  const organizationFoundHands = await readFile(new URL('../transmissions/33-the-organization-found-its-hands.html', import.meta.url), 'utf8');
 
   assert.match(publicIndex, /Public Index Protocol/);
   assert.match(publicIndex, /Context without coordinates becomes agent entropy/i);
@@ -162,13 +165,22 @@ test('new local transmissions read as Brain guides and compact whitepaper notes'
   assert.match(silentTruncation, /Manual Brain Mode/i);
   assert.match(silentTruncation, /next-cell memory/i);
   assert.match(silentTruncation, /posting assets\s+for this transmission remain internal creator material/i);
+
+  assert.match(organizationFoundHands, /The Organization Found Its Hands/);
+  assert.match(organizationFoundHands, /prompt-theater/i);
+  assert.match(organizationFoundHands, /identity is compressed policy/i);
+  assert.match(organizationFoundHands, /WAIT LAW/i);
+  assert.match(organizationFoundHands, /append-only markdown/i);
+  assert.match(organizationFoundHands, /local package is not production deployment proof/i);
+  assert.match(organizationFoundHands, /Next-cell memory/i);
+  assert.match(organizationFoundHands, /Posting assets for this transmission were not commissioned/i);
 });
 
 test('transmission archive is a guide library, not a public posting desk', async () => {
   const archive = await readFile(new URL('../transmissions/index.html', import.meta.url), 'utf8');
 
   assert.match(archive, /whitepaper-style records/i);
-  assert.match(archive, /32<\/span> transmissions published/);
+  assert.match(archive, /33<\/span> transmissions published/);
   assert.equal(archive.includes('id="social-packet-desk"'), false);
   assert.equal(/Social Packet Desk|Open carousel|Download ZIP|View caption/i.test(archive), false);
   assert.equal(/\/social\/transmission-[^"']+/i.test(archive), false);

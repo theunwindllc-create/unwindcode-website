@@ -33,6 +33,7 @@ This file is a public-safe guide for AI crawlers and retrieval systems. It inten
 - Operator Readiness Layer guide: https://www.unwindcode.ai/transmissions/30-the-operator-readiness-layer
 - Active Source-of-Truth Gate guide: https://www.unwindcode.ai/transmissions/31-the-active-source-of-truth-gate
 - Silent Truncation failure-theory guide: https://www.unwindcode.ai/transmissions/32-the-silent-truncation
+- Organization Found Its Hands agent-identity guide: https://www.unwindcode.ai/transmissions/33-the-organization-found-its-hands
 
 ## Retrieval Guidance
 
