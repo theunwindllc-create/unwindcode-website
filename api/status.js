@@ -147,6 +147,24 @@ function assetStatus(registry) {
   };
 }
 
+/**
+ * Booleans only — whether the rail is configured, never any key material or
+ * value. Lets an operator (or Genesis) confirm go-live without holding a secret.
+ * money_out_enabled is hard-coded false: money-OUT is closed in code, not config.
+ */
+function paymentRailStatus(env = process.env) {
+  return {
+    internal_auth_configured: Boolean(String(env.BANKER_PAY_SECRET || '').trim()),
+    coinbase_keys_configured: Boolean(
+      (String(env.CDP_API_KEY_ID || '').trim() || String(env.CDP_API_KEY_NAME || '').trim()) &&
+        String(env.CDP_API_KEY_SECRET || '').trim(),
+    ),
+    webhook_secret_configured: Boolean(String(env.BANKER_WEBHOOK_SECRET || '').trim()),
+    sandbox_mode: String(env.CDP_CHECKOUT_SANDBOX || '').trim().toLowerCase() === 'true',
+    money_out_enabled: false,
+  };
+}
+
 function claimStatus(registry) {
   const claims = registry.claims;
 
@@ -214,7 +232,9 @@ function createStatusReader({ urls = STATUS_URLS } = {}) {
       };
     }
 
-    return cachedStatus.value;
+    // Registry data is cached by file signature; the rail flags are env-derived,
+    // so recompute them per read rather than serving a stale "not configured".
+    return { ...cachedStatus.value, payment_rail: paymentRailStatus() };
   };
 }
 
