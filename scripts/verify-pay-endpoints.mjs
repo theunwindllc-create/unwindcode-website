@@ -241,6 +241,24 @@ await check('bogus 64-byte material is rejected (seed/public mismatch)', () => {
   return detectKeyAlgorithm(mismatched) === null;
 });
 
+// A PEM that isn't EC P-256 must not be labelled ES256 (it would 401 remotely).
+await check('non-EC and wrong-curve PEMs are rejected, not labelled ES256', () => {
+  const rsa = generateKeyPairSync('rsa', { modulusLength: 2048 })
+    .privateKey.export({ type: 'pkcs8', format: 'pem' });
+  const ed = generateKeyPairSync('ed25519')
+    .privateKey.export({ type: 'pkcs8', format: 'pem' });
+  const p384 = generateKeyPairSync('ec', { namedCurve: 'secp384r1' })
+    .privateKey.export({ type: 'pkcs8', format: 'pem' });
+  const good = generateKeyPairSync('ec', { namedCurve: 'prime256v1' })
+    .privateKey.export({ type: 'pkcs8', format: 'pem' });
+  return (
+    detectKeyAlgorithm(rsa) === null &&
+    detectKeyAlgorithm(ed) === null &&
+    detectKeyAlgorithm(p384) === null &&
+    detectKeyAlgorithm(good) === 'ES256'
+  );
+});
+
 await check('malformed base64 and wrong-length secrets are rejected', () => {
   const cases = ['', 'AAAA', `${Buffer.alloc(64, 1).toString('base64')}!!!!`, Buffer.alloc(32, 1).toString('base64')];
   return cases.every((c) => detectKeyAlgorithm(c) === null);

@@ -147,9 +147,27 @@ function ed25519Seed(secret) {
   return timingSafeEqual(derivedPublic, claimedPublic) ? seed : null;
 }
 
+/**
+ * A PEM is only ES256-signable if it is genuinely an EC P-256 key. An RSA,
+ * Ed25519, or wrong-curve PEM would otherwise be labelled ES256 and rejected
+ * remotely as a bare 401 — the same opaque failure the Ed25519 validation above
+ * exists to prevent. Fail locally instead.
+ */
+function isEcP256Pem(secret) {
+  try {
+    const key = createPrivateKey(secret);
+    return (
+      key.asymmetricKeyType === 'ec' &&
+      key.asymmetricKeyDetails?.namedCurve === 'prime256v1'
+    );
+  } catch {
+    return false;
+  }
+}
+
 export function detectKeyAlgorithm(apiKeySecret) {
   const secret = String(apiKeySecret || '').trim();
-  if (secret.includes('BEGIN')) return 'ES256';
+  if (secret.includes('BEGIN')) return isEcP256Pem(secret) ? 'ES256' : null;
   return ed25519Seed(secret) ? 'EdDSA' : null;
 }
 

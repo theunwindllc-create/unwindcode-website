@@ -79,6 +79,39 @@ keys still missing · `3` local config problem · `1` other failure.
 
 Before keys, exit 2 is the correct, verified result.
 
+## Troubleshooting a bare 401 (no error detail)
+
+This rail has **never completed a call to Coinbase**, so the JWT shape is
+doc-derived, not empirically proven. If the first real request 401s with no
+explanation, work down this list:
+
+1. **`uri` vs `uris`.** Every Coinbase doc sample uses `uri` (singular string),
+   but `@coinbase/cdp-sdk` emits `uris: ["POST business.coinbase.com/api/v1/checkouts"]`
+   (plural array). The docs never say whether both are accepted. **This is the
+   most likely cause.** In `api/pay.js` → `buildCoinbaseJwt`, swap the payload's
+   `uri: <string>` for `uris: [<string>]` and redeploy.
+2. **Key scope.** Checkouts are covered by the **View (read-only)** scope. A
+   wrong-scope key 401/403s.
+3. **Sandbox path mismatch.** If `CDP_CHECKOUT_SANDBOX` is set, both the request
+   URL and the signed `uri` must carry `/sandbox`. Our code guarantees this, but
+   confirm the flag is exactly `true`.
+4. **Clock skew.** The JWT lives 120s; a badly skewed server clock invalidates it.
+
+Local key problems fail *before* the network with a 502 and never reach Coinbase:
+non-EC/wrong-curve PEMs, non-canonical base64, wrong-length secrets, and secrets
+whose public half doesn't match their seed are all rejected locally.
+
+## Known gap — payments will not auto-mark as paid yet
+
+`api/pay-webhook.js` verifies Coinbase webhooks correctly, but
+`BANKER_LEDGER_FORWARD_URL` currently has nowhere to point (your Mac is not
+publicly reachable), and the organ's `record_webhook_event` has **no production
+caller**. Consequence: a paid checkout is recorded in the ledger as
+`checkout-created` and **never transitions to paid** — status must be confirmed in
+the Coinbase dashboard for now. Closing this needs a reachable ledger endpoint
+(or a poll of `GET /api/v1/checkouts/{id}`); it is the natural next phase, not a
+blocker for receiving money.
+
 ## Standing safety facts
 
 - Money-OUT (refund/void/disburse) is **hard-closed in code** — no key can make
