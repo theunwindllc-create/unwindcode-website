@@ -13,12 +13,13 @@ gitignored `~/unwind-brain/.env`) and the auth chain is verified end-to-end.
 
 | Variable | Home | Why there |
 |---|---|---|
-| `CDP_API_KEY_NAME` (or `CDP_API_KEY_ID`) | **Vercel only** | the website signs the Coinbase JWT |
+| `CDP_API_KEY_ID` (canonical; `CDP_API_KEY_NAME` is the legacy alias) | **Vercel only** | the website signs the Coinbase JWT |
 | `CDP_API_KEY_SECRET` | **Vercel only** | the private key — the Mac never holds it |
 | `BANKER_WEBHOOK_SECRET` | **Vercel only** | verifies inbound Coinbase webhooks |
 | `BANKER_PAY_SECRET` | Vercel **+** Mac `.env` | shared internal secret — DONE ✅ |
 | `BANKER_PAY_URL` | Mac `.env` | DONE ✅ |
 | `BANKER_PAY_MAX_USD` | optional, both | per-checkout ceiling (default 500) |
+| `CDP_CHECKOUT_SANDBOX` | optional, Vercel | `true` routes to the Base Sepolia sandbox |
 
 The Coinbase private key touches exactly one system: Vercel. If the laptop is
 lost, no Coinbase credential is on it.
@@ -31,6 +32,13 @@ lost, no Coinbase credential is on it.
    Download `cdp_api_key.json` when offered — this is the only time the secret is
    shown. Keep the file out of any git repo (`~/Downloads` is fine temporarily;
    delete it after step 3).
+   - **Either signature algorithm works.** Ed25519 is the Portal default (since
+     Feb 2025); ECDSA is selectable. `api/pay.js` detects the key type and signs
+     `EdDSA` or `ES256` accordingly, so you don't have to pick carefully.
+   - The key file may use `{"id","secret"}` or `{"name","privateKey"}` — both are
+     valid; `id`/`name` → `CDP_API_KEY_ID`, `secret`/`privateKey` → `CDP_API_KEY_SECRET`.
+   - **Scope:** the **View (read-only)** scope is the one that covers creating and
+     managing Checkouts. Counterintuitive, but a wrong scope is a common 401/403.
 3. **Load the values into Vercel** — either route, never both:
    - **Dashboard (best for pasting a PEM):** Vercel → project `dist` → Settings →
      Environment Variables → add each for **Production**, mark **Sensitive**.
@@ -42,6 +50,22 @@ lost, no Coinbase credential is on it.
 5. **Redeploy** — env changes only take effect on a new deployment:
    `npx vercel deploy --prod --yes`
 6. **Delete the key file:** `rm ~/Downloads/cdp_api_key.json`
+
+## Test with fake money first (strongly recommended)
+
+Business Checkouts has a **sandbox on the same host, using the same keys** —
+payments settle in Base Sepolia USDC, nothing real moves.
+
+1. Set `CDP_CHECKOUT_SANDBOX=true` in Vercel Production, redeploy.
+2. Fund a test wallet from the CDP Portal Faucet (Base Sepolia / USDC).
+3. Run the verify command below and pay the returned checkout URL with test USDC.
+4. When satisfied: **remove `CDP_CHECKOUT_SANDBOX`** (or set it to `false`) and
+   redeploy to go live.
+
+Sandbox notes: data auto-purges after 30 days, refunds cap at $2.00, and webhook
+subscriptions need a `sandbox: true` label. `api/pay.js` routes both the request
+*and* the signed JWT `uri` claim to the sandbox path automatically — they must
+match or Coinbase returns a bare 401.
 
 ## Verify (no real money)
 
