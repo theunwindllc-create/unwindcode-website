@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Transmission 35: The Ledger Learned to Be Witnessed | Unwind Code</title>
+  <meta name="description" content="A witness that shares a credential with the thing it witnesses attests to nothing. How the Genesis gate's ledger head became verifiable by a stranger, what that guarantee actually covers, and the organism that had been dead for twenty days while its heartbeat said so to nobody." />
+  <meta name="theme-color" content="#06060c" />
+  <link rel="canonical" href="https://www.unwindcode.ai/transmissions/35-the-ledger-learned-to-be-witnessed" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="The Ledger Learned to Be Witnessed" />
+  <meta property="og:description" content="Self-reported health is not health. What it takes for a machine's claim about itself to become checkable by someone who doesn't trust it." />
+  <meta property="og:url" content="https://www.unwindcode.ai/transmissions/35-the-ledger-learned-to-be-witnessed" />
+  <meta property="og:site_name" content="Unwind Code" />
+  <meta property="og:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
+  <meta property="og:image:type" content="image/svg+xml" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Ledger Learned to Be Witnessed" />
+  <meta name="twitter:description" content="A twenty-day-dead organism, a heartbeat nobody read, and the difference between a witness and a mirror." />
+  <meta name="twitter:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Ledger Learned to Be Witnessed",
+    "description": "On independent attestation for autonomous systems: why a witness must not share a credential with the witnessed, what thirty-minute granularity really guarantees, and how silent failure hides inside successful-looking schedulers.",
+    "author": {"@type": "Organization", "name": "Unwind Code"},
+    "publisher": {"@type": "Organization", "name": "Unwind Code", "url": "https://www.unwindcode.ai"},
+    "datePublished": "2026-08-29",
+    "dateModified": "2026-08-29",
+    "keywords": ["independent witness", "attestation", "Internet Computer", "silent failure", "observability", "AI governance"],
+    "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/35-the-ledger-learned-to-be-witnessed"
+  }
+  </script>
+  <style>
+    :root {
+      --w-ink:#eef3f6; --w-muted:rgba(238,243,246,0.68); --w-faint:rgba(238,243,246,0.34);
+      --w-line:rgba(238,243,246,0.11); --w-panel:rgba(12,16,24,0.84);
+      --w-cyan:#78d9d3; --w-green:#6ee7a8; --w-amber:#e8a15c; --w-iris:#9b59f5;
+      --w-mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+    }
+    .w-page{background:var(--bg-void);color:var(--w-ink);overflow-x:hidden;}
+    .w-page *,.w-page *::before,.w-page *::after{box-sizing:border-box;}
+    .w-wrap{width:min(880px,calc(100% - 48px));margin:0 auto;}
+    .w-hero{padding:150px 0 60px;position:relative;}
+    .w-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 360px at 22% 6%,rgba(120,217,211,0.13),transparent 66%);pointer-events:none;}
+    .w-kicker{font-family:var(--w-mono);font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--w-cyan);margin-bottom:20px;}
+    .w-hero h1{font-size:clamp(2.15rem,5.4vw,3.75rem);line-height:1.05;font-weight:800;letter-spacing:-0.028em;margin:0 0 24px;max-width:16ch;}
+    .w-standfirst{font-size:clamp(1.02rem,1.7vw,1.22rem);line-height:1.62;color:var(--w-muted);max-width:62ch;margin:0;}
+    .w-meta{margin-top:28px;font-family:var(--w-mono);font-size:0.74rem;letter-spacing:0.08em;color:var(--w-faint);}
+    .w-sec{padding:46px 0;}
+    .w-sec h2{font-size:clamp(1.4rem,2.7vw,2.05rem);font-weight:750;letter-spacing:-0.022em;margin:0 0 20px;}
+    .w-sec p{font-size:1.005rem;line-height:1.72;color:var(--w-muted);margin:0 0 18px;}
+    .w-sec p strong{color:var(--w-ink);font-weight:600;}
+    .w-pull{border-left:2px solid var(--w-cyan);padding:6px 0 6px 22px;margin:30px 0;font-size:1.16rem;line-height:1.56;color:var(--w-ink);font-weight:500;}
+
+    /* live embed */
+    .w-live{border:1px solid rgba(120,217,211,0.24);border-radius:18px;padding:28px;background:linear-gradient(180deg,rgba(120,217,211,0.07),rgba(120,217,211,0.015));margin:32px 0;}
+    .w-live-top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:18px;}
+    .w-live-label{font-family:var(--w-mono);font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--w-cyan);}
+    .w-live-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;}
+    .w-lm{border:1px solid var(--w-line);border-radius:11px;padding:14px 16px;background:rgba(0,0,0,0.22);}
+    .w-lm-k{font-family:var(--w-mono);font-size:0.65rem;letter-spacing:0.13em;text-transform:uppercase;color:var(--w-faint);margin-bottom:8px;}
+    .w-lm-v{font-family:var(--w-mono);font-size:1.14rem;font-weight:600;word-break:break-all;line-height:1.3;}
+    .w-live-note{margin:16px 0 0;font-size:0.86rem;color:var(--w-faint);line-height:1.6;}
+    .w-pill{display:inline-flex;align-items:center;gap:7px;padding:4px 11px;border-radius:999px;font-family:var(--w-mono);font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;border:1px solid currentColor;}
+    .w-pill::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;}
+    .w-pill.live{color:var(--w-green);} .w-pill.stale{color:var(--w-amber);} .w-pill.unknown{color:var(--w-faint);}
+
+    /* ladder */
+    .w-ladder{display:flex;flex-direction:column;gap:12px;margin:30px 0;}
+    .w-rung{border:1px solid var(--w-line);border-radius:13px;padding:20px 22px;background:var(--w-panel);display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;cursor:pointer;transition:border-color .2s ease;}
+    .w-rung:hover{border-color:rgba(120,217,211,0.3);}
+    .w-rung.on{border-color:var(--w-cyan);}
+    .w-rung-n{font-family:var(--w-mono);font-size:0.76rem;font-weight:700;color:var(--w-cyan);padding-top:3px;}
+    .w-rung-t{font-weight:650;font-size:1rem;margin-bottom:5px;}
+    .w-rung-s{font-size:0.88rem;color:var(--w-faint);}
+    .w-rung-d{font-size:0.93rem;line-height:1.66;color:var(--w-muted);max-height:0;overflow:hidden;transition:max-height .3s ease,margin .3s ease;}
+    .w-rung.on .w-rung-d{max-height:300px;margin-top:12px;}
+
+    .w-bound{border:1px solid rgba(232,161,92,0.26);border-radius:16px;padding:28px;background:linear-gradient(180deg,rgba(232,161,92,0.08),rgba(232,161,92,0.02));margin:32px 0;}
+    .w-bound h3{margin:0 0 14px;color:var(--w-amber);font-size:1.04rem;}
+    .w-bound p{margin:0 0 12px;} .w-bound p:last-child{margin:0;}
+    .w-end{padding:26px 0 96px;border-top:1px solid var(--w-line);margin-top:40px;}
+    .w-end p{font-size:0.9rem;color:var(--w-faint);line-height:1.66;}
+    .w-end a,.w-inline{color:var(--w-iris);text-decoration:none;border-bottom:1px solid rgba(155,89,245,0.3);}
+    @media(max-width:640px){.w-hero{padding:124px 0 40px;}.w-wrap{width:calc(100% - 32px);}.w-live{padding:20px;}}
+    @media (prefers-reduced-motion: reduce){.w-rung-d{transition:none;}}
+  </style>
+</head>
+<body class="lab-page w-page">
+  <nav id="nav" class="scrolled">
+    <a href="/" class="nav-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="/" data-i18n="nav.home">Home</a>
+      <a href="/organisms" data-i18n="nav.organisms">Organisms</a>
+      <a href="/architecture" data-i18n="nav.architecture">Architecture</a>
+      <a href="/proof" data-i18n="nav.proof">Proof</a>
+      <a href="/transmissions" class="active" aria-current="page" data-i18n="nav.blog">Transmissions</a>
+      <a href="/philosophy" data-i18n="nav.philosophy">Philosophy</a>
+    </div>
+    <div class="nav-actions">
+      <button id="lang-toggle" class="lang-toggle" aria-label="Switch to Spanish">ES</button>
+      <a href="/build-with-us" class="nav-cta" data-i18n="nav.cta">Build With Us</a>
+    </div>
+  </nav>
+
+  <header class="w-hero">
+    <div class="w-wrap">
+      <div class="w-kicker">Transmission 035 · Observability</div>
+      <h1>The ledger learned to be witnessed</h1>
+      <p class="w-standfirst">
+        A system reporting its own health is not evidence. It is a claim, and a claim made by the thing under
+        examination. This is a note about what has to change for that claim to become checkable by a stranger —
+        and about an organism of ours that had been dead for twenty days while its heartbeat quietly said so
+        to nobody at all.
+      </p>
+      <div class="w-meta">August 2026 · Field note · Internet Computer</div>
+    </div>
+  </header>
+
+  <section class="w-sec">
+    <div class="w-wrap">
+      <p>
+        An earlier review of our operator design produced a finding we have not been able to un-see. The gate
+        kept an append-only ledger, and the ledger's integrity was "witnessed" by pushing it to a git remote —
+        using a credential the gate itself held.
+      </p>
+      <div class="w-pull">A witness that shares a credential with the witnessed attests only that the witnessed wrote something.</div>
+      <p>
+        That is not a subtle flaw. It is the difference between a witness and a mirror. Anything able to write
+        the ledger was equally able to write the proof that the ledger was fine. The condition that came out of
+        that review was blunt: <strong>the witness must be independent of the credential that writes it.</strong>
+      </p>
+
+      <h2>What independence actually required</h2>
+      <p>
+        The shape that satisfied it: the gate computes its ledger head — a sequence number and a hash — and a
+        separate process carries that head off the machine to a canister running on the Internet Computer,
+        using a credential <strong>the gate never holds and cannot read</strong>. The gate can write its ledger.
+        It cannot write the record of where its ledger stood.
+      </p>
+      <p>
+        That canister is public. Which means the interesting property is not that we can check it — it is that
+        <strong>you</strong> can, right now, without asking us and without trusting us. The panel below is
+        reading it from your browser as this page loads. There is no Unwind server in the path.
+      </p>
+
+      <div class="w-live">
+        <div class="w-live-top">
+          <span class="w-live-label">Live read · canister rt6ds-…-cai</span>
+          <span class="w-pill unknown" id="w-pill">reading</span>
+        </div>
+        <div class="w-live-grid">
+          <div class="w-lm"><div class="w-lm-k">Gate ledger head</div><div class="w-lm-v" id="w-seq">—</div></div>
+          <div class="w-lm"><div class="w-lm-k">Head hash</div><div class="w-lm-v" id="w-hash" style="font-size:0.9rem;font-weight:400;">—</div></div>
+          <div class="w-lm"><div class="w-lm-k">Last beat</div><div class="w-lm-v" id="w-age" style="font-size:0.95rem;font-weight:400;">—</div></div>
+          <div class="w-lm"><div class="w-lm-k">Organisms beating</div><div class="w-lm-v" id="w-cnt">—</div></div>
+        </div>
+        <p class="w-live-note" id="w-note">
+          If this panel shows "cannot verify", that is the honest state — it means your browser could not reach
+          the canister, which is not the same as the organisms being down.
+        </p>
+      </div>
+
+      <h2>The ladder from claim to proof</h2>
+      <p>Most systems stop climbing somewhere on this ladder and describe themselves as if they had reached the top. Select a rung to expand it.</p>
+      <div class="w-ladder">
+        <div class="w-rung" data-r>
+          <div class="w-rung-n">00</div>
+          <div><div class="w-rung-t">"The service is healthy"</div>
+          <div class="w-rung-s">A claim with no artifact</div>
+          <div class="w-rung-d">Worth exactly the trust you already had in the speaker. It carries no information about the system — only about its confidence. Most status pages live here and look like they live three rungs higher.</div></div>
+        </div>
+        <div class="w-rung" data-r>
+          <div class="w-rung-n">01</div>
+          <div><div class="w-rung-t">A log the system writes about itself</div>
+          <div class="w-rung-s">Better, and still self-attested</div>
+          <div class="w-rung-d">Genuinely useful for debugging, useless as proof under adversarial or buggy conditions. A component that fails in a way it does not recognise writes a log saying it is fine — which is precisely the failure mode you most need to catch.</div></div>
+        </div>
+        <div class="w-rung" data-r>
+          <div class="w-rung-n">02</div>
+          <div><div class="w-rung-t">A second party that shares the first party's credential</div>
+          <div class="w-rung-s">The mirror problem</div>
+          <div class="w-rung-d">This is where our own design sat before the review. It <em>looks</em> like external verification — there is a remote, there is a push, there is a record elsewhere. But the authority behind the record is the same authority being checked, so the record inherits every weakness of the thing it certifies.</div></div>
+        </div>
+        <div class="w-rung on" data-r>
+          <div class="w-rung-n">03</div>
+          <div><div class="w-rung-t">A third party holding a credential the subject cannot reach</div>
+          <div class="w-rung-s">Where the attestation starts to mean something</div>
+          <div class="w-rung-d">The gate cannot forge the record of its own head, because it has no way to write to the place that record lives. Add public readability and the circle closes: a stranger can check the claim without any cooperation from the party making it. That is the rung this system now stands on — and no higher, which is the subject of the next section.</div></div>
+        </div>
+      </div>
+
+      <div class="w-bound">
+        <h3>The honest bound, stated because it is easy to overstate</h3>
+        <p>The attestation happens <strong>every thirty minutes</strong>. The gate chains its own records within seconds, but the independent witness only pins the head on each beat.</p>
+        <p>So the guarantee is precisely: <strong>"the head was X as of the last beat."</strong> Not continuous attestation. At any given moment, up to half an hour of ledger writes may exist that no outside party has yet seen.</p>
+        <p>Two sentences that sound identical in a status report: <em>"the ledger head is witnessed off-box"</em> — true. <em>"the ledger cannot be tampered with undetectably"</em> — false, within that window. We wrote the window into the governing ruling rather than rounding it away, because a condition claimed closed is worse than one honestly open: the first stops anyone looking.</p>
+      </div>
+
+      <h2>The organism that had been dead for twenty days</h2>
+      <p>
+        Here is the part that should not be skipped. While building all of this, we ran the same public read you
+        can run above — and found one of our own organisms marked stale for roughly <strong>twenty days</strong>.
+        A cloud service had scaled to zero. Its nightly backup job had been running the whole time, failing, and
+        logging that failure to a file nobody opened. The most recent backup was six days old on a schedule that
+        claimed to run daily.
+      </p>
+      <p>
+        The heartbeat had been reporting this accurately since the moment it happened. Nothing was broken about
+        the witness. <strong>Nobody was reading it.</strong>
+      </p>
+      <div class="w-pull">A cron that runs and fails is indistinguishable from a cron that works — unless something outside it is watching, and something outside that is reading the watcher.</div>
+      <p>
+        The same audit turned up six scheduled tasks on the operator machine whose only failure signal was a
+        result code no process consumed, and a latent syntax error that had been masked for days behind a
+        different error that fired first. The fix was a watcher that turns any failed task into a ledger record —
+        and, more importantly, the acceptance test for it: deliberately break a task and confirm it surfaces.
+        A watcher that has never caught anything is indistinguishable from a watcher that does not work.
+      </p>
+
+      <h2>The check that made it real</h2>
+      <p>
+        One detail we would repeat. Rather than accept the operator's report that its ledger had advanced, the
+        second machine wrote down a falsifiable prediction in advance — <em>the next beat must carry a sequence
+        number at or above this value</em> — and then polled the public canister until it either happened or
+        didn't. It happened, and the number matched the exact record the operator had described.
+      </p>
+      <p>
+        The value is not in the confirmation. It is that the disconfirming result had somewhere to go. A
+        prediction only counts if you commit to reporting it when it fails, and the cheapest way to keep yourself
+        honest is to write the threshold down before you look.
+      </p>
+      <p>
+        You can watch the same signal on the
+        <a class="w-inline" href="/proof/ledger">live attestation ledger</a>, including the organisms currently
+        marked stale. We publish those rather than filtering them, for the reason this whole note is about.
+        The governance side of the same evening is
+        <a class="w-inline" href="/transmissions/34-the-gate-that-refused-its-own-operator">Transmission 34</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="w-end">
+    <div class="w-wrap">
+      <p>Related: <a href="/transmissions/20-the-public-proof-loop">Transmission 20 — the public proof loop</a> · <a href="/transmissions/32-the-silent-truncation">Transmission 32 — the silent truncation</a> · <a href="/proof/ledger">Live attestation ledger</a></p>
+    </div>
+  </section>
+
+  <footer id="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span><p class="footer-desc">Intelligence that evolves.<br />No claim without a trail.</p></div><div class="footer-col"><h5>Proof</h5><a href="/proof">Proof Register</a><a href="/proof/ledger">Live Ledger</a><a href="/transmissions">Transmissions</a><a href="/architecture">Architecture</a></div><div class="footer-col"><h5>Organisms</h5><a href="/organisms">All Organisms</a><a href="/organisms/financial-organisms">Financial Organisms</a><a href="/organisms/infinity-mirror">Infinity Mirror</a></div><div class="footer-col"><h5>Next</h5><a href="/build-with-us">Build With Us</a><a href="/#cta">Subscribe</a></div></div><div class="footer-bottom"><span>© 2026 Unwind Code. All rights reserved.</span><span class="footer-tagline">The future learns from itself. ∞</span></div></div></footer>
+
+  <script>
+  (function(){
+    document.querySelectorAll('.w-rung').forEach(function(r){
+      r.addEventListener('click', function(){ r.classList.toggle('on'); });
+    });
+    function age(s){
+      if(typeof s!=='number'||!isFinite(s)||s<0) return 'unknown';
+      if(s<90) return Math.round(s)+'s ago';
+      var m=s/60; if(m<90) return Math.round(m)+' min ago';
+      var h=m/60; if(h<36) return h.toFixed(1)+' h ago';
+      return (h/24).toFixed(1)+' days ago';
+    }
+    fetch('https://rt6ds-eqaaa-aaaad-agv7q-cai.raw.icp0.io/',{cache:'no-store'})
+      .then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
+      .then(function(d){
+        var organs = Array.isArray(d.organs)? d.organs : [];
+        var fb = organs.filter(function(o){return o.organ==='first-body';})[0];
+        var pill = document.getElementById('w-pill');
+        var note='';
+        if(fb){
+          try{ note=decodeURIComponent(fb.note||''); }catch(e){ note=String(fb.note||''); }
+          var m=/gate=(\d+):([0-9a-f]+)/i.exec(note);
+          document.getElementById('w-seq').textContent = m? ('#'+m[1]) : 'not attested';
+          document.getElementById('w-hash').textContent = m? m[2] : '—';
+          document.getElementById('w-age').textContent = age(fb.age_seconds);
+          pill.className='w-pill '+(fb.stale?'stale':'live');
+          pill.textContent = fb.stale?'stale':'beating';
+        } else {
+          pill.className='w-pill unknown'; pill.textContent='no beat';
+        }
+        document.getElementById('w-cnt').textContent =
+          organs.filter(function(o){return !o.stale;}).length + ' / ' + organs.length;
+      })
+      .catch(function(){
+        var p=document.getElementById('w-pill');
+        p.className='w-pill unknown'; p.textContent='cannot verify';
+        ['w-seq','w-hash','w-age','w-cnt'].forEach(function(id){
+          document.getElementById(id).textContent='unavailable';
+        });
+        document.getElementById('w-note').textContent =
+          'Your browser could not reach the canister. That is not the same as the organisms being down — it means this page cannot verify either way, and it says so rather than showing you a comforting blank.';
+      });
+  })();
+  </script>
+  <script type="module" src="/main.js?v=20260615-system-state"></script>
+</body>
+</html>

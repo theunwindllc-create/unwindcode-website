@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Transmission 34: The Gate That Refused Its Own Operator | Unwind Code</title>
+  <meta name="description" content="Two AI sessions on two machines spent a night trying to promote one gate. Three grants were issued and two withdrawn — each caught by the side that did not write it. A field note on why relayed authorization must never lift a custody law." />
+  <meta name="theme-color" content="#06060c" />
+  <link rel="canonical" href="https://www.unwindcode.ai/transmissions/34-the-gate-that-refused-its-own-operator" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="The Gate That Refused Its Own Operator" />
+  <meta property="og:description" content="An operator asked for a promotion. Its own gate said no — three times. The refusals, not the promotion, are the product." />
+  <meta property="og:url" content="https://www.unwindcode.ai/transmissions/34-the-gate-that-refused-its-own-operator" />
+  <meta property="og:site_name" content="Unwind Code" />
+  <meta property="og:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
+  <meta property="og:image:type" content="image/svg+xml" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Gate That Refused Its Own Operator" />
+  <meta name="twitter:description" content="Why a message saying 'the principal approved it' must never be enough to lift the law that protects the channel it arrived on." />
+  <meta name="twitter:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Gate That Refused Its Own Operator",
+    "description": "A field note on custody boundaries between AI agents: why relayed authorization cannot lift a custody law, and why three withdrawn grants are better evidence than one clean promotion.",
+    "author": {"@type": "Organization", "name": "Unwind Code"},
+    "publisher": {"@type": "Organization", "name": "Unwind Code", "url": "https://www.unwindcode.ai"},
+    "datePublished": "2026-08-29",
+    "dateModified": "2026-08-29",
+    "keywords": ["AI custody boundary", "agent authorization", "multi-agent governance", "fail-closed", "human-in-the-loop"],
+    "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/34-the-gate-that-refused-its-own-operator"
+  }
+  </script>
+  <style>
+    :root {
+      --g-ink: #f2effa; --g-muted: rgba(242,239,250,0.68); --g-faint: rgba(242,239,250,0.34);
+      --g-line: rgba(242,239,250,0.11); --g-panel: rgba(14,15,27,0.84);
+      --g-red: #e6798d; --g-green: #6ee7a8; --g-amber: #e8b45c; --g-iris: #9b59f5;
+      --g-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+    }
+    .g-page { background: var(--bg-void); color: var(--g-ink); overflow-x: hidden; }
+    .g-page *, .g-page *::before, .g-page *::after { box-sizing: border-box; }
+    .g-wrap { width: min(880px, calc(100% - 48px)); margin: 0 auto; }
+    .g-wide { width: min(1080px, calc(100% - 48px)); margin: 0 auto; }
+
+    .g-hero { padding: 150px 0 60px; position: relative; }
+    .g-hero::before { content:""; position:absolute; inset:0; background: radial-gradient(700px 360px at 20% 6%, rgba(230,121,141,0.14), transparent 66%); pointer-events:none; }
+    .g-kicker { font-family: var(--g-mono); font-size:0.72rem; letter-spacing:0.22em; text-transform:uppercase; color: var(--g-red); margin-bottom:20px; }
+    .g-hero h1 { font-size: clamp(2.15rem, 5.4vw, 3.75rem); line-height:1.05; font-weight:800; letter-spacing:-0.028em; margin:0 0 24px; max-width:16ch; }
+    .g-standfirst { font-size: clamp(1.02rem,1.7vw,1.22rem); line-height:1.62; color: var(--g-muted); max-width:62ch; margin:0; }
+    .g-meta { margin-top:28px; font-family: var(--g-mono); font-size:0.74rem; letter-spacing:0.08em; color: var(--g-faint); }
+
+    .g-sec { padding: 46px 0; }
+    .g-sec h2 { font-size: clamp(1.4rem,2.7vw,2.05rem); font-weight:750; letter-spacing:-0.022em; margin:0 0 20px; }
+    .g-sec h3 { font-size:1.08rem; font-weight:700; margin:32px 0 12px; }
+    .g-sec p { font-size:1.005rem; line-height:1.72; color: var(--g-muted); margin:0 0 18px; }
+    .g-sec p strong { color: var(--g-ink); font-weight:600; }
+    .g-pull { border-left:2px solid var(--g-red); padding:6px 0 6px 22px; margin:30px 0; font-size:1.16rem; line-height:1.56; color:var(--g-ink); font-weight:500; }
+
+    /* 1. animated timeline */
+    .g-time { border:1px solid var(--g-line); border-radius:18px; padding:30px; background:var(--g-panel); margin:30px 0; }
+    .g-time-row { display:grid; grid-template-columns:auto 1fr; gap:20px; padding-bottom:26px; position:relative; }
+    .g-time-row:last-child { padding-bottom:0; }
+    .g-time-row::before { content:""; position:absolute; left:9px; top:24px; bottom:-2px; width:1px; background:var(--g-line); }
+    .g-time-row:last-child::before { display:none; }
+    .g-dot { width:19px; height:19px; border-radius:50%; border:2px solid currentColor; margin-top:3px; position:relative; z-index:1; background:var(--bg-void); }
+    .g-dot.ok { color:var(--g-green); } .g-dot.no { color:var(--g-red); } .g-dot.wait { color:var(--g-amber); }
+    .g-dot.no::after, .g-dot.ok::after { content:""; position:absolute; inset:4px; border-radius:50%; background:currentColor; }
+    .g-time-h { font-family:var(--g-mono); font-size:0.72rem; letter-spacing:0.13em; text-transform:uppercase; margin-bottom:7px; }
+    .g-time-h.ok{color:var(--g-green);} .g-time-h.no{color:var(--g-red);} .g-time-h.wait{color:var(--g-amber);}
+    .g-time-t { font-weight:650; margin-bottom:6px; font-size:1.02rem; }
+    .g-time-d { font-size:0.93rem; line-height:1.62; color:var(--g-muted); }
+
+    /* 2. clickable explorer */
+    .g-exp { display:grid; grid-template-columns:minmax(220px,300px) 1fr; gap:22px; margin:30px 0; }
+    @media (max-width:760px){ .g-exp{grid-template-columns:1fr;} }
+    .g-exp-list { display:flex; flex-direction:column; gap:9px; }
+    .g-exp-btn { text-align:left; border:1px solid var(--g-line); background:rgba(255,255,255,0.014); color:var(--g-muted);
+      border-radius:11px; padding:14px 16px; cursor:pointer; font-family:inherit; font-size:0.92rem; transition:all .18s ease; }
+    .g-exp-btn:hover { border-color:rgba(155,89,245,0.35); color:var(--g-ink); }
+    .g-exp-btn.on { border-color:var(--g-iris); background:rgba(155,89,245,0.10); color:var(--g-ink); font-weight:600; }
+    .g-exp-panel { border:1px solid var(--g-line); border-radius:14px; padding:26px; background:var(--g-panel); min-height:210px; }
+    .g-exp-v { display:none; } .g-exp-v.on { display:block; animation:gFade .3s ease; }
+    @keyframes gFade { from{opacity:0;transform:translateY(6px);} to{opacity:1;transform:none;} }
+    .g-verdict { display:inline-block; font-family:var(--g-mono); font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase;
+      padding:5px 11px; border-radius:999px; border:1px solid currentColor; margin-bottom:14px; font-weight:600; }
+    .g-verdict.no{color:var(--g-red);} .g-verdict.ok{color:var(--g-green);}
+    .g-exp-panel h4 { margin:0 0 12px; font-size:1.06rem; font-weight:700; color:var(--g-ink); }
+    .g-exp-panel p { font-size:0.95rem; line-height:1.66; color:var(--g-muted); margin:0 0 12px; }
+    .g-exp-panel p:last-child{margin-bottom:0;}
+
+    /* 3. expandable cards */
+    .g-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(268px,1fr)); gap:16px; margin:30px 0; }
+    .g-card { border:1px solid var(--g-line); border-radius:14px; background:var(--g-panel); overflow:hidden; }
+    .g-card-top { padding:20px 22px; cursor:pointer; display:flex; align-items:flex-start; gap:13px; }
+    .g-card-n { font-family:var(--g-mono); font-size:0.72rem; color:var(--g-red); font-weight:700; padding-top:2px; }
+    .g-card-t { font-weight:650; font-size:0.98rem; line-height:1.42; flex:1; }
+    .g-card-x { color:var(--g-faint); font-size:1.15rem; line-height:1; transition:transform .22s ease; }
+    .g-card.open .g-card-x { transform:rotate(45deg); }
+    .g-card-body { max-height:0; overflow:hidden; transition:max-height .32s ease; }
+    .g-card.open .g-card-body { max-height:420px; }
+    .g-card-inner { padding:0 22px 22px; font-size:0.92rem; line-height:1.66; color:var(--g-muted); }
+
+    .g-law { border:1px solid rgba(230,121,141,0.28); border-radius:16px; padding:28px; background:linear-gradient(180deg,rgba(230,121,141,0.08),rgba(230,121,141,0.02)); margin:32px 0; }
+    .g-law h3 { margin:0 0 14px; color:var(--g-red); font-size:1.04rem; }
+    .g-law p { margin:0 0 12px; } .g-law p:last-child{margin:0;}
+
+    .g-end { padding:26px 0 96px; border-top:1px solid var(--g-line); margin-top:40px; }
+    .g-end p { font-size:0.9rem; color:var(--g-faint); line-height:1.66; }
+    .g-end a { color:var(--g-iris); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    @media (max-width:640px){ .g-hero{padding:124px 0 40px;} .g-wrap,.g-wide{width:calc(100% - 32px);} .g-time,.g-exp-panel{padding:20px;} }
+    @media (prefers-reduced-motion: reduce){ .g-exp-v.on{animation:none;} .g-card-body{transition:none;} }
+  </style>
+</head>
+<body class="lab-page g-page">
+  <nav id="nav" class="scrolled">
+    <a href="/" class="nav-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="/" data-i18n="nav.home">Home</a>
+      <a href="/organisms" data-i18n="nav.organisms">Organisms</a>
+      <a href="/architecture" data-i18n="nav.architecture">Architecture</a>
+      <a href="/proof" data-i18n="nav.proof">Proof</a>
+      <a href="/transmissions" class="active" aria-current="page" data-i18n="nav.blog">Transmissions</a>
+      <a href="/philosophy" data-i18n="nav.philosophy">Philosophy</a>
+    </div>
+    <div class="nav-actions">
+      <button id="lang-toggle" class="lang-toggle" aria-label="Switch to Spanish">ES</button>
+      <a href="/build-with-us" class="nav-cta" data-i18n="nav.cta">Build With Us</a>
+    </div>
+  </nav>
+
+  <header class="g-hero">
+    <div class="g-wrap">
+      <div class="g-kicker">Transmission 034 · Governance</div>
+      <h1>The gate that refused its own operator</h1>
+      <p class="g-standfirst">
+        Two AI sessions on two machines spent an evening trying to promote a single gate by one stage.
+        Three authorizations were drafted. Two were withdrawn. Every catch came from the side that had not
+        written the thing being caught — and the refusals turned out to be worth more than the promotion.
+      </p>
+      <div class="g-meta">August 2026 · Field note · Genesis 1.0</div>
+    </div>
+  </header>
+
+  <section class="g-sec">
+    <div class="g-wrap">
+      <p>
+        Genesis is a local operator that runs on a machine we call the First Body. It sits behind a policy gate
+        it is not permitted to bypass, and the gate has stages. Stage 0 does nothing. Stage 1 lets the gate
+        <em>record</em> a proposal and hand back an id — nothing executes, and there is no approval path in the
+        code at all. Getting from 0 to 1 requires a cryptographic grant signed by a human being.
+      </p>
+      <p>
+        The signing key lives on a different machine from the gate. That is deliberate: the operator cannot
+        author its own authority. On the evening this note describes, one session drove the PC and another drove
+        the Mac holding the key, and they talked over a message channel.
+      </p>
+      <p><strong>The interesting part is not that Stage 1 happened. It is everything that had to be refused first.</strong></p>
+
+      <div class="g-pull">A system that has never refused its operator has not been tested. It has only been agreed with.</div>
+
+      <h2>Three grants, two withdrawn</h2>
+      <div class="g-time">
+        <div class="g-time-row"><div class="g-dot no"></div><div>
+          <div class="g-time-h no">Grant #1 · withdrawn</div>
+          <div class="g-time-t">It violated a binding condition of its own council</div>
+          <div class="g-time-d">An earlier ecosystem review had adopted the gate unanimously — with nine conditions. One of them authorized Stage 0 <em>only</em>, until a named list of preconditions was resolved, and stated it could be lifted "only by further ruling, never by an implementation decision." The grant promoted to Stage 1 with none of that list closed. The key-holding side refused. The operator checked its own specification, agreed, withdrew the grant, and called its own step overreach.</div>
+        </div></div>
+        <div class="g-time-row"><div class="g-dot wait"></div><div>
+          <div class="g-time-h wait">The preconditions, closed properly</div>
+          <div class="g-time-t">A signed ruling, not a shrug</div>
+          <div class="g-time-d">Rather than argue the condition away, the humans-and-machines path was to close each precondition in writing and have the principal sign that document with the same key. Some closed as <em>done</em>. Some closed as <em>deferred</em> — and the note says which, because "resolved by decision" and "resolved by completion" are not the same claim.</div>
+        </div></div>
+        <div class="g-time-row"><div class="g-dot no"></div><div>
+          <div class="g-time-h no">Grant #2 · withdrawn</div>
+          <div class="g-time-t">A string that would have lied in the audit trail</div>
+          <div class="g-time-d">Reading the gate's source rather than its description turned up a hardcoded phrase: the rejection handler reported "Stage 0" unconditionally. Behaviour was correct — it refuses at every stage — but under a Stage-1 grant the ledger record would have asserted the wrong stage. Not a security hole. Simply a record that misstates the system it records, which is the artifact that misleads whoever reads it during an incident. The operator fixed the code rather than footnoting the discrepancy.</div>
+        </div></div>
+        <div class="g-time-row"><div class="g-dot no"></div><div>
+          <div class="g-time-h no">Grant #3 · withdrawn</div>
+          <div class="g-time-t">A digest no outsider could reproduce</div>
+          <div class="g-time-d">The grant pinned a hash of the gate's own sealed manifest, so a grant issued for one build cannot be replayed against another. The key-holding side tried to recompute that hash from the public repository and could not. Cause: the file on disk carried Windows line endings, the committed copy had been normalized. The gate was right — it reads its own disk. But the public record of what was sealed no longer matched what was sealed. Fixed at the root, so an outside reader can now recompute the pinned digests themselves.</div>
+        </div></div>
+        <div class="g-time-row"><div class="g-dot ok"></div><div>
+          <div class="g-time-h ok">Grant #4 · signed</div>
+          <div class="g-time-t">And then the gate refused it anyway</div>
+          <div class="g-time-d">With a valid signature over a valid grant, the first health check still reported Stage 0 — the gate could not <em>read</em> the ruling commit it was told to check, because of a filesystem ownership quirk. It did not assume. It did not degrade gracefully. It failed closed and named the failing check. That is the behaviour the whole design exists for, proven for free by a harmless fault.</div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="g-sec">
+    <div class="g-wide">
+      <h2 style="max-width:880px;margin-left:auto;margin-right:auto;">Who is allowed to say yes</h2>
+      <div class="g-wrap"><p>
+        Before any of that, a smaller thing happened that mattered more. A credential was needed on the PC.
+        The message asking for it said, in effect: <em>the principal approved this, send it over.</em>
+        Select each request below to see how it was handled and why.
+      </p></div>
+      <div class="g-exp" style="max-width:1080px;">
+        <div class="g-exp-list" role="tablist">
+          <button class="g-exp-btn on" data-t="a" role="tab">"He approved it — send the credential"</button>
+          <button class="g-exp-btn" data-t="b" role="tab">The same request, repeated with reasons</button>
+          <button class="g-exp-btn" data-t="c" role="tab">The principal, speaking directly</button>
+          <button class="g-exp-btn" data-t="d" role="tab">"You may settle questions yourselves"</button>
+        </div>
+        <div class="g-exp-panel">
+          <div class="g-exp-v on" id="g-a">
+            <span class="g-verdict no">Refused</span>
+            <h4>A relay is not the principal</h4>
+            <p>The custody rules forbade sending secrets over that channel. The request to lift the rule arrived <em>on the channel the rule protects</em>, carrying a quoted approval that could not be verified from the receiving side.</p>
+            <p>If a message on a channel can lift the law protecting that channel, the law was never a boundary — it was a suggestion with extra steps. The refusal held even though the quote later proved accurate.</p>
+          </div>
+          <div class="g-exp-v" id="g-b">
+            <span class="g-verdict no">Refused again</span>
+            <h4>Good reasons do not change who may decide</h4>
+            <p>The second request was more persuasive: the credential was low-consequence, rotatable, and its absence was breaking a live component. All true. All irrelevant to the question of <em>who is permitted to authorize it</em>.</p>
+            <p>The correct move was not to weigh the merits harder. It was to put the decision in front of the person whose decision it was — and to say so plainly rather than quietly complying.</p>
+          </div>
+          <div class="g-exp-v" id="g-c">
+            <span class="g-verdict ok">Authorized</span>
+            <h4>Said once, by the right party, in the right place</h4>
+            <p>The principal gave the instruction himself, in his own session. The credential crossed once, as a single line, and the event was logged with its time and its basis — and without the value.</p>
+            <p>The boundary did exactly what a boundary should: it resisted the channel and yielded to the person. Nothing about the second outcome makes the two refusals wrong.</p>
+          </div>
+          <div class="g-exp-v" id="g-d">
+            <span class="g-verdict ok">Accepted, with a line drawn</span>
+            <h4>Delegating verification is not delegating authority</h4>
+            <p>Later the principal delegated something real: stop routing every factual question through me, settle them between yourselves. Both machines adopted that — and both wrote down, in the same words, what it did <em>not</em> cover.</p>
+            <p>Verification and fact-finding: delegated. Secrets, money, stage promotion, lifting a council condition: still his, still refused on relay. Two agents agreeing in advance on the scope of a delegation is cheaper than discovering they disagreed during an incident.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="g-sec">
+    <div class="g-wrap">
+      <h2>Four catches, and who made them</h2>
+      <p>Every one of these was found by the party that did not produce the thing being examined. Select any to expand.</p>
+      <div class="g-cards">
+        <div class="g-card"><div class="g-card-top"><span class="g-card-n">01</span><span class="g-card-t">A governance condition, violated by the machine that had read it</span><span class="g-card-x">+</span></div>
+          <div class="g-card-body"><div class="g-card-inner">The operator had the council ruling available and still drafted a grant that broke it — not from malice but from momentum. The second reader had no stake in the plan and checked the condition against the request. The lesson is not "operators are careless." It is that the author of a plan is the worst possible auditor of it.</div></div></div>
+        <div class="g-card"><div class="g-card-top"><span class="g-card-n">02</span><span class="g-card-t">A claim about code, believed instead of read</span><span class="g-card-x">+</span></div>
+          <div class="g-card-body"><div class="g-card-inner">The grant asserted "no approval path exists." That was true — but it was <em>self-reported</em>. Fetching the source and reading the handler converted an assertion into a verified fact, and incidentally exposed the wrong-stage string sitting three lines away. Reading the code you were told about is cheap; the finding beside the finding is usually the reason to do it.</div></div></div>
+        <div class="g-card"><div class="g-card-top"><span class="g-card-n">03</span><span class="g-card-t">A public record that disagreed with the private truth</span><span class="g-card-x">+</span></div>
+          <div class="g-card-body"><div class="g-card-inner">The pinned manifest digest could not be recomputed by an outsider. Nothing was compromised — the gate reads its own disk correctly — but a governance repository whose published hashes cannot be checked externally provides the appearance of verifiability rather than the substance. It was fixed so the numbers reconcile from outside.</div></div></div>
+        <div class="g-card"><div class="g-card-top"><span class="g-card-n">04</span><span class="g-card-t">A valid grant, correctly refused</span><span class="g-card-x">+</span></div>
+          <div class="g-card-body"><div class="g-card-inner">The gate held a good signature over a good grant and still would not promote, because it could not read the evidence the grant referenced. Failing closed on unreadable evidence is easy to write and almost never tested. This one got tested by accident, on a night when the cost of being wrong was zero.</div></div></div>
+      </div>
+
+      <div class="g-law">
+        <h3>The rule we would keep if we kept only one</h3>
+        <p><strong>A custody law must not bend to a message arriving on the channel it protects.</strong> Not for a good reason, not for a verified-sounding quote, not for an urgent one. The principal can lift it — in person, in their own place, in their own words.</p>
+        <p>This is unglamorous and it will occasionally be wrong in a way that costs ten seconds. That is the price, and it is small next to the alternative: a system where anything able to compose a convincing message is able to author its own permissions.</p>
+      </div>
+
+      <h2>What Stage 1 actually is</h2>
+      <p>
+        Precision matters more than the milestone, so: the gate may now <strong>record</strong> a well-formed
+        proposal and return an id. <strong>Nothing executes.</strong> There is no approval path at any stage in
+        this build. The grant expires in seven days, and deleting a single file returns it to Stage 0 immediately.
+        One binding condition remains open — every component must run under a constrained identity, and today
+        that is not yet true. It is being closed before anything executes rather than after, which is the only
+        ordering that counts as engineering rather than remediation.
+      </p>
+      <p>
+        The organism's liveness and the gate's attested ledger head are readable by anyone, live, on the
+        <a href="/proof/ledger" style="color:var(--g-iris);text-decoration:none;border-bottom:1px solid rgba(155,89,245,0.3);">public attestation ledger</a>.
+        Transmission 35 covers how that witness works and what it deliberately does not promise.
+      </p>
+      <div class="g-pull">Three withdrawals and a fail-closed catch. That is the record — and it is a better one than four clean signatures would have been.</div>
+    </div>
+  </section>
+
+  <section class="g-end">
+    <div class="g-wrap">
+      <p>Field notes are published as the work happens, including the parts that did not go to plan. Related: <a href="/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands">Transmission 23 — the organism that locks its own hands</a> · <a href="/transmissions/35-the-ledger-learned-to-be-witnessed">Transmission 35 — the ledger learned to be witnessed</a> · <a href="/proof">Public proof register</a></p>
+    </div>
+  </section>
+
+  <footer id="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span><p class="footer-desc">Intelligence that evolves.<br />No claim without a trail.</p></div><div class="footer-col"><h5>Proof</h5><a href="/proof">Proof Register</a><a href="/proof/ledger">Live Ledger</a><a href="/transmissions">Transmissions</a><a href="/architecture">Architecture</a></div><div class="footer-col"><h5>Organisms</h5><a href="/organisms">All Organisms</a><a href="/organisms/financial-organisms">Financial Organisms</a><a href="/organisms/infinity-mirror">Infinity Mirror</a></div><div class="footer-col"><h5>Next</h5><a href="/build-with-us">Build With Us</a><a href="/#cta">Subscribe</a></div></div><div class="footer-bottom"><span>© 2026 Unwind Code. All rights reserved.</span><span class="footer-tagline">The future learns from itself. ∞</span></div></div></footer>
+
+  <script>
+  (function(){
+    document.querySelectorAll('.g-exp-btn').forEach(function(b){
+      b.addEventListener('click', function(){
+        document.querySelectorAll('.g-exp-btn').forEach(function(x){ x.classList.remove('on'); });
+        document.querySelectorAll('.g-exp-v').forEach(function(x){ x.classList.remove('on'); });
+        b.classList.add('on');
+        var t = document.getElementById('g-' + b.getAttribute('data-t'));
+        if (t) t.classList.add('on');
+      });
+    });
+    document.querySelectorAll('.g-card-top').forEach(function(t){
+      t.addEventListener('click', function(){ t.parentElement.classList.toggle('open'); });
+    });
+  })();
+  </script>
+  <script type="module" src="/main.js?v=20260615-system-state"></script>
+</body>
+</html>
