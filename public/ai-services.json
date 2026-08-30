@@ -377,7 +377,9 @@
         "/transmissions/30-the-operator-readiness-layer",
         "/transmissions/31-the-active-source-of-truth-gate",
         "/transmissions/32-the-silent-truncation",
-        "/transmissions/33-the-organization-found-its-hands"
+        "/transmissions/33-the-organization-found-its-hands",
+        "/transmissions/34-the-gate-that-refused-its-own-operator",
+        "/transmissions/35-the-ledger-learned-to-be-witnessed"
       ],
       "source_files": [
         "api/assets.js",
@@ -421,6 +423,14 @@
         {
           "label": "Transmission 33 Organization Found Its Hands guide",
           "route": "/transmissions/33-the-organization-found-its-hands"
+        },
+        {
+          "label": "Transmission 34 Gate That Refused Its Own Operator guide",
+          "route": "/transmissions/34-the-gate-that-refused-its-own-operator"
+        },
+        {
+          "label": "Transmission 35 Ledger Learned to Be Witnessed guide",
+          "route": "/transmissions/35-the-ledger-learned-to-be-witnessed"
         }
       ],
       "review_status": "public_safe"
@@ -558,7 +568,9 @@
         "/transmissions/30-the-operator-readiness-layer",
         "/transmissions/31-the-active-source-of-truth-gate",
         "/transmissions/32-the-silent-truncation",
-        "/transmissions/33-the-organization-found-its-hands"
+        "/transmissions/33-the-organization-found-its-hands",
+        "/transmissions/34-the-gate-that-refused-its-own-operator",
+        "/transmissions/35-the-ledger-learned-to-be-witnessed"
       ],
       "source_files": [
         "api/transmissions.js",
@@ -602,6 +614,14 @@
         {
           "label": "Transmission 33 organization found its hands",
           "route": "/transmissions/33-the-organization-found-its-hands"
+        },
+        {
+          "label": "Transmission 34 gate that refused its own operator",
+          "route": "/transmissions/34-the-gate-that-refused-its-own-operator"
+        },
+        {
+          "label": "Transmission 35 ledger learned to be witnessed",
+          "route": "/transmissions/35-the-ledger-learned-to-be-witnessed"
         }
       ],
       "review_status": "public_safe"

@@ -4,6 +4,61 @@
   "generated_from": "active-site-public-html",
   "transmissions": [
     {
+      "id": "34-the-gate-that-refused-its-own-operator",
+      "transmission_number": 34,
+      "title": "Transmission 34: The Gate That Refused Its Own Operator",
+      "summary": "Field note on custody boundaries between AI build sessions: why relayed authorization cannot lift a custody law, four grants issued and three withdrawn, and a gate that failed closed on evidence it could not read.",
+      "route": "/transmissions/34-the-gate-that-refused-its-own-operator",
+      "source_file": "transmissions/34-the-gate-that-refused-its-own-operator.html",
+      "topic_tags": [
+        "custody-boundary",
+        "agent-authorization",
+        "approval-gates",
+        "fail-closed"
+      ],
+      "memory_layers": [
+        "procedural",
+        "episodic"
+      ],
+      "citations": [
+        {
+          "label": "Public-safe transmission draft",
+          "route": "/transmissions/34-the-gate-that-refused-its-own-operator",
+          "source_file": "transmissions/34-the-gate-that-refused-its-own-operator.html"
+        }
+      ],
+      "confidence": "high",
+      "review_status": "public_safe"
+    },
+    {
+      "id": "35-the-ledger-learned-to-be-witnessed",
+      "transmission_number": 35,
+      "title": "Transmission 35: The Ledger Learned to Be Witnessed",
+      "summary": "Field note on independent attestation: why a witness sharing a credential with the witnessed is a mirror, what thirty-minute granularity actually guarantees, and how silent failure hides inside successful-looking schedulers.",
+      "route": "/transmissions/35-the-ledger-learned-to-be-witnessed",
+      "source_file": "transmissions/35-the-ledger-learned-to-be-witnessed.html",
+      "topic_tags": [
+        "attestation",
+        "observability",
+        "silent-failure",
+        "proof-loop"
+      ],
+      "memory_layers": [
+        "procedural",
+        "semantic",
+        "episodic"
+      ],
+      "citations": [
+        {
+          "label": "Public-safe transmission draft",
+          "route": "/transmissions/35-the-ledger-learned-to-be-witnessed",
+          "source_file": "transmissions/35-the-ledger-learned-to-be-witnessed.html"
+        }
+      ],
+      "confidence": "high",
+      "review_status": "public_safe"
+    },
+    {
       "id": "33-the-organization-found-its-hands",
       "transmission_number": 33,
       "title": "Transmission 33: The Organization Found Its Hands",

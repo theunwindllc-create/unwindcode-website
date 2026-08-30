@@ -1061,7 +1061,7 @@
       ],
       "authority_boundary": "The desk prepares manual posting assets only; no social network posting, public distribution, or claim escalation happens without creator approval."
     },
-    "total_transmissions": 33,
+    "total_transmissions": 35,
     "reader_lanes": [
       {
         "lane": "whitepaper",
@@ -1100,6 +1100,20 @@
       "url": "https://www.unwindcode.ai/transmissions/33-the-organization-found-its-hands",
       "lane": "agent_identity_boundary",
       "use_for": "Understand the difference between prompt-theater and bounded agent execution through identity, child-session receipts, the WAIT LAW, append-only amendment governance, model economics, and human approval."
+    },
+    "transmission_34": {
+      "id": "transmission_34",
+      "title": "The Gate That Refused Its Own Operator",
+      "url": "https://www.unwindcode.ai/transmissions/34-the-gate-that-refused-its-own-operator",
+      "lane": "custody_boundary",
+      "use_for": "Understand why relayed authorization must not lift a custody law, how four grants produced three withdrawals under independent review, and what fail-closed behaviour looks like when a gate cannot read the evidence it was told to check."
+    },
+    "transmission_35": {
+      "id": "transmission_35",
+      "title": "The Ledger Learned to Be Witnessed",
+      "url": "https://www.unwindcode.ai/transmissions/35-the-ledger-learned-to-be-witnessed",
+      "lane": "independent_attestation",
+      "use_for": "Understand why a witness sharing a credential with the witnessed is a mirror, what thirty-minute attestation granularity actually guarantees, and how silent failure hides inside schedulers that report success."
     }
   },
   "proof_urls": [

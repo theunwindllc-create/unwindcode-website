@@ -34,6 +34,8 @@ This file is a public-safe guide for AI crawlers and retrieval systems. It inten
 - Active Source-of-Truth Gate guide: https://www.unwindcode.ai/transmissions/31-the-active-source-of-truth-gate
 - Silent Truncation failure-theory guide: https://www.unwindcode.ai/transmissions/32-the-silent-truncation
 - Organization Found Its Hands agent-identity guide: https://www.unwindcode.ai/transmissions/33-the-organization-found-its-hands
+- Gate That Refused Its Own Operator custody-boundary guide: https://www.unwindcode.ai/transmissions/34-the-gate-that-refused-its-own-operator
+- Ledger Learned to Be Witnessed attestation guide: https://www.unwindcode.ai/transmissions/35-the-ledger-learned-to-be-witnessed
 
 ## Retrieval Guidance
 
