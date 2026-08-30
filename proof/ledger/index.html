@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Live Attestation Ledger | Unwind Code</title>
-  <meta name="description" content="A live public read of the Unwind Code heartbeat canister on the Internet Computer: which organisms are beating, which are stale, and the attested head of the Genesis gate ledger. Read directly from chain in your browser — no Unwind server in the path." />
+  <meta name="description" content="A live public read of the Unwind Code heartbeat canister on the Internet Computer: which organisms are beating, which are stale, and the head of the Genesis gate ledger as First Body reported it. Read directly from chain in your browser — no Unwind server in the path." />
   <meta name="theme-color" content="#06060c" />
   <link rel="canonical" href="https://www.unwindcode.ai/proof/ledger" />
   <meta property="og:type" content="website" />
@@ -16,7 +16,7 @@
   <meta property="og:image:type" content="image/svg+xml" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Live Attestation Ledger" />
-  <meta name="twitter:description" content="Live organism heartbeats and the attested head of the Genesis gate ledger, read from chain in your browser." />
+  <meta name="twitter:description" content="Live organism heartbeats and the reported head of the Genesis gate ledger, read from chain in your browser." />
   <meta name="twitter:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -28,7 +28,7 @@
     "@type": "WebPage",
     "name": "Live Attestation Ledger",
     "url": "https://www.unwindcode.ai/proof/ledger",
-    "description": "A live browser-side read of the Unwind Code heartbeat canister on the Internet Computer, showing organism liveness and the attested head of the Genesis gate ledger.",
+    "description": "A live browser-side read of the Unwind Code heartbeat canister on the Internet Computer, showing organism liveness and the reported head of the Genesis gate ledger.",
     "isPartOf": {"@type": "CollectionPage", "name": "Public Proof Ledger", "url": "https://www.unwindcode.ai/proof"},
     "publisher": {"@type": "Organization", "name": "Unwind Code", "url": "https://www.unwindcode.ai"}
   }
@@ -192,12 +192,15 @@
       <p class="lg-lede">
         Every thirty minutes each organism in the Unwind ecosystem writes a heartbeat to a canister on the
         Internet Computer. Your browser is reading that canister <strong>directly</strong> — there is no Unwind
-        server between you and this data, and nothing on this page can be edited by the systems it reports on.
+        server between you and this data, and nothing here can be rewritten after the fact by the systems it
+        reports on. They can only append the next beat.
       </p>
 
       <div class="lg-claim">
-        <p><b>What this page is:</b> an attestation of liveness, plus the attested <b>head</b> of the Genesis gate's
-        internal ledger — its sequence number and a truncated hash, carried in the heartbeat note.</p>
+        <p><b>What this page is:</b> an attestation of liveness, plus the <b>head</b> of the Genesis gate's internal
+        ledger <i>as First Body reported it in the heartbeat</i> — a sequence number and a truncated hash.
+        The canister attests <b>when that report arrived and that it has not been altered since</b>. It cannot
+        vouch for the report's content.</p>
         <p><b>What it is not:</b> the ledger contents. The gate's records stay on the machine that wrote them.
         What travels here is a fingerprint of where that ledger stood at the last beat.</p>
         <p><b>The precise claim:</b> "the head was <i>X</i> as of the last beat" — at thirty-minute granularity.
@@ -210,16 +213,16 @@
   <section class="lg-section">
     <div class="lg-wrap">
       <div class="lg-section-head">
-        <h2>Genesis gate — attested head</h2>
+        <h2>Genesis gate — reported head</h2>
         <div class="lg-refresh" id="lg-refresh">refreshing every 60s</div>
       </div>
       <div class="lg-gate">
         <div class="lg-gate-top">
-          <span class="lg-gate-label">First Body · genesis-gate</span>
+          <span class="lg-gate-label">First Body · the gate process</span>
           <span id="lg-gate-pill" class="lg-pill unknown">reading</span>
         </div>
         <div class="lg-gate-grid" id="lg-gate-grid">
-          <div class="lg-metric"><div class="lg-metric-k">Ledger head (seq)</div><div class="lg-metric-v" id="lg-seq">—</div></div>
+          <div class="lg-metric"><div class="lg-metric-k">Reported head (seq)</div><div class="lg-metric-v" id="lg-seq">—</div></div>
           <div class="lg-metric"><div class="lg-metric-k">Head hash (truncated)</div><div class="lg-metric-v small" id="lg-hash">—</div></div>
           <div class="lg-metric"><div class="lg-metric-k">Last beat</div><div class="lg-metric-v small" id="lg-age">—</div></div>
           <div class="lg-metric"><div class="lg-metric-k">Total beats recorded</div><div class="lg-metric-v" id="lg-total">—</div></div>
@@ -254,7 +257,9 @@
             <li>Which organisms are <b>beating</b>, and which have gone quiet — including ones we would rather were green.</li>
             <li>The Genesis gate's <b>ledger head</b> at the last beat, written with a credential the gate itself never holds.</li>
             <li>That the attestation is carried by a <b>third party</b> — an Internet Computer canister — not by the machine making the claim.</li>
-            <li>That this page cannot be quietly corrected: it reads the canister <b>in your browser</b>, live.</li>
+            <li>That the <b>data</b> on this page cannot be quietly corrected: your browser reads the canister live.
+            The page's own code is served by us — which is why the commands below exist. If you distrust the
+            rendering, bypass it.</li>
           </ul>
         </div>
         <div class="lg-card no">
@@ -263,6 +268,8 @@
             <li>It is <b>not</b> tamper-proof within a beat. Up to thirty minutes of ledger writes may be unwitnessed at any instant.</li>
             <li>It does <b>not</b> publish ledger contents — only the head. Records stay on the machine that wrote them.</li>
             <li>A green light means <b>a heartbeat arrived</b>. It does not mean the work behind it was correct.</li>
+            <li>The head value is <b>reported by First Body</b>, which composes its own beat. What a stranger gets is
+            non-repudiation of what that machine said at a given time — not proof that what it said was true.</li>
             <li>A stale organism is not necessarily broken — but we show it stale rather than hide it, because a cron that runs and fails looks exactly like one that works.</li>
           </ul>
         </div>
@@ -280,7 +287,7 @@
         <code class="lg-code"><span class="c"># the same read this page performs</span>
 curl -s https://rt6ds-eqaaa-aaaad-agv7q-cai.raw.icp0.io/ | jq .
 
-<span class="c"># just the Genesis gate's attested head</span>
+<span class="c"># the head First Body reported in its last beat</span>
 curl -s https://rt6ds-eqaaa-aaaad-agv7q-cai.raw.icp0.io/ \
   | jq -r '.organs[] | select(.organ=="first-body") | .note' \
   | python3 -c 'import sys,urllib.parse; print(urllib.parse.unquote(sys.stdin.read()))'</code>
@@ -305,6 +312,14 @@ curl -s https://rt6ds-eqaaa-aaaad-agv7q-cai.raw.icp0.io/ \
   (function () {
     var ENDPOINT = 'https://rt6ds-eqaaa-aaaad-agv7q-cai.raw.icp0.io/';
     var STALE_S = 21600;
+
+    var MAX_FIELD = 180;   // a beat cannot blow out the layout
+    var MAX_ROWS   = 200;   // nor flood the table
+
+    function clamp(s) {
+      s = String(s == null ? '' : s);
+      return s.length > MAX_FIELD ? s.slice(0, MAX_FIELD) + '…' : s;
+    }
 
     function esc(s) {
       return String(s).replace(/[&<>"']/g, function (c) {
@@ -353,7 +368,7 @@ curl -s https://rt6ds-eqaaa-aaaad-agv7q-cai.raw.icp0.io/ \
         var g = parseGate(note);
         setPill(pill, fb.stale ? 'stale' : 'live', fb.stale ? 'stale' : 'beating');
         document.getElementById('lg-seq').textContent = g ? ('#' + g.seq) : 'not attested';
-        document.getElementById('lg-hash').textContent = g ? g.hash : 'this beat carried no ledger head';
+        document.getElementById('lg-hash').textContent = g ? clamp(g.hash) : 'this beat carried no ledger head';
         document.getElementById('lg-age').textContent = humanAge(fb.age_seconds);
       }
       document.getElementById('lg-total').textContent =
@@ -365,19 +380,24 @@ curl -s https://rt6ds-eqaaa-aaaad-agv7q-cai.raw.icp0.io/ \
         return (a.age_seconds || 0) - (b.age_seconds || 0);
       });
 
-      var rows = organs.map(function (o) {
+      var truncated = organs.length > MAX_ROWS;
+      var rows = organs.slice(0, MAX_ROWS).map(function (o) {
         var stale = !!o.stale;
         var note = decodeNote(o.note);
         return '<tr>' +
-          '<td class="lg-organ">' + esc(o.organ) + '</td>' +
+          '<td class="lg-organ">' + esc(clamp(o.organ)) + '</td>' +
           '<td><span class="lg-pill ' + (stale ? 'stale' : 'live') + '">' + (stale ? 'stale' : 'beating') + '</span></td>' +
           '<td class="lg-num">' + esc(humanAge(o.age_seconds)) + '</td>' +
           '<td class="lg-num">' + esc(o.seq != null ? o.seq : '—') + '</td>' +
-          '<td class="lg-note">' + esc(note || '—') + '</td>' +
+          '<td class="lg-note">' + esc(clamp(note) || '—') + '</td>' +
           '</tr>';
       }).join('');
 
-      document.getElementById('lg-tbody').innerHTML = rows;
+      document.getElementById('lg-tbody').innerHTML = rows + (truncated
+        ? '<tr><td colspan="5" style="color:var(--lg-stale);font-family:var(--lg-mono);font-size:0.8rem;">' +
+          'showing first ' + MAX_ROWS + ' of ' + organs.length + ' organisms - use the curl command to see all' +
+          '</td></tr>'
+        : '');
       document.getElementById('lg-loading').hidden = true;
       document.getElementById('lg-table').hidden = false;
 

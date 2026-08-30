@@ -130,13 +130,13 @@
     <div class="w-wrap">
       <p>
         An earlier review of our operator design produced a finding we have not been able to un-see. The gate
-        kept an append-only ledger, and the ledger's integrity was "witnessed" by pushing it to a git remote —
-        using a credential the gate itself held.
+        kept an append-only ledger, and the original design witnessed that ledger by pushing it to a git remote
+        with a credential kept on the same machine, under the same operator — a mirror, not a witness.
       </p>
       <div class="w-pull">A witness that shares a credential with the witnessed attests only that the witnessed wrote something.</div>
       <p>
-        That is not a subtle flaw. It is the difference between a witness and a mirror. Anything able to write
-        the ledger was equally able to write the proof that the ledger was fine. The condition that came out of
+        That is not a subtle flaw. Anything able to write the ledger sat on the same machine as the thing able
+        to write the proof that the ledger was fine. The condition that came out of
         that review was blunt: <strong>the witness must be independent of the credential that writes it.</strong>
       </p>
 
@@ -150,7 +150,13 @@
       <p>
         That canister is public. Which means the interesting property is not that we can check it — it is that
         <strong>you</strong> can, right now, without asking us and without trusting us. The panel below is
-        reading it from your browser as this page loads. There is no Unwind server in the path.
+        reading it from your browser as this page loads.
+      </p>
+      <p>
+        One precision worth keeping, because it is the difference between a true claim and a flattering one:
+        the machine composes its own beat, so what the canister gives a stranger is <strong>non-repudiation of
+        what that machine said the head was at a given time</strong>, plus liveness. It cannot vouch for the
+        content of the report. What it makes impossible is quietly rewriting that report afterwards.
       </p>
 
       <div class="w-live">
@@ -221,18 +227,19 @@
       <div class="w-pull">A cron that runs and fails is indistinguishable from a cron that works — unless something outside it is watching, and something outside that is reading the watcher.</div>
       <p>
         The same audit turned up six scheduled tasks on the operator machine whose only failure signal was a
-        result code no process consumed, and a latent syntax error that had been masked for days behind a
-        different error that fired first. The fix was a watcher that turns any failed task into a ledger record —
-        and, more importantly, the acceptance test for it: deliberately break a task and confirm it surfaces.
-        A watcher that has never caught anything is indistinguishable from a watcher that does not work.
+        result code no process consumed — until a watcher was added and proven by breaking a task on purpose.
+        It also surfaced a latent syntax error that had been masked for days behind a different error that fired
+        first. The watcher now turns any failed task into a ledger record, but the part that mattered was the
+        acceptance test: a watcher that has never caught anything is indistinguishable from a watcher that does
+        not work.
       </p>
 
       <h2>The check that made it real</h2>
       <p>
-        One detail we would repeat. Rather than accept the operator's report that its ledger had advanced, the
-        second machine wrote down a falsifiable prediction in advance — <em>the next beat must carry a sequence
+        One detail we would repeat. Rather than accept the operator machine's report that its ledger had
+        advanced, the build session on the second machine wrote down a falsifiable prediction in advance — <em>the next beat must carry a sequence
         number at or above this value</em> — and then polled the public canister until it either happened or
-        didn't. It happened, and the number matched the exact record the operator had described.
+        didn't. It happened, and the number matched the exact record the other session had described.
       </p>
       <p>
         The value is not in the confirmation. It is that the disconfirming result had somewhere to go. A

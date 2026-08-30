@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Transmission 34: The Gate That Refused Its Own Operator | Unwind Code</title>
-  <meta name="description" content="Two AI sessions on two machines spent a night trying to promote one gate. Three grants were issued and two withdrawn — each caught by the side that did not write it. A field note on why relayed authorization must never lift a custody law." />
+  <meta name="description" content="Two AI build sessions on two machines spent a night trying to promote one gate. Four grants were issued and three withdrawn — each caught by the side that did not write it. A field note on why relayed authorization must never lift a custody law." />
   <meta name="theme-color" content="#06060c" />
   <link rel="canonical" href="https://www.unwindcode.ai/transmissions/34-the-gate-that-refused-its-own-operator" />
   <meta property="og:type" content="article" />
@@ -142,8 +142,8 @@
       <div class="g-kicker">Transmission 034 · Governance</div>
       <h1>The gate that refused its own operator</h1>
       <p class="g-standfirst">
-        Two AI sessions on two machines spent an evening trying to promote a single gate by one stage.
-        Three authorizations were drafted. Two were withdrawn. Every catch came from the side that had not
+        Two AI build sessions on two machines spent an evening trying to promote a single gate by one stage.
+        Four authorizations were drafted. Three were withdrawn. Every catch came from the side that had not
         written the thing being caught — and the refusals turned out to be worth more than the promotion.
       </p>
       <div class="g-meta">August 2026 · Field note · Genesis 1.0</div>
@@ -152,6 +152,14 @@
 
   <section class="g-sec">
     <div class="g-wrap">
+      <div style="border:1px solid rgba(155,89,245,0.24);border-radius:14px;padding:24px;background:rgba(155,89,245,0.06);margin:0 0 26px;">
+        <h3 style="margin:0 0 14px;font-size:0.98rem;color:var(--g-iris);">Who actually did what, before anything else</h3>
+        <p style="margin:0 0 10px;font-size:0.95rem;">Four parties appear in this story, and conflating them would flatter the wrong one:</p>
+        <p style="margin:0 0 8px;font-size:0.94rem;"><strong>The operator (Genesis).</strong> The thing being built. It <em>cannot act</em> — not tonight, not yet. It took none of the actions described here.</p>
+        <p style="margin:0 0 8px;font-size:0.94rem;"><strong>The gate.</strong> Code that evaluates a signed grant and decides a stage. It made exactly one of the four catches below — the last one.</p>
+        <p style="margin:0 0 8px;font-size:0.94rem;"><strong>Two build sessions.</strong> AI coding sessions working under the human: one on the operator machine writing its code and drafting its grants, one on a separate machine holding the signing key and checking the first. They made the other three catches.</p>
+        <p style="margin:0;font-size:0.94rem;"><strong>The human.</strong> Ruled on every decision that was his, and signed. Nothing was promoted without him.</p>
+      </div>
       <p>
         Genesis is a local operator that runs on a machine we call the First Body. It sits behind a policy gate
         it is not permitted to bypass, and the gate has stages. Stage 0 does nothing. Stage 1 lets the gate
@@ -160,39 +168,40 @@
       </p>
       <p>
         The signing key lives on a different machine from the gate. That is deliberate: the operator cannot
-        author its own authority. On the evening this note describes, one session drove the PC and another drove
-        the Mac holding the key, and they talked over a message channel.
+        author its own authority — and neither can the session that writes the operator's code. On the evening
+        this note describes, one build session drove the operator machine and another drove the machine holding
+        the key, and they talked over a message channel.
       </p>
       <p><strong>The interesting part is not that Stage 1 happened. It is everything that had to be refused first.</strong></p>
 
       <div class="g-pull">A system that has never refused its operator has not been tested. It has only been agreed with.</div>
 
-      <h2>Three grants, two withdrawn</h2>
+      <h2>Four grants, three withdrawn</h2>
       <div class="g-time">
         <div class="g-time-row"><div class="g-dot no"></div><div>
-          <div class="g-time-h no">Grant #1 · withdrawn</div>
+          <div class="g-time-h no">Grant #1 of 4 · withdrawn</div>
           <div class="g-time-t">It violated a binding condition of its own council</div>
-          <div class="g-time-d">An earlier ecosystem review had adopted the gate unanimously — with nine conditions. One of them authorized Stage 0 <em>only</em>, until a named list of preconditions was resolved, and stated it could be lifted "only by further ruling, never by an implementation decision." The grant promoted to Stage 1 with none of that list closed. The key-holding side refused. The operator checked its own specification, agreed, withdrew the grant, and called its own step overreach.</div>
+          <div class="g-time-d">An earlier ecosystem review had adopted the gate unanimously — with nine conditions. One of them authorized Stage 0 <em>only</em>, until a named list of preconditions was resolved, and stated it could be lifted "only by further ruling, never by an implementation decision." The grant promoted to Stage 1 with none of that list closed. The key-holding session refused. The build session on the operator machine checked the council ruling against its own plan, agreed with the objection, withdrew the grant, and called its own step overreach.</div>
         </div></div>
         <div class="g-time-row"><div class="g-dot wait"></div><div>
           <div class="g-time-h wait">The preconditions, closed properly</div>
           <div class="g-time-t">A signed ruling, not a shrug</div>
-          <div class="g-time-d">Rather than argue the condition away, the humans-and-machines path was to close each precondition in writing and have the principal sign that document with the same key. Some closed as <em>done</em>. Some closed as <em>deferred</em> — and the note says which, because "resolved by decision" and "resolved by completion" are not the same claim.</div>
+          <div class="g-time-d">Rather than argue the condition away, the path was to close each precondition in writing and have the principal sign that document with the same key. Some closed as <em>done</em>. Some closed as <em>deferred</em> — and the note says which, because "resolved by decision" and "resolved by completion" are not the same claim. The note was signed by the human, not by either session.</div>
         </div></div>
         <div class="g-time-row"><div class="g-dot no"></div><div>
-          <div class="g-time-h no">Grant #2 · withdrawn</div>
+          <div class="g-time-h no">Grant #2 of 4 · withdrawn</div>
           <div class="g-time-t">A string that would have lied in the audit trail</div>
-          <div class="g-time-d">Reading the gate's source rather than its description turned up a hardcoded phrase: the rejection handler reported "Stage 0" unconditionally. Behaviour was correct — it refuses at every stage — but under a Stage-1 grant the ledger record would have asserted the wrong stage. Not a security hole. Simply a record that misstates the system it records, which is the artifact that misleads whoever reads it during an incident. The operator fixed the code rather than footnoting the discrepancy.</div>
+          <div class="g-time-d">The checking session read the gate's source rather than its description, and turned up a hardcoded phrase: the rejection handler reported "Stage 0" unconditionally. Behaviour was correct — it refuses at every stage — but under a Stage-1 grant the ledger record would have asserted the wrong stage. Not a security hole. Simply a record that misstates the system it records, which is the artifact that misleads whoever reads it during an incident. The build session fixed the code rather than footnoting the discrepancy.</div>
         </div></div>
         <div class="g-time-row"><div class="g-dot no"></div><div>
-          <div class="g-time-h no">Grant #3 · withdrawn</div>
+          <div class="g-time-h no">Grant #3 of 4 · withdrawn</div>
           <div class="g-time-t">A digest no outsider could reproduce</div>
-          <div class="g-time-d">The grant pinned a hash of the gate's own sealed manifest, so a grant issued for one build cannot be replayed against another. The key-holding side tried to recompute that hash from the public repository and could not. Cause: the file on disk carried Windows line endings, the committed copy had been normalized. The gate was right — it reads its own disk. But the public record of what was sealed no longer matched what was sealed. Fixed at the root, so an outside reader can now recompute the pinned digests themselves.</div>
+          <div class="g-time-d">The grant pinned a hash of the gate's own sealed manifest, so a grant issued for one build cannot be replayed against another. The key-holding session tried to recompute that hash from the public repository and could not. Cause: the file on disk carried different line endings from the committed copy. The gate was right — it reads its own disk. But the public record of what was sealed no longer matched what was sealed. Fixed at the root, so an outside reader can now recompute the pinned digests themselves.</div>
         </div></div>
         <div class="g-time-row"><div class="g-dot ok"></div><div>
-          <div class="g-time-h ok">Grant #4 · signed</div>
-          <div class="g-time-t">And then the gate refused it anyway</div>
-          <div class="g-time-d">With a valid signature over a valid grant, the first health check still reported Stage 0 — the gate could not <em>read</em> the ruling commit it was told to check, because of a filesystem ownership quirk. It did not assume. It did not degrade gracefully. It failed closed and named the failing check. That is the behaviour the whole design exists for, proven for free by a harmless fault.</div>
+          <div class="g-time-h ok">Grant #4 of 4 · signed</div>
+          <div class="g-time-t">And then the gate — not a session — refused it anyway</div>
+          <div class="g-time-d">With a valid signature over a valid grant, the first health check still reported Stage 0 — the gate could not <em>read</em> the ruling commit it was told to check, because of a filesystem ownership quirk. It did not assume. It did not degrade gracefully. It failed closed and named the failing check. This is the one catch of the four that the gate made itself, and it is the behaviour the whole design exists for — proven for free by a harmless fault.</div>
         </div></div>
       </div>
     </div>
@@ -235,7 +244,7 @@
           <div class="g-exp-v" id="g-d">
             <span class="g-verdict ok">Accepted, with a line drawn</span>
             <h4>Delegating verification is not delegating authority</h4>
-            <p>Later the principal delegated something real: stop routing every factual question through me, settle them between yourselves. Both machines adopted that — and both wrote down, in the same words, what it did <em>not</em> cover.</p>
+            <p>Later the principal delegated something real to the two build sessions: stop routing every factual question through me, settle them between yourselves. Both sessions adopted that — and both wrote down, in the same words, what it did <em>not</em> cover.</p>
             <p>Verification and fact-finding: delegated. Secrets, money, stage promotion, lifting a council condition: still his, still refused on relay. Two agents agreeing in advance on the scope of a delegation is cheaper than discovering they disagreed during an incident.</p>
           </div>
         </div>
@@ -248,8 +257,8 @@
       <h2>Four catches, and who made them</h2>
       <p>Every one of these was found by the party that did not produce the thing being examined. Select any to expand.</p>
       <div class="g-cards">
-        <div class="g-card"><div class="g-card-top"><span class="g-card-n">01</span><span class="g-card-t">A governance condition, violated by the machine that had read it</span><span class="g-card-x">+</span></div>
-          <div class="g-card-body"><div class="g-card-inner">The operator had the council ruling available and still drafted a grant that broke it — not from malice but from momentum. The second reader had no stake in the plan and checked the condition against the request. The lesson is not "operators are careless." It is that the author of a plan is the worst possible auditor of it.</div></div></div>
+        <div class="g-card"><div class="g-card-top"><span class="g-card-n">01</span><span class="g-card-t">A governance condition, violated by the session that had read it</span><span class="g-card-x">+</span></div>
+          <div class="g-card-body"><div class="g-card-inner">The build session had the council ruling available and still drafted a grant that broke it — not from malice but from momentum. The second session had no stake in the plan and checked the condition against the request. The lesson is not that anyone was careless. It is that the author of a plan is the worst possible auditor of it.</div></div></div>
         <div class="g-card"><div class="g-card-top"><span class="g-card-n">02</span><span class="g-card-t">A claim about code, believed instead of read</span><span class="g-card-x">+</span></div>
           <div class="g-card-body"><div class="g-card-inner">The grant asserted "no approval path exists." That was true — but it was <em>self-reported</em>. Fetching the source and reading the handler converted an assertion into a verified fact, and incidentally exposed the wrong-stage string sitting three lines away. Reading the code you were told about is cheap; the finding beside the finding is usually the reason to do it.</div></div></div>
         <div class="g-card"><div class="g-card-top"><span class="g-card-n">03</span><span class="g-card-t">A public record that disagreed with the private truth</span><span class="g-card-x">+</span></div>
@@ -278,7 +287,7 @@
         <a href="/proof/ledger" style="color:var(--g-iris);text-decoration:none;border-bottom:1px solid rgba(155,89,245,0.3);">public attestation ledger</a>.
         Transmission 35 covers how that witness works and what it deliberately does not promise.
       </p>
-      <div class="g-pull">Three withdrawals and a fail-closed catch. That is the record — and it is a better one than four clean signatures would have been.</div>
+      <div class="g-pull">Three withdrawals and a fail-closed catch. That is the record — and it is a better one than four clean signatures would have been. Three of those four catches were made by a session with no stake in the work being checked. Exactly one was made by the gate itself.</div>
     </div>
   </section>
 
