@@ -7,7 +7,7 @@
 - **Platform:** Vercel (connected to GitHub)
 - **Domain:** unwindcode.ai
 - **Auto-deploy:** Push to `main` → Vercel builds and deploys automatically
-- **Build:** `npx vite build` (multi-page via `vite.config.js`)
+- **Build:** `npm run build` (multi-page via `vite.config.js`, then shared Living Atlas shell and lab homepage promotion). Plain `vite build` skips required post-build steps. The homepage source is `public/lab/index.html`; the older console remains at `/home`.
 - **Local parity check:** `npm run check:public-parity` compares the latest reviewed transmission across `/api/status`, sitemap, `llms.txt`, `ai-services.json`, homepage, and archive, and runs fixed public-safe `/api/search` plus `/api/grounding` contract smoke checks using local public sources only.
 - **Live parity check:** `npm run check:public-parity:live` runs the same read-only checks against `https://www.unwindcode.ai`; use it only when network/live production verification is intended.
 

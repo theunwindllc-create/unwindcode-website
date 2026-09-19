@@ -1,0 +1,163 @@
+/* Scoped shared Brain surface. The host supplies fonts and its cell accent. */
+.atlas-brain-launcher,
+.atlas-brain-dialog {
+  --brain-accent: var(--atlas-accent, #c4a3f0);
+  --brain-ink: #f2eff8;
+  --brain-muted: #b8b2c5;
+  --brain-line: rgba(218, 201, 244, .16);
+  color: var(--brain-ink);
+  font: 400 14px/1.6 "Manrope", sans-serif;
+  letter-spacing: 0;
+  box-sizing: border-box;
+  color-scheme: dark;
+}
+.atlas-brain-dialog *, .atlas-brain-dialog *::before, .atlas-brain-dialog *::after { box-sizing: border-box; }
+.atlas-brain-launcher {
+  position: fixed;
+  right: max(24px, env(safe-area-inset-right));
+  bottom: max(24px, env(safe-area-inset-bottom));
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 12px 20px;
+  border: 1px solid var(--brain-line);
+  border-radius: 999px;
+  background: rgba(17, 13, 26, .94);
+  box-shadow: 0 6px 32px #0008, inset 0 1px 0 #ffffff0c;
+  backdrop-filter: blur(16px);
+  cursor: pointer;
+  font-weight: 600;
+  transition: border-color .18s, transform .18s, background .18s;
+}
+.atlas-brain-launcher::before {
+  content: "∞";
+  color: var(--brain-accent);
+  font-size: 29px;
+  line-height: 1;
+  font-family: "Manrope", sans-serif;
+}
+.atlas-brain-launcher:hover { border-color: var(--brain-accent); background: #1b1428; transform: translateY(-2px); }
+.atlas-brain-launcher:active { transform: scale(.98); transition-duration: .08s; }
+.atlas-brain-launcher[aria-expanded="true"] { visibility: hidden; }
+.atlas-brain-dialog {
+  position: fixed;
+  inset: 0 0 0 auto;
+  width: min(480px, 100%);
+  height: 100%;
+  height: 100dvh;
+  max-width: 100vw;
+  max-height: 100%;
+  max-height: 100dvh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-left: 1px solid var(--brain-line);
+  background: rgba(10, 9, 17, .97);
+  box-shadow: -24px 0 90px #0009;
+  backdrop-filter: blur(28px);
+}
+.atlas-brain-dialog:not([open]), .atlas-brain-dialog [hidden] { display: none !important; }
+.atlas-brain-dialog::backdrop { background: rgba(3, 3, 8, .64); }
+.atlas-brain-dialog[open] .atlas-brain-shell { animation: atlas-brain-enter .24s cubic-bezier(.22, .7, .2, 1); }
+@keyframes atlas-brain-enter { from { opacity: .6; transform: translateX(16px); } to { opacity: 1; transform: translateX(0); } }
+.atlas-brain-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: 0;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) 0;
+}
+.atlas-brain-dialog :is(h2, h3, h4, p, ul, dl, dd, pre) { margin: 0; }
+.atlas-brain-dialog :is(button, textarea) { font: inherit; letter-spacing: inherit; }
+.atlas-brain-dialog button { cursor: pointer; text-transform: none; }
+.atlas-brain-dialog button:disabled { cursor: wait; opacity: .55; }
+.atlas-brain-dialog :is(a, button, textarea, summary, [tabindex]):focus-visible,
+.atlas-brain-launcher:focus-visible { outline: 2px solid var(--brain-accent); outline-offset: 4px; }
+.atlas-brain-header { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 28px 24px 20px; flex: none; }
+.atlas-brain-heading { min-width: 0; }
+.atlas-brain-dialog .atlas-brain-eyebrow { font: 400 9px/1.65 "IBM Plex Mono", monospace; letter-spacing: .08em; color: var(--brain-accent); text-transform: uppercase; overflow-wrap: anywhere; }
+.atlas-brain-dialog .atlas-brain-title { font-size: 27px; font-weight: 500; line-height: 1.25; letter-spacing: -.035em; margin-top: 8px; color: var(--brain-ink); }
+.atlas-brain-close { width: 44px; min-width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 1px solid var(--brain-line); border-radius: 50%; background: transparent; color: var(--brain-muted); font-size: 27px !important; line-height: 1; }
+.atlas-brain-close:hover { color: var(--brain-ink); background: #ffffff0a; }
+.atlas-brain-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin: 0 24px 16px; padding: 4px; flex: none; border: 1px solid var(--brain-line); border-radius: 10px; background: #ffffff03; }
+.atlas-brain-tab { min-width: 0; min-height: 42px; padding: 9px 8px; border: 1px solid transparent; border-radius: 7px; background: transparent; color: var(--brain-muted); font-size: 12px !important; font-weight: 600 !important; line-height: 1.4; }
+.atlas-brain-tab[aria-selected="true"] { color: var(--brain-ink); background: #ffffff0d; border-color: var(--brain-line); box-shadow: 0 2px 6px #0003; }
+.atlas-brain-dialog .atlas-brain-local { margin: 0 24px 12px; color: var(--brain-muted); font-size: 10px; line-height: 1.65; }
+.atlas-brain-panel { flex: 1 1 auto; min-height: 60px; min-width: 0; overflow: auto; overscroll-behavior: contain; padding: 12px 24px 28px; scrollbar-width: thin; scrollbar-color: #62576f transparent; }
+.atlas-brain-dialog .atlas-brain-intro { font-size: 16px; line-height: 1.8; color: var(--brain-muted); max-width: 34ch; }
+.atlas-brain-suggestions { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 30px; }
+.atlas-brain-suggestions > .atlas-brain-label { width: 100%; margin-bottom: 4px; }
+.atlas-brain-suggestion { padding: 10px 12px; min-height: 44px; border-radius: 7px; border: 1px solid var(--brain-line); background: transparent; color: var(--brain-muted); font-size: 12px !important; text-align: left; }
+.atlas-brain-suggestion:hover { color: var(--brain-ink); border-color: var(--brain-accent); }
+.atlas-brain-history { display: grid; gap: 24px; }
+.atlas-brain-message, .atlas-brain-message-user { min-width: 0; }
+.atlas-brain-message-user { border-left: 2px solid var(--brain-accent); padding: 4px 0 4px 14px; }
+.atlas-brain-dialog .atlas-brain-label { font: 500 10px/1.6 "IBM Plex Mono", monospace; letter-spacing: .035em; color: var(--brain-muted); display: block; }
+.atlas-brain-dialog .atlas-brain-body { margin-top: 6px; font-size: 13px; line-height: 1.85; color: var(--brain-ink); white-space: pre-wrap; overflow-wrap: anywhere; }
+.atlas-brain-dialog .atlas-brain-result-title { margin: 8px 0 12px; font-weight: 500; font-size: 21px; line-height: 1.35; letter-spacing: -.02em; }
+.atlas-brain-packet { min-width: 0; }
+.atlas-brain-packet > .atlas-brain-label { margin-top: 24px; margin-bottom: 8px; }
+.atlas-brain-source { margin-top: 18px; padding: 18px 0; border-top: 1px solid var(--brain-line); min-width: 0; }
+.atlas-brain-dialog .atlas-brain-source-title { font-size: 16px; line-height: 1.5; font-weight: 500; margin: 7px 0 14px; }
+.atlas-brain-dialog .atlas-brain-citation { color: var(--brain-accent); display: block; text-decoration: none; overflow-wrap: anywhere; }
+.atlas-brain-dialog a.atlas-brain-citation:hover { text-decoration: underline; text-underline-offset: 4px; }
+.atlas-brain-dialog .atlas-brain-review-tag { margin-top: 12px; display: inline-block; padding: 3px 8px; font-size: 10px; border: 1px solid #d4ad634a; border-radius: 4px; color: #e7c694; background: #caa56808; }
+.atlas-brain-dialog .atlas-brain-metadata { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 5px 12px; font-size: 10px; margin: 12px 0; }
+.atlas-brain-metadata dt { color: var(--brain-muted); }
+.atlas-brain-metadata dd { color: var(--brain-ink); overflow-wrap: anywhere; }
+.atlas-brain-dialog .atlas-brain-citations { padding-left: 17px; font-size: 12px; line-height: 1.7; display: grid; gap: 10px; }
+.atlas-brain-qualification { margin-top: 12px; padding: 14px; border: 1px solid var(--brain-line); border-radius: 6px; overflow-wrap: anywhere; font-size: 12px; }
+.atlas-brain-qualification .atlas-brain-citation { margin-top: 8px; }
+.atlas-brain-dialog .atlas-brain-list { padding-left: 17px; display: grid; gap: 8px; font-size: 11px; line-height: 1.6; overflow-wrap: anywhere; color: var(--brain-muted); }
+.atlas-brain-details { margin-top: 14px; border-top: 1px solid var(--brain-line); padding-top: 12px; }
+.atlas-brain-details summary { cursor: pointer; font: 400 10px/1.7 "IBM Plex Mono", monospace; color: var(--brain-muted); min-height: 30px; }
+.atlas-brain-details .atlas-brain-label { margin: 12px 0 6px; }
+.atlas-brain-dialog .atlas-brain-policy-data { white-space: pre-wrap; overflow-wrap: anywhere; font: 400 10px/1.7 "IBM Plex Mono", monospace; color: var(--brain-muted); background: transparent; padding: 8px 0; max-width: 100%; }
+.atlas-brain-form { flex: none; padding: 18px 24px 16px; border-top: 1px solid var(--brain-line); background: #0c0b13; min-width: 0; }
+.atlas-brain-input { width: 100%; display: block; min-height: 72px; max-height: 120px; resize: vertical; margin: 8px 0; padding: 12px 13px; border: 1px solid #645771; border-radius: 8px; background: #ffffff04; color: var(--brain-ink); font-size: 16px !important; line-height: 1.5; box-shadow: none; }
+.atlas-brain-input::placeholder { color: #aaa2b6; opacity: 1; font-size: 13px; }
+.atlas-brain-input[aria-invalid="true"] { border-color: #e6ad9d; }
+.atlas-brain-dialog .atlas-brain-help { color: var(--brain-muted); font-size: 10px; line-height: 1.7; }
+.atlas-brain-dialog .atlas-brain-status { font-size: 12px; line-height: 1.65; color: var(--brain-accent); overflow-wrap: anywhere; }
+.atlas-brain-status:not(:empty) { margin-top: 10px; }
+.atlas-brain-dialog .atlas-brain-status-error { color: #eec0af; }
+.atlas-brain-submit { display: block; width: 100%; min-height: 44px; margin-top: 12px; padding: 11px 16px; border: 1px solid var(--brain-accent); border-radius: 7px; background: var(--brain-accent); color: #110b1b; font-size: 12px !important; font-weight: 700 !important; }
+.atlas-brain-submit:hover:not(:disabled) { filter: brightness(1.08); }
+.atlas-brain-submit:active:not(:disabled) { transform: scale(.99); }
+.atlas-brain-source-switch { display: block; min-height: 44px; padding: 8px 0; border: 0; background: transparent; color: var(--brain-accent); text-decoration: underline; text-underline-offset: 4px; font-size: 12px !important; text-align: left; }
+.atlas-brain-dialog .atlas-brain-privacy { margin-top: 10px; color: #a19aaf; font-size: 9px; line-height: 1.7; }
+@media (max-width: 540px) {
+  .atlas-brain-launcher { right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom)); min-height: 48px; padding: 10px 16px; font-size: 12px; }
+  .atlas-brain-header { padding: 20px 18px 16px; }
+  .atlas-brain-tabs { margin-inline: 18px; }
+  .atlas-brain-dialog .atlas-brain-local { margin-inline: 18px; }
+  .atlas-brain-panel { padding-inline: 18px; }
+  .atlas-brain-form { padding: 14px 18px 12px; }
+  .atlas-brain-dialog .atlas-brain-title { font-size: 25px; }
+}
+@media (max-height: 650px) {
+  .atlas-brain-header { padding-block: 10px; }
+  .atlas-brain-heading > .atlas-brain-eyebrow, .atlas-brain-local { display: none; }
+  .atlas-brain-tabs { margin-bottom: 8px; }
+  .atlas-brain-form { padding-block: 8px; }
+  .atlas-brain-input { min-height: 44px; height: 48px; }
+  .atlas-brain-dialog .atlas-brain-privacy { font-size: 8px; margin-top: 6px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .atlas-brain-dialog[open] .atlas-brain-shell { animation: none; }
+  .atlas-brain-launcher { transition: none; }
+  .atlas-brain-launcher:hover, .atlas-brain-launcher:active, .atlas-brain-submit:active:not(:disabled) { transform: none; }
+}
+.motion-paused .atlas-brain-shell { animation: none !important; }
+.motion-paused .atlas-brain-launcher { transition: none; transform: none; }
+.motion-paused .atlas-brain-submit:active { transform: none; }
+@media (prefers-reduced-transparency: reduce) {
+  .atlas-brain-dialog, .atlas-brain-launcher { background: #0c0b13; backdrop-filter: none; }
+}
+@media (prefers-contrast: more) {
+  .atlas-brain-dialog, .atlas-brain-launcher { --brain-muted: #e1dce9; --brain-line: #aaa0b5; background: #09080e; }
+}
+@media print { .atlas-brain-launcher, .atlas-brain-dialog { display: none !important; } }

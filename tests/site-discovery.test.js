@@ -241,8 +241,8 @@ test('vite config recursively discovers durable HTML pages', async () => {
   assert.match(source, /'assets', 'visuals'/);
   assert.match(source, /'dist\/assets\/social'/);
   assert.match(source, /'dist\/assets\/visuals'/);
-  assert.match(source, /resolve\(__dirname, 'social'\)/);
-  assert.match(source, /'dist\/social'/);
+  assert.doesNotMatch(source, /resolve\(__dirname, 'social'\)/, 'creator packets must not be copied to the public website');
+  assert.match(source, /publishedSocialPackets/, 'only explicitly published legacy packets may be copied');
   assert.match(source, /'sitemap\.xml'/);
   assert.match(source, /'dist\/sitemap\.xml'/);
   assert.match(source, /'llms\.txt'/);

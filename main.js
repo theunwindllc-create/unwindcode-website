@@ -5,7 +5,11 @@
 
 import { setLanguage, getCurrentLang, getTranslation } from './i18n.js?v=20260615-system-state';
 
-const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+const legacyMotionQuery = window.matchMedia?.('(prefers-reduced-motion: reduce)');
+// Existing decorative scenes share the Atlas pause preference, including changes at runtime.
+let storedMotionPaused = false;
+try { storedMotionPaused = localStorage.getItem('uc-atlas-motion') === 'off'; } catch {}
+let prefersReducedMotion = Boolean(legacyMotionQuery?.matches || storedMotionPaused || document.hidden);
 
 // ── Language Toggle ─────────────────────────────────────────────
 const langToggle = document.getElementById('lang-toggle');
@@ -27,6 +31,7 @@ let signalWidth = 0;
 let signalHeight = 0;
 let signalDpr = 1;
 let heroSignalFrame = 0;
+let heroSignalVisible = true;
 let heroSignalParticles = [];
 let pointerSignal = { x: -1000, y: -1000, active: false };
 
@@ -251,7 +256,7 @@ function drawHeroSignalField(timestamp = 0, once = false) {
     drawHeroSignalParticles(timestamp, staticMode);
     drawHeroSignalNodes(timestamp, staticMode);
 
-    if (!staticMode && !once) {
+    if (!staticMode && !once && heroSignalVisible) {
         heroSignalFrame = requestAnimationFrame(drawHeroSignalField);
     }
 }
@@ -262,7 +267,7 @@ function startHeroSignalField() {
 
     resizeHeroSignalField();
 
-    if (!prefersReducedMotion && !isCompactSignalField()) {
+    if (!prefersReducedMotion && !isCompactSignalField() && heroSignalVisible) {
         heroSignalFrame = requestAnimationFrame(drawHeroSignalField);
     }
 }
@@ -2076,3 +2081,41 @@ chatForm?.addEventListener('submit', async (e) => {
         addMessage('organism', 'Connection lost. The organism is recalibrating.');
     }
 });
+
+// Keep legacy canvas and relay decorations under the same accessible controls.
+// Stop at their current state: pausing must not reset a visitor's selected panel.
+function syncLegacyMotion() {
+    const paused = Boolean(legacyMotionQuery?.matches || document.hidden ||
+        document.documentElement.classList.contains('motion-paused'));
+    const changed = paused !== prefersReducedMotion;
+    prefersReducedMotion = paused;
+    if (paused) {
+        cancelAnimationFrame(heroSignalFrame);
+        heroSignalFrame = 0;
+        if (canvas) canvas.dataset.fieldState = 'paused';
+        stopMirrorRuntimeField();
+        stopMirrorBrainRuntimePulse();
+        stopMirrorOrganismRelay();
+        stopMirrorGrowthRelay();
+        stopMirrorConceptRelay();
+    } else if (changed) {
+        if (heroSignalVisible) startHeroSignalField();
+        if (mirrorRuntimeVisible) startMirrorRuntimeField();
+        if (mirrorBrainRuntimeVisible) startMirrorBrainRuntimePulse();
+        if (mirrorOrganismRelayVisible) startMirrorOrganismRelay();
+        if (mirrorGrowthRelayVisible) startMirrorGrowthRelay();
+        if (mirrorConceptRelayVisible) startMirrorConceptRelay();
+    }
+}
+new MutationObserver(syncLegacyMotion).observe(document.documentElement, {attributes:true, attributeFilter:['class']});
+legacyMotionQuery?.addEventListener('change', syncLegacyMotion);
+document.addEventListener('visibilitychange', syncLegacyMotion);
+document.addEventListener('uc:motionchange', syncLegacyMotion);
+if (canvas && heroSignalRoot && 'IntersectionObserver' in window) {
+    new IntersectionObserver(entries => {
+        heroSignalVisible = entries.some(entry => entry.isIntersecting);
+        if (heroSignalVisible && !prefersReducedMotion) startHeroSignalField();
+        else { cancelAnimationFrame(heroSignalFrame); heroSignalFrame = 0; canvas.dataset.fieldState = 'paused'; }
+    }).observe(heroSignalRoot);
+}
+syncLegacyMotion();

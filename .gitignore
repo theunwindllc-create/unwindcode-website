@@ -3,6 +3,7 @@ node_modules/
 
 # Build output
 dist/
+/artifacts/living-atlas-qa/
 .worktrees/
 
 # Vercel

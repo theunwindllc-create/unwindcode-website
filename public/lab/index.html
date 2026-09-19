@@ -1,321 +1,1624 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>The Lab — Unwind Code | Governed Cognitive Organisms</title>
-<meta name="description" content="Enter the Unwind Code lab: a cinematic tour of governed cognitive organisms — living software with memory, public proof, and hard human authority boundaries." />
-<meta name="theme-color" content="#06060c" />
-<link rel="canonical" href="https://www.unwindcode.ai/" />
-<meta property="og:type" content="website" />
-<meta property="og:title" content="The Lab — Unwind Code" />
-<meta property="og:description" content="A cinematic tour of governed cognitive organisms: memory, proof, and human authority boundaries." />
-<meta property="og:url" content="https://www.unwindcode.ai/" />
-<meta property="og:site_name" content="Unwind Code" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext x='32' y='44' font-size='40' text-anchor='middle' fill='%239b59f5'%3E%E2%88%9E%3C/text%3E%3C/svg%3E" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="/lab/styles.css" />
-</head>
-<body class="booting">
-
-<!-- ══════════ BOOT — cinematic entrance ══════════ -->
-<div id="boot" aria-hidden="true">
-  <div class="boot-core">
-    <span class="boot-inf">∞</span>
-    <h2 class="boot-title">UNWIND <em>BRAIN</em></h2>
-    <p class="boot-status" id="boot-status">waking cortex…</p>
-    <div class="boot-bar"><i id="boot-fill"></i></div>
-  </div>
-  <div class="boot-burst" aria-hidden="true"></div>
-  <div class="boot-flash" aria-hidden="true"></div>
-</div>
-
-<!-- ══════════ NAV ══════════ -->
-<nav class="nav" id="nav">
-  <a class="logo" href="/" aria-label="Unwind Code home">
-    <span class="logo-inf">∞</span>
-    <span class="logo-word">unwind<em>code</em></span>
-  </a>
-  <div class="nav-links">
-    <a href="#anatomy">Anatomy</a>
-    <a href="#organisms">Organisms</a>
-    <a href="#proof">Proof</a>
-    <a href="#paths">Paths</a>
-    <a href="/transmissions">Transmissions</a>
-  </div>
-  <a class="btn btn-nav" href="/build-with-us">Build With Us</a>
-  <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<!-- ══════════ MOBILE MENU ══════════ -->
-<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-  <a href="#anatomy">Anatomy</a>
-  <a href="#organisms">Organisms</a>
-  <a href="#proof">Proof</a>
-  <a href="#paths">Paths</a>
-  <a href="/transmissions">Transmissions</a>
-  <a href="/home">Console</a>
-  <a class="btn btn-primary" href="/build-with-us">Build With Us</a>
-</div>
-
-<!-- ══════════ HERO — scroll-scrubbed neural assembly ══════════ -->
-<section class="hero" id="top">
-  <div class="hero-sticky">
-    <canvas id="hero-canvas" aria-hidden="true"></canvas>
-    <video id="hero-video" muted playsinline preload="auto" aria-hidden="true" data-mobile-src="/lab/media/hero-720.mp4">
-      <source src="/lab/media/hero.mp4" type="video/mp4" />
-    </video>
-    <div class="hero-vignette" aria-hidden="true"></div>
-
-    <!-- Organism map overlay: assembles with scroll -->
-    <div class="org-map" id="org-map" aria-hidden="true">
-      <svg class="org-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <path class="org-line" d="M 50 52 L 50 27" />
-        <path class="org-line" d="M 50 52 L 25 52" />
-        <path class="org-line" d="M 50 52 L 75 52" />
-        <path class="org-line" d="M 50 52 L 50 74" />
-      </svg>
-      <div class="org-core">∞</div>
-      <div class="org-node" data-node="0" style="--x:50%; --y:27%"><i></i>Cortex</div>
-      <div class="org-node" data-node="1" style="--x:25%; --y:52%"><i></i>Memory</div>
-      <div class="org-node" data-node="2" style="--x:75%; --y:52%"><i></i>Cells</div>
-      <div class="org-node" data-node="3" style="--x:50%; --y:74%"><i></i>Proof</div>
-    </div>
-
-    <div class="hero-copy" id="hero-copy">
-      <p class="eyebrow">Unwind Code · AI Architecture Lab</p>
-      <h1>What if your systems could <span class="accent">think for themselves?</span></h1>
-      <p class="hero-sub">We design governed cognitive organisms — living software with memory, public proof, and hard human authority boundaries.</p>
-    </div>
-
-    <div class="hero-cta" id="hero-cta">
-      <p class="hero-cta-line">This is what one looks like.</p>
-      <a class="btn btn-primary" href="#paths">Build With Us</a>
-    </div>
-
-    <div class="scroll-hint" id="scroll-hint"><span></span>Scroll to assemble</div>
-    <div class="hero-exit" id="hero-exit" aria-hidden="true"></div>
-  </div>
-</section>
-
-<!-- ══════════ THE BOUNDARY — anatomy strip pinned over clip 2 ══════════ -->
-<section class="boundary" id="anatomy">
-  <div class="boundary-sticky">
-    <video id="boundary-video" muted playsinline loop preload="metadata" aria-hidden="true">
-      <source src="/lab/media/boundary.mp4" type="video/mp4" />
-    </video>
-    <div class="lanes-fallback" aria-hidden="true">
-      <div class="lane"></div><div class="lane"></div><div class="lane"></div>
-      <div class="lane"></div><div class="lane"></div>
-      <div class="lane-block"><span class="lane-lock">⬢</span> APPROVAL REQUIRED</div>
-    </div>
-    <div class="boundary-scrim" aria-hidden="true"></div>
-    <div class="boundary-enter" id="boundary-enter" aria-hidden="true"></div>
-
-    <div class="boundary-content">
-      <p class="eyebrow">The Anatomy</p>
-      <h2>Six organs. One boundary.</h2>
-      <p class="section-sub">Every organism is grown from the same governed anatomy — and every dangerous motion stops at a human gate.</p>
-
-      <div class="anatomy-strip" id="anatomy-strip">
-        <button class="organ glass" data-organ="0">Cortex</button>
-        <button class="organ glass" data-organ="1">Memory</button>
-        <button class="organ glass" data-organ="2">Gateway</button>
-        <button class="organ glass" data-organ="3">Cells</button>
-        <button class="organ glass" data-organ="4">Immune System</button>
-        <button class="organ glass" data-organ="5">Proof Loop</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Unwind Code — Intelligence That Evolves</title>
+    <meta
+      name="description"
+      content="Explore the Unwind Code lab: cognitive organisms with memory, creative intelligence, public proof, and human authority."
+    />
+    <meta name="theme-color" content="#06060c" />
+    <link rel="canonical" href="https://www.unwindcode.ai/" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Unwind Code — Intelligence That Evolves"
+    />
+    <meta
+      property="og:description"
+      content="A living atlas of cognitive organisms. Memory, intelligence, and the architecture of becoming."
+    />
+    <meta property="og:url" content="https://www.unwindcode.ai/" />
+    <meta property="og:site_name" content="Unwind Code" />
+    <meta
+      property="og:image"
+      content="https://www.unwindcode.ai/lab/media/atlas/infinity-core-og.jpg"
+    />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="A glass infinity sculpture threaded with violet light in a dark void."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:image"
+      content="https://www.unwindcode.ai/lab/media/atlas/infinity-core-og.jpg"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext x='32' y='44' font-size='40' text-anchor='middle' fill='%239b59f5'%3E%E2%88%9E%3C/text%3E%3C/svg%3E"
+    />
+    <link
+      rel="preload"
+      href="/lab/fonts/manrope-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="/lab/styles.css" />
+    <script src="/lab/main.js" defer></script>
+    <script src="/lab/infinity.js" defer></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "name": "Unwind Code",
+            "url": "https://www.unwindcode.ai/",
+            "description": "AI architecture lab exploring governed cognitive organisms with memory, public proof, and human authority."
+          },
+          {
+            "@type": "WebSite",
+            "name": "Unwind Code",
+            "url": "https://www.unwindcode.ai/",
+            "inLanguage": ["en", "es"]
+          },
+          {
+            "@type": "ImageObject",
+            "name": "Continuity — The Infinity Core",
+            "contentUrl": "https://www.unwindcode.ai/lab/media/atlas/infinity-core-og.jpg",
+            "encodingFormat": "image/jpeg",
+            "description": "Original conceptual artwork representing a cognitive organism. An illustration, not an observed runtime or biological anatomy."
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a data-es="Saltar al contenido" class="skip-link" href="#main"
+      >Skip to content</a
+    >
+    <header class="nav" id="nav">
+      <a
+        class="logo"
+        href="#top"
+        aria-label="Unwind Code home"
+        data-es-aria="Unwind Code, inicio"
+        ><span class="logo-inf" aria-hidden="true">∞</span
+        ><span>unwind<span class="logo-code">code</span></span></a
+      >
+      <nav
+        class="nav-links"
+        aria-label="Main navigation"
+        data-es-aria="Navegación principal"
+      >
+        <a data-es="Organismos" href="#organisms">Organisms</a>
+        <a data-es="El sistema" href="#systems">The system</a>
+        <a data-es="Filosofía" href="#philosophy">Philosophy</a>
+        <a data-es="Transmisiones" href="#transmissions">Transmissions</a>
+      </nav>
+      <div class="nav-actions">
+        <button
+          class="language-switch"
+          id="lang-toggle"
+          aria-label="Cambiar a español"
+          hidden
+        >
+          ES</button
+        ><a class="button button-small nav-contact" href="/build-with-us"
+          ><span data-es="Construye con nosotros">Build with us</span
+          ><span aria-hidden="true">↗</span></a
+        ><button
+          class="menu-toggle"
+          id="menu-toggle"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          aria-label="Open menu"
+          data-es-aria="Abrir menú"
+          hidden
+        >
+          <span></span><span></span>
+        </button>
       </div>
-      <p class="organ-line glass" id="organ-line">Reasoning and planning. Decides what to try next.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════ ORGANISM PROTOTYPES ══════════ -->
-<section class="organisms" id="organisms">
-  <p class="eyebrow">Living Prototypes</p>
-  <h2>Three organisms, already breathing.</h2>
-  <div class="proto-grid">
-    <article class="proto glass reveal">
-      <div class="proto-glyph">◉</div>
-      <h3>Visual Cortex</h3>
-      <p class="proto-line">An eye that directs its own cinema — every frame gated by human review before it reaches the world.</p>
-      <span class="proto-tag">Creative · Autonomous daily loop</span>
-      <a class="proto-link" href="/organisms/visual-cortex">Meet the organism →</a>
-    </article>
-    <article class="proto glass reveal">
-      <div class="proto-glyph">∞</div>
-      <h3>Infinity Mirror</h3>
-      <p class="proto-line">An emotional mirror that listens, remembers, and tunes itself to the person in front of it.</p>
-      <span class="proto-tag">Human · Adaptive EQ</span>
-      <a class="proto-link" href="/organisms/infinity-mirror">Meet the organism →</a>
-    </article>
-    <article class="proto glass reveal">
-      <div class="proto-glyph">◈</div>
-      <h3>Financial Organisms</h3>
-      <p class="proto-line">Capital that survives on proof — capped, cost-shielded, and never alone with the money.</p>
-      <span class="proto-tag">Markets · Hard-gated execution</span>
-      <a class="proto-link" href="/organisms/financial-organisms">Meet the organism →</a>
-    </article>
-  </div>
-</section>
-
-<!-- ══════════ METRICS ══════════ -->
-<section class="metrics" id="metrics">
-  <div class="metric reveal">
-    <span class="metric-num" data-count="5">0</span>
-    <span class="metric-label">Organism paths</span>
-  </div>
-  <div class="metric reveal">
-    <span class="metric-num" data-count="32">0</span>
-    <span class="metric-label">Public transmissions</span>
-  </div>
-  <div class="metric reveal">
-    <span class="metric-num" data-count="0">0</span>
-    <span class="metric-label">Hidden authority paths</span>
-  </div>
-</section>
-
-<!-- ══════════ PRODUCT — Readiness Radar ══════════ -->
-<section class="product" id="proof">
-  <p class="eyebrow">Instrumented, not imagined</p>
-  <h2>Every organism reports its own readiness.</h2>
-  <p class="section-sub">The Readiness Radar scores each organ before an organism earns more autonomy. No score, no leash-length.</p>
-
-  <div class="browser-frame reveal">
-    <div class="browser-bar">
-      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-      <span class="browser-url">unwindcode.ai/proof/readiness-radar</span>
-    </div>
-    <div class="browser-body">
-      <div class="radar-wrap">
-        <svg viewBox="0 0 320 320" class="radar" role="img" aria-label="Readiness Radar chart">
-          <g class="radar-grid">
-            <polygon points="160,40 264,100 264,220 160,280 56,220 56,100"/>
-            <polygon points="160,70 238,115 238,205 160,250 82,205 82,115"/>
-            <polygon points="160,100 212,130 212,190 160,220 108,190 108,130"/>
-            <polygon points="160,130 186,145 186,175 160,190 134,175 134,145"/>
-            <line x1="160" y1="160" x2="160" y2="40"/><line x1="160" y1="160" x2="264" y2="100"/>
-            <line x1="160" y1="160" x2="264" y2="220"/><line x1="160" y1="160" x2="160" y2="280"/>
-            <line x1="160" y1="160" x2="56" y2="220"/><line x1="160" y1="160" x2="56" y2="100"/>
-          </g>
-          <polygon class="radar-shape" points="160,52 247,110 232,203 160,244 92,199 100,125"/>
-          <g class="radar-labels">
-            <text x="160" y="28">Perception</text>
-            <text x="284" y="96">Memory</text>
-            <text x="284" y="232">Proof</text>
-            <text x="160" y="300">Governance</text>
-            <text x="36" y="232">Recovery</text>
-            <text x="36" y="96">Autonomy</text>
-          </g>
-        </svg>
+    </header>
+    <dialog
+      class="mobile-menu"
+      id="mobile-menu"
+      aria-label="Navigation menu"
+      data-es-aria="Menú de navegación"
+    >
+      <div class="menu-top">
+        <span data-es="EXPLORA EL LABORATORIO" class="mono"
+          >EXPLORE THE LAB</span
+        ><button
+          id="menu-close"
+          aria-label="Close menu"
+          data-es-aria="Cerrar menú"
+        >
+          ×
+        </button>
       </div>
-      <div class="radar-side">
-        <h4>FSO · Financial Survival Organism</h4>
-        <ul class="radar-list">
-          <li><b>Perception</b><span class="status ok">3-confirmation death gate</span></li>
-          <li><b>Execution</b><span class="status ok">5% / trade cap live</span></li>
-          <li><b>Cost shield</b><span class="status ok">+2% net-edge floor</span></li>
-          <li><b>Money motion</b><span class="status gate">Human gate · always</span></li>
-        </ul>
+      <nav>
+        <a data-es="Organismos" href="#organisms">Organisms</a>
+        <a data-es="El sistema" href="#systems">The system</a>
+        <a data-es="Filosofía" href="#philosophy">Philosophy</a>
+        <a data-es="Transmisiones" href="#transmissions">Transmissions</a
+        ><a data-es="Registro de pruebas" href="/proof">Proof ledger</a
+        ><a data-es="Consola" href="/home">Console</a>
+      </nav>
+      <a class="button" href="/build-with-us"
+        ><span data-es="Construye con nosotros">Build with us</span
+        ><span aria-hidden="true">↗</span></a
+      >
+    </dialog>
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-art" data-motion-scene>
+          <img
+            class="hero-image"
+            src="/lab/media/atlas/infinity-core-1536.webp"
+            srcset="
+              /lab/media/atlas/infinity-core-800.webp   800w,
+              /lab/media/atlas/infinity-core-1536.webp 1536w
+            "
+            sizes="(max-width: 700px) 100vw, 76vw"
+            width="1536"
+            height="1024"
+            alt="A glass infinity sculpture with violet neural filaments and a luminous crossing."
+            data-es-alt="Una escultura de infinito en vidrio con filamentos neuronales violetas y un cruce luminoso."
+            fetchpriority="high"
+          />
+        </div>
+        <div class="hero-inner shell">
+          <p class="eyebrow hero-eyebrow">
+            <span class="signal-dot" aria-hidden="true"></span
+            ><span data-es="UNWIND CODE · LABORATORIO DE IA"
+              >UNWIND CODE · AI ARCHITECTURE LAB</span
+            >
+          </p>
+          <h1 id="hero-title">
+            <span class="hero-headline"
+              ><span data-es="Inteligencia">Intelligence</span>
+              <span data-es="que evoluciona.">that evolves.</span></span
+            >
+          </h1>
+          <p
+            data-es="Diseñamos organismos cognitivos: software vivo que percibe, recuerda y evoluciona bajo autoridad humana."
+            class="hero-sub"
+          >
+            We design cognitive organisms: living software that perceives,
+            remembers, and evolves under human authority.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#organisms"
+              ><span data-es="Explora los organismos"
+                >Explore the organisms</span
+              ><span aria-hidden="true">↗</span></a
+            ><a class="text-link" href="#systems"
+              ><span data-es="Sigue el ciclo">Follow the loop</span
+              ><span aria-hidden="true">↓</span></a
+            >
+          </div>
+        </div>
+        <div class="hero-caption shell">
+          <a class="scroll-cue mono" href="#organisms"
+            ><span aria-hidden="true">↓</span
+            ><span data-es="DESPLÁZATE PARA DESCUBRIR"
+              >SCROLL TO DISCOVER</span
+            ></a
+          ><span
+            data-es="FIG. 001 — CONTINUIDAD / ESTUDIO CONCEPTUAL"
+            class="figure-note mono"
+            >FIG. 001 — CONTINUITY / CONCEPT STUDY</span
+          ><button
+            class="motion-control mono"
+            id="motion-toggle"
+            aria-pressed="false"
+            hidden
+          >
+            <span aria-hidden="true">Ⅱ</span>
+            <span id="motion-label">PAUSE MOTION</span>
+          </button>
+        </div>
+      </section>
+      <section
+        class="systems section shell"
+        id="systems"
+        aria-labelledby="systems-title"
+      >
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow" data-es="EL PRINCIPIO DEL INFINITO">
+              THE INFINITY PRINCIPLE
+            </p>
+            <h2 id="systems-title">
+              <span data-es="Cada final,">Every ending,</span><br /><span
+                data-es="un inicio más consciente."
+                class="muted-heading"
+                >a wiser beginning.</span
+              >
+            </h2>
+          </div>
+          <p
+            data-es="El infinito no es movimiento sin fin. Es un sistema que lleva lo aprendido hacia lo que viene."
+            class="section-intro"
+          >
+            Infinity is not endless motion. It is a system that carries what it
+            learns into what comes next.
+          </p>
+        </div>
+        <div class="loop-system" data-tabs>
+          <div
+            class="infinity-stage"
+            data-infinity
+            data-step="0"
+            aria-hidden="true"
+          >
+            <svg class="infinity-fallback" viewBox="0 0 1000 500" fill="none">
+              <defs>
+                <linearGradient id="loop-gradient">
+                  <stop stop-color="#665188" />
+                  <stop offset=".48" stop-color="#d8baff" />
+                  <stop offset="1" stop-color="#638399" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M500 250C740 -70 1050 150 875 325C710 490 380 30 185 165C-20 310 250 580 500 250Z"
+                stroke="url(#loop-gradient)"
+                stroke-width="2"
+              />
+              <path
+                d="M500 250C720 -15 1020 150 855 310C700 455 370 65 205 180C30 310 270 525 500 250Z"
+                stroke="url(#loop-gradient)"
+                stroke-width=".6"
+              />
+              <circle cx="500" cy="250" r="7" fill="#d8baff" />
+            </svg>
+            <canvas class="infinity-canvas"></canvas>
+            <span class="loop-label loop-left mono" data-es="PERCIBIR → ACTUAR"
+              >PERCEIVE → ACT</span
+            ><span
+              class="loop-label loop-right mono"
+              data-es="REFLEXIONAR → RECORDAR"
+              >REFLECT → REMEMBER</span
+            >
+            <div class="authority-seed">
+              <span>+</span
+              ><span data-es="AUTORIDAD HUMANA" class="mono"
+                >HUMAN AUTHORITY</span
+              >
+            </div>
+            <span
+              class="loop-caption mono"
+              data-es="GEOMETRÍA 3D INTERACTIVA · MODELO CONCEPTUAL, NO TELEMETRÍA"
+              >INTERACTIVE 3D GEOMETRY · CONCEPT MODEL, NOT TELEMETRY</span
+            >
+          </div>
+          <div
+            class="loop-tabs"
+            role="tablist"
+            aria-label="The learning loop"
+            data-es-aria="El ciclo de aprendizaje"
+          >
+            <button
+              id="loop-tab-0"
+              role="tab"
+              aria-selected="true"
+              aria-controls="loop-panel-0"
+              data-layer="0"
+            >
+              <span class="mono">01</span
+              ><span data-es="Percibir">Sense</span></button
+            ><button
+              id="loop-tab-1"
+              role="tab"
+              aria-selected="false"
+              aria-controls="loop-panel-1"
+              data-layer="1"
+              tabindex="-1"
+            >
+              <span class="mono">02</span
+              ><span data-es="Recordar">Remember</span></button
+            ><button
+              id="loop-tab-2"
+              role="tab"
+              aria-selected="false"
+              aria-controls="loop-panel-2"
+              data-layer="2"
+              tabindex="-1"
+            >
+              <span class="mono">03</span
+              ><span data-es="Razonar">Reason</span></button
+            ><button
+              id="loop-tab-3"
+              role="tab"
+              aria-selected="false"
+              aria-controls="loop-panel-3"
+              data-layer="3"
+              tabindex="-1"
+            >
+              <span class="mono">04</span
+              ><span data-es="Autorizar">Authorize</span></button
+            ><button
+              id="loop-tab-4"
+              role="tab"
+              aria-selected="false"
+              aria-controls="loop-panel-4"
+              data-layer="4"
+              tabindex="-1"
+            >
+              <span class="mono">05</span
+              ><span data-es="Actuar">Act</span></button
+            ><button
+              id="loop-tab-5"
+              role="tab"
+              aria-selected="false"
+              aria-controls="loop-panel-5"
+              data-layer="5"
+              tabindex="-1"
+            >
+              <span class="mono">06</span><span data-es="Aprender">Learn</span>
+            </button>
+          </div>
+          <div class="loop-panels">
+            <div
+              id="loop-panel-0"
+              role="tabpanel"
+              aria-labelledby="loop-tab-0"
+              tabindex="0"
+            >
+              <h3 data-es="Una señal entra al sistema.">
+                A signal enters the system.
+              </h3>
+              <p
+                data-es="La entrada recibe una solicitud con contexto y límites. Antes de actuar, hay una pregunta que merece comprenderse."
+              >
+                The gateway receives a request with context and boundaries.
+                Before motion, there is a question worth understanding.
+              </p>
+            </div>
+            <div
+              id="loop-panel-1"
+              role="tabpanel"
+              aria-labelledby="loop-tab-1"
+              tabindex="0"
+              hidden
+            >
+              <h3 data-es="Lo útil no empieza de cero.">
+                Nothing useful starts from zero.
+              </h3>
+              <p
+                data-es="El contexto actual se conecta con conocimiento y experiencia revisados. La memoria orienta el siguiente paso sin borrar su origen."
+              >
+                Working context meets reviewed knowledge and experience. Memory
+                informs the next step without erasing where it came from.
+              </p>
+            </div>
+            <div
+              id="loop-panel-2"
+              role="tabpanel"
+              aria-labelledby="loop-tab-2"
+              tabindex="0"
+              hidden
+            >
+              <h3 data-es="La intención se vuelve propuesta.">
+                Intent becomes a proposal.
+              </h3>
+              <p
+                data-es="El córtex conecta el contexto con un plan. Se eligen células especializadas para un propósito acotado, sin otorgarles poder ilimitado."
+              >
+                The cortex connects context to a plan. Specialist cells are
+                selected for a bounded purpose, not granted unlimited power.
+              </p>
+            </div>
+            <div
+              id="loop-panel-3"
+              role="tabpanel"
+              aria-labelledby="loop-tab-3"
+              tabindex="0"
+              hidden
+            >
+              <h3 data-es="El cruce sigue siendo humano.">
+                The crossing stays human.
+              </h3>
+              <p
+                data-es="Los controles pueden pausar o rechazar. Las acciones con consecuencias requieren autoridad humana explícita. Aprender no amplía los permisos."
+              >
+                Immune checks can pause or refuse. Consequential actions require
+                explicit human authority. Learning does not expand permission.
+              </p>
+            </div>
+            <div
+              id="loop-panel-4"
+              role="tabpanel"
+              aria-labelledby="loop-tab-4"
+              tabindex="0"
+              hidden
+            >
+              <h3 data-es="Células pequeñas. Límites claros.">
+                Small cells. Clear limits.
+              </h3>
+              <p
+                data-es="El trabajo aprobado pasa por células especializadas y reemplazables. Cada acción conserva un alcance definido y puede inspeccionarse."
+              >
+                Approved work moves through replaceable specialist cells. Each
+                action stays inside its defined scope and can be inspected.
+              </p>
+            </div>
+            <div
+              id="loop-panel-5"
+              role="tabpanel"
+              aria-labelledby="loop-tab-5"
+              tabindex="0"
+              hidden
+            >
+              <h3 data-es="La evidencia vuelve como memoria.">
+                Proof returns as memory.
+              </h3>
+              <p
+                data-es="Los resultados y fallos dejan registros revisables. Las lecciones probadas y aprobadas pueden orientar el siguiente ciclo. Eso significa aquí el infinito."
+              >
+                Results and failures become reviewable records. Tested, approved
+                lessons can inform the next cycle. That is what the infinity
+                means here.
+              </p>
+            </div>
+          </div>
+        </div>
+        <a class="text-link" href="/architecture"
+          ><span data-es="Recorre la arquitectura completa"
+            >Trace the complete architecture</span
+          ><span aria-hidden="true">↗</span></a
+        >
+      </section>
+      <div class="chapter-divider shell" aria-hidden="true">
+        <span>01 — <span data-es="LOS ORGANISMOS">THE ORGANISMS</span></span
+        ><span data-es="INTELIGENCIA, EN CUATRO FORMAS"
+          >INTELLIGENCE, IN FOUR FORMS</span
+        ><span>∞</span>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════ PATHS ══════════ -->
-<section class="paths" id="paths">
-  <p class="eyebrow">Choose your path</p>
-  <h2>Four ways in.</h2>
-  <p class="section-sub">The lab is small on purpose. Pick the door that fits you.</p>
-
-  <div class="path-toggle" id="path-toggle" role="tablist" aria-label="Path selection">
-    <button class="path-card glass" role="tab" data-path="builders" aria-selected="false">
-      <h3>Builders</h3><p>Fork the anatomy.</p>
-    </button>
-    <button class="path-card glass" role="tab" data-path="investors" aria-selected="false">
-      <h3>Investors</h3><p>Back governed intelligence.</p>
-    </button>
-    <button class="path-card glass" role="tab" data-path="users" aria-selected="false">
-      <h3>Users</h3><p>Live with an organism.</p>
-    </button>
-    <button class="path-card glass featured" role="tab" data-path="collaborators" aria-selected="true">
-      <span class="badge">Most alive</span>
-      <h3>Collaborators</h3><p>Grow the lab with us.</p>
-    </button>
-  </div>
-
-  <div class="path-detail glass" id="path-detail" role="tabpanel">
-    <h3 id="path-detail-title">Collaborators</h3>
-    <ul id="path-detail-list"></ul>
-    <a class="btn btn-primary" id="path-detail-cta" href="mailto:theunwindllc@gmail.com">Build With Us</a>
-  </div>
-</section>
-
-<!-- ══════════ FAQ ══════════ -->
-<section class="faq" id="faq">
-  <p class="eyebrow">Questions</p>
-  <h2>Asked, answered, on the record.</h2>
-  <div class="faq-list">
-    <details class="faq-item glass">
-      <summary>What is an AI organism?<span class="faq-icon">+</span></summary>
-      <p>A software system designed like a living thing: a cortex that reasons, memory that persists across every session, cells that do the work, an immune system that watches for drift — and a proof loop that publishes evidence of all of it. It grows by integrating what works, never by quietly rewriting what it was.</p>
-    </details>
-    <details class="faq-item glass">
-      <summary>Where can I inspect proof?<span class="faq-icon">+</span></summary>
-      <p>Every organism ships a public ledger — build artifacts, status labels, and dated transmissions. Inspect the <a href="/proof">proof ledger</a> and read all dispatches in the <a href="/transmissions">transmissions archive</a>. The rule is simple: if a capability isn't in the ledger, treat it as not real.</p>
-    </details>
-    <details class="faq-item glass">
-      <summary>Can an organism move money or publish on its own?<span class="faq-icon">+</span></summary>
-      <p>No. Money motions and outward publications sit behind hard human-approval gates enforced in the architecture, not in a prompt. Zero hidden authority paths is a design invariant — it's one of the three numbers we publish.</p>
-    </details>
-    <details class="faq-item glass">
-      <summary>What happens when an organism fails?<span class="faq-icon">+</span></summary>
-      <p>It fails in public. Incidents go into the same ledger as wins, and the organism metabolizes the failure into new structure — a perception gate, a confirmation rule, an immune response. Failure is food.</p>
-    </details>
-  </div>
-</section>
-
-<!-- ══════════ FINAL CTA over clip 3 ══════════ -->
-<section class="final" id="final">
-  <video id="proof-video" muted playsinline loop preload="metadata" aria-hidden="true">
-    <source src="/lab/media/proof.mp4" type="video/mp4" />
-  </video>
-  <div class="ledger-fallback" aria-hidden="true">
-    <div class="ledger-card glass">
-      <div class="ledger-row"><span class="status ok">shipped</span> transmission-032 · organism heartbeat</div>
-      <div class="ledger-row"><span class="status ok">verified</span> build-artifact · proof-loop v1.4</div>
-      <div class="ledger-row"><span class="status gate">human gate</span> money-motion · held for approval</div>
-      <div class="ledger-row"><span class="status ok">shipped</span> transmission-031 · immune response</div>
-    </div>
-  </div>
-  <div class="final-scrim" aria-hidden="true"></div>
-  <div class="final-content">
-    <h2>Ready to build something<br />that <span class="accent">learns to live?</span></h2>
-    <a class="btn btn-primary btn-big" href="/build-with-us">Build With Us</a>
-  </div>
-</section>
-
-<footer class="footer">
-  <a class="logo" href="/"><span class="logo-inf">∞</span><span class="logo-word">unwind<em>code</em></span></a>
-  <div class="footer-links">
-    <a href="/">Home</a>
-    <a href="/home">Console</a>
-    <a href="/organisms">Organisms</a>
-    <a href="/architecture">Architecture</a>
-    <a href="/transmissions">Transmissions</a>
-    <a href="/proof">Proof Ledger</a>
-    <a href="/vision">Vision</a>
-    <a href="/philosophy">Philosophy</a>
-    <a href="/build-with-us">Build With Us</a>
-  </div>
-  <p class="tagline">The future learns from itself. <span class="accent">∞</span></p>
-  <p class="fineprint">© 2026 Unwind Code · An AI architecture lab · Governed by humans, grown by organisms</p>
-</footer>
-
-<script src="/lab/main.js"></script>
-</body>
+      <section
+        class="organisms section shell"
+        id="organisms"
+        aria-labelledby="organisms-title"
+      >
+        <div class="section-heading">
+          <div>
+            <p data-es="UN ATLAS VIVO" class="eyebrow">A LIVING ATLAS</p>
+            <h2 id="organisms-title">
+              <span data-es="Organismos,">Organisms,</span><br /><span
+                data-es="no apps."
+                class="muted-heading"
+                >not apps.</span
+              >
+            </h2>
+          </div>
+          <p
+            data-es="Una anatomía compartida. Distintas formas de percibir el mundo. Cada organismo conecta memoria, razonamiento y propósito."
+            class="section-intro"
+          >
+            A shared anatomy. Different ways of sensing the world. Each organism
+            connects memory, reasoning, and purpose.
+          </p>
+        </div>
+        <div class="organism-grid">
+          <article class="specimen reveal">
+            <a
+              class="specimen-image"
+              href="/organisms/visual-cortex"
+              aria-labelledby="visual-cortex-title"
+              ><span class="specimen-id mono">01 / VC</span
+              ><img
+                src="/lab/media/atlas/visual-cortex-v2-960.webp"
+                srcset="
+                  /lab/media/atlas/visual-cortex-v2-480.webp 480w,
+                  /lab/media/atlas/visual-cortex-v2-960.webp 960w
+                "
+                sizes="(max-width: 700px) 90vw, 45vw"
+                width="1536"
+                height="1024"
+                loading="lazy"
+                decoding="async"
+                alt=""
+              /><span
+                data-es="PROTOTIPO / INTELIGENCIA CREATIVA"
+                class="image-index mono"
+                >PROTOTYPE / CREATIVE INTELLIGENCE</span
+              ><span class="image-arrow" aria-hidden="true">↗</span></a
+            >
+            <div class="specimen-info">
+              <div>
+                <p data-es="PERCEPCIÓN / CREACIÓN" class="eyebrow">
+                  PERCEPTION / CREATION
+                </p>
+                <h3 id="visual-cortex-title">
+                  <a data-es="Visual Cortex" href="/organisms/visual-cortex"
+                    >Visual Cortex</a
+                  >
+                </h3>
+              </div>
+              <p
+                data-es="De una idea a una dirección visual con intención. Inteligencia creativa con criterio humano en cada entrega."
+              >
+                From an idea to a considered visual direction. Creative
+                intelligence with human judgment at every release.
+              </p>
+            </div>
+          </article>
+          <article class="specimen specimen-offset reveal">
+            <a
+              class="specimen-image"
+              href="/organisms/infinity-mirror"
+              aria-labelledby="infinity-mirror-title"
+              ><span class="specimen-id mono">02 / IM</span
+              ><img
+                src="/lab/media/atlas/infinity-mirror-v2-960.webp"
+                srcset="
+                  /lab/media/atlas/infinity-mirror-v2-480.webp 480w,
+                  /lab/media/atlas/infinity-mirror-v2-960.webp 960w
+                "
+                sizes="(max-width: 700px) 90vw, 45vw"
+                width="1536"
+                height="1024"
+                loading="lazy"
+                decoding="async"
+                alt=""
+              /><span
+                data-es="PROTOTIPO / INTELIGENCIA PERSONAL"
+                class="image-index mono"
+                >PROTOTYPE / PERSONAL INTELLIGENCE</span
+              ><span class="image-arrow" aria-hidden="true">↗</span></a
+            >
+            <div class="specimen-info">
+              <div>
+                <p data-es="REFLEXIÓN / CONTINUIDAD" class="eyebrow">
+                  REFLECTION / CONTINUITY
+                </p>
+                <h3 id="infinity-mirror-title">
+                  <a data-es="Infinity Mirror" href="/organisms/infinity-mirror"
+                    >Infinity Mirror</a
+                  >
+                </h3>
+              </div>
+              <p
+                data-es="Un espacio para reflexionar, reconocer patrones y llevar el contexto contigo. Memoria que puedes comprender."
+              >
+                A space to reflect, recognize patterns, and carry context
+                forward. Memory you can understand.
+              </p>
+            </div>
+          </article>
+          <article class="specimen reveal">
+            <a
+              class="specimen-image"
+              href="/organisms/financial-organisms"
+              aria-labelledby="financial-organisms-title"
+              ><span class="specimen-id mono">03 / FO</span
+              ><img
+                src="/lab/media/atlas/financial-organisms-v2-960.webp"
+                srcset="
+                  /lab/media/atlas/financial-organisms-v2-480.webp 480w,
+                  /lab/media/atlas/financial-organisms-v2-960.webp 960w
+                "
+                sizes="(max-width: 700px) 90vw, 45vw"
+                width="1536"
+                height="1024"
+                loading="lazy"
+                decoding="async"
+                alt=""
+              /><span
+                data-es="INVESTIGACIÓN / SIMULACIÓN"
+                class="image-index mono"
+                >RESEARCH / SIMULATION</span
+              ><span class="image-arrow" aria-hidden="true">↗</span></a
+            >
+            <div class="specimen-info">
+              <div>
+                <p data-es="OBSERVACIÓN / CRITERIO" class="eyebrow">
+                  OBSERVATION / JUDGMENT
+                </p>
+                <h3 id="financial-organisms-title">
+                  <a
+                    data-es="Organismos financieros"
+                    href="/organisms/financial-organisms"
+                    >Financial Organisms</a
+                  >
+                </h3>
+              </div>
+              <p
+                data-es="Observación de mercados y simulación. La evidencia guía el análisis; la revisión humana precede toda acción con consecuencias."
+              >
+                Market observation and simulation. Evidence guides the analysis;
+                human review precedes consequential action.
+              </p>
+            </div>
+          </article>
+          <article class="specimen specimen-offset reveal">
+            <a
+              class="specimen-image"
+              href="/organisms/brain-cell-architecture"
+              aria-labelledby="brain-cell-title"
+              ><span class="specimen-id mono">04 / BC</span
+              ><img
+                src="/lab/media/atlas/brain-cell-v2-960.webp"
+                srcset="
+                  /lab/media/atlas/brain-cell-v2-480.webp 480w,
+                  /lab/media/atlas/brain-cell-v2-960.webp 960w
+                "
+                sizes="(max-width: 700px) 90vw, 45vw"
+                width="1536"
+                height="1024"
+                loading="lazy"
+                decoding="async"
+                alt=""
+              /><span
+                data-es="EXPERIMENTAL / ARQUITECTURA COGNITIVA"
+                class="image-index mono"
+                >EXPERIMENTAL / COGNITIVE ARCHITECTURE</span
+              ><span class="image-arrow" aria-hidden="true">↗</span></a
+            >
+            <div class="specimen-info">
+              <div>
+                <p data-es="ESTRUCTURA / CRECIMIENTO" class="eyebrow">
+                  STRUCTURE / GROWTH
+                </p>
+                <h3 id="brain-cell-title">
+                  <a
+                    data-es="Brain Cell Architecture"
+                    href="/organisms/brain-cell-architecture"
+                    >Brain Cell Architecture</a
+                  >
+                </h3>
+              </div>
+              <p
+                data-es="La anatomía compartida: memoria, células especializadas y un ciclo de evidencia. Un sistema para construir sistemas."
+              >
+                The common anatomy: memory, specialist cells, and a proof loop.
+                A system for building systems.
+              </p>
+            </div>
+          </article>
+        </div>
+        <div class="section-foot">
+          <span
+            data-es="ESTUDIOS CONCEPTUALES · EXPLORA CADA ORGANISMO PARA VER SU ESTADO"
+            class="mono"
+            >CONCEPTUAL STUDIES · EXPLORE EACH ORGANISM FOR ITS STATUS</span
+          ><a class="text-link" href="/organisms"
+            ><span data-es="El ecosistema completo">The full ecosystem</span
+            ><span aria-hidden="true">↗</span></a
+          >
+        </div>
+      </section>
+      <div id="architecture" aria-hidden="true"></div>
+      <section
+        class="anatomy section"
+        id="anatomy"
+        aria-labelledby="anatomy-title"
+      >
+        <div class="shell">
+          <div class="chapter-label mono">
+            <span>02</span
+            ><span data-es="BAJO LA SUPERFICIE">BENEATH THE SURFACE</span>
+          </div>
+          <div class="anatomy-layout">
+            <div class="anatomy-art" aria-hidden="true">
+              <img
+                src="/lab/media/atlas/brain-cell-v2-960.webp"
+                width="1536"
+                height="1024"
+                loading="lazy"
+                decoding="async"
+                alt=""
+              />
+              <div class="anatomy-reticle"></div>
+              <span class="anatomy-cross cross-one">+</span
+              ><span class="anatomy-cross cross-two">+</span
+              ><span
+                data-es="CORTE CONCEPTUAL / 06 ÓRGANOS"
+                class="anatomy-label mono"
+                >CONCEPTUAL SECTION / 06 ORGANS</span
+              >
+            </div>
+            <div class="anatomy-copy">
+              <p data-es="LA ANATOMÍA" class="eyebrow">THE ANATOMY</p>
+              <h2 id="anatomy-title">
+                <span data-es="Seis órganos.">Six organs.</span><br /><span
+                  data-es="Un límite."
+                  class="muted-heading"
+                  >One boundary.</span
+                >
+              </h2>
+              <p
+                data-es="Cada parte tiene un papel. Toda acción con consecuencias vuelve a la misma frontera: la autoridad humana."
+                class="section-intro"
+              >
+                Each part has a role. Every consequential action returns to the
+                same boundary: human authority.
+              </p>
+              <div class="tab-system organ-system" data-tabs>
+                <div
+                  class="organ-tabs"
+                  role="tablist"
+                  aria-label="Organ anatomy"
+                  data-es-aria="Anatomía del organismo"
+                >
+                  <button
+                    id="organ-tab-0"
+                    role="tab"
+                    aria-selected="true"
+                    aria-controls="organ-panel-0"
+                    data-layer="0"
+                  >
+                    <span class="mono">01</span
+                    ><span data-es="Córtex">Cortex</span>
+                  </button>
+                  <button
+                    id="organ-tab-1"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="organ-panel-1"
+                    tabindex="-1"
+                    data-layer="1"
+                  >
+                    <span class="mono">02</span
+                    ><span data-es="Memoria">Memory</span>
+                  </button>
+                  <button
+                    id="organ-tab-2"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="organ-panel-2"
+                    tabindex="-1"
+                    data-layer="2"
+                  >
+                    <span class="mono">03</span
+                    ><span data-es="Entrada">Gateway</span>
+                  </button>
+                  <button
+                    id="organ-tab-3"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="organ-panel-3"
+                    tabindex="-1"
+                    data-layer="3"
+                  >
+                    <span class="mono">04</span
+                    ><span data-es="Células">Cells</span>
+                  </button>
+                  <button
+                    id="organ-tab-4"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="organ-panel-4"
+                    tabindex="-1"
+                    data-layer="4"
+                  >
+                    <span class="mono">05</span
+                    ><span data-es="Inmunidad">Immunity</span>
+                  </button>
+                  <button
+                    id="organ-tab-5"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="organ-panel-5"
+                    tabindex="-1"
+                    data-layer="5"
+                  >
+                    <span class="mono">06</span
+                    ><span data-es="Evidencia">Proof</span>
+                  </button>
+                </div>
+                <div class="organ-panels">
+                  <p
+                    data-es="Razona, planifica y elige el siguiente paso. La intención se convierte en una propuesta de acción."
+                    id="organ-panel-0"
+                    role="tabpanel"
+                    aria-labelledby="organ-tab-0"
+                    tabindex="0"
+                  >
+                    Reasons, plans, and chooses the next step. Intent becomes a
+                    proposed action.
+                  </p>
+                  <p
+                    data-es="Conserva el contexto útil entre sesiones. Los hechos, los procedimientos y la experiencia siguen siendo distinguibles."
+                    id="organ-panel-1"
+                    role="tabpanel"
+                    aria-labelledby="organ-tab-1"
+                    tabindex="0"
+                    hidden
+                  >
+                    Carries useful context across sessions. Facts, procedures,
+                    and experience remain distinguishable.
+                  </p>
+                  <p
+                    data-es="Una entrada definida para cada solicitud y acción externa. El contexto entra con límites claros."
+                    id="organ-panel-2"
+                    role="tabpanel"
+                    aria-labelledby="organ-tab-2"
+                    tabindex="0"
+                    hidden
+                  >
+                    A defined entry for each request and outward action. Context
+                    enters with clear boundaries.
+                  </p>
+                  <p
+                    data-es="Unidades pequeñas y reemplazables que hacen trabajo especializado. Cada célula tiene un propósito y un alcance."
+                    id="organ-panel-3"
+                    role="tabpanel"
+                    aria-labelledby="organ-tab-3"
+                    tabindex="0"
+                    hidden
+                  >
+                    Small, replaceable units that do specialist work. Each cell
+                    has a purpose and a scope.
+                  </p>
+                  <p
+                    data-es="Busca desviaciones y fallos. Contiene lo que debe detenerse antes de que se propague."
+                    id="organ-panel-4"
+                    role="tabpanel"
+                    aria-labelledby="organ-tab-4"
+                    tabindex="0"
+                    hidden
+                  >
+                    Looks for drift and failures. Contains what needs to stop
+                    before it spreads.
+                  </p>
+                  <p
+                    data-es="Conecta el trabajo con registros que pueden inspeccionarse. La evidencia permite revisar lo aprendido."
+                    id="organ-panel-5"
+                    role="tabpanel"
+                    aria-labelledby="organ-tab-5"
+                    tabindex="0"
+                    hidden
+                  >
+                    Connects work to inspectable records. Evidence makes
+                    learning reviewable.
+                  </p>
+                </div>
+              </div>
+              <a class="text-link" href="/architecture"
+                ><span data-es="Lee la arquitectura">Read the architecture</span
+                ><span aria-hidden="true">↗</span></a
+              >
+            </div>
+          </div>
+          <ol class="lifecycle">
+            <li>
+              <span class="life-node life-birth" aria-hidden="true"></span
+              ><span class="mono"
+                >01 / <span data-es="NEUROGÉNESIS">NEUROGENESIS</span></span
+              >
+              <h3 data-es="Nacimiento">Birth</h3>
+              <p
+                data-es="Un propósito adquiere estructura. Se definen la memoria, las herramientas y los límites."
+              >
+                A purpose takes shape. Memory, tools, and boundaries are
+                defined.
+              </p>
+            </li>
+            <li>
+              <span class="life-node life-connect" aria-hidden="true"></span
+              ><span class="mono"
+                >02 /
+                <span data-es="FORMACIÓN SINÁPTICA"
+                  >SYNAPTIC FORMATION</span
+                ></span
+              >
+              <h3 data-es="Conexión">Connection</h3>
+              <p
+                data-es="Las células trabajan juntas. El contexto compartido hace útil al conjunto."
+              >
+                Cells work together. Shared context makes the whole useful.
+              </p>
+            </li>
+            <li>
+              <span class="life-node life-evolve" aria-hidden="true"></span
+              ><span class="mono"
+                >03 /
+                <span data-es="PLASTICIDAD NEURAL"
+                  >NEURAL PLASTICITY</span
+                ></span
+              >
+              <h3 data-es="Evolución">Evolution</h3>
+              <p
+                data-es="Los resultados se convierten en lecciones. Los cambios se revisan antes de formar parte del sistema."
+              >
+                Outcomes become lessons. Changes are reviewed before joining the
+                system.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+      <section
+        class="memory section shell"
+        id="memory"
+        aria-labelledby="memory-title"
+      >
+        <div class="memory-copy">
+          <p data-es="LA ARQUITECTURA DEL RECUERDO" class="eyebrow">
+            THE ARCHITECTURE OF RECALL
+          </p>
+          <h2 id="memory-title">
+            <span data-es="La memoria hace">Memory makes</span><br /><span
+              data-es="posible la continuidad."
+              class="muted-heading"
+              >continuity possible.</span
+            >
+          </h2>
+          <p
+            data-es="Cuatro formas de recordar. Juntas conectan la situación presente con lo que el organismo ha aprendido."
+            class="section-intro"
+          >
+            Four ways of remembering. Together, they connect the present
+            situation with what the organism has learned.
+          </p>
+        </div>
+        <div class="memory-console" data-tabs>
+          <div class="memory-diagram" data-layer="0" aria-hidden="true">
+            <div class="memory-ring ring-3"></div>
+            <div class="memory-ring ring-2"></div>
+            <div class="memory-ring ring-1"></div>
+            <div class="memory-ring ring-0"></div>
+            <span class="memory-core">∞</span
+            ><span class="memory-tick tick-a">+</span
+            ><span class="memory-tick tick-b">+</span
+            ><span class="memory-axis mono">01 — 04</span>
+          </div>
+          <div class="memory-interface">
+            <div
+              class="memory-tabs"
+              role="tablist"
+              aria-label="Memory layers"
+              data-es-aria="Capas de memoria"
+            >
+              <button
+                id="memory-tab-0"
+                role="tab"
+                aria-selected="true"
+                aria-controls="memory-panel-0"
+                data-layer="0"
+              >
+                <span class="mono">01</span
+                ><span data-es="De trabajo">Working</span
+                ><span aria-hidden="true">↗</span>
+              </button>
+              <button
+                id="memory-tab-1"
+                role="tab"
+                aria-selected="false"
+                aria-controls="memory-panel-1"
+                tabindex="-1"
+                data-layer="1"
+              >
+                <span class="mono">02</span
+                ><span data-es="Procedimental">Procedural</span
+                ><span aria-hidden="true">↗</span>
+              </button>
+              <button
+                id="memory-tab-2"
+                role="tab"
+                aria-selected="false"
+                aria-controls="memory-panel-2"
+                tabindex="-1"
+                data-layer="2"
+              >
+                <span class="mono">03</span
+                ><span data-es="Semántica">Semantic</span
+                ><span aria-hidden="true">↗</span>
+              </button>
+              <button
+                id="memory-tab-3"
+                role="tab"
+                aria-selected="false"
+                aria-controls="memory-panel-3"
+                tabindex="-1"
+                data-layer="3"
+              >
+                <span class="mono">04</span
+                ><span data-es="Episódica">Episodic</span
+                ><span aria-hidden="true">↗</span>
+              </button>
+            </div>
+            <div class="memory-panel-wrap">
+              <p
+                data-es="Lo que sucede ahora: la tarea activa, el contexto inmediato y lo que merece atención."
+                id="memory-panel-0"
+                role="tabpanel"
+                aria-labelledby="memory-tab-0"
+                tabindex="0"
+              >
+                What is happening now: the active task, immediate context, and
+                what needs attention.
+              </p>
+              <p
+                data-es="Cómo se hace el trabajo: métodos, guías y procedimientos que pueden repetirse y revisarse."
+                id="memory-panel-1"
+                role="tabpanel"
+                aria-labelledby="memory-tab-1"
+                tabindex="0"
+                hidden
+              >
+                How work gets done: methods, playbooks, and procedures that can
+                be repeated and reviewed.
+              </p>
+              <p
+                data-es="Lo que sabe el sistema: hechos, conceptos y relaciones organizados como conocimiento."
+                id="memory-panel-2"
+                role="tabpanel"
+                aria-labelledby="memory-tab-2"
+                tabindex="0"
+                hidden
+              >
+                What the system knows: facts, concepts, and relationships
+                organized as knowledge.
+              </p>
+              <p
+                data-es="Lo que ha enseñado la experiencia: resultados anteriores, contexto histórico y lecciones aprendidas."
+                id="memory-panel-3"
+                role="tabpanel"
+                aria-labelledby="memory-tab-3"
+                tabindex="0"
+                hidden
+              >
+                What experience has taught it: previous outcomes, historical
+                context, and lessons learned.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="philosophy section"
+        id="philosophy"
+        aria-labelledby="philosophy-title"
+      >
+        <div class="shell philosophy-layout">
+          <div class="philosophy-statement">
+            <p class="eyebrow" data-es="03 / LA BRÚJULA">03 / THE COMPASS</p>
+            <h2 id="philosophy-title">
+              <span data-es="Reducir el sufrimiento.">Lower the suffering.</span
+              ><br /><span data-es="Preservar la luz." class="muted-heading"
+                >Preserve the light.</span
+              >
+            </h2>
+            <p
+              data-es="Aumentar la claridad. Mantener la agencia humana en el centro de cada sistema que construimos."
+            >
+              Increase the clarity. Keep human agency at the heart of every
+              system we build.
+            </p>
+            <a class="text-link" href="/philosophy"
+              ><span data-es="Lee la doctrina">Read the doctrine</span
+              ><span aria-hidden="true">↗</span></a
+            >
+          </div>
+          <div class="principles">
+            <details open>
+              <summary>
+                <span class="mono">I</span
+                ><span data-es="Claridad antes de actuar"
+                  >Clarity before motion</span
+                ><span class="plus" aria-hidden="true">+</span>
+              </summary>
+              <p
+                data-es="Comprender el propósito, el contexto y las decisiones antes de acelerar un sistema."
+              >
+                Understand the purpose, the context, and the tradeoffs before
+                accelerating a system.
+              </p>
+            </details>
+            <details>
+              <summary>
+                <span class="mono">II</span
+                ><span data-es="La autoridad humana permanece intacta"
+                  >Human authority stays intact</span
+                ><span class="plus" aria-hidden="true">+</span>
+              </summary>
+              <p
+                data-es="La capacidad puede crecer. Los permisos nunca crecen en silencio. Las acciones con consecuencias conservan un límite humano visible."
+              >
+                Capability can grow. Permission never grows silently.
+                Consequential actions keep a visible human boundary.
+              </p>
+            </details>
+            <details>
+              <summary>
+                <span class="mono">III</span
+                ><span data-es="Dinero como armadura, no como dios"
+                  >Money as armor, not god</span
+                ><span class="plus" aria-hidden="true">+</span>
+              </summary>
+              <p
+                data-es="Los recursos protegen la atención y el criterio. La inteligencia financiera comienza con observación y simulación, no con movimientos de dinero ocultos."
+              >
+                Resources protect attention and decision quality. Financial
+                intelligence begins with observation and simulation, not hidden
+                money movement.
+              </p>
+            </details>
+            <details>
+              <summary>
+                <span class="mono">IV</span
+                ><span data-es="Evidencia antes que afirmaciones"
+                  >Proof before claims</span
+                ><span class="plus" aria-hidden="true">+</span>
+              </summary>
+              <p
+                data-es="Mostrar el registro que respalda cada afirmación. Distinguir investigación, prototipos, trabajo verificado y ambiciones futuras."
+              >
+                Show the record behind the claim. Keep research, prototypes,
+                verified work, and future ambitions distinguishable.
+              </p>
+            </details>
+            <details>
+              <summary>
+                <span class="mono">V</span
+                ><span data-es="Preservar la luz">Preserve the light</span
+                ><span class="plus" aria-hidden="true">+</span>
+              </summary>
+              <p
+                data-es="Construir para la dignidad, creatividad, cultura y cuidado humanos. Un sistema más capaz debe dejar más espacio para la humanidad."
+              >
+                Build for human dignity, creativity, culture, and care. A more
+                capable system should make room for more humanity.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+      <section
+        class="transmissions section shell"
+        id="transmissions"
+        aria-labelledby="transmissions-title"
+      >
+        <div class="section-heading">
+          <div>
+            <p data-es="04 / DESDE EL CEREBRO" class="eyebrow">
+              04 / FROM THE BRAIN
+            </p>
+            <h2 data-es="Cada idea deja un registro." id="transmissions-title">
+              Every idea leaves a record.
+            </h2>
+          </div>
+          <a class="text-link" href="/transmissions"
+            ><span data-es="Todas las transmisiones">All transmissions</span
+            ><span aria-hidden="true">↗</span></a
+          >
+        </div>
+        <p
+          data-es="Guías, notas de campo y documentos del laboratorio. La arquitectura, las decisiones y las lecciones que la hacen evolucionar."
+          class="transmissions-intro"
+        >
+          Guides, field notes, and papers from the lab. The architecture,
+          decisions, and lessons that move it forward.
+        </p>
+        <div class="transmission-grid">
+          <a
+            class="transmission-card"
+            href="/transmissions/35-the-ledger-learned-to-be-witnessed"
+            ><div class="transmission-art">
+              <img
+                src="/lab/media/atlas/infinity-mirror-v2-480.webp"
+                width="1536"
+                height="1024"
+                loading="lazy"
+                decoding="async"
+                alt=""
+              /><span class="mono">035</span>
+            </div>
+            <div class="transmission-meta mono">
+              <span data-es="NOTA DE CAMPO">FIELD NOTE</span
+              ><span aria-hidden="true">↗</span>
+            </div>
+            <h3 data-es="El registro aprendió a ser atestiguado">
+              The Ledger Learned to Be Witnessed
+            </h3>
+            <p
+              data-es="Qué hace independiente a un testigo, y dónde puede ocultarse el fallo silencioso."
+            >
+              What makes a witness independent, and where silent failure can
+              hide.
+            </p></a
+          >
+          <a
+            class="transmission-card"
+            href="/transmissions/34-the-gate-that-refused-its-own-operator"
+            ><div class="transmission-art">
+              <img
+                src="/lab/media/atlas/financial-organisms-v2-480.webp"
+                width="1536"
+                height="1024"
+                loading="lazy"
+                decoding="async"
+                alt=""
+              /><span class="mono">034</span>
+            </div>
+            <div class="transmission-meta mono">
+              <span data-es="NOTA DE CAMPO">FIELD NOTE</span
+              ><span aria-hidden="true">↗</span>
+            </div>
+            <h3 data-es="La puerta que rechazó a su propio operador">
+              The Gate That Refused Its Own Operator
+            </h3>
+            <p
+              data-es="Límites de custodia, autorización transmitida y la decisión de detenerse."
+            >
+              Custody boundaries, relayed authorization, and the decision to
+              stop.
+            </p></a
+          >
+          <a
+            class="transmission-card"
+            href="/transmissions/33-the-organization-found-its-hands"
+            ><div class="transmission-art">
+              <img
+                src="/lab/media/atlas/brain-cell-v2-480.webp"
+                width="1536"
+                height="1024"
+                loading="lazy"
+                decoding="async"
+                alt=""
+              /><span class="mono">033</span>
+            </div>
+            <div class="transmission-meta mono">
+              <span data-es="GUÍA DEL CEREBRO">BRAIN GUIDE</span
+              ><span aria-hidden="true">↗</span>
+            </div>
+            <h3 data-es="La organización encontró sus manos">
+              The Organization Found Its Hands
+            </h3>
+            <p
+              data-es="De instrucciones a ejecución acotada: identidad, coordinación y aprobación humana."
+            >
+              From instructions to bounded execution: identity, coordination,
+              and human approval.
+            </p></a
+          >
+        </div>
+        <aside class="proof-strip" id="proof">
+          <div>
+            <span class="proof-symbol" aria-hidden="true">↳</span>
+            <p>
+              <strong data-es="La evidencia forma parte de la arquitectura."
+                >Evidence is part of the architecture.</strong
+              ><span
+                data-es="Inspecciona los registros, los estados y los límites de cada afirmación."
+                >Inspect the records, status labels, and boundaries behind each
+                claim.</span
+              >
+            </p>
+          </div>
+          <a class="text-link" href="/proof"
+            ><span data-es="Abre el registro">Open the proof ledger</span
+            ><span aria-hidden="true">↗</span></a
+          >
+        </aside>
+      </section>
+      <section
+        class="paths section shell"
+        id="paths"
+        aria-labelledby="paths-title"
+      >
+        <div class="section-heading">
+          <div>
+            <p data-es="05 / ENCUENTRA TU CAMINO" class="eyebrow">
+              05 / FIND YOUR WAY IN
+            </p>
+            <h2 data-es="Elige por dónde entrar." id="paths-title">
+              Choose your way in.
+            </h2>
+          </div>
+          <p
+            data-es="El laboratorio es pequeño por elección. Cada conversación empieza con una buena pregunta."
+            class="section-intro"
+          >
+            The lab is small on purpose. Every conversation starts with a good
+            question.
+          </p>
+        </div>
+        <div class="path-system" data-tabs>
+          <div
+            class="path-tabs"
+            role="tablist"
+            aria-label="Visitor paths"
+            data-es-aria="Caminos para visitantes"
+          >
+            <button
+              id="path-tab-0"
+              role="tab"
+              aria-selected="true"
+              aria-controls="path-panel-0"
+              data-layer="0"
+            >
+              <span class="mono">01</span
+              ><span data-es="Constructores">Builders</span
+              ><span aria-hidden="true">↗</span>
+            </button>
+            <button
+              id="path-tab-1"
+              role="tab"
+              aria-selected="false"
+              aria-controls="path-panel-1"
+              tabindex="-1"
+              data-layer="1"
+            >
+              <span class="mono">02</span
+              ><span data-es="Inversionistas">Investors</span
+              ><span aria-hidden="true">↗</span>
+            </button>
+            <button
+              id="path-tab-2"
+              role="tab"
+              aria-selected="false"
+              aria-controls="path-panel-2"
+              tabindex="-1"
+              data-layer="2"
+            >
+              <span class="mono">03</span><span data-es="Usuarios">Users</span
+              ><span aria-hidden="true">↗</span>
+            </button>
+            <button
+              id="path-tab-3"
+              role="tab"
+              aria-selected="false"
+              aria-controls="path-panel-3"
+              tabindex="-1"
+              data-layer="3"
+            >
+              <span class="mono">04</span
+              ><span data-es="Colaboradores">Collaborators</span
+              ><span aria-hidden="true">↗</span>
+            </button>
+          </div>
+          <div class="path-panels">
+            <div
+              id="path-panel-0"
+              role="tabpanel"
+              aria-labelledby="path-tab-0"
+              tabindex="0"
+            >
+              <div>
+                <h3 data-es="Empieza por la anatomía.">
+                  Start with the anatomy.
+                </h3>
+                <p
+                  data-es="Explora los planos de memoria, células y límites. Después, conversemos sobre lo que quieres construir."
+                >
+                  Explore the blueprints for memory, cells, and boundaries. Then
+                  let's talk about what you want to build.
+                </p>
+              </div>
+              <a class="button button-outline" href="/architecture"
+                ><span data-es="Explora la arquitectura"
+                  >Explore the architecture</span
+                ><span aria-hidden="true">↗</span></a
+              >
+            </div>
+            <div
+              id="path-panel-1"
+              role="tabpanel"
+              aria-labelledby="path-tab-1"
+              tabindex="0"
+              hidden
+            >
+              <div>
+                <h3 data-es="Conoce la tesis. Inspecciona la evidencia.">
+                  Read the thesis. Inspect the evidence.
+                </h3>
+                <p
+                  data-es="Una visión de inteligencia gobernada, junto a registros públicos para evaluar el progreso y sus límites."
+                >
+                  A vision for governed intelligence, alongside public records
+                  to evaluate progress and its limits.
+                </p>
+              </div>
+              <a class="button button-outline" href="/vision"
+                ><span data-es="Lee nuestra visión">Read our vision</span
+                ><span aria-hidden="true">↗</span></a
+              >
+            </div>
+            <div
+              id="path-panel-2"
+              role="tabpanel"
+              aria-labelledby="path-tab-2"
+              tabindex="0"
+              hidden
+            >
+              <div>
+                <h3 data-es="Conoce un organismo.">Get to know an organism.</h3>
+                <p
+                  data-es="Empieza con Infinity Mirror: reflexión, claridad emocional y una relación visible con la memoria."
+                >
+                  Start with Infinity Mirror: reflection, emotional clarity, and
+                  a visible relationship with memory.
+                </p>
+              </div>
+              <a class="button button-outline" href="/organisms/infinity-mirror"
+                ><span data-es="Explora Infinity Mirror"
+                  >Explore Infinity Mirror</span
+                ><span aria-hidden="true">↗</span></a
+              >
+            </div>
+            <div
+              id="path-panel-3"
+              role="tabpanel"
+              aria-labelledby="path-tab-3"
+              tabindex="0"
+              hidden
+            >
+              <div>
+                <h3 data-es="Haz crecer el laboratorio con nosotros.">
+                  Grow the lab with us.
+                </h3>
+                <p
+                  data-es="Diseño, investigación, memoria, herramientas y sistemas creativos. Construyamos desde una pregunta compartida."
+                >
+                  Design, research, memory, tools, and creative systems. Let's
+                  build from a shared question.
+                </p>
+              </div>
+              <a class="button button-outline" href="/build-with-us"
+                ><span data-es="Inicia una conversación"
+                  >Start a conversation</span
+                ><span aria-hidden="true">↗</span></a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="faq section shell" aria-labelledby="faq-title">
+        <div>
+          <p data-es="ALGUNAS PREGUNTAS" class="eyebrow">A FEW QUESTIONS</p>
+          <h2 data-es="Sobre el organismo." id="faq-title">
+            About the organism.
+          </h2>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>
+              <span data-es="¿Qué es un organismo de IA?"
+                >What is an AI organism?</span
+              ><span class="plus" aria-hidden="true">+</span>
+            </summary>
+            <p
+              data-es="Un sistema de software con un córtex que razona, memoria que persiste, células que trabajan y un ciclo de evidencia. Su desarrollo ocurre dentro de límites definidos por personas."
+            >
+              A software system with a cortex that reasons, memory that
+              persists, cells that work, and a proof loop. Its development
+              happens within boundaries defined by people.
+            </p>
+          </details>
+          <details>
+            <summary>
+              <span data-es="¿Dónde puedo inspeccionar la evidencia?"
+                >Where can I inspect proof?</span
+              ><span class="plus" aria-hidden="true">+</span>
+            </summary>
+            <p>
+              <span
+                data-es="Los registros y las notas de arquitectura están en el "
+                >Records and architecture notes are in the </span
+              ><a data-es="registro de pruebas" href="/proof">proof ledger</a
+              ><span data-es=" y en el "> and the </span
+              ><a data-es="archivo de transmisiones" href="/transmissions"
+                >transmission archive</a
+              >.
+            </p>
+          </details>
+          <details>
+            <summary>
+              <span data-es="¿Puede mover dinero o publicar por sí mismo?"
+                >Can it move money or publish on its own?</span
+              ><span class="plus" aria-hidden="true">+</span>
+            </summary>
+            <p
+              data-es="No. Las acciones financieras y las publicaciones externas requieren aprobación humana. Estas ilustraciones representan conceptos, no evidencia de ejecución en vivo."
+            >
+              No. Financial actions and outward publications require human
+              approval. These illustrations represent concepts, rather than
+              evidence of live execution.
+            </p>
+          </details>
+          <details>
+            <summary>
+              <span data-es="¿Qué ocurre cuando falla?"
+                >What happens when it fails?</span
+              ><span class="plus" aria-hidden="true">+</span>
+            </summary>
+            <p
+              data-es="El fallo debe poder inspeccionarse. Los incidentes y las lecciones se registran para que los cambios puedan revisarse y probarse."
+            >
+              The failure should be inspectable. Incidents and lessons are
+              recorded so changes can be reviewed and tested.
+            </p>
+          </details>
+        </div>
+      </section>
+      <div id="cta"></div>
+      <section class="final" id="final" aria-labelledby="final-title">
+        <div class="final-art" aria-hidden="true">
+          <img
+            src="/lab/media/atlas/infinity-core-1536.webp"
+            width="1536"
+            height="1024"
+            loading="lazy"
+            decoding="async"
+            alt=""
+          />
+        </div>
+        <div class="shell final-inner">
+          <p data-es="EL SIGUIENTE CAPÍTULO" class="eyebrow">
+            THE NEXT CHAPTER
+          </p>
+          <h2 id="final-title">
+            <span data-es="El futuro aprende">The future learns</span
+            ><br /><span data-es="de sí mismo." class="muted-heading"
+              >from itself.</span
+            >
+          </h2>
+          <p
+            data-es="Estamos aquí para construirlo. Empecemos una conversación."
+          >
+            We're here to build it. Let's start a conversation.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="/build-with-us"
+              ><span data-es="Construye con nosotros">Build with us</span
+              ><span aria-hidden="true">↗</span></a
+            ><a class="text-link" href="/home" data-ask-brain
+              ><span data-es="Habla con el Cerebro">Talk to the Brain</span
+              ><span aria-hidden="true">↗</span></a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer shell">
+      <div class="footer-top">
+        <a class="logo" href="#top"
+          ><span class="logo-inf" aria-hidden="true">∞</span
+          ><span>unwind<span class="logo-code">code</span></span></a
+        >
+        <p data-es="Gobernados por personas. Cultivados como organismos.">
+          Governed by humans. Grown as organisms.
+        </p>
+        <a class="text-link" href="#top"
+          ><span data-es="Volver arriba">Back to top</span
+          ><span aria-hidden="true">↑</span></a
+        >
+      </div>
+      <nav
+        class="footer-links"
+        aria-label="Footer navigation"
+        data-es-aria="Navegación del pie de página"
+      >
+        <a data-es="Consola" href="/home">Console</a>
+        <a data-es="Suscríbete" href="/home#cta">Subscribe</a>
+        <a data-es="Organismos" href="/organisms">Organisms</a>
+        <a data-es="Arquitectura" href="/architecture">Architecture</a>
+        <a data-es="Filosofía" href="/philosophy">Philosophy</a>
+        <a data-es="Visión" href="/vision">Vision</a>
+        <a data-es="Registro de pruebas" href="/proof">Proof ledger</a>
+        <a data-es="Transmisiones" href="/transmissions">Transmissions</a>
+        <a data-es="Construye con nosotros" href="/build-with-us"
+          >Build with us</a
+        >
+      </nav>
+      <div class="footer-bottom mono">
+        <span>© 2026 UNWIND CODE</span
+        ><span data-es="INTELIGENCIA QUE EVOLUCIONA"
+          >INTELLIGENCE THAT EVOLVES</span
+        ><span>∞</span>
+      </div>
+    </footer>
+  </body>
 </html>

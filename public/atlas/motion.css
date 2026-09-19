@@ -1,0 +1,202 @@
+/* No reveal/hidden baseline: a missing or failed script leaves a normal page. */
+.atlas-motion-image {
+  transform-origin: 50% 50%;
+  /* Replaces decorative legacy hover zoom, not the image's layout or material. */
+  transition: none !important;
+}
+
+.atlas-motion-image[data-atlas-motion-active] {
+  will-change: transform, translate;
+}
+
+.specimen-image:hover img.atlas-motion-image {
+  transform: none;
+}
+
+.atlas-motion-toggle {
+  position: fixed;
+  z-index: 40;
+  bottom: max(18px, env(safe-area-inset-bottom));
+  left: max(20px, env(safe-area-inset-left));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 44px;
+  max-width: calc(50vw - 24px);
+  margin: 0;
+  padding: 10px 14px;
+  border: 1px solid rgba(240, 238, 246, 0.23);
+  border-radius: 24px;
+  color: #d8d4e1;
+  background: rgba(12, 11, 19, 0.94);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.025em;
+  text-align: left;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: color 140ms ease, border-color 140ms ease;
+}
+
+.atlas-motion-toggle:hover:not(:disabled) {
+  color: #f0eef6;
+  border-color: var(--atlas-accent, #b390e6);
+}
+
+.atlas-motion-toggle:active:not(:disabled) {
+  background: #24202e;
+}
+
+.atlas-motion-toggle:focus-visible {
+  outline: 2px solid var(--atlas-accent, #d6c0f2);
+  outline-offset: 4px;
+}
+
+.atlas-motion-toggle:disabled {
+  cursor: default;
+  color: #aaa6b6;
+}
+
+.atlas-motion-toggle__icon {
+  flex: 0 0 10px;
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-inline: 2px solid currentColor;
+  box-sizing: border-box;
+}
+
+.atlas-motion-toggle[aria-pressed="true"] .atlas-motion-toggle__icon {
+  width: 0;
+  height: 0;
+  flex-basis: 10px;
+  border: 5px solid transparent;
+  border-right: 0;
+  border-left: 8px solid currentColor;
+}
+
+.atlas-motion-toggle:disabled .atlas-motion-toggle__icon {
+  height: 10px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+}
+
+html.motion-paused {
+  scroll-behavior: auto !important;
+}
+
+/* Pause page-level CSS animations (including inline SVG) and pseudo-elements
+   inside the public Atlas shell. This cannot reach an external SVG in an img:
+   motion.js swaps explicitly tagged images to build-generated static variants.
+   Page-level CSS animations resume at the same frame after a hidden tab. */
+html:is(.motion-paused, .page-hidden, [data-atlas-motion-state="hidden"], [data-atlas-motion-state="reduced"])
+  :is(.atlas-page, .atlas-landing),
+html:is(.motion-paused, .page-hidden, [data-atlas-motion-state="hidden"], [data-atlas-motion-state="reduced"])
+  :is(.atlas-page, .atlas-landing) *,
+html:is(.motion-paused, .page-hidden, [data-atlas-motion-state="hidden"], [data-atlas-motion-state="reduced"])
+  :is(.atlas-page, .atlas-landing)::before,
+html:is(.motion-paused, .page-hidden, [data-atlas-motion-state="hidden"], [data-atlas-motion-state="reduced"])
+  :is(.atlas-page, .atlas-landing)::after,
+html:is(.motion-paused, .page-hidden, [data-atlas-motion-state="hidden"], [data-atlas-motion-state="reduced"])
+  :is(.atlas-page, .atlas-landing) *::before,
+html:is(.motion-paused, .page-hidden, [data-atlas-motion-state="hidden"], [data-atlas-motion-state="reduced"])
+  :is(.atlas-page, .atlas-landing) *::after {
+  animation-play-state: paused !important;
+}
+
+/* Feedback remains immediate: keep hover/focus/checked rules and only remove
+   their interpolation. Never reset transforms globally (positioned art and
+   navigation use transforms for layout), visibility, display, or outlines. */
+html:is(.motion-paused, [data-atlas-motion-state="reduced"])
+  :is(.atlas-page, .atlas-landing),
+html:is(.motion-paused, [data-atlas-motion-state="reduced"])
+  :is(.atlas-page, .atlas-landing) *,
+html:is(.motion-paused, [data-atlas-motion-state="reduced"])
+  :is(.atlas-page, .atlas-landing)::before,
+html:is(.motion-paused, [data-atlas-motion-state="reduced"])
+  :is(.atlas-page, .atlas-landing)::after,
+html:is(.motion-paused, [data-atlas-motion-state="reduced"])
+  :is(.atlas-page, .atlas-landing) *::before,
+html:is(.motion-paused, [data-atlas-motion-state="reduced"])
+  :is(.atlas-page, .atlas-landing) *::after {
+  transition: none !important;
+}
+
+/* Finite entrance effects must not freeze newly selected content at opacity 0.
+   Removing only these effects reveals their normal, selected CSS state; closed
+   panels/dialogs remain closed. This list follows the legacy style.css panels. */
+html:is(.motion-paused, [data-atlas-motion-state="reduced"])
+  :is(.atlas-page, .atlas-landing)
+  :is(
+    [role="tabpanel"], dialog, .chat-msg, .g-exp-v,
+    .pathfinder-panel, .organism-lens-panel, .cta-router-panel,
+    .organism-fit-panel, .brain-cell-runtime-panel,
+    .infinity-mirror-session-panel, .mirror-nav-panel,
+    .visual-cortex-packet-panel, .web3-simulation-panel,
+    .doctrine-compass-panel, .vision-observatory-panel,
+    .engagement-fit-panel, .trust-diligence-panel,
+    .architecture-run-panel, .authority-gate-panel
+  ) {
+  animation: none !important;
+}
+
+html.motion-paused .atlas-motion-image,
+html[data-atlas-motion-state="hidden"] .atlas-motion-image,
+html[data-atlas-motion-state="reduced"] .atlas-motion-image {
+  transform: none !important;
+  transition: none !important;
+  will-change: auto;
+}
+
+/* Pause includes the landing's pre-existing decorative hover zoom. */
+html.motion-paused .specimen-image:hover img {
+  transform: none !important;
+  transition: none !important;
+}
+
+@media (max-width: 600px) {
+  .atlas-motion-toggle {
+    left: max(12px, env(safe-area-inset-left));
+    bottom: max(12px, env(safe-area-inset-bottom));
+    max-width: calc(50vw - 20px);
+    padding-inline: 11px;
+    font-size: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  .atlas-motion-image {
+    transform: none !important;
+    translate: none !important;
+    rotate: none !important;
+    scale: none !important;
+    animation: none !important;
+    transition: none !important;
+    will-change: auto;
+  }
+  .atlas-motion-toggle { transition: none; }
+}
+
+@media (prefers-contrast: more) {
+  .atlas-motion-toggle { background: #06060c; border-color: #f0eef6; color: #f0eef6; }
+}
+
+@media (forced-colors: active) {
+  .atlas-motion-toggle { border-color: ButtonText; background: ButtonFace; color: ButtonText; }
+  .atlas-motion-toggle:focus-visible { outline-color: Highlight; }
+  .atlas-motion-toggle:disabled { color: GrayText; }
+}
+
+@media print {
+  .atlas-motion-toggle { display: none !important; }
+  .atlas-motion-image {
+    transform: none !important;
+    translate: none !important;
+    rotate: none !important;
+    scale: none !important;
+  }
+}

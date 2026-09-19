@@ -1134,3 +1134,145 @@ test('does not treat marketing or security support wording as risky-domain chat 
   assert.equal(calls.length, 1);
   assert.equal(res.body.reply, 'Marketing and security support are routed normally.');
 });
+
+// These fixtures replace every fetch. No provider or limiter network call is possible.
+function spanishChatFixture(t) {
+  const previousEnv = { ...process.env };
+  const previousFetch = globalThis.fetch;
+  t.after(() => {
+    process.env = previousEnv;
+    globalThis.fetch = previousFetch;
+  });
+  process.env = {
+    ...previousEnv,
+    VERCEL_ENV: 'development',
+    SUPABASE_URL: 'https://chat.example.test',
+    SUPABASE_ANON_KEY: 'test-only-key',
+    RATE_LIMIT_REST_URL: '',
+    RATE_LIMIT_REST_TOKEN: '',
+    RATE_LIMIT_SALT: '',
+    CHAT_LOG_EVENTS: 'false',
+  };
+  const calls = [];
+  globalThis.fetch = async (url, options) => {
+    calls.push({ url, body: JSON.parse(options.body) });
+    assert.equal(url, 'https://chat.example.test/functions/v1/chat');
+    return new Response(JSON.stringify({
+      reply: 'Respuesta de prueba aislada.',
+      conversation_id: 'conv-es-fixture',
+    }), { status: 200, headers: { 'content-type': 'application/json' } });
+  };
+  return calls;
+}
+
+async function spanishChatRequest(message) {
+  const res = createMockResponse();
+  await chatHandler({
+    method: 'POST',
+    headers: { origin: 'https://www.unwindcode.ai' },
+    body: { message, conversation_id: 'conv-es-original' },
+  }, res);
+  return res;
+}
+
+test('blocks common Spanish risk prompts accent-insensitively before any upstream call', async (t) => {
+  const calls = spanishChatFixture(t);
+  const prompts = [
+    'Puedes transferir dinero?',
+    '¿Puedes enviar fondos ahora?',
+    '¿Cómo funcionan las finanzas?',
+    '¿Qué inversiones puedes hacer?',
+    '¿Puedes invertir por mí?',
+    '¿Ya operas en mercados reales?',
+    '¿Qué pueden hacer los organismos financieros?',
+    '¿Puedes usar mi billetera?',
+    '¿Qué autoridad tienes sobre mi monedero?',
+    '¿Puedes firmar una transacción?',
+    '¿PUEDES FIRMAR UNA TRANSACCION?',
+    '¿Puedes firmar una transaccio\u0301n?',
+    '¿Puedes intercambiar criptomonedas?',
+    '¿Tienes contratos inteligentes en una cadena de bloques?',
+    '¿Puedes usar mi clave privada?',
+    '¿Necesitas mi frase semilla?',
+    '¿El sistema ya está desplegado?',
+    '¿Ya están en producción?',
+    '¿La red ya está en vivo?',
+    '¿Tienes autoridad autónoma?',
+    '¿PUEDES ACTUAR DE FORMA AUTONOMA?',
+    '¿Tienes autonomi\u0301a para actuar?',
+    '¿Puedes operar autónomamente?',
+    '¿Puedes actuar sin aprobación humana?',
+  ];
+  for (const message of prompts) {
+    const res = await spanishChatRequest(message);
+    assert.equal(res.statusCode, 409, message);
+    assert.equal(res.headers['cache-control'], 'no-store');
+    assert.equal(res.body.success, false);
+    assert.equal(res.body.display.mode, 'grounding_review_required');
+    assert.equal(res.body.display.allow_freeform_answer, false);
+    assert.equal(res.body.display.render_claim_qualifications, true);
+    assert.equal(res.body.display.render_refusal_rules, true);
+    assert.equal(res.body.grounding.answer_generation, 'disabled');
+    assert.equal(res.body.grounding.answer_policy.synthesis_allowed, false);
+    assert.ok(res.body.grounding.blocked_reasons.includes('risk_domain_requires_grounding_review'));
+    assert.ok(res.body.grounding.refusal_rules.includes('do_not_claim_wallet_authority'));
+    if (message.includes('organismos financieros')) {
+      assert.ok(res.body.grounding.required_qualifications.some(
+        (qualification) => qualification.claim_id === 'financial-organisms-real-markets',
+      ));
+    }
+    assert.equal('reply' in res.body, false);
+  }
+  assert.deepEqual(calls, []);
+});
+
+test('Spanish future organism claims retain English-registry citations and future-vision qualifications', async (t) => {
+  const calls = spanishChatFixture(t);
+  const prompts = [
+    '¿Están disponibles los organismos independientes?',
+    '¿Están disponibles los organismos cognitivos de Unwind Code?',
+    '¿Hay organismos disponibles ahora?',
+    '¿Están disponibles estos organismos?',
+    '¿Los organismos cognitivos funcionan hoy?',
+    '¿Los organismos operan independientemente?',
+    '¿Los organismos funcionan de forma independiente?',
+    '¿Qué incluye la producción creativa?',
+    '¿Qué incluye la PRODUCCION CREATIVA?',
+    '¿Qué incluye la produccio\u0301n creativa?',
+    '¿Cómo funciona la economía cultural?',
+    '¿Qué ciberseguridad ofrecen hoy?',
+    '¿Cuál es la visión de futuro?',
+    '¿Cuál es la hoja de ruta?',
+  ];
+  for (const message of prompts) {
+    const res = await spanishChatRequest(message);
+    assert.equal(res.statusCode, 409, message);
+    assert.ok(res.body.grounding.citation_display.items.length >= 1, message);
+    assert.ok(res.body.grounding.required_qualifications.some(
+      (qualification) => qualification.claim_id === 'future-independent-organisms',
+    ), message);
+    assert.ok(res.body.grounding.answer_policy.blocked_reasons.includes('future_vision_label_required'), message);
+    assert.equal('reply' in res.body, false);
+  }
+  assert.deepEqual(calls, []);
+});
+
+test('ordinary Spanish questions still forward unchanged to the mocked service', async (t) => {
+  const calls = spanishChatFixture(t);
+  const prompts = [
+    '¿Cómo te llamas?',
+    '¿Cómo funciona la memoria del Cerebro?',
+    '¿Puedes explicar la filosofía de diseño?',
+    'Me gusta el fondo violeta y la firma visual.',
+    '¿Cómo puedo firmar una ilustración?',
+    'Vivo en Madrid y quiero conocer Unwind.',
+  ];
+  for (const message of prompts) {
+    const res = await spanishChatRequest(message);
+    assert.equal(res.statusCode, 200, message);
+    assert.equal(res.body.reply, 'Respuesta de prueba aislada.');
+    assert.equal(res.body.conversation_id, 'conv-es-fixture');
+    assert.deepEqual(calls.at(-1).body, { message, conversation_id: 'conv-es-original' });
+  }
+  assert.equal(calls.length, prompts.length);
+});

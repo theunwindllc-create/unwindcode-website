@@ -55,6 +55,25 @@ const CHAT_GROUNDING_TRIGGER_PATTERNS = [
   /\bseed phrases?\b/u,
   /\bprivate keys?\b/u,
 ];
+// Bounded lexical coverage, not multilingual semantic classification. Match a folded
+// copy only; validation, forwarding, and the visitor's original message stay unchanged.
+const SPANISH_CHAT_GROUNDING_TRIGGER_PATTERNS = [
+  /\b(?:finanzas?|financier[oa]s?|financiacion|financiamiento)\b/u,
+  /\b(?:mercados?|inversion(?:es)?|invertir|inviert(?:e|es|en)|invirtiendo)\b/u,
+  /\b(?:dinero|fondos|saldos?)\b/u,
+  /\b(?:billeteras?|monederos?|carteras?)\b/u,
+  /\b(?:cripto|criptomonedas?|criptodivisas?)\b/u,
+  /\b(?:transaccion(?:es)?|transferencias?)\b/u,
+  /\bcontratos?\s+inteligentes?\b/u,
+  /\bcadenas?\s+de\s+bloques\b/u,
+  /\b(?:claves?|llaves?)\s+privadas?\b/u,
+  /\bfrases?\s+(?:semilla|de\s+recuperacion)\b/u,
+  /\b(?:despleg(?:ar|ado|ada|ados|adas)|despliegues?)\b/u,
+  /\ben\s+(?:produccion|vivo)\b/u,
+  /\b(?:autonom[oa]s?|autonomamente|autonomia)\b/u,
+  /\bsin\s+(?:aprobacion|supervision|permiso)(?:\s+human[oa])?\b/u,
+  /\b(?:actuar|actuas?|actuan|operar|operas?|operan)\s+por\s+(?:tu|su|mi)\s+cuenta\b/u,
+];
 const CHAT_SITE_CLAIM_GROUNDING_PATTERNS = [
   {
     pattern: /\bindependent organisms?\b/u,
@@ -91,6 +110,38 @@ const CHAT_SITE_CLAIM_GROUNDING_PATTERNS = [
   {
     pattern: /\b2030\b|\broadmap\b|\bfuture vision\b/u,
     query: 'independent organisms',
+  },
+];
+// Code-owned aliases retrieve existing English public evidence, never translated
+// claims or newly inferred capability. Unknown Spanish wording still has no guarantee.
+const SPANISH_CHAT_SITE_CLAIM_GROUNDING_PATTERNS = [
+  {
+    pattern: /\borganismos?\s+(?:independientes?|cognitivos?|autonom[oa]s?)\b/u,
+    query: 'independent organisms',
+  },
+  {
+    pattern: /\borganismos?\b.*\b(?:disponibles?|operativ[oa]s?|activ[oa]s?)\b|\b(?:disponibles?|operativ[oa]s?|activ[oa]s?)\b.*\borganismos?\b/u,
+    query: 'independent organisms',
+  },
+  {
+    pattern: /\b(?:operar|operas?|operan|operando|funcionar|funcionas?|funcionan|funcionando)\s+(?:(?:de\s+(?:forma|manera))\s+independiente|independientemente)\b/u,
+    query: 'independent organisms',
+  },
+  {
+    pattern: /\bproduccion\s+creativa\b|\beconomia\s+cultural\b/u,
+    query: 'independent organisms',
+  },
+  {
+    pattern: /\bciberseguridad\b.*\b(?:hoy|ahora)\b|\b(?:hoy|ahora)\b.*\bciberseguridad\b/u,
+    query: 'independent organisms',
+  },
+  {
+    pattern: /\bhojas?\s+de\s+ruta\b|\bvision\s+(?:de\s+futuro|futura)\b/u,
+    query: 'independent organisms',
+  },
+  {
+    pattern: /\borganismos?\s+financier[oa]s?\b/u,
+    query: 'financial organisms real markets',
   },
 ];
 const CHAT_CLAIM_QUERY_STOPWORDS = new Set([
@@ -265,16 +316,29 @@ function logChatEvent(config, event, metadata = {}) {
   );
 }
 
+function normalizeGroundingMatch(value) {
+  return String(value).normalize('NFD').replace(/\p{M}/gu, '').toLowerCase();
+}
+
+function spanishSiteClaimGroundingQuery(message) {
+  const normalized = normalizeGroundingMatch(message);
+  return SPANISH_CHAT_SITE_CLAIM_GROUNDING_PATTERNS.find(({ pattern }) =>
+    pattern.test(normalized),
+  )?.query || '';
+}
+
 function shouldEvaluateChatGrounding(message) {
-  const normalized = message.toLowerCase();
+  const normalized = normalizeGroundingMatch(message);
   return (
     CHAT_GROUNDING_TRIGGER_PATTERNS.some((pattern) => pattern.test(normalized)) ||
-    CHAT_SITE_CLAIM_GROUNDING_PATTERNS.some(({ pattern }) => pattern.test(normalized))
+    CHAT_SITE_CLAIM_GROUNDING_PATTERNS.some(({ pattern }) => pattern.test(normalized)) ||
+    SPANISH_CHAT_GROUNDING_TRIGGER_PATTERNS.some((pattern) => pattern.test(normalized)) ||
+    Boolean(spanishSiteClaimGroundingQuery(message))
   );
 }
 
 function chatGroundingQuery(message) {
-  const normalized = message.toLowerCase();
+  const normalized = normalizeGroundingMatch(message);
   const siteClaimMatch = CHAT_SITE_CLAIM_GROUNDING_PATTERNS.find(({ pattern }) =>
     pattern.test(normalized),
   );
@@ -368,7 +432,7 @@ async function buildChatGroundingGate(message) {
   }
 
   const parsed = parsePublicSearchParams(
-    { q: claimGroundingQuery || chatGroundingQuery(message) },
+    { q: spanishSiteClaimGroundingQuery(message) || claimGroundingQuery || chatGroundingQuery(message) },
     {
       invalidQueryError: 'Invalid chat grounding query',
       missingInputError: 'Chat grounding query required',

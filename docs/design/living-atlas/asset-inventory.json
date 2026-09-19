@@ -1,0 +1,64 @@
+{
+  "name": "Unwind Code — Living Atlas",
+  "status": "approved-for-production",
+  "generatedWith": "Built-in image generation tool",
+  "conceptualOnly": true,
+  "publicDeploymentApproved": true,
+  "approvalDate": "2026-09-19",
+  "approvalScope": "Living Atlas website design and conceptual artwork; existing runtime authority unchanged",
+  "reference": "assets/source/living-atlas/living-core.png",
+  "artworks": [
+    {
+      "id": "infinity-core",
+      "source": "assets/source/living-atlas/infinity-core.png",
+      "web": [
+        "/lab/media/atlas/infinity-core-1536.webp",
+        "/lab/media/atlas/infinity-core-800.webp",
+        "/lab/media/atlas/infinity-core-og.jpg"
+      ]
+    },
+    {
+      "id": "visual-cortex",
+      "source": "assets/source/living-atlas/visual-cortex.png",
+      "web": [
+        "/lab/media/atlas/visual-cortex-960.webp",
+        "/lab/media/atlas/visual-cortex-480.webp"
+      ]
+    },
+    {
+      "id": "infinity-mirror",
+      "source": "assets/source/living-atlas/infinity-mirror.png",
+      "web": [
+        "/lab/media/atlas/infinity-mirror-960.webp",
+        "/lab/media/atlas/infinity-mirror-480.webp"
+      ]
+    },
+    {
+      "id": "financial-organisms",
+      "source": "assets/source/living-atlas/financial-organisms.png",
+      "web": [
+        "/lab/media/atlas/financial-organisms-960.webp",
+        "/lab/media/atlas/financial-organisms-480.webp"
+      ]
+    },
+    {
+      "id": "brain-cell",
+      "source": "assets/source/living-atlas/brain-cell.png",
+      "web": [
+        "/lab/media/atlas/brain-cell-960.webp",
+        "/lab/media/atlas/brain-cell-480.webp"
+      ]
+    }
+  ],
+  "cellVariants": [
+    {"id":"visual-cortex-v2","identity":"Refracted teal planes","source":"assets/source/living-atlas/visual-cortex-v2.png","webPattern":"/lab/media/atlas/visual-cortex-v2-{480,960,1536}.webp"},
+    {"id":"infinity-mirror-v2","identity":"Nested violet glass loops","source":"assets/source/living-atlas/infinity-mirror-v2.png","webPattern":"/lab/media/atlas/infinity-mirror-v2-{480,960,1536}.webp"},
+    {"id":"financial-organisms-v2","identity":"Amber node network","source":"assets/source/living-atlas/financial-organisms-v2.png","webPattern":"/lab/media/atlas/financial-organisms-v2-{480,960,1536}.webp"},
+    {"id":"brain-cell-v2","identity":"Icy-blue architectural strata","source":"assets/source/living-atlas/brain-cell-v2.png","webPattern":"/lab/media/atlas/brain-cell-v2-{480,960,1536}.webp"}
+  ],
+  "geometry": {
+    "source": "public/lab/infinity.js",
+    "model": "Original spatial lemniscate: 34 strands × 401 vertices, native WebGL",
+    "fallback": "Inline SVG with accessible HTML explanations"
+  }
+}

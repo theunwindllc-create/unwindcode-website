@@ -40,12 +40,21 @@ function discoverHtmlEntries(rootDir, options = {}) {
 
 const rootDir = __dirname;
 const pageEntries = discoverHtmlEntries(rootDir, {
-  ignoreDirs: new Set(['dist', 'node_modules', '.git', '.worktrees', '.vercel', 'tmp', 'social 2']),
+  // public/ is copied by Vite already; crawling it creates a duplicate /public/lab.
+  // Creator packets and development artifacts are not visitor-facing HTML entries.
+  ignoreDirs: new Set(['dist', 'node_modules', '.git', '.worktrees', '.vercel', 'tmp', 'social 2', 'social', 'public', 'assets', 'docs', 'artifacts', 'scripts', 'tests']),
 });
 
 const transmissionEntries = Object.fromEntries(
   Object.entries(pageEntries).filter(([name]) => name.startsWith('transmissions/')),
 );
+
+// Existing published articles 25 and 27 embed these production-marked packets.
+// All other creator packets remain repository-only; do not copy social/ wholesale.
+const publishedSocialPackets = [
+  'transmission-25-homepage-pulse-carousel',
+  'transmission-27-quotation-cell',
+];
 
 function copySocialPreviewAssets() {
   return {
@@ -55,7 +64,9 @@ function copySocialPreviewAssets() {
         [resolve(__dirname, 'assets', 'social'), resolve(__dirname, 'dist/assets/social')],
         [resolve(__dirname, 'assets', 'visuals'), resolve(__dirname, 'dist/assets/visuals')],
         [resolve(__dirname, 'assets', 'specs'), resolve(__dirname, 'dist/assets/specs')],
-        [resolve(__dirname, 'social'), resolve(__dirname, 'dist/social')],
+        ...publishedSocialPackets.map(packet => [
+          resolve(__dirname, 'social', packet), resolve(__dirname, 'dist/social', packet),
+        ]),
       ]) {
         if (!existsSync(sourceDir)) continue;
         mkdirSync(targetDir, { recursive: true });
@@ -63,9 +74,10 @@ function copySocialPreviewAssets() {
       }
 
       for (const [sourceFile, targetFile] of [
-        [resolve(__dirname, 'sitemap.xml'), resolve(__dirname, 'dist/sitemap.xml')],
-        [resolve(__dirname, 'llms.txt'), resolve(__dirname, 'dist/llms.txt')],
-        [resolve(__dirname, 'ai-services.json'), resolve(__dirname, 'dist/ai-services.json')],
+        // Match the active public API registries, not stale root discovery copies.
+        [resolve(__dirname, 'public', 'sitemap.xml'), resolve(__dirname, 'dist/sitemap.xml')],
+        [resolve(__dirname, 'public', 'llms.txt'), resolve(__dirname, 'dist/llms.txt')],
+        [resolve(__dirname, 'public', 'ai-services.json'), resolve(__dirname, 'dist/ai-services.json')],
         [resolve(__dirname, 'assets', 'asset-manifest.json'), resolve(__dirname, 'dist/assets/asset-manifest.json')],
       ]) {
         if (!existsSync(sourceFile)) continue;
@@ -88,4 +100,4 @@ export default defineConfig({
   },
 });
 
-export { copySocialPreviewAssets, discoverHtmlEntries, transmissionEntries };
+export { copySocialPreviewAssets, discoverHtmlEntries, transmissionEntries, publishedSocialPackets };
