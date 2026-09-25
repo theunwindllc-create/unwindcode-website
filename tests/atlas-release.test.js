@@ -5,7 +5,7 @@ import { relative } from 'node:path';
 import config, { publishedSocialPackets } from '../vite.config.js';
 
 test('production HTML inputs exclude creator packets and duplicate public-directory routes', () => {
-  const inputs = Object.values(config.build.rollupOptions.input).map(path => relative(process.cwd(), path));
+  const inputs = Object.values(config.build.rollupOptions.input).map(path => relative(process.cwd(), path).replace(/\\/g, '/'));
   assert.ok(inputs.includes('index.html'));
   assert.ok(inputs.includes('organisms/visual-cortex/index.html'));
   assert.ok(inputs.includes('transmissions/35-the-ledger-learned-to-be-witnessed.html'));

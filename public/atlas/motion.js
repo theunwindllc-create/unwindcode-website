@@ -229,6 +229,8 @@ function initMotion() {
   // aliases support shared cell cards without requiring a markup rewrite.
   const sceneSelector = "[data-atlas-art], .specimen-image, .organism-visual, .organism-card";
   document.querySelectorAll(sceneSelector).forEach((candidate) => {
+    // The Alive homepage owns one finite foreground animation, including art.
+    if (root.hasAttribute("data-alive")) return;
     const image = candidate.matches("img") ? candidate
       : candidate.querySelector("img[data-atlas-image], img");
     if (!image || images.has(image)) return;
@@ -300,7 +302,7 @@ function initMotion() {
     }, { threshold: 0 });
     scenes.forEach((scene) => artObserver.observe(scene.element));
 
-    if (canAnimate) {
+    if (canAnimate && !root.hasAttribute("data-alive")) {
       const revealSelector = "[data-atlas-reveal], .section-heading, .specimen-info, .lab-section-header, .tx-section-head, .lab-card";
       const revealObserver = new IntersectionObserver((entries) => {
         let stagger = 0;

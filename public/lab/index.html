@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-alive>
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -52,8 +52,10 @@
       crossorigin
     />
     <link rel="stylesheet" href="/lab/styles.css" />
+    <link rel="stylesheet" href="/lab/alive.css" />
     <script src="/lab/main.js" defer></script>
-    <script src="/lab/infinity.js" defer></script>
+    <script src="/lab/infinity.js" type="module"></script>
+    <script type="module" src="/lab/alive.js"></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -160,7 +162,7 @@
     </dialog>
     <main id="main">
       <section class="hero" id="top" aria-labelledby="hero-title">
-        <div class="hero-art" data-motion-scene>
+        <div class="hero-art" data-motion-scene data-alive-art data-seed-x=".515" data-seed-y=".45">
           <img
             class="hero-image"
             src="/lab/media/atlas/infinity-core-1536.webp"
@@ -208,6 +210,10 @@
           </div>
         </div>
         <div class="hero-caption shell">
+          <a class="witness-reading" href="/proof/ledger">
+            <span class="witness-label" data-es="TESTIGO · INTERNET COMPUTER">WITNESS · INTERNET COMPUTER</span>
+            <span data-witness aria-live="polite" aria-atomic="true" data-es="testigo sin consultar">witness not yet read</span>
+          </a>
           <a class="scroll-cue mono" href="#organisms"
             ><span aria-hidden="true">↓</span
             ><span data-es="DESPLÁZATE PARA DESCUBRIR"
@@ -368,6 +374,7 @@
             </button>
           </div>
           <div class="loop-panels">
+            <button class="sheet-close" data-sheet-close aria-label="Dismiss explanation" data-es-aria="Descartar explicación" data-es="descartar" hidden>dismiss</button>
             <div
               id="loop-panel-0"
               role="tabpanel"
@@ -472,6 +479,7 @@
             </div>
           </div>
         </div>
+        <p class="loop-invitation mono" data-es="ELIGE UNA ETAPA · LA EXPLICACIÓN SURGE DEL CICLO">CHOOSE A STAGE · AN EXPLANATION EMERGES FROM THE LOOP</p>
         <a class="text-link" href="/architecture"
           ><span data-es="Recorre la arquitectura completa"
             >Trace the complete architecture</span
@@ -511,7 +519,7 @@
         <div class="organism-grid">
           <article class="specimen reveal">
             <a
-              class="specimen-image"
+              class="specimen-image" data-alive-art data-seed-x=".478" data-seed-y=".583"
               href="/organisms/visual-cortex"
               aria-labelledby="visual-cortex-title"
               ><span class="specimen-id mono">01 / VC</span
@@ -551,10 +559,11 @@
                 intelligence with human judgment at every release.
               </p>
             </div>
+            <button type="button" class="specimen-status" data-organism-status="visual-cortex" aria-controls="specimen-sheet" aria-expanded="false" data-es="Estado público" hidden>Public status</button>
           </article>
           <article class="specimen specimen-offset reveal">
             <a
-              class="specimen-image"
+              class="specimen-image" data-alive-art data-seed-x=".508" data-seed-y=".462"
               href="/organisms/infinity-mirror"
               aria-labelledby="infinity-mirror-title"
               ><span class="specimen-id mono">02 / IM</span
@@ -594,10 +603,11 @@
                 forward. Memory you can understand.
               </p>
             </div>
+            <button type="button" class="specimen-status" data-organism-status="infinity-mirror" aria-controls="specimen-sheet" aria-expanded="false" data-es="Estado público" hidden>Public status</button>
           </article>
           <article class="specimen reveal">
             <a
-              class="specimen-image"
+              class="specimen-image" data-alive-art data-seed-x=".502" data-seed-y=".425"
               href="/organisms/financial-organisms"
               aria-labelledby="financial-organisms-title"
               ><span class="specimen-id mono">03 / FO</span
@@ -639,10 +649,11 @@
                 human review precedes consequential action.
               </p>
             </div>
+            <button type="button" class="specimen-status" data-organism-status="financial-organisms" aria-controls="specimen-sheet" aria-expanded="false" data-es="Estado público" hidden>Public status</button>
           </article>
           <article class="specimen specimen-offset reveal">
             <a
-              class="specimen-image"
+              class="specimen-image" data-alive-art data-seed-x=".497" data-seed-y=".457"
               href="/organisms/brain-cell-architecture"
               aria-labelledby="brain-cell-title"
               ><span class="specimen-id mono">04 / BC</span
@@ -684,6 +695,7 @@
                 A system for building systems.
               </p>
             </div>
+            <button type="button" class="specimen-status" data-organism-status="brain-cell-architecture" aria-controls="specimen-sheet" aria-expanded="false" data-es="Estado público" hidden>Public status</button>
           </article>
         </div>
         <div class="section-foot">
@@ -1620,5 +1632,19 @@
         ><span>∞</span>
       </div>
     </footer>
+
+    <svg class="alive-filter" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <filter id="alive-refract" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency=".018 .04" numOctaves="1" seed="7" result="grain" />
+        <feDisplacementMap in="SourceGraphic" in2="grain" scale="16" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </svg>
+    <dialog id="specimen-sheet" class="alive-sheet specimen-sheet" aria-labelledby="specimen-sheet-title">
+      <button class="sheet-close" data-sheet-close aria-label="Dismiss status" data-es-aria="Descartar estado" data-es="descartar">dismiss</button>
+      <p class="eyebrow" data-registry-status></p>
+      <h3 id="specimen-sheet-title"></h3>
+      <p data-registry-summary></p>
+      <a class="sheet-source mono" href="/api/organisms" data-es="FUENTE · REGISTRO PÚBLICO · NO ES ESTADO DE EJECUCIÓN">SOURCE · PUBLIC REGISTRY · NOT RUNTIME STATUS</a>
+    </dialog>
   </body>
 </html>

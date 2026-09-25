@@ -94,6 +94,7 @@
   document.querySelectorAll("[data-tabs]").forEach((group) => {
     const tabs = [...group.querySelectorAll('[role="tab"]')];
     function select(tab, focus = false) {
+      const commit = () => {
       for (const item of tabs) {
         const active = item === tab;
         item.setAttribute("aria-selected", String(active));
@@ -107,8 +108,12 @@
       if (loop) {
         loop.dataset.step = tab.dataset.layer;
         loop.dispatchEvent(new Event("stepchange"));
+        document.dispatchEvent(new CustomEvent("atlas:loop-select", { detail: { tab } }));
       }
       if (focus) tab.focus();
+      };
+      const request = new CustomEvent("atlas:loop-request", { cancelable: true, detail: { tab, commit } });
+      if (!group.querySelector("[data-infinity]") || document.dispatchEvent(request)) commit();
     }
     tabs.forEach((tab, index) => {
       tab.addEventListener("click", () => select(tab));

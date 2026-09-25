@@ -1,5 +1,5 @@
 /* Original parametric infinity study. Decorative 3D, never runtime telemetry. */
-"use strict";
+import { curve, projectLoop } from './loop-geometry.js';
 (() => {
   const stage = document.querySelector("[data-infinity]");
   if (!stage) return;
@@ -18,6 +18,7 @@
     uniform float u_aspect;
     uniform float u_phase;
     uniform float u_step;
+    uniform mediump float u_marker;
     varying vec4 v_color;
     void main() {
       vec3 p = a_position;
@@ -27,16 +28,21 @@
       p = vec3(p.x * cy + p.z * sy, p.y, -p.x * sy + p.z * cy);
       float perspective = 3.6 / (3.6 - p.z);
       gl_Position = vec4(p.x * perspective / u_aspect, p.y * perspective, p.z * .15, 1.0);
+      gl_PointSize = 16.0;
       float pulse = exp(-pow(sin((a_progress - u_phase) * 3.14159265) * 15.0, 2.0));
-      float selected = exp(-pow(sin((a_progress - u_step) * 3.14159265) * 9.0, 2.0));
+      float selected = exp(-pow(sin((a_progress - u_step) * 3.14159265) * 55.0, 2.0));
       vec3 violet = mix(vec3(.42,.29,.68), vec3(.70,.53,.88), a_strand);
       vec3 cool = vec3(.43,.65,.73);
       vec3 base = mix(violet, cool, smoothstep(.45,.85,a_progress) * .5);
       float depth = clamp(.68 + p.z * .4, .28, 1.0);
-      v_color = vec4(base + vec3(.2,.15,.23) * selected + vec3(.35,.3,.38) * pulse, (.20 + .32 * a_strand + pulse * .3 + selected * .14) * depth);
+      v_color = vec4(base + vec3(.8,.7,.9) * selected + vec3(.12,.1,.14) * pulse, (.20 + .32 * a_strand + pulse * .12 + selected * .5) * depth);
+      if (u_marker > .5) v_color = vec4(.95,.87,1.0,1.0);
     }
   `;
-  const fragmentSource = `precision mediump float; varying vec4 v_color; void main() { gl_FragColor = v_color; }`;
+  const fragmentSource = `precision mediump float; varying vec4 v_color; uniform mediump float u_marker;
+    void main() { gl_FragColor = v_color;
+      if (u_marker > .5) gl_FragColor.a *= exp(-dot(gl_PointCoord-.5, gl_PointCoord-.5)*18.0);
+    }`;
   function shader(type, source) {
     const value = gl.createShader(type);
     gl.shaderSource(value, source);
@@ -62,11 +68,6 @@
   const strands = 34,
     segments = 400,
     vertices = [];
-  const curve = (t) => [
-    1.63 * Math.cos(t),
-    0.65 * Math.sin(2 * t),
-    0.3 * Math.sin(t),
-  ];
   for (let s = 0; s < strands; s++) {
     const a = (s / strands) * Math.PI * 2;
     for (let i = 0; i <= segments; i++) {
@@ -87,6 +88,7 @@
       );
     }
   }
+  for (let step = 0; step < 6; step++) vertices.push(...curve(step / 6 * Math.PI * 2), step / 6, 1);
   const buffer = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
@@ -100,7 +102,7 @@
     gl.vertexAttribPointer(loc, size, gl.FLOAT, false, 20, offset);
   }
   const uniforms = Object.fromEntries(
-    ["u_tilt", "u_aspect", "u_phase", "u_step"].map((n) => [
+    ["u_tilt", "u_aspect", "u_phase", "u_step", "u_marker"].map((n) => [
       n,
       gl.getUniformLocation(program, n),
     ]),
@@ -116,14 +118,17 @@
     tiltY = 0.19,
     targetX = -0.1,
     targetY = 0.19,
+    witnessStart = null,
     lost = false;
   const root = document.documentElement;
+  stage.projectStep = step => projectLoop(step, stage.clientWidth, stage.clientHeight, tiltX, tiltY);
   const reduced = matchMedia("(prefers-reduced-motion: reduce)");
   const canAnimate = () =>
     visible &&
     !document.hidden &&
     !reduced.matches &&
     !root.classList.contains("motion-paused") &&
+    !root.hasAttribute("data-alive-busy") &&
     !lost;
   function draw() {
     if (lost) return;
@@ -142,8 +147,11 @@
     gl.uniform1f(uniforms.u_aspect, Math.max(2.08, width / height));
     gl.uniform1f(uniforms.u_phase, phase);
     gl.uniform1f(uniforms.u_step, Number(stage.dataset.step) / 6);
+    gl.uniform1f(uniforms.u_marker, 0);
     for (let s = 0; s < strands; s++)
       gl.drawArrays(gl.LINE_STRIP, s * (segments + 1), segments + 1);
+    gl.uniform1f(uniforms.u_marker, 1);
+    gl.drawArrays(gl.POINTS, strands * (segments + 1) + Number(stage.dataset.step || 0), 1);
     stage.classList.add("webgl-ready");
   }
   function tick(time) {
@@ -154,9 +162,14 @@
     }
     if (!last || time - last >= 32) {
       const delta = last ? Math.min(time - last, 100) : 32;
-      phase = (phase + delta / 24000) % 1;
-      tiltX += (targetX - tiltX) * 0.065;
-      tiltY += (targetY - tiltY) * 0.065;
+      if (witnessStart !== null) {
+        phase = Math.min(1, (time - witnessStart) / 360);
+        if (phase >= 1) witnessStart = null;
+      } else phase = (phase + delta / 24000) % 1;
+      if (!stage.dataset.sheetOpen) {
+        tiltX += (targetX - tiltX) * 0.065;
+        tiltY += (targetY - tiltY) * 0.065;
+      }
       draw();
       last = time;
     }
@@ -169,20 +182,30 @@
       cancelAnimationFrame(frame);
       frame = 0;
       last = 0;
+      witnessStart = null;
       draw();
     }
   }
   stage.addEventListener("pointermove", (event) => {
-    if (!canAnimate() || event.pointerType !== "mouse") return;
+    if (!canAnimate() || stage.dataset.sheetOpen || event.pointerType !== "mouse") return;
     const box = stage.getBoundingClientRect();
-    targetX = ((event.clientX - box.left) / box.width - 0.5) * 0.26 - 0.1;
-    targetY = ((event.clientY - box.top) / box.height - 0.5) * -0.19 + 0.19;
+    targetX = ((event.clientX - box.left) / box.width - 0.5) * 0.4 - 0.1;
+    targetY = ((event.clientY - box.top) / box.height - 0.5) * -0.28 + 0.19;
   });
   stage.addEventListener("pointerleave", () => {
     targetX = -0.1;
     targetY = 0.19;
   });
   stage.addEventListener("stepchange", draw);
+  stage.addEventListener("atlas:witness", () => {
+    if (canAnimate()) witnessStart = performance.now();
+  });
+  stage.addEventListener("atlas:scroll", event => {
+    if (!canAnimate()) return;
+    phase = event.detail.progress;
+    draw();
+  });
+  document.addEventListener("atlas:foreground", sync);
   const resize = new ResizeObserver(() => draw());
   resize.observe(stage);
   const intersection = new IntersectionObserver(
