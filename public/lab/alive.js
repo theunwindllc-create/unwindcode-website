@@ -1,6 +1,7 @@
 import { createMotionArbiter, syncVideos } from './alive-motion.js';
 import { initWitness } from './witness.js';
 import { projectLoop } from './loop-geometry.js';
+import { initLivingWords, circuitFrames } from './living-words.js';
 
 const root = document.documentElement;
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
@@ -10,12 +11,16 @@ const allowed = () => pageActive && !document.hidden && !reduced.matches && !roo
 const motion = createMotionArbiter(allowed, busy => {
   root.toggleAttribute('data-alive-busy', busy);
   document.dispatchEvent(new CustomEvent('atlas:foreground', { detail: { busy } }));
+  syncBreath();
 });
 const videos = [...document.querySelectorAll('video[data-alive-video]')];
 const arts = [...document.querySelectorAll('[data-alive-art]')];
 const visible = new Set();
 let lit = null;
 let scrollFrame = 0;
+let pointerSample = null;
+let scrolled = false;
+let living = null;
 let currentSheet = null;
 let origin = null;
 let sheetRequest = 0;
@@ -24,15 +29,21 @@ const loop = document.querySelector('[data-infinity]');
 const specimenSheet = document.getElementById('specimen-sheet');
 const hero = arts.find(art => art.classList.contains('hero-art'));
 // Approved decorative exception, not telemetry. One transform-only compositor animation.
-const breath = hero?.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.014)' }, { transform: 'scale(1)' }],
-  { duration: 12000, iterations: Infinity, easing: 'ease-in-out' });
-breath?.pause();
+let breath = null;
 function syncBreath() {
-  if (!breath) return;
-  if (allowed() && visible.has(hero)) {
+  if (!hero) return;
+  if (allowed() && visible.has(hero) && !motion.active) {
+    breath ??= hero.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.014)' }, { transform: 'scale(1)' }],
+      { duration: 12000, iterations: Infinity, easing: 'ease-in-out' });
     hero.style.willChange = 'transform';
     if (breath.playState !== 'running') breath.play();
-  } else { breath.pause(); hero.style.removeProperty('will-change'); }
+  } else {
+    // A paused transform still retains accelerated descendant layers in Chromium.
+    // Retire it during foreground work so the entrance really owns only two layers.
+    if (motion.active) { breath?.cancel(); breath = null; }
+    else breath?.pause();
+    hero.style.removeProperty('will-change');
+  }
 }
 const spanish = () => root.lang === 'es';
 function words(element, en, es) {
@@ -41,6 +52,8 @@ function words(element, en, es) {
   element.textContent = spanish() ? es : en;
 }
 function resetLight(force = false) {
+  living?.resetLight();
+  pointerSample = null;
   if (!lit) return;
   if (force !== true && lit.hasAttribute('data-sheet-lit') && allowed()) return;
   lit.removeAttribute('data-alive-lit');
@@ -90,14 +103,15 @@ for (const art of arts) {
   seed.className = 'alive-seed';
   seed.setAttribute('aria-hidden', 'true');
   art.append(seed);
-  art.style.setProperty('--seed-x', `${Number(art.dataset.seedX || .5) * 100}%`);
-  art.style.setProperty('--seed-y', `${Number(art.dataset.seedY || .5) * 100}%`);
+  const point = seedPoint(art);
+  art.style.setProperty('--seed-x', `${point.x * 100}%`);
+  art.style.setProperty('--seed-y', `${point.y * 100}%`);
   // Hero text overlaps the artwork; listen on its section without stealing clicks.
   const hit = art.classList.contains('hero-art') ? art.closest('.hero') : art;
   hit.addEventListener('pointermove', event => {
     if (event.pointerType === 'touch') return;
-    const box = art.getBoundingClientRect();
-    light(art, clamp((event.clientX - box.left) / box.width), clamp((event.clientY - box.top) / box.height));
+    pointerSample = { art, x: event.clientX, y: event.clientY };
+    scheduleInput();
   }, { passive: true });
   hit.addEventListener('pointerleave', resetLight, { passive: true });
   hit.addEventListener('pointercancel', resetLight, { passive: true });
@@ -143,6 +157,15 @@ if ('IntersectionObserver' in window) {
 function scrollLight() {
   scrollFrame = 0;
   if (!allowed() || currentSheet) return;
+  if (pointerSample) {
+    const { art, x, y } = pointerSample;
+    pointerSample = null;
+    const box = art.getBoundingClientRect();
+    light(art, clamp((x - box.left) / box.width), clamp((y - box.top) / box.height));
+    if (art === hero) living?.light(x, y);
+  }
+  if (!scrolled) return;
+  scrolled = false;
   const active = [...visible].sort((a, b) => {
     const distance = el => Math.abs(el.getBoundingClientRect().top + el.clientHeight / 2 - innerHeight / 2);
     return distance(a) - distance(b);
@@ -157,8 +180,12 @@ function scrollLight() {
     loop.dispatchEvent(new CustomEvent('atlas:scroll', { detail: { progress: clamp((innerHeight - bounds.top) / (innerHeight + bounds.height)) } }));
   }
 }
-window.addEventListener('scroll', () => {
+function scheduleInput() {
   if (allowed() && !scrollFrame) scrollFrame = requestAnimationFrame(scrollLight);
+}
+window.addEventListener('scroll', () => {
+  scrolled = true;
+  scheduleInput();
 }, { passive: true });
 
 function retire(returnFocus = true, animate = true) {
@@ -206,7 +233,10 @@ function condense(sheet, trigger) {
     window.scrollTo(scrollPosition);
   }
   pendingSeeds.clear();
-  motion.play(sheet, [{ opacity: .12, transform: 'translateY(16px) scale(.85)' }, { opacity: 1, transform: 'none' }], 360, { priority: 2 });
+  const thread = sheet === loopPanels ? document.querySelector('.loop-thread') : null;
+  motion.play(sheet, [{ opacity: 0, filter: 'blur(14px)', transform: 'scale(.98)' },
+    { opacity: 1, filter: 'blur(0px)', transform: 'none' }], 240, { priority: 2,
+    companion: thread && !thread.hidden ? { element: thread, frames: [{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }] } : null });
 }
 function requestSheet(commit) {
   const revision = ++sheetRequest;
@@ -258,9 +288,6 @@ function positionLoop() {
   const length = Math.hypot(endX - x, endY - y);
   Object.assign(thread.style, { left: `${x}px`, top: `${y}px`, width: `${length}px`,
     rotate: `${Math.atan2(endY - y, endX - x)}rad` });
-  thread.getAnimations().forEach(animation => animation.cancel());
-  if (allowed()) thread.animate([{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }],
-    { duration: 320, easing: 'ease-out' });
   loop.dispatchEvent(new Event('stepchange'));
 }
 function positionSpecimen() {
@@ -348,19 +375,18 @@ document.addEventListener('uc:languagechange', () => {
 });
 window.addEventListener('atlas:witness-beat', () => {
   if (!allowed() || currentSheet || motion.active) return;
-  const hero = arts[0];
   if (!visible.has(hero)) { loop.dispatchEvent(new Event('atlas:witness')); return; }
   resetLight();
   const seed = hero.querySelector('.alive-seed');
   // One observed arrival, one circuit. The image itself remains conceptual.
-  const frames = Array.from({ length: 25 }, (_, i) => {
-    const t = i / 24 * Math.PI * 2;
-    return { transform: `translate(${hero.clientWidth * .35 * Math.sin(t)}px, ${hero.clientHeight * .19 * Math.sin(2 * t)}px)`, opacity: i === 0 || i === 24 ? 0 : .8 };
-  });
-  motion.play(seed, frames, 360);
+  motion.play(seed, circuitFrames(hero), 360, { companion: {
+    element: document.querySelector('[data-witness]'),
+    frames: [{ color: '#aba2b8' }, { color: '#ffffff', offset: .45 }, { color: '#aba2b8' }],
+  } });
 });
 function brake() {
   if (!allowed()) {
+    living?.brake();
     pendingSeeds.clear();
     motion.cancel(); resetLight(true); cancelAnimationFrame(scrollFrame); scrollFrame = 0;
     document.querySelectorAll('.loop-thread').forEach(thread => thread.getAnimations().forEach(animation => animation.cancel()));
@@ -376,5 +402,6 @@ document.addEventListener('uc:motionchange', brake);
 window.addEventListener('pagehide', () => { pageActive = false; registryRequest?.abort(); brake(); });
 window.addEventListener('pageshow', () => { pageActive = true; brake(); });
 coarse.addEventListener('change', resetLight);
+if (hero) living = initLivingWords({ hero, motion, allowed, syncBreath });
 initWitness();
 brake();

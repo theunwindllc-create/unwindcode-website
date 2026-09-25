@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { mkdtemp, writeFile } from 'node:fs/promises';
+import { mkdtemp, writeFile, stat, utimes } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -83,7 +83,12 @@ test('reloads memoized registries when public JSON file signatures change', asyn
   assert.strictEqual(second, first);
   assert.equal(first.claims.version, 1);
 
+  const previousStat = await stat(files.claims);
   await writeFile(files.claims, JSON.stringify({ version: 2, claims: [] }));
+  // This test promises a changed signature, not a same-size write within one filesystem clock tick.
+  const changedTime = new Date(previousStat.mtimeMs + 2000);
+  await utimes(files.claims, changedTime, changedTime);
+  assert.notEqual((await stat(files.claims)).mtimeMs, previousStat.mtimeMs);
 
   const third = await loader.loadPublicRegistries();
 

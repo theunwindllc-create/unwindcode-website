@@ -1,89 +1,79 @@
-# Living Atlas — Alive pass
+# Living Atlas — Alive, round 3
 
-Draft worktree only. Grow the approved 2026-09-19 composition; no publication authority asserted.
-The approved README / KNOWLEDGE_TO_DESIGN and Ambient Genesis DESIGN informed this pass.
-The historical nine-file research package referenced by README was not present at its relative path here.
+Draft continuation of the approved Living Atlas, baseline e3503ef. No publication authority asserted.
+README / KNOWLEDGE_TO_DESIGN / Ambient Genesis DESIGN and the round 13/15/16 briefs inform this pass.
+The historical nine-file research package was absent at its referenced relative path; no new strategy undertaken.
 
-## Three honest sources
+## Honest sources
 
-1. Visitor presence: pointer/focus light; scroll/touch changes refraction and depth. These are aesthetic responses.
-2. Public witness: the existing Internet Computer canister, read directly by the browser; links to `/proof/ledger`.
-3. Requested information: unchanged loop explanations and reviewed descriptions from `/data/organisms.json`.
+Visitor presence controls aesthetic light. The existing public Internet Computer witness supplies beat metadata.
+Requested sheets use existing loop explanations and reviewed `/data/organisms.json` descriptions.
+All artwork remains conceptual; Financial Organisms remain research / simulation.
+No internal health, tasks, models, vault content, private ledger data or invented thinking state is exposed.
+Total means canister-wide total beats. Unknown clears old numbers; first read and recovery never fake a new beat.
+The witness slot is reserved but invisible until an answer or a real failure. Source label links to `/proof/ledger`.
+Polling remains 60 seconds after completion with an 8-second timeout; hidden tabs stop polling.
 
-The total is explicitly **total beats** across the canister, not a claimed first-body-only count.
-Failure clears previous numbers and says witness unreachable. First read/recovery never impersonates a new beat.
-No internal organ health, tasks, model names, private memory, runtime logs, or fabricated thinking state is exposed.
+## Signal to motion
 
-## Signal → motion
-
-| Signal | Response / brake |
+| Signal | Finite response |
 | --- | --- |
-| Pointer or keyboard focus | 260 px hero / 180 px specimen screen bloom, opacity .9; displacement scale 16; opposite-hand refraction up to 9 px per axis; nucleus proximity light |
-| Scroll, including touch | Coalesced one-frame update; nearest specimen gains light/depth; visible loop advances |
-| First specimen intersection | One 320 ms light pulse; concurrent entries serialize; pause retires pending pulses |
-| Confirmed new public beat | One 360 ms circuit on visible hero, or existing visible WebGL loop |
-| Requested sheet | 360 ms condensation; accompanying stage thread draws in 320 ms; replacement first dissolves for 180 ms |
-| Dismiss / Escape | 180 ms dissolve, then focus returns; immediate under reduced motion |
-| Pause / hidden / reduced motion | Cancel finite effects, clear refraction, cancel queued scroll frame |
+| Pointer / focus | Existing bloom, opposite-hand refraction and nucleus light; pointer and scroll share one coalesced input frame |
+| Pointer near words | Headline text-clipped light follows the same sample; sub-line / mono proximity light within 200 px; leave restores rest |
+| First text arrival | Headline blur 14 px to sharp in 700 ms per word, 70 ms stagger; section h2 / intro 420 ms once |
+| First specimen intersection | Existing serialized 320 ms seed pulse |
+| Confirmed new beat | One 360 ms hero circuit plus one reading luminance pass; content changes atomically |
+| Open sheet / stage | 240 ms blur condensation, coordinated projected thread; replacement first dissolves in 180 ms |
+| Dismiss / Escape | 180 ms dissolve and focus return; instant under reduced motion |
+| Pause / reduced motion / hidden / pagehide | Cancel foreground animations and sampler, clear pending work and pointer light |
 
-One foreground sheet/pulse arbiter; WebGL suspends while it owns a finite animation.
-The sheet's accompanying thread is a coordinated finite 320 ms transform, canceled by the same brakes.
-Homepage shared floats/reveals and CSS loops are disabled. No second WebGL, particles, or idle Alive rAF.
-Two explicit continuous exceptions: the existing in-view WebGL loop, and the approved hero breath.
-The breath is **decorative, not telemetry**: one 12 s scale cycle, 1 to 1.014 to 1, on the hero wrapper only.
-One `will-change: transform` hint promotes that wrapper while visible; it is removed when braked.
-Intersection, a hidden tab, PAUSE MOTION, reduced motion and pagehide all pause it. No JS animation frame loop.
-No beat trace is queued for later visibility. Pointer light updates directly from the event and has no settling timer.
-Witness refreshes every 60 seconds after completion, with an 8-second timeout; hidden tabs stop polling.
+One foreground arbiter owns at most two WAAPI targets and a bounded sampler driven by its animation clock.
+The sampler is finite main-thread style work, not a claim that word blur is compositor-only or free.
+It stops on completion/cancellation; neither pointer light nor settled text has an idle frame loop.
+WebGL suspends during foreground work. No new scene, particles, video or dependency.
+Two continuous exceptions remain: the existing visible WebGL loop and the decorative hero breath (not telemetry).
+Breath: 12 seconds, transform-only scale 1 to 1.014 to 1; only while visible and permitted.
+Foreground work cancels the breath entirely: pausing retained extra accelerated descendant layers in Chromium.
+Afterward it is recreated. Hidden, reduced and manually paused states keep it stopped.
 
-## Event → sheet
+## Entrance and progressive behavior
 
-| Gesture | Content |
-| --- | --- |
-| Six native loop tabs / arrow keys / Enter / Space | Existing ARIA-linked explanation at that stage |
-| Separate Public status button / Enter / Space | Public registry status, review label, and exact English summary |
-| Escape / dismiss / outside pointer | Retire current sheet; explicit dismissal returns activating focus |
+Session key `uc-alive-entrance`, guarded reads/writes. Storage denial uses words only.
+No entrance on reduced motion, manual pause, history back, bfcache, direct fragments or restored scroll.
+Timeline: seed 0–400 ms; glass and one circuit 400–1300; words 1100–1940; nav/captions 1800–2100.
+The final 200 ms of glass overlaps the first words. Total nominal duration 2100 ms.
+Witness joins only after a response; a later arrival condenses independently. No progress display or sound.
+Any key, pointer down, click, tap, wheel or scroll settles the entrance without consuming the original action.
+No overlay or image-load gate; the original responsive hero keeps `fetchpriority="high"`.
+Content below the hero never waits on it. No-JS keeps the original images, navigation and loop explanations.
+English / Spanish translations remain whole strings. Word wrappers rebuild on language change without animation.
+Forced colors uses CanvasText rather than transparent gradient text.
 
-Only one sheet is open. Replacing a request invalidates earlier pending transitions.
-Glass is `rgba(22,18,30,.55)`, blur 24 px / saturate 1.2, radius 26 px all around, with a masked 1 px gradient edge.
-Desktop loop sheets occupy the stage's left/right flank; the scene temporarily uses 62% width to keep its bounds clear.
-`loop-geometry.js` shares the renderer's curve and tilt/perspective projection, with six points at step/6.
-The selected point is drawn in WebGL; a 1 px thread connects it to the sheet edge. Resize and language changes reproject.
-Public-status sheets condense from the text affordance, overlap the art to expose its frosted color, and hold the nucleus lit.
-Opening a native status dialog preserves scroll position. Captions occupy scroll/witness/figure slots and stack below 700 px.
-Mobile sheets are bottom drawers; reduced transparency uses opaque `#16121e`.
-All added copy is bilingual; registry Spanish is a maintained translation of the four public summaries.
-No-JS retains original explanations, images, and navigation; enhancement-only controls stay hidden.
+## Material and accessibility
 
-## Media and performance
+Hero and specimen images and refraction copies lighten into the void with intersecting elliptical edge masks.
+The isolated hero itself paints the page void so the blend has the correct backdrop.
+Specimens have no resting fill or frame; hover gets one faint glass edge and keyboard focus retains an outline.
+Soft fades protect text over the hero and specimen labels; loop labels / transmission ids have a soft void wash.
+Sheets use .42 fill plus top-left .10 light, blur 24 px, 26 px corners, and the existing gradient edge.
+Reduced transparency remains opaque #16121e. Mobile drawers and caption safe areas are preserved.
 
-CSS/SVG path: lowest checked full video set was 30 credits, above the 25 cap. Actual spend: **0**.
-ALIVE_LEDGER.md records five estimates. No uploads, generation, new asset registrations, or media downloads.
-Five existing raster copies reuse their responsive URLs; one static SVG displacement filter; no new dependencies.
-Round 2 Chrome measurements (1440x900): 626 DOM elements, about 4 MB JS heap after 4 seconds at rest,
-0 idle rAF/s and exactly 1 running animation with the hero in view; 0 running animations when scrolled out.
-Chrome LayerTree reports one `ActiveTransformAnimation` / `WillChangeTransform` compositor layer.
-Hero pointer-at-crossing diff: 21.83% of the full 1440x900 hero, or 38.94% of visible art pixels,
-at maximum RGB channel delta >= 8; maximum delta 210.
-Specimen keyboard-focus diff: 35.98%, maximum delta 198. No changed pixels from 100 ms to 400 ms after pointer arrival.
-The breath is paused at a fixed time only during the two pixel comparisons, excluding unrelated scale changes.
-Screenshots visually inspected at 1440x900 and 400x800 EN/ES; 320x800 Spanish also checked.
-Renderer CPU and rendered text contrast are not quantified in this round.
+## Measured verification
 
-## Verification / critique round
+358 unit tests, local public parity, production build, and 80 Chromium browser checks pass.
+All 15 rest art crops (1440 / 1024 / 400) have zero dark straight steps of >=3/255 lasting >=120 px.
+A synthetic rectangle produces five rejected runs, longest 180 px. Detector uses Rec.709 display-value luminance.
+Viewport contrast audit: 1086 text-line observations over 58 views, including both sheets; minimum 4.58:1.
+Hero pointer response changes 12.18% of the full hero / 19.92% of art pixels at delta >=8; settles by 300 ms.
+Entrance: two actual accelerated layers across all three phases; one breath afterward, zero idle rAF/s.
+At rest: 629 DOM elements, about 3.83 MiB JS heap; zero running animations with hero out of view.
+`node tests/browser-alive.mjs` owns and stops its loopback preview and isolated headless Chrome profile.
+Evidence: ignored `artifacts/living-atlas-qa/alive/` screenshots, metrics.json, lifecycle.json and round3 command logs.
+Witness browser responses are isolated fixtures, not live canister proof. Network host: 127.0.0.1:52498 only.
+Physical-device Safari, production network/LCP and hardware frame-rate are not certified by this software-rendered run.
 
-Run `npm.cmd test`, `npm.cmd run check:public-parity`, and `npm.cmd run build` on Windows.
-Round 2: 355 unit tests (353 existing plus 2 geometry tests), local public parity and build pass (existing bundle warning).
-Run the existing `scripts/qa-living-atlas.mjs` with installed Puppeteer/Chrome paths when available.
-`node tests/browser-alive.mjs` is a dependency-free optional Chromium check with an isolated witness fixture.
-It owns/stops preview on 127.0.0.1:52498 and writes ignored artifacts under `artifacts/living-atlas-qa/alive/`.
-It launches an isolated headless Chrome profile with `--no-sandbox` for this Windows test environment; no user browser profile is used.
-The 36 browser acceptance checks cover rendered pixel diffs, all six sheet bounds, shader initialization, Enter/Space/Escape, focus return,
-real background-tab visibility, one accelerated breath layer, pause/reduced motion/transparency, EN/ES mobile captions,
-drawers, no-JS fallback, console exceptions, and network hosts. The witness uses a fixture; live CORS is not re-certified.
+## Boundaries
 
-## Refused / limits
-
-No extra status counter, fake organism activity, new cloud lane, autoplay loop videos, second scene, or internal data.
-No new API, commit, push, deploy, or publish. Financial organisms remain research / simulation.
-Claude's independent aesthetic critique and live canister verification remain separate from this local acceptance run.
+Spend: zero credits. No generation/upload, API additions, commit, push, deploy or publish.
+The cache-signature unit fixture now explicitly changes mtime; its production loader is unchanged.
+Detailed critique, disagreements and acceptance evidence: `work/collab/codex_website_alive_round3.md` on First Body.

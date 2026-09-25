@@ -74,6 +74,7 @@ export function initWitness(element = document.querySelector("[data-witness]"), 
     element.dataset.es = formatWitness(sample, "es", state).replace(/^Internet Computer · /, '');
     element.dataset.witnessState = state;
     element.textContent = doc.documentElement.lang === "es" ? element.dataset.es : element.dataset.en;
+    win.dispatchEvent(new win.CustomEvent("atlas:witness-reading", { detail: { state } }));
   }
 
   function cancel() {

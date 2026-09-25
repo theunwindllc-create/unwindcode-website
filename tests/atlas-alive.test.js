@@ -69,6 +69,54 @@ test('sheet priority resists decorative pulses and denied motion still completes
   assert.equal(declined, 3, 'no-WAAPI browsers still settle sheet visibility');
 });
 
+test('one job owns both circuit and reading, and replacement cancels both', () => {
+  const arbiter = createMotionArbiter(() => true);
+  const seed = animatedElement(), reading = animatedElement();
+  const first = arbiter.play(seed, [{ opacity: 0 }, { opacity: 1 }], 360,
+    { companion: { element: reading, frames: [{ color: '#aba2b8' }, { color: '#fff' }] } });
+  assert.equal(reading.animations.length, 1);
+  arbiter.play(seed, [], 240, { priority: 2 });
+  assert.equal(first.cancelled, 1);
+  assert.equal(reading.animations[0].cancelled, 1);
+  first.onfinish();
+  assert.equal(arbiter.active, true);
+  arbiter.cancel();
+  assert.equal(seed.animations[1].cancelled, 1);
+});
+
+test('finite sampler follows the WAAPI clock and has no frame left after cancellation', () => {
+  const callbacks = new Map(), samples = [];
+  let serial = 0, finished = 0;
+  const context = { requestAnimationFrame(fn) { callbacks.set(++serial, fn); return serial; },
+    cancelAnimationFrame(id) { callbacks.delete(id); } };
+  vm.createContext(context);
+  vm.runInContext(source('alive-motion.js').replaceAll('export function', 'function') + '\nthis.make = createMotionArbiter;', context);
+  const arbiter = context.make(() => true), element = animatedElement();
+  const animation = arbiter.play(element, [], 700, {sample: time => samples.push(time), finish: () => finished++});
+  assert.deepEqual(samples, [0]);
+  const [id, callback] = [...callbacks][0]; callbacks.delete(id);
+  animation.currentTime = 210; callback();
+  assert.deepEqual(samples, [0, 210]);
+  assert.equal(callbacks.size, 1);
+  arbiter.cancel();
+  assert.equal(callbacks.size, 0);
+  callback(); // A browser callback already queued before cancellation cannot resurrect work.
+  assert.deepEqual(samples, [0, 210]);
+  animation.onfinish();
+  assert.equal(finished, 1);
+});
+
+test('reduced motion settles a sampled job without a clock or companion animation', () => {
+  const seed = animatedElement(), reading = animatedElement();
+  let finished = 0;
+  createMotionArbiter(() => false).play(seed, [], 2100, {
+    companion: { element: reading, frames: [] },
+    sample: () => assert.fail('Reduced motion must not start a sampler'), finish: () => finished++,
+  });
+  assert.equal(finished, 1);
+  assert.equal(seed.animations.length + reading.animations.length, 0);
+});
+
 test('video brake pauses every video when paused, hidden, or reduced, and allows at most one in view', async () => {
   const make = inView => ({ dataset: { inView }, pauses: 0, plays: 0,
     pause() { this.pauses++; }, play() { this.plays++; return Promise.reject(new Error('autoplay denied')); } });
@@ -204,7 +252,7 @@ test('actual tab controller defers content replacement until the outgoing sheet 
   assert.equal(t.children[0].hidden, true);
   assert.equal(t.children[1].hidden, false);
   assert.equal(t.tabs[1].focused, 1);
-  assert.equal(h.panels.animations.at(-1).options.duration, 360);
+  assert.equal(h.panels.animations.at(-1).options.duration, 240);
   assert.equal(t.tabs[0].attrs['aria-expanded'], 'false');
   assert.equal(t.tabs[1].attrs['aria-expanded'], 'true');
 });
@@ -265,13 +313,15 @@ test('Alive CSS disables perpetual animations and provides reduced motion/transp
   assert.match(source('styles.css'), /\[hidden\]\s*\{\s*display:\s*none\s*!important/);
 });
 
-test('Alive runtime has no autonomous animation timer and only schedules a scroll-driven frame', () => {
+test('Alive runtime coalesces input and the arbiter only samples an owned finite animation', () => {
   const js = source('alive.js');
-  assert.doesNotMatch(source('alive-motion.js'), /requestAnimationFrame|setInterval|setTimeout/);
+  assert.doesNotMatch(source('alive-motion.js'), /setInterval|setTimeout/);
+  assert.match(source('alive-motion.js'), /if \(current !== item\) return/);
+  assert.match(source('alive-motion.js'), /cancelAnimationFrame\(item.frame\)/);
   assert.doesNotMatch(js, /setInterval/);
   assert.equal((js.match(/requestAnimationFrame\(/g) || []).length, 1);
-  assert.match(js, /addEventListener\('scroll',[\s\S]*?requestAnimationFrame\(scrollLight\)/);
-  const scrollCallback = js.slice(js.indexOf('function scrollLight()'), js.indexOf("window.addEventListener('scroll'"));
+  assert.match(js, /function scheduleInput\(\)[\s\S]*?requestAnimationFrame\(scrollLight\)/);
+  const scrollCallback = js.slice(js.indexOf('function scrollLight()'), js.indexOf('function scheduleInput()'));
   assert.doesNotMatch(scrollCallback, /requestAnimationFrame/);
   assert.match(js, /!document\.hidden\s*&&\s*!reduced\.matches/);
   assert.match(js, /motion-paused/);
