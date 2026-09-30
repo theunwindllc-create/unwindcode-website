@@ -37,9 +37,15 @@ export const config = { api: { bodyParser: false } };
 
 function readRaw(req) {
   return new Promise((resolve, reject) => {
-    let data = "";
-    req.on("data", (c) => { data += c; if (data.length > 65536) reject(new Error("body too large")); });
-    req.on("end", () => resolve(data));
+    const chunks = [];
+    let bytes = 0;
+    req.on("data", (chunk) => {
+      const part = Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
+      bytes += part.length;
+      if (bytes > 65536) { reject(new Error("body too large")); return; }
+      chunks.push(part);
+    });
+    req.on("end", () => resolve(Buffer.concat(chunks).toString("utf8")));
     req.on("error", reject);
   });
 }
@@ -57,14 +63,15 @@ function e164(s) {
 
 function verifyHmac(raw, header, key, windowSec = 300) {
   if (!header || !key) return false;
-  const parts = Object.fromEntries(String(header).split(",").map((kv) => kv.split("=")));
-  if (!parts.v || !parts.d) return false;
-  const ts = Number(parts.v);
-  const now = Math.floor(Date.now() / 1000);
-  const tsSec = ts > 1e12 ? Math.floor(ts / 1000) : ts;
-  if (!Number.isFinite(tsSec) || Math.abs(now - tsSec) > windowSec) return false;   // replay window
-  const expected = crypto.createHmac("sha256", key).update(raw).digest("hex");
-  try { return crypto.timingSafeEqual(Buffer.from(expected), Buffer.from(String(parts.d))); } catch { return false; }
+  // Retell's official SDK signs the exact raw UTF-8 body concatenated with its millisecond timestamp.
+  // https://github.com/RetellAI/retell-typescript-sdk/blob/main/src/lib/webhook_auth.ts
+  const match = /^v=(\d+),d=([0-9a-f]{64})$/i.exec(String(header));
+  if (!match) return false;
+  const timestamp = Number(match[1]);
+  if (!Number.isSafeInteger(timestamp) || Math.abs(Date.now() - timestamp) > windowSec * 1000) return false;
+  const expected = crypto.createHmac("sha256", key).update(raw + match[1], "utf8").digest();
+  const provided = Buffer.from(match[2], "hex");
+  return crypto.timingSafeEqual(expected, provided);
 }
 
 function posInt(v, fallback) {
