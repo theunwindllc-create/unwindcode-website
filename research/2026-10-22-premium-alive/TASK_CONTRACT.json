@@ -1,0 +1,69 @@
+{
+  "task_id": "unwindcode-premium-alive-20261022",
+  "revision": 2,
+  "objective": "Bring the local Unwind Code website to the Genesis visual standard with cinematic scroll-controlled generated artwork and a strongly optimized mobile experience.",
+  "coordinator": "Codex /root as Orion, director 1.0.0",
+  "execution_mode": "native_parallel",
+  "agents": [
+    "Codex strategy researcher",
+    "Codex motion reviewer as Lumen 1.0.0",
+    "Codex /root/scroll_cinema, bounded mobile frame controller"
+  ],
+  "owned_paths": {
+    "strategy_researcher": [
+      "research/2026-10-22-premium-alive/*.md"
+    ],
+    "motion_reviewer": [
+      "public/lab/alive.js seed-coordinate correction by handoff",
+      "public/lab/living-words.js queued-opacity correction by handoff"
+    ],
+    "director": [
+      "public/lab",
+      "tests",
+      "docs/design/living-atlas",
+      "research/2026-10-22-premium-alive/TASK_CONTRACT.json"
+    ],
+    "scroll_cinema": [
+      "public/lab/scroll-cinema.js",
+      "public/lab/infinity.js",
+      "tests/atlas-scroll-cinema.test.js",
+      "tests/atlas-infinity-budget.test.js"
+    ]
+  },
+  "authority_order": [
+    "current user request and host laws",
+    "repository instructions",
+    "existing Living Atlas identity and assets",
+    "vault reference lessons as guidance"
+  ],
+  "active_artifacts": [
+    "public/lab/index.html",
+    "public/lab/alive.js",
+    "public/lab/living-words.js",
+    "public/lab/alive.css",
+    "public/lab/scroll-cinema.js",
+    "public/lab/scroll-depth.js",
+    "public/lab/infinity.js",
+    "public/lab/media/atlas/scroll/infinity-v1/manifest.json"
+  ],
+  "acceptance_checks": [
+    "Complete scoped nine-file research package before implementation",
+    "Browser visual inspection on desktop and mobile",
+    "Motion responds to user input and scroll",
+    "Reduced motion, pause and keyboard access",
+    "Repository tests, public parity and production build",
+    "Independent review",
+    "Local commit and verified task closeout",
+    "Adaptive mobile/desktop frame assets within measured byte and decoded-memory budgets",
+    "No sequence loads before visible user scroll intent",
+    "Static fallback for reduced motion, Save-Data, slow networks and failed media"
+  ],
+  "authorization_and_resource_limits": "User explicitly authorized generated animated video on 2026-10-22. One 5-second silent Kling3 pro animation quoted at8.75 Higgsfield credits; no additional generation submitted. Local implementation and verification remain authorized. No publication or push requested.",
+  "out_of_scope": [
+    "Publishing or pushing",
+    "Private runtime telemetry",
+    "Unrelated proof-ledger branch changes",
+    "Untracked September research edits"
+  ],
+  "receipt_path": "C:/unwind/work/website_drafts/alive-20260924/artifacts/living-atlas-qa/premium-20261022/receipt.json"
+}

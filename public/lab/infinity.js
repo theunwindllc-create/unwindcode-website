@@ -3,12 +3,21 @@ import { curve, projectLoop } from './loop-geometry.js';
 (() => {
   const stage = document.querySelector("[data-infinity]");
   if (!stage) return;
+  // Semantic stages can project their vector fallback before the GPU is needed.
+  stage.projectStep = step => projectLoop(step, stage.clientWidth, stage.clientHeight);
+  let initialized = false;
+  function initialize() {
+  if (initialized) return;
+  initialized = true;
   const canvas = stage.querySelector("canvas");
-  const gl = canvas.getContext("webgl", {
-    alpha: true,
-    antialias: true,
-    powerPreference: "low-power",
-  });
+  let gl;
+  try {
+    gl = canvas.getContext("webgl", {
+      alpha: true,
+      antialias: true,
+      powerPreference: "low-power",
+    });
+  } catch { return; }
   if (!gl) return;
   const vertexSource = `
     attribute vec3 a_position;
@@ -110,29 +119,32 @@ import { curve, projectLoop } from './loop-geometry.js';
   gl.enable(gl.BLEND);
   gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
   gl.clearColor(0, 0, 0, 0);
-  let visible = false,
+  let visible = true,
     frame = 0,
+    frameEpoch = 0,
     last = 0,
     phase = 0.1,
     tiltX = -0.1,
     tiltY = 0.19,
     targetX = -0.1,
     targetY = 0.19,
+    tiltUntil = 0,
     witnessStart = null,
+    pageActive = true,
     lost = false;
   const root = document.documentElement;
   stage.projectStep = step => projectLoop(step, stage.clientWidth, stage.clientHeight, tiltX, tiltY);
   const reduced = matchMedia("(prefers-reduced-motion: reduce)");
+  const canDraw = () => visible && pageActive && !document.hidden && !lost;
   const canAnimate = () =>
-    visible &&
-    !document.hidden &&
+    canDraw() &&
     !reduced.matches &&
     !root.classList.contains("motion-paused") &&
     !root.hasAttribute("data-alive-busy") &&
     !lost;
   function draw() {
-    if (lost) return;
-    const ratio = Math.min(devicePixelRatio || 1, 1.6);
+    if (!canDraw()) return;
+    const ratio = Math.min(devicePixelRatio || 1, innerWidth <= 700 ? 1 : 1.6);
     const width = Math.round(stage.clientWidth * ratio),
       height = Math.round(stage.clientHeight * ratio);
     if (!width || !height) return;
@@ -154,36 +166,52 @@ import { curve, projectLoop } from './loop-geometry.js';
     gl.drawArrays(gl.POINTS, strands * (segments + 1) + Number(stage.dataset.step || 0), 1);
     stage.classList.add("webgl-ready");
   }
+  function stop() {
+    frameEpoch++;
+    cancelAnimationFrame(frame);
+    frame = 0;
+    last = 0;
+    witnessStart = null;
+    targetX = tiltX;
+    targetY = tiltY;
+    tiltUntil = 0;
+  }
+  function moving() {
+    return !stage.dataset.sheetOpen &&
+      (Math.abs(targetX - tiltX) > .0005 || Math.abs(targetY - tiltY) > .0005);
+  }
+  function schedule() {
+    if (!frame && canAnimate() && (witnessStart !== null || moving())) {
+      const ticket = frameEpoch;
+      frame = requestAnimationFrame(time => { if (ticket === frameEpoch) tick(time); });
+    }
+  }
   function tick(time) {
     frame = 0;
-    if (!canAnimate()) {
-      last = 0;
-      return;
+    if (!canAnimate()) { stop(); return; }
+    const delta = last ? Math.min(time - last, 64) : 16.67;
+    last = time;
+    if (witnessStart !== null) {
+      phase = Math.min(1, Math.max(0, (time - witnessStart) / 360));
+      if (phase >= 1) witnessStart = null;
     }
-    if (!last || time - last >= 32) {
-      const delta = last ? Math.min(time - last, 100) : 32;
-      if (witnessStart !== null) {
-        phase = Math.min(1, (time - witnessStart) / 360);
-        if (phase >= 1) witnessStart = null;
-      } else phase = (phase + delta / 24000) % 1;
-      if (!stage.dataset.sheetOpen) {
-        tiltX += (targetX - tiltX) * 0.065;
-        tiltY += (targetY - tiltY) * 0.065;
-      }
-      draw();
-      last = time;
+    if (!stage.dataset.sheetOpen) {
+      const amount = 1 - Math.exp(-delta / 65);
+      tiltX += (targetX - tiltX) * amount;
+      tiltY += (targetY - tiltY) * amount;
+      if (time >= tiltUntil || !moving()) { tiltX = targetX; tiltY = targetY; }
     }
-    frame = requestAnimationFrame(tick);
+    draw();
+    if (witnessStart !== null || moving()) schedule();
+    else last = 0;
   }
   function sync() {
     if (canAnimate()) {
-      if (!frame) frame = requestAnimationFrame(tick);
-    } else {
-      cancelAnimationFrame(frame);
-      frame = 0;
-      last = 0;
-      witnessStart = null;
       draw();
+      schedule();
+    } else {
+      stop();
+      if (!root.hasAttribute("data-alive-busy")) draw();
     }
   }
   stage.addEventListener("pointermove", (event) => {
@@ -191,18 +219,31 @@ import { curve, projectLoop } from './loop-geometry.js';
     const box = stage.getBoundingClientRect();
     targetX = ((event.clientX - box.left) / box.width - 0.5) * 0.4 - 0.1;
     targetY = ((event.clientY - box.top) / box.height - 0.5) * -0.28 + 0.19;
+    tiltUntil = performance.now() + 280;
+    schedule();
   });
   stage.addEventListener("pointerleave", () => {
+    if (!canAnimate() || stage.dataset.sheetOpen) return;
     targetX = -0.1;
     targetY = 0.19;
+    tiltUntil = performance.now() + 280;
+    schedule();
   });
-  stage.addEventListener("stepchange", draw);
+  stage.addEventListener("stepchange", () => {
+    if (stage.dataset.sheetOpen) stop();
+    draw();
+  });
   stage.addEventListener("atlas:witness", () => {
-    if (canAnimate()) witnessStart = performance.now();
+    if (!canAnimate()) return;
+    witnessStart = performance.now();
+    schedule();
   });
   stage.addEventListener("atlas:scroll", event => {
     if (!canAnimate()) return;
-    phase = event.detail.progress;
+    if (!Number.isFinite(event.detail?.progress)) return;
+    // Scroll owns this frame. Retire any previous finite gesture before drawing once.
+    stop();
+    phase = Math.max(0, Math.min(1, event.detail.progress));
     draw();
   });
   document.addEventListener("atlas:foreground", sync);
@@ -220,13 +261,24 @@ import { curve, projectLoop } from './loop-geometry.js';
   mutations.observe(root, { attributes: true, attributeFilter: ["class"] });
   reduced.addEventListener("change", sync);
   document.addEventListener("visibilitychange", sync);
+  window.addEventListener("pagehide", () => { pageActive = false; stop(); });
+  window.addEventListener("pageshow", () => { pageActive = true; sync(); });
   canvas.addEventListener("webglcontextlost", (event) => {
     event.preventDefault();
     lost = true;
-    cancelAnimationFrame(frame);
-    frame = 0;
+    stop();
     stage.classList.remove("webgl-ready");
   });
   // On loss the complete vector fallback remains; avoid an automatic reload loop.
   draw();
+  }
+  // No WebGL context, shader compilation or filament allocation above the fold.
+  if ('IntersectionObserver' in window) {
+    const loader = new IntersectionObserver(entries => {
+      if (!entries.some(entry => entry.isIntersecting)) return;
+      loader.disconnect();
+      initialize();
+    }, { threshold: 0.05 });
+    loader.observe(stage);
+  } else initialize();
 })();

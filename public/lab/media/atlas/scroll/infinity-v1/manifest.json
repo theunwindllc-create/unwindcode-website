@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "variants": {
+    "mobile": {
+      "width": 640,
+      "height": 426,
+      "frameCount": 24,
+      "base": "/lab/media/atlas/scroll/infinity-v1/mobile/frame-",
+      "extension": ".webp",
+      "bytes": 614186
+    },
+    "desktop": {
+      "width": 960,
+      "height": 640,
+      "frameCount": 36,
+      "base": "/lab/media/atlas/scroll/infinity-v1/desktop/frame-",
+      "extension": ".webp",
+      "bytes": 1814132
+    }
+  }
+}

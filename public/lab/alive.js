@@ -2,16 +2,24 @@ import { createMotionArbiter, syncVideos } from './alive-motion.js';
 import { initWitness } from './witness.js';
 import { projectLoop } from './loop-geometry.js';
 import { initLivingWords, circuitFrames } from './living-words.js';
+import { createScrollDepth } from './scroll-depth.js';
+import { createScrollCinema } from './scroll-cinema.js';
 
 const root = document.documentElement;
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 const coarse = matchMedia('(pointer: coarse)');
 let pageActive = true;
+let scrollDepth = null;
+let cinema = null;
+let inputAt = -Infinity;
+let scrollIntent = false;
 const allowed = () => pageActive && !document.hidden && !reduced.matches && !root.classList.contains('motion-paused');
 const motion = createMotionArbiter(allowed, busy => {
+  if (busy) { cinema?.brake(); inputAt = -Infinity; scrollIntent = false; }
   root.toggleAttribute('data-alive-busy', busy);
   document.dispatchEvent(new CustomEvent('atlas:foreground', { detail: { busy } }));
   syncBreath();
+  if (!busy) queueMicrotask(refreshDepth);
 });
 const videos = [...document.querySelectorAll('video[data-alive-video]')];
 const arts = [...document.querySelectorAll('[data-alive-art]')];
@@ -28,11 +36,16 @@ const loopPanels = document.querySelector('.loop-panels');
 const loop = document.querySelector('[data-infinity]');
 const specimenSheet = document.getElementById('specimen-sheet');
 const hero = arts.find(art => art.classList.contains('hero-art'));
+if (hero) scrollDepth = createScrollDepth();
+if (hero) cinema = createScrollCinema({ hero,
+  allowed: () => allowed() && !currentSheet && !motion.active,
+  manifestUrl: '/lab/media/atlas/scroll/infinity-v1/manifest.json',
+});
 // Approved decorative exception, not telemetry. One transform-only compositor animation.
 let breath = null;
 function syncBreath() {
   if (!hero) return;
-  if (allowed() && visible.has(hero) && !motion.active) {
+  if (allowed() && visible.has(hero) && !motion.active && !cinema?.metrics.active) {
     breath ??= hero.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.014)' }, { transform: 'scale(1)' }],
       { duration: 12000, iterations: Infinity, easing: 'ease-in-out' });
     hero.style.willChange = 'transform';
@@ -40,7 +53,7 @@ function syncBreath() {
   } else {
     // A paused transform still retains accelerated descendant layers in Chromium.
     // Retire it during foreground work so the entrance really owns only two layers.
-    if (motion.active) { breath?.cancel(); breath = null; }
+    if (motion.active || cinema?.metrics.active) { breath?.cancel(); breath = null; }
     else breath?.pause();
     hero.style.removeProperty('will-change');
   }
@@ -65,25 +78,31 @@ function seedPoint(art) {
   const width = art.clientWidth, height = art.clientHeight;
   const iw = image.naturalWidth || 1536, ih = image.naturalHeight || 1024;
   const scale = (art === hero ? Math.min : Math.max)(width / iw, height / ih);
-  return { x: .5 + (Number(art.dataset.seedX || .5) - .5) * iw * scale / width,
-    y: .5 + (Number(art.dataset.seedY || .5) - .5) * ih * scale / height };
+  const x = .5 + (Number(art.dataset.seedX || .5) - .5) * iw * scale / width;
+  const y = .5 + (Number(art.dataset.seedY || .5) - .5) * ih * scale / height;
+  // Specimen pixels and their seed move together inside a stationary container.
+  // Keep the seed's layout position unshifted; aim light at its rendered position.
+  const shift = art === hero ? 0 : (parseFloat(art.style.getPropertyValue('--scene-y')) || 0);
+  return { x, y, lightY: y + shift / (height || 1) };
 }
 function seedLight(art, sheet = false) {
-  const point = seedPoint(art); light(art, point.x, point.y, 0, sheet);
+  const point = seedPoint(art); light(art, point.x, point.lightY, 0, sheet);
 }
 function light(art, x, y, depth = 0, sheet = false) {
   if (!allowed() || (!sheet && (motion.active || currentSheet))) return;
+  const { x: sx, y: sy, lightY } = seedPoint(art);
   if (lit !== art) resetLight();
   lit = art;
   art.setAttribute('data-alive-lit', '');
   art.style.setProperty('--light-x', `${x * 100}%`);
   art.style.setProperty('--light-y', `${y * 100}%`);
+  // The reflection image already translates; its mask needs image-local Y.
+  art.style.setProperty('--refract-light-y', `${(y - (lightY - sy)) * 100}%`);
   art.style.setProperty('--refract-x', `${-(x - .5) * 18}px`);
   art.style.setProperty('--refract-y', `${-(y - .5) * 18}px`);
-  const { x: sx, y: sy } = seedPoint(art);
   art.style.setProperty('--seed-x', `${sx * 100}%`);
   art.style.setProperty('--seed-y', `${sy * 100}%`);
-  art.style.setProperty('--seed-strength', `${.2 + .7 * clamp(1 - Math.hypot(x - sx, y - sy) / .48)}`);
+  art.style.setProperty('--seed-strength', `${.2 + .7 * clamp(1 - Math.hypot(x - sx, y - lightY) / .48)}`);
   art.style.setProperty('--depth', `${depth}px`);
 }
 for (const art of arts) {
@@ -166,6 +185,16 @@ function scrollLight() {
   }
   if (!scrolled) return;
   scrolled = false;
+  const intent = scrollIntent;
+  scrollIntent = false;
+  if (!motion.active) {
+    scrollDepth?.sample();
+    if (hero) {
+      const box = hero.closest('.hero').getBoundingClientRect();
+      cinema?.sample(clamp(-box.top / (box.height * .7)), intent);
+      syncBreath();
+    }
+  }
   const active = [...visible].sort((a, b) => {
     const distance = el => Math.abs(el.getBoundingClientRect().top + el.clientHeight / 2 - innerHeight / 2);
     return distance(a) - distance(b);
@@ -173,7 +202,7 @@ function scrollLight() {
   if (active) {
     const box = active.getBoundingClientRect();
     const progress = clamp((innerHeight - box.top) / (innerHeight + box.height));
-    light(active, progress, .5 + Math.sin(progress * Math.PI * 2) * .18, (progress - .5) * 10);
+    light(active, progress, .5 + Math.sin(progress * Math.PI * 2) * .18);
   }
   const bounds = loop.getBoundingClientRect();
   if (bounds.bottom > 0 && bounds.top < innerHeight) {
@@ -183,7 +212,23 @@ function scrollLight() {
 function scheduleInput() {
   if (allowed() && !scrollFrame) scrollFrame = requestAnimationFrame(scrollLight);
 }
+function refreshDepth() {
+  if (!scrollDepth || !allowed() || currentSheet || motion.active) return;
+  scrolled = true;
+  scheduleInput();
+}
+window.addEventListener('resize', () => {
+  inputAt = -Infinity; scrollIntent = false; refreshDepth();
+}, { passive: true });
+// Intent is separate from layout/resize refreshes and restored scroll positions.
+for (const type of ['wheel', 'touchmove', 'pointerdown']) {
+  window.addEventListener(type, () => { inputAt = performance.now(); }, { passive: true });
+}
+window.addEventListener('keydown', event => {
+  if (['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End', ' '].includes(event.key)) inputAt = performance.now();
+}, { passive: true });
 window.addEventListener('scroll', () => {
+  scrollIntent = performance.now() - inputAt < 1000;
   scrolled = true;
   scheduleInput();
 }, { passive: true });
@@ -234,8 +279,9 @@ function condense(sheet, trigger) {
   }
   pendingSeeds.clear();
   const thread = sheet === loopPanels ? document.querySelector('.loop-thread') : null;
-  motion.play(sheet, [{ opacity: 0, filter: 'blur(14px)', transform: 'scale(.98)' },
-    { opacity: 1, filter: 'blur(0px)', transform: 'none' }], 240, { priority: 2,
+  const sheetBlur = window.innerWidth <= 700 || coarse.matches ? 'none' : 'blur(14px)';
+  motion.play(sheet, [{ opacity: 0, filter: sheetBlur, transform: 'scale(.98)' },
+    { opacity: 1, filter: 'none', transform: 'none' }], 240, { priority: 2,
     companion: thread && !thread.hidden ? { element: thread, frames: [{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }] } : null });
 }
 function requestSheet(commit) {
@@ -386,14 +432,17 @@ window.addEventListener('atlas:witness-beat', () => {
 });
 function brake() {
   if (!allowed()) {
+    cinema?.brake(); inputAt = -Infinity; scrollIntent = false;
     living?.brake();
     pendingSeeds.clear();
     motion.cancel(); resetLight(true); cancelAnimationFrame(scrollFrame); scrollFrame = 0;
+    scrollDepth?.reset();
     document.querySelectorAll('.loop-thread').forEach(thread => thread.getAnimations().forEach(animation => animation.cancel()));
   }
   syncBreath();
   if (allowed() && currentSheet === specimenSheet && origin) seedLight(origin.closest('.specimen').querySelector('[data-alive-art]'), true);
   syncVideos(videos, allowed() && !motion.active);
+  refreshDepth();
 }
 new MutationObserver(brake).observe(root, { attributes: true, attributeFilter: ['class'] });
 reduced.addEventListener('change', brake);
@@ -402,6 +451,8 @@ document.addEventListener('uc:motionchange', brake);
 window.addEventListener('pagehide', () => { pageActive = false; registryRequest?.abort(); brake(); });
 window.addEventListener('pageshow', () => { pageActive = true; brake(); });
 coarse.addEventListener('change', resetLight);
-if (hero) living = initLivingWords({ hero, motion, allowed, syncBreath });
+if (hero) living = initLivingWords({ hero, motion, allowed, syncBreath,
+  scrollActive: () => cinema?.metrics.active || (scrollIntent && hero.getBoundingClientRect().bottom > 0),
+});
 initWitness();
 brake();

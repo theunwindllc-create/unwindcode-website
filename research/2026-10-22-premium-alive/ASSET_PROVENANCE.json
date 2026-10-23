@@ -1,0 +1,372 @@
+{
+  "status": "local_candidate_reviewed_not_published",
+  "reference": {
+    "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\infinity-core-1536.webp",
+    "bytes": 174834,
+    "sha256": "69b8223b889b683e13a3af8c48014dd6eade4c56339b284f0a389f9134f83e99"
+  },
+  "reference_role": "start_image; existing public Genesis glass infinity sculpture",
+  "generation": {
+    "provider": "Higgsfield",
+    "model": "kling3_0",
+    "mode": "pro",
+    "job_id": "ea7d8798-dbb0-437e-9ce6-91fbb18731af",
+    "submitted": {
+      "duration": 5,
+      "sound": "off",
+      "aspect_ratio": "16:9",
+      "count": 1
+    },
+    "quoted_cost_credits": 8.75,
+    "returned": {
+      "width": 1764,
+      "height": 1176,
+      "fps": 24,
+      "duration_seconds": 5.041667,
+      "audio_streams": 0
+    },
+    "aspect_note": "Generator returned 3:2 matching the source; preserve actual composition, not requested ratio.",
+    "master": {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\artifacts\\living-atlas-qa\\premium-20261022\\infinity-orbit-master.mp4",
+      "bytes": 13522873,
+      "sha256": "877cd8a2b5c85448ed89c2778cfe79a4dbc7e9bb0a9479aa76112bef9695ba63"
+    }
+  },
+  "review": {
+    "contact_sheet": {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\artifacts\\living-atlas-qa\\premium-20261022\\cinema-contact-sheet.png",
+      "bytes": 652320,
+      "sha256": "d80a1269d5d4560506a14a3bd84f446b81a34f38296dedf5cc71979e25d39c32"
+    },
+    "observations": "Five sampled frames preserve recognizable two-lobed topology and crossing, violet glass, black backdrop and continuous shallow orbit. Desktop/mobile browser frames visually inspected.",
+    "limitations": "Not a frame-by-frame temporal certification; no physical-device Safari/battery measurements."
+  },
+  "derivation": {
+    "tool": "ffmpeg libwebp",
+    "mobile": "fps=24/5,scale=640:-2:flags=lanczos; 24 frames; quality72 compression_level6",
+    "desktop": "fps=36/5,scale=960:-2:flags=lanczos; 36 frames; quality76 compression_level6"
+  },
+  "manifest": {
+    "version": 1,
+    "variants": {
+      "mobile": {
+        "width": 640,
+        "height": 426,
+        "frameCount": 24,
+        "base": "/lab/media/atlas/scroll/infinity-v1/mobile/frame-",
+        "extension": ".webp",
+        "bytes": 614186
+      },
+      "desktop": {
+        "width": 960,
+        "height": 640,
+        "frameCount": 36,
+        "base": "/lab/media/atlas/scroll/infinity-v1/desktop/frame-",
+        "extension": ".webp",
+        "bytes": 1814132
+      }
+    }
+  },
+  "frames": [
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-000.webp",
+      "bytes": 46012,
+      "sha256": "6fee4f1312af49013a806fa9c94c6d1ceb951d60ffba217459bcb1ee021ce2bd"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-001.webp",
+      "bytes": 46322,
+      "sha256": "bc8a954f79e66ee1bf7b4fd75cb005d99b672ca1b063d9e817dfaf5c000242e3"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-002.webp",
+      "bytes": 47256,
+      "sha256": "1963ed4e7c93ce1ac6d7ed21f1abb4e67559ef074d95163a44171fa33c7f587d"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-003.webp",
+      "bytes": 46976,
+      "sha256": "25f87a0bf5e5db6b096d3925da245afb969041dd8096d1a98dc4351335f7792d"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-004.webp",
+      "bytes": 48198,
+      "sha256": "a03bb7c1eced73aecfd22aa60245d787306fccbeeeff22850ee183c7a1e4090d"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-005.webp",
+      "bytes": 47904,
+      "sha256": "9b4446dc7d45496b4099d9acd3e2afb8cffce4c87dbb488250f2e45db51a5ec3"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-006.webp",
+      "bytes": 48168,
+      "sha256": "2e23673bac03bbbedc8aef686d40c814afc5b565f31064ac01528ca268e9ee79"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-007.webp",
+      "bytes": 48516,
+      "sha256": "908086bdccb5057b9436e874bbc34ea9304a305a0c72e20a53b034ada7f0c290"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-008.webp",
+      "bytes": 48584,
+      "sha256": "db40df05f498c0b4cbf908ded6a662fcfb20bd06e70f0923ed8015b44dc58723"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-009.webp",
+      "bytes": 49140,
+      "sha256": "6ba2c6faa4247cee3bbe28d4fc9803d9712ce8f37599e7a4e4d4b3713a1251bc"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-010.webp",
+      "bytes": 49094,
+      "sha256": "e56f69f0f320e8737147a24428787d0297da357d8ddacfe4382f4217228620e0"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-011.webp",
+      "bytes": 49920,
+      "sha256": "b9ffdfa46be64f937f5a6ce78ca423c34a385e938a598e335a68b72b719c64b9"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-012.webp",
+      "bytes": 49986,
+      "sha256": "f313bd839e8c480182eab61422d3916331317ffc3cab5def838d8c008b166da2"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-013.webp",
+      "bytes": 49874,
+      "sha256": "2c997f7cf58fc836d796c8711cd245587285bd7ed7d98f330f1b21eca122f4ac"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-014.webp",
+      "bytes": 50752,
+      "sha256": "64582a6ab498b5c005d8ec3b4526f2e699a1bff56ce3d063257bd5a9f5b6ab39"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-015.webp",
+      "bytes": 50588,
+      "sha256": "98a1f1ca91a3debfe027ce54d4ebe8d156fb7c57dcee5c2470c11abc79696753"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-016.webp",
+      "bytes": 51076,
+      "sha256": "f8749f2ac524a3ecb92428eca6a1d57d9682e2aa1b76296b86f3fbec963e3b32"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-017.webp",
+      "bytes": 51196,
+      "sha256": "35c6581f3e1a2079fa64b17f36f37e640db2a5611df842c561dbde1197fbb9b0"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-018.webp",
+      "bytes": 50966,
+      "sha256": "8dd32d72a3758efca49645d70c6adec660cda19ed0c494d72ba4a726fd4d78c5"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-019.webp",
+      "bytes": 51742,
+      "sha256": "e74f48a725eeadef95393b7f74f820d6e3c75bc024073abcd57258129d290aa0"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-020.webp",
+      "bytes": 51102,
+      "sha256": "94b6d157d5ad10f3a193634b0ee2ff371b022fa00e392a338ceef2a42b830fda"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-021.webp",
+      "bytes": 51916,
+      "sha256": "cfd76931995e64aeac3252870068a8b948142249562a80724d72f92da5f984a8"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-022.webp",
+      "bytes": 51326,
+      "sha256": "ff2f2ea5c2b026dd5d50fb6450c39e134d30e9be2c890b9d92926fb16f2a8788"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-023.webp",
+      "bytes": 52000,
+      "sha256": "f75f1f2e0f9e0e1e2b98dfc67157656ff2fef3e82aa0c935ca85d2ff889b0fba"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-024.webp",
+      "bytes": 52230,
+      "sha256": "5353a7e553eccb03268954d62c400931ee872856637a5067bde787ee8384104f"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-025.webp",
+      "bytes": 51706,
+      "sha256": "3731fff0e8bacc26540da1e6e741ce13297e68288f6d883c1212554b757a4cc5"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-026.webp",
+      "bytes": 52314,
+      "sha256": "9ac718d8767de4f3bad9e3ef1c604541e59e459595024918842100c080f3d316"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-027.webp",
+      "bytes": 51090,
+      "sha256": "7b403ef1977d1fdc15a2ef670cd55680679b46b241dd7b41e03c5c0cfc1907be"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-028.webp",
+      "bytes": 51412,
+      "sha256": "8828db2ee8844ed090ae18c279b4d8af3ed00b22750b7ddf60af38b3d96b140f"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-029.webp",
+      "bytes": 51316,
+      "sha256": "500bd68b54b2c3620166709f89b2c8249a7bc06676ce3cf8439fd1033a37d8b0"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-030.webp",
+      "bytes": 51920,
+      "sha256": "694173a861f6ed74813d9f75728ed363cdd2771424c36cc94acafc514933eef7"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-031.webp",
+      "bytes": 52764,
+      "sha256": "a6d57d191393b9d11d587d508168f1082c40448b7eea74208aa86b9a4c77d2e5"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-032.webp",
+      "bytes": 52260,
+      "sha256": "13de9e1b73c36eda811f57b7f67d852e15501097acbba1d59ae7be280f2be7df"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-033.webp",
+      "bytes": 52998,
+      "sha256": "fee4eacf89334639c3256207f187c3f2595e29e71b0e00eadb8ca2af6b5fa827"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-034.webp",
+      "bytes": 52990,
+      "sha256": "4b28b73ff7664b2df7f428cd76138623d796b10f42ce8de8d2a3345f5cbff66e"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\desktop\\frame-035.webp",
+      "bytes": 52518,
+      "sha256": "3727fc5aede86a34276c20d4735c0630a5f204b0e6476dc8526e53ca08ee67ea"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\mobile\\frame-000.webp",
+      "bytes": 23236,
+      "sha256": "23e6884f4875de3c41c68d6b283677dc2b484bf4d0677825214e364b3f302559"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\mobile\\frame-001.webp",
+      "bytes": 24050,
+      "sha256": "26a2caa1fcbc4d2e9f180a98ccd68fa7f1201f318f52cbed1c57146d4cbedabc"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\mobile\\frame-002.webp",
+      "bytes": 24118,
+      "sha256": "357cc733f9794232c8bb6ef20221389f16f5f833f852fcd6f29fdae56c69168d"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\mobile\\frame-003.webp",
+      "bytes": 24614,
+      "sha256": "e72502554d80fc7c113d33cc5d512ad6666e7b55dad9ddefa6b35558c85e2440"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\mobile\\frame-004.webp",
+      "bytes": 24612,
+      "sha256": "3d3e82c549345db6b82042f77c7cdd4e12f50847cc6456379119d9af771b8681"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\mobile\\frame-005.webp",
+      "bytes": 24594,
+      "sha256": "2ed1504fd83ac95da37c58d48dbd791fd6a4b3e25d9db7a4a1ca4ea0bbf3f108"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\mobile\\frame-006.webp",
+      "bytes": 25074,
+      "sha256": "c473ea695a69b64b6117ac4d1c863dffc80538b77f774a79ac8185684579a530"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\mobile\\frame-007.webp",
+      "bytes": 24940,
+      "sha256": "74d2a067d6dfe2a6e771759b21c42ee2b197d0cc543da70da3174828d16c5644"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\mobile\\frame-008.webp",
+      "bytes": 25352,
+      "sha256": "858294a5cd935c163472931b8c04ca863e38e9b693e199d1827ba260e0c23a1c"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\mobile\\frame-009.webp",
+      "bytes": 25938,
+      "sha256": "d9580f287b883d6b5d5252a2d228699bbe9dece0b5fc95f2141ba20662ce236a"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\mobile\\frame-010.webp",
+      "bytes": 25898,
+      "sha256": "ccef04218ab1eb5ee0ea3dd24c719ef6e9b4977c58443d973e05010c9888e288"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\mobile\\frame-011.webp",
+      "bytes": 25894,
+      "sha256": "7f2186726ce2043d1c67c4e60a8111c42d7541884249ff05ffb5e873de535b39"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\mobile\\frame-012.webp",
+      "bytes": 26058,
+      "sha256": "1a5290c0d6e1fb298a5040cf8fd1cc0576bba83141a12e20aac97359429d36dc"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\mobile\\frame-013.webp",
+      "bytes": 25988,
+      "sha256": "1d909de4df69c1ad11478f12112e482042082119b42aed3747a67736197decee"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\mobile\\frame-014.webp",
+      "bytes": 26274,
+      "sha256": "02575c6178b35ce81776ac2e2adfe676bddfd0ae481710ab43a36f31a150cbaf"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\mobile\\frame-015.webp",
+      "bytes": 25974,
+      "sha256": "35a2eb1b9e89116d42c6a5a450f7250fcdcaf7b2fcc1bda5415751a57b93f6a3"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\mobile\\frame-016.webp",
+      "bytes": 26118,
+      "sha256": "db1d502d2737e341f994f4ad831673ac7b2b5994bd8b8224eb71ee96ac4c5464"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\mobile\\frame-017.webp",
+      "bytes": 26270,
+      "sha256": "2cbc3079a38c1afa89f6482f1f44934597c0ffeaf0daec9693a7e0c4de536d9e"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\mobile\\frame-018.webp",
+      "bytes": 26236,
+      "sha256": "3c1abb9485aaa69cf059addbf7723e8e22d586211fb041f89a5f5349a34a141d"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\mobile\\frame-019.webp",
+      "bytes": 26216,
+      "sha256": "9f541fe18a5c8218abe2a75ad523987a5ebc98b8b37c19c3444db678b03fd4e8"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\mobile\\frame-020.webp",
+      "bytes": 26652,
+      "sha256": "ac36f5df874ea887ca3d649c5a2fbb02ae4c6668d4117586f7993ee34d7d35d1"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\mobile\\frame-021.webp",
+      "bytes": 26338,
+      "sha256": "6574404c40df4fc1ff3326808b70c2c9fbf04597abfb65b5bd985cd8cc591496"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\mobile\\frame-022.webp",
+      "bytes": 26998,
+      "sha256": "ea0f1a49b883590c7d0762bdac20229a6cbb8bf84e701b9ed3f0641b390cd753"
+    },
+    {
+      "path": "C:\\unwind\\work\\website_drafts\\alive-20260924\\public\\lab\\media\\atlas\\scroll\\infinity-v1\\mobile\\frame-023.webp",
+      "bytes": 26744,
+      "sha256": "778f9ad7041bcf727434352565a13205e1ae0143796248e362d7d82d76f917db"
+    }
+  ]
+}

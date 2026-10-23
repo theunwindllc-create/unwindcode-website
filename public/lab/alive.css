@@ -4,14 +4,28 @@ html[data-alive] *, html[data-alive] *::before, html[data-alive] *::after {
   transition: none !important;
 }
 html[data-alive] .specimen-image:hover img { transform: none; }
-html[data-alive] .specimen-image > img:not(.alive-refraction) { transform: translateY(var(--depth, 0px)) scale(1.015); }
+html[data-alive] .specimen-image > img:not(.alive-refraction) { transform: scale(1.015); }
+/* Independent transform properties preserve the entrance, breath and pointer refraction. */
+html[data-alive] .hero-art { translate: 0 var(--scene-y, 0px); scale: var(--scene-scale, 1); }
+html[data-alive] .specimen-image > img,
+html[data-alive] .specimen-image > .alive-seed,
+html[data-alive] .anatomy-art > img { translate: 0 var(--scene-y, 0px); }
+html[data-alive] .anatomy-reticle { rotate: var(--scene-turn, 0deg); }
+/* Tactile controls stay still when motion is unavailable or another moment owns the foreground. */
+html[data-alive] .button:hover { transform: none; }
+@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
+  html[data-alive]:not(.motion-paused):not(.page-hidden):not([data-alive-busy]) .button {
+    transition: transform 160ms ease-out, background-color 160ms ease-out, border-color 160ms ease-out !important;
+  }
+  html[data-alive]:not(.motion-paused):not(.page-hidden):not([data-alive-busy]) .button:hover { transform: translateY(-2px); }
+}
 [data-alive-art] { --light-x: 50%; --light-y: 50%; --refract-x: 0px; --refract-y: 0px; --bloom-size: 180px; }
 .hero-art { --bloom-size: 260px; }
 .alive-refraction {
   position: absolute; inset: 0; width: 100%; height: 100%;
   pointer-events: none; opacity: 0; z-index: 0;
   object-fit: cover; mix-blend-mode: screen;
-  mask-image: radial-gradient(ellipse 43% 48% at var(--light-x) var(--light-y), #000 12%, #000b 40%, transparent 100%);
+  mask-image: radial-gradient(ellipse 43% 48% at var(--light-x) var(--refract-light-y, var(--light-y)), #000 12%, #000b 40%, transparent 100%);
   filter: url('#alive-refract') brightness(2.1);
   transform: translate(var(--refract-x), var(--refract-y)) !important;
 }
@@ -87,20 +101,30 @@ html[data-alive] .hero-caption {
 html.motion-paused .alive-refraction, html.page-hidden .alive-refraction,
 html.motion-paused .alive-bloom, html.page-hidden .alive-bloom { opacity: 0 !important; }
 @media (prefers-reduced-motion: reduce) { .alive-refraction, .alive-seed, .alive-bloom { display: none; } }
+html.motion-paused .hero-art, html.page-hidden .hero-art,
+html.motion-paused .specimen-image > img, html.page-hidden .specimen-image > img,
+html.motion-paused .anatomy-art > img, html.page-hidden .anatomy-art > img { translate: none; scale: none; }
+html.motion-paused .anatomy-reticle, html.page-hidden .anatomy-reticle { rotate: none; }
+@media (prefers-reduced-motion: reduce) {
+  html[data-alive] .hero-art, html[data-alive] .specimen-image > img, html[data-alive] .anatomy-art > img { translate: none; scale: none; }
+  html[data-alive] .anatomy-reticle { rotate: none; }
+}
 @media (prefers-reduced-transparency: reduce) {
   .alive-sheet { background: #16121e; backdrop-filter: none; -webkit-backdrop-filter: none; }
 }
 @media (max-width: 700px) {
-  html[data-alive] .hero-art { width: 100%; height: 50vw; min-height: 0; flex: none; margin-left: 0; margin-top: 10px; aspect-ratio: 2; }
+  html[data-alive] .hero-art { width: 100%; height: 60vw; min-height: 0; flex: none; margin-left: 0; margin-top: 10px; aspect-ratio: 5 / 3; --bloom-size: 140px; }
+  [data-alive-lit] .alive-bloom { opacity: .22; }
+  [data-alive-lit] .alive-refraction { opacity: .4; }
   html[data-alive] .hero-image { object-fit: contain; }
-  html[data-alive] .hero { height: auto; min-height: 0; padding-top: 100px; padding-bottom: max(100px, calc(env(safe-area-inset-bottom) + 86px)); }
-  html[data-alive] .hero-inner { padding-top: 15px; }
-  html[data-alive] .hero-eyebrow { margin-bottom: 20px; }
-  html[data-alive] .hero-sub { margin-top: 18px; }
-  html[data-alive] .hero-actions { margin-top: 20px; }
-  html[data-alive] .hero-caption { position: relative; inset: auto; order: 2; grid-template-columns: 1fr; gap: 6px; margin-top: 14px; }
+  html[data-alive] .hero { height: auto; min-height: 0; padding-top: 86px; padding-bottom: max(100px, calc(env(safe-area-inset-bottom) + 86px)); }
+  html[data-alive] .hero-inner { padding-top: 0; }
+  html[data-alive] .hero-eyebrow { margin-bottom: 14px; }
+  html[data-alive] .hero-sub { margin-top: 14px; }
+  html[data-alive] .hero-actions { margin-top: 16px; }
+  html[data-alive] .hero-caption { position: relative; inset: auto; order: 2; grid-template-columns: 1fr; gap: 4px; margin-top: 6px; }
   .hero-caption .scroll-cue { grid-column: 1; grid-row: 1; justify-content: center; min-height: 26px; }
-  .hero-caption .witness-reading { grid-column: 1; grid-row: 2; font-size: 9px; }
+  .hero-caption .witness-reading { grid-column: 1; grid-row: 2; font-size: 9px; min-height: 36px; }
   html[data-alive] .hero-caption .figure-note { display: block; grid-column: 1; grid-row: 3; text-align: center; font-size: 7px; }
   .loop-thread { display: none; }
   .alive-ready .loop-panels, .specimen-sheet {
@@ -125,7 +149,7 @@ html[data-alive] [data-alive-art] > img {
   mix-blend-mode: lighten; mask-image: var(--art-mask); mask-composite: intersect;
 }
 html[data-alive] [data-alive-art] > .alive-refraction {
-  mask-image: var(--art-mask), radial-gradient(ellipse 43% 48% at var(--light-x) var(--light-y), #000 12%, #000b 40%, transparent 100%);
+  mask-image: var(--art-mask), radial-gradient(ellipse 43% 48% at var(--light-x) var(--refract-light-y, var(--light-y)), #000 12%, #000b 40%, transparent 100%);
 }
 html[data-alive] .specimen-image > img {
   --art-mask: radial-gradient(ellipse 50% 50% at center, #000 72%, transparent 100%),
@@ -158,4 +182,20 @@ html[data-entrance="words"] .witness-reading:has([data-witness-state="ready"]),
 html[data-entrance="words"] .witness-reading:has([data-witness-state="unreachable"]) { visibility: visible; }
 @media (forced-colors: active) {
   .hero-headline .living-word { background: none; color: CanvasText; }
+}
+
+/* The still remains the semantic, high-priority image. Scroll frames are an optional layer. */
+.scroll-cinema {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain;
+  pointer-events: none; z-index: 0; mix-blend-mode: lighten;
+  mask-image: radial-gradient(ellipse 50% 50% at center, #000 72%, transparent 100%);
+}
+.scroll-cinema[hidden] { display: none; }
+.hero-art[data-cinema-ready] > .hero-image,
+.hero-art[data-cinema-ready] > :is(.alive-refraction, .alive-bloom, .alive-seed) { opacity: 0 !important; }
+@media (prefers-reduced-motion: reduce) { .scroll-cinema { display: none !important; } }
+
+/* Mobile avoids blur animation and expensive multi-layer translucent sheets. */
+@media (max-width: 700px) {
+  html[data-alive] .alive-sheet { background: #16121ef5; backdrop-filter: none; -webkit-backdrop-filter: none; }
 }

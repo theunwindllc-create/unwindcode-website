@@ -15,8 +15,9 @@ export function circuitFrames(hero, duration = 360, start = 0, end = duration) {
   return frames;
 }
 
-export function initLivingWords({ hero, motion, allowed, syncBreath }) {
+export function initLivingWords({ hero, motion, allowed, syncBreath, scrollActive = () => false }) {
   const root = document.documentElement;
+  const compact = () => innerWidth <= 700 || matchMedia('(pointer: coarse)').matches;
   const headline = document.querySelector('.hero-headline');
   const witness = document.querySelector('.witness-reading');
   const arrival = [...document.querySelectorAll('#nav, .hero-eyebrow, .hero-actions, .scroll-cue, .figure-note')];
@@ -44,7 +45,7 @@ export function initLivingWords({ hero, motion, allowed, syncBreath }) {
   function ink(el, progress, blur = 14) {
     const p = ease(progress);
     el.style.opacity = String(p);
-    el.style.filter = `blur(${blur * (1 - p)}px)`;
+    if (!compact()) el.style.filter = `blur(${blur * (1 - p)}px)`;
   }
   function prepareWords() {
     words.forEach(word => {
@@ -69,17 +70,26 @@ export function initLivingWords({ hero, motion, allowed, syncBreath }) {
   }
   function drain() {
     if (preparing || entrance || motion.active || !queue.size) return;
-    const targets = [...queue].filter(el => {
-      const box = el.getBoundingClientRect(); return box.bottom > 0 && box.top < innerHeight;
+    const pending = [...queue];
+    // A queued witness may have been hidden while another foreground job ran.
+    // Even entries excluded for focus or visibility must return to readable rest.
+    clear(pending);
+    const targets = pending.filter(el => {
+      const box = el.getBoundingClientRect(); return box.bottom > 0 && box.top < innerHeight && !el.contains(document.activeElement);
     });
     queue.clear();
-    if (!targets.length || !allowed()) { clear(targets); return; }
+    if (!targets.length || !allowed() || compact() || scrollActive()) { clear(targets); return; }
     transient = targets;
     motion.play(targets[0], [{ opacity: 1 }, { opacity: 1 }], 420, {
       sample: t => targets.forEach(el => ink(el, t / 420)), finish, priority: 1,
     });
   }
-  function skip() { if (entrance || preparing) { motion.cancel(); finish(); } }
+  function skip(event) {
+    const intent = ['keydown', 'pointerdown', 'click', 'touchstart', 'focusin'].includes(event?.type);
+    if (entrance || preparing || (intent && transient.length)) {
+      clear([...queue]); queue.clear(); motion.cancel(); finish();
+    }
+  }
   function start() {
     const back = performance.getEntriesByType('navigation')[0]?.type === 'back_forward';
     let first = false;
@@ -88,6 +98,12 @@ export function initLivingWords({ hero, motion, allowed, syncBreath }) {
       sessionStorage.setItem('uc-alive-entrance', 'seen');
     } catch { /* Storage denial: words only; never risk a repeated entrance. */ }
     if (!allowed() || back) return;
+    // On a phone, show the hero immediately; only a short ink arrival accompanies it.
+    if (compact()) {
+      preparing = true;
+      motion.play(headline, [{ opacity: .65 }, { opacity: 1 }], 280, { finish, priority: 3 });
+      return;
+    }
     first &&= !location.hash && scrollY < 10;
     preparing = true;
     prepareWords();
@@ -127,7 +143,7 @@ export function initLivingWords({ hero, motion, allowed, syncBreath }) {
   document.querySelectorAll('h2, .section-intro, .transmissions-intro, .specimen-info, .philosophy-statement > p:not(.eyebrow), .final h2 + p')
     .forEach(el => observer.observe(el));
   // Any intent wins. These listeners never prevent the visitor's original action.
-  ['keydown', 'pointerdown', 'click', 'touchstart', 'wheel', 'scroll'].forEach(type => window.addEventListener(type, skip, { passive: true, capture: true }));
+  ['keydown', 'pointerdown', 'click', 'touchstart', 'focusin', 'wheel', 'scroll'].forEach(type => window.addEventListener(type, skip, { passive: true, capture: true }));
   window.addEventListener('pagehide', skip);
   window.addEventListener('pageshow', event => { if (event.persisted) skip(); });
   document.addEventListener('uc:languagechange', () => { motion.cancel(); finish(); split(); resetLight(); });
