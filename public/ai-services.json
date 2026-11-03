@@ -379,7 +379,8 @@
         "/transmissions/32-the-silent-truncation",
         "/transmissions/33-the-organization-found-its-hands",
         "/transmissions/34-the-gate-that-refused-its-own-operator",
-        "/transmissions/35-the-ledger-learned-to-be-witnessed"
+        "/transmissions/35-the-ledger-learned-to-be-witnessed",
+        "/transmissions/37-the-organism-drew-its-chain-boundary"
       ],
       "source_files": [
         "api/assets.js",
@@ -431,6 +432,10 @@
         {
           "label": "Transmission 35 Ledger Learned to Be Witnessed guide",
           "route": "/transmissions/35-the-ledger-learned-to-be-witnessed"
+        },
+        {
+          "label": "Transmission 37 Organism Drew Its Chain Boundary guide",
+          "route": "/transmissions/37-the-organism-drew-its-chain-boundary"
         }
       ],
       "review_status": "public_safe"
@@ -570,7 +575,8 @@
         "/transmissions/32-the-silent-truncation",
         "/transmissions/33-the-organization-found-its-hands",
         "/transmissions/34-the-gate-that-refused-its-own-operator",
-        "/transmissions/35-the-ledger-learned-to-be-witnessed"
+        "/transmissions/35-the-ledger-learned-to-be-witnessed",
+        "/transmissions/37-the-organism-drew-its-chain-boundary"
       ],
       "source_files": [
         "api/transmissions.js",
@@ -622,6 +628,10 @@
         {
           "label": "Transmission 35 ledger learned to be witnessed",
           "route": "/transmissions/35-the-ledger-learned-to-be-witnessed"
+        },
+        {
+          "label": "Transmission 37 organism drew its chain boundary",
+          "route": "/transmissions/37-the-organism-drew-its-chain-boundary"
         }
       ],
       "review_status": "public_safe"

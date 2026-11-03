@@ -8,16 +8,16 @@ test('public parity checker compares latest transmission across discovery surfac
 
   assert.equal(report.success, true);
   assert.deepEqual(report.latest_public_transmission, {
-    id: '35-the-ledger-learned-to-be-witnessed',
-    transmission_number: 35,
-    route: '/transmissions/35-the-ledger-learned-to-be-witnessed',
-    source_file: 'transmissions/35-the-ledger-learned-to-be-witnessed.html',
+    id: '37-the-organism-drew-its-chain-boundary',
+    transmission_number: 37,
+    route: '/transmissions/37-the-organism-drew-its-chain-boundary',
+    source_file: 'transmissions/37-the-organism-drew-its-chain-boundary.html',
   });
   assert.deepEqual(report.transmission_numbering, {
-    latest_number: 35,
-    published_count: 36,
-    has_gaps: false,
-    missing_numbers: [],
+    latest_number: 37,
+    published_count: 37,
+    has_gaps: true,
+    missing_numbers: [36],
   });
 
   const checkNames = report.checks.map((check) => check.name).sort();
@@ -48,13 +48,13 @@ test('public parity checker compares latest transmission across discovery surfac
 });
 
 test('public parity checker can verify live discovery surfaces without using local files as proof', async () => {
-  const latestRoute = '/transmissions/35-the-ledger-learned-to-be-witnessed';
+  const latestRoute = '/transmissions/37-the-organism-drew-its-chain-boundary';
   const latestStatus = {
-    id: '35-the-ledger-learned-to-be-witnessed',
-    transmission_number: 35,
-    title: 'Transmission 35: The Ledger Learned to Be Witnessed',
+    id: '37-the-organism-drew-its-chain-boundary',
+    transmission_number: 37,
+    title: 'Transmission 37: The Organism Drew Its Chain Boundary',
     route: latestRoute,
-    source_file: 'transmissions/35-the-ledger-learned-to-be-witnessed.html',
+    source_file: 'transmissions/37-the-organism-drew-its-chain-boundary.html',
     review_status: 'public_safe',
   };
   const responses = new Map([
@@ -98,10 +98,10 @@ test('public parity checker can verify live discovery surfaces without using loc
             transmissions: {
               latest_public_transmission: latestStatus,
               numbering: {
-                latest_number: 35,
-                published_count: 36,
-                has_gaps: false,
-                missing_numbers: [],
+                latest_number: 37,
+                published_count: 37,
+                has_gaps: true,
+                missing_numbers: [36],
               },
             },
           },
@@ -144,13 +144,13 @@ test('public parity checker can verify live discovery surfaces without using loc
 });
 
 test('public parity checker fails when live public RAG contracts are unavailable', async () => {
-  const latestRoute = '/transmissions/35-the-ledger-learned-to-be-witnessed';
+  const latestRoute = '/transmissions/37-the-organism-drew-its-chain-boundary';
   const latestStatus = {
-    id: '35-the-ledger-learned-to-be-witnessed',
-    transmission_number: 35,
-    title: 'Transmission 35: The Ledger Learned to Be Witnessed',
+    id: '37-the-organism-drew-its-chain-boundary',
+    transmission_number: 37,
+    title: 'Transmission 37: The Organism Drew Its Chain Boundary',
     route: latestRoute,
-    source_file: 'transmissions/35-the-ledger-learned-to-be-witnessed.html',
+    source_file: 'transmissions/37-the-organism-drew-its-chain-boundary.html',
     review_status: 'public_safe',
   };
   const responses = new Map([
@@ -187,10 +187,10 @@ test('public parity checker fails when live public RAG contracts are unavailable
             transmissions: {
               latest_public_transmission: latestStatus,
               numbering: {
-                latest_number: 35,
-                published_count: 36,
-                has_gaps: false,
-                missing_numbers: [],
+                latest_number: 37,
+                published_count: 37,
+                has_gaps: true,
+                missing_numbers: [36],
               },
             },
           },
@@ -222,13 +222,13 @@ test('public parity checker fails when live public RAG contracts are unavailable
 });
 
 test('public parity checker classifies live RAG fail-closed HTTP states by endpoint', async () => {
-  const latestRoute = '/transmissions/35-the-ledger-learned-to-be-witnessed';
+  const latestRoute = '/transmissions/37-the-organism-drew-its-chain-boundary';
   const latestStatus = {
-    id: '35-the-ledger-learned-to-be-witnessed',
-    transmission_number: 35,
-    title: 'Transmission 35: The Ledger Learned to Be Witnessed',
+    id: '37-the-organism-drew-its-chain-boundary',
+    transmission_number: 37,
+    title: 'Transmission 37: The Organism Drew Its Chain Boundary',
     route: latestRoute,
-    source_file: 'transmissions/35-the-ledger-learned-to-be-witnessed.html',
+    source_file: 'transmissions/37-the-organism-drew-its-chain-boundary.html',
     review_status: 'public_safe',
   };
   const responses = new Map([
@@ -246,10 +246,10 @@ test('public parity checker classifies live RAG fail-closed HTTP states by endpo
             transmissions: {
               latest_public_transmission: latestStatus,
               numbering: {
-                latest_number: 35,
-                published_count: 36,
-                has_gaps: false,
-                missing_numbers: [],
+                latest_number: 37,
+                published_count: 37,
+                has_gaps: true,
+                missing_numbers: [36],
               },
             },
           },
@@ -326,7 +326,7 @@ test('public parity checker classifies live RAG fail-closed HTTP states by endpo
 });
 
 test('public parity checker reports incompatible live status contracts without throwing', async () => {
-  const latestRoute = '/transmissions/35-the-ledger-learned-to-be-witnessed';
+  const latestRoute = '/transmissions/37-the-organism-drew-its-chain-boundary';
   const responses = new Map([
     ['https://www.unwindcode.ai/', `<a href="${latestRoute}">latest</a>`],
     ['https://www.unwindcode.ai/transmissions', `<a href="${latestRoute}">latest</a>`],

@@ -4,6 +4,36 @@
   "generated_from": "active-site-public-html",
   "transmissions": [
     {
+      "id": "37-the-organism-drew-its-chain-boundary",
+      "transmission_number": 37,
+      "title": "Transmission 37: The Organism Drew Its Chain Boundary",
+      "summary": "Field note dated 2026-11-02 on evolving the Unwind ecosystem onto the Internet Computer without moving its keys: a three-state dividing line written before any code, four canisters (witness, registry, site, console) proven on local replicas only, what a certified read proves and does not, and an automated goal-checker that pressed for a mainnet deploy and was refused under the custody boundary. Mainnet deployment, controllers, cycles, the witness token, and DNS cut-over remain with the operator.",
+      "route": "/transmissions/37-the-organism-drew-its-chain-boundary",
+      "source_file": "transmissions/37-the-organism-drew-its-chain-boundary.html",
+      "topic_tags": [
+        "internet-computer",
+        "custody-boundary",
+        "certified-responses",
+        "attestation",
+        "proof-loop",
+        "fail-closed"
+      ],
+      "memory_layers": [
+        "procedural",
+        "semantic",
+        "episodic"
+      ],
+      "citations": [
+        {
+          "label": "Transmission 37 field note",
+          "route": "/transmissions/37-the-organism-drew-its-chain-boundary",
+          "source_file": "transmissions/37-the-organism-drew-its-chain-boundary.html"
+        }
+      ],
+      "confidence": "high",
+      "review_status": "public_safe"
+    },
+    {
       "id": "34-the-gate-that-refused-its-own-operator",
       "transmission_number": 34,
       "title": "Transmission 34: The Gate That Refused Its Own Operator",

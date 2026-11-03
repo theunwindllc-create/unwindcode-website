@@ -1061,7 +1061,7 @@
       ],
       "authority_boundary": "The desk prepares manual posting assets only; no social network posting, public distribution, or claim escalation happens without creator approval."
     },
-    "total_transmissions": 35,
+    "total_transmissions": 37,
     "reader_lanes": [
       {
         "lane": "whitepaper",
@@ -1095,6 +1095,13 @@
       }
     ],
     "latest": {
+      "id": "transmission_37",
+      "title": "The Organism Drew Its Chain Boundary",
+      "url": "https://www.unwindcode.ai/transmissions/37-the-organism-drew-its-chain-boundary",
+      "lane": "chain_boundary",
+      "use_for": "Understand how an autonomous system draws its boundary with a public chain: which components move on-chain, which are witnessed from there while running on the machine, which stay by law or physics, why local-replica proofs are not mainnet claims, and why the custody boundary outranks automated goal pressure."
+    },
+    "transmission_33": {
       "id": "transmission_33",
       "title": "The Organization Found Its Hands",
       "url": "https://www.unwindcode.ai/transmissions/33-the-organization-found-its-hands",
@@ -1114,6 +1121,13 @@
       "url": "https://www.unwindcode.ai/transmissions/35-the-ledger-learned-to-be-witnessed",
       "lane": "independent_attestation",
       "use_for": "Understand why a witness sharing a credential with the witnessed is a mirror, what thirty-minute attestation granularity actually guarantees, and how silent failure hides inside schedulers that report success."
+    },
+    "transmission_37": {
+      "id": "transmission_37",
+      "title": "The Organism Drew Its Chain Boundary",
+      "url": "https://www.unwindcode.ai/transmissions/37-the-organism-drew-its-chain-boundary",
+      "lane": "chain_boundary",
+      "use_for": "Understand how an autonomous system draws its boundary with a public chain: which components move on-chain, which are witnessed from there while running on the machine, which stay by law or physics, why local-replica proofs are not mainnet claims, and why the custody boundary outranks automated goal pressure."
     }
   },
   "proof_urls": [

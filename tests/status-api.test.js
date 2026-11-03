@@ -169,20 +169,20 @@ test('returns public-safe backend status from active registries', async () => {
   assert.equal(res.body.status.registries.claims.needs_context_count, 2);
   assert.equal(res.body.status.registries.claims.safety_qualified_count, 2);
   assert.equal(res.body.status.registries.organisms.count, 5);
-  assert.equal(res.body.status.registries.transmissions.count, 36);
+  assert.equal(res.body.status.registries.transmissions.count, 37);
   assert.deepEqual(res.body.status.registries.transmissions.latest_public_transmission, {
-    id: '35-the-ledger-learned-to-be-witnessed',
-    transmission_number: 35,
-    title: 'Transmission 35: The Ledger Learned to Be Witnessed',
-    route: '/transmissions/35-the-ledger-learned-to-be-witnessed',
-    source_file: 'transmissions/35-the-ledger-learned-to-be-witnessed.html',
+    id: '37-the-organism-drew-its-chain-boundary',
+    transmission_number: 37,
+    title: 'Transmission 37: The Organism Drew Its Chain Boundary',
+    route: '/transmissions/37-the-organism-drew-its-chain-boundary',
+    source_file: 'transmissions/37-the-organism-drew-its-chain-boundary.html',
     review_status: 'public_safe',
   });
   assert.deepEqual(res.body.status.registries.transmissions.numbering, {
-    latest_number: 35,
-    published_count: 36,
-    has_gaps: false,
-    missing_numbers: [],
+    latest_number: 37,
+    published_count: 37,
+    has_gaps: true,
+    missing_numbers: [36],
   });
   assert.deepEqual(res.body.status.operational_controls.durable_rate_limited_endpoints.sort(), [
     '/api/architecture',
