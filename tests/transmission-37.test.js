@@ -81,10 +81,10 @@ test('archive and service counts measure actual articles while preserving both l
   assert.ok((await read('llms.txt')).includes(`${files.length} dispatches as a proof library`));
 });
 
-test('the live homepage leads with Transmission 37 and preserves 35 and 34 as the next two cards', async () => {
+test('the live homepage leads with Transmission 37, followed in number order by 36 and 35', async () => {
   const homepage = await read('public/lab/index.html');
   const cards = [...homepage.matchAll(/class="transmission-card"\s+href="([^"]+)"/g)].map(match => match[1]);
-  assert.deepEqual(cards, [route, '/transmissions/35-the-ledger-learned-to-be-witnessed', '/transmissions/34-the-gate-that-refused-its-own-operator']);
+  assert.deepEqual(cards, [route, '/transmissions/36-movement-needs-a-source', '/transmissions/35-the-ledger-learned-to-be-witnessed']);
   assert.match(homepage, /<h3 data-es="El organismo trazó su frontera en cadena">\s+The Organism Drew Its Chain Boundary/);
   const legacy = await read('index.html');
   assert.equal(legacy.match(/class="blog-card" href="([^"]+)"/)[1], route);
@@ -117,11 +117,13 @@ test('public retrieval metadata binds Transmission 37 to its dated field note wi
   }
 });
 
-test('the numbering gap left for the reserved Transmission 36 is reported, not hidden', async () => {
+test('the numbering gap once left for Transmission 36 is closed by a real article, and the snapshots say so', async () => {
   const registry = JSON.parse(await read('public/data/transmissions.json'));
   const numbers = registry.transmissions.map(item => item.transmission_number);
   assert.ok(numbers.includes(37));
-  assert.equal(numbers.includes(36), false, 'Transmission 36 is reserved by an unfinished draft and is not registered here');
+  assert.equal(numbers.filter(number => number === 36).length, 1, 'Transmission 36 is registered exactly once');
+  await read('transmissions/36-movement-needs-a-source.html');
   const parityTest = await read('tests/public-parity-script.test.js');
-  assert.match(parityTest, /has_gaps: true,\s+missing_numbers: \[36\]/, 'the parity snapshot states the gap instead of rounding it away');
+  assert.match(parityTest, /has_gaps: false,\s+missing_numbers: \[\]/, 'the parity snapshot states the closed gap');
+  assert.equal(/missing_numbers: \[36\]/.test(parityTest), false, 'no snapshot still reports 36 as missing');
 });

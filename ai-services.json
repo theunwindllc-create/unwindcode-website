@@ -1061,7 +1061,7 @@
       ],
       "authority_boundary": "The desk prepares manual posting assets only; no social network posting, public distribution, or claim escalation happens without creator approval."
     },
-    "total_transmissions": 37,
+    "total_transmissions": 38,
     "reader_lanes": [
       {
         "lane": "whitepaper",
@@ -1121,6 +1121,13 @@
       "url": "https://www.unwindcode.ai/transmissions/35-the-ledger-learned-to-be-witnessed",
       "lane": "independent_attestation",
       "use_for": "Understand why a witness sharing a credential with the witnessed is a mirror, what thirty-minute attestation granularity actually guarantees, and how silent failure hides inside schedulers that report success."
+    },
+    "transmission_36": {
+      "id": "transmission_36",
+      "title": "Movement Needs a Source",
+      "url": "https://www.unwindcode.ai/transmissions/36-movement-needs-a-source",
+      "lane": "interface_evidence",
+      "use_for": "Understand visitor-driven cinematic motion, bounded mobile loading, finite rendering, and why interface release evidence does not establish Genesis operational readiness; the operational facts are a dated 2026-10-22 snapshot, not live status."
     },
     "transmission_37": {
       "id": "transmission_37",

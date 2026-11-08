@@ -380,6 +380,7 @@
         "/transmissions/33-the-organization-found-its-hands",
         "/transmissions/34-the-gate-that-refused-its-own-operator",
         "/transmissions/35-the-ledger-learned-to-be-witnessed",
+        "/transmissions/36-movement-needs-a-source",
         "/transmissions/37-the-organism-drew-its-chain-boundary"
       ],
       "source_files": [
@@ -432,6 +433,10 @@
         {
           "label": "Transmission 35 Ledger Learned to Be Witnessed guide",
           "route": "/transmissions/35-the-ledger-learned-to-be-witnessed"
+        },
+        {
+          "label": "Transmission 36 Movement Needs a Source guide",
+          "route": "/transmissions/36-movement-needs-a-source"
         },
         {
           "label": "Transmission 37 Organism Drew Its Chain Boundary guide",
@@ -576,6 +581,7 @@
         "/transmissions/33-the-organization-found-its-hands",
         "/transmissions/34-the-gate-that-refused-its-own-operator",
         "/transmissions/35-the-ledger-learned-to-be-witnessed",
+        "/transmissions/36-movement-needs-a-source",
         "/transmissions/37-the-organism-drew-its-chain-boundary"
       ],
       "source_files": [
@@ -628,6 +634,10 @@
         {
           "label": "Transmission 35 ledger learned to be witnessed",
           "route": "/transmissions/35-the-ledger-learned-to-be-witnessed"
+        },
+        {
+          "label": "Transmission 36 movement needs a source",
+          "route": "/transmissions/36-movement-needs-a-source"
         },
         {
           "label": "Transmission 37 organism drew its chain boundary",

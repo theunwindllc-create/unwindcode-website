@@ -34,6 +34,34 @@
       "review_status": "public_safe"
     },
     {
+      "id": "36-movement-needs-a-source",
+      "transmission_number": 36,
+      "title": "Transmission 36: Movement Needs a Source",
+      "summary": "Field note on visitor-driven cinematic motion, bounded mobile loading, and the distinction between a verified interface release and Genesis operational readiness. At the 2026-10-22 assessment, a guard service reported healthy while autonomous building remained held, the heartbeat was paused, and end-to-end recovery was incomplete.",
+      "route": "/transmissions/36-movement-needs-a-source",
+      "source_file": "transmissions/36-movement-needs-a-source.html",
+      "topic_tags": [
+        "interface-design",
+        "event-driven-motion",
+        "mobile-performance",
+        "evidence-boundaries",
+        "operational-readiness"
+      ],
+      "memory_layers": [
+        "procedural",
+        "episodic"
+      ],
+      "citations": [
+        {
+          "label": "Transmission 36 field note",
+          "route": "/transmissions/36-movement-needs-a-source",
+          "source_file": "transmissions/36-movement-needs-a-source.html"
+        }
+      ],
+      "confidence": "high",
+      "review_status": "public_safe"
+    },
+    {
       "id": "34-the-gate-that-refused-its-own-operator",
       "transmission_number": 34,
       "title": "Transmission 34: The Gate That Refused Its Own Operator",

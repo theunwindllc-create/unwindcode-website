@@ -169,7 +169,7 @@ test('returns public-safe backend status from active registries', async () => {
   assert.equal(res.body.status.registries.claims.needs_context_count, 2);
   assert.equal(res.body.status.registries.claims.safety_qualified_count, 2);
   assert.equal(res.body.status.registries.organisms.count, 5);
-  assert.equal(res.body.status.registries.transmissions.count, 37);
+  assert.equal(res.body.status.registries.transmissions.count, 38);
   assert.deepEqual(res.body.status.registries.transmissions.latest_public_transmission, {
     id: '37-the-organism-drew-its-chain-boundary',
     transmission_number: 37,
@@ -180,9 +180,9 @@ test('returns public-safe backend status from active registries', async () => {
   });
   assert.deepEqual(res.body.status.registries.transmissions.numbering, {
     latest_number: 37,
-    published_count: 37,
-    has_gaps: true,
-    missing_numbers: [36],
+    published_count: 38,
+    has_gaps: false,
+    missing_numbers: [],
   });
   assert.deepEqual(res.body.status.operational_controls.durable_rate_limited_endpoints.sort(), [
     '/api/architecture',

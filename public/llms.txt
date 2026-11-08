@@ -36,6 +36,7 @@ This file is a public-safe guide for AI crawlers and retrieval systems. It inten
 - Organization Found Its Hands agent-identity guide: https://www.unwindcode.ai/transmissions/33-the-organization-found-its-hands
 - Gate That Refused Its Own Operator custody-boundary guide: https://www.unwindcode.ai/transmissions/34-the-gate-that-refused-its-own-operator
 - Ledger Learned to Be Witnessed attestation guide: https://www.unwindcode.ai/transmissions/35-the-ledger-learned-to-be-witnessed
+- Movement Needs a Source interface and evidence field note: https://www.unwindcode.ai/transmissions/36-movement-needs-a-source
 - Organism Drew Its Chain Boundary Internet Computer boundary guide: https://www.unwindcode.ai/transmissions/37-the-organism-drew-its-chain-boundary
 
 ## Retrieval Guidance

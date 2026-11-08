@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Transmission 36: Movement Needs a Source | Unwind Code</title>
+  <meta name="description" content="A field note on the 22 October 2026 assessment: why the homepage hero moves only when a visitor scrolls, what its frame sequence may cost a phone, every condition that stops it, and why a verified interface release is not evidence that Genesis is ready." />
+  <meta name="theme-color" content="#06060c" />
+  <link rel="canonical" href="https://www.unwindcode.ai/transmissions/36-movement-needs-a-source" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Movement Needs a Source" />
+  <meta property="og:description" content="Visitor-driven motion, a phone budget measured per file, and the line between a verified interface release and a ready organism." />
+  <meta property="og:url" content="https://www.unwindcode.ai/transmissions/36-movement-needs-a-source" />
+  <meta property="og:site_name" content="Unwind Code" />
+  <meta property="og:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
+  <meta property="og:image:type" content="image/svg+xml" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Unwind Code AI organism architecture lab visual" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Movement Needs a Source" />
+  <meta name="twitter:description" content="Motion that moves only when the visitor does, a phone budget measured per file, and why a green release is not a ready organism." />
+  <meta name="twitter:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
+  <meta name="twitter:image:alt" content="Unwind Code AI organism architecture lab visual" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Movement Needs a Source",
+    "description": "Field note on visitor-driven cinematic motion, bounded mobile loading, and the distinction between a verified interface release and Genesis operational readiness, describing the 2026-10-22 assessment.",
+    "author": {"@type": "Organization", "name": "Unwind Code"},
+    "publisher": {"@type": "Organization", "name": "Unwind Code", "url": "https://www.unwindcode.ai"},
+    "datePublished": "2026-11-08",
+    "dateModified": "2026-11-08",
+    "temporalCoverage": "2026-10-22",
+    "keywords": ["event-driven motion", "scroll-driven animation", "mobile performance", "frame budgets", "reduced motion", "evidence boundaries", "operational readiness"],
+    "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/36-movement-needs-a-source"
+  }
+  </script>
+  <style>
+    .tx-page { background: var(--bg-void); color: var(--text-primary); }
+    .tx-page *, .tx-page *::before, .tx-page *::after { box-sizing: border-box; }
+    .tx-hero { padding: 160px 0 56px; text-align: center; position: relative; overflow: hidden; }
+    .tx-hero::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:800px; height:800px; background:radial-gradient(circle, rgba(110,45,190,0.12) 0%, transparent 60%); pointer-events:none; }
+    .tx-hero-kicker { margin-bottom:16px; }
+    .tx-hero h1 { font-size:clamp(2.2rem,5vw,3.5rem); font-weight:800; letter-spacing:-0.04em; line-height:1.08; margin:0 0 20px; }
+    .tx-hero-sub { font-size:1.08rem; color:var(--text-secondary); max-width:660px; margin:0 auto; line-height:1.7; }
+    .tx-hero-meta { margin-top:28px; display:flex; justify-content:center; gap:14px; font-size:0.76rem; color:var(--text-muted); font-weight:600; letter-spacing:0.06em; text-transform:uppercase; flex-wrap:wrap; }
+    .tx-dateline { max-width:720px; margin:32px auto 0; text-align:left; border:1px solid rgba(232,161,92,0.28); border-radius:14px; padding:16px 20px; background:linear-gradient(180deg,rgba(232,161,92,0.07),rgba(232,161,92,0.015)); font-size:0.88rem; line-height:1.65; color:var(--text-secondary); }
+    .tx-dateline strong { color:#e8a15c; font-weight:650; }
+    .tx-section { padding:72px 0; border-top:1px solid var(--accent-border); }
+    .tx-section:first-of-type { border-top:none; padding-top:24px; }
+    .tx-section-head { display:flex; align-items:center; gap:16px; margin-bottom:10px; }
+    .tx-section-num { font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:700; color:var(--accent-hot); letter-spacing:0.15em; }
+    .tx-section h2 { font-size:clamp(1.5rem,3vw,2rem); font-weight:700; letter-spacing:-0.02em; margin:0; }
+    .tx-section-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:24px; }
+    .tx-prose { font-size:1.04rem; color:var(--text-secondary); line-height:1.8; max-width:720px; }
+    .tx-prose p { margin:0 0 22px; }
+    .tx-prose strong { color:var(--text-primary); font-weight:600; }
+    .tx-prose code, .tx-prose-code { font-family:'JetBrains Mono',monospace; font-size:0.84rem; background:rgba(110,45,190,0.1); color:var(--accent-light); padding:2px 6px; border-radius:4px; }
+    .tx-prose a, .tx-inline { color:var(--accent-light); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    .tx-quote { border-left:3px solid var(--accent); padding:18px 24px; margin:36px 0; background:rgba(110,45,190,0.05); border-radius:0 12px 12px 0; color:var(--text-primary); font-size:1.08rem; line-height:1.6; font-weight:500; max-width:720px; }
+    .tx-after { margin-top:36px; }
+    .tx-num { font-family:'JetBrains Mono',monospace; font-variant-numeric:tabular-nums; }
+    .tx-page button:focus-visible, .tx-page summary:focus-visible, .tx-page input:focus-visible, .tx-page a:focus-visible { outline:2px solid var(--accent-hot); outline-offset:3px; }
+
+    /* 01 — Gesture explorer */
+    .gx-explorer { display:grid; grid-template-columns:1fr 1.25fr; gap:24px; margin-top:32px; }
+    .gx-grid { display:none; grid-template-columns:1fr 1fr; gap:10px; align-content:start; }
+    .gx-explorer.is-live .gx-grid { display:grid; }
+    .gx-explorer:not(.is-live) { grid-template-columns:1fr; }
+    .gx-node { font-family:inherit; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:14px 16px; cursor:pointer; transition:border-color .25s ease, transform .25s ease, background .25s ease; }
+    .gx-node:hover, .gx-node[aria-pressed="true"] { border-color:rgba(110,45,190,0.45); transform:translateY(-2px); }
+    .gx-node[aria-pressed="true"] { background:rgba(110,45,190,0.08); }
+    .gx-node-name { display:block; font-weight:650; font-size:0.9rem; line-height:1.35; }
+    .gx-node-verdict { display:block; margin-top:6px; font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; }
+    .gx-yes { color:#34d399; } .gx-no { color:#fbbf24; }
+    .gx-detail { display:flex; flex-direction:column; gap:14px; }
+    .gx-explorer.is-live .gx-detail { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:20px; padding:30px; min-height:300px; }
+    .gx-panel { border:1px solid var(--accent-border); border-radius:14px; padding:18px 20px; background:var(--bg-surface); }
+    .gx-explorer.is-live .gx-panel { border:none; padding:0; background:none; }
+    .gx-panel[hidden] { display:none; }
+    .gx-panel h3 { margin:0 0 8px; font-size:1.2rem; }
+    .gx-badge { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:4px 12px; border-radius:999px; border:1px solid currentColor; margin-bottom:14px; }
+    .gx-panel p { margin:0 0 12px; color:var(--text-secondary); line-height:1.7; font-size:0.95rem; }
+    .gx-src { margin-top:14px; padding-top:12px; border-top:1px solid var(--accent-border); font-size:0.8rem; color:var(--text-muted); line-height:1.55; }
+
+    /* 02 — Rendition budget */
+    .rb-table-wrap { margin-top:28px; overflow-x:auto; max-width:760px; border:1px solid var(--accent-border); border-radius:16px; background:var(--bg-surface); }
+    .rb-table { width:100%; border-collapse:collapse; font-size:0.9rem; }
+    .rb-table caption { caption-side:bottom; text-align:left; padding:14px 18px; font-size:0.8rem; color:var(--text-muted); line-height:1.6; border-top:1px solid var(--accent-border); }
+    .rb-table th, .rb-table td { padding:11px 18px; text-align:left; border-bottom:1px solid rgba(110,45,190,0.08); vertical-align:top; }
+    .rb-table thead th { font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); font-weight:700; }
+    .rb-table tbody th { color:var(--text-secondary); font-weight:500; }
+    .rb-table td { color:var(--text-primary); font-family:'JetBrains Mono',monospace; font-variant-numeric:tabular-nums; font-size:0.84rem; overflow-wrap:anywhere; }
+    .rb-live { display:none; margin-top:28px; border:1px solid rgba(56,189,248,0.22); border-radius:20px; padding:26px; background:linear-gradient(180deg,rgba(56,189,248,0.06),rgba(56,189,248,0.01)); max-width:760px; }
+    .rb-live.is-live { display:block; }
+    .rb-top { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; }
+    .rb-label { font-family:'JetBrains Mono',monospace; font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:#38bdf8; }
+    .rb-switch { display:flex; flex-wrap:wrap; gap:8px; }
+    .rb-chip { font-family:inherit; font-size:0.78rem; font-weight:700; padding:8px 14px; border-radius:999px; border:1px solid var(--accent-border); background:var(--bg-surface); color:var(--text-secondary); cursor:pointer; transition:border-color .2s ease, color .2s ease; }
+    .rb-chip:hover { color:var(--text-primary); }
+    .rb-chip[aria-pressed="true"] { color:var(--text-primary); border-color:#38bdf8; background:rgba(56,189,248,0.1); }
+    .rb-meters { display:flex; flex-direction:column; gap:14px; }
+    .rb-meter-head { display:flex; flex-wrap:wrap; justify-content:space-between; gap:6px 12px; font-size:0.84rem; margin-bottom:6px; }
+    .rb-meter-name { color:var(--text-secondary); }
+    .rb-meter-val { font-family:'JetBrains Mono',monospace; font-variant-numeric:tabular-nums; color:var(--text-primary); font-size:0.8rem; overflow-wrap:anywhere; }
+    .rb-bar { height:8px; border-radius:999px; background:rgba(240,238,246,0.08); overflow:hidden; }
+    .rb-fill { display:block; height:100%; width:0; border-radius:999px; background:linear-gradient(90deg,#0ea5e9,#9b59f5); transition:width .4s ease; }
+    .rb-fill.is-estimate { background:repeating-linear-gradient(90deg,rgba(251,191,36,0.85) 0 6px,rgba(251,191,36,0.35) 6px 10px); }
+    .rb-note { margin:6px 0 0; font-size:0.76rem; color:var(--text-muted); line-height:1.55; }
+    .rb-sim { margin-top:24px; padding-top:20px; border-top:1px solid var(--accent-border); }
+    .rb-sim label { display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px; font-size:0.86rem; color:var(--text-secondary); margin-bottom:10px; }
+    .rb-sim output { font-family:'JetBrains Mono',monospace; color:var(--text-primary); }
+    .rb-sim input[type="range"] { width:100%; accent-color:#9b59f5; }
+    .rb-strip { display:grid; gap:3px; margin:14px 0 10px; }
+    .rb-cell { height:18px; border-radius:3px; background:rgba(240,238,246,0.07); border:1px solid transparent; }
+    .rb-cell.cached { background:rgba(56,189,248,0.35); }
+    .rb-cell.shown { background:#c084fc; border-color:#f0eef6; }
+    .rb-readout { margin:0; font-family:'JetBrains Mono',monospace; font-size:0.78rem; color:var(--text-secondary); line-height:1.7; min-height:3.4em; }
+    .rb-legend { display:flex; flex-wrap:wrap; gap:14px; font-size:0.72rem; color:var(--text-muted); margin-top:8px; }
+    .rb-legend span::before { content:''; display:inline-block; width:10px; height:10px; border-radius:2px; margin-right:6px; vertical-align:-1px; }
+    .rb-legend .lg-shown::before { background:#c084fc; } .rb-legend .lg-cached::before { background:rgba(56,189,248,0.35); } .rb-legend .lg-idle::before { background:rgba(240,238,246,0.07); }
+
+    /* 03 — Workflow + stop cards */
+    .wf-steps { position:relative; margin-top:32px; padding-left:40px; max-width:760px; }
+    .wf-steps::before { content:''; position:absolute; left:19px; top:0; bottom:0; width:2px; background:var(--accent-border); }
+    .wf-step { position:relative; margin-bottom:36px; }
+    .wf-step:last-child { margin-bottom:0; }
+    .wf-dot { position:absolute; left:-40px; top:0; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:800; z-index:2; font-family:'JetBrains Mono',monospace; }
+    .wf-dot-1 { background:rgba(110,45,190,0.15); color:var(--accent-light); border:2px solid var(--accent); }
+    .wf-dot-2 { background:rgba(79,70,229,0.15); color:#818cf8; border:2px solid #6366f1; }
+    .wf-dot-3 { background:rgba(14,165,233,0.15); color:#38bdf8; border:2px solid #0ea5e9; }
+    .wf-dot-4 { background:rgba(16,185,129,0.15); color:#34d399; border:2px solid #10b981; }
+    .wf-dot-5 { background:rgba(245,158,11,0.15); color:#fbbf24; border:2px solid #f59e0b; }
+    .wf-dot-6 { background:linear-gradient(135deg,var(--accent),var(--accent-light)); color:#fff; border:none; }
+    .wf-step h3 { font-size:1.06rem; font-weight:700; margin:0 0 6px; padding-top:8px; }
+    .wf-step p { font-size:0.92rem; color:var(--text-secondary); line-height:1.65; margin:0; }
+    .wf-step.reveal-step { opacity:0; transform:translateY(10px); animation:wfIn .6s ease forwards; }
+    .wf-step.reveal-step:nth-child(1){animation-delay:.05s}.wf-step.reveal-step:nth-child(2){animation-delay:.15s}.wf-step.reveal-step:nth-child(3){animation-delay:.25s}.wf-step.reveal-step:nth-child(4){animation-delay:.35s}.wf-step.reveal-step:nth-child(5){animation-delay:.45s}.wf-step.reveal-step:nth-child(6){animation-delay:.55s}
+    @keyframes wfIn { to { opacity:1; transform:none; } }
+    .stop-list { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:28px; }
+    .stop-card { border:1px solid var(--accent-border); border-radius:14px; background:var(--bg-surface); transition:border-color .2s ease; }
+    .stop-card[open] { border-color:rgba(110,45,190,0.45); }
+    .stop-card summary { cursor:pointer; list-style:none; padding:16px 18px; display:flex; justify-content:space-between; align-items:flex-start; gap:12px; font-weight:650; font-size:0.94rem; line-height:1.4; }
+    .stop-card summary::-webkit-details-marker { display:none; }
+    .stop-card summary::after { content:'+'; font-family:'JetBrains Mono',monospace; color:var(--accent-hot); font-weight:700; }
+    .stop-card[open] summary::after { content:'−'; }
+    .stop-card p { margin:0; padding:0 18px 16px; font-size:0.88rem; color:var(--text-secondary); line-height:1.65; }
+    .stop-card .stop-src { padding-top:0; font-size:0.78rem; color:var(--text-muted); }
+
+    /* 04 — Evidence boundary */
+    .ev-filters { display:flex; flex-wrap:wrap; gap:10px; margin:28px 0 14px; }
+    .ev-board:not(.is-live) .ev-filters { display:none; }
+    .ev-chip { font-family:inherit; font-size:0.76rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; padding:9px 16px; border-radius:999px; border:1px solid var(--accent-border); background:var(--bg-surface); color:var(--text-secondary); cursor:pointer; transition:border-color .2s ease, color .2s ease, background .2s ease; }
+    .ev-chip:hover { color:var(--text-primary); }
+    .ev-chip[aria-pressed="true"] { background:rgba(110,45,190,0.16); border-color:var(--accent-light); color:var(--text-primary); }
+    .ev-count { font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:var(--text-muted); margin-bottom:14px; letter-spacing:0.05em; min-height:1.2em; }
+    .ev-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:12px; }
+    .ev-card { border:1px solid var(--accent-border); border-radius:14px; background:var(--bg-surface); padding:18px; display:flex; flex-direction:column; gap:10px; }
+    .ev-card[hidden] { display:none; }
+    .ev-tag { align-self:flex-start; font-family:'JetBrains Mono',monospace; font-size:0.64rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:3px 9px; border-radius:999px; border:1px solid currentColor; }
+    .ev-supported .ev-tag { color:#34d399; } .ev-limited .ev-tag { color:#fbbf24; } .ev-unsupported .ev-tag { color:#fca5a5; }
+    .ev-claim { margin:0; font-weight:650; font-size:0.95rem; line-height:1.45; }
+    .ev-toggle { display:none; align-self:flex-start; font-family:inherit; font-size:0.72rem; font-weight:700; letter-spacing:0.05em; color:var(--accent-hot); background:none; border:none; padding:2px 0; cursor:pointer; }
+    .ev-board.is-live .ev-toggle { display:inline-block; }
+    .ev-why { margin:0; font-size:0.85rem; color:var(--text-secondary); line-height:1.6; padding-top:10px; border-top:1px solid var(--accent-border); }
+    .ev-board.is-live .ev-why[hidden] { display:none; }
+    .tx-bound { border:1px solid rgba(232,161,92,0.28); border-radius:16px; padding:26px 28px; background:linear-gradient(180deg,rgba(232,161,92,0.08),rgba(232,161,92,0.02)); margin:32px 0 0; max-width:760px; }
+    .tx-bound h3 { margin:0 0 12px; color:#e8a15c; font-size:1.02rem; }
+    .tx-bound p { margin:0 0 12px; font-size:0.95rem; color:var(--text-secondary); line-height:1.7; }
+    .tx-bound p:last-child { margin:0; }
+
+    /* Related + CTA */
+    .tx-related { margin-top:40px; padding-top:22px; border-top:1px solid var(--accent-border); font-size:0.9rem; color:var(--text-muted); line-height:1.7; }
+    .tx-related a { color:var(--accent-light); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    .tx-cta { text-align:center; padding:64px 40px; background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:28px; margin-top:72px; }
+    .tx-cta h2 { font-size:1.6rem; font-weight:700; margin:0 0 12px; }
+    .tx-cta p { color:var(--text-secondary); font-size:0.95rem; margin:0 auto 28px; max-width:520px; line-height:1.7; }
+
+    @media(max-width:900px) {
+      .gx-explorer.is-live { grid-template-columns:1fr; }
+      .gx-explorer.is-live .gx-detail { min-height:0; }
+    }
+    @media(max-width:640px) {
+      .tx-hero { padding:130px 0 48px; }
+      .tx-section { padding:56px 0; }
+      .gx-grid, .gx-explorer.is-live .gx-grid { grid-template-columns:1fr; }
+      .gx-explorer.is-live .gx-detail, .rb-live { padding:20px; }
+      .stop-list { grid-template-columns:1fr; }
+      .rb-table th, .rb-table td { padding:10px 10px; }
+      .rb-table td { font-size:0.78rem; }
+      .tx-cta { padding:48px 22px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .wf-step.reveal-step { animation:none; opacity:1; transform:none; }
+      .gx-node, .rb-chip, .rb-fill, .stop-card, .ev-chip { transition:none; }
+      .gx-node:hover, .gx-node[aria-pressed="true"] { transform:none; }
+    }
+  </style>
+</head>
+<body class="tx-page">
+
+  <nav id="nav" class="scrolled">
+    <a href="/" class="nav-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="/" data-i18n="nav.home">Home</a>
+      <a href="/organisms" data-i18n="nav.organisms">Organisms</a>
+      <a href="/architecture" data-i18n="nav.architecture">Architecture</a>
+      <a href="/proof" data-i18n="nav.proof">Proof</a>
+      <a href="/transmissions" class="active" aria-current="page" data-i18n="nav.blog">Transmissions</a>
+      <a href="/philosophy" data-i18n="nav.philosophy">Philosophy</a>
+    </div>
+    <div class="nav-actions">
+      <button id="lang-toggle" class="lang-toggle" aria-label="Switch to Spanish">ES</button>
+      <a href="/build-with-us" class="nav-cta" data-i18n="nav.cta">Build With Us</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="tx-hero">
+      <div class="container">
+        <div class="tx-hero-kicker"><span class="tx-section-num">TRANSMISSION 036</span></div>
+        <h1>Movement Needs<br>a Source</h1>
+        <p class="tx-hero-sub">The glass infinity at the top of this site's homepage now moves through a short cinematic passage, frame by frame, but only while a visitor scrolls it. This field note covers where that motion comes from, what it is allowed to cost a phone, every condition that stops it, and why a verified interface release is not evidence that Genesis is ready.</p>
+        <div class="tx-hero-meta"><span>November 2026</span><span>·</span><span>Field note</span><span>·</span><span>Interface + Evidence</span><span>·</span><span>11 min read</span></div>
+        <p class="tx-dateline"><strong>Dated note.</strong> The assessment described here was made on 22 October 2026, when the motion work was still a local candidate. This page was written and published on 8 November 2026. It fills the place held under number 36 and is published after Transmission 37, which stays the latest in the sequence. Operational facts below describe 22 October, not today.</p>
+      </div>
+    </section>
+
+    <div class="container">
+
+      <!-- 01: THE SOURCE -->
+      <section class="tx-section" id="the-source">
+        <div class="tx-section-head"><span class="tx-section-num">01</span><h2>The source is the visitor</h2></div>
+        <div class="tx-section-label">Native scroll after a real gesture · no clock · no autoplay</div>
+        <div class="tx-prose">
+          <p>A loop that animates on its own timer proves only that a timer exists. The homepage hero is built the other way round. Its frame renderer has no animation clock, no autoplay and no list of frames to fetch ahead of time, and a repository test fails if a timer, an animation-frame loop, a video element or any use of the device pixel ratio ever appears in it. Scroll position is the only thing that selects a frame.</p>
+          <p>Not every scroll is the visitor's. A scroll counts only when a wheel turn, a touch drag, a pointer press or a scrolling key (the arrows, Page Up, Page Down, Home, End, Space) happened within the previous second. A click with no scroll selects nothing. A resize clears any recent gesture, so a layout change, or a position the browser restores on its own, leaves the image still. Intent observed while the artwork is off screen cannot arm it later.</p>
+          <p>The passage spans the first seventy percent of the hero's height. The frame shown is the scroll progress spread across the sequence and rounded to the nearest frame. Scroll back into the first one percent of the passage and the renderer lets go of everything: cached frames are released and the original still image returns. Pick an input below to see what the shipped rule does with it.</p>
+        </div>
+        <div class="gx-explorer" id="gx">
+          <div class="gx-grid" id="gx-grid" role="group" aria-label="Visitor inputs">
+            <button class="gx-node" type="button" data-gx="wheel" aria-pressed="true" aria-controls="gx-detail"><span class="gx-node-name">Wheel, then scroll</span><span class="gx-node-verdict gx-yes">Selects a frame</span></button>
+            <button class="gx-node" type="button" data-gx="touch" aria-pressed="false" aria-controls="gx-detail"><span class="gx-node-name">Touch drag</span><span class="gx-node-verdict gx-yes">Selects a frame</span></button>
+            <button class="gx-node" type="button" data-gx="keys" aria-pressed="false" aria-controls="gx-detail"><span class="gx-node-name">Scrolling key</span><span class="gx-node-verdict gx-yes">Selects a frame</span></button>
+            <button class="gx-node" type="button" data-gx="press" aria-pressed="false" aria-controls="gx-detail"><span class="gx-node-name">Pointer press, then scroll</span><span class="gx-node-verdict gx-yes">Selects a frame</span></button>
+            <button class="gx-node" type="button" data-gx="click" aria-pressed="false" aria-controls="gx-detail"><span class="gx-node-name">A click, no scroll</span><span class="gx-node-verdict gx-no">Selects nothing</span></button>
+            <button class="gx-node" type="button" data-gx="stale" aria-pressed="false" aria-controls="gx-detail"><span class="gx-node-name">A gesture over a second old</span><span class="gx-node-verdict gx-no">Selects nothing</span></button>
+            <button class="gx-node" type="button" data-gx="resize" aria-pressed="false" aria-controls="gx-detail"><span class="gx-node-name">Resize or rotation</span><span class="gx-node-verdict gx-no">Selects nothing</span></button>
+            <button class="gx-node" type="button" data-gx="restore" aria-pressed="false" aria-controls="gx-detail"><span class="gx-node-name">A restored scroll position</span><span class="gx-node-verdict gx-no">Selects nothing</span></button>
+            <button class="gx-node" type="button" data-gx="offscreen" aria-pressed="false" aria-controls="gx-detail"><span class="gx-node-name">Gesture with the art off screen</span><span class="gx-node-verdict gx-no">Selects nothing</span></button>
+          </div>
+          <div class="gx-detail" id="gx-detail" aria-live="polite">
+            <article class="gx-panel" data-gx-panel="wheel">
+              <h3>Wheel, then scroll</h3>
+              <span class="gx-badge gx-yes">Selects a frame</span>
+              <p>The wheel marks a gesture; the scroll that follows within one second carries it. If the artwork is on screen and motion is allowed, the renderer asks for the one frame that matches the new position.</p>
+              <p class="gx-src">Shipped input routing on the homepage, pinned by a test that replays wheel, scroll and key events.</p>
+            </article>
+            <article class="gx-panel" data-gx-panel="touch">
+              <h3>Touch drag</h3>
+              <span class="gx-badge gx-yes">Selects a frame</span>
+              <p>On a phone the drag is the gesture. The same one-second window applies, and the phone rendition is the one requested.</p>
+              <p class="gx-src">Touch movement is one of the four gesture sources the input routing listens for.</p>
+            </article>
+            <article class="gx-panel" data-gx-panel="keys">
+              <h3>Scrolling key</h3>
+              <span class="gx-badge gx-yes">Selects a frame</span>
+              <p>Arrow Up, Arrow Down, Page Up, Page Down, Home, End and Space are gestures. Keyboard scrolling is eligible on exactly the same terms as a wheel. Other keys are not gestures for this purpose.</p>
+              <p class="gx-src">The test presses Page Down and confirms the following scroll counts.</p>
+            </article>
+            <article class="gx-panel" data-gx-panel="press">
+              <h3>Pointer press, then scroll</h3>
+              <span class="gx-badge gx-yes">Selects a frame</span>
+              <p>Dragging a scrollbar begins with a pointer press. The scroll that follows within a second counts as the visitor's.</p>
+              <p class="gx-src">A pointer press records a gesture; it does not, by itself, move anything.</p>
+            </article>
+            <article class="gx-panel" data-gx-panel="click">
+              <h3>A click, no scroll</h3>
+              <span class="gx-badge gx-no">Selects nothing</span>
+              <p>A press without a scroll leaves the image where it is. The renderer is consulted only when the page actually scrolls.</p>
+              <p class="gx-src">Test assertion: a click alone cannot select cinematic frames.</p>
+            </article>
+            <article class="gx-panel" data-gx-panel="stale">
+              <h3>A gesture over a second old</h3>
+              <span class="gx-badge gx-no">Selects nothing</span>
+              <p>A gesture is a permission with a one-second shelf life. After that, a scroll with no fresh input in front of it leaves the image still.</p>
+              <p class="gx-src">Test assertion: an old gesture cannot authorize later scrolling.</p>
+            </article>
+            <article class="gx-panel" data-gx-panel="resize">
+              <h3>Resize or rotation</h3>
+              <span class="gx-badge gx-no">Selects nothing</span>
+              <p>Resizing clears any recent gesture; it recalculates layout and nothing more. If the new size crosses the line between the phone and desktop renditions, every decoded frame is released and the other rendition waits for a fresh gesture.</p>
+              <p class="gx-src">Tests: layout refresh cannot inherit click intent; a breakpoint resize releases old frames and cannot load the new rendition without intent.</p>
+            </article>
+            <article class="gx-panel" data-gx-panel="restore">
+              <h3>A restored scroll position</h3>
+              <span class="gx-badge gx-no">Selects nothing</span>
+              <p>Returning to the page at a remembered position is not a gesture. With no input in the previous second, the image stays still wherever the page lands.</p>
+              <p class="gx-src">The input routing keeps intent separate from layout refreshes and restored scroll positions.</p>
+            </article>
+            <article class="gx-panel" data-gx-panel="offscreen">
+              <h3>Gesture with the art off screen</h3>
+              <span class="gx-badge gx-no">Selects nothing</span>
+              <p>Intent observed while the artwork is out of view is discarded. It cannot arm a later sample once the art scrolls back into view; that needs a new gesture.</p>
+              <p class="gx-src">Test assertion: offscreen intent cannot arm a future visible sample.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02: THE BUDGET -->
+      <section class="tx-section" id="the-budget">
+        <div class="tx-section-head"><span class="tx-section-num">02</span><h2>A budget a phone can afford</h2></div>
+        <div class="tx-section-label">Two renditions · encoded bytes measured per file · decoded memory estimated</div>
+        <div class="tx-prose">
+          <p>The frames were sampled, at two sizes, from a single five-second AI-generated animation of the existing glass sculpture. The still image remains the first thing drawn and the permanent fallback; the canvas appears only after its first frame has decoded.</p>
+          <p>The phone rendition is chosen whenever the viewport is 700 pixels wide or less, the device reports 4 GB of memory or less, or the browser does not report its network at all. An unknown network is treated as slow, not fast. Before any frame is requested, the manifest is checked against both budgets. A manifest that exceeds a frame count, a dimension or a byte cap, or that points anywhere but this site, never fetches a frame.</p>
+        </div>
+        <div class="rb-table-wrap">
+          <table class="rb-table">
+            <caption>Encoded totals are checked by a repository test against every shipped frame file. Decoded figures are width × height × 4 bytes for each kept frame: an estimate of pixel payload only, excluding encoded data, the canvas's own buffer and browser overhead.</caption>
+            <thead><tr><th scope="col">Shipped manifest</th><th scope="col">Phone</th><th scope="col">Desktop</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Frames</th><td>24</td><td>36</td></tr>
+              <tr><th scope="row">Frame size</th><td>640 × 426</td><td>960 × 640</td></tr>
+              <tr><th scope="row">Whole sequence, encoded</th><td>614,186 bytes</td><td>1,814,132 bytes</td></tr>
+              <tr><th scope="row">Encoded cap</th><td>1,048,576 bytes (1&nbsp;MiB)</td><td>2,097,152 bytes (2&nbsp;MiB)</td></tr>
+              <tr><th scope="row">Share of cap used</th><td>58.6%</td><td>86.5%</td></tr>
+              <tr><th scope="row">Decoded frames kept at once</th><td>4</td><td>6</td></tr>
+              <tr><th scope="row">Decoded pixels at that cap (estimate)</th><td>≈ 4.2 MiB</td><td>≈ 14.1 MiB</td></tr>
+              <tr><th scope="row">Fetches and decodes in flight</th><td>1</td><td>1</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="rb-live" id="rb">
+          <div class="rb-top">
+            <span class="rb-label">Shipped budget · simulated scroll</span>
+            <div class="rb-switch" id="rb-switch" role="group" aria-label="Rendition">
+              <button class="rb-chip" type="button" data-variant="mobile" aria-pressed="true">Phone</button>
+              <button class="rb-chip" type="button" data-variant="desktop" aria-pressed="false">Desktop</button>
+            </div>
+          </div>
+          <div class="rb-meters" id="rb-meters"></div>
+          <div class="rb-sim">
+            <label for="rb-progress"><span>Drag to simulate scrolling through the hero</span><output id="rb-progress-out" for="rb-progress">0%</output></label>
+            <input type="range" id="rb-progress" min="0" max="100" step="1" value="0" />
+            <div class="rb-strip" id="rb-strip" aria-hidden="true"></div>
+            <p class="rb-readout" id="rb-readout" aria-live="polite"></p>
+            <div class="rb-legend" aria-hidden="true"><span class="lg-shown">Frame on the canvas</span><span class="lg-cached">Kept decoded</span><span class="lg-idle">Not loaded</span></div>
+            <p class="rb-note">A model of the shipped selection and cache rule, computed in this page. No frame is loaded here.</p>
+          </div>
+        </div>
+        <div class="tx-prose tx-after">
+          <p>One worker fetches and decodes, on both renditions. The design allowed the desktop two decodes at once; the shipped renderer uses one. Room is made in the cache before a decode starts, so the kept frames plus the one being decoded stay within the cap. The oldest frame is evicted and closed first, and scrolling back reuses a recently decoded frame without a new request. If the scroll moves on while a frame is downloading, the stale result is dropped before it is ever decoded.</p>
+        </div>
+      </section>
+
+      <!-- 03: WHERE IT STOPS -->
+      <section class="tx-section" id="where-it-stops">
+        <div class="tx-section-head"><span class="tx-section-num">03</span><h2>Where motion stops</h2></div>
+        <div class="tx-section-label">The still image is the resting state · motion has to keep qualifying</div>
+        <div class="tx-prose">
+          <p>The still is not a fallback bolted on afterwards. It is the resting state, and every path out of motion leads back to it. The sequence below is the whole life of one frame. Open any stop condition beneath it to see what the renderer does.</p>
+        </div>
+        <div class="wf-steps" id="wf-steps">
+          <div class="wf-step"><div class="wf-dot wf-dot-1">01</div><h3>Gesture</h3><p>A wheel turn, touch drag, pointer press or scrolling key, then a scroll within one second.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-2">02</div><h3>Eligibility</h3><p>The artwork is on screen, the tab is visible, motion is neither reduced nor paused, no sheet or foreground animation is open, and the connection is not marked Save-Data, 2g or slow-2g.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-3">03</div><h3>Manifest</h3><p>Read once from this site, without credentials, and checked against both budgets before it is trusted.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-4">04</div><h3>Nearest frame</h3><p>One request, for the frame the scroll points at now. A frame the scroll has already moved past is dropped before decoding.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-5">05</div><h3>Decode</h3><p>Room is made first. A decode that finishes late, for a target the visitor has already left, is closed and never painted.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-6">06</div><h3>Paint</h3><p>The canvas is shown only once a frame is ready; until then the still stays. The canvas is hidden from assistive technology, and the still keeps its written description.</p></div>
+        </div>
+        <div class="stop-list" id="stop-list">
+          <details class="stop-card"><summary>Reduced motion is on</summary><p>No request is made. The still stays, and the pause control reports reduced motion.</p><p class="stop-src">Test: reduced motion makes zero requests.</p></details>
+          <details class="stop-card"><summary>The visitor pressed Pause motion</summary><p>No request is made. Anything in flight is cancelled and every decoded frame is released.</p><p class="stop-src">Test: denied motion makes zero requests.</p></details>
+          <details class="stop-card"><summary>Save-Data, 2g or slow-2g</summary><p>No request is made. The connection's own signal wins over the art.</p><p class="stop-src">Test: Save-Data, 2g and slow-2g make zero requests.</p></details>
+          <details class="stop-card"><summary>Tab hidden, page left, art scrolled away</summary><p>The request in flight is aborted, every decoded frame is released, the canvas shrinks to a single pixel, and the still returns.</p><p class="stop-src">Test: offscreen, hidden, pagehide and policy changes immediately release and restore the poster.</p></details>
+          <details class="stop-card"><summary>A fetch, decode or draw fails</summary><p>The renderer stops once, for the rest of that page view, and leaves the still in place. There is no retry loop.</p><p class="stop-src">Test: failures fail once to the poster without a retry loop.</p></details>
+          <details class="stop-card"><summary>No canvas, no decoder, no JavaScript</summary><p>Nothing is attached. The responsive still image, with its description, is the whole hero.</p><p class="stop-src">The renderer checks for canvas, image decoding and request cancellation before it attaches anything.</p></details>
+          <details class="stop-card"><summary>A sheet opens or another animation runs</summary><p>The sequence brakes, so only one thing owns motion on the page at a time.</p><p class="stop-src">The homepage arbiter allows one finite foreground animation owner.</p></details>
+          <details class="stop-card"><summary>Scrolled back to the top</summary><p>Back inside the first one percent of the passage, everything is released and the original still is what the visitor sees.</p><p class="stop-src">The renderer brakes below one percent of progress.</p></details>
+        </div>
+        <div class="tx-quote">Motion here is evidence of exactly one thing: that a visitor moved.</div>
+      </section>
+
+      <!-- 04: THE BOUNDARY -->
+      <section class="tx-section" id="the-boundary">
+        <div class="tx-section-head"><span class="tx-section-num">04</span><h2>A verified release is not a ready organism</h2></div>
+        <div class="tx-section-label">Evidence boundary · the record of 22 October 2026</div>
+        <div class="tx-prose">
+          <p>On 22 October the motion work was prepared as a local candidate: one authorized generated animation, adaptive scroll frames, a mobile layout and finite rendering, with 382 repository tests and 80 browser checks passing. Nothing was pushed or published that day. That is real evidence, and it is evidence about an interface.</p>
+          <p>Its own research set the limits of that evidence in writing. Passing unit tests imply no performance or accessibility certification. Real-device and production network behaviour stay unverified until they are separately measured. The review sampled five frames of the animation; it was not a frame-by-frame certification, and no physical-device Safari or battery measurement was made. The loading targets (largest paint within 2.5 seconds, layout shift of at most 0.1, interaction response within 200 milliseconds) are acceptance targets, not results.</p>
+          <p>The same evening's record about Genesis reads differently. A guard service reported healthy. Autonomous building was held: the build loop stayed parked behind the operator's own stop instruction. The heartbeat organ had been refusing to beat earlier that evening, because it could not read the ledger head, and it was then paused ahead of a recovery procedure that only the operator performs by hand. Agents prepared that procedure and executed none of it. When the day's record closes, recovery is still pending and unproven.</p>
+          <p>None of that contradicts the interface evidence, and none of the interface evidence answers it. A green test suite describes what it tests. The animated hero can show that a visitor scrolled. It cannot show that the organism behind the site is building or has recovered, and on 22 October the record showed neither. Filter the claims below by what the record supports.</p>
+        </div>
+        <div class="ev-board" id="ev">
+          <div class="ev-filters" id="ev-filters" role="group" aria-label="Filter claims by evidence">
+            <button class="ev-chip" type="button" data-ev="all" aria-pressed="true">All</button>
+            <button class="ev-chip" type="button" data-ev="supported" aria-pressed="false">Supported by the record</button>
+            <button class="ev-chip" type="button" data-ev="limited" aria-pressed="false">Estimated or not measured</button>
+            <button class="ev-chip" type="button" data-ev="unsupported" aria-pressed="false">Not supported</button>
+          </div>
+          <div class="ev-count" id="ev-count" aria-live="polite"></div>
+          <div class="ev-grid" id="ev-grid">
+            <article class="ev-card ev-supported" data-ev="supported"><span class="ev-tag">Supported</span><p class="ev-claim">The hero moves only in response to a visitor's scroll.</p><button class="ev-toggle" type="button" aria-expanded="false" aria-controls="ev-why-1">Why ↓</button><p class="ev-why" id="ev-why-1">The renderer has no clock or autoplay, and the input routing requires a gesture within one second before a scroll. Both are pinned by repository tests.</p></article>
+            <article class="ev-card ev-supported" data-ev="supported"><span class="ev-tag">Supported</span><p class="ev-claim">The shipped frames fit their encoded budgets.</p><button class="ev-toggle" type="button" aria-expanded="false" aria-controls="ev-why-2">Why ↓</button><p class="ev-why" id="ev-why-2">A test reads every shipped frame, checks its dimensions against the manifest and sums the bytes: 614,186 of 1,048,576 on phones, 1,814,132 of 2,097,152 on desktop.</p></article>
+            <article class="ev-card ev-supported" data-ev="supported"><span class="ev-tag">Supported</span><p class="ev-claim">Reduced motion, Pause, Save-Data and slow connections request no frames.</p><button class="ev-toggle" type="button" aria-expanded="false" aria-controls="ev-why-3">Why ↓</button><p class="ev-why" id="ev-why-3">Each of those states is a test case that asserts zero requests and a hidden canvas.</p></article>
+            <article class="ev-card ev-limited" data-ev="limited"><span class="ev-tag">Estimate</span><p class="ev-claim">Decoded frames never exceed about 4.2 MiB on phones.</p><button class="ev-toggle" type="button" aria-expanded="false" aria-controls="ev-why-4">Why ↓</button><p class="ev-why" id="ev-why-4">That is the pixel payload of four kept frames at 640 × 426. Encoded data, the canvas buffer and browser overhead are not included, and total memory was not measured.</p></article>
+            <article class="ev-card ev-limited" data-ev="limited"><span class="ev-tag">Not measured</span><p class="ev-claim">It loads quickly and responds smoothly on real phones.</p><button class="ev-toggle" type="button" aria-expanded="false" aria-controls="ev-why-5">Why ↓</button><p class="ev-why" id="ev-why-5">No physical-device or production network measurement is in the record. The loading targets are acceptance targets, not results.</p></article>
+            <article class="ev-card ev-limited" data-ev="limited"><span class="ev-tag">Not certified</span><p class="ev-claim">Every frame of the animation is clean.</p><button class="ev-toggle" type="button" aria-expanded="false" aria-controls="ev-why-6">Why ↓</button><p class="ev-why" id="ev-why-6">Five sampled frames were reviewed for shape, colour and continuity. That is a sample, not a frame-by-frame review.</p></article>
+            <article class="ev-card ev-unsupported" data-ev="unsupported"><span class="ev-tag">Not supported</span><p class="ev-claim">Genesis was operationally ready on 22 October.</p><button class="ev-toggle" type="button" aria-expanded="false" aria-controls="ev-why-7">Why ↓</button><p class="ev-why" id="ev-why-7">Building was held, the heartbeat was paused, and recovery was pending. The record supports none of the readiness this claim implies.</p></article>
+            <article class="ev-card ev-unsupported" data-ev="unsupported"><span class="ev-tag">Not supported</span><p class="ev-claim">Genesis was building on its own.</p><button class="ev-toggle" type="button" aria-expanded="false" aria-controls="ev-why-8">Why ↓</button><p class="ev-why" id="ev-why-8">The record shows the build loop parked behind the operator's own stop instruction.</p></article>
+            <article class="ev-card ev-unsupported" data-ev="unsupported"><span class="ev-tag">Not supported</span><p class="ev-claim">382 passing tests mean the system works.</p><button class="ev-toggle" type="button" aria-expanded="false" aria-controls="ev-why-9">Why ↓</button><p class="ev-why" id="ev-why-9">They mean the website candidate passed the checks it was given. They say nothing about the organism's recovery.</p></article>
+          </div>
+        </div>
+        <div class="tx-bound">
+          <h3>What this note does not claim</h3>
+          <p>It does not describe Genesis today. Everything operational on this page is the record of 22 October 2026, written down on 8 November without being updated or rounded up.</p>
+          <p>It does not certify the hero's performance, its accessibility or its behaviour on any particular phone. It reports what the shipped files and their tests pin down, and it labels the rest as estimated, not measured or not supported.</p>
+        </div>
+      </section>
+
+      <!-- 05: CLOSING -->
+      <section class="tx-section" id="closing">
+        <div class="tx-section-head"><span class="tx-section-num">05</span><h2>Movement needs a source. So does a claim.</h2></div>
+        <div class="tx-section-label">Closing transmission</div>
+        <div class="tx-prose">
+          <p>The rule that governs the hero is short. Nothing moves unless the visitor moved it, nothing loads that the budget cannot pay for, and every failure falls back to the still image.</p>
+          <p>The rule for this note has the same shape. Every measurement on the page comes from a shipped file or a dated record, every limit sits next to the number it limits, and what was not yet true on 22 October is written down as not yet true. An interface can be finished while the organism behind it is still recovering. Saying both, on the same page and under the same date, is the point.</p>
+        </div>
+        <div class="tx-related">
+          Related: <a href="/transmissions/37-the-organism-drew-its-chain-boundary">Transmission 37 — the organism drew its chain boundary</a> · <a href="/transmissions/35-the-ledger-learned-to-be-witnessed">Transmission 35 — the ledger learned to be witnessed</a> · <a href="/proof/ledger">Public heartbeat ledger</a>
+        </div>
+      </section>
+
+      <div class="tx-cta">
+        <h2>Give every motion a source.</h2>
+        <p>If you are building an interface that has to stay honest about the system behind it, we should talk.</p>
+        <a class="btn btn-primary btn-lg" href="/build-with-us"><span>Build With Us</span><span class="btn-arrow">→</span></a>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span><p class="footer-desc">Intelligence that evolves.<br />No claim without a trail.</p></div><div class="footer-col"><h5>Proof</h5><a href="/proof">Proof Register</a><a href="/proof/ledger">Live Ledger</a><a href="/transmissions">Transmissions</a><a href="/architecture">Architecture</a></div><div class="footer-col"><h5>Organisms</h5><a href="/organisms">All Organisms</a><a href="/organisms/financial-organisms">Financial Organisms</a><a href="/organisms/infinity-mirror">Infinity Mirror</a></div><div class="footer-col"><h5>Next</h5><a href="/build-with-us">Build With Us</a><a href="/#cta">Subscribe</a></div></div><div class="footer-bottom"><span>© 2026 Unwind Code. All rights reserved.</span><span class="footer-tagline">The future learns from itself. ∞</span></div></div></footer>
+
+  <script>
+  (function () {
+    // Every value below is static and computed in this page. Nothing here makes a network call or loads a frame.
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // 01 — GESTURE EXPLORER
+    var gx = document.getElementById('gx');
+    var gxNodes = gx.querySelectorAll('.gx-node');
+    var gxPanels = gx.querySelectorAll('.gx-panel');
+    function showGesture(key) {
+      gxNodes.forEach(function (node) { node.setAttribute('aria-pressed', node.getAttribute('data-gx') === key ? 'true' : 'false'); });
+      gxPanels.forEach(function (panel) {
+        if (panel.getAttribute('data-gx-panel') === key) { panel.removeAttribute('hidden'); } else { panel.setAttribute('hidden', ''); }
+      });
+    }
+    gxNodes.forEach(function (node) {
+      node.addEventListener('click', function () { showGesture(node.getAttribute('data-gx')); });
+    });
+    gx.classList.add('is-live');
+    showGesture('wheel');
+
+    // 02 — RENDITION BUDGET (values from the shipped manifest and renderer limits)
+    var MiB = 1024 * 1024;
+    var renditions = {
+      mobile: { name: 'Phone', frames: 24, width: 640, height: 426, bytes: 614186, cap: MiB, cache: 4, inFlight: 1 },
+      desktop: { name: 'Desktop', frames: 36, width: 960, height: 640, bytes: 1814132, cap: 2 * MiB, cache: 6, inFlight: 1 }
+    };
+    var rb = document.getElementById('rb');
+    var rbMeters = document.getElementById('rb-meters');
+    var rbSwitch = document.getElementById('rb-switch');
+    var rbRange = document.getElementById('rb-progress');
+    var rbOut = document.getElementById('rb-progress-out');
+    var rbStrip = document.getElementById('rb-strip');
+    var rbReadout = document.getElementById('rb-readout');
+    var current = 'mobile';
+    var sim = { cache: [], shown: -1, requests: 0, reused: 0, high: 0 };
+    function fmt(n) { return n.toLocaleString('en-US'); }
+    function mib(n) { return (n / MiB).toFixed(2) + ' MiB'; }
+    function frameBytes(r) { return r.width * r.height * 4; }
+    function meter(name, value, ratio, note, estimate) {
+      var pct = Math.max(0, Math.min(1, ratio)) * 100;
+      return '<div class="rb-meter"><div class="rb-meter-head"><span class="rb-meter-name">' + name + '</span><span class="rb-meter-val">' + value + '</span></div>' +
+        '<div class="rb-bar"><span class="rb-fill' + (estimate ? ' is-estimate' : '') + '" data-pct="' + pct.toFixed(1) + '"></span></div>' +
+        (note ? '<p class="rb-note">' + note + '</p>' : '') + '</div>';
+    }
+    function renderMeters() {
+      var r = renditions[current];
+      var decodedCap = frameBytes(r) * r.cache;
+      rbMeters.innerHTML =
+        meter('Frames in the sequence', r.frames + ' of ' + r.frames + ' allowed · ' + r.width + ' × ' + r.height, 1, '') +
+        meter('Whole sequence, encoded', fmt(r.bytes) + ' of ' + fmt(r.cap) + ' bytes · ' + (r.bytes / r.cap * 100).toFixed(1) + '%', r.bytes / r.cap, 'Measured: a test sums every shipped frame file.') +
+        meter('Decoded pixels at the cache cap', r.cache + ' frames ≈ ' + mib(decodedCap), decodedCap / (16 * MiB), 'Estimate: width × height × 4 bytes per kept frame. Bar scaled to 16 MiB; overhead not included.', true) +
+        meter('Fetches and decodes in flight', r.inFlight + ' at a time', r.inFlight / 2, 'One worker on both renditions.');
+      rbMeters.querySelectorAll('.rb-fill').forEach(function (fill) { fill.style.width = fill.getAttribute('data-pct') + '%'; });
+    }
+    function resetSim() { sim = { cache: [], shown: -1, requests: 0, reused: 0, high: 0 }; }
+    function step(progress) {
+      var r = renditions[current];
+      if (progress <= 0.01) { resetSim(); return 'At rest. The still image is shown, no frame is selected, and any decoded frames are released.'; }
+      var target = Math.round(progress * (r.frames - 1));
+      var label = 'frame-' + String(target).padStart(3, '0');
+      var at = sim.cache.indexOf(target);
+      var note;
+      if (target === sim.shown) {
+        note = label + ' is already on the canvas. Nothing to do.';
+      } else if (at >= 0) {
+        sim.cache.splice(at, 1); sim.cache.push(target); sim.reused += 1;
+        note = label + ' reused from the decoded cache. No new request.';
+      } else {
+        while (sim.cache.length >= r.cache) { sim.cache.shift(); }
+        sim.cache.push(target); sim.requests += 1;
+        note = label + ' requested and decoded. Oldest frame evicted first if the cache was full.';
+      }
+      sim.shown = target;
+      sim.high = Math.max(sim.high, sim.cache.length);
+      return note + ' Kept ' + sim.cache.length + ' of ' + r.cache + ' (≈ ' + mib(sim.cache.length * frameBytes(r)) + ' decoded, estimate) · requests ' + sim.requests + ' · reuses ' + sim.reused + '.';
+    }
+    function renderStrip() {
+      var r = renditions[current];
+      var html = '';
+      for (var i = 0; i < r.frames; i += 1) {
+        var cls = 'rb-cell';
+        if (i === sim.shown) { cls += ' shown'; } else if (sim.cache.indexOf(i) >= 0) { cls += ' cached'; }
+        html += '<span class="' + cls + '"></span>';
+      }
+      rbStrip.style.gridTemplateColumns = 'repeat(' + r.frames + ', minmax(0, 1fr))';
+      rbStrip.innerHTML = html;
+    }
+    function onProgress() {
+      var value = Number(rbRange.value) / 100;
+      rbOut.textContent = rbRange.value + '%';
+      rbReadout.textContent = step(value);
+      renderStrip();
+    }
+    rbSwitch.querySelectorAll('.rb-chip').forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        current = chip.getAttribute('data-variant');
+        rbSwitch.querySelectorAll('.rb-chip').forEach(function (other) { other.setAttribute('aria-pressed', other === chip ? 'true' : 'false'); });
+        resetSim();
+        renderMeters();
+        onProgress();
+      });
+    });
+    rbRange.addEventListener('input', onProgress);
+    rb.classList.add('is-live');
+    renderMeters();
+    onProgress();
+
+    // 03 — WORKFLOW REVEAL (skipped under reduced motion; content is visible without it)
+    var wf = document.getElementById('wf-steps');
+    if (!reduce && 'IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            wf.querySelectorAll('.wf-step').forEach(function (s) { s.classList.add('reveal-step'); });
+            io.disconnect();
+          }
+        });
+      }, { threshold: 0.15 });
+      io.observe(wf);
+    }
+
+    // 04 — EVIDENCE BOARD
+    var ev = document.getElementById('ev');
+    var evCards = ev.querySelectorAll('.ev-card');
+    var evCount = document.getElementById('ev-count');
+    var evNames = { all: 'all claims', supported: 'supported by the record', limited: 'estimated or not measured', unsupported: 'not supported' };
+    function filterEvidence(kind) {
+      var shown = 0;
+      evCards.forEach(function (card) {
+        var match = kind === 'all' || card.getAttribute('data-ev') === kind;
+        if (match) { card.removeAttribute('hidden'); shown += 1; } else { card.setAttribute('hidden', ''); }
+      });
+      evCount.textContent = shown + ' of ' + evCards.length + ' claims · ' + evNames[kind];
+    }
+    ev.querySelectorAll('.ev-chip').forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        ev.querySelectorAll('.ev-chip').forEach(function (other) { other.setAttribute('aria-pressed', other === chip ? 'true' : 'false'); });
+        filterEvidence(chip.getAttribute('data-ev'));
+      });
+    });
+    ev.querySelectorAll('.ev-toggle').forEach(function (toggle) {
+      var why = document.getElementById(toggle.getAttribute('aria-controls'));
+      why.setAttribute('hidden', '');
+      toggle.addEventListener('click', function () {
+        var open = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', open ? 'false' : 'true');
+        toggle.textContent = open ? 'Why ↓' : 'Close ↑';
+        if (open) { why.setAttribute('hidden', ''); } else { why.removeAttribute('hidden'); }
+      });
+    });
+    ev.classList.add('is-live');
+    filterEvidence('all');
+  })();
+  </script>
+  <script type="module" src="/main.js?v=20260615-system-state"></script>
+</body>
+</html>
