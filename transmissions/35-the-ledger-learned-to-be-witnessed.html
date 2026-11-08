@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Transmission 35: The Ledger Learned to Be Witnessed | Unwind Code</title>
-  <meta name="description" content="A witness that shares a credential with the thing it witnesses attests to nothing. How the Genesis gate's ledger head became verifiable by a stranger, what that guarantee actually covers, and the organism that had been dead for twenty days while its heartbeat said so to nobody." />
+  <meta name="description" content="A witness that shares a credential with the thing it witnesses attests to nothing. A dated account of the Genesis gate witness design, its thirty-minute limit, and why the current raw browser read still needs certificate verification." />
   <meta name="theme-color" content="#06060c" />
   <link rel="canonical" href="https://www.unwindcode.ai/transmissions/35-the-ledger-learned-to-be-witnessed" />
   <meta property="og:type" content="article" />
@@ -35,7 +35,7 @@
     "author": {"@type": "Organization", "name": "Unwind Code"},
     "publisher": {"@type": "Organization", "name": "Unwind Code", "url": "https://www.unwindcode.ai"},
     "datePublished": "2026-08-29",
-    "dateModified": "2026-08-29",
+    "dateModified": "2026-09-30",
     "keywords": ["independent witness", "attestation", "Internet Computer", "silent failure", "observability", "AI governance"],
     "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/35-the-ledger-learned-to-be-witnessed"
   }
@@ -125,6 +125,12 @@
         to nobody at all.
       </p>
       <div class="w-meta">August 2026 · Field note · Internet Computer</div>
+      <p class="w-standfirst" style="margin-top:1.5rem;font-size:0.98rem;">
+        <strong>September 30, 2026 correction:</strong> the live panel below reads a raw Internet Computer
+        gateway response that this browser does not certificate-verify. It displays a public report, not an
+        authenticated attestation. The witness design described in this dated note and proof of this particular
+        browser response are separate questions. <a href="/proof/ledger">See the current reader limits.</a>
+      </p>
     </div>
   </header>
 
@@ -151,30 +157,31 @@
       </p>
       <p>
         That canister is public. Which means the interesting property is not that we can check it — it is that
-        <strong>you</strong> can, right now, without asking us and without trusting us. The panel below is
-        reading it from your browser as this page loads.
+        <strong>you</strong> should be able to check it without asking us. The panel below reads its current
+        raw HTTP report from your browser, but does not yet authenticate that response.
       </p>
       <p>
         One precision worth keeping, because it is the difference between a true claim and a flattering one:
-        the machine composes its own beat, so what the canister gives a stranger is <strong>non-repudiation of
-        what that machine said the head was at a given time</strong>, plus liveness. It cannot vouch for the
-        content of the report. What it makes impossible is quietly rewriting that report afterwards.
+        the machine composes its own beat. A certified, retained witness record could establish
+        <strong>what that machine reported at a given time</strong>. It still could not vouch for the
+        report's truth. The current browser panel does not verify a certificate or expose historical records,
+        so it cannot establish that a past report was not quietly rewritten.
       </p>
 
       <div class="w-live">
         <div class="w-live-top">
-          <span class="w-live-label">Live read · canister rt6ds-…-cai</span>
+          <span class="w-live-label">Public report · response unverified</span>
           <span class="w-pill unknown" id="w-pill">reading</span>
         </div>
         <div class="w-live-grid">
-          <div class="w-lm"><div class="w-lm-k">Gate ledger head</div><div class="w-lm-v" id="w-seq">—</div></div>
-          <div class="w-lm"><div class="w-lm-k">Head hash</div><div class="w-lm-v" id="w-hash" style="font-size:0.9rem;font-weight:400;">—</div></div>
-          <div class="w-lm"><div class="w-lm-k">Last beat</div><div class="w-lm-v" id="w-age" style="font-size:0.95rem;font-weight:400;">—</div></div>
-          <div class="w-lm"><div class="w-lm-k">Organisms beating</div><div class="w-lm-v" id="w-cnt">—</div></div>
+          <div class="w-lm"><div class="w-lm-k">Reported gate head</div><div class="w-lm-v" id="w-seq">—</div></div>
+          <div class="w-lm"><div class="w-lm-k">Reported head hash</div><div class="w-lm-v" id="w-hash" style="font-size:0.9rem;font-weight:400;">—</div></div>
+          <div class="w-lm"><div class="w-lm-k">Last reported beat</div><div class="w-lm-v" id="w-age" style="font-size:0.95rem;font-weight:400;">—</div></div>
+          <div class="w-lm"><div class="w-lm-k">Organs reported recent</div><div class="w-lm-v" id="w-cnt">—</div></div>
         </div>
         <p class="w-live-note" id="w-note">
-          If this panel shows "cannot verify", that is the honest state — it means your browser could not reach
-          the canister, which is not the same as the organisms being down.
+          This raw response is not certificate-verified, even when it loads. If it cannot be read, no conclusion
+          about the organisms' liveness follows.
         </p>
       </div>
 
@@ -202,16 +209,16 @@
         <div class="w-rung on" data-r>
           <div class="w-rung-n">03</div>
           <div><div class="w-rung-t">A third party holding a credential the subject cannot reach</div>
-          <div class="w-rung-s">Where the attestation starts to mean something</div>
-          <div class="w-rung-d">The gate cannot forge the record of its own head, because it has no way to write to the place that record lives. Add public readability and the circle closes: a stranger can check the claim without any cooperation from the party making it. That is the rung this system now stands on — and no higher, which is the subject of the next section.</div></div>
+          <div class="w-rung-s">The custody design; public verification still open</div>
+          <div class="w-rung-d">The gate cannot forge a record held by an independent credential. For a stranger to check it, the read path must also authenticate what the canister served and expose enough history to inspect the claimed head. The current raw browser response does neither.</div></div>
         </div>
       </div>
 
       <div class="w-bound">
         <h3>The honest bound, stated because it is easy to overstate</h3>
-        <p>The attestation happens <strong>every thirty minutes</strong>. The gate chains its own records within seconds, but the independent witness only pins the head on each beat.</p>
-        <p>So the guarantee is precisely: <strong>"the head was X as of the last beat."</strong> Not continuous attestation. At any given moment, up to half an hour of ledger writes may exist that no outside party has yet seen.</p>
-        <p>Two sentences that sound identical in a status report: <em>"the ledger head is witnessed off-box"</em> — true. <em>"the ledger cannot be tampered with undetectably"</em> — false, within that window. We wrote the window into the governing ruling rather than rounding it away, because a condition claimed closed is worse than one honestly open: the first stops anyone looking.</p>
+        <p>The planned witness beat is <strong>every thirty minutes</strong>. The gate chains its own records within seconds, but an outside witness receives a head only on each beat.</p>
+        <p>A verified, retained record could establish: <strong>"the machine reported head X as of this beat."</strong> It would not be continuous attestation. At any given moment, up to half an hour of ledger writes may exist that no outside party has yet seen.</p>
+        <p>The current raw browser read does not establish even that historical claim. The thirty-minute gap and the unverified read are separate limits; both remain visible so a design condition is not mistaken for public proof.</p>
       </div>
 
       <h2>The organism that had been dead for twenty days</h2>
@@ -250,7 +257,7 @@
       </p>
       <p>
         You can watch the same signal on the
-        <a class="w-inline" href="/proof/ledger">live attestation ledger</a>, including the organisms currently
+        <a class="w-inline" href="/proof/ledger">public heartbeat ledger</a>, including the organisms currently
         marked stale. We publish those rather than filtering them, for the reason this whole note is about.
         The governance side of the same evening is
         <a class="w-inline" href="/transmissions/34-the-gate-that-refused-its-own-operator">Transmission 34</a>.
@@ -260,7 +267,7 @@
 
   <section class="w-end">
     <div class="w-wrap">
-      <p>Related: <a href="/transmissions/20-the-public-proof-loop">Transmission 20 — the public proof loop</a> · <a href="/transmissions/32-the-silent-truncation">Transmission 32 — the silent truncation</a> · <a href="/proof/ledger">Live attestation ledger</a></p>
+      <p>Related: <a href="/transmissions/20-the-public-proof-loop">Transmission 20 — the public proof loop</a> · <a href="/transmissions/32-the-silent-truncation">Transmission 32 — the silent truncation</a> · <a href="/proof/ledger">Public heartbeat ledger</a></p>
     </div>
   </section>
 
@@ -288,11 +295,11 @@
         if(fb){
           try{ note=decodeURIComponent(fb.note||''); }catch(e){ note=String(fb.note||''); }
           var m=/gate=(\d+):([0-9a-f]+)/i.exec(note);
-          document.getElementById('w-seq').textContent = m? ('#'+m[1]) : 'not attested';
+          document.getElementById('w-seq').textContent = m? ('#'+m[1]) : 'no head reported';
           document.getElementById('w-hash').textContent = m? m[2] : '—';
           document.getElementById('w-age').textContent = age(fb.age_seconds);
-          pill.className='w-pill '+(fb.stale?'stale':'live');
-          pill.textContent = fb.stale?'stale':'beating';
+          pill.className='w-pill unknown';
+          pill.textContent = fb.stale?'reports stale · unverified':'reports recent · unverified';
         } else {
           pill.className='w-pill unknown'; pill.textContent='no beat';
         }
@@ -301,12 +308,12 @@
       })
       .catch(function(){
         var p=document.getElementById('w-pill');
-        p.className='w-pill unknown'; p.textContent='cannot verify';
+        p.className='w-pill unknown'; p.textContent='cannot read report';
         ['w-seq','w-hash','w-age','w-cnt'].forEach(function(id){
           document.getElementById(id).textContent='unavailable';
         });
         document.getElementById('w-note').textContent =
-          'Your browser could not reach the canister. That is not the same as the organisms being down — it means this page cannot verify either way, and it says so rather than showing you a comforting blank.';
+          'Your browser could not read the public endpoint. That says nothing about whether the organisms are running. A successful raw read would still be unverified.';
       });
   })();
   </script>

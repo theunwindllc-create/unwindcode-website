@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Live Attestation Ledger | Unwind Code</title>
-  <meta name="description" content="A live public read of the Unwind Code heartbeat canister on the Internet Computer: which organisms are beating, which are stale, and the head of the Genesis gate ledger as First Body reported it. Read directly from chain in your browser — no Unwind server in the path." />
+  <title>Public Heartbeat Ledger | Unwind Code</title>
+  <meta name="description" content="Read reported organism heartbeats and the Genesis gate head from a public Internet Computer endpoint. This raw HTTP response is not certificate-verified." />
   <meta name="theme-color" content="#06060c" />
   <link rel="canonical" href="https://www.unwindcode.ai/proof/ledger" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Live Attestation Ledger" />
-  <meta property="og:description" content="Read the organism's pulse yourself. Live from an Internet Computer canister, straight to your browser." />
+  <meta property="og:title" content="Public Heartbeat Ledger" />
+  <meta property="og:description" content="Reported organism heartbeats from a public Internet Computer endpoint. The current raw HTTP response is unverified." />
   <meta property="og:url" content="https://www.unwindcode.ai/proof/ledger" />
   <meta property="og:site_name" content="Unwind Code" />
   <meta property="og:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
   <meta property="og:image:type" content="image/svg+xml" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Live Attestation Ledger" />
-  <meta name="twitter:description" content="Live organism heartbeats and the reported head of the Genesis gate ledger, read from chain in your browser." />
+  <meta name="twitter:title" content="Public Heartbeat Ledger" />
+  <meta name="twitter:description" content="Reported organism heartbeats and Genesis gate head. This raw HTTP response is not certificate-verified." />
   <meta name="twitter:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,9 +26,9 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Live Attestation Ledger",
+    "name": "Public Heartbeat Ledger",
     "url": "https://www.unwindcode.ai/proof/ledger",
-    "description": "A live browser-side read of the Unwind Code heartbeat canister on the Internet Computer, showing organism liveness and the reported head of the Genesis gate ledger.",
+    "description": "A browser-side read of reported organism heartbeats and the Genesis gate head from a public Internet Computer endpoint. The raw HTTP response is not certificate-verified.",
     "isPartOf": {"@type": "CollectionPage", "name": "Public Proof Ledger", "url": "https://www.unwindcode.ai/proof"},
     "publisher": {"@type": "Organization", "name": "Unwind Code", "url": "https://www.unwindcode.ai"}
   }
@@ -187,25 +187,23 @@
 
   <header class="lg-hero">
     <div class="lg-wrap">
-      <div class="lg-eyebrow">Public Proof · Live from chain</div>
-      <h1>The organism tells you it is alive. Or it doesn't.</h1>
+      <div class="lg-eyebrow">Public proof · response verification unavailable</div>
+      <h1>A public heartbeat report, with its limits in view.</h1>
       <p class="lg-lede">
-        Every thirty minutes each organism in the Unwind ecosystem writes a heartbeat to a canister on the
-        Internet Computer. Your browser is reading that canister <strong>directly</strong> — there is no Unwind
-        server between you and this data, and nothing here can be rewritten after the fact by the systems it
-        reports on. They can only append the next beat.
+        This page reads a public Internet Computer endpoint for reported organism heartbeats and the Genesis
+        gate head. The current raw HTTP route <strong>does not verify the response certificate</strong>.
+        Treat the values below as reported data, not independently authenticated canister state.
       </p>
 
       <div class="lg-claim">
-        <p><b>What this page is:</b> an attestation of liveness, plus the <b>head</b> of the Genesis gate's internal
-        ledger <i>as First Body reported it in the heartbeat</i> — a sequence number and a truncated hash.
-        The canister attests <b>when that report arrived and that it has not been altered since</b>. It cannot
-        vouch for the report's content.</p>
-        <p><b>What it is not:</b> the ledger contents. The gate's records stay on the machine that wrote them.
-        What travels here is a fingerprint of where that ledger stood at the last beat.</p>
-        <p><b>The precise claim:</b> "the head was <i>X</i> as of the last beat" — at thirty-minute granularity.
-        Not continuous attestation. At any moment up to half an hour of writes may exist that this page has not
-        yet seen. That limit is written into the governing ruling, and it is stated here for the same reason.</p>
+        <p><b>Delivery status: unverified.</b> The raw gateway returns data without checking an ICP response
+        certificate. In a September 30, 2026 probe, the matching verifying gateway returned HTTP 503.
+        No value on this page earns an authenticated badge from its raw read.</p>
+        <p><b>What is reported:</b> the head of Genesis's local gate ledger as First Body included it in a
+        heartbeat — a sequence number and truncated hash. The ledger contents remain on First Body.</p>
+        <p><b>The timing limit:</b> the head is reported at roughly thirty-minute intervals. Later local writes
+        may not appear in the latest report. Even a future certified response would authenticate what the
+        canister served, not prove that First Body's underlying report was true.</p>
       </div>
     </div>
   </header>
@@ -223,9 +221,9 @@
         </div>
         <div class="lg-gate-grid" id="lg-gate-grid">
           <div class="lg-metric"><div class="lg-metric-k">Reported head (seq)</div><div class="lg-metric-v" id="lg-seq">—</div></div>
-          <div class="lg-metric"><div class="lg-metric-k">Head hash (truncated)</div><div class="lg-metric-v small" id="lg-hash">—</div></div>
-          <div class="lg-metric"><div class="lg-metric-k">Last beat</div><div class="lg-metric-v small" id="lg-age">—</div></div>
-          <div class="lg-metric"><div class="lg-metric-k">Total beats recorded</div><div class="lg-metric-v" id="lg-total">—</div></div>
+          <div class="lg-metric"><div class="lg-metric-k">Reported hash (truncated)</div><div class="lg-metric-v small" id="lg-hash">—</div></div>
+          <div class="lg-metric"><div class="lg-metric-k">Last reported beat</div><div class="lg-metric-v small" id="lg-age">—</div></div>
+          <div class="lg-metric"><div class="lg-metric-k">Total beats reported</div><div class="lg-metric-v" id="lg-total">—</div></div>
         </div>
       </div>
     </div>
@@ -234,13 +232,13 @@
   <section class="lg-section">
     <div class="lg-wrap">
       <div class="lg-section-head">
-        <h2>Every organism, and its honest state</h2>
+        <h2>Each organism in the current report</h2>
       </div>
       <div class="lg-tablewrap">
-        <div class="lg-state loading" id="lg-loading">reading canister…</div>
+        <div class="lg-state loading" id="lg-loading">reading public endpoint…</div>
         <table class="lg-table" id="lg-table" hidden>
           <thead>
-            <tr><th>Organism</th><th>State</th><th>Last beat</th><th>Beat #</th><th>Note</th></tr>
+            <tr><th>Organism</th><th>Reported state</th><th>Reported age</th><th>Beat #</th><th>Note</th></tr>
           </thead>
           <tbody id="lg-tbody"></tbody>
         </table>
@@ -252,25 +250,20 @@
     <div class="lg-wrap">
       <div class="lg-split">
         <div class="lg-card yes">
-          <h3>What a stranger can verify here</h3>
+          <h3>What this report lets you inspect</h3>
           <ul>
-            <li>Which organisms are <b>beating</b>, and which have gone quiet — including ones we would rather were green.</li>
-            <li>The Genesis gate's <b>ledger head</b> at the last beat, written with a credential the gate itself never holds.</li>
-            <li>That the attestation is carried by a <b>third party</b> — an Internet Computer canister — not by the machine making the claim.</li>
-            <li>That the <b>data</b> on this page cannot be quietly corrected: your browser reads the canister live.
-            The page's own code is served by us — which is why the commands below exist. If you distrust the
-            rendering, bypass it.</li>
+            <li>The endpoint's current <b>reported beat times</b>, including reports it marks stale.</li>
+            <li>The <b>ledger head First Body included</b> in its last reported beat, when one is present.</li>
+            <li>The exact raw response behind this page, which you can compare with the display using the commands below.</li>
           </ul>
         </div>
         <div class="lg-card no">
-          <h3>What it deliberately does not claim</h3>
+          <h3>What this read does not establish</h3>
           <ul>
-            <li>It is <b>not</b> tamper-proof within a beat. Up to thirty minutes of ledger writes may be unwitnessed at any instant.</li>
-            <li>It does <b>not</b> publish ledger contents — only the head. Records stay on the machine that wrote them.</li>
-            <li>A green light means <b>a heartbeat arrived</b>. It does not mean the work behind it was correct.</li>
-            <li>The head value is <b>reported by First Body</b>, which composes its own beat. What a stranger gets is
-            non-repudiation of what that machine said at a given time — not proof that what it said was true.</li>
-            <li>A stale organism is not necessarily broken — but we show it stale rather than hide it, because a cron that runs and fails looks exactly like one that works.</li>
+            <li>The raw response is <b>not certificate-verified</b> by this browser path. It could be substituted without this page detecting that.</li>
+            <li>It does <b>not</b> publish the gate ledger contents or an immutable history — only a currently reported head.</li>
+            <li>A recent reported beat does not prove the work succeeded, and a stale report alone does not prove an organism is broken.</li>
+            <li>First Body composes its own head report. Authentication of a future canister response would still not prove the local report was true.</li>
           </ul>
         </div>
       </div>
@@ -280,14 +273,14 @@
   <section class="lg-section">
     <div class="lg-wrap">
       <div class="lg-verify">
-        <h3>Don't take our word for it</h3>
-        <p>The canister is public and permits cross-origin reads. Run this yourself, from your machine, with no
-        credential and nothing of ours in the path. If your output disagrees with what is rendered above, the
-        canister is right and this page is wrong.</p>
-        <code class="lg-code"><span class="c"># the same read this page performs</span>
+        <h3>Compare the public report</h3>
+        <p>The endpoint permits a read without credentials. These commands reproduce this page's raw read and
+        bypass our renderer, but <b>they do not cryptographically verify the response</b>. A difference between
+        the command output and this page calls for investigation; neither view alone proves the canister state.</p>
+        <code class="lg-code"><span class="c"># the same unverified raw read this page performs</span>
 curl -s https://rt6ds-eqaaa-aaaad-agv7q-cai.raw.icp0.io/ | jq .
 
-<span class="c"># the head First Body reported in its last beat</span>
+<span class="c"># the head First Body reported in its last beat (also unverified)</span>
 curl -s https://rt6ds-eqaaa-aaaad-agv7q-cai.raw.icp0.io/ \
   | jq -r '.organs[] | select(.organ=="first-body") | .note' \
   | python3 -c 'import sys,urllib.parse; print(urllib.parse.unquote(sys.stdin.read()))'</code>
@@ -306,7 +299,7 @@ curl -s https://rt6ds-eqaaa-aaaad-agv7q-cai.raw.icp0.io/ \
     </div>
   </section>
 
-  <footer id="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span><p class="footer-desc">Intelligence that evolves.<br />No claim without a trail.</p></div><div class="footer-col"><h5>Proof</h5><a href="/proof">Proof Register</a><a href="/proof/ledger">Live Ledger</a><a href="/transmissions">Transmissions</a><a href="/architecture">Architecture</a></div><div class="footer-col"><h5>Organisms</h5><a href="/organisms">All Organisms</a><a href="/organisms/financial-organisms">Financial Organisms</a><a href="/organisms/infinity-mirror">Infinity Mirror</a></div><div class="footer-col"><h5>Next</h5><a href="/build-with-us">Build With Us</a><a href="/#cta">Subscribe</a></div></div><div class="footer-bottom"><span>© 2026 Unwind Code. All rights reserved.</span><span class="footer-tagline">The future learns from itself. ∞</span></div></div></footer>
+  <footer id="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span><p class="footer-desc">Intelligence that evolves.<br />No claim without a trail.</p></div><div class="footer-col"><h5>Proof</h5><a href="/proof">Proof Register</a><a href="/proof/ledger">Public Heartbeat Ledger</a><a href="/transmissions">Transmissions</a><a href="/architecture">Architecture</a></div><div class="footer-col"><h5>Organisms</h5><a href="/organisms">All Organisms</a><a href="/organisms/financial-organisms">Financial Organisms</a><a href="/organisms/infinity-mirror">Infinity Mirror</a></div><div class="footer-col"><h5>Next</h5><a href="/build-with-us">Build With Us</a><a href="/#cta">Subscribe</a></div></div><div class="footer-bottom"><span>© 2026 Unwind Code. All rights reserved.</span><span class="footer-tagline">The future learns from itself. ∞</span></div></div></footer>
 
   <script>
   (function () {
@@ -359,16 +352,16 @@ curl -s https://rt6ds-eqaaa-aaaad-agv7q-cai.raw.icp0.io/ \
       var fb = organs.filter(function (o) { return o.organ === 'first-body'; })[0];
       var pill = document.getElementById('lg-gate-pill');
       if (!fb) {
-        setPill(pill, 'unknown', 'no beat found');
+        setPill(pill, 'unknown', 'no First Body report');
         document.getElementById('lg-seq').textContent = '—';
-        document.getElementById('lg-hash').textContent = 'first-body has never beaten';
+        document.getElementById('lg-hash').textContent = 'none in this report';
         document.getElementById('lg-age').textContent = '—';
       } else {
         var note = decodeNote(fb.note);
         var g = parseGate(note);
-        setPill(pill, fb.stale ? 'stale' : 'live', fb.stale ? 'stale' : 'beating');
-        document.getElementById('lg-seq').textContent = g ? ('#' + g.seq) : 'not attested';
-        document.getElementById('lg-hash').textContent = g ? clamp(g.hash) : 'this beat carried no ledger head';
+        setPill(pill, 'unknown', fb.stale ? 'reports stale · unverified' : 'reports recent · unverified');
+        document.getElementById('lg-seq').textContent = g ? ('#' + g.seq) : 'no head reported';
+        document.getElementById('lg-hash').textContent = g ? clamp(g.hash) : 'this report carried no ledger head';
         document.getElementById('lg-age').textContent = humanAge(fb.age_seconds);
       }
       document.getElementById('lg-total').textContent =
@@ -386,7 +379,7 @@ curl -s https://rt6ds-eqaaa-aaaad-agv7q-cai.raw.icp0.io/ \
         var note = decodeNote(o.note);
         return '<tr>' +
           '<td class="lg-organ">' + esc(clamp(o.organ)) + '</td>' +
-          '<td><span class="lg-pill ' + (stale ? 'stale' : 'live') + '">' + (stale ? 'stale' : 'beating') + '</span></td>' +
+          '<td><span class="lg-pill unknown">' + (stale ? 'reports stale' : 'reports recent') + '</span></td>' +
           '<td class="lg-num">' + esc(humanAge(o.age_seconds)) + '</td>' +
           '<td class="lg-num">' + esc(o.seq != null ? o.seq : '—') + '</td>' +
           '<td class="lg-note">' + esc(clamp(note) || '—') + '</td>' +
@@ -403,12 +396,12 @@ curl -s https://rt6ds-eqaaa-aaaad-agv7q-cai.raw.icp0.io/ \
 
       var t = new Date();
       document.getElementById('lg-refresh').textContent =
-        'read at ' + t.toLocaleTimeString() + ' · refreshing every 60s';
+        'unverified report read at ' + t.toLocaleTimeString() + ' · refreshing every 60s';
     }
 
     // C7: "cannot verify" must not look like "verified bad".
     function renderUnreachable(err) {
-      setPill(document.getElementById('lg-gate-pill'), 'unknown', 'cannot verify');
+      setPill(document.getElementById('lg-gate-pill'), 'unknown', 'cannot read report');
       ['lg-seq', 'lg-hash', 'lg-age', 'lg-total'].forEach(function (id) {
         document.getElementById(id).textContent = 'unavailable';
       });
@@ -418,10 +411,10 @@ curl -s https://rt6ds-eqaaa-aaaad-agv7q-cai.raw.icp0.io/ \
       loading.hidden = false;
       loading.className = 'lg-state error';
       loading.innerHTML =
-        '<b>Cannot reach the canister from your browser.</b>' +
-        'This is not the same as the organisms being down — it means this page could not verify either way. ' +
-        'A network block, an offline connection, or a canister outage all look like this.' +
-        '<span>Verify independently with the curl command below. ' + esc(err ? String(err.message || err) : '') + '</span>';
+        '<b>Cannot read the public endpoint from your browser.</b>' +
+        'This says nothing about whether the organisms are running. ' +
+        'A network block, an offline connection, or an endpoint outage can all look like this.' +
+        '<span>Compare the raw endpoint with the command below; that read is also unverified. ' + esc(err ? String(err.message || err) : '') + '</span>';
       document.getElementById('lg-refresh').textContent = 'retrying every 60s';
     }
 
