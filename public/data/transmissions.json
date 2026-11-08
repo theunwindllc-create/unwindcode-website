@@ -4,6 +4,34 @@
   "generated_from": "active-site-public-html",
   "transmissions": [
     {
+      "id": "38-one-board-for-every-hand",
+      "transmission_number": 38,
+      "title": "Transmission 38: One Board for Every Hand",
+      "summary": "Field note on the interim job board every Genesis hand reads before acting: claim, finish or hand back, journal; the first job run by a free local model; the prompt that did not fit a 32k window; two repaired defects; a memory lesson; and the operator's ruling that nothing stays only on the machine.",
+      "route": "/transmissions/38-one-board-for-every-hand",
+      "source_file": "transmissions/38-one-board-for-every-hand.html",
+      "topic_tags": [
+        "agent-coordination",
+        "job-board",
+        "multi-agent",
+        "local-models",
+        "custody-boundary"
+      ],
+      "memory_layers": [
+        "procedural",
+        "episodic"
+      ],
+      "citations": [
+        {
+          "label": "Transmission 38 field note",
+          "route": "/transmissions/38-one-board-for-every-hand",
+          "source_file": "transmissions/38-one-board-for-every-hand.html"
+        }
+      ],
+      "confidence": "high",
+      "review_status": "public_safe"
+    },
+    {
       "id": "37-the-organism-drew-its-chain-boundary",
       "transmission_number": 37,
       "title": "Transmission 37: The Organism Drew Its Chain Boundary",

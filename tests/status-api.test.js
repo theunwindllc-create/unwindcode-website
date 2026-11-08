@@ -169,18 +169,18 @@ test('returns public-safe backend status from active registries', async () => {
   assert.equal(res.body.status.registries.claims.needs_context_count, 2);
   assert.equal(res.body.status.registries.claims.safety_qualified_count, 2);
   assert.equal(res.body.status.registries.organisms.count, 5);
-  assert.equal(res.body.status.registries.transmissions.count, 38);
+  assert.equal(res.body.status.registries.transmissions.count, 39);
   assert.deepEqual(res.body.status.registries.transmissions.latest_public_transmission, {
-    id: '37-the-organism-drew-its-chain-boundary',
-    transmission_number: 37,
-    title: 'Transmission 37: The Organism Drew Its Chain Boundary',
-    route: '/transmissions/37-the-organism-drew-its-chain-boundary',
-    source_file: 'transmissions/37-the-organism-drew-its-chain-boundary.html',
+    id: '38-one-board-for-every-hand',
+    transmission_number: 38,
+    title: 'Transmission 38: One Board for Every Hand',
+    route: '/transmissions/38-one-board-for-every-hand',
+    source_file: 'transmissions/38-one-board-for-every-hand.html',
     review_status: 'public_safe',
   });
   assert.deepEqual(res.body.status.registries.transmissions.numbering, {
-    latest_number: 37,
-    published_count: 38,
+    latest_number: 38,
+    published_count: 39,
     has_gaps: false,
     missing_numbers: [],
   });

@@ -1061,7 +1061,7 @@
       ],
       "authority_boundary": "The desk prepares manual posting assets only; no social network posting, public distribution, or claim escalation happens without creator approval."
     },
-    "total_transmissions": 38,
+    "total_transmissions": 39,
     "reader_lanes": [
       {
         "lane": "whitepaper",
@@ -1095,11 +1095,11 @@
       }
     ],
     "latest": {
-      "id": "transmission_37",
-      "title": "The Organism Drew Its Chain Boundary",
-      "url": "https://www.unwindcode.ai/transmissions/37-the-organism-drew-its-chain-boundary",
-      "lane": "chain_boundary",
-      "use_for": "Understand how an autonomous system draws its boundary with a public chain: which components move on-chain, which are witnessed from there while running on the machine, which stay by law or physics, why local-replica proofs are not mainnet claims, and why the custody boundary outranks automated goal pressure."
+      "id": "transmission_38",
+      "title": "One Board for Every Hand",
+      "url": "https://www.unwindcode.ai/transmissions/38-one-board-for-every-hand",
+      "lane": "agent_coordination",
+      "use_for": "Understand how four agent hands share one interim job board without gaining authority from it: claim before you start with a timestamp, finish with a receipt or hand back, journal every move, leave operator-gated jobs unclaimed; why a default agent prompt of about 39,000 tokens cannot run inside a 32,768-token local model while a lean rail agent at about 14,000 can; and why the operator ruled that nothing stays only on the machine. The day's facts are a dated 2026-11-08 record, not live status."
     },
     "transmission_33": {
       "id": "transmission_33",
@@ -1135,6 +1135,13 @@
       "url": "https://www.unwindcode.ai/transmissions/37-the-organism-drew-its-chain-boundary",
       "lane": "chain_boundary",
       "use_for": "Understand how an autonomous system draws its boundary with a public chain: which components move on-chain, which are witnessed from there while running on the machine, which stay by law or physics, why local-replica proofs are not mainnet claims, and why the custody boundary outranks automated goal pressure."
+    },
+    "transmission_38": {
+      "id": "transmission_38",
+      "title": "One Board for Every Hand",
+      "url": "https://www.unwindcode.ai/transmissions/38-one-board-for-every-hand",
+      "lane": "agent_coordination",
+      "use_for": "Understand how four agent hands share one interim job board without gaining authority from it: claim before you start with a timestamp, finish with a receipt or hand back, journal every move, leave operator-gated jobs unclaimed; why a default agent prompt of about 39,000 tokens cannot run inside a 32,768-token local model while a lean rail agent at about 14,000 can; and why the operator ruled that nothing stays only on the machine. The day's facts are a dated 2026-11-08 record, not live status."
     }
   },
   "proof_urls": [

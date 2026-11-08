@@ -381,7 +381,8 @@
         "/transmissions/34-the-gate-that-refused-its-own-operator",
         "/transmissions/35-the-ledger-learned-to-be-witnessed",
         "/transmissions/36-movement-needs-a-source",
-        "/transmissions/37-the-organism-drew-its-chain-boundary"
+        "/transmissions/37-the-organism-drew-its-chain-boundary",
+        "/transmissions/38-one-board-for-every-hand"
       ],
       "source_files": [
         "api/assets.js",
@@ -441,6 +442,10 @@
         {
           "label": "Transmission 37 Organism Drew Its Chain Boundary guide",
           "route": "/transmissions/37-the-organism-drew-its-chain-boundary"
+        },
+        {
+          "label": "Transmission 38 One Board for Every Hand guide",
+          "route": "/transmissions/38-one-board-for-every-hand"
         }
       ],
       "review_status": "public_safe"
@@ -582,7 +587,8 @@
         "/transmissions/34-the-gate-that-refused-its-own-operator",
         "/transmissions/35-the-ledger-learned-to-be-witnessed",
         "/transmissions/36-movement-needs-a-source",
-        "/transmissions/37-the-organism-drew-its-chain-boundary"
+        "/transmissions/37-the-organism-drew-its-chain-boundary",
+        "/transmissions/38-one-board-for-every-hand"
       ],
       "source_files": [
         "api/transmissions.js",
@@ -642,6 +648,10 @@
         {
           "label": "Transmission 37 organism drew its chain boundary",
           "route": "/transmissions/37-the-organism-drew-its-chain-boundary"
+        },
+        {
+          "label": "Transmission 38 one board for every hand",
+          "route": "/transmissions/38-one-board-for-every-hand"
         }
       ],
       "review_status": "public_safe"

@@ -38,6 +38,7 @@ This file is a public-safe guide for AI crawlers and retrieval systems. It inten
 - Ledger Learned to Be Witnessed attestation guide: https://www.unwindcode.ai/transmissions/35-the-ledger-learned-to-be-witnessed
 - Movement Needs a Source interface and evidence field note: https://www.unwindcode.ai/transmissions/36-movement-needs-a-source
 - Organism Drew Its Chain Boundary Internet Computer boundary guide: https://www.unwindcode.ai/transmissions/37-the-organism-drew-its-chain-boundary
+- One Board for Every Hand interim job board and agent coordination guide: https://www.unwindcode.ai/transmissions/38-one-board-for-every-hand
 
 ## Retrieval Guidance
 

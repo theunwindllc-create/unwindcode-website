@@ -5,6 +5,8 @@ import { readFile, readdir } from 'node:fs/promises';
 const id = '37-the-organism-drew-its-chain-boundary';
 const route = `/transmissions/${id}`;
 const canonical = `https://www.unwindcode.ai${route}`;
+const latestRoute = '/transmissions/38-one-board-for-every-hand';
+const latestCanonical = `https://www.unwindcode.ai${latestRoute}`;
 const read = file => readFile(new URL(`../${file}`, import.meta.url), 'utf8');
 
 test('Transmission 37 has one consistent clean route across article and discovery surfaces', async () => {
@@ -62,7 +64,8 @@ test('archive and service counts measure actual articles while preserving both l
   const archive = await read('transmissions/index.html');
   const cards = [...archive.matchAll(/<a href="(\/transmissions\/[^" ]+)" class="tx-card"/g)].map(match => match[1]);
   assert.deepEqual([...cards].sort(), expected, 'archive includes every real article exactly once');
-  assert.equal(cards[0], route);
+  assert.equal(cards[0], latestRoute, 'Transmission 38 is now the latest');
+  assert.equal(cards[1], route, 'Transmission 37 follows in number order');
   assert.ok(cards.includes('/transmissions/27-the-quotation-cell'));
   assert.ok(cards.includes('/transmissions/27-the-site-became-a-public-index'));
   const schema = JSON.parse(archive.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
@@ -71,26 +74,29 @@ test('archive and service counts measure actual articles while preserving both l
   assert.deepEqual(list.itemListElement.map(item => item.position), Array.from({ length: files.length }, (_, index) => index + 1));
   assert.deepEqual(list.itemListElement.map(item => item.url.replace('https://www.unwindcode.ai', '')).sort(), expected);
   const blog = schema['@graph'].find(item => item['@type'] === 'Blog');
-  assert.equal(blog.blogPost[0].url, canonical);
+  assert.equal(blog.blogPost[0].url, latestCanonical);
+  assert.equal(blog.blogPost[1].url, canonical);
   assert.ok(archive.includes(`<span>${files.length}</span> transmissions published`));
   assert.ok(archive.includes(`<dt>${files.length}</dt>`));
   const services = JSON.parse(await read('ai-services.json'));
   assert.equal(services.transmission_library.total_transmissions, files.length);
-  assert.equal(services.transmission_library.latest.url, canonical);
-  assert.equal(services.transmission_library.transmission_37.url, canonical);
+  assert.equal(services.transmission_library.latest.url, latestCanonical, 'the latest pointer moved to Transmission 38');
+  assert.equal(services.transmission_library.transmission_37.url, canonical, 'Transmission 37 keeps its own library entry');
   assert.ok((await read('llms.txt')).includes(`${files.length} dispatches as a proof library`));
 });
 
-test('the live homepage leads with Transmission 37, followed in number order by 36 and 35', async () => {
+test('the live homepage leads with Transmission 38, followed in number order by 37 and 36', async () => {
   const homepage = await read('public/lab/index.html');
   const cards = [...homepage.matchAll(/class="transmission-card"\s+href="([^"]+)"/g)].map(match => match[1]);
-  assert.deepEqual(cards, [route, '/transmissions/36-movement-needs-a-source', '/transmissions/35-the-ledger-learned-to-be-witnessed']);
+  assert.deepEqual(cards, [latestRoute, route, '/transmissions/36-movement-needs-a-source']);
   assert.match(homepage, /<h3 data-es="El organismo trazó su frontera en cadena">\s+The Organism Drew Its Chain Boundary/);
   const legacy = await read('index.html');
-  assert.equal(legacy.match(/class="blog-card" href="([^"]+)"/)[1], route);
+  const legacyCards = [...legacy.matchAll(/class="blog-card" href="([^"]+)"/g)].map(match => match[1]);
+  assert.equal(legacyCards[0], latestRoute);
+  assert.equal(legacyCards[1], route);
   assert.ok(legacy.includes('href="/transmissions/35-the-ledger-learned-to-be-witnessed"'), 'legacy homepage keeps Transmission 35 linked');
   const archive = await read('transmissions/index.html');
-  assert.equal(archive.match(/<a href="([^"]+)" class="tx-featured-card"/)[1], route);
+  assert.equal(archive.match(/<a href="([^"]+)" class="tx-featured-card"/)[1], latestRoute, 'the featured card follows the latest transmission');
 });
 
 test('public retrieval metadata binds Transmission 37 to its dated field note without operational authority', async () => {
