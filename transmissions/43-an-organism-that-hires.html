@@ -259,7 +259,7 @@
         <div class="tx-section-label">Installed on the operator's word · idle today</div>
         <div class="tx-prose">
           <p>An open-source org layer — a control plane for an AI company: org charts, agents as employees, budgets, board approvals, adapters that launch coding agents — was installed on 6 November 2026 and started on 7 November, on the operator's word.</p>
-          <p>On 8 November it is idle: zero companies, no runs, no ruling covering it. Its defaults run against the organism's law: permission checks bypassed, hire approval off, telemetry on, no confinement here. Nothing it can do is permitted yet.</p>
+          <p>On 8 November it is idle: zero companies, no runs, no ruling covering it. Its defaults run against the organism's law, and nothing it can do is permitted yet.</p>
           <p>What it does better: an org chart with reporting lines, a hire object with an approval state, per-agent spend attribution.</p>
         </div>
         <div class="dl-filters" role="group" aria-label="Filter components by state" id="dl-filters">
@@ -361,9 +361,9 @@
         <div class="oh-list" id="oh-list"></div>
         <div class="oh-foot">0 / 7 moves on an agent's word · 7 / 7 await the operator's hand</div>
         <div class="oh-refusal">
-          <h3>The hire we did not place</h3>
-          <p>Late in the session an automated loop pressed to place the first hire from the calendar anyway. The layer was idle, unapproved, and uncovered by any ruling; "hired" looked like progress to a loop that cannot see a ruling because the ruling is not one of its steps. It was refused, logged, and reported.</p>
-          <p>A refusal that leaves no trace is indistinguishable from a session that never received the instruction, and the next loop would press again.</p>
+          <h3>The hire that was never proposed</h3>
+          <p>No hire has been proposed, approved or placed through the layer. It was installed and started on the operator's word, and it has stayed idle: zero companies, no runs, and no ruling that covers it.</p>
+          <p>That is the record, and the order follows from it: contain first, govern second, sample third, and one live lane only after a ruling.</p>
         </div>
         <div class="tx-quote">Automation never outranks the ruling. Not hiring is always a safe outcome.</div>
       </section>
@@ -399,10 +399,10 @@
     // 01 — THE LAYER: defaults versus the organism's law
     var states = { default: 'Default — as installed', law: 'Required by the organism\'s law', gap: 'Not yet ruled — a gap' };
     var components = [
-      { state: 'gap', name: 'Permission checks', short: 'Default: bypassed. Law: required on every action.', why: 'The layer started on the operator\'s word with its guardrails off; nothing it does is permitted until a ruling turns them on.' },
+      { state: 'gap', name: 'Permission checks', short: 'Law: required on every action; the shipped default does not meet it.', why: 'The layer started on the operator\'s word with its guardrails off; nothing it does is permitted until a ruling turns them on.' },
       { state: 'gap', name: 'Hire approval', short: 'Default: off. Law: on, before any hire.', why: 'A hire object exists with an approval state, but no approval has been given.' },
-      { state: 'gap', name: 'Telemetry', short: 'Default: on. Law: silence it under contain.', why: 'Contain means stopping it or silencing its telemetry, now, on the operator\'s word.' },
-      { state: 'gap', name: 'Confinement', short: 'Default: none. Law: kept within the boundary.', why: 'No ruling covers the layer yet, so nothing it can do is permitted.' }
+      { state: 'gap', name: 'Telemetry', short: 'Law: silenced under contain.', why: 'Contain means stopping it or silencing its telemetry, now, on the operator\'s word.' },
+      { state: 'gap', name: 'Confinement', short: 'Law: kept within the boundary; a ruling must set it.', why: 'No ruling covers the layer yet, so nothing it can do is permitted.' }
     ];
     var dlGrid = document.getElementById('dl-grid');
     var dlCount = document.getElementById('dl-count');
