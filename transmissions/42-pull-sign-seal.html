@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Transmission 42: Pull, Sign, Seal | Unwind Code</title>
+  <meta name="description" content="A design written on 8 November 2026 for running the organism from anywhere — the machine pulls requests, every request is signed by the operator's passkey, secrets travel sealed — and why nothing of it is built or lawful yet." />
+  <meta name="theme-color" content="#06060c" />
+  <link rel="canonical" href="https://www.unwindcode.ai/transmissions/42-pull-sign-seal" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Pull, Sign, Seal" />
+  <meta property="og:description" content="A design, not a build: the machine pulls requests, every request is signed by the operator's passkey, secrets travel sealed, and nothing runs yet." />
+  <meta property="og:url" content="https://www.unwindcode.ai/transmissions/42-pull-sign-seal" />
+  <meta property="og:site_name" content="Unwind Code" />
+  <meta property="og:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
+  <meta property="og:image:type" content="image/svg+xml" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Unwind Code AI organism architecture lab visual" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pull, Sign, Seal" />
+  <meta name="twitter:description" content="Pull, sign, seal — a design written before anything is built, and nothing of it lawful yet." />
+  <meta name="twitter:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
+  <meta name="twitter:image:alt" content="Unwind Code AI organism architecture lab visual" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Pull, Sign, Seal",
+    "description": "A design written on 8 November 2026 for running the organism from anywhere — pull requests, passkey signatures, sealed secrets — and why nothing of it is built or lawful yet.",
+    "author": {"@type": "Organization", "name": "Unwind Code"},
+    "publisher": {"@type": "Organization", "name": "Unwind Code", "url": "https://www.unwindcode.ai"},
+    "datePublished": "2026-11-08",
+    "dateModified": "2026-11-08",
+    "keywords": ["remote control", "pull architecture", "passkey", "sealed envelope", "design note", "custody boundary"],
+    "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/42-pull-sign-seal"
+  }
+  </script>
+  <style>
+    .tx-page { background: var(--bg-void); color: var(--text-primary); }
+    .tx-page *, .tx-page *::before, .tx-page *::after { box-sizing: border-box; }
+    .tx-hero { padding: 160px 0 72px; text-align: center; position: relative; overflow: hidden; }
+    .tx-hero::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:800px; height:800px; background:radial-gradient(circle, rgba(110,45,190,0.12) 0%, transparent 60%); pointer-events:none; }
+    .tx-hero-kicker { margin-bottom:16px; }
+    .tx-hero h1 { font-size:clamp(2.2rem,5vw,3.5rem); font-weight:800; letter-spacing:-0.04em; line-height:1.08; margin:0 0 20px; }
+    .tx-hero-sub { font-size:1.08rem; color:var(--text-secondary); max-width:660px; margin:0 auto; line-height:1.7; }
+    .tx-hero-meta { margin-top:28px; display:flex; justify-content:center; gap:14px; font-size:0.76rem; color:var(--text-muted); font-weight:600; letter-spacing:0.06em; text-transform:uppercase; flex-wrap:wrap; }
+    .tx-section { padding:72px 0; border-top:1px solid var(--accent-border); }
+    .tx-section:first-of-type { border-top:none; padding-top:24px; }
+    .tx-section-head { display:flex; align-items:center; gap:16px; margin-bottom:10px; }
+    .tx-section-num { font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:700; color:var(--accent-hot); letter-spacing:0.15em; }
+    .tx-section h2 { font-size:clamp(1.5rem,3vw,2rem); font-weight:700; letter-spacing:-0.02em; margin:0; }
+    .tx-section-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:24px; }
+    .tx-prose { font-size:1.04rem; color:var(--text-secondary); line-height:1.8; max-width:720px; }
+    .tx-prose p { margin:0 0 22px; }
+    .tx-prose strong { color:var(--text-primary); font-weight:600; }
+    .tx-prose code, .tx-prose-code { font-family:'JetBrains Mono',monospace; font-size:0.84rem; background:rgba(110,45,190,0.1); color:var(--accent-light); padding:2px 6px; border-radius:4px; }
+    .tx-prose a, .tx-inline { color:var(--accent-light); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    .tx-quote { border-left:3px solid var(--accent); padding:18px 24px; margin:36px 0; background:rgba(110,45,190,0.05); border-radius:0 12px 12px 0; color:var(--text-primary); font-size:1.08rem; line-height:1.6; font-weight:500; max-width:720px; }
+    .tx-after { margin-top:36px; }
+
+    /* 01 — Dividing line filter */
+    .dl-filters { display:flex; flex-wrap:wrap; gap:10px; margin:28px 0 18px; }
+    .dl-chip { font-family:inherit; font-size:0.78rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:9px 16px; border-radius:999px; border:1px solid var(--accent-border); background:var(--bg-surface); color:var(--text-secondary); cursor:pointer; transition:border-color .2s ease, color .2s ease, background .2s ease; }
+    .dl-chip:hover { border-color:rgba(110,45,190,0.4); color:var(--text-primary); }
+    .dl-chip[aria-pressed="true"] { background:rgba(110,45,190,0.16); border-color:var(--accent-light); color:var(--text-primary); }
+    .dl-chip-a[aria-pressed="true"] { border-color:#9b59f5; }
+    .dl-chip-b[aria-pressed="true"] { border-color:#38bdf8; }
+    .dl-chip-c[aria-pressed="true"] { border-color:#fbbf24; }
+    .dl-count { font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:var(--text-muted); margin-bottom:16px; letter-spacing:0.06em; }
+    .dl-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:12px; }
+    .dl-card { font-family:inherit; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:18px; cursor:pointer; transition:border-color .25s ease, transform .25s ease, opacity .25s ease; }
+    .dl-card:hover { transform:translateY(-2px); border-color:rgba(110,45,190,0.4); }
+    .dl-card[hidden] { display:none; }
+    .dl-state { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.12em; padding:3px 9px; border-radius:999px; border:1px solid currentColor; margin-bottom:10px; }
+    .dl-state-less { color:#c084fc; } .dl-state-more { color:#38bdf8; } .dl-state-never { color:#fbbf24; }
+    .dl-name { font-weight:700; font-size:0.96rem; margin-bottom:4px; }
+    .dl-short { font-size:0.84rem; color:var(--text-secondary); line-height:1.55; }
+    .dl-why { display:none; margin-top:12px; padding-top:12px; border-top:1px solid var(--accent-border); font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+    .dl-card[aria-expanded="true"] .dl-why { display:block; }
+    .dl-hint { font-size:0.68rem; color:var(--accent-hot); margin-top:10px; font-weight:600; letter-spacing:0.05em; }
+    .dl-law { margin-top:32px; border:1px solid rgba(251,191,36,0.28); border-radius:16px; padding:24px 28px; background:linear-gradient(180deg,rgba(251,191,36,0.07),rgba(251,191,36,0.015)); max-width:720px; }
+    .dl-law h3 { margin:0 0 10px; font-size:1rem; color:#fbbf24; }
+    .dl-law p { margin:0; font-size:0.95rem; color:var(--text-secondary); line-height:1.7; }
+
+    /* 02 — Canister explorer */
+    .mod-explorer { display:grid; grid-template-columns:1fr 1.25fr; gap:24px; margin-top:32px; }
+    .mod-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; align-content:start; }
+    .mod-node { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:20px; cursor:pointer; transition:all 0.25s ease; text-align:left; font-family:inherit; color:var(--text-primary); }
+    .mod-node:hover, .mod-node[aria-pressed="true"] { border-color:rgba(110,45,190,0.45); transform:translateY(-2px); box-shadow:0 8px 24px rgba(110,45,190,0.1); }
+    .mod-node[aria-pressed="true"] { background:rgba(110,45,190,0.08); }
+    .mod-glyph { font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--accent-hot); letter-spacing:0.14em; margin-bottom:10px; display:block; }
+    .mod-name { font-weight:700; font-size:1.02rem; font-family:'JetBrains Mono',monospace; }
+    .mod-path { font-size:0.78rem; color:var(--text-muted); margin-top:6px; line-height:1.4; }
+    .mod-score { margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:#34d399; }
+    .mod-detail { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:20px; padding:32px; min-height:420px; }
+    .mod-detail-title { font-size:1.4rem; font-weight:700; margin-bottom:8px; font-family:'JetBrains Mono',monospace; }
+    .mod-detail-type { display:inline-block; font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent-hot); background:rgba(110,45,190,0.12); border:1px solid rgba(110,45,190,0.2); padding:4px 12px; border-radius:20px; margin-bottom:20px; }
+    .mod-detail-desc { color:var(--text-secondary); line-height:1.7; font-size:0.95rem; margin-bottom:22px; }
+    .mod-specs-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:10px; }
+    .mod-specs { display:flex; flex-wrap:wrap; gap:8px; }
+    .mod-spec { background:rgba(110,45,190,0.08); border:1px solid var(--accent-border); color:var(--accent-light); padding:6px 14px; border-radius:20px; font-size:0.8rem; font-weight:500; }
+    .mod-proof { margin-top:22px; padding-top:18px; border-top:1px solid var(--accent-border); font-size:0.84rem; color:var(--text-muted); line-height:1.6; }
+    .mod-proof strong { color:#34d399; font-family:'JetBrains Mono',monospace; font-weight:600; }
+    .mod-deploy { margin-top:24px; display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:12px; }
+    .mod-stat { border:1px solid var(--accent-border); border-radius:12px; padding:16px; background:rgba(0,0,0,0.2); }
+    .mod-stat-k { font-family:'JetBrains Mono',monospace; font-size:0.64rem; letter-spacing:0.13em; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; }
+    .mod-stat-v { font-family:'JetBrains Mono',monospace; font-size:1.2rem; font-weight:600; line-height:1.25; }
+
+    /* 03 — Certified read model */
+    .cr-wrap { margin-top:28px; border:1px solid rgba(56,189,248,0.22); border-radius:20px; padding:28px; background:linear-gradient(180deg,rgba(56,189,248,0.06),rgba(56,189,248,0.01)); }
+    .cr-top { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; }
+    .cr-label { font-family:'JetBrains Mono',monospace; font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:#38bdf8; }
+    .cr-faults { display:flex; flex-wrap:wrap; gap:8px; }
+    .cr-fault { font-family:inherit; font-size:0.76rem; font-weight:700; padding:8px 14px; border-radius:999px; border:1px solid var(--accent-border); background:var(--bg-surface); color:var(--text-secondary); cursor:pointer; transition:border-color .2s ease, color .2s ease; }
+    .cr-fault:hover { color:var(--text-primary); border-color:rgba(248,113,113,0.5); }
+    .cr-fault[aria-pressed="true"] { color:#fca5a5; border-color:#f87171; background:rgba(248,113,113,0.1); }
+    .cr-fault-reset[aria-pressed="true"] { color:#34d399; border-color:#10b981; background:rgba(16,185,129,0.1); }
+    .cr-cols { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .cr-col { border:1px solid var(--accent-border); border-radius:14px; padding:18px; background:rgba(0,0,0,0.22); }
+    .cr-col h3 { margin:0 0 4px; font-size:0.98rem; }
+    .cr-col-sub { font-size:0.78rem; color:var(--text-muted); margin:0 0 14px; line-height:1.5; }
+    .cr-steps { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
+    .cr-step { display:grid; grid-template-columns:22px 1fr auto; gap:10px; align-items:start; padding:10px 12px; border-radius:10px; border:1px solid var(--accent-border); font-size:0.84rem; line-height:1.5; color:var(--text-secondary); transition:border-color .2s ease, background .2s ease; }
+    .cr-step-n { font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--text-muted); padding-top:3px; }
+    .cr-step-t { color:var(--text-primary); font-weight:600; display:block; }
+    .cr-step-d { display:block; font-size:0.78rem; color:var(--text-muted); margin-top:2px; }
+    .cr-verdict { font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:700; letter-spacing:0.08em; padding-top:3px; white-space:nowrap; }
+    .cr-step.pass { border-color:rgba(16,185,129,0.35); } .cr-step.pass .cr-verdict { color:#34d399; }
+    .cr-step.fail { border-color:#f87171; background:rgba(248,113,113,0.08); } .cr-step.fail .cr-verdict { color:#fca5a5; }
+    .cr-step.skip { opacity:0.42; } .cr-step.skip .cr-verdict { color:var(--text-muted); }
+    .cr-step.blind { border-color:rgba(251,191,36,0.3); } .cr-step.blind .cr-verdict { color:#fbbf24; }
+    .cr-outcome { margin-top:16px; border-radius:12px; padding:14px 16px; font-size:0.9rem; line-height:1.6; border:1px solid var(--accent-border); background:rgba(0,0,0,0.22); color:var(--text-secondary); }
+    .cr-outcome strong { color:var(--text-primary); }
+    .cr-outcome.refused { border-color:rgba(248,113,113,0.4); }
+    .cr-outcome.clean { border-color:rgba(16,185,129,0.35); }
+    .cr-note { margin:14px 0 0; font-size:0.8rem; color:var(--text-muted); line-height:1.6; }
+    .tx-bound { border:1px solid rgba(232,161,92,0.28); border-radius:16px; padding:26px 28px; background:linear-gradient(180deg,rgba(232,161,92,0.08),rgba(232,161,92,0.02)); margin:32px 0 0; max-width:760px; }
+    .tx-bound h3 { margin:0 0 12px; color:#e8a15c; font-size:1.02rem; }
+    .tx-bound p { margin:0 0 12px; font-size:0.95rem; color:var(--text-secondary); line-height:1.7; }
+    .tx-bound p:last-child { margin:0; }
+    .tx-bound code { font-family:'JetBrains Mono',monospace; font-size:0.8rem; color:var(--text-primary); }
+
+    /* 04 — Timeline + toolchain cards */
+    .wf-steps { position:relative; margin-top:32px; padding-left:40px; max-width:760px; }
+    .wf-steps::before { content:''; position:absolute; left:19px; top:0; bottom:0; width:2px; background:var(--accent-border); }
+    .wf-step { position:relative; margin-bottom:40px; }
+    .wf-step:last-child { margin-bottom:0; }
+    .wf-dot { position:absolute; left:-40px; top:0; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:800; z-index:2; font-family:'JetBrains Mono',monospace; }
+    .wf-dot-1 { background:rgba(110,45,190,0.15); color:var(--accent-light); border:2px solid var(--accent); }
+    .wf-dot-2 { background:rgba(79,70,229,0.15); color:#818cf8; border:2px solid #6366f1; }
+    .wf-dot-3 { background:rgba(14,165,233,0.15); color:#38bdf8; border:2px solid #0ea5e9; }
+    .wf-dot-4 { background:rgba(16,185,129,0.15); color:#34d399; border:2px solid #10b981; }
+    .wf-dot-5 { background:rgba(245,158,11,0.15); color:#fbbf24; border:2px solid #f59e0b; }
+    .wf-dot-6 { background:rgba(248,113,113,0.15); color:#fca5a5; border:2px solid #f87171; }
+    .wf-dot-7 { background:linear-gradient(135deg,var(--accent),var(--accent-light)); color:#fff; border:none; }
+    .wf-step h3 { font-size:1.06rem; font-weight:700; margin:0 0 6px; padding-top:8px; }
+    .wf-step p { font-size:0.92rem; color:var(--text-secondary); line-height:1.65; margin:0; }
+    .wf-step code { font-family:'JetBrains Mono',monospace; font-size:0.8rem; background:rgba(110,45,190,0.1); color:var(--accent-light); padding:2px 6px; border-radius:4px; }
+    .wf-step.reveal-step { opacity:0; transform:translateY(10px); animation:wfIn .6s ease forwards; }
+    .wf-step.reveal-step:nth-child(1){animation-delay:.05s}.wf-step.reveal-step:nth-child(2){animation-delay:.15s}.wf-step.reveal-step:nth-child(3){animation-delay:.25s}.wf-step.reveal-step:nth-child(4){animation-delay:.35s}.wf-step.reveal-step:nth-child(5){animation-delay:.45s}.wf-step.reveal-step:nth-child(6){animation-delay:.55s}.wf-step.reveal-step:nth-child(7){animation-delay:.65s}
+    @keyframes wfIn { to { opacity:1; transform:none; } }
+    .mem-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:28px; }
+    .mem-card { font-family:inherit; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:16px; padding:24px; cursor:pointer; transition:all 0.3s ease; }
+    .mem-card:hover { border-color:rgba(110,45,190,0.35); transform:translateY(-3px); box-shadow:0 8px 24px rgba(110,45,190,0.08); }
+    .mem-card h4 { font-size:0.98rem; font-weight:700; margin:0 0 8px; display:flex; align-items:center; gap:10px; }
+    .mem-tag { font-family:'JetBrains Mono',monospace; font-size:0.62rem; letter-spacing:0.12em; color:var(--accent-hot); border:1px solid rgba(110,45,190,0.3); padding:2px 8px; border-radius:999px; text-transform:uppercase; white-space:nowrap; }
+    .mem-card p { font-size:0.87rem; color:var(--text-secondary); line-height:1.6; margin:0; }
+    .mem-extra { display:none; margin-top:14px; padding-top:14px; border-top:1px solid var(--accent-border); font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+    .mem-card[aria-expanded="true"] .mem-extra { display:block; }
+    .mem-hint { font-size:0.68rem; color:var(--accent-hot); margin-top:12px; font-weight:600; letter-spacing:0.05em; }
+
+    /* 05 — Operator's hand */
+    .oh-list { display:flex; flex-direction:column; gap:12px; margin-top:28px; max-width:760px; }
+    .oh-item { font-family:inherit; text-align:left; color:var(--text-primary); border:1px solid var(--accent-border); border-radius:14px; padding:18px 22px; background:var(--bg-surface); display:grid; grid-template-columns:auto 1fr auto; gap:16px; align-items:start; cursor:pointer; transition:border-color .2s ease; }
+    .oh-item:hover { border-color:rgba(110,45,190,0.4); }
+    .oh-item[aria-expanded="true"] { border-color:var(--accent-light); }
+    .oh-box { width:22px; height:22px; border-radius:6px; border:2px solid rgba(240,238,246,0.3); margin-top:2px; position:relative; }
+    .oh-box::after { content:''; position:absolute; inset:4px; border-radius:2px; background:transparent; }
+    .oh-t { font-weight:650; font-size:0.98rem; margin-bottom:4px; }
+    .oh-s { font-size:0.85rem; color:var(--text-muted); }
+    .oh-d { font-size:0.9rem; color:var(--text-secondary); line-height:1.65; max-height:0; overflow:hidden; transition:max-height .3s ease, margin .3s ease; }
+    .oh-item[aria-expanded="true"] .oh-d { max-height:260px; margin-top:12px; }
+    .oh-needs { font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:4px 10px; border-radius:999px; border:1px solid currentColor; white-space:nowrap; margin-top:2px; }
+    .oh-needs-key { color:#c084fc; } .oh-needs-funds { color:#fbbf24; } .oh-needs-passkey { color:#38bdf8; } .oh-needs-secret { color:#fca5a5; } .oh-needs-plan { color:#c084fc; }
+    .oh-foot { margin-top:16px; font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:var(--text-muted); letter-spacing:0.06em; }
+    .oh-refusal { margin-top:36px; border:1px solid rgba(248,113,113,0.3); border-radius:16px; padding:26px 28px; background:linear-gradient(180deg,rgba(248,113,113,0.07),rgba(248,113,113,0.015)); max-width:760px; }
+    .oh-refusal h3 { margin:0 0 12px; font-size:1.02rem; color:#fca5a5; }
+    .oh-refusal p { margin:0 0 12px; font-size:0.95rem; color:var(--text-secondary); line-height:1.7; }
+    .oh-refusal p:last-child { margin:0; }
+
+    /* Related + CTA */
+    .tx-related { margin-top:40px; padding-top:22px; border-top:1px solid var(--accent-border); font-size:0.9rem; color:var(--text-muted); line-height:1.7; }
+    .tx-related a { color:var(--accent-light); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    .tx-cta { text-align:center; padding:64px 40px; background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:28px; margin-top:72px; }
+    .tx-cta h2 { font-size:1.6rem; font-weight:700; margin:0 0 12px; }
+    .tx-cta p { color:var(--text-secondary); font-size:0.95rem; margin:0 auto 28px; max-width:520px; line-height:1.7; }
+
+    @media(max-width:900px) {
+      .mod-explorer, .cr-cols, .mem-grid { grid-template-columns:1fr; }
+      .mod-grid { grid-template-columns:1fr 1fr; }
+      .mod-detail { min-height:0; }
+    }
+    @media(max-width:640px) {
+      .mod-grid { grid-template-columns:1fr; }
+      .tx-hero { padding:130px 0 56px; }
+      .tx-section { padding:56px 0; }
+      .cr-wrap, .mod-detail { padding:20px; }
+      .oh-item { grid-template-columns:auto 1fr; }
+      .oh-needs { grid-column:2; justify-self:start; }
+      .cr-step { grid-template-columns:18px 1fr; }
+      .cr-verdict { grid-column:2; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .wf-step.reveal-step { animation:none; opacity:1; transform:none; }
+      .dl-card, .mod-node, .mem-card, .oh-d, .cr-step, .dl-chip, .cr-fault { transition:none; }
+      .dl-card:hover, .mod-node:hover, .mem-card:hover { transform:none; }
+    }
+  </style>
+</head>
+<body class="tx-page">
+
+  <nav id="nav" class="scrolled">
+    <a href="/" class="nav-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="/" data-i18n="nav.home">Home</a>
+      <a href="/organisms" data-i18n="nav.organisms">Organisms</a>
+      <a href="/architecture" data-i18n="nav.architecture">Architecture</a>
+      <a href="/proof" data-i18n="nav.proof">Proof</a>
+      <a href="/transmissions" class="active" aria-current="page" data-i18n="nav.blog">Transmissions</a>
+      <a href="/philosophy" data-i18n="nav.philosophy">Philosophy</a>
+    </div>
+    <div class="nav-actions">
+      <button id="lang-toggle" class="lang-toggle" aria-label="Switch to Spanish">ES</button>
+      <a href="/build-with-us" class="nav-cta" data-i18n="nav.cta">Build With Us</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="tx-hero">
+      <div class="container">
+        <div class="tx-hero-kicker"><span class="tx-section-num">TRANSMISSION 042</span></div>
+        <h1>Pull,<br>Sign, Seal</h1>
+        <p class="tx-hero-sub">On 8 November 2026 a design was written for running the organism from anywhere: adding connectors, entering API keys, running computer use. It is a design, not a build: the machine pulls requests, every request is signed by the operator's passkey, secrets travel sealed.</p>
+        <div class="tx-hero-meta"><span>November 2026</span><span>·</span><span>Design note</span><span>·</span><span>Remote control</span><span>·</span><span>8 min read</span></div>
+      </div>
+    </section>
+
+    <div class="container">
+
+      <!-- 01: THE QUESTION -->
+      <section class="tx-section" id="the-question">
+        <div class="tx-section-head"><span class="tx-section-num">01</span><h2>Run it from anywhere, trust nothing in between</h2></div>
+        <div class="tx-section-label">A design written on 8 November 2026, not built</div>
+        <div class="tx-prose">
+          <p>On 8 November 2026 a design was written for running the organism from anywhere: adding connectors, entering API keys, running computer use.</p>
+          <p>In one line: the machine pulls requests, every request is signed by the operator's passkey, secrets travel sealed.</p>
+        </div>
+      </section>
+
+      <!-- 02: THE PRINCIPLES -->
+      <section class="tx-section" id="the-principles">
+        <div class="tx-section-head"><span class="tx-section-num">02</span><h2>Seven principles</h2></div>
+        <div class="tx-section-label">Every remote act starts here</div>
+        <div class="tx-prose">
+          <p>Pull only: the machine never accepts a connection.</p>
+          <p>The mailbox is not the authority: everything is verified against keys pinned on the machine in a local sitting.</p>
+          <p>Seal in, encrypt out. The gate records; the ruling decides what executes.</p>
+          <p>Less is easy, more is hard: a stop needs only a session, more needs a passkey, some acts never go remote. One queue. The local panel stays the gold path.</p>
+        </div>
+        <div class="dl-filters" role="group" aria-label="Filter request kinds by cost" id="dl-filters">
+          <button class="dl-chip" type="button" data-state="all" aria-pressed="true">All</button>
+          <button class="dl-chip dl-chip-a" type="button" data-state="less">LESS · needs only a session</button>
+          <button class="dl-chip dl-chip-b" type="button" data-state="more">MORE · needs a passkey</button>
+          <button class="dl-chip dl-chip-c" type="button" data-state="never">NEVER · never goes remote</button>
+        </div>
+        <div class="dl-count" id="dl-count" aria-live="polite"></div>
+        <div class="dl-grid" id="dl-grid"></div>
+      </section>
+
+      <!-- 03: THE PIECES -->
+      <section class="tx-section" id="the-pieces">
+        <div class="tx-section-head"><span class="tx-section-num">03</span><h2>A mailbox that is never an authority</h2></div>
+        <div class="tx-section-label">Six pieces, none of them a key on the machine</div>
+        <div class="tx-prose">
+          <p>An operator console served as certified assets on the chain, no secret.</p>
+          <p>A relay: a mailbox holding no secret, controlled by the operator's wallet.</p>
+          <p>A passkey on the operator's phone or a hardware key: the only authority, never on the machine.</p>
+          <p>A pull organ with no secret that polls outbound.</p>
+          <p>A sealed hand that decrypts, re-verifies the assertion itself, writes a gate receipt before acting, dispatches only ruled kinds, posts encrypted results.</p>
+          <p>A secret writer that refuses seed and private-key shapes; messaging is notify-and-echo, never authority.</p>
+        </div>
+        <div class="mod-explorer">
+          <div class="mod-grid" id="mod-grid" role="group" aria-label="Pieces"></div>
+          <div class="mod-detail" id="mod-detail" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <!-- 04: THE ENVELOPE -->
+      <section class="tx-section" id="the-envelope">
+        <div class="tx-section-head"><span class="tx-section-num">04</span><h2>One envelope, ten checks</h2></div>
+        <div class="tx-section-label">Every kind, one shape · every failure, a refusal receipt</div>
+        <div class="tx-prose">
+          <p>One envelope for every kind: canonical JSON carrying the kind, references to the gate's proposal, a sealed body, a 128-bit nonce, and a window of at most 300 seconds. The challenge is the hash of the request bytes; the assertion is a user-verified passkey signature over it.</p>
+          <p>Ten checks. Each failure writes a refusal receipt: credential enrolled; signature verifies against the pinned key; origin equals the pinned console; user verified; sign counter increased; challenge equals the request hash; device id is this machine; time inside the window; nonce unseen; the kind is one the signed rulings name. Results return encrypted to the operator.</p>
+          <p>Why a remote press is harder to forge: no check on the machine can prove a physical press by the operator, since an agent session runs under the same account. A passkey on a phone or hardware key never touches the machine, so no process on it can produce that assertion.</p>
+        </div>
+        <div class="cr-wrap">
+          <div class="cr-top">
+            <span class="cr-label">Model · not a live verifier</span>
+            <div class="cr-faults" role="group" aria-label="Choose a check" id="cr-faults">
+              <button class="cr-fault cr-fault-reset" type="button" data-check="none" aria-pressed="true">Envelope accepted</button>
+              <button class="cr-fault" type="button" data-check="1">Credential enrolled</button>
+              <button class="cr-fault" type="button" data-check="2">Signature verifies against the pinned key</button>
+              <button class="cr-fault" type="button" data-check="3">Origin equals the pinned console</button>
+              <button class="cr-fault" type="button" data-check="4">User verified</button>
+              <button class="cr-fault" type="button" data-check="5">Sign counter increased</button>
+              <button class="cr-fault" type="button" data-check="6">Challenge equals the request hash</button>
+              <button class="cr-fault" type="button" data-check="7">Device id is this machine</button>
+              <button class="cr-fault" type="button" data-check="8">Time inside the window</button>
+              <button class="cr-fault" type="button" data-check="9">Nonce unseen</button>
+              <button class="cr-fault" type="button" data-check="10">The kind is one the signed rulings name</button>
+            </div>
+          </div>
+          <div class="cr-cols">
+            <div class="cr-col">
+              <h3>As the machine sees it</h3>
+              <p class="cr-col-sub">Always accepts. It has no way to know.</p>
+              <ol class="cr-steps" id="cr-raw"></ol>
+            </div>
+            <div class="cr-col">
+              <h3>What verification refuses</h3>
+              <p class="cr-col-sub">Each check refuses on its own evidence.</p>
+              <ol class="cr-steps" id="cr-verify"></ol>
+            </div>
+          </div>
+          <div class="cr-outcome" id="cr-outcome" aria-live="polite"></div>
+          <p class="cr-note">Pick a check to see the refusal it writes. An envelope that passes all ten returns encrypted to the operator.</p>
+        </div>
+      </section>
+
+      <!-- 05: THE RULINGS -->
+      <section class="tx-section" id="the-rulings">
+        <div class="tx-section-head"><span class="tx-section-num">05</span><h2>Five rulings it needs</h2></div>
+        <div class="tx-section-label">Before any remote act</div>
+        <div class="tx-prose">
+          <p>R-REMOTE-1: a remote origin exists, and a passkey press counts as the operator's word for named kinds.</p>
+          <p>R-REMOTE-2: connectors.</p>
+          <p>R-REMOTE-3: credentials — a sealed intake key as a scoped credential that controls no assets; new keys dormant until a cap ruling.</p>
+          <p>R-REMOTE-4: computer use — tiers, principals, model lane, forbidden acts no approval unlocks.</p>
+          <p>R-REMOTE-5 (optional): the passkey as a Stage-2 approval origin.</p>
+          <p>Off the remote path for good: raising a cap, stage or grant; enrolling a device; RESUME after a HALT; anything touching money. Fifteen decisions are the operator's.</p>
+        </div>
+        <div class="mem-grid" id="mem-grid"></div>
+      </section>
+
+      <!-- 06: NOT DONE, ON PURPOSE -->
+      <section class="tx-section" id="not-done">
+        <div class="tx-section-head"><span class="tx-section-num">06</span><h2>Nothing built, on purpose</h2></div>
+        <div class="tx-section-label">A proposal. Remote acts to date: 0.</div>
+        <div class="tx-prose">
+          <p>Status: proposal. Nothing built. None of it is lawful under the current interface rules; the gate is at Stage 0, its Stage-1 grant expired 4 October 2026.</p>
+          <p>The order: local hardening first, lawful now. Then the relay on a local replica with the puller in dry-run, a passkey enrollment at the local panel, a full refusal battery. Then the rulings. Then mainnet from the operator's other machine. Then remote acts one class at a time: seven days read and stop only, then classes one at a time, each after a live drill; computer use last. Every failure degrades to "do nothing".</p>
+        </div>
+        <div class="tx-quote">A proposal. Nothing built. Remote acts to date: 0.</div>
+        <div class="wf-steps" id="wf-steps">
+          <div class="wf-step"><div class="wf-dot wf-dot-1">01</div><h3>Local hardening</h3><p>Lawful now. The first step.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-2">02</div><h3>Local replica</h3><p>The relay on a local replica, the puller in dry-run, a passkey enrollment at the local panel, a full refusal battery.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-3">03</div><h3>The rulings</h3><p>R-REMOTE-1 through R-REMOTE-5 must exist before any remote act.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-4">04</div><h3>Mainnet</h3><p>From the operator's other machine, after the rulings.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-5">05</div><h3>Seven days</h3><p>Read and stop only.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-6">06</div><h3>Act classes</h3><p>Remote acts one class at a time, each after a live drill.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-7">07</div><h3>Computer use</h3><p>Last. Every failure degrades to "do nothing".</p></div>
+        </div>
+        <div class="oh-list" id="oh-list"></div>
+        <div class="oh-foot">Nothing executable by the organism · every line a plan</div>
+      </section>
+
+      <div class="tx-cta">
+        <h2>The design is written. Nothing is built.</h2>
+        <p>Pull, sign, seal — and nothing of it runs yet. When the rulings land, the order does too.</p>
+        <a class="btn btn-primary btn-lg" href="/build-with-us"><span>Build With Us</span><span class="btn-arrow">→</span></a>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span><p class="footer-desc">Intelligence that evolves.<br />No claim without a trail.</p></div><div class="footer-col"><h5>Proof</h5><a href="/proof">Proof Register</a><a href="/proof/ledger">Live Ledger</a><a href="/transmissions">Transmissions</a><a href="/architecture">Architecture</a></div><div class="footer-col"><h5>Organisms</h5><a href="/organisms">All Organisms</a><a href="/organisms/financial-organisms">Financial Organisms</a><a href="/organisms/infinity-mirror">Infinity Mirror</a></div><div class="footer-col"><h5>Next</h5><a href="/build-with-us">Build With Us</a><a href="/#cta">Subscribe</a></div></div><div class="footer-bottom"><span>© 2026 Unwind Code. All rights reserved.</span><span class="footer-tagline">The future learns from itself. ∞</span></div></div></footer>
+
+  <script>
+  (function () {
+    // All data below is static and client-side. Nothing on this page makes a network call.
+
+    // 01 — DIVIDING LINE
+    var states = { less: 'LESS · needs only a session', more: 'MORE · needs a passkey', never: 'NEVER · never goes remote' };
+    var components = [
+      { state: 'less', name: 'Stop', short: 'Halts a remote act.', why: 'A stop needs only a session.' },
+      { state: 'more', name: 'Connector', short: 'Adds a connector.', why: 'Needs a passkey (R-REMOTE-2).' },
+      { state: 'more', name: 'Credential intake', short: 'Sealed intake key.', why: 'A scoped credential that controls no assets; dormant until a cap ruling (R-REMOTE-3).' },
+      { state: 'more', name: 'Computer use', short: 'Computer-use requests.', why: 'Tiers, principals, model lane; forbidden acts never unlock (R-REMOTE-4).' },
+      { state: 'more', name: 'Passkey as stage-2 origin', short: 'Optional approval origin.', why: 'R-REMOTE-5.' },
+      { state: 'never', name: 'Raising a cap', short: 'Cap, stage or grant changes.', why: 'Off the remote path for good.' },
+      { state: 'never', name: 'Enrolling a device', short: 'New device enrollment.', why: 'Off the remote path for good.' },
+      { state: 'never', name: 'Resume after halt', short: 'RESUME after a HALT.', why: 'Off the remote path for good.' },
+      { state: 'never', name: 'Money acts', short: 'Anything touching money.', why: 'Off the remote path for good.' }
+    ];
+    var dlGrid = document.getElementById('dl-grid');
+    var dlCount = document.getElementById('dl-count');
+    var dlFilters = document.getElementById('dl-filters');
+    components.forEach(function (c) {
+      var card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'dl-card';
+      card.setAttribute('data-state', c.state);
+      card.setAttribute('aria-expanded', 'false');
+      card.innerHTML =
+        '<span class="dl-state dl-state-' + c.state + '">' + states[c.state] + '</span>' +
+        '<div class="dl-name">' + c.name + '</div>' +
+        '<div class="dl-short">' + c.short + '</div>' +
+        '<div class="dl-why">' + c.why + '</div>' +
+        '<div class="dl-hint">Why here ↓</div>';
+      card.addEventListener('click', function () {
+        var open = card.getAttribute('aria-expanded') === 'true';
+        card.setAttribute('aria-expanded', open ? 'false' : 'true');
+        card.querySelector('.dl-hint').textContent = open ? 'Why here ↓' : 'Close ↑';
+      });
+      dlGrid.appendChild(card);
+    });
+    function applyFilter(state) {
+      var shown = 0;
+      dlGrid.querySelectorAll('.dl-card').forEach(function (card) {
+        var match = state === 'all' || card.getAttribute('data-state') === state;
+        if (match) { card.removeAttribute('hidden'); shown += 1; } else { card.setAttribute('hidden', ''); }
+      });
+      dlCount.textContent = shown + ' of ' + components.length + ' request kinds · ' + (state === 'all' ? 'three cost states' : states[state]);
+    }
+    dlFilters.querySelectorAll('.dl-chip').forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        dlFilters.querySelectorAll('.dl-chip').forEach(function (other) { other.setAttribute('aria-pressed', 'false'); });
+        chip.setAttribute('aria-pressed', 'true');
+        applyFilter(chip.getAttribute('data-state'));
+      });
+    });
+    applyFilter('all');
+
+    // 02 — PIECES
+    var pieces = [
+      { id: 'console', role: 'Operator console', line: 'Served as certified assets on the chain. No secret.' },
+      { id: 'relay', role: 'Relay mailbox', line: 'Holds no secret. Controlled by the operator\'s wallet.' },
+      { id: 'passkey', role: 'Passkey', line: 'The only authority. On the operator\'s phone or a hardware key, never on the machine.' },
+      { id: 'pull-organ', role: 'Pull organ', line: 'No secret. Polls outbound for sealed envelopes.' },
+      { id: 'sealed-hand', role: 'Sealed hand', line: 'Decrypts, re-verifies the assertion itself, writes a gate receipt before acting, dispatches only ruled kinds, posts encrypted results.' },
+      { id: 'secret-writer', role: 'Secret writer', line: 'Refuses seed and private-key shapes. Messaging is notify-and-echo, never authority.' }
+    ];
+    var modGrid = document.getElementById('mod-grid');
+    var modDetail = document.getElementById('mod-detail');
+    var modButtons = [];
+    function showPiece(p) {
+      modButtons.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-id') === p.id ? 'true' : 'false'); });
+      modDetail.innerHTML =
+        '<div class="mod-detail-title">' + p.id + '</div>' +
+        '<span class="mod-detail-type">' + p.role + '</span>' +
+        '<p class="mod-detail-desc">' + p.line + '</p>';
+    }
+    pieces.forEach(function (p) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'mod-node';
+      btn.setAttribute('data-id', p.id);
+      btn.setAttribute('aria-pressed', 'false');
+      btn.innerHTML = '<span class="mod-glyph">PIECE</span><div class="mod-name">' + p.id + '</div><div class="mod-path">' + p.role + '</div><div class="mod-score">' + p.line + '</div>';
+      btn.addEventListener('click', function () { showPiece(p); });
+      modGrid.appendChild(btn);
+      modButtons.push(btn);
+    });
+    showPiece(pieces[0]);
+
+    // 03 — TEN CHECKS
+    var rawSteps = [
+      { t: 'Envelope received', d: 'A response came back from some gateway.' },
+      { t: 'Shape matches', d: 'The envelope parses as canonical JSON: kind, proposal reference, sealed body, nonce, window.' }
+    ];
+    var verifySteps = [
+      { key: '1', t: 'Credential enrolled', d: 'No enrolled credential for this kind; refusal receipt written.' },
+      { key: '2', t: 'Signature verifies against the pinned key', d: 'Passkey signature does not verify; refusal receipt written.' },
+      { key: '3', t: 'Origin equals the pinned console', d: 'Origin does not match the pinned console; refusal receipt written.' },
+      { key: '4', t: 'User verified', d: 'No user-verified gesture; refusal receipt written.' },
+      { key: '5', t: 'Sign counter increased', d: 'Sign counter did not increase; refusal receipt written.' },
+      { key: '6', t: 'Challenge equals the request hash', d: 'Challenge does not hash to the request bytes; refusal receipt written.' },
+      { key: '7', t: 'Device id is this machine', d: 'Device id is not this machine; refusal receipt written.' },
+      { key: '8', t: 'Time inside the window', d: 'Request is outside the 300-second window; refusal receipt written.' },
+      { key: '9', t: 'Nonce unseen', d: 'Nonce was already used; refusal receipt written.' },
+      { key: '10', t: 'The kind is one the signed rulings name', d: 'Kind is not named by the signed rulings; refusal receipt written.' }
+    ];
+    var faultFailsAt = { none: -1, '1': 0, '2': 1, '3': 2, '4': 3, '5': 4, '6': 5, '7': 6, '8': 7, '9': 8, '10': 9 };
+    var faultLabel = { none: 'accepted', '1': 'credential enrolled', '2': 'signature verifies against the pinned key', '3': 'origin equals the pinned console', '4': 'user verified', '5': 'sign counter increased', '6': 'challenge equals the request hash', '7': 'device id is this machine', '8': 'time inside the window', '9': 'nonce unseen', '10': 'the kind is one the signed rulings name' };
+    var crRaw = document.getElementById('cr-raw');
+    var crVerify = document.getElementById('cr-verify');
+    var crOutcome = document.getElementById('cr-outcome');
+    var crFaults = document.getElementById('cr-faults');
+    function renderStep(n, step, cls, verdict) {
+      var li = document.createElement('li');
+      li.className = 'cr-step ' + cls;
+      li.innerHTML = '<span class="cr-step-n">' + n + '</span><span><span class="cr-step-t">' + step.t + '</span><span class="cr-step-d">' + step.d + '</span></span><span class="cr-verdict">' + verdict + '</span>';
+      return li;
+    }
+    function runModel(fault) {
+      var failAt = faultFailsAt[fault];
+      crRaw.innerHTML = '';
+      rawSteps.forEach(function (s, i) {
+        crRaw.appendChild(renderStep('0' + (i + 1), s, fault === 'none' ? 'pass' : 'blind', fault === 'none' ? 'OK' : 'ACCEPTED · BLIND'));
+      });
+      crVerify.innerHTML = '';
+      verifySteps.forEach(function (s, i) {
+        var cls = 'pass', verdict = 'OK';
+        if (failAt >= 0 && i === failAt) { cls = 'fail'; verdict = 'REFUSED'; }
+        else if (failAt >= 0 && i > failAt) { cls = 'skip'; verdict = 'NOT REACHED'; }
+        crVerify.appendChild(renderStep('0' + (i + 1), s, cls, verdict));
+      });
+      if (fault === 'none') {
+        crOutcome.className = 'cr-outcome clean';
+        crOutcome.innerHTML = '<strong>All ten checks pass.</strong> The envelope returns encrypted to the operator.';
+      } else {
+        crOutcome.className = 'cr-outcome refused';
+        crOutcome.innerHTML = '<strong>As the machine sees it: accepted.</strong> It has no way to know. <strong>Verification: refused</strong> at check ' + (failAt + 1) + ' (' + faultLabel[fault] + '). Refusal receipt written; the bytes never reach the caller as fact.';
+      }
+    }
+    crFaults.querySelectorAll('.cr-fault').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        crFaults.querySelectorAll('.cr-fault').forEach(function (other) { other.setAttribute('aria-pressed', 'false'); });
+        btn.setAttribute('aria-pressed', 'true');
+        runModel(btn.getAttribute('data-check'));
+      });
+    });
+    runModel('none');
+
+    // 04 — TIMELINE REVEAL + TOOLCHAIN CARDS
+    var wf = document.getElementById('wf-steps');
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce && 'IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            wf.querySelectorAll('.wf-step').forEach(function (s) { s.classList.add('reveal-step'); });
+            io.disconnect();
+          }
+        });
+      }, { threshold: 0.15 });
+      io.observe(wf);
+    }
+    var waits = [
+      { tag: 'rulings', title: 'Five rulings', desc: 'R-REMOTE-1 through R-REMOTE-5 must exist before any remote act.', extra: 'Remote acts to date: 0.' },
+      { tag: 'decisions', title: 'Fifteen decisions', desc: 'Each waits on the operator; none is the machine\'s to take.', extra: 'None.' },
+      { tag: 'gate', title: 'The gate', desc: 'At Stage 0; its Stage-1 grant expired 4 October 2026.', extra: 'None of this is lawful under the current interface rules.' },
+      { tag: 'machine', title: 'Mainnet', desc: 'Comes from the operator\'s other machine, after the rulings.', extra: 'Local hardening is lawful now.' }
+    ];
+    var memGrid = document.getElementById('mem-grid');
+    waits.forEach(function (w) {
+      var card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'mem-card';
+      card.setAttribute('aria-expanded', 'false');
+      card.innerHTML = '<h4><span class="mem-tag">' + w.tag + '</span>' + w.title + '</h4><p>' + w.desc + '</p><div class="mem-extra">' + w.extra + '</div><div class="mem-hint">Click to expand ↓</div>';
+      card.addEventListener('click', function () {
+        var open = card.getAttribute('aria-expanded') === 'true';
+        card.setAttribute('aria-expanded', open ? 'false' : 'true');
+        card.querySelector('.mem-hint').textContent = open ? 'Click to expand ↓' : 'Click to collapse ↑';
+      });
+      memGrid.appendChild(card);
+    });
+
+    // 05 — WHAT CHANGES IF ADOPTED
+    var plan = [
+      { t: 'Pull only — the machine never accepts a connection.', d: 'Every remote act starts with an outbound pull.', cls: 'plan' },
+      { t: 'The mailbox is not the authority.', d: 'Everything is verified against keys pinned on the machine in a local sitting.', cls: 'plan' },
+      { t: 'Seal in, encrypt out.', d: 'Sealed bodies travel; results return encrypted to the operator.', cls: 'plan' },
+      { t: 'The gate records; the ruling decides what executes.', d: 'One queue. No act runs without a ruling that names its kind.', cls: 'plan' },
+      { t: 'Less is easy, more is hard.', d: 'A stop needs only a session; more needs a passkey; some acts never go remote.', cls: 'plan' },
+      { t: 'One queue.', d: 'Every request waits its turn in the same queue.', cls: 'plan' },
+      { t: 'The local panel stays the gold path.', d: 'The machine\'s own panel remains the trusted way to operate.', cls: 'plan' }
+    ];
+    var ohList = document.getElementById('oh-list');
+    plan.forEach(function (p) {
+      var item = document.createElement('button');
+      item.type = 'button';
+      item.className = 'oh-item';
+      item.setAttribute('aria-expanded', 'false');
+      item.innerHTML = '<span class="oh-box" aria-hidden="true"></span><span><span class="oh-t">' + p.t + '</span><span class="oh-d">' + p.d + '</span></span><span class="oh-needs oh-needs-' + p.cls + '">plan</span>';
+      item.addEventListener('click', function () {
+        item.setAttribute('aria-expanded', item.getAttribute('aria-expanded') === 'true' ? 'false' : 'true');
+      });
+      ohList.appendChild(item);
+    });
+  })();
+  </script>
+  <script type="module" src="/main.js?v=20260615-system-state"></script>
+</body>
+</html>
