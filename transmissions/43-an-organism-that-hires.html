@@ -399,7 +399,7 @@
     // 01 — THE LAYER: defaults versus the organism's law
     var states = { default: 'Default — as installed', law: 'Required by the organism\'s law', gap: 'Not yet ruled — a gap' };
     var components = [
-      { state: 'gap', name: 'Permission checks', short: 'Law: required on every action; the shipped default does not meet it.', why: 'The layer started on the operator\'s word with its guardrails off; nothing it does is permitted until a ruling turns them on.' },
+      { state: 'gap', name: 'Permission checks', short: 'Law: required on every action; the shipped default does not meet it.', why: 'Every action goes through a permission check and every hire through an approval. Until a ruling says so, nothing it does is permitted.' },
       { state: 'gap', name: 'Hire approval', short: 'Default: off. Law: on, before any hire.', why: 'A hire object exists with an approval state, but no approval has been given.' },
       { state: 'gap', name: 'Telemetry', short: 'Law: silenced under contain.', why: 'Contain means stopping it or silencing its telemetry, now, on the operator\'s word.' },
       { state: 'gap', name: 'Confinement', short: 'Law: kept within the boundary; a ruling must set it.', why: 'No ruling covers the layer yet, so nothing it can do is permitted.' }
