@@ -5,7 +5,9 @@ import { readFile, readdir } from 'node:fs/promises';
 const id = '37-the-organism-drew-its-chain-boundary';
 const route = `/transmissions/${id}`;
 const canonical = `https://www.unwindcode.ai${route}`;
-const latestRoute = '/transmissions/38-one-board-for-every-hand';
+const latestRoute = '/transmissions/45-where-this-is-going';
+const route38 = '/transmissions/38-one-board-for-every-hand';
+const canonical38 = `https://www.unwindcode.ai${route38}`;
 const latestCanonical = `https://www.unwindcode.ai${latestRoute}`;
 const read = file => readFile(new URL(`../${file}`, import.meta.url), 'utf8');
 
@@ -64,8 +66,10 @@ test('archive and service counts measure actual articles while preserving both l
   const archive = await read('transmissions/index.html');
   const cards = [...archive.matchAll(/<a href="(\/transmissions\/[^" ]+)" class="tx-card"/g)].map(match => match[1]);
   assert.deepEqual([...cards].sort(), expected, 'archive includes every real article exactly once');
-  assert.equal(cards[0], latestRoute, 'Transmission 38 is now the latest');
-  assert.equal(cards[1], route, 'Transmission 37 follows in number order');
+  assert.equal(cards[0], latestRoute, 'Transmission 45 is now the latest');
+  const idx38 = cards.indexOf(route38);
+  const idx37 = cards.indexOf(route);
+  assert.equal(idx38 + 1, idx37, 'Transmission 37 follows Transmission 38 in number order');
   assert.ok(cards.includes('/transmissions/27-the-quotation-cell'));
   assert.ok(cards.includes('/transmissions/27-the-site-became-a-public-index'));
   const schema = JSON.parse(archive.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
@@ -75,25 +79,29 @@ test('archive and service counts measure actual articles while preserving both l
   assert.deepEqual(list.itemListElement.map(item => item.url.replace('https://www.unwindcode.ai', '')).sort(), expected);
   const blog = schema['@graph'].find(item => item['@type'] === 'Blog');
   assert.equal(blog.blogPost[0].url, latestCanonical);
-  assert.equal(blog.blogPost[1].url, canonical);
+  const blogIdx38 = blog.blogPost.findIndex(item => item.url === canonical38);
+  assert.equal(blog.blogPost[blogIdx38 + 1].url, canonical, 'Transmission 37 follows Transmission 38 in the blog feed');
   assert.ok(archive.includes(`<span>${files.length}</span> transmissions published`));
   assert.ok(archive.includes(`<dt>${files.length}</dt>`));
   const services = JSON.parse(await read('ai-services.json'));
   assert.equal(services.transmission_library.total_transmissions, files.length);
-  assert.equal(services.transmission_library.latest.url, latestCanonical, 'the latest pointer moved to Transmission 38');
+  assert.equal(services.transmission_library.latest.url, latestCanonical, 'the latest pointer moved to Transmission 45');
   assert.equal(services.transmission_library.transmission_37.url, canonical, 'Transmission 37 keeps its own library entry');
   assert.ok((await read('llms.txt')).includes(`${files.length} dispatches as a proof library`));
 });
 
-test('the live homepage leads with Transmission 38, followed in number order by 37 and 36', async () => {
+test('the live homepage leads with the newest transmissions; Transmission 37 remains in the full archive', async () => {
   const homepage = await read('public/lab/index.html');
   const cards = [...homepage.matchAll(/class="transmission-card"\s+href="([^"]+)"/g)].map(match => match[1]);
-  assert.deepEqual(cards, [latestRoute, route, '/transmissions/36-movement-needs-a-source']);
-  assert.match(homepage, /<h3 data-es="El organismo trazó su frontera en cadena">\s+The Organism Drew Its Chain Boundary/);
+  assert.equal(cards.length, 3, 'the lab homepage keeps a three-card rolling window');
+  assert.equal(cards[0], latestRoute, 'the rolling window leads with the latest transmission');
+  assert.equal(cards.includes(route), false, 'Transmission 37 has rolled out of the three-card window');
   const legacy = await read('index.html');
   const legacyCards = [...legacy.matchAll(/class="blog-card" href="([^"]+)"/g)].map(match => match[1]);
   assert.equal(legacyCards[0], latestRoute);
-  assert.equal(legacyCards[1], route);
+  const legacyIdx38 = legacyCards.indexOf(route38);
+  const legacyIdx37 = legacyCards.indexOf(route);
+  assert.equal(legacyIdx38 + 1, legacyIdx37, 'the legacy homepage keeps Transmission 37 directly after Transmission 38');
   assert.ok(legacy.includes('href="/transmissions/35-the-ledger-learned-to-be-witnessed"'), 'legacy homepage keeps Transmission 35 linked');
   const archive = await read('transmissions/index.html');
   assert.equal(archive.match(/<a href="([^"]+)" class="tx-featured-card"/)[1], latestRoute, 'the featured card follows the latest transmission');

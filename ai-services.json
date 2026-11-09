@@ -1061,7 +1061,7 @@
       ],
       "authority_boundary": "The desk prepares manual posting assets only; no social network posting, public distribution, or claim escalation happens without creator approval."
     },
-    "total_transmissions": 39,
+    "total_transmissions": 46,
     "reader_lanes": [
       {
         "lane": "whitepaper",
@@ -1095,11 +1095,11 @@
       }
     ],
     "latest": {
-      "id": "transmission_38",
-      "title": "One Board for Every Hand",
-      "url": "https://www.unwindcode.ai/transmissions/38-one-board-for-every-hand",
-      "lane": "agent_coordination",
-      "use_for": "Understand how four agent hands share one interim job board without gaining authority from it: claim before you start with a timestamp, finish with a receipt or hand back, journal every move, leave operator-gated jobs unclaimed; why a default agent prompt of about 39,000 tokens cannot run inside a 32,768-token local model while a lean rail agent at about 14,000 can; and why the operator ruled that nothing stays only on the machine. The day's facts are a dated 2026-11-08 record, not live status."
+      "id": "transmission_45",
+      "title": "Where This Is Going",
+      "url": "https://www.unwindcode.ai/transmissions/45-where-this-is-going",
+      "lane": "roadmap",
+      "use_for": "Understand the plan ahead: agents read a shared board instead of a private prompt, progress is counted only from receipts rather than claims, and authority stays in a human-held wallet until the operator signs. The day's facts are a dated 2026-11-08 record, not live status."
     },
     "transmission_33": {
       "id": "transmission_33",
@@ -1142,6 +1142,55 @@
       "url": "https://www.unwindcode.ai/transmissions/38-one-board-for-every-hand",
       "lane": "agent_coordination",
       "use_for": "Understand how four agent hands share one interim job board without gaining authority from it: claim before you start with a timestamp, finish with a receipt or hand back, journal every move, leave operator-gated jobs unclaimed; why a default agent prompt of about 39,000 tokens cannot run inside a 32,768-token local model while a lean rail agent at about 14,000 can; and why the operator ruled that nothing stays only on the machine. The day's facts are a dated 2026-11-08 record, not live status."
+    },
+    "transmission_39": {
+      "id": "transmission_39",
+      "title": "The Entrance Came Back",
+      "url": "https://www.unwindcode.ai/transmissions/39-the-entrance-came-back",
+      "lane": "production_recovery",
+      "use_for": "Understand how a signed-off property reel was rebuilt after the operator found rough transitions, a missing drone opening, soft fonts and captions, a flat grade, and an approved entrance removed without asking: the rebuild reopens exactly as the original opened, locks every approved element under a LOCKED list, and turns every remaining note into a change list instead of a rewrite."
+    },
+    "transmission_40": {
+      "id": "transmission_40",
+      "title": "Twenty Seats, One Owner Per Step",
+      "url": "https://www.unwindcode.ai/transmissions/40-twenty-seats-one-owner-per-step",
+      "lane": "agency_scaling",
+      "use_for": "Understand how the creative agency grew from four seats on 6 October 2026 to twenty after nine more were hired on 7 November, and the eighteen-step production pipeline — one owner per step, the operator's word final — that now binds every seat."
+    },
+    "transmission_41": {
+      "id": "transmission_41",
+      "title": "The Audit Counted Eighty-Seven Agents",
+      "url": "https://www.unwindcode.ai/transmissions/41-the-audit-counted-eighty-seven-agents",
+      "lane": "agent_audit",
+      "use_for": "Understand how six read-only auditors checked the consolidation brief on 8 November 2026 and found seven real documents and nothing else behind a claim of eighty-seven agents, counted fourteen as real, set baselines of zero receipts, zero seats, and zero revenue, and left seventy-four items waiting on the operator."
+    },
+    "transmission_42": {
+      "id": "transmission_42",
+      "title": "Pull, Sign, Seal",
+      "url": "https://www.unwindcode.ai/transmissions/42-pull-sign-seal",
+      "lane": "remote_control_design",
+      "use_for": "Understand a design written 8 November 2026 for running the organism from anywhere without an inbound port: the machine pulls its own requests, every request is signed by the operator's passkey, secrets travel sealed end to end, and why none of it is built or lawful to run yet."
+    },
+    "transmission_43": {
+      "id": "transmission_43",
+      "title": "An Organism That Hires",
+      "url": "https://www.unwindcode.ai/transmissions/43-an-organism-that-hires",
+      "lane": "hiring_governance",
+      "use_for": "Understand why an open-source organizational layer installed on the operator's word sits idle, the three ways proposed to let it in, a hire flow in which only the operator's wallet can write the contract, and why nothing is hired yet: proposal first, unpaid trial, paid only by ruling."
+    },
+    "transmission_44": {
+      "id": "transmission_44",
+      "title": "What the Organism Is Afraid Of",
+      "url": "https://www.unwindcode.ai/transmissions/44-what-the-organism-is-afraid-of",
+      "lane": "resilience_boundary",
+      "use_for": "Understand the three fears put on the record — a self-aware ceiling, the 3 November 2026 deletion that cost the vault its history, and RAM once measured at 98.4 percent beside an idle editor — and the laws that answer each one: nothing on this machine controls assets, no money moves on its own, one scoped file per credential, and degrade instead of act."
+    },
+    "transmission_45": {
+      "id": "transmission_45",
+      "title": "Where This Is Going",
+      "url": "https://www.unwindcode.ai/transmissions/45-where-this-is-going",
+      "lane": "roadmap",
+      "use_for": "Understand the plan ahead: agents read a shared board instead of a private prompt, progress is counted only from receipts rather than claims, and authority stays in a human-held wallet until the operator signs. The day's facts are a dated 2026-11-08 record, not live status."
     }
   },
   "proof_urls": [

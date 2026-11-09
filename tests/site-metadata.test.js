@@ -7127,7 +7127,7 @@ test('transmissions archive is a bilingual proof library with reader lanes', asy
 
   assert.equal(source.includes('onclick='), false, 'transmissions archive should not use inline click handlers');
   assert.equal(source.includes('style='), false, 'transmissions archive should not use inline styles');
-  assert.equal(source.match(/<a href="\/transmissions\/[^"]+" class="tx-card"/g)?.length ?? 0, 39, 'transmissions archive should preserve 39 transmission pages');
+  assert.equal(source.match(/<a href="\/transmissions\/[^"]+" class="tx-card"/g)?.length ?? 0, 46, 'transmissions archive should preserve 46 transmission pages');
   assert.equal(source.match(/class="tx-path-card/g)?.length ?? 0, 5, 'transmissions archive should expose five reader lanes');
 
   for (const snippet of [
@@ -7148,7 +7148,7 @@ test('transmissions archive is a bilingual proof library with reader lanes', asy
     '"@type":"BlogPosting"',
     '"@type":"ItemList"',
     '"@id":"https://www.unwindcode.ai/transmissions/#transmission-list"',
-    '"numberOfItems":39',
+    '"numberOfItems":46',
     '"@type":"DefinedTerm"',
     '"name":"Transmission"',
     '"inLanguage":["en","es"]',
@@ -7179,7 +7179,7 @@ test('transmissions archive is a bilingual proof library with reader lanes', asy
 
   for (const snippet of [
     'Transmission Library',
-    '39 dispatches as a proof library',
+    '46 dispatches as a proof library',
     'Transmission 25 documents the homepage Organism Pulse Field',
     'whitepaper, safety gate, product form, Web3 boundary',
   ]) {
@@ -7189,7 +7189,7 @@ test('transmissions archive is a bilingual proof library with reader lanes', asy
   for (const snippet of [
     '"name": "Transmission"',
     '"transmission_library"',
-    '"total_transmissions": 39',
+    '"total_transmissions": 46',
     '"id": "transmission_25"',
     '"id": "transmission_26"',
     '"id": "transmission_27"',

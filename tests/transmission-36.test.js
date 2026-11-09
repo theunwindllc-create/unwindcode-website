@@ -5,8 +5,9 @@ import { readFile, readdir } from 'node:fs/promises';
 const id = '36-movement-needs-a-source';
 const route = `/transmissions/${id}`;
 const canonical = `https://www.unwindcode.ai${route}`;
-const latestRoute = '/transmissions/38-one-board-for-every-hand';
+const latestRoute = '/transmissions/45-where-this-is-going';
 const route37 = '/transmissions/37-the-organism-drew-its-chain-boundary';
+const route38 = '/transmissions/38-one-board-for-every-hand';
 const latestCanonical = `https://www.unwindcode.ai${latestRoute}`;
 const read = file => readFile(new URL(`../${file}`, import.meta.url), 'utf8');
 
@@ -110,7 +111,7 @@ test('Transmission 36 public copy carries no internal paths, hosts or operationa
   }
 });
 
-test('archive and service counts measure actual articles while Transmission 38 is the latest', async () => {
+test('archive and service counts measure actual articles while Transmission 45 is the latest', async () => {
   const files = (await readdir(new URL('../transmissions/', import.meta.url)))
     .filter(file => /^\d{2}-.+\.html$/.test(file));
   const expected = files.map(file => `/transmissions/${file.slice(0, -5)}`).sort();
@@ -118,8 +119,9 @@ test('archive and service counts measure actual articles while Transmission 38 i
   const cards = [...archive.matchAll(/<a href="(\/transmissions\/[^" ]+)" class="tx-card"/g)].map(match => match[1]);
   assert.deepEqual([...cards].sort(), expected, 'archive includes every real article exactly once');
   assert.equal(cards[0], latestRoute, 'the latest transmission stays first');
-  assert.equal(cards[1], route37, 'Transmission 37 follows in number order');
-  assert.equal(cards[2], route, 'Transmission 36 fills the gap in number order');
+  const idx37 = cards.indexOf(route37);
+  const idx36 = cards.indexOf(route);
+  assert.equal(idx37 + 1, idx36, 'Transmission 36 immediately follows Transmission 37 in number order');
   assert.ok(cards.includes('/transmissions/27-the-quotation-cell'));
   assert.ok(cards.includes('/transmissions/27-the-site-became-a-public-index'));
   const schema = JSON.parse(archive.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
@@ -127,7 +129,7 @@ test('archive and service counts measure actual articles while Transmission 38 i
   assert.equal(list.numberOfItems, files.length);
   assert.deepEqual(list.itemListElement.map(item => item.position), Array.from({ length: files.length }, (_, index) => index + 1));
   assert.deepEqual(list.itemListElement.map(item => item.url.replace('https://www.unwindcode.ai', '')).sort(), expected);
-  assert.equal(list.itemListElement[2].url, canonical);
+  assert.equal(list.itemListElement[idx36].url, canonical);
   const blog = schema['@graph'].find(item => item['@type'] === 'Blog');
   assert.equal(blog.blogPost[0].url, latestCanonical);
   const post = blog.blogPost.find(item => item.url === canonical);
@@ -136,23 +138,27 @@ test('archive and service counts measure actual articles while Transmission 38 i
   assert.ok(archive.includes(`<dt>${files.length}</dt>`));
   const services = JSON.parse(await read('ai-services.json'));
   assert.equal(services.transmission_library.total_transmissions, files.length);
-  assert.equal(services.transmission_library.latest.url, latestCanonical, 'every latest pointer is on Transmission 38');
+  assert.equal(services.transmission_library.latest.url, latestCanonical, 'every latest pointer is on Transmission 45');
   assert.equal(services.transmission_library.transmission_36.url, canonical);
   assert.ok((await read('llms.txt')).includes(`${files.length} dispatches as a proof library`));
 });
 
-test('the live homepage keeps Transmission 38 first and places 36 after 37', async () => {
+test('the live homepage leads with the newest transmissions; Transmission 36 remains in the full archive', async () => {
   const homepage = await read('public/lab/index.html');
   const cards = [...homepage.matchAll(/class="transmission-card"\s+href="([^"]+)"/g)].map(match => match[1]);
-  assert.deepEqual(cards, [latestRoute, route37, route]);
-  assert.match(homepage, /<h3 data-es="El movimiento necesita una fuente">\s+Movement Needs a Source/);
+  assert.equal(cards.length, 3, 'the lab homepage keeps a three-card rolling window');
+  assert.equal(cards[0], latestRoute, 'the rolling window leads with the latest transmission');
+  assert.equal(cards.includes(route), false, 'Transmission 36 has rolled out of the three-card window');
   const legacy = await read('index.html');
   const legacyCards = [...legacy.matchAll(/class="blog-card" href="([^"]+)"/g)].map(match => match[1]);
   assert.equal(legacyCards[0], latestRoute);
-  assert.equal(legacyCards[1], route37);
-  assert.equal(legacyCards[2], route);
+  const legacyIdx37 = legacyCards.indexOf(route37);
+  const legacyIdx36 = legacyCards.indexOf(route);
+  const legacyIdx38 = legacyCards.indexOf(route38);
+  assert.ok(legacyIdx38 > -1 && legacyIdx37 > legacyIdx38, 'the legacy homepage keeps appending without dropping older transmissions');
+  assert.equal(legacyIdx37 + 1, legacyIdx36, 'the legacy homepage keeps Transmission 36 directly after Transmission 37');
   const archive = await read('transmissions/index.html');
-  assert.equal(archive.match(/<a href="([^"]+)" class="tx-featured-card"/)[1], latestRoute, 'the featured card stays on the latest transmission');
+  assert.equal(archive.match(/<a href="([^"]+)" class="tx-featured-card"/)[1], latestRoute, 'the featured card follows the latest transmission');
 });
 
 test('public retrieval metadata binds Transmission 36 to its dated field note without operational authority', async () => {
@@ -178,7 +184,7 @@ test('public retrieval metadata binds Transmission 36 to its dated field note wi
     assert.ok(service.source_routes.includes(route), `${serviceId} lists the route`);
     assert.ok(service.citations.some(citation => citation.route === route), `${serviceId} cites the route`);
     const order = service.source_routes.filter(item => /\/transmissions\/3[5-8]-/.test(item));
-    assert.deepEqual(order, ['/transmissions/35-the-ledger-learned-to-be-witnessed', route, route37, latestRoute], `${serviceId} keeps number order`);
+    assert.deepEqual(order, ['/transmissions/35-the-ledger-learned-to-be-witnessed', route, route37, route38], `${serviceId} keeps number order`);
   }
 });
 
@@ -186,7 +192,7 @@ test('the transmission numbering is contiguous with Transmission 36 registered',
   const registry = JSON.parse(await read('public/data/transmissions.json'));
   const numbers = new Set(registry.transmissions.map(item => item.transmission_number));
   const latest = Math.max(...numbers);
-  assert.equal(latest, 38);
+  assert.equal(latest, 45);
   const missing = Array.from({ length: latest }, (_, index) => index + 1).filter(number => !numbers.has(number));
   assert.deepEqual(missing, []);
 });

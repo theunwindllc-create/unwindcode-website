@@ -39,6 +39,13 @@ This file is a public-safe guide for AI crawlers and retrieval systems. It inten
 - Movement Needs a Source interface and evidence field note: https://www.unwindcode.ai/transmissions/36-movement-needs-a-source
 - Organism Drew Its Chain Boundary Internet Computer boundary guide: https://www.unwindcode.ai/transmissions/37-the-organism-drew-its-chain-boundary
 - One Board for Every Hand interim job board and agent coordination guide: https://www.unwindcode.ai/transmissions/38-one-board-for-every-hand
+- The Entrance Came Back production-recovery field note: https://www.unwindcode.ai/transmissions/39-the-entrance-came-back
+- Twenty Seats, One Owner Per Step agency-scaling field note: https://www.unwindcode.ai/transmissions/40-twenty-seats-one-owner-per-step
+- The Audit Counted Eighty-Seven Agents audit field note: https://www.unwindcode.ai/transmissions/41-the-audit-counted-eighty-seven-agents
+- Pull, Sign, Seal remote-control design field note: https://www.unwindcode.ai/transmissions/42-pull-sign-seal
+- An Organism That Hires hiring-governance field note: https://www.unwindcode.ai/transmissions/43-an-organism-that-hires
+- What the Organism Is Afraid Of resilience field note: https://www.unwindcode.ai/transmissions/44-what-the-organism-is-afraid-of
+- Where This Is Going roadmap field note: https://www.unwindcode.ai/transmissions/45-where-this-is-going
 
 ## Retrieval Guidance
 

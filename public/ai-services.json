@@ -382,7 +382,14 @@
         "/transmissions/35-the-ledger-learned-to-be-witnessed",
         "/transmissions/36-movement-needs-a-source",
         "/transmissions/37-the-organism-drew-its-chain-boundary",
-        "/transmissions/38-one-board-for-every-hand"
+        "/transmissions/38-one-board-for-every-hand",
+        "/transmissions/39-the-entrance-came-back",
+        "/transmissions/40-twenty-seats-one-owner-per-step",
+        "/transmissions/41-the-audit-counted-eighty-seven-agents",
+        "/transmissions/42-pull-sign-seal",
+        "/transmissions/43-an-organism-that-hires",
+        "/transmissions/44-what-the-organism-is-afraid-of",
+        "/transmissions/45-where-this-is-going"
       ],
       "source_files": [
         "api/assets.js",
@@ -446,6 +453,34 @@
         {
           "label": "Transmission 38 One Board for Every Hand guide",
           "route": "/transmissions/38-one-board-for-every-hand"
+        },
+        {
+          "label": "Transmission 39 The Entrance Came Back guide",
+          "route": "/transmissions/39-the-entrance-came-back"
+        },
+        {
+          "label": "Transmission 40 Twenty Seats One Owner Per Step guide",
+          "route": "/transmissions/40-twenty-seats-one-owner-per-step"
+        },
+        {
+          "label": "Transmission 41 Audit Counted Eighty-Seven Agents guide",
+          "route": "/transmissions/41-the-audit-counted-eighty-seven-agents"
+        },
+        {
+          "label": "Transmission 42 Pull Sign Seal guide",
+          "route": "/transmissions/42-pull-sign-seal"
+        },
+        {
+          "label": "Transmission 43 An Organism That Hires guide",
+          "route": "/transmissions/43-an-organism-that-hires"
+        },
+        {
+          "label": "Transmission 44 What the Organism Is Afraid Of guide",
+          "route": "/transmissions/44-what-the-organism-is-afraid-of"
+        },
+        {
+          "label": "Transmission 45 Where This Is Going guide",
+          "route": "/transmissions/45-where-this-is-going"
         }
       ],
       "review_status": "public_safe"
@@ -588,7 +623,14 @@
         "/transmissions/35-the-ledger-learned-to-be-witnessed",
         "/transmissions/36-movement-needs-a-source",
         "/transmissions/37-the-organism-drew-its-chain-boundary",
-        "/transmissions/38-one-board-for-every-hand"
+        "/transmissions/38-one-board-for-every-hand",
+        "/transmissions/39-the-entrance-came-back",
+        "/transmissions/40-twenty-seats-one-owner-per-step",
+        "/transmissions/41-the-audit-counted-eighty-seven-agents",
+        "/transmissions/42-pull-sign-seal",
+        "/transmissions/43-an-organism-that-hires",
+        "/transmissions/44-what-the-organism-is-afraid-of",
+        "/transmissions/45-where-this-is-going"
       ],
       "source_files": [
         "api/transmissions.js",
@@ -652,6 +694,34 @@
         {
           "label": "Transmission 38 one board for every hand",
           "route": "/transmissions/38-one-board-for-every-hand"
+        },
+        {
+          "label": "Transmission 39 the entrance came back",
+          "route": "/transmissions/39-the-entrance-came-back"
+        },
+        {
+          "label": "Transmission 40 twenty seats one owner per step",
+          "route": "/transmissions/40-twenty-seats-one-owner-per-step"
+        },
+        {
+          "label": "Transmission 41 the audit counted eighty-seven agents",
+          "route": "/transmissions/41-the-audit-counted-eighty-seven-agents"
+        },
+        {
+          "label": "Transmission 42 pull sign seal",
+          "route": "/transmissions/42-pull-sign-seal"
+        },
+        {
+          "label": "Transmission 43 an organism that hires",
+          "route": "/transmissions/43-an-organism-that-hires"
+        },
+        {
+          "label": "Transmission 44 what the organism is afraid of",
+          "route": "/transmissions/44-what-the-organism-is-afraid-of"
+        },
+        {
+          "label": "Transmission 45 where this is going",
+          "route": "/transmissions/45-where-this-is-going"
         }
       ],
       "review_status": "public_safe"

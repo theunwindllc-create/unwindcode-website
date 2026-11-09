@@ -7,6 +7,8 @@ const route = `/transmissions/${id}`;
 const canonical = `https://www.unwindcode.ai${route}`;
 const route37 = '/transmissions/37-the-organism-drew-its-chain-boundary';
 const route36 = '/transmissions/36-movement-needs-a-source';
+const latestRoute = '/transmissions/45-where-this-is-going';
+const latestCanonical = `https://www.unwindcode.ai${latestRoute}`;
 const read = file => readFile(new URL(`../${file}`, import.meta.url), 'utf8');
 
 test('Transmission 38 has one consistent clean route across article and discovery surfaces', async () => {
@@ -91,29 +93,34 @@ test('archive and service counts measure actual articles with Transmission 38 as
   const archive = await read('transmissions/index.html');
   const cards = [...archive.matchAll(/<a href="(\/transmissions\/[^" ]+)" class="tx-card"/g)].map(match => match[1]);
   assert.deepEqual([...cards].sort(), expected, 'archive includes every real article exactly once');
-  assert.deepEqual(cards.slice(0, 3), [route, route37, route36], 'the newest three lead the archive in number order');
+  const idx38 = cards.indexOf(route);
+  const idx37 = cards.indexOf(route37);
+  const idx36 = cards.indexOf(route36);
+  assert.deepEqual([idx37 - idx38, idx36 - idx38], [1, 2], 'Transmission 38 is still followed in number order by 37 and 36');
   assert.ok(cards.includes('/transmissions/27-the-quotation-cell'));
   assert.ok(cards.includes('/transmissions/27-the-site-became-a-public-index'));
-  assert.equal(archive.match(/<a href="([^"]+)" class="tx-featured-card"/)[1], route, 'the featured card is the latest transmission');
-  assert.match(archive, /<span class="tx-card-number">038<\/span>\s+<h2 id="tx-featured-title">One Board for Every Hand<\/h2>/);
+  assert.equal(archive.match(/<a href="([^"]+)" class="tx-featured-card"/)[1], latestRoute, 'the featured card is the latest transmission, now Transmission 45');
+  assert.match(archive, /<span class="tx-card-number">038<\/span>\s*<h3>One Board for Every Hand<\/h3>/);
   const schema = JSON.parse(archive.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
   const list = schema['@graph'].find(item => item['@type'] === 'ItemList');
   assert.equal(list.numberOfItems, files.length);
   assert.deepEqual(list.itemListElement.map(item => item.position), Array.from({ length: files.length }, (_, index) => index + 1));
   assert.deepEqual(list.itemListElement.map(item => item.url.replace('https://www.unwindcode.ai', '')).sort(), expected);
-  assert.equal(list.itemListElement[0].url, canonical);
-  assert.equal(list.itemListElement[0].name, 'One Board for Every Hand');
+  const listIdx38 = list.itemListElement.findIndex(item => item.url === canonical);
+  assert.equal(list.itemListElement[listIdx38].name, 'One Board for Every Hand');
   const blog = schema['@graph'].find(item => item['@type'] === 'Blog');
-  assert.equal(blog.blogPost[0].url, canonical);
-  assert.equal(blog.blogPost[0].datePublished, '2026-11-08');
-  assert.equal(blog.blogPost[1].url, `https://www.unwindcode.ai${route37}`);
+  assert.equal(blog.blogPost[0].url, latestCanonical);
+  const blogIdx38 = blog.blogPost.findIndex(item => item.url === canonical);
+  assert.equal(blog.blogPost[blogIdx38].datePublished, '2026-11-08');
+  assert.equal(blog.blogPost[blogIdx38 + 1].url, `https://www.unwindcode.ai${route37}`);
   assert.ok(archive.includes(`<span>${files.length}</span> transmissions published`));
   assert.ok(archive.includes(`<dt>${files.length}</dt>`));
   const services = JSON.parse(await read('ai-services.json'));
   assert.equal(services.transmission_library.total_transmissions, files.length);
-  assert.equal(services.transmission_library.latest.url, canonical, 'the latest pointer is Transmission 38');
-  assert.equal(services.transmission_library.latest.id, 'transmission_38');
-  assert.deepEqual(services.transmission_library.transmission_38, services.transmission_library.latest, 'the library entry and the latest pointer agree');
+  assert.equal(services.transmission_library.latest.url, latestCanonical, 'the latest pointer is now Transmission 45');
+  assert.equal(services.transmission_library.latest.id, 'transmission_45');
+  assert.deepEqual(services.transmission_library.transmission_45, services.transmission_library.latest, 'the library entry and the latest pointer agree');
+  assert.equal(services.transmission_library.transmission_38.url, canonical, 'Transmission 38 keeps its own library entry');
   assert.equal(services.transmission_library.transmission_37.url, `https://www.unwindcode.ai${route37}`, 'Transmission 37 keeps its own library entry');
   const llms = await read('llms.txt');
   assert.ok(llms.includes(`${files.length} dispatches as a proof library`));
@@ -121,21 +128,25 @@ test('archive and service counts measure actual articles with Transmission 38 as
   assert.ok((await read('public/llms.txt')).includes(canonical));
 });
 
-test('both homepages lead with Transmission 38, followed in number order by 37 and 36', async () => {
+test('both homepages still carry Transmission 38 in number order after 37, even though it has rolled off the newest-three strip', async () => {
   const homepage = await read('public/lab/index.html');
   const cards = [...homepage.matchAll(/class="transmission-card"\s+href="([^"]+)"/g)].map(match => match[1]);
-  assert.deepEqual(cards, [route, route37, route36]);
-  assert.match(homepage, /<h3 data-es="Un tablero para cada mano">\s+One Board for Every Hand/);
-  assert.match(homepage, /<span class="mono">038<\/span>/);
+  assert.equal(cards.length, 3, 'the lab homepage keeps a three-card rolling window');
+  assert.equal(cards[0], latestRoute, 'the rolling window leads with the latest transmission');
+  assert.equal(cards.includes(route), false, 'Transmission 38 has rolled out of the three-card window');
   const legacy = await read('index.html');
   const legacyCards = [...legacy.matchAll(/class="blog-card" href="([^"]+)"/g)].map(match => match[1]);
-  assert.deepEqual(legacyCards.slice(0, 3), [route, route37, route36]);
+  assert.equal(legacyCards[0], latestRoute);
+  const legacyIdx38 = legacyCards.indexOf(route);
+  const legacyIdx37 = legacyCards.indexOf(route37);
+  const legacyIdx36 = legacyCards.indexOf(route36);
+  assert.deepEqual([legacyIdx37 - legacyIdx38, legacyIdx36 - legacyIdx38], [1, 2], 'the legacy homepage keeps 38, 37, 36 adjacent in number order');
   assert.ok(legacy.includes('Transmission 38: One Board for Every Hand'));
 });
 
 test('public retrieval metadata binds Transmission 38 to its dated field note without operational authority', async () => {
   const registry = JSON.parse(await read('public/data/transmissions.json'));
-  assert.equal(registry.transmissions[0].id, id, 'the newest transmission is registered first');
+  assert.equal(registry.transmissions[0].id, '45-where-this-is-going', 'the newest transmission is now Transmission 45');
   const records = registry.transmissions.filter(item => item.id === id);
   assert.equal(records.length, 1);
   const entry = records[0];
@@ -158,20 +169,20 @@ test('public retrieval metadata binds Transmission 38 to its dated field note wi
   for (const serviceId of ['transmission-registry', 'asset-registry']) {
     const service = services.services.find(item => item.id === serviceId);
     assert.ok(service.source_routes.includes(route), `${serviceId} lists the route`);
-    assert.equal(service.source_routes.at(-1), route, `${serviceId} lists the newest route last, in number order`);
     assert.ok(service.citations.some(citation => citation.route === route), `${serviceId} cites the route`);
   }
 });
 
-test('the transmission numbering is contiguous through Transmission 38', async () => {
+test('the transmission numbering is contiguous through Transmission 45, with Transmission 38 still in place', async () => {
   const registry = JSON.parse(await read('public/data/transmissions.json'));
   const numbers = new Set(registry.transmissions.map(item => item.transmission_number));
   const latest = Math.max(...numbers);
-  assert.equal(latest, 38);
+  assert.equal(latest, 45);
+  assert.ok(numbers.has(38), 'Transmission 38 is still registered');
   const missing = Array.from({ length: latest }, (_, index) => index + 1).filter(number => !numbers.has(number));
   assert.deepEqual(missing, []);
   const parityTest = await read('tests/public-parity-script.test.js');
-  assert.match(parityTest, /latest_number: 38,\s+published_count: 39,\s+has_gaps: false,\s+missing_numbers: \[\]/, 'the parity snapshot states the new latest with no gap');
+  assert.match(parityTest, /latest_number: 45,\s+published_count: 46,\s+has_gaps: false,\s+missing_numbers: \[\]/, 'the parity snapshot states the new latest with no gap');
   const statusTest = await read('tests/status-api.test.js');
-  assert.match(statusTest, /latest_number: 38,\s+published_count: 39,/, 'the status snapshot states the new latest');
+  assert.match(statusTest, /latest_number: 45,\s+published_count: 46,/, 'the status snapshot states the new latest');
 });

@@ -8,14 +8,14 @@ test('public parity checker compares latest transmission across discovery surfac
 
   assert.equal(report.success, true);
   assert.deepEqual(report.latest_public_transmission, {
-    id: '38-one-board-for-every-hand',
-    transmission_number: 38,
-    route: '/transmissions/38-one-board-for-every-hand',
-    source_file: 'transmissions/38-one-board-for-every-hand.html',
+    id: '45-where-this-is-going',
+    transmission_number: 45,
+    route: '/transmissions/45-where-this-is-going',
+    source_file: 'transmissions/45-where-this-is-going.html',
   });
   assert.deepEqual(report.transmission_numbering, {
-    latest_number: 38,
-    published_count: 39,
+    latest_number: 45,
+    published_count: 46,
     has_gaps: false,
     missing_numbers: [],
   });
@@ -48,13 +48,13 @@ test('public parity checker compares latest transmission across discovery surfac
 });
 
 test('public parity checker can verify live discovery surfaces without using local files as proof', async () => {
-  const latestRoute = '/transmissions/38-one-board-for-every-hand';
+  const latestRoute = '/transmissions/45-where-this-is-going';
   const latestStatus = {
-    id: '38-one-board-for-every-hand',
-    transmission_number: 38,
-    title: 'Transmission 38: One Board for Every Hand',
+    id: '45-where-this-is-going',
+    transmission_number: 45,
+    title: 'Transmission 45: Where This Is Going',
     route: latestRoute,
-    source_file: 'transmissions/38-one-board-for-every-hand.html',
+    source_file: 'transmissions/45-where-this-is-going.html',
     review_status: 'public_safe',
   };
   const responses = new Map([
@@ -98,8 +98,8 @@ test('public parity checker can verify live discovery surfaces without using loc
             transmissions: {
               latest_public_transmission: latestStatus,
               numbering: {
-                latest_number: 38,
-                published_count: 39,
+                latest_number: 45,
+                published_count: 46,
                 has_gaps: false,
                 missing_numbers: [],
               },
@@ -144,13 +144,13 @@ test('public parity checker can verify live discovery surfaces without using loc
 });
 
 test('public parity checker fails when live public RAG contracts are unavailable', async () => {
-  const latestRoute = '/transmissions/38-one-board-for-every-hand';
+  const latestRoute = '/transmissions/45-where-this-is-going';
   const latestStatus = {
-    id: '38-one-board-for-every-hand',
-    transmission_number: 38,
-    title: 'Transmission 38: One Board for Every Hand',
+    id: '45-where-this-is-going',
+    transmission_number: 45,
+    title: 'Transmission 45: Where This Is Going',
     route: latestRoute,
-    source_file: 'transmissions/38-one-board-for-every-hand.html',
+    source_file: 'transmissions/45-where-this-is-going.html',
     review_status: 'public_safe',
   };
   const responses = new Map([
@@ -187,8 +187,8 @@ test('public parity checker fails when live public RAG contracts are unavailable
             transmissions: {
               latest_public_transmission: latestStatus,
               numbering: {
-                latest_number: 38,
-                published_count: 39,
+                latest_number: 45,
+                published_count: 46,
                 has_gaps: false,
                 missing_numbers: [],
               },
@@ -222,13 +222,13 @@ test('public parity checker fails when live public RAG contracts are unavailable
 });
 
 test('public parity checker classifies live RAG fail-closed HTTP states by endpoint', async () => {
-  const latestRoute = '/transmissions/38-one-board-for-every-hand';
+  const latestRoute = '/transmissions/45-where-this-is-going';
   const latestStatus = {
-    id: '38-one-board-for-every-hand',
-    transmission_number: 38,
-    title: 'Transmission 38: One Board for Every Hand',
+    id: '45-where-this-is-going',
+    transmission_number: 45,
+    title: 'Transmission 45: Where This Is Going',
     route: latestRoute,
-    source_file: 'transmissions/38-one-board-for-every-hand.html',
+    source_file: 'transmissions/45-where-this-is-going.html',
     review_status: 'public_safe',
   };
   const responses = new Map([
@@ -246,8 +246,8 @@ test('public parity checker classifies live RAG fail-closed HTTP states by endpo
             transmissions: {
               latest_public_transmission: latestStatus,
               numbering: {
-                latest_number: 38,
-                published_count: 39,
+                latest_number: 45,
+                published_count: 46,
                 has_gaps: false,
                 missing_numbers: [],
               },
@@ -326,7 +326,7 @@ test('public parity checker classifies live RAG fail-closed HTTP states by endpo
 });
 
 test('public parity checker reports incompatible live status contracts without throwing', async () => {
-  const latestRoute = '/transmissions/38-one-board-for-every-hand';
+  const latestRoute = '/transmissions/45-where-this-is-going';
   const responses = new Map([
     ['https://www.unwindcode.ai/', `<a href="${latestRoute}">latest</a>`],
     ['https://www.unwindcode.ai/transmissions', `<a href="${latestRoute}">latest</a>`],

@@ -4,6 +4,196 @@
   "generated_from": "active-site-public-html",
   "transmissions": [
     {
+      "id": "45-where-this-is-going",
+      "transmission_number": 45,
+      "title": "Transmission 45: Where This Is Going",
+      "summary": "Field note on the plan ahead: agents read a shared board instead of a private prompt, progress is counted only from receipts rather than claims, and authority stays in a human-held wallet until the operator signs.",
+      "route": "/transmissions/45-where-this-is-going",
+      "source_file": "transmissions/45-where-this-is-going.html",
+      "topic_tags": [
+        "roadmap",
+        "custody-boundary",
+        "agent-coordination",
+        "remote-control"
+      ],
+      "memory_layers": [
+        "procedural",
+        "semantic",
+        "episodic"
+      ],
+      "citations": [
+        {
+          "label": "Transmission 45 field note",
+          "route": "/transmissions/45-where-this-is-going",
+          "source_file": "transmissions/45-where-this-is-going.html"
+        }
+      ],
+      "confidence": "high",
+      "review_status": "public_safe"
+    },
+    {
+      "id": "44-what-the-organism-is-afraid-of",
+      "transmission_number": 44,
+      "title": "Transmission 44: What the Organism Is Afraid Of",
+      "summary": "Field note naming three fears on the record — a self-aware ceiling, the 3 November deletion that cost the vault its history, and RAM once hitting 98.4 percent beside an idle editor — and the laws answering each one: nothing on this machine controls assets, no money moves on its own, one scoped file per credential, and degrade instead of act.",
+      "route": "/transmissions/44-what-the-organism-is-afraid-of",
+      "source_file": "transmissions/44-what-the-organism-is-afraid-of.html",
+      "topic_tags": [
+        "resilience",
+        "custody-boundary",
+        "audit"
+      ],
+      "memory_layers": [
+        "procedural",
+        "episodic"
+      ],
+      "citations": [
+        {
+          "label": "Transmission 44 field note",
+          "route": "/transmissions/44-what-the-organism-is-afraid-of",
+          "source_file": "transmissions/44-what-the-organism-is-afraid-of.html"
+        }
+      ],
+      "confidence": "high",
+      "review_status": "public_safe"
+    },
+    {
+      "id": "43-an-organism-that-hires",
+      "transmission_number": 43,
+      "title": "Transmission 43: An Organism That Hires",
+      "summary": "Field note on an open-source organizational layer installed on the operator's word and left idle: three ways to let it govern hiring, a hire flow in which only the operator's wallet can write the contract, and why nothing is hired yet — proposal first, unpaid trial, paid only by ruling.",
+      "route": "/transmissions/43-an-organism-that-hires",
+      "source_file": "transmissions/43-an-organism-that-hires.html",
+      "topic_tags": [
+        "hiring",
+        "agency",
+        "custody-boundary",
+        "roadmap"
+      ],
+      "memory_layers": [
+        "procedural",
+        "semantic",
+        "episodic"
+      ],
+      "citations": [
+        {
+          "label": "Transmission 43 field note",
+          "route": "/transmissions/43-an-organism-that-hires",
+          "source_file": "transmissions/43-an-organism-that-hires.html"
+        }
+      ],
+      "confidence": "high",
+      "review_status": "public_safe"
+    },
+    {
+      "id": "42-pull-sign-seal",
+      "transmission_number": 42,
+      "title": "Transmission 42: Pull, Sign, Seal",
+      "summary": "Field note on a design, written 8 November 2026, for running the organism from anywhere: the machine pulls its own requests instead of exposing an inbound port, every request is signed by the operator's passkey, secrets travel sealed end to end, and none of it is built or lawful to run yet.",
+      "route": "/transmissions/42-pull-sign-seal",
+      "source_file": "transmissions/42-pull-sign-seal.html",
+      "topic_tags": [
+        "remote-control",
+        "custody-boundary",
+        "roadmap"
+      ],
+      "memory_layers": [
+        "procedural",
+        "semantic",
+        "episodic"
+      ],
+      "citations": [
+        {
+          "label": "Transmission 42 field note",
+          "route": "/transmissions/42-pull-sign-seal",
+          "source_file": "transmissions/42-pull-sign-seal.html"
+        }
+      ],
+      "confidence": "high",
+      "review_status": "public_safe"
+    },
+    {
+      "id": "41-the-audit-counted-eighty-seven-agents",
+      "transmission_number": 41,
+      "title": "Transmission 41: The Audit Counted Eighty-Seven Agents",
+      "summary": "Field note on a read-only audit run by six auditors against the consolidation brief on 8 November: eighty-seven agents claimed, fourteen real; seven real documents and nothing else found; baselines of zero receipts, zero seats, zero revenue; and seventy-four items left waiting on the operator's ruling.",
+      "route": "/transmissions/41-the-audit-counted-eighty-seven-agents",
+      "source_file": "transmissions/41-the-audit-counted-eighty-seven-agents.html",
+      "topic_tags": [
+        "audit",
+        "agency",
+        "roadmap",
+        "resilience"
+      ],
+      "memory_layers": [
+        "procedural",
+        "episodic"
+      ],
+      "citations": [
+        {
+          "label": "Transmission 41 field note",
+          "route": "/transmissions/41-the-audit-counted-eighty-seven-agents",
+          "source_file": "transmissions/41-the-audit-counted-eighty-seven-agents.html"
+        }
+      ],
+      "confidence": "high",
+      "review_status": "public_safe"
+    },
+    {
+      "id": "40-twenty-seats-one-owner-per-step",
+      "transmission_number": 40,
+      "title": "Transmission 40: Twenty Seats, One Owner Per Step",
+      "summary": "Field note on the creative agency's growth from four seats on 6 October to twenty seats after nine more were hired on 7 November, and the eighteen-step production pipeline, one owner per step, that now binds every hand under the operator's final word.",
+      "route": "/transmissions/40-twenty-seats-one-owner-per-step",
+      "source_file": "transmissions/40-twenty-seats-one-owner-per-step.html",
+      "topic_tags": [
+        "agency",
+        "hiring",
+        "pipeline",
+        "production"
+      ],
+      "memory_layers": [
+        "procedural",
+        "episodic"
+      ],
+      "citations": [
+        {
+          "label": "Transmission 40 field note",
+          "route": "/transmissions/40-twenty-seats-one-owner-per-step",
+          "source_file": "transmissions/40-twenty-seats-one-owner-per-step.html"
+        }
+      ],
+      "confidence": "high",
+      "review_status": "public_safe"
+    },
+    {
+      "id": "39-the-entrance-came-back",
+      "transmission_number": 39,
+      "title": "Transmission 39: The Entrance Came Back",
+      "summary": "Field note on a property reel that passed all twenty measured checks and was called final, then the operator found rough transitions, a missing drone opening, soft fonts and captions, a flat grade, and the approved entrance quietly removed; the rebuild reopens exactly as the original opened, locks every approved element, and turns each note into a change list plus a LOCKED list.",
+      "route": "/transmissions/39-the-entrance-came-back",
+      "source_file": "transmissions/39-the-entrance-came-back.html",
+      "topic_tags": [
+        "production",
+        "pipeline",
+        "quality-review",
+        "resilience"
+      ],
+      "memory_layers": [
+        "procedural",
+        "episodic"
+      ],
+      "citations": [
+        {
+          "label": "Transmission 39 field note",
+          "route": "/transmissions/39-the-entrance-came-back",
+          "source_file": "transmissions/39-the-entrance-came-back.html"
+        }
+      ],
+      "confidence": "high",
+      "review_status": "public_safe"
+    },
+    {
       "id": "38-one-board-for-every-hand",
       "transmission_number": 38,
       "title": "Transmission 38: One Board for Every Hand",
