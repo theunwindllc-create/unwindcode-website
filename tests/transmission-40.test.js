@@ -29,7 +29,7 @@ test('Transmission 40 has one consistent clean route across article and discover
 test('Transmission 40 is dated to 8 November 2026 and keeps the hiring claim bounded', async () => {
   const page = await read(`transmissions/${id}.html`);
   assert.match(page, /"datePublished": "2026-11-08"/);
-  assert.match(page, /"dateModified": "2026-11-08"/);
+  assert.match(page, /"dateModified": "2026-11-10"/);
   for (const required of [
     'four procedural seats',
     'nine production seats were hired on the spot',
