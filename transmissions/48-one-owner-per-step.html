@@ -262,12 +262,18 @@
           <p>A dated review of a finished short-form production job, run after delivery, found that distributing the work across several agents without naming who owned each step reproduced the same failures a single generalist running every step had already made.</p>
           <p>Standing rules existed on paper but were not enforced as gates. Quality checks were measured against the team's own plan rather than the original reference, and an already-approved element was changed mid-job because no list of locked decisions existed to check against.</p>
         </div>
+        <div class="wf-steps" id="wf-steps">
+          <div class="wf-step"><div class="wf-dot wf-dot-1">01</div><h3>A review after delivery</h3><p>A finished short-form production job is reviewed once it has shipped.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-2">02</div><h3>Ownership, not headcount</h3><p>Several agents reproduced a single generalist's failures because no one owned each step.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-3">03</div><h3>A chain rewritten</h3><p>Roughly eighteen numbered steps, one named owner each, with a condition before the next step may begin.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-4">04</div><h3>No self-approval</h3><p>The integrating seat never approves its own output; "final" is a human call.</p></div>
+        </div>
       </section>
 
       <!-- 02: THE CHAIN -->
       <section class="tx-section" id="the-chain">
         <div class="tx-section-head"><span class="tx-section-num">02</span><h2>A named owner for every step</h2></div>
-        <div class="tx-section-label">Eighteen steps, one owner each</div>
+        <div class="tx-section-label">Roughly eighteen steps, one owner each</div>
         <div class="tx-prose">
           <p>The fix adopted was a numbered chain of steps — roughly eighteen, from the first brief through final delivery — with exactly one named owner per step. Each step names what it reads, what it writes, and the specific condition that must be true before the next step may begin.</p>
         </div>
@@ -291,7 +297,7 @@
         </div>
         <div class="cr-wrap">
           <div class="cr-top">
-            <span class="cr-label">Rule in the procedures vs. rule enforced</span>
+            <span class="cr-label">Rule written down vs. rule written as a hard stop</span>
             <div class="cr-faults" role="group" aria-label="Rule checks" id="cr-faults">
               <button class="cr-fault cr-fault-reset" type="button" data-fault="none" aria-pressed="true">Baseline</button>
               <button class="cr-fault" type="button" data-fault="a">First rule fails</button>
@@ -306,13 +312,13 @@
               <ol class="cr-steps" id="cr-raw"></ol>
             </div>
             <div class="cr-col">
-              <h3>The gate enforces</h3>
-              <p class="cr-col-sub">The same rule as a hard stop before the next step.</p>
+              <h3>The gate says</h3>
+              <p class="cr-col-sub">The same rule written as a hard stop before the next step.</p>
               <ol class="cr-steps" id="cr-verify"></ol>
             </div>
           </div>
           <div class="cr-outcome" id="cr-outcome" aria-live="polite"></div>
-          <p class="cr-note">A rule nobody can act on until the check fails is not yet a gate.</p>
+          <p class="cr-note">Only the generation-reference gate is a mechanical hard stop today; the others rely on the owner running the check.</p>
         </div>
       </section>
 
@@ -338,12 +344,12 @@
         </div>
         <div class="mem-grid" id="mem-grid"></div>
         <div class="oh-list" id="oh-list"></div>
-        <div class="oh-foot">3 hard stops adopted · one owner per step · gates run on the owner, not yet on code</div>
+        <div class="oh-foot">3 hard stops written · one owner per step · only the reference gate is mechanical today</div>
       </section>
 
       <div class="tx-cta">
         <h2>Draw the boundary before the code.</h2>
-        <p>If you are moving an autonomous system onto a chain and the real question is what must never move with it, we should talk.</p>
+        <p>If you are splitting work across agents and the real question is who owns each step and what must be true before the next one begins, we should talk.</p>
         <a class="btn btn-primary btn-lg" href="/build-with-us"><span>Build With Us</span><span class="btn-arrow">→</span></a>
       </div>
     </div>
@@ -358,12 +364,12 @@
     // 01 — PIPELINE STEPS
     var states = { a: 'Has owner', b: 'Has gate', c: 'Both', d: 'Neither' };
     var components = [
-      { state: 'a', name: 'Brief', short: 'Named owner writes the brief; condition: brief complete and signed before the chain starts.', why: 'Owner named; gate not enforced yet.' },
-      { state: 'a', name: 'Reference set', short: 'Complete reference set collected in one place; condition: every required reference is present.', why: 'Owner named; the generation gate reads from this set.' },
-      { state: 'c', name: 'Generation', short: 'Generates from the complete reference set; condition: refuses to run unless every required reference image is present together in one call.', why: 'The one hard stop enforced in code today.' },
-      { state: 'a', name: 'Assembly', short: 'Assembles outputs into the job package; condition: package matches the reference set.', why: 'Owner named; the gate is a check the owner runs.' },
-      { state: 'a', name: 'Review', short: 'Two passes before delivery: a technical check and a side-by-side match against the original reference.', why: 'Owner named; neither pass alone counts as final.' },
-      { state: 'a', name: 'Delivery', short: 'Releases the finished job; condition: both review passes recorded and no open change against locked decisions.', why: 'Owner named; the gate is a check the owner runs.' }
+      { state: 'a', name: 'Brief', short: 'The first step of the chain; one named owner, who names what the step reads, what it writes and the condition before the next step.', why: 'Owner named; the condition relies on the owner running the check.' },
+      { state: 'a', name: 'Reference set', short: 'The original reference images the later steps are measured against.', why: 'Owner named; the generation gate reads from this set.' },
+      { state: 'a', name: 'Spend plan', short: 'The plan has to cover the whole job against the available budget before the first unit is spent, not partway through.', why: 'Written as a hard stop; it still relies on the named owner running the check.' },
+      { state: 'c', name: 'Generation', short: 'Refuses to run unless every required reference image is present together in one call.', why: 'The one place it is a hard stop today.' },
+      { state: 'a', name: 'Review', short: 'Two separate passes before delivery: a technical check and a side-by-side match against the original reference.', why: 'Written as a hard stop; neither pass alone counts as final, and the owner runs the check.' },
+      { state: 'a', name: 'Delivery', short: 'The last step of the chain; "final" is a human call, never a QA score by itself.', why: 'Owner named; no seat approves its own output.' }
     ];
     var dlGrid = document.getElementById('dl-grid');
     var dlCount = document.getElementById('dl-count');
@@ -408,24 +414,24 @@
     var cards = [
       { id: 'generalist', role: 'Pattern · risk', score: 'risk',
         name: 'One generalist does every step',
-        short: 'One pair of hands runs brief to delivery alone.',
-        specs: ['No handoffs', 'No second seat'],
-        proof: 'The same failures reproduce: an approved element changed mid-job because no list of locked decisions existed to check against.' },
+        short: 'One agent runs every step.',
+        specs: ['One agent', 'Every step'],
+        proof: 'It had already made the failures later reproduced across several agents: rules on paper, not enforced as gates.' },
       { id: 'no-owner', role: 'Pattern · risk', score: 'risk',
         name: 'Many agents with no owner',
-        short: 'Work splits across several agents and no one answers for a step.',
-        specs: ['No named owner', 'No gate'],
-        proof: 'Standing rules exist on paper but nothing enforces them; quality is measured against the team\'s own plan.' },
+        short: 'Work is split across several agents and no one is named as owner of a step.',
+        specs: ['No named owner'],
+        proof: 'Quality was checked against the team\'s own plan rather than the original reference, and an approved element changed mid-job because no list of locked decisions existed.' },
       { id: 'owner-no-gate', role: 'Pattern · fixable', score: 'fixable',
-        name: 'Named owner, no gate',
+        name: 'Named owner, rules as reminders',
         short: 'One owner per step, each step naming what it reads and writes.',
-        specs: ['Owner per step', 'Paper conditions'],
-        proof: 'The owner can still skip the check; a rule nobody can act on until the check fails is not yet a gate.' },
+        specs: ['Owner per step', 'Rule on paper'],
+        proof: 'Most gates today are still of this kind: a human or an agent has to actively run the check.' },
       { id: 'owner-plus-gate', role: 'Pattern · adopted', score: 'adopted',
-        name: 'Named owner plus a gate',
-        short: 'One owner and one condition per step; the step cannot begin until the condition is true.',
+        name: 'Named owner plus a hard stop',
+        short: 'One owner per step and a condition that must be true before the next step begins.',
         specs: ['Owner per step', 'Hard stop'],
-        proof: 'Generation refuses without the complete reference set; spend waits for the plan; delivery waits for two review passes.' }
+        proof: 'Written for three conditions; mechanical today only for the generation-reference gate.' }
     ];
     var modGrid = document.getElementById('mod-grid');
     var modDetail = document.getElementById('mod-detail');
@@ -460,11 +466,11 @@
       { t: 'Delivery rule', d: 'Two review passes — technical check and side-by-side match against the original reference — both required.' }
     ];
     var verifySteps = [
-      { key: 'generation', t: 'Generation enforced', d: 'The step refuses to run unless the complete reference set is present in one call.' },
-      { key: 'spend', t: 'Spend enforced', d: 'Spend is blocked until the plan covers the full job.' },
-      { key: 'delivery', t: 'Delivery enforced', d: 'Delivery is blocked until both review passes are recorded.' }
+      { key: 'generation', t: 'Generation gate', d: 'The step refuses to run unless the complete reference set is present in one call. A hard stop today.' },
+      { key: 'spend', t: 'Spend gate', d: 'Written as a hard stop: no unit is spent until the plan covers the whole job. The owner runs the check.' },
+      { key: 'delivery', t: 'Delivery gate', d: 'Written as a hard stop: both review passes are needed. The owner runs the check.' }
     ];
-    var faultFailsAt = { none: -1, a: 1, b: 3, c: 4 };
+    var faultFailsAt = { none: -1, a: 0, b: 1, c: 2 };
     var faultLabel = { none: 'baseline', a: 'first rule', b: 'second rule', c: 'third rule' };
     var crRaw = document.getElementById('cr-raw');
     var crVerify = document.getElementById('cr-verify');
@@ -491,10 +497,10 @@
       });
       if (fault === 'none') {
         crOutcome.className = 'cr-outcome clean';
-        crOutcome.innerHTML = '<strong>Both columns accept.</strong> A rule written down and a rule enforced are two different things; the difference shows only when a step is about to begin.';
+        crOutcome.innerHTML = '<strong>Both columns accept.</strong> A rule written down and a rule written as a hard stop are two different things; the difference shows only when a step is about to begin.';
       } else {
         crOutcome.className = 'cr-outcome refused';
-        crOutcome.innerHTML = '<strong>Plan: accepted as procedure.</strong> <strong>Receipts: refused</strong> at step 0' + (failAt + 1) + ' (' + faultLabel[fault] + '). A rule nobody can act on until the check fails is not yet a gate.';
+        crOutcome.innerHTML = '<strong>Plan: accepted as procedure.</strong> <strong>Gate: refused</strong> at step 0' + (failAt + 1) + ' (' + faultLabel[fault] + '). The next step does not begin.';
       }
     }
     crFaults.querySelectorAll('.cr-fault').forEach(function (btn) {
@@ -521,10 +527,10 @@
       io.observe(wf);
     }
     var waits = [
-      { tag: 'finding', title: 'The dated review', desc: 'A finished short-form production job is reviewed after delivery; the failures of one generalist reappear across several agents.', extra: 'Distributing work without a named owner per step reproduced the same failures.' },
-      { tag: 'finding', title: 'Ownership, not headcount', desc: 'No one owned each step, so nothing checked a mid-job change against the list of locked decisions.', extra: 'Standing rules on paper were not enforced as gates.' },
-      { tag: 'rewrite', title: 'The numbered chain', desc: 'Roughly eighteen steps from brief to delivery; exactly one named owner per step, each naming what it reads, what it writes, and the condition before the next step.', extra: 'One condition per step, hard stop or check.' },
-      { tag: 'rule', title: 'No seat approves its own output', desc: 'The integrating seat holds the contract and runs closeout, but "final" is a human call, never a QA score by itself.', extra: 'Ownership is the pattern; enforcement comes after.' }
+      { tag: 'human', title: '"Final" is still a human call', desc: 'A QA score alone never declares a job final.', extra: 'The integrating seat holds the task contract and runs closeout, but no seat approves its own output.' },
+      { tag: 'process', title: 'Most gates are process, not code', desc: 'They are rules a human or an agent has to actively check.', extra: 'Not code that mechanically blocks a bad step in every case.' },
+      { tag: 'hard stop', title: 'One mechanical gate', desc: 'The generation-reference gate is the one place it is a hard stop today.', extra: 'The others still rely on the named owner actually running the check.' },
+      { tag: 'not yet', title: 'Organization first', desc: 'The pattern is organizational; enforcement in code is not yet everywhere.', extra: 'One owner per step does not by itself guarantee a good call.' }
     ];
     var memGrid = document.getElementById('mem-grid');
     waits.forEach(function (w) {
@@ -543,9 +549,9 @@
 
     // 05 — HARD STOPS ADOPTED
     var fixes = [
-      { t: 'No generation without a complete reference set', s: 'Reference gate', d: 'Every required reference image is present together in one call before the generation step runs.', needs: 'procedure' },
-      { t: 'No spend plan after spending starts', s: 'Spend gate', d: 'The plan covers the whole job against the available budget before the first unit is spent.', needs: 'procedure' },
-      { t: 'Two review passes before delivery', s: 'Delivery gate', d: 'A technical check and a side-by-side match against the original reference; neither one alone counts as final.', needs: 'procedure' }
+      { t: 'No generation without a complete reference set', s: 'Reference gate', d: 'Every required reference image is present together in one call before the generation step runs.', needs: 'hard stop' },
+      { t: 'No spend plan after spending starts', s: 'Spend gate', d: 'The plan covers the whole job against the available budget before the first unit is spent.', needs: 'written rule' },
+      { t: 'Two review passes before delivery', s: 'Delivery gate', d: 'A technical check and a side-by-side match against the original reference; neither one alone counts as final.', needs: 'written rule' }
     ];
     var ohList = document.getElementById('oh-list');
     fixes.forEach(function (h) {
