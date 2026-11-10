@@ -259,7 +259,7 @@
         <div class="tx-section-label">The 30 August 2026 ruling: voice is a channel, not a power</div>
         <div class="tx-prose">
           <p>A ruling on 30 August 2026 made voice a working channel into the organism — not a message-taker: "voice is another door into the same house — not a new set of powers, and not a weaker set of rules."</p>
-          <p>A public demo line exists, separate from a private line reserved for the operator; the two share nothing but a first name. The door is public because it must be provable: anyone can call it, and what it can and cannot do is the point of this note.</p>
+          <p>A public demo line exists, separate from a private line reserved for the operator; the two share nothing but a first name. What the public one can and cannot do is the point of this note.</p>
         </div>
       </section>
 
@@ -278,7 +278,7 @@
         <div class="tx-section-head"><span class="tx-section-num">03</span><h2>Sorted by what it would cost to be wrong</h2></div>
         <div class="tx-section-label">Capability tiers, filterable by where the act completes</div>
         <div class="tx-prose">
-          <p>What the line may do is sorted by what it would cost to be wrong, not by what is convenient:</p>
+          <p>What voice may do is sorted by what it would cost to be wrong, not by what is convenient. These tiers are the rule the ruling sets; the public demo line, described below, has none of these powers.</p>
           <p>Conversing, coaching, and reading back already-authorized data complete on the call itself.</p>
           <p>A reversible, low-stakes action is confirmed by the system stating the request back and the caller saying "yes" — then it completes on the call.</p>
           <p>Anything irreversible or reaching outside — sending something specific, posting, any external write — is only ever carried by voice. It has to be confirmed on a separate channel with stronger proof, such as a single tap on a drafted item shown elsewhere.</p>
@@ -346,14 +346,14 @@
         <div class="tx-section-label">Disclosure and the first live calls remain open</div>
         <div class="tx-prose">
           <p>Proactive AI disclosure on the call itself is off by default as of this writing. The line discloses only if asked.</p>
-          <p>The record flags what is owed: proactive disclosure before any outbound calling campaign, and a human to place the live test calls and check the results against the script. Neither has happened yet.</p>
+          <p>The record flags what is owed: proactive disclosure before any outbound calling campaign, and a human to place the live test calls and check the results against the script. Both are listed as still to do.</p>
         </div>
         <div class="mem-grid" id="mem-grid"></div>
         <div class="oh-list" id="oh-list"></div>
         <div class="oh-foot">5 items · the ruling stands · no claim of completion</div>
         <div class="oh-refusal">
-          <h3>Nothing here is tested</h3>
-          <p>The line is not yet "working." The test script exists; the live calls and the disclosure decision do not.</p>
+          <h3>Not yet called "working"</h3>
+          <p>The test script exists; the live calls and proactive disclosure are still owed. Until they are done, the line is not called "working."</p>
         </div>
         <div class="tx-quote">A door is not a promise.</div>
       </section>
@@ -361,8 +361,8 @@
 
 
       <div class="tx-cta">
-        <h2>Draw the boundary before the code.</h2>
-        <p>If you are moving an autonomous system onto a chain and the real question is what must never move with it, we should talk.</p>
+        <h2>Decide what a voice may do before it can do anything.</h2>
+        <p>If you are giving an autonomous system a voice and the real question is what that voice must never be trusted with, we should talk.</p>
         <a class="btn btn-primary btn-lg" href="/build-with-us"><span>Build With Us</span><span class="btn-arrow">→</span></a>
       </div>
     </div>
@@ -410,7 +410,7 @@
         var match = state === 'all' || card.getAttribute('data-state') === state;
         if (match) { card.removeAttribute('hidden'); shown += 1; } else { card.setAttribute('hidden', ''); }
       });
-      dlCount.textContent = shown + ' of ' + components.length + ' waves · ' + (state === 'all' ? 'plan; weeks are targets' : states[state]);
+      dlCount.textContent = shown + ' of ' + components.length + ' tiers · ' + (state === 'all' ? 'all tiers' : states[state]);
     }
     dlFilters.querySelectorAll('.dl-chip').forEach(function (chip) {
       chip.addEventListener('click', function () {
@@ -426,18 +426,18 @@
       { id: 'cap', role: 'Hard limit', score: 'Three minutes',
         name: 'Three-minute cap',
         short: 'A hard time cap paced by its own script, not by the cap itself.',
-        specs: ['Three minutes', 'Script-paced', 'Speakerphone-ready'],
-        proof: 'Ends the call by design; the caller is never held past the cap.' },
+        specs: ['Three minutes', 'Script-paced', 'Hard cap'],
+        proof: 'The script paces the call so the cap is the backstop, not the plan.' },
       { id: 'tool', role: 'One tool', score: 'End the call',
         name: 'One tool only',
         short: 'Ending the call — and nothing else.',
-        specs: ['End the call', 'No bridge', 'Read-only answers'],
+        specs: ['End the call', 'No bridge', 'Takes a message'],
         proof: 'No path into the rest of the organism: no book, buy, send, publish, or promise.' },
       { id: 'lang', role: 'Bilingual', score: "Caller's language",
         name: "Caller's language",
         short: 'Answers in whatever language the caller uses.',
-        specs: ['Caller-chosen', 'No menu', 'No assumption'],
-        proof: 'The caller sets the language; the line meets them there.' },
+        specs: ['Caller-chosen', 'No menu'],
+        proof: 'The caller sets the language; the line continues in it.' },
       { id: 'listen', role: 'Yields', score: 'Instant',
         name: 'Stops on interruption',
         short: 'Stops talking the instant a caller talks over it.',
@@ -463,7 +463,7 @@
       btn.className = 'mod-node';
       btn.setAttribute('data-id', c.id);
       btn.setAttribute('aria-pressed', 'false');
-      btn.innerHTML = '<span class="mod-glyph">PLAN</span><div class="mod-name">' + c.name + '</div><div class="mod-path">' + c.role + '</div><div class="mod-score">' + c.score + '</div>';
+      btn.innerHTML = '<span class="mod-glyph">LINE</span><div class="mod-name">' + c.name + '</div><div class="mod-path">' + c.role + '</div><div class="mod-score">' + c.score + '</div>';
       btn.addEventListener('click', function () { showCard(c); });
       modGrid.appendChild(btn);
       modButtons.push(btn);
@@ -472,13 +472,13 @@
 
     // 03 — CONFIRM OR CARRY
     var rawSteps = [
-      { t: 'Caller asks', d: 'A low-stakes, reversible request — a message taken into the transcript, a status read back.' },
+      { t: 'Caller asks', d: 'A low-stakes, reversible request that can be undone if it was misheard.' },
       { t: 'System restates', d: 'The line repeats the request back in plain words before anything happens.' },
       { t: 'Caller says yes', d: 'A spoken yes confirms; the action completes on the call, voice only.' }
     ];
     var verifySteps = [
       { t: 'Caller asks', d: 'An irreversible or outward-reaching request — sending something specific, posting, any external write.' },
-      { t: 'Voice carries only', d: 'Voice takes it down and logs it. It does not complete on the call.' },
+      { t: 'Voice carries only', d: 'Voice carries the intent. It does not complete on the call.' },
       { t: 'Separate channel', d: 'Confirmation lands elsewhere — a single tap on a drafted item shown somewhere with stronger proof than voice.' },
       { t: 'Outcome', d: 'The confirming step for the second kind never lives on voice alone.' }
     ];
