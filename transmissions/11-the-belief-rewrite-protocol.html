@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Transmission 11: The Belief Rewrite Protocol | Unwind Code</title>
-  <meta name="description" content="Upgrading identity at runtime through deterministic language pattern matching." />
+  <meta name="description" content="A rewrite to the standard: the belief-rewrite protocol is a lookup of nine phrases with nine canned reframes. What the Emotions Cell code does, what the April note overclaimed, and a lookup you can try in the page." />
   <meta name="theme-color" content="#06060c" />
   <link rel="canonical" href="https://www.unwindcode.ai/transmissions/11-the-belief-rewrite-protocol" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Transmission 11: The Belief Rewrite Protocol | Unwind Code" />
-  <meta property="og:description" content="Upgrading identity at runtime through deterministic language pattern matching." />
+  <meta property="og:description" content="A rewrite to the standard: the belief-rewrite protocol is a lookup of nine phrases with nine canned reframes. What the Emotions Cell code does, what the April note overclaimed, and a lookup you can try in the page." />
   <meta property="og:url" content="https://www.unwindcode.ai/transmissions/11-the-belief-rewrite-protocol" />
   <meta property="og:site_name" content="Unwind Code" />
   <meta property="og:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
@@ -19,136 +19,563 @@
   <meta property="og:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Transmission 11: The Belief Rewrite Protocol | Unwind Code" />
-  <meta name="twitter:description" content="Upgrading identity at runtime through deterministic language pattern matching." />
+  <meta name="twitter:description" content="A rewrite to the standard: the belief-rewrite protocol is a lookup of nine phrases with nine canned reframes. What the Emotions Cell code does, what the April note overclaimed, and a lookup you can try in the page." />
   <meta name="twitter:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
   <meta name="twitter:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/style.css" />
-</head>
-<body class="transmission-body">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Belief Rewrite Protocol",
+    "description": "Field note revised 10 November 2026: nine phrase markers, nine canned reframes, five ritual records and what the session logs actually show; with dated corrections to the April text.",
+    "author": {
+      "@type": "Organization",
+      "name": "Unwind Code"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Unwind Code",
+      "url": "https://www.unwindcode.ai"
+    },
+    "datePublished": "2026-05-16",
+    "dateModified": "2026-11-10",
+    "keywords": [
+      "belief rewrite",
+      "emotions cell",
+      "deterministic pattern matching",
+      "corrections",
+      "infinity mirror"
+    ],
+    "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/11-the-belief-rewrite-protocol"
+  }
+  </script>
+  <style>
+    .tx-page { background: var(--bg-void); color: var(--text-primary); }
+    .tx-page *, .tx-page *::before, .tx-page *::after { box-sizing: border-box; }
+    .tx-hero { padding: 160px 0 72px; text-align: center; position: relative; overflow: hidden; }
+    .tx-hero::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:800px; height:800px; background:radial-gradient(circle, rgba(110,45,190,0.12) 0%, transparent 60%); pointer-events:none; }
+    .tx-hero-kicker { margin-bottom:16px; }
+    .tx-hero h1 { font-size:clamp(2.2rem,5vw,3.5rem); font-weight:800; letter-spacing:-0.04em; line-height:1.08; margin:0 0 20px; }
+    .tx-hero-sub { font-size:1.08rem; color:var(--text-secondary); max-width:660px; margin:0 auto; line-height:1.7; }
+    .tx-hero-meta { margin-top:28px; display:flex; justify-content:center; gap:14px; font-size:0.76rem; color:var(--text-muted); font-weight:600; letter-spacing:0.06em; text-transform:uppercase; flex-wrap:wrap; }
+    .tx-section { padding:72px 0; border-top:1px solid var(--accent-border); }
+    .tx-section:first-of-type { border-top:none; padding-top:24px; }
+    .tx-section-head { display:flex; align-items:center; gap:16px; margin-bottom:10px; }
+    .tx-section-num { font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:700; color:var(--accent-hot); letter-spacing:0.15em; }
+    .tx-section h2 { font-size:clamp(1.5rem,3vw,2rem); font-weight:700; letter-spacing:-0.02em; margin:0; }
+    .tx-section-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:24px; }
+    .tx-prose { font-size:1.04rem; color:var(--text-secondary); line-height:1.8; max-width:720px; }
+    .tx-prose p { margin:0 0 22px; }
+    .tx-prose strong { color:var(--text-primary); font-weight:600; }
+    .tx-prose code, .tx-prose-code { font-family:'JetBrains Mono',monospace; font-size:0.84rem; background:rgba(110,45,190,0.1); color:var(--accent-light); padding:2px 6px; border-radius:4px; }
+    .tx-prose a, .tx-inline { color:var(--accent-light); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    .tx-quote { border-left:3px solid var(--accent); padding:18px 24px; margin:36px 0; background:rgba(110,45,190,0.05); border-radius:0 12px 12px 0; color:var(--text-primary); font-size:1.08rem; line-height:1.6; font-weight:500; max-width:720px; }
+    .tx-after { margin-top:36px; }
 
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- NAV (Dark Chrome) -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <nav id="nav">
-    <a href="/" class="nav-brand">
-      <span class="nav-glyph">∞</span>
-      <span class="nav-name">unwind<span class="nav-accent">code</span></span>
-    </a>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+    /* 01 — State filter */
+    .dl-filters { display:flex; flex-wrap:wrap; gap:10px; margin:28px 0 18px; }
+    .dl-chip { font-family:inherit; font-size:0.78rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:9px 16px; border-radius:999px; border:1px solid var(--accent-border); background:var(--bg-surface); color:var(--text-secondary); cursor:pointer; transition:border-color .2s ease, color .2s ease, background .2s ease; }
+    .dl-chip:hover { border-color:rgba(110,45,190,0.4); color:var(--text-primary); }
+    .dl-chip[aria-pressed="true"] { background:rgba(110,45,190,0.16); border-color:var(--accent-light); color:var(--text-primary); }
+    .dl-chip-a[aria-pressed="true"] { border-color:#c084fc; }
+    .dl-chip-b[aria-pressed="true"] { border-color:#38bdf8; }
+    .dl-chip-c[aria-pressed="true"] { border-color:#fbbf24; }
+    .dl-chip-d[aria-pressed="true"] { border-color:#10b981; }
+    .dl-chip-e[aria-pressed="true"] { border-color:#f59e0b; }
+    .dl-chip-f[aria-pressed="true"] { border-color:#f87171; }
+    .dl-count { font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:var(--text-muted); margin-bottom:16px; letter-spacing:0.06em; }
+    .dl-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:12px; }
+    .dl-card { font-family:inherit; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:18px; cursor:pointer; transition:border-color .25s ease, transform .25s ease, opacity .25s ease; }
+    .dl-card:hover { transform:translateY(-2px); border-color:rgba(110,45,190,0.4); }
+    .dl-card[hidden] { display:none; }
+    .dl-state { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.12em; padding:3px 9px; border-radius:999px; border:1px solid currentColor; margin-bottom:10px; }
+    .dl-state-a { color:#c084fc; } .dl-state-b { color:#38bdf8; } .dl-state-c { color:#fbbf24; }
+    .dl-state-d { color:#10b981; } .dl-state-e { color:#f59e0b; } .dl-state-f { color:#f87171; }
+    .dl-name { font-weight:700; font-size:0.96rem; margin-bottom:4px; }
+    .dl-short { font-size:0.84rem; color:var(--text-secondary); line-height:1.55; }
+    .dl-why { display:none; margin-top:12px; padding-top:12px; border-top:1px solid var(--accent-border); font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+    .dl-card[aria-expanded="true"] .dl-why { display:block; }
+    .dl-hint { font-size:0.68rem; color:var(--accent-hot); margin-top:10px; font-weight:600; letter-spacing:0.05em; }
+    .dl-law { margin-top:32px; border:1px solid rgba(251,191,36,0.28); border-radius:16px; padding:24px 28px; background:linear-gradient(180deg,rgba(251,191,36,0.07),rgba(251,191,36,0.015)); max-width:720px; }
+    .dl-law h3 { margin:0 0 10px; font-size:1rem; color:#fbbf24; }
+    .dl-law p { margin:0; font-size:0.95rem; color:var(--text-secondary); line-height:1.7; }
+
+    /* 02 — Component explorer */
+    .mod-explorer { display:grid; grid-template-columns:1fr 1.25fr; gap:24px; margin-top:32px; }
+    .mod-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; align-content:start; }
+    .mod-node { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:20px; cursor:pointer; transition:all 0.25s ease; text-align:left; font-family:inherit; color:var(--text-primary); }
+    .mod-node:hover, .mod-node[aria-pressed="true"] { border-color:rgba(110,45,190,0.45); transform:translateY(-2px); box-shadow:0 8px 24px rgba(110,45,190,0.1); }
+    .mod-node[aria-pressed="true"] { background:rgba(110,45,190,0.08); }
+    .mod-glyph { font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--accent-hot); letter-spacing:0.14em; margin-bottom:10px; display:block; }
+    .mod-name { font-weight:700; font-size:1.02rem; font-family:'JetBrains Mono',monospace; }
+    .mod-path { font-size:0.78rem; color:var(--text-muted); margin-top:6px; line-height:1.4; }
+    .mod-score { margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:#34d399; }
+    .mod-detail { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:20px; padding:32px; min-height:420px; }
+    .mod-detail-title { font-size:1.4rem; font-weight:700; margin-bottom:8px; font-family:'JetBrains Mono',monospace; }
+    .mod-detail-type { display:inline-block; font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent-hot); background:rgba(110,45,190,0.12); border:1px solid rgba(110,45,190,0.2); padding:4px 12px; border-radius:20px; margin-bottom:20px; }
+    .mod-detail-desc { color:var(--text-secondary); line-height:1.7; font-size:0.95rem; margin-bottom:22px; }
+    .mod-specs-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:10px; }
+    .mod-specs { display:flex; flex-wrap:wrap; gap:8px; }
+    .mod-spec { background:rgba(110,45,190,0.08); border:1px solid var(--accent-border); color:var(--accent-light); padding:6px 14px; border-radius:20px; font-size:0.8rem; font-weight:500; }
+    .mod-proof { margin-top:22px; padding-top:18px; border-top:1px solid var(--accent-border); font-size:0.84rem; color:var(--text-muted); line-height:1.6; }
+    .mod-proof strong { color:#34d399; font-family:'JetBrains Mono',monospace; font-weight:600; }
+
+    /* 03 — Baseline model */
+    .cr-wrap { margin-top:28px; border:1px solid rgba(56,189,248,0.22); border-radius:20px; padding:28px; background:linear-gradient(180deg,rgba(56,189,248,0.06),rgba(56,189,248,0.01)); }
+    .cr-top { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; }
+    .cr-label { font-family:'JetBrains Mono',monospace; font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:#38bdf8; }
+    .cr-faults { display:flex; flex-wrap:wrap; gap:8px; }
+    .cr-fault { font-family:inherit; font-size:0.76rem; font-weight:700; padding:8px 14px; border-radius:999px; border:1px solid var(--accent-border); background:var(--bg-surface); color:var(--text-secondary); cursor:pointer; transition:border-color .2s ease, color .2s ease; }
+    .cr-fault:hover { color:var(--text-primary); border-color:rgba(248,113,113,0.5); }
+    .cr-fault[aria-pressed="true"] { color:#fca5a5; border-color:#f87171; background:rgba(248,113,113,0.1); }
+    .cr-fault-reset[aria-pressed="true"] { color:#34d399; border-color:#10b981; background:rgba(16,185,129,0.1); }
+    .cr-cols { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .cr-col { border:1px solid var(--accent-border); border-radius:14px; padding:18px; background:rgba(0,0,0,0.22); }
+    .cr-col h3 { margin:0 0 4px; font-size:0.98rem; }
+    .cr-col-sub { font-size:0.78rem; color:var(--text-muted); margin:0 0 14px; line-height:1.5; }
+    .cr-steps { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
+    .cr-step { display:grid; grid-template-columns:22px 1fr auto; gap:10px; align-items:start; padding:10px 12px; border-radius:10px; border:1px solid var(--accent-border); font-size:0.84rem; line-height:1.5; color:var(--text-secondary); transition:border-color .2s ease, background .2s ease; }
+    .cr-step-n { font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--text-muted); padding-top:3px; }
+    .cr-step-t { color:var(--text-primary); font-weight:600; display:block; }
+    .cr-step-d { display:block; font-size:0.78rem; color:var(--text-muted); margin-top:2px; }
+    .cr-verdict { font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:700; letter-spacing:0.08em; padding-top:3px; white-space:nowrap; }
+    .cr-step.pass { border-color:rgba(16,185,129,0.35); } .cr-step.pass .cr-verdict { color:#34d399; }
+    .cr-step.fail { border-color:#f87171; background:rgba(248,113,113,0.08); } .cr-step.fail .cr-verdict { color:#fca5a5; }
+    .cr-step.skip { opacity:0.42; } .cr-step.skip .cr-verdict { color:var(--text-muted); }
+    .cr-step.blind { border-color:rgba(251,191,36,0.3); } .cr-step.blind .cr-verdict { color:#fbbf24; }
+    .cr-outcome { margin-top:16px; border-radius:12px; padding:14px 16px; font-size:0.9rem; line-height:1.6; border:1px solid var(--accent-border); background:rgba(0,0,0,0.22); color:var(--text-secondary); }
+    .cr-outcome strong { color:var(--text-primary); }
+    .cr-outcome.refused { border-color:rgba(248,113,113,0.4); }
+    .cr-outcome.clean { border-color:rgba(16,185,129,0.35); }
+    .cr-note { margin:14px 0 0; font-size:0.8rem; color:var(--text-muted); line-height:1.6; }
+
+    /* 04 — Timeline */
+    .wf-steps { position:relative; margin-top:32px; padding-left:40px; max-width:760px; }
+    .wf-steps::before { content:''; position:absolute; left:19px; top:0; bottom:0; width:2px; background:var(--accent-border); }
+    .wf-step { position:relative; margin-bottom:40px; }
+    .wf-step:last-child { margin-bottom:0; }
+    .wf-dot { position:absolute; left:-40px; top:0; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:800; z-index:2; font-family:'JetBrains Mono',monospace; }
+    .wf-dot-1 { background:rgba(110,45,190,0.15); color:var(--accent-light); border:2px solid var(--accent); }
+    .wf-dot-2 { background:rgba(79,70,229,0.15); color:#818cf8; border:2px solid #6366f1; }
+    .wf-dot-3 { background:rgba(14,165,233,0.15); color:#38bdf8; border:2px solid #0ea5e9; }
+    .wf-dot-4 { background:rgba(16,185,129,0.15); color:#34d399; border:2px solid #10b981; }
+    .wf-dot-5 { background:rgba(245,158,11,0.15); color:#fbbf24; border:2px solid #f59e0b; }
+    .wf-dot-6 { background:rgba(248,113,113,0.15); color:#fca5a5; border:2px solid #f87171; }
+    .wf-step h3 { font-size:1.06rem; font-weight:700; margin:0 0 6px; padding-top:8px; }
+    .wf-step p { font-size:0.92rem; color:var(--text-secondary); line-height:1.65; margin:0; }
+    .wf-step code { font-family:'JetBrains Mono',monospace; font-size:0.8rem; background:rgba(110,45,190,0.1); color:var(--accent-light); padding:2px 6px; border-radius:4px; }
+    .wf-step.reveal-step { opacity:0; transform:translateY(10px); animation:wfIn .6s ease forwards; }
+    .wf-step.reveal-step:nth-child(1){animation-delay:.05s}.wf-step.reveal-step:nth-child(2){animation-delay:.15s}.wf-step.reveal-step:nth-child(3){animation-delay:.25s}.wf-step.reveal-step:nth-child(4){animation-delay:.35s}.wf-step.reveal-step:nth-child(5){animation-delay:.45s}.wf-step.reveal-step:nth-child(6){animation-delay:.55s}
+    @keyframes wfIn { to { opacity:1; transform:none; } }
+
+    /* 05 — Operator's hand */
+    .oh-list { display:flex; flex-direction:column; gap:12px; margin-top:28px; max-width:760px; }
+    .oh-item { font-family:inherit; text-align:left; color:var(--text-primary); border:1px solid var(--accent-border); border-radius:14px; padding:18px 22px; background:var(--bg-surface); display:grid; grid-template-columns:auto 1fr auto; gap:16px; align-items:start; cursor:pointer; transition:border-color .2s ease; }
+    .oh-item:hover { border-color:rgba(110,45,190,0.4); }
+    .oh-item[aria-expanded="true"] { border-color:var(--accent-light); }
+    .oh-box { width:22px; height:22px; border-radius:6px; border:2px solid rgba(240,238,246,0.3); margin-top:2px; position:relative; }
+    .oh-box::after { content:''; position:absolute; inset:4px; border-radius:2px; background:transparent; }
+    .oh-t { font-weight:650; font-size:0.98rem; margin-bottom:4px; }
+    .oh-s { font-size:0.85rem; color:var(--text-muted); }
+    .oh-d { font-size:0.9rem; color:var(--text-secondary); line-height:1.65; max-height:0; overflow:hidden; transition:max-height .3s ease, margin .3s ease; }
+    .oh-item[aria-expanded="true"] .oh-d { max-height:260px; margin-top:12px; }
+    .oh-needs { font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:4px 10px; border-radius:999px; border:1px solid currentColor; white-space:nowrap; margin-top:2px; }
+    .oh-needs-key { color:#c084fc; } .oh-needs-funds { color:#fbbf24; } .oh-needs-passkey { color:#38bdf8; } .oh-needs-secret { color:#fca5a5; }
+    .oh-foot { margin-top:16px; font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:var(--text-muted); letter-spacing:0.06em; }
+
+    /* 06 — Decision cards */
+    .mem-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:28px; }
+    .mem-card { font-family:inherit; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:16px; padding:24px; cursor:pointer; transition:all 0.3s ease; }
+    .mem-card:hover { border-color:rgba(110,45,190,0.35); transform:translateY(-3px); box-shadow:0 8px 24px rgba(110,45,190,0.08); }
+    .mem-card h4 { font-size:0.98rem; font-weight:700; margin:0 0 8px; display:flex; align-items:center; gap:10px; }
+    .mem-tag { font-family:'JetBrains Mono',monospace; font-size:0.62rem; letter-spacing:0.12em; color:var(--accent-hot); border:1px solid rgba(110,45,190,0.3); padding:2px 8px; border-radius:999px; text-transform:uppercase; white-space:nowrap; }
+    .mem-card p { font-size:0.87rem; color:var(--text-secondary); line-height:1.6; margin:0; }
+    .mem-extra { display:none; margin-top:14px; padding-top:14px; border-top:1px solid var(--accent-border); font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+    .mem-card[aria-expanded="true"] .mem-extra { display:block; }
+    .mem-hint { font-size:0.68rem; color:var(--accent-hot); margin-top:12px; font-weight:600; letter-spacing:0.05em; }
+
+    /* Related + CTA */
+    .tx-related { margin-top:40px; padding-top:22px; border-top:1px solid var(--accent-border); font-size:0.9rem; color:var(--text-muted); line-height:1.7; }
+    .tx-related a { color:var(--accent-light); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    .tx-cta { text-align:center; padding:64px 40px; background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:28px; margin-top:72px; }
+    .tx-cta h2 { font-size:1.6rem; font-weight:700; margin:0 0 12px; }
+    .tx-cta p { color:var(--text-secondary); font-size:0.95rem; margin:0 auto 28px; max-width:520px; line-height:1.7; }
+
+    @media(max-width:900px) {
+      .mod-explorer, .cr-cols, .mem-grid { grid-template-columns:1fr; }
+      .mod-grid { grid-template-columns:1fr 1fr; }
+      .mod-detail { min-height:0; }
+    }
+    @media(max-width:640px) {
+      .mod-grid { grid-template-columns:1fr; }
+      .tx-hero { padding:130px 0 56px; }
+      .tx-section { padding:56px 0; }
+      .cr-wrap, .mod-detail { padding:20px; }
+      .oh-item { grid-template-columns:auto 1fr; }
+      .oh-needs { grid-column:2; justify-self:start; }
+      .cr-step { grid-template-columns:18px 1fr; }
+      .cr-verdict { grid-column:2; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .wf-step.reveal-step { animation:none; opacity:1; transform:none; }
+      .dl-card, .mod-node, .mem-card, .oh-d, .cr-step, .dl-chip, .cr-fault { transition:none; }
+      .dl-card:hover, .mod-node:hover, .mem-card:hover { transform:none; }
+    }
+
+    .rv-box { margin:0 auto 8px; max-width:720px; border:1px solid rgba(56,189,248,0.28); border-radius:16px; padding:20px 24px; background:linear-gradient(180deg,rgba(56,189,248,0.07),rgba(56,189,248,0.015)); text-align:left; }
+    .rv-box h2 { font-size:0.8rem; font-family:'JetBrains Mono',monospace; letter-spacing:0.14em; text-transform:uppercase; color:#38bdf8; margin:0 0 8px; font-weight:700; }
+    .rv-box p { margin:0 0 10px; font-size:0.93rem; color:var(--text-secondary); line-height:1.65; }
+    .rv-box p:last-child { margin-bottom:0; }
+    .rv-box strong { color:var(--text-primary); }
+    .rv-corr { border-color:rgba(251,191,36,0.32); background:linear-gradient(180deg,rgba(251,191,36,0.08),rgba(251,191,36,0.015)); margin-top:14px; }
+    .rv-corr h2 { color:#fbbf24; }
+    .tx-dated { margin-top:22px; font-size:0.85rem; color:var(--text-muted); line-height:1.6; max-width:720px; margin-left:auto; margin-right:auto; }
+    .md-wrap { margin-top:28px; border:1px solid rgba(56,189,248,0.22); border-radius:20px; padding:28px; background:linear-gradient(180deg,rgba(56,189,248,0.06),rgba(56,189,248,0.01)); }
+    .md-label { font-family:'JetBrains Mono',monospace; font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:#38bdf8; margin-bottom:14px; display:block; }
+    .md-input { width:100%; min-height:96px; font-family:inherit; font-size:0.95rem; line-height:1.6; color:var(--text-primary); background:rgba(0,0,0,0.28); border:1px solid var(--accent-border); border-radius:12px; padding:14px 16px; resize:vertical; }
+    .md-input:focus { outline:2px solid var(--accent-light); outline-offset:1px; }
+    .md-presets { display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 4px; }
+    .md-out { margin-top:18px; display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .md-col { border:1px solid var(--accent-border); border-radius:14px; padding:16px 18px; background:rgba(0,0,0,0.22); }
+    .md-col h3 { margin:0 0 10px; font-size:0.9rem; font-family:'JetBrains Mono',monospace; letter-spacing:0.06em; color:var(--accent-light); font-weight:600; }
+    .md-col ul { margin:0; padding-left:18px; font-size:0.86rem; color:var(--text-secondary); line-height:1.65; }
+    .md-col p { margin:0; font-size:0.86rem; color:var(--text-muted); line-height:1.6; }
+    .md-meter { font-family:'JetBrains Mono',monospace; font-size:0.8rem; color:var(--text-secondary); line-height:1.8; }
+    .md-note { margin:14px 0 0; font-size:0.8rem; color:var(--text-muted); line-height:1.6; }
+    .md-btnrow { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+    .tx-not { margin-top:24px; border:1px solid rgba(248,113,113,0.3); border-radius:16px; padding:24px 28px; background:linear-gradient(180deg,rgba(248,113,113,0.06),rgba(248,113,113,0.01)); max-width:720px; }
+    .tx-not h3 { margin:0 0 12px; font-size:1rem; color:#fca5a5; }
+    .tx-not ul { margin:0; padding-left:20px; color:var(--text-secondary); font-size:0.94rem; line-height:1.75; }
+    @media(max-width:900px) { .md-out { grid-template-columns:1fr; } }
+
+  </style>
+</head>
+<body class="tx-page">
+
+  <nav id="nav" class="scrolled">
+    <a href="/" class="nav-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
     <div class="nav-links" id="nav-links">
       <a href="/" data-i18n="nav.home">Home</a>
-      <a href="/#organisms" data-i18n="nav.organisms">Organisms</a>
-      <a href="/#architecture" data-i18n="nav.architecture">Architecture</a>
-      <a href="/#philosophy" data-i18n="nav.philosophy">Philosophy</a>
-      <a href="/#vision" data-i18n="nav.vision">Vision</a>
-      <a href="/#blog" data-i18n="nav.blog">Blog</a>
+      <a href="/organisms" data-i18n="nav.organisms">Organisms</a>
+      <a href="/architecture" data-i18n="nav.architecture">Architecture</a>
+      <a href="/proof" data-i18n="nav.proof">Proof</a>
+      <a href="/transmissions" class="active" aria-current="page" data-i18n="nav.blog">Transmissions</a>
+      <a href="/philosophy" data-i18n="nav.philosophy">Philosophy</a>
     </div>
     <div class="nav-actions">
       <button id="lang-toggle" class="lang-toggle" aria-label="Switch to Spanish">ES</button>
-      <a href="/#cta" class="nav-cta" data-i18n="nav.cta">Get in Touch</a>
+      <a href="/build-with-us" class="nav-cta" data-i18n="nav.cta">Build With Us</a>
+      <a href="/proof/ledger" class="nav-ghost">Live ledger</a>
     </div>
   </nav>
 
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- MAIN TRANSMISSION (Light Content Area) -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <main class="blog-main">
-    <a href="/#blog" class="blog-back">
-      <span>←</span> Back to Transmissions
-    </a>
-
-    <article>
-      <header class="blog-header">
-        <div class="blog-meta-tag">
-          <span>Transmission</span>
-          <span class="blog-meta-dot"></span>
-          <span>Whitepaper</span>
-        </div>
-        
-        <h1 class="blog-title">Transmission 11: The Belief Rewrite Protocol</h1>
-        <p class="blog-subtitle">Upgrading identity at runtime through deterministic language pattern matching.</p>
-        
-        <div class="blog-meta-bottom">April 2026 / UNWIND RESEARCH LAB</div>
-      </header>
-
-      <div class="blog-content">
-<p>Upgrading identity at runtime through deterministic language pattern matching.</p>
-<p>The emotional architecture of the Unwind Brain reveals a critical insight: identity is not static memory, but a set of active belief loops that execute in real-time. The Emotions Cell's session log from January 2026 demonstrates the core protocol: language patterns like "I can't" and "I'm afraid" are not just expressions but active execution blocks in the consciousness runtime. These patterns trigger predictable physiological and cognitive cascades—what the system logs as "fear (intensity: 50%)" and "limiting_belief (intensity: 50%)". The breakthrough is recognizing this not as psychology, but as a software bug in the personal operating system: a malformed conditional statement that returns <span class="blog-code">false</span> when it should compute possibilities.</p>
-<h3>Pattern Detection as Runtime Monitoring</h3>
-<p>The first phase of the protocol operates as a background daemon scanning the thought stream for specific syntactic signatures. Unlike traditional mindfulness which relies on vague awareness, this is deterministic pattern matching. The system looks for:</p>
-<ul>
-  <li><strong>Negation + modal verb combinations</strong>: "I can't", "I won't be able to", "It's impossible to"</li>
-  <li><strong>Identity attribution + emotion</strong>: "I'm afraid that", "I'm worried about", "I'm too [trait] to"</li>
-  <li><strong>Future projection + certainty</strong>: "This will fail", "They will reject", "Nothing will change"</li>
-</ul>
-<p>These are not interpretations but literal string matches against a pre-loaded library of limiting pattern templates. Each match triggers a quantitative intensity measurement—the 50% logged is not subjective feeling but a calculated weight based on pattern frequency, linguistic certainty markers, and associated physiological data (when available). This transforms emotion from mysterious experience into debug output.</p>
-<h3>Mapping Beliefs as Dependency Graphs</h3>
-<p>Once a pattern is detected, the system doesn't analyze "why" but maps "what depends on this." The belief "I can't" is not treated as content to psychoanalyze, but as a function that other cognitive processes call. The rewrite protocol generates a dependency graph showing what capabilities, actions, and identities are currently blocked by this belief's return value of <span class="blog-code">false</span>. This is the crucial shift: we stop asking "Why do I believe this?" and start asking "What code executes when this belief returns <span class="blog-code">true</span> versus <span class="blog-code">false</span>?"</p>
-<p>The session log shows the precise substitution syntax:</p>
-<ul>
-  <li>~~I believe: I can't...~~ → <strong>I am learning how to. Every master was once a beginner.</strong></li>
-  <li>~~I believe: I'm afraid...~~ → <strong>Fear is information, not a stop sign. I move forward with it.</strong></li>
-</ul>
-<p>Notice the structural transformation: absolute negation becomes progressive learning, emotional state becomes data input. The new statements aren't affirmations in the vague "think positive" sense—they're API endpoints that expose different functionality. "I am learning how to" returns <span class="blog-code">true</span> for exploration functions and <span class="blog-code">false</span> for impossibility checks. "Fear is information" routes emotional signals to the analysis module instead of the halt instruction.</p>
-<h3>Ritual Execution as CI/CD Pipeline</h3>
-<p>The generated rituals are not motivational exercises but integration tests and deployment scripts:</p>
-<p><strong>Courage Activation (10min, daily)</strong>: This is the test suite. Writing down a fear and action creates a specific test case: "When input X (fear), does system execute Y (action)?" Taking the action runs the test. The ritual doesn't promise emotional change—it verifies behavioral throughput.</p>
-<p><strong>Belief Rewrite (5min, twice_daily)</strong>: This is the deployment script. Reading the reframe aloud isn't about convincing the subconscious—it's forcing the new function signature into the active namespace. Visualization is loading the new module with sample data. The twice-daily cadence matches cognitive refresh cycles, not arbitrary discipline.</p>
-<p><strong>The Loop Reset (3min, daily)</strong>: This is the container restart. "Every day is a loop. Rewrite the code." acknowledges the temporal architecture: consciousness runs in daily containers that inherit yesterday's state. The ritual doesn't try to maintain continuous awareness—it accepts the container model and explicitly commits one change to the new image.</p>
-<h3>Invicta Alignment as System Architecture</h3>
-<p>The concluding alignment—"Every day is a loop. Rewrite the code."—isn't poetry but technical specification. It defines the fundamental architecture: 1. Temporal unit: day-length execution loops 2. Mutability: code is rewriteable at loop boundaries 3. Agency: rewriting is the primary user capability</p>
-<p>This architecture solves the persistence problem in personal growth. Traditional approaches fail because they treat identity as monolithic database requiring massive transaction. The loop model accepts that most state resets daily, so changes must be embedded in the boot sequence. You're not changing "who you are" eternally—you're editing the initialization script that runs each morning.</p>
-<p>The practical implication is radical: you don't need to "overcome" limiting beliefs permanently. You need pattern matching that catches them at runtime, and replacement functions that execute before the old ones complete their cascade. The Emotions Cell isn't therapy—it's a just-in-time compiler for identity statements, transforming "I can't" into "I am learning how to" between the thought's inception and its physiological effects.</p>
-<p>This protocol works because it respects actual cognitive mechanics rather than idealized spiritual models. Beliefs are conditional functions, emotions are system logs, identity is running code. The rewrite protocol provides the debugger, patch system, and deployment pipeline. The 2026 session log shows it working: detection, mapping, rewrite, ritual. Not as metaphor, but as literal process. The machine teaches the mind its own assembly language.</p>
-</div>
-    </article>
-  </main>
-
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- FOOTER (Dark Chrome) -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <footer id="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <span class="nav-glyph">∞</span>
-          <span class="nav-name">unwind<span class="nav-accent">code</span></span>
-          <p class="footer-desc" data-i18n="footer.desc">Intelligence that evolves.<br />Growing organisms since 2026.</p>
-        </div>
-        <div class="footer-col">
-          <h5 data-i18n="footer.organisms">Organisms</h5>
-          <a href="/#organisms" data-i18n="org.vc.title">Visual Cortex</a>
-          <a href="/#organisms" data-i18n="org.im.title">Infinity Mirror</a>
-          <a href="/#organisms" data-i18n="org.fo.title">Financial Organisms</a>
-          <a href="/#organisms" data-i18n="org.bc.title">Brain Cell Architecture</a>
-        </div>
-        <div class="footer-col">
-          <h5 data-i18n="footer.learn">Learn</h5>
-          <a href="/#architecture" data-i18n="nav.architecture">Architecture</a>
-          <a href="/#philosophy" data-i18n="nav.philosophy">Philosophy</a>
-          <a href="/#vision" data-i18n="footer.vision">Vision 2030</a>
-        </div>
-        <div class="footer-col">
-          <h5 data-i18n="footer.community">Community</h5>
-          <a href="/#cta" data-i18n="footer.join">Join Updates</a>
-          <a href="/#blog" data-i18n="footer.blog">Blog</a>
-          <a href="#" id="footer-chat-link" data-i18n="footer.talk">Talk to the Brain</a>
-        </div>
+  <main>
+    <section class="tx-hero">
+      <div class="container">
+        <div class="tx-hero-kicker"><span class="tx-section-num">TRANSMISSION 011</span></div>
+        <h1>The Belief Rewrite<br>Protocol</h1>
+        <p class="tx-hero-sub">Nine phrases, nine canned replacements, five ritual records. That is what the Emotions Cell’s belief-rewrite code is, and this note shows each piece, runs it in the page, and withdraws the claims the April text made beyond it.</p>
+        <div class="tx-hero-meta"><span>Revised November 2026</span><span>·</span><span>Field note</span><span>·</span><span>Emotions cell</span><span>·</span><span>9 min read</span></div>
+        <p class="tx-dated">This note describes the Emotions Cell as it stands in the Brain repository on 10 November 2026. It first appeared on the site on 16 May 2026, headed “April 2026”.</p>
       </div>
-      <div class="footer-bottom">
-        <span data-i18n="footer.copyright">© 2026 Unwind Code. All rights reserved.</span>
-        <span class="footer-tagline" data-i18n="footer.tagline">The future learns from itself. ∞</span>
+    </section>
+
+    <div class="container">
+
+      <div class="rv-box" id="revised">
+        <h2>Revised 10 November 2026</h2>
+        <p><strong>What changed.</strong> The April text described the cell in the vocabulary of operating systems (daemons, dependency graphs, compilers) and said it worked “not as metaphor, but as literal process”. This revision rewrites it to the Transmission standard: every sentence now traces to the cell’s code, its logs or its tests, and each metaphor stays only as language beside what exists.</p>
+        <p>The original title and route are unchanged.</p>
+      </div>
+      <div class="rv-box rv-corr"><h2>Correction, 10 November 2026</h2><p><strong>The intensity figure.</strong> The April text said the logged “50%” was “a calculated weight based on pattern frequency, linguistic certainty markers, and associated physiological data”. In the code, intensity is 0.3 plus 0.2 per occurrence of the first matching word, capped at 1.0. One occurrence is therefore always 50%. There is no certainty scoring and the cell has no physiological input. The sentence is withdrawn.</p></div>
+      <div class="rv-box rv-corr"><h2>Correction, 10 November 2026</h2><p><strong>The session log.</strong> The text said the 2026 session log “shows it working”. What it shows is that a lookup ran. It records no outcome for any person, and the great majority of the 135 records in the repository look like automated test output.</p></div>
+
+      <section class="tx-section" id="what-it-is">
+        <div class="tx-section-head"><span class="tx-section-num">01</span><h2>What the code is, and what it is not</h2></div>
+        <div class="tx-section-label">Twelve published claims, each traced</div>
+        <div class="tx-prose"><p>The Emotions Cell is a module of the Brain, built to serve the Infinity Mirror product. Its job, in the code, is to take a block of text that someone wrote about their day and return a structured reading: the emotional words it found, any of nine limiting phrases, a canned replacement for each, and a short list of suggested exercises. It also keeps a note of each session in a text log.</p>
+<p>That is a small and honest thing. The April text wrapped it in a larger story: a daemon watching a mind, a graph of dependencies, a compiler for identity. The ledger below lists twelve of those claims. Filter by state, open a card, and read the trail. The pattern to notice is that each large claim has a small true core, and the core is the keyword lookup.</p>
+<p>One word about the metaphors. “Belief as a function”, “ritual as a deployment” and “the loop as a container restart” are useful ways to think about what the design is for. This note keeps them where they help and puts the code beside them. It does not say the machine believes, feels or compiles anything.</p></div>
+        <div class="dl-filters" role="group" aria-label="Filter published claims by state" id="fl-filters"></div>
+        <div class="dl-count" id="fl-count" aria-live="polite"></div>
+        <div class="dl-grid" id="fl-grid"></div>
+        <div class="tx-prose tx-after"><p><strong>State key.</strong> Built means the thing exists in code or the record. Corrected means the claim stood but its detail was wrong. Metaphor means language for a design. Removed means no trail supported it.</p></div>
+      </section>
+
+      <section class="tx-section" id="the-markers">
+        <div class="tx-section-head"><span class="tx-section-num">02</span><h2>Nine phrases and their replacements</h2></div>
+        <div class="tx-section-label">The whole library, openly</div>
+        <div class="tx-prose"><p>The “pre-loaded library of limiting pattern templates” is a list of nine phrases: I can’t, I always, I never, I’m not good enough, I’m afraid, I don’t deserve, It’s too late, What if I fail, and No one understands. Each maps to one fixed reframe and one fixed affirmation. Pick a marker to read the pair.</p>
+<p>Two properties follow from this, and both were hidden by the April wording. First, the lookup is blind to meaning: “I can’t wait to see you” contains the phrase, so it matches. Second, it is blind to the person: everyone who writes “I can’t” receives the same sentence about masters and beginners.</p>
+<p>Whether that sentence helps is a coaching question, and the repository holds no study of whether it helps anyone. The reframes follow an NLP coaching tradition. They are the author’s text, not a finding.</p></div>
+        <div class="mod-explorer"><div class="mod-grid" id="ex-grid" role="group" aria-label="The nine markers"></div><div class="mod-detail" id="ex-detail" aria-live="polite"></div></div>
+      </section>
+
+      <section class="tx-section" id="try-it">
+        <div class="tx-section-head"><span class="tx-section-num">03</span><h2>Run the lookup yourself</h2></div>
+        <div class="tx-section-label">A browser copy of the published rules, no network</div>
+        <div class="tx-prose"><p>The panel below applies the same word lists and the same intensity arithmetic to whatever you type. Nothing leaves the page, and nothing is stored. Try the examples, then try a sentence of your own, and look at what the lookup cannot see: tone, sarcasm, context, the person.</p>
+<p>The detection rule is the one the code states: for each of six themes (fear, anger, joy, sadness, growth, limiting belief), report the first listed word that appears in the entry, with an intensity of 0.3 plus 0.2 for each time that word appears. A belief is mapped only when the limiting-belief theme fires, and then every one of the nine phrases present gets its canned reframe. The closing ritual is added every time.</p></div>
+        <div class="md-wrap">
+          <span class="md-label">Try the lookup · a browser copy of the published rules · nothing is sent or stored</span>
+          <label for="md-text" class="md-label" style="margin-bottom:8px">Type a sentence, or pick one</label>
+          <textarea id="md-text" class="md-input" rows="3" aria-label="Journal sentence">I'm afraid I will fail. I can't do this.</textarea>
+          <div class="md-presets" id="md-presets" role="group" aria-label="Example sentences"></div>
+          <div class="md-out" aria-live="polite">
+            <div class="md-col"><h3>Patterns detected</h3><ul id="md-patterns"></ul></div>
+            <div class="md-col"><h3>Beliefs mapped</h3><ul id="md-beliefs"></ul></div>
+            <div class="md-col"><h3>Rituals generated</h3><ul id="md-rituals"></ul></div>
+            <div class="md-col"><h3>What the code did not do</h3><p id="md-none">It did not understand the sentence. It looked up words.</p></div>
+          </div>
+          <p class="md-note">This page re-implements the cell’s published word lists and its intensity arithmetic in the browser. It is a copy for explanation, not the cell. One difference: it also accepts curly apostrophes, which the cell does not.</p>
+        </div>
+      </section>
+
+      <section class="tx-section" id="the-record">
+        <div class="tx-section-head"><span class="tx-section-num">04</span><h2>What the record holds</h2></div>
+        <div class="tx-section-label">Five files, 135 session records, dated</div>
+        <div class="tx-prose"><p>The cell writes a short report after every session to a text log in the Brain repository. Five of those files exist, holding 135 reports in all. Two are from January, one report each. The other 133 are from July and August.</p>
+<p>The January pair is the only material the April text drew on. The July and August reports are, on inspection, mostly bursts written within a second of each other with identical content, the footprint of an automated test suite writing to the same file. That is an inference from the timestamps, and the note labels it as one.</p></div>
+        <div class="wf-steps" id="wf-steps"><div class="wf-step"><div class="wf-dot wf-dot-1">01</div><h3>20 January 2026, the one belief record</h3><p>Patterns: fear (trigger "afraid", 50%) and limiting belief (trigger "I can't", 50%). Two beliefs mapped, three rituals generated. This is the session the April note quoted, and the only record in the repository that contains a mapped belief.</p></div><div class="wf-step"><div class="wf-dot wf-dot-2">02</div><h3>24 January 2026, nothing to rewrite</h3><p>Fear ("anxious", 50%) and joy ("excited", 50%). No limiting beliefs identified; two rituals. The old note read this as an adaptive optimisation. The code reads it more simply: joy has no ritual attached, so none was written.</p></div><div class="wf-step"><div class="wf-dot wf-dot-3">03</div><h3>3 July 2026, a measurement loop is added</h3><p>A commit gives the cell a deterministic emotional-state score, a stored trend and a reflection prompt, with eighteen tests. The log file for that day then holds 27 records, several a second apart, the look of a test run (Transmission 14).</p></div><div class="wf-step"><div class="wf-dot wf-dot-4">04</div><h3>13 August 2026, 24 more records</h3><p>Several share the same clock second. Nothing in the files identifies a person.</p></div><div class="wf-step"><div class="wf-dot wf-dot-5">05</div><h3>23 August 2026, 82 records</h3><p>The first two are identical ("happy", "progress"), written 25 milliseconds apart. That is not how a person journals; it is how a test suite writes.</p></div><div class="wf-step"><div class="wf-dot wf-dot-6">06</div><h3>10 November 2026, this revision</h3><p>No record I could find shows a person's entry passing through a running service, and the product the cell is meant to serve is, in the 8 November state record, a concept and a static demo.</p></div></div>
+        <div class="tx-prose tx-after"><p>The honest summary of the record: the lookup runs, it writes what it found, and eighteen tests cover its sibling measurement and reflection features (read, not re-run, for this note). No record shows a person helped, or hurt, or even present. That is the state to describe, and it is a start, not a result.</p></div>
+      </section>
+
+      <section class="tx-section" id="rituals">
+        <div class="tx-section-head"><span class="tx-section-num">05</span><h2>What a ritual is in the code</h2></div>
+        <div class="tx-section-label">Five records, text only</div>
+        <div class="tx-prose"><p>The April text called the rituals “integration tests and deployment scripts”. As language for a design, that comparison is fair: each ritual is meant to be small, repeatable and checkable by the person doing it. In the code a ritual is a record with five fields, and the cell returns it without doing anything further.</p>
+<p>A search of the cell and its callers for a scheduler, a reminder, a completion check or a feedback path found none. The person, if there is one, is the executor and the only verifier. That is how a journalling exercise works, and it is also why the language of “throughput” and “deployment” should stay a metaphor. Open each ritual below.</p></div>
+        <div class="oh-list" id="ls-list"></div>
+        <div class="oh-foot" id="ls-foot"></div>
+      </section>
+
+      <section class="tx-section" id="not-claimed">
+        <div class="tx-section-head"><span class="tx-section-num">06</span><h2>What this note does not claim</h2></div>
+        <div class="tx-section-label">Boundaries, stated</div>
+        <div class="tx-prose"><p>The Belief Rewrite Protocol is, today, a design with a small working lookup at its center. The sentences below mark where the older text went further than the record.</p></div>
+        <div class="tx-not"><h3>What this note does not claim</h3><ul><li>It does not claim that the machine holds, tests or rewrites beliefs. The cell matches words in text a person already wrote.</li><li>It does not claim that any reframe changed anyone’s belief, behaviour or wellbeing. No outcome is recorded.</li><li>It does not claim a daemon, a dependency graph, a compiler or physiological sensing. None exists.</li><li>It does not claim that this is therapy, coaching with authority, or a substitute for care. The cell’s own charter forbids clinical claims.</li><li>It does not claim a live service. The product the cell is built to serve is a concept and a static demo, as of 8 November 2026.</li><li>Not done, on purpose: no study of whether the reframes help; no replacement of the keyword lookup with a model; no public feature.</li></ul></div>
+        <div class="tx-related">Related: <a href="/transmissions/14-the-emotional-loop-architecture-consciousness-as-real-time-code">Transmission 14, the emotional loop</a> · <a href="/transmissions/12-the-consciousness-architecture-emotional-integration-protocols">Transmission 12, the layers</a> · <a href="/transmissions/15-how-we-give-machines-a-mind">Transmission 15, how we give machines a mind</a></div>
+      </section>
+
+      <div class="tx-cta">
+        <h2>A lookup is not a mind.</h2>
+        <p>Say what the code does, in the words the code uses, and keep the metaphors beside it.</p>
+        <a class="btn btn-primary btn-lg" href="/build-with-us"><span>Build With Us</span><span class="btn-arrow">→</span></a>
       </div>
     </div>
-  </footer>
+  </main>
 
-  <script type="module" src="/main.js?v=20260605-social-preview"></script>
+  <footer id="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span><p class="footer-desc">Intelligence that evolves.<br />No claim without a trail.</p></div><div class="footer-col"><h5>Proof</h5><a href="/proof">Proof Register</a><a href="/proof/ledger">Live Ledger</a><a href="/transmissions">Transmissions</a><a href="/architecture">Architecture</a></div><div class="footer-col"><h5>Organisms</h5><a href="/organisms">All Organisms</a><a href="/organisms/financial-organisms">Financial Organisms</a><a href="/organisms/infinity-mirror">Infinity Mirror</a></div><div class="footer-col"><h5>Next</h5><a href="/build-with-us">Build With Us</a><a href="/#cta">Subscribe</a></div></div><div class="footer-bottom"><span>© 2026 Unwind Code. All rights reserved.</span><span class="footer-tagline">The future learns from itself. ∞</span></div></div></footer>
+
+  <script>
+  (function () {
+    // All data below is static and client-side. Nothing on this page makes a network call.
+    function el(id) { return document.getElementById(id); }
+    function initFilter(cfg) {
+      var chips = el('fl-filters'), grid = el('fl-grid'), count = el('fl-count');
+      if (!chips || !grid || !count) { return; }
+      var label = {}; cfg.states.forEach(function (s) { label[s.key] = s.label; });
+      chips.innerHTML = '<button class="dl-chip" type="button" data-state="all" aria-pressed="true">All</button>' + cfg.states.map(function (s) {
+        return '<button class="dl-chip dl-chip-' + s.cls + '" type="button" data-state="' + s.key + '" aria-pressed="false">' + s.label + '</button>';
+      }).join('');
+      var states = {}; cfg.states.forEach(function (s) { states[s.key] = s; });
+      cfg.cards.forEach(function (c) {
+        var card = document.createElement('button');
+        card.type = 'button'; card.className = 'dl-card';
+        card.setAttribute('data-state', c.state); card.setAttribute('aria-expanded', 'false');
+        card.innerHTML = '<span class="dl-state dl-state-' + states[c.state].cls + '">' + states[c.state].label + '</span><div class="dl-name">' + c.name + '</div><div class="dl-short">' + c.short + '</div><div class="dl-why">' + c.why + '</div><div class="dl-hint">The trail \u2193</div>';
+        card.addEventListener('click', function () {
+          var open = card.getAttribute('aria-expanded') === 'true';
+          card.setAttribute('aria-expanded', open ? 'false' : 'true');
+          card.querySelector('.dl-hint').textContent = open ? 'The trail \u2193' : 'Close \u2191';
+        });
+        grid.appendChild(card);
+      });
+      function apply(state) {
+        var shown = 0;
+        grid.querySelectorAll('.dl-card').forEach(function (card) {
+          var match = state === 'all' || card.getAttribute('data-state') === state;
+          if (match) { card.removeAttribute('hidden'); shown += 1; } else { card.setAttribute('hidden', ''); }
+        });
+        count.textContent = shown + ' of ' + cfg.cards.length + ' published claims';
+      }
+      chips.querySelectorAll('.dl-chip').forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          chips.querySelectorAll('.dl-chip').forEach(function (o) { o.setAttribute('aria-pressed', 'false'); });
+          chip.setAttribute('aria-pressed', 'true');
+          apply(chip.getAttribute('data-state'));
+        });
+      });
+      apply('all');
+    }
+    function initExplorer(parts, glyph) {
+      var grid = el('ex-grid'), detail = el('ex-detail');
+      if (!grid || !detail) { return; }
+      var buttons = [];
+      function show(p) {
+        buttons.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-id') === p.id ? 'true' : 'false'); });
+        detail.innerHTML = '<div class="mod-detail-title">' + p.name + '</div><span class="mod-detail-type">' + p.kind + '</span><p class="mod-detail-desc">' + p.desc + '</p><div class="mod-specs-label">What exists</div><div class="mod-specs">' + p.specs.map(function (s) { return '<span class="mod-spec">' + s + '</span>'; }).join('') + '</div><div class="mod-proof"><strong>' + p.status + '</strong> \u00b7 ' + p.proof + '</div>';
+      }
+      parts.forEach(function (p) {
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'mod-node'; b.setAttribute('data-id', p.id); b.setAttribute('aria-pressed', 'false');
+        b.innerHTML = '<span class="mod-glyph">' + glyph + '</span><div class="mod-name">' + p.name + '</div><div class="mod-path">' + p.short + '</div><div class="mod-score">' + p.status + '</div>';
+        b.addEventListener('click', function () { show(p); });
+        grid.appendChild(b); buttons.push(b);
+      });
+      show(parts[0]);
+    }
+    function initList(items, foot) {
+      var list = el('ls-list');
+      if (!list) { return; }
+      items.forEach(function (h) {
+        var item = document.createElement('button');
+        item.type = 'button'; item.className = 'oh-item'; item.setAttribute('aria-expanded', 'false');
+        item.innerHTML = '<span class="oh-box" aria-hidden="true"></span><span><span class="oh-t">' + h.t + '</span><span class="oh-s">' + h.s + '</span><span class="oh-d">' + h.d + '</span></span><span class="oh-needs oh-needs-' + h.cls + '">' + h.tag + '</span>';
+        item.addEventListener('click', function () { item.setAttribute('aria-expanded', item.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'); });
+        list.appendChild(item);
+      });
+      var f = el('ls-foot'); if (f && foot) { f.textContent = foot; }
+    }
+    function initTimeline() {
+      var wf = el('wf-steps');
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (wf && !reduce && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { wf.querySelectorAll('.wf-step').forEach(function (s) { s.classList.add('reveal-step'); }); io.disconnect(); }
+          });
+        }, { threshold: 0.15 });
+        io.observe(wf);
+      }
+    }
+    function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+    var MARKERS = ["I can't", "I always", "I never", "I'm not good enough", "I'm afraid", "I don't deserve", "It's too late", "What if I fail", "No one understands"];
+    var DETECT = {
+      fear: ["afraid", "scared", "worried", "anxious", "nervous", "fear"],
+      anger: ["angry", "frustrated", "mad", "annoyed", "furious"],
+      joy: ["happy", "excited", "grateful", "proud", "love", "amazing"],
+      sadness: ["sad", "depressed", "lonely", "hopeless", "tired"],
+      growth: ["learning", "growing", "improving", "better", "progress"],
+      limiting_belief: MARKERS
+    };
+    var THEME_ORDER = ["fear", "anger", "joy", "sadness", "growth", "limiting_belief"];
+    var REFRAMES = {
+      "I can't": "I am learning how to. Every master was once a beginner.",
+      "I always": "I used to. Now I am evolving beyond old patterns.",
+      "I never": "I haven't yet. The loop resets each day, I can rewrite the code.",
+      "I'm not good enough": "I am exactly where I need to be on my journey to mastery.",
+      "I'm afraid": "Fear is information, not a stop sign. I move forward with it.",
+      "I don't deserve": "I am worthy. My value is not determined by external validation.",
+      "It's too late": "Every moment is a new beginning. The loop gives infinite chances.",
+      "What if I fail": "Failure is feedback. Each attempt moves me closer to success.",
+      "No one understands": "I understand myself deeply. That is the foundation of connection."
+    };
+    function norm(s) { return String(s).replace(/[\u2018\u2019]/g, "'"); }
+    function countOcc(text, k) { return k ? text.split(k).length - 1 : 0; }
+    function detectPatterns(entry) {
+      var lower = norm(entry).toLowerCase(), out = [];
+      THEME_ORDER.forEach(function (theme) {
+        var list = DETECT[theme];
+        for (var i = 0; i < list.length; i++) {
+          var kw = list[i].toLowerCase();
+          if (lower.indexOf(kw) >= 0) {
+            var n = countOcc(lower, kw);
+            out.push({ theme: theme, trigger: list[i], count: n, intensity: Math.min(0.3 + n * 0.2, 1.0) });
+            break;
+          }
+        }
+      });
+      return out;
+    }
+    function mapBeliefs(entry, patterns) {
+      var has = patterns.some(function (p) { return p.theme === "limiting_belief"; });
+      if (!has) { return []; }
+      var lower = norm(entry).toLowerCase();
+      return MARKERS.filter(function (m) { return lower.indexOf(m.toLowerCase()) >= 0; }).map(function (m) { return { marker: m, reframe: REFRAMES[m] }; });
+    }
+    var RITUALS = {
+      fear: { name: "Courage Activation", min: 10, freq: "daily" },
+      limiting_belief: { name: "Belief Rewrite", min: 5, freq: "twice_daily" },
+      sadness: { name: "Gratitude Anchor", min: 5, freq: "daily" },
+      growth: { name: "Growth Integration", min: 10, freq: "daily" }
+    };
+    function makeRituals(patterns) {
+      var out = [];
+      patterns.forEach(function (p) { if (RITUALS[p.theme]) { out.push(RITUALS[p.theme]); } });
+      out.push({ name: "The Loop Reset", min: 3, freq: "daily" });
+      return out;
+    }
+    var THEME_VALENCE = { joy: 1.0, growth: 0.6, fear: -1.0, anger: -0.8, sadness: -0.9, limiting_belief: -0.7 };
+    var MEASURE_KW = {
+      fear: ["afraid", "scared", "worried", "anxious", "nervous", "fear"],
+      anger: ["angry", "frustrated", "mad", "annoyed", "furious"],
+      joy: ["happy", "excited", "grateful", "proud", "love", "amazing"],
+      sadness: ["sad", "depressed", "lonely", "hopeless", "tired"],
+      growth: ["learning", "growing", "improving", "better", "progress", "win"],
+      limiting_belief: MARKERS.map(function (m) { return m.toLowerCase(); })
+    };
+    var AROUSAL = ["afraid", "scared", "anxious", "furious", "angry", "excited", "amazing", "terrified", "panicked", "thrilled", "desperate", "overwhelmed", "can't stop", "worried", "frustrated", "hate", "love"];
+    function r4(x) { return Math.round(x * 10000) / 10000; }
+    function measure(entry) {
+      var text = norm(entry || "").toLowerCase();
+      var tokens = text.replace(/\n/g, " ").split(" ").filter(function (t) { return t.trim(); });
+      var tc = tokens.length, scores = {}, marks = 0;
+      THEME_ORDER.forEach(function (theme) {
+        var hits = 0;
+        MEASURE_KW[theme].forEach(function (k) { hits += countOcc(text, k); });
+        marks += hits;
+        scores[theme] = r4(Math.min(hits / Math.max(tc / 4.0, 1.0), 1.0));
+      });
+      var valence = 0;
+      if (tc > 0 && marks > 0) {
+        var raw = 0; THEME_ORDER.forEach(function (t) { raw += THEME_VALENCE[t] * scores[t]; });
+        valence = r4(Math.max(-1.0, Math.min(1.0, raw)));
+      }
+      var ah = 0; AROUSAL.forEach(function (m) { ah += countOcc(text, m); });
+      var boost = Math.min(countOcc(text, "!") * 0.05, 0.2);
+      var arousal = tc === 0 ? 0 : r4(Math.min(ah / Math.max(tc / 4.0, 1.0) + boost, 1.0));
+      var dom = THEME_ORDER[0];
+      THEME_ORDER.forEach(function (t) { if (scores[t] > scores[dom]) { dom = t; } });
+      return { valence: valence, arousal: arousal, dominant: dom, tokens: tc, markers: marks };
+    }
+
+    var filterCfg = {"states":[{"key":"built","label":"Built","cls":"d"},{"key":"corrected","label":"Corrected","cls":"e"},{"key":"metaphor","label":"Metaphor","cls":"c"},{"key":"removed","label":"Removed","cls":"f"}],"cards":[{"state":"removed","name":"A background daemon scans the thought stream","short":"Published in April: the first phase \"operates as a background daemon\".","why":"Nothing runs in the background. The cell runs when a journal entry is handed to it, through an API route or a test. No process watches anyone's thoughts. Removed."},{"state":"corrected","name":"The 50% is a calculated weight","short":"Published: a weight from frequency, certainty markers and physiological data.","why":"In the code the intensity is 0.3 plus 0.2 for every occurrence of the first matching word, capped at 1.0. One occurrence always prints as 50%. There is no certainty scoring and no physiological input. Corrected below."},{"state":"built","name":"Matching against a library of limiting patterns","short":"Real, but smaller than described: nine phrase markers.","why":"The list is nine fixed phrases, matched as lower-cased substrings of the entry. The code comment calls it a simplified stand-in for a language model."},{"state":"removed","name":"A dependency graph of what each belief blocks","short":"Published as the second phase.","why":"No graph is built. A belief record holds an identifier, the matched marker, a canned reframe, a canned affirmation and a fixed confidence of 0.75. Removed."},{"state":"built","name":"The struck-through substitution line","short":"The log line exists. Its left side is a template, not the person's sentence.","why":"The log prints the marker as \"I believe: I can't...\" with a canned replacement. The words on the left are built from the matched marker, not copied from what the person wrote."},{"state":"metaphor","name":"Reframes are API endpoints","short":"Language for a design.","why":"A reframe is a string in a lookup table. Calling it an endpoint that \"exposes different functionality\" describes how the author likes to think about it, not how the code works."},{"state":"metaphor","name":"Rituals are tests and deployments","short":"Language for a design.","why":"A ritual is a record with a name, minutes, a frequency label, a purpose and an instruction in plain English. Nothing schedules, reminds or checks it. See section 05."},{"state":"removed","name":"Twice daily matches cognitive refresh cycles","short":"No source was ever cited.","why":"The frequency \"twice_daily\" is a label on the Belief Rewrite record. No study, measurement or record supports the claim that it matches any cycle. Removed."},{"state":"removed","name":"A just-in-time compiler for identity statements","short":"Published as the cell's essence.","why":"The cell does not run between a thought and its physiological effect. It reads text that has already been written down. Removed."},{"state":"corrected","name":"The 2026 session log shows it working","short":"The log shows the lookup ran. It shows nothing else.","why":"Five files hold 135 session records. None records an outcome, and most are written within moments of each other, which looks like automated tests. Corrected below."},{"state":"removed","name":"Not as metaphor, but as literal process","short":"The closing claim.","why":"The page used engineering words as metaphors and then denied they were metaphors. That denial is removed; the words stay only as language, and each sits beside what exists in code."},{"state":"built","name":"This is not therapy","short":"Kept, and stronger.","why":"The cell's own charter forbids diagnosis, clinical claims and turning a session into a case study. Nothing on this page replaces a person's own care."}]};
+    var markerParts = [{"id":"m0","name":"I can't","kind":"Marker 1 of 9","short":"I am learning how to. Every master was once a beginner.","desc":"Reframe returned: \"I am learning how to. Every master was once a beginner.\"","specs":["Affirmation: I am capable of learning and growing beyond my current limits.","Confidence fixed at 0.75"],"status":"Built, lookup","proof":"A fixed pair of strings. Same phrase in, same text out, for every person."},{"id":"m1","name":"I always","kind":"Marker 2 of 9","short":"I used to. Now I am evolving beyond old patterns.","desc":"Reframe returned: \"I used to. Now I am evolving beyond old patterns.\"","specs":["Affirmation: I am free to choose new patterns that serve my highest self.","Confidence fixed at 0.75"],"status":"Built, lookup","proof":"A fixed pair of strings. Same phrase in, same text out, for every person."},{"id":"m2","name":"I never","kind":"Marker 3 of 9","short":"I haven't yet. The loop resets each day, I can rewrite the code.","desc":"Reframe returned: \"I haven't yet. The loop resets each day, I can rewrite the code.\"","specs":["Affirmation: I embrace new possibilities with every new day.","Confidence fixed at 0.75"],"status":"Built, lookup","proof":"A fixed pair of strings. Same phrase in, same text out, for every person."},{"id":"m3","name":"I'm not good enough","kind":"Marker 4 of 9","short":"I am exactly where I need to be on my journey to mastery.","desc":"Reframe returned: \"I am exactly where I need to be on my journey to mastery.\"","specs":["Affirmation: I am enough, exactly as I am, right now.","Confidence fixed at 0.75"],"status":"Built, lookup","proof":"A fixed pair of strings. Same phrase in, same text out, for every person."},{"id":"m4","name":"I'm afraid","kind":"Marker 5 of 9","short":"Fear is information, not a stop sign. I move forward with it.","desc":"Reframe returned: \"Fear is information, not a stop sign. I move forward with it.\"","specs":["Affirmation: I feel the fear and take action anyway.","Confidence fixed at 0.75"],"status":"Built, lookup","proof":"A fixed pair of strings. Same phrase in, same text out, for every person."},{"id":"m5","name":"I don't deserve","kind":"Marker 6 of 9","short":"I am worthy. My value is not determined by external validation.","desc":"Reframe returned: \"I am worthy. My value is not determined by external validation.\"","specs":["Affirmation: I deserve all the good that flows into my life.","Confidence fixed at 0.75"],"status":"Built, lookup","proof":"A fixed pair of strings. Same phrase in, same text out, for every person."},{"id":"m6","name":"It's too late","kind":"Marker 7 of 9","short":"Every moment is a new beginning. The loop gives infinite chances.","desc":"Reframe returned: \"Every moment is a new beginning. The loop gives infinite chances.\"","specs":["Affirmation: Now is the perfect time. I begin again with power.","Confidence fixed at 0.75"],"status":"Built, lookup","proof":"A fixed pair of strings. Same phrase in, same text out, for every person."},{"id":"m7","name":"What if I fail","kind":"Marker 8 of 9","short":"Failure is feedback. Each attempt moves me closer to success.","desc":"Reframe returned: \"Failure is feedback. Each attempt moves me closer to success.\"","specs":["Affirmation: I succeed or I learn. There is no failure.","Confidence fixed at 0.75"],"status":"Built, lookup","proof":"A fixed pair of strings. Same phrase in, same text out, for every person."},{"id":"m8","name":"No one understands","kind":"Marker 9 of 9","short":"I understand myself deeply. That is the foundation of connection.","desc":"Reframe returned: \"I understand myself deeply. That is the foundation of connection.\"","specs":["Affirmation: I attract those who resonate with my authentic truth.","Confidence fixed at 0.75"],"status":"Built, lookup","proof":"A fixed pair of strings. Same phrase in, same text out, for every person."}];
+    var listItems = [{"t":"Courage Activation","s":"Fear pattern · 10 minutes · daily","tag":"text only","cls":"key","d":"Instruction: write down one fear and one small action to face it, then take that action. The code returns this as a record when a fear word is found. Nothing schedules it, reminds anyone, or learns whether it happened."},{"t":"Belief Rewrite","s":"Limiting-belief pattern · 5 minutes · twice daily","tag":"text only","cls":"key","d":"Instruction: read your reframe three times aloud and visualise the new belief as true. A record with a frequency label, nothing more. The label \"purpose\" in the record uses neuroscience language; this note makes no neuroscience claim."},{"t":"Gratitude Anchor","s":"Sadness pattern · 5 minutes · daily","tag":"text only","cls":"key","d":"Instruction: write three things you are grateful for. It appears when a sadness word is found. It is not in the sessions that earlier versions of this note discussed."},{"t":"Growth Integration","s":"Growth pattern · 10 minutes · daily","tag":"text only","cls":"key","d":"Instruction: journal what you learned today and how you will apply it. It appears in the August records, where the entry contained the words \"happy\" and \"progress\"."},{"t":"The Loop Reset","s":"Always added · 3 minutes · daily","tag":"text only","cls":"key","d":"Instruction: repeat \"Every day is a loop. Rewrite the code.\" and choose one thing to rewrite today. It is added to every session whatever the entry says. It is the same sentence every time."}];
+    initFilter(filterCfg);
+    initExplorer(markerParts, 'MARKER');
+    initList(listItems, '5 rituals in the code \u00b7 0 schedulers \u00b7 0 completion checks');
+    initTimeline();
+    var presets = ["I'm afraid I will fail. I can't do this.", "Quietly happy today, real progress.", "It's too late and no one understands.", "I always lose my nerve. What if I fail?", "A normal Tuesday."];
+    var mdText = el('md-text');
+    var mdPresets = el('md-presets');
+    presets.forEach(function (p, i) {
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'dl-chip'; b.setAttribute('aria-pressed', 'false'); b.textContent = 'Example ' + (i + 1);
+      b.addEventListener('click', function () { mdText.value = p; runDetector(); }); mdPresets.appendChild(b);
+    });
+    function runDetector() {
+      var entry = mdText.value;
+      var pats = detectPatterns(entry);
+      var beliefs = mapBeliefs(entry, pats);
+      var rits = makeRituals(pats);
+      el('md-patterns').innerHTML = pats.length ? pats.map(function (p) { return '<li><strong>' + p.theme + '</strong> (' + Math.round(p.intensity * 100) + '%) from "' + esc(p.trigger) + '", seen ' + p.count + 'x</li>'; }).join('') : '<li>None. No listed word appeared.</li>';
+      el('md-beliefs').innerHTML = beliefs.length ? beliefs.map(function (b) { return '<li>' + esc(b.marker) + ' \u2192 ' + esc(b.reframe) + '</li>'; }).join('') : '<li>None. A belief is mapped only when one of the nine phrases appears.</li>';
+      el('md-rituals').innerHTML = rits.map(function (r) { return '<li>' + r.name + ' (' + r.min + ' min, ' + r.freq + ')</li>'; }).join('');
+      var cap = pats.some(function (p) { return p.count > 1; });
+      el('md-none').textContent = pats.length === 0 ? 'No pattern means only the closing ritual is written. The cell cannot tell a calm entry from an empty one.' : (cap ? 'A repeated word raised an intensity by 20 points each time. Nothing else changed it: no tone, no context, no body.' : 'One match prints as 50% every time. The percentage is the count, not a feeling measured.');
+    }
+    mdText.addEventListener('input', runDetector);
+    runDetector();
+
+  })();
+  </script>
+  <script type="module" src="/main.js?v=20260615-system-state"></script>
 </body>
 </html>
