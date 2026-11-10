@@ -25,7 +25,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="/style.css" />
   <script type="application/ld+json">
   {
@@ -43,7 +42,7 @@
       "url": "https://www.unwindcode.ai"
     },
     "datePublished": "2026-05-24",
-    "dateModified": "2026-05-24",
+    "dateModified": "2026-11-10",
     "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/21-the-unwind-brain-checkpoint-white-paper"
   }
   </script>
@@ -153,6 +152,30 @@
       .abstract-card, .panel, .stack-detail { padding:20px; }
       .chart-box { height:306px; }
     }
+  
+    /* revision 2026-11-10: dated notes and state-of-record table */
+    .tx-dateline { margin-top:18px; font-size:0.84rem; color:var(--text-muted); }
+    .tx-revised { max-width:780px; margin:26px auto 0; text-align:left; background:rgba(110,45,190,0.07); border:1px solid var(--accent-border); border-left:3px solid var(--accent-hot); border-radius:12px; padding:16px 20px; font-size:0.9rem; line-height:1.65; color:var(--text-secondary); }
+    .tx-revised p { margin:0 0 10px; }
+    .tx-revised p:last-child { margin-bottom:0; }
+    .tx-revised strong { color:var(--text-primary); }
+    .st-wrap { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:20px; padding:24px; margin-top:28px; }
+    .st-wrap h3 { font-size:1.1rem; font-weight:700; margin-bottom:4px; }
+    .st-sub { font-size:0.82rem; color:var(--text-muted); margin-bottom:14px; }
+    .st-filter { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:8px; }
+    .st-filter button { background:rgba(110,45,190,0.08); border:1px solid var(--accent-border); color:var(--text-secondary); padding:6px 14px; border-radius:20px; font:inherit; font-size:0.8rem; cursor:pointer; }
+    .st-filter button.active { color:var(--text-primary); border-color:var(--accent-hot); background:rgba(110,45,190,0.2); }
+    .st-row { display:grid; grid-template-columns:170px 120px 1fr; gap:14px; padding:12px 0; border-top:1px solid var(--accent-border); font-size:0.88rem; line-height:1.55; color:var(--text-secondary); }
+    .st-row b { color:var(--text-primary); font-weight:600; }
+    .st-pill { display:inline-block; font-size:0.7rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:3px 10px; border-radius:20px; border:1px solid var(--accent-border); align-self:start; justify-self:start; }
+    .st-pill.built { color:#34d399; border-color:rgba(16,185,129,0.4); }
+    .st-pill.idle { color:#fbbf24; border-color:rgba(245,158,11,0.4); }
+    .st-pill.failing { color:#f87171; border-color:rgba(239,68,68,0.4); }
+    .st-pill.design { color:#a5b4fc; border-color:rgba(99,102,241,0.4); }
+    .st-pill.removed { color:#9ca3af; border-color:rgba(156,163,175,0.4); }
+    .nc-list { max-width:720px; color:var(--text-secondary); line-height:1.75; font-size:1rem; padding-left:20px; }
+    .nc-list li { margin-bottom:10px; }
+    @media(max-width:700px){ .st-row { grid-template-columns:1fr; gap:6px; } }
   </style>
 </head>
 <body class="tx-page">
@@ -174,10 +197,15 @@
       <div class="container">
         <div class="tx-kicker">TRANSMISSION 021</div>
         <h1>The Unwind Brain Whitepaper</h1>
-        <p class="tx-hero-sub">A public research edition on the Brain as a human-governed cognitive organism: a system for agentic work that can reason, remember, stage actions, ask for authority, produce public proof, and grow new cells without silently turning intelligence into unchecked power.</p>
-        <div class="tx-hero-meta"><span>Whitepaper v0.1</span><span>May 2026</span><span>Public Research Edition</span><span>Unwind Code</span></div>
+        <p class="tx-hero-sub">A public research edition on the Brain as a human-governed cognitive organism: a design for agentic work that would reason, remember, stage actions, ask for authority, produce public proof, and grow new cells without silently turning intelligence into unchecked power.</p>
+        <div class="tx-hero-meta"><span>Whitepaper v0.1</span><span>May 2026</span><span>Revised 10 Nov 2026</span><span>Public Research Edition</span><span>Unwind Code</span></div>
+        <p class="tx-dateline">Written in May 2026 as a design thesis. State of the record checked on 10 November 2026 against the consolidation audit of 8 November and the organ-health diagnosis of 10 November.</p>
+        <div class="tx-revised">
+          <p><strong>Revised 10 November 2026.</strong> The thesis and the design principles stand unchanged. The present-tense statements about what exists have been checked and corrected.</p>
+          <p><strong>Correction, 10 November 2026.</strong> (1) The capability chart scored the Brain against a "generic agent wrapper" with numbers that were never measured; it is removed and replaced by a table of the record in section 07. (2) The checkpoint cards said publication "now passes through reviewable evidence gates" and that the operator surface "can" stage dry-runs. The Brain's publication-packet chain was largely removed in July 2026 and its application has not run for weeks; the cards now give dated state. (3) "Authority: closed" is true and stricter than described: the custody gate has been at Stage 0 since 4 October 2026. (4) The outside witness of the gate's ledgers has been dark since 9 November, a service-side fault that waits on the operator. (5) The paper's non-goal "not an autonomous financial actor" stands; section 08 now adds what the record can and cannot say about an earlier off-box version.</p>
+        </div>
         <div class="whitepaper-meta-card">
-          <div><span>Status</span><strong>Public architecture paper</strong></div>
+          <div><span>Status</span><strong>Public architecture paper, annotated 10 November 2026</strong></div>
           <div><span>Scope</span><strong>Design thesis, not an operating manual</strong></div>
           <div><span>Audience</span><strong>Builders, operators, researchers, and future partners</strong></div>
           <div><span>Boundary</span><strong>Internal mechanics, credentials, and procedures intentionally omitted</strong></div>
@@ -191,10 +219,10 @@
         <div class="tx-section-label">A public thesis for human-governed autonomy</div>
         <div class="tx-prose">
           <p>Most agent software optimizes for task completion. The Unwind Brain optimizes for <strong>governed agency</strong>: the ability to turn human intent into structured work while keeping memory, approval, evidence, and consequences legible.</p>
-          <p>This paper presents the public model for the Unwind Brain as a cognitive organism. It is not a generic chatbot, not a loose collection of agents, and not a claim of unchecked autonomy. It is a harness for agentic work: one that can observe, stage, approve, simulate, publish, remember, and prepare new cells without silently granting itself power.</p>
+          <p>This paper presents the public model for the Unwind Brain as a cognitive organism. It is not a generic chatbot, not a loose collection of agents, and not a claim of unchecked autonomy. It is a design for a harness for agentic work: one meant to observe, stage, approve, simulate, publish, remember, and prepare new cells without silently granting itself power. Section 08 states what exists.</p>
           <p>The central claim is simple: the next valuable agent platform will not be the one that acts the fastest. It will be the one whose actions can be understood, constrained, replayed, and trusted across humans, tools, wallets, websites, and other agents.</p>
         </div>
-        <div class="paper-note">Executive summary: the Unwind Brain is a governed AI operating harness. It separates reasoning from authority, treats new capabilities as bounded cells, records evidence before action, keeps financial and public consequences gated, and turns approved learning into public proof without publishing the operating manual.</div>
+        <div class="paper-note">Executive summary (May 2026): the Unwind Brain is designed as a governed AI operating harness. It separates reasoning from authority, treats new capabilities as bounded cells, records evidence before action, keeps financial and public consequences gated, and turns approved learning into public proof without publishing the operating manual.</div>
 
         <div class="abstract-grid">
           <div class="abstract-card">
@@ -209,10 +237,10 @@
           <div class="abstract-card">
             <h3>Checkpoint Metrics</h3>
             <div class="score-grid">
-              <div class="score"><span>Harness</span><strong>Proof Loop</strong><p>Publication work now passes through reviewable evidence gates.</p></div>
-              <div class="score"><span>Cell Growth</span><strong>Staged</strong><p>New capabilities are proposed, reviewed, and simulated before being trusted.</p></div>
-              <div class="score"><span>Product Surface</span><strong>Workbench</strong><p>Operator controls and mission fit panels exist.</p></div>
-              <div class="score"><span>Authority</span><strong>Closed</strong><p>Consequential actions stay gated until a human grants explicit authority.</p></div>
+              <div class="score"><span>Harness</span><strong>Review</strong><p>Public writing passes through a written standard, a second reader and a test gate. The Brain's own packet chain for this was largely removed in July 2026.</p></div>
+              <div class="score"><span>Cell Growth</span><strong>Staged</strong><p>One generated cell has been staged since 16 October and never activated.</p></div>
+              <div class="score"><span>Product Surface</span><strong>Code only</strong><p>Operator panels exist as code and tests; they are not a running service as of 8 November.</p></div>
+              <div class="score"><span>Authority</span><strong>Closed</strong><p>Consequential actions stay gated until a human grants explicit authority. The custody gate has been at Stage 0 since 4 October 2026.</p></div>
             </div>
           </div>
         </div>
@@ -303,12 +331,20 @@
       <section class="tx-section" id="comparison">
         <div class="tx-section-head"><span class="tx-section-num">07</span><h2>Comparison: What Makes the Brain Different</h2></div>
         <div class="tx-section-label">Not model power alone, not protocol compliance alone</div>
-        <div class="comparison">
-          <div class="panel">
-            <h3>Capability Profile</h3>
-            <p>The Brain is intentionally strongest where most agent wrappers are weakest: approval separation, evidence retention, bounded self-improvement, and mission fit.</p>
-            <div class="chart-box"><canvas id="capabilityChart"></canvas></div>
-          </div>
+        <div class="comparison" style="grid-template-columns:1fr">
+        <div class="st-wrap" id="st-wrap">
+          <h3>The capability profile, as the record shows it</h3>
+          <p class="st-sub">Replaces a chart that scored the Brain against a generic wrapper with numbers that were never measured. Status on 8 November 2026, witness and gate re-read on 10 November.</p>
+          <div class="st-filter"><button type="button" class="active" data-f="all">All</button><button type="button" data-f="built">Built, tested</button><button type="button" data-f="idle">Idle</button><button type="button" data-f="failing">Failing</button></div>
+          <div class="st-row" data-s="built"><b>Evidence</b><span class="st-pill built">Built, tested</span><span>Ledgers are hash-chained and intact except for one declared fork in the gate ledger. The outside witness of those ledgers has been dark since 9 November: its beat is refused on the service side, which waits on the operator.</span></div>
+          <div class="st-row" data-s="idle"><b>Approvals</b><span class="st-pill idle">Idle</span><span>An approval engine is built and tested. The live approval path holds no pending approvals and its newest decision was on 30 September. The custody gate has been at Stage 0 since its Stage-1 grant expired on 4 October 2026.</span></div>
+          <div class="st-row" data-s="idle"><b>Reasoning</b><span class="st-pill idle">Idle</span><span>No language model has been resident since 27 October (state of 8 November). Reasoning on the record is done by human-directed tool sessions.</span></div>
+          <div class="st-row" data-s="failing"><b>Memory</b><span class="st-pill failing">Failing</span><span>The vault is read and written daily, but its semantic index has held zero embeddings since 3 November, most files lost that day are unrestored, and an off-box backup target waits on the operator.</span></div>
+          <div class="st-row" data-s="built"><b>Interop</b><span class="st-pill built">Built, tested</span><span>A tool gateway exposes six read-only tools. Tests cover an agent-card shape for on-chain identity; the record shows no live use.</span></div>
+          <div class="st-row" data-s="built"><b>Financial safety</b><span class="st-pill built">Built, tested</span><span>The organism that runs here is a paper organ with no key and no signing path. Older Brain code with a signing path is not wired. An earlier off-box version was configured for live trading in July 2026 according to a September record; its present state cannot be read from here and waits on the operator, and this paper makes no claim about it.</span></div>
+          <div class="st-row" data-s="idle"><b>Bounded growth</b><span class="st-pill idle">Idle</span><span>One generated cell has been staged since 16 October, awaiting the operator, and has never been activated.</span></div>
+          <div class="st-row" data-s="failing"><b>Evaluation</b><span class="st-pill failing">Failing</span><span>The nightly evaluation has been incomplete every night since 26 October, was red on 41 of 70 nights, and its 14-night green chain has never started (state of 8 November).</span></div>
+        </div>
           <div class="panel">
             <h3>Marketplace Position</h3>
             <div class="matrix">
@@ -316,7 +352,7 @@
               <div class="matrix-row"><b>Personal agent clients</b><span>Strong ergonomics and model access, but the Brain needs durable records, swappable capability modules, and owner-scoped approvals.</span><span class="badge warn">client layer</span></div>
               <div class="matrix-row"><b>Learning-loop agents</b><span>Useful debrief and memory patterns. The Brain absorbs the pattern while keeping the runtime local, auditable, and human-governed.</span><span class="badge ok">absorbed</span></div>
               <div class="matrix-row"><b>Agent protocols</b><span>MCP, A2A, and ERC-8004 help with tools, agent communication, and identity. They do not replace the Brain's internal authority model.</span><span class="badge ok">interop</span></div>
-              <div class="matrix-row"><b>Unwind Brain</b><span>A product harness for sovereign work: humans, cells, approvals, memory, public proof, Web3 simulation, and future BYOK tenancy in one operating organism.</span><span class="badge ok">organism</span></div>
+              <div class="matrix-row"><b>Unwind Brain</b><span>A design for a product harness for sovereign work: humans, cells, approvals, memory, public proof, Web3 simulation, and future BYOK tenancy in one operating organism. It is not a product today: the record shows no customer, price or payment.</span><span class="badge warn">design</span></div>
             </div>
           </div>
         </div>
@@ -324,14 +360,14 @@
 
       <section class="tx-section" id="checkpoint">
         <div class="tx-section-head"><span class="tx-section-num">08</span><h2>Checkpoint: What Exists Now</h2></div>
-        <div class="tx-section-label">The local organism before the next gate</div>
+        <div class="tx-section-label">The local organism before the next gate, with its state on 10 November 2026</div>
         <div class="phase-grid">
-          <div class="phase-card"><span>Foundation</span><h3>Sovereign Foundation</h3><p>Provider-aware inference, portability, native intelligence patterns, and initial safety primitives are part of the emerging architecture.</p></div>
-          <div class="phase-card"><span>Runtime</span><h3>Operating Harness</h3><p>The operator surface can inspect work, review capability boundaries, and stage dry-runs before external systems are touched.</p></div>
-          <div class="phase-card"><span>Public Proof</span><h3>Publication Evidence</h3><p>Public writing now follows a reviewable evidence loop with clear intent, human judgment, and outcome tracking.</p></div>
-          <div class="phase-card"><span>Cell Growth</span><h3>Bounded Neurogenesis</h3><p>New cell ideas can be proposed, reviewed, and simulated without silently becoming live system power.</p></div>
-          <div class="phase-card"><span>Cell Swap</span><h3>Replaceable Organs</h3><p>The Brain can reason about swappable cells, compatibility boundaries, emergency stops, and recovery paths before activation.</p></div>
-          <div class="phase-card"><span>Web3</span><h3>Financial Organism Safety</h3><p>Financial lanes are treated as research and simulation first; signing authority remains separate from analysis.</p></div>
+          <div class="phase-card"><span>Foundation</span><h3>Sovereign Foundation</h3><p>Provider-aware inference, portability, native intelligence patterns, and initial safety primitives are part of the emerging architecture. State on 8 November 2026: code exists, and no language model has been resident since 27 October.</p></div>
+          <div class="phase-card"><span>Runtime</span><h3>Operating Harness</h3><p>In May the operator surface could inspect work, review capability boundaries, and stage dry-runs before external systems were touched. State on 8 November 2026: the application is not running.</p></div>
+          <div class="phase-card"><span>Public Proof</span><h3>Publication Evidence</h3><p>Public writing follows a written standard, a second reader and a test gate, run by human-directed tool sessions and published on the operator's word. The Brain's publication-packet chain was largely removed in July 2026.</p></div>
+          <div class="phase-card"><span>Cell Growth</span><h3>Bounded Neurogenesis</h3><p>New cell ideas can be proposed, reviewed, and simulated without silently becoming live system power. One generated cell has been staged since 16 October; it has never been activated.</p></div>
+          <div class="phase-card"><span>Cell Swap</span><h3>Replaceable Organs</h3><p>The design covers swappable cells, compatibility boundaries, emergency stops, and recovery paths before activation, and tests exist for the packets. No cell has been swapped by the protocol.</p></div>
+          <div class="phase-card"><span>Web3</span><h3>Financial Organism Safety</h3><p>Financial lanes are treated as research and simulation first; signing authority remains separate from analysis. The organism that runs here is a paper organ with no key and no signing path. An earlier off-box version was configured for live trading in July 2026 according to a September record; its present state cannot be read from here, and this paper makes no claim about it.</p></div>
         </div>
       </section>
 
@@ -359,6 +395,7 @@
           <p>The Unwind Brain is not presented as an autonomous financial actor, a replacement for human authority, a black-box AGI claim, or a system that should execute private actions without consent. It is not a promise that every cell is production-ready or that every future integration should be trusted by default.</p>
           <p>The claim is narrower and stronger: a useful agentic system must make its work reviewable, its boundaries explicit, and its consequences accountable before it scales to more humans, more tools, and more economic surfaces.</p>
         </div>
+        <div class="paper-note">Added 10 November 2026. This paper also does not claim: that the Brain is running; that it writes or publishes the site; that any cell has been swapped or activated; that its evaluation has ever passed a 14-night chain; or that any chart score it once showed was measured.</div>
       </section>
 
       <section class="tx-section" id="public-private">
@@ -394,7 +431,7 @@
 
       <section class="tx-section" id="roadmap">
         <div class="tx-section-head"><span class="tx-section-num">14</span><h2>Roadmap</h2></div>
-        <div class="tx-section-label">Non-sensitive milestones</div>
+        <div class="tx-section-label">Non-sensitive milestones, as written in May 2026 and not yet updated</div>
         <div class="phase-grid">
           <div class="phase-card"><span>Near Term</span><h3>Complete The Review Spine</h3><p>Make every meaningful action inspectable from one operator surface with clear evidence and owner decisions.</p></div>
           <div class="phase-card"><span>Mid Term</span><h3>Expand Public Proof</h3><p>Turn approved debriefs, research, and system learning into educational transmissions and product artifacts.</p></div>
@@ -449,6 +486,7 @@
       {
         id: '01',
         title: 'Cortex',
+        onrecord: 'Tested code, idle: no language model has been resident since 27 October (state of 8 November 2026).',
         label: 'reasoning and orchestration',
         path: 'Internal reasoning layer',
         copy: 'The cortex coordinates inference, orchestration, cell proposals, public proof, content pipeline state, and the core service surface. It is where intention becomes typed work.',
@@ -457,6 +495,7 @@
       {
         id: '02',
         title: 'Harness',
+        onrecord: 'The run ledger, task lifecycle and approval engine are tested code; the application that would use them has not been running.',
         label: 'approval and evidence',
         path: 'Operator evidence layer',
         copy: 'The harness converts risky work into staged review objects. It gives the operator a durable queue instead of letting the model directly mutate code, websites, deploys, or wallets.',
@@ -465,6 +504,7 @@
       {
         id: '03',
         title: 'Identity',
+        onrecord: 'The custody gate sits at Stage 0 because its grant expired on 4 October 2026; consequential steps are the operator\'s hand.',
         label: 'human-owned authority',
         path: 'Human authority layer',
         copy: 'Identity and runtime grants define who can approve what, which cells can receive capabilities, and how future live adapters remain separated from review-only packets.',
@@ -473,6 +513,7 @@
       {
         id: '04',
         title: 'Cells',
+        onrecord: 'One generated cell has been staged since 16 October and never activated. The cells that run are scheduled organs, changed by hand.',
         label: 'specialized organs',
         path: 'Specialized capability layer',
         copy: 'Cells are organs of the organism: specialized capability modules for finance, security, emotional context, agency work, research, and future domains. They should be swappable, reviewable, and bounded.',
@@ -481,6 +522,7 @@
       {
         id: '05',
         title: 'Public Proof',
+        onrecord: 'Written by human-directed tool sessions under a written standard and a second reader, and published on the operator\'s word. No Brain cell produces the site.',
         label: 'website and memory',
         path: 'unwindcode.ai',
         copy: 'Public transmissions are not marketing wrappers. They are proof artifacts produced from system work, research, approval chains, and publication verification.',
@@ -489,6 +531,7 @@
       {
         id: '06',
         title: 'Web3 Membrane',
+        onrecord: 'A paper organ with no key and no signing path runs here. See section 08 for an earlier off-box version.',
         label: 'wallet power stays gated',
         path: 'Financial safety layer',
         copy: 'Web3 research can be autonomous, but transactions cannot be implicit. The Brain should decode, simulate, score, and prepare packets before any signing authority is considered.',
@@ -505,6 +548,7 @@
         '<h3>' + layer.title + '</h3>',
         '<span class="stack-path">' + layer.path + '</span>',
         '<p class="detail-copy">' + layer.copy + '</p>',
+        '<p class="detail-copy"><strong>On the record, 10 November 2026.</strong> ' + layer.onrecord + '</p>',
         '<ul class="detail-list">' + layer.bullets.map((item) => '<li>' + item + '</li>').join('') + '</ul>',
         '<div class="packet-grid">',
           '<div class="packet-pill"><span>Open</span><p>Read, stage, explain, simulate, verify, and record evidence.</p></div>',
@@ -530,72 +574,21 @@
       if (index === 0) button.click();
     });
 
-    const colors = {
-      accent: 'rgba(155,89,245,1)',
-      accentFill: 'rgba(155,89,245,0.14)',
-      hot: 'rgba(192,132,252,1)',
-      teal: 'rgba(13,148,136,0.74)',
-      tealFill: 'rgba(13,148,136,0.12)',
-      grid: 'rgba(240,238,246,0.08)',
-      text: 'rgba(240,238,246,0.36)'
-    };
-
-    new Chart(document.getElementById('capabilityChart'), {
-      type: 'radar',
-      data: {
-        labels: ['Evidence', 'Approvals', 'Memory', 'Interop', 'Financial Safety', 'Bounded Growth'],
-        datasets: [
-          {
-            label: 'Unwind Brain',
-            data: [92, 95, 78, 64, 88, 96],
-            borderColor: colors.teal,
-            backgroundColor: colors.tealFill,
-            pointBackgroundColor: colors.hot,
-            pointBorderColor: colors.hot,
-            borderWidth: 2
-          },
-          {
-            label: 'Generic Agent Wrapper',
-            data: [42, 38, 34, 58, 24, 28],
-            borderColor: colors.accent,
-            backgroundColor: colors.accentFill,
-            pointBackgroundColor: colors.accent,
-            pointBorderColor: colors.accent,
-            borderWidth: 2
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          r: {
-            min: 0,
-            max: 100,
-            angleLines: { color: colors.grid },
-            grid: { color: colors.grid },
-            pointLabels: { color: colors.text, font: { family: 'Inter', size: 11 } },
-            ticks: { display: false }
-          }
-        },
-        plugins: {
-          legend: {
-            position: 'bottom',
-            labels: { color: colors.text, font: { family: 'Inter' }, padding: 18 }
-          },
-          tooltip: {
-            backgroundColor: 'rgba(15,15,30,0.95)',
-            titleFont: { family: 'Inter' },
-            bodyFont: { family: 'Inter' },
-            padding: 10,
-            cornerRadius: 8,
-            callbacks: {
-              label: (context) => context.dataset.label + ': ' + context.parsed.r + '/100'
-            }
-          }
-        }
-      }
-    });
+    // STATE-OF-RECORD FILTER (revised 2026-11-10)
+    (function () {
+      var wrap = document.getElementById('st-wrap');
+      if (!wrap) return;
+      var rows = wrap.querySelectorAll('.st-row');
+      var btns = wrap.querySelectorAll('.st-filter button');
+      btns.forEach(function (b) {
+        b.addEventListener('click', function () {
+          btns.forEach(function (x) { x.classList.remove('active'); });
+          b.classList.add('active');
+          var f = b.getAttribute('data-f');
+          rows.forEach(function (r) { r.style.display = (f === 'all' || r.getAttribute('data-s') === f) ? '' : 'none'; });
+        });
+      });
+    })();
   });
   </script>
 </body>
