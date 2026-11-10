@@ -307,13 +307,14 @@
       <!-- 04: EARN THE STAGE -->
       <section class="tx-section" id="earn-the-stage">
         <div class="tx-section-head"><span class="tx-section-num">04</span><h2>What has to be proven before any of it opens</h2></div>
-        <div class="tx-section-label">Four rungs, each unlocked by its own ceremony, none unlocking on its own</div>
+        <div class="tx-section-label">Six things that must already be true before even the first spending stage is considered</div>
         <div class="tx-prose">
-          <p>No stage promotes itself. Every promotion requires both a vote and a separate signed ruling naming the stage, its limits and an end date — and each rung unlocks only through its own ceremony, never on its own.</p>
-          <p>Today none of that has been granted. Watch-only is still the only stage in force.</p>
+          <p>Before even the first spending stage is considered, six things have to already be true: a demonstrated, unbroken track record at watch-only with no silent failures; a kill switch a human can operate in seconds without the system's cooperation, tested under real conditions; a tamper-evident log of every proposal and approval that the system itself cannot rewrite; a dry-run period against real conditions, reviewed and found sound; one named human accountable for the grant; and a funded reserve large enough to absorb the grant being wrong.</p>
+          <p>Each rung then unlocks only through its own ceremony, never on its own. Today none of it has been granted: watch-only is still the only stage in force.</p>
         </div>
+        <div class="mem-grid" id="mem-grid"></div>
         <div class="wf-steps" id="wf-steps">
-          <div class="wf-step"><div class="wf-dot wf-dot-1">01</div><h3>Stage 0 · Watch only</h3><p><strong>In force today ·</strong> zero execution authority of any kind. Nothing an agent prepares can broadcast on its own.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-1">01</div><h3>Stage 0 · Watch only</h3><p><strong>In force today ·</strong> zero execution authority of any kind.</p></div>
           <div class="wf-step"><div class="wf-dot wf-dot-2">02</div><h3>Stage 1 · Propose, human signs</h3><p><strong>Not granted ·</strong> an agent may prepare a transaction, but a human signs every single one. Unlocked by a vote plus a signed ruling naming the stage, its limits and an end date.</p></div>
           <div class="wf-step"><div class="wf-dot wf-dot-3">03</div><h3>Stage 2 · Approve per transaction</h3><p><strong>Not granted ·</strong> a human approves each specific transaction before it broadcasts.</p></div>
           <div class="wf-step"><div class="wf-dot wf-dot-4">04</div><h3>Stage 3 · Bounded autonomy</h3><p><strong>Not granted ·</strong> one pre-declared, repeatable action, narrowly typed — never a general spending power.</p></div>
@@ -328,7 +329,6 @@
           <p>If any part of the rule is ever unclear or contested, the answer is always the stricter reading, escalated to a human rather than resolved by the system.</p>
           <p>"The cost of an agent doing nothing is delay. The cost of an agent doing the wrong thing with money is not recoverable."</p>
         </div>
-        <div class="mem-grid" id="mem-grid"></div>
         <div class="oh-list" id="oh-list"></div>
         <div class="oh-foot">2 enforcements · watch-only today · 0 spending stages granted</div>
         <div class="oh-refusal">
@@ -339,8 +339,8 @@
       </section>
 
       <div class="tx-cta">
-        <h2>Draw the boundary before the code.</h2>
-        <p>If you are moving an autonomous system onto a chain and the real question is what must never move with it, we should talk.</p>
+        <h2>Earn the stage before you grant the power.</h2>
+        <p>If you are letting an autonomous system near money and the real question is what has to be true before it may spend anything, we should talk.</p>
         <a class="btn btn-primary btn-lg" href="/build-with-us"><span>Build With Us</span><span class="btn-arrow">→</span></a>
       </div>
     </div>
@@ -389,7 +389,7 @@
         var match = state === 'all' || card.getAttribute('data-state') === state;
         if (match) { card.removeAttribute('hidden'); shown += 1; } else { card.setAttribute('hidden', ''); }
       });
-      dlCount.textContent = shown + ' of ' + components.length + ' grant limits · ' + (state === 'all' ? 'plan; every grant states all five' : states[state]);
+      dlCount.textContent = shown + ' of ' + components.length + ' grant limits · ' + (state === 'all' ? 'every grant states all five' : states[state]);
     }
     dlFilters.querySelectorAll('.dl-chip').forEach(function (chip) {
       chip.addEventListener('click', function () {
@@ -414,8 +414,8 @@
         proof: 'The reserve is structurally unreachable; the float absorbs any compromise.' },
       { id: 'rung1', role: 'Stage 0 · watch only', score: 'In force',
         name: 'Watch only',
-        short: "Today's stage: zero execution authority of any kind. Nothing an agent prepares can broadcast on its own.",
-        specs: ['Zero execution', 'Nothing broadcasts', 'In force today', 'No stage promotes itself'],
+        short: "Today's stage: zero execution authority of any kind.",
+        specs: ['Zero execution', 'No spending power', 'In force today', 'No stage promotes itself'],
         proof: 'Every promotion needs a vote and a separate signed ruling naming stage, limits and end date.' },
       { id: 'rung2', role: 'Stage 1 · propose, sign', score: 'Not granted',
         name: 'Propose, human signs',
@@ -505,7 +505,7 @@
     var memCards = [
       { tag: 'rule', title: 'Unbroken track record', desc: 'Watch-only demonstrated with no silent failures.', extra: 'No stage promotes itself; every promotion is voted and then ruled.' },
       { tag: 'rule', title: 'Kill switch', desc: 'A human can operate it in seconds without the system\'s cooperation, tested under real conditions.', extra: 'Tested under real conditions, not assumed.' },
-      { tag: 'rule', title: 'Tamper-evident log', desc: 'Every proposal and approval logged, in a log the system itself cannot rewrite.', extra: 'The verifier is never the actor.' },
+      { tag: 'rule', title: 'Tamper-evident log', desc: 'Every proposal and approval logged, in a log the system itself cannot rewrite.', extra: 'A log the system itself cannot rewrite.' },
       { tag: 'rule', title: 'Dry-run period', desc: 'Run against real conditions, reviewed and found sound.', extra: 'Reviewed before any stage is considered.' },
       { tag: 'rule', title: 'Named human owner', desc: 'One person accountable for the grant.', extra: 'Accountability is named in advance.' },
       { tag: 'rule', title: 'Funded reserve', desc: 'A reserve large enough to absorb the grant being wrong.', extra: 'Structurally separate; its keys never touch this machine.' }
@@ -527,8 +527,8 @@
 
     // 06 — WHAT THE DESIGN ENFORCES TODAY
     var enforcements = [
-      { t: 'Zero execution authority of any kind', s: 'Watch-only is the only stage in force', d: 'No stage promotes itself. Every promotion needs a vote and a separate signed ruling naming the stage, its limits and an end date — and none of that exists yet.', needs: 'key' },
-      { t: 'Any cap breach is a conflict', s: 'However the instruction arrives', d: 'An instruction to exceed a cap is treated as a conflict and refused, logged and reported — escalated to a human, never resolved by the system.', needs: 'funds' }
+      { t: 'Zero execution authority of any kind', s: 'Watch-only is the only stage in force', d: 'No stage promotes itself. Every promotion needs a vote and a separate signed ruling naming the stage, its limits and an end date — and none of that exists yet.', needs: 'key', tag: 'today' },
+      { t: 'Any cap breach is a conflict', s: 'However the instruction arrives', d: 'An instruction to exceed a cap is treated as a conflict and refused, logged and reported — escalated to a human, never resolved by the system.', needs: 'funds', tag: 'today' }
     ];
     var ohList = document.getElementById('oh-list');
     enforcements.forEach(function (h) {
@@ -536,7 +536,7 @@
       item.type = 'button';
       item.className = 'oh-item';
       item.setAttribute('aria-expanded', 'false');
-      item.innerHTML = '<span class="oh-box" aria-hidden="true"></span><span><span class="oh-t">' + h.t + '</span><span class="oh-s">' + h.s + '</span><span class="oh-d">' + h.d + '</span></span><span class="oh-needs oh-needs-' + h.needs + '">' + h.needs + '</span>';
+      item.innerHTML = '<span class="oh-box" aria-hidden="true"></span><span><span class="oh-t">' + h.t + '</span><span class="oh-s">' + h.s + '</span><span class="oh-d">' + h.d + '</span></span><span class="oh-needs oh-needs-' + h.needs + '">' + h.tag + '</span>';
       item.addEventListener('click', function () {
         item.setAttribute('aria-expanded', item.getAttribute('aria-expanded') === 'true' ? 'false' : 'true');
       });
