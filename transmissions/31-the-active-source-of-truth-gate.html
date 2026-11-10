@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Transmission 31: The Active Source-of-Truth Gate | Unwind Code</title>
-  <meta name="description" content="A whitepaper-grade Brain guide for the Active Source-of-Truth Gate: live-lane identity, local parity, discovery metadata, registry truth, API contract proof, and approval before production mutation." />
+  <meta name="description" content="A July 2026 note on proving that the public site is the body the local source describes before publishing, rewritten on 10 November: the checker that exists, the checks it does not make, the July history, and the controller that was never built." />
   <meta name="theme-color" content="#06060c" />
   <link rel="canonical" href="https://www.unwindcode.ai/transmissions/31-the-active-source-of-truth-gate" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="The Active Source-of-Truth Gate" />
-  <meta property="og:description" content="How the Unwind Brain proves the active public site is the same organism as the local source tree before publishing a new transmission." />
+  <meta property="og:description" content="Ready does not mean current. A read-only parity checker exists and runs ten checks; the alias, the stylesheet and the deploy step are still human. What is built, what is manual, what is a design." />
   <meta property="og:url" content="https://www.unwindcode.ai/transmissions/31-the-active-source-of-truth-gate" />
   <meta property="og:site_name" content="Unwind Code" />
   <meta property="og:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
@@ -19,7 +19,7 @@
   <meta property="og:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="The Active Source-of-Truth Gate" />
-  <meta name="twitter:description" content="A compact whitepaper for live-lane identity, publication parity, and proof-before-deploy architecture." />
+  <meta name="twitter:description" content="Ready does not mean current. A read-only parity checker exists and runs ten checks; the alias, the stylesheet and the deploy step are still human. What is built, what is manual, what is a design." />
   <meta name="twitter:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
   <meta name="twitter:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -31,607 +31,877 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "The Active Source-of-Truth Gate",
-    "description": "A whitepaper-grade Brain guide for the Active Source-of-Truth Gate: live-lane identity, local parity, discovery metadata, registry truth, API contract proof, and approval before production mutation.",
-    "author": {"@type": "Organization", "name": "Unwind Code"},
-    "publisher": {"@type": "Organization", "name": "Unwind Code", "url": "https://www.unwindcode.ai"},
+    "description": "Publication governance note (July 2026), revised 10 November 2026: the parity checker and its ten checks, the dated July history, the gaps it does not close, and the Release Identity Controller that remains a design.",
+    "author": {
+      "@type": "Organization",
+      "name": "Unwind Code"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Unwind Code",
+      "url": "https://www.unwindcode.ai"
+    },
     "datePublished": "2026-07-01",
-    "dateModified": "2026-07-01",
+    "dateModified": "2026-11-10",
+    "keywords": [
+      "publication governance",
+      "parity check",
+      "source of truth",
+      "deployment",
+      "approval"
+    ],
     "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/31-the-active-source-of-truth-gate"
   }
   </script>
   <style>
-    :root {
-      --stg-ink: #f6f2e9;
-      --stg-muted: rgba(246, 242, 233, 0.7);
-      --stg-line: rgba(246, 242, 233, 0.12);
-      --stg-gold: #d7b86a;
-      --stg-cyan: #73d7d0;
-      --stg-iris: #9c8bff;
-      --stg-coral: #e27d67;
-      --stg-green: #9bd37b;
-      --stg-panel: rgba(13, 16, 23, 0.82);
-      --stg-panel-strong: rgba(19, 22, 31, 0.94);
+    .tx-page { background: var(--bg-void); color: var(--text-primary); }
+    .tx-page *, .tx-page *::before, .tx-page *::after { box-sizing: border-box; }
+    .tx-hero { padding: 160px 0 72px; text-align: center; position: relative; overflow: hidden; }
+    .tx-hero::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:800px; height:800px; background:radial-gradient(circle, rgba(110,45,190,0.12) 0%, transparent 60%); pointer-events:none; }
+    .tx-hero-kicker { margin-bottom:16px; }
+    .tx-hero h1 { font-size:clamp(2.2rem,5vw,3.5rem); font-weight:800; letter-spacing:-0.04em; line-height:1.08; margin:0 0 20px; }
+    .tx-hero-sub { font-size:1.08rem; color:var(--text-secondary); max-width:660px; margin:0 auto; line-height:1.7; }
+    .tx-hero-meta { margin-top:28px; display:flex; justify-content:center; gap:14px; font-size:0.76rem; color:var(--text-muted); font-weight:600; letter-spacing:0.06em; text-transform:uppercase; flex-wrap:wrap; }
+    .tx-section { padding:72px 0; border-top:1px solid var(--accent-border); }
+    .tx-section:first-of-type { border-top:none; padding-top:24px; }
+    .tx-section-head { display:flex; align-items:center; gap:16px; margin-bottom:10px; }
+    .tx-section-num { font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:700; color:var(--accent-hot); letter-spacing:0.15em; }
+    .tx-section h2 { font-size:clamp(1.5rem,3vw,2rem); font-weight:700; letter-spacing:-0.02em; margin:0; }
+    .tx-section-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:24px; }
+    .tx-prose { font-size:1.04rem; color:var(--text-secondary); line-height:1.8; max-width:720px; }
+    .tx-prose p { margin:0 0 22px; }
+    .tx-prose strong { color:var(--text-primary); font-weight:600; }
+    .tx-prose code, .tx-prose-code { font-family:'JetBrains Mono',monospace; font-size:0.84rem; background:rgba(110,45,190,0.1); color:var(--accent-light); padding:2px 6px; border-radius:4px; }
+    .tx-prose a, .tx-inline { color:var(--accent-light); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    .tx-quote { border-left:3px solid var(--accent); padding:18px 24px; margin:36px 0; background:rgba(110,45,190,0.05); border-radius:0 12px 12px 0; color:var(--text-primary); font-size:1.08rem; line-height:1.6; font-weight:500; max-width:720px; }
+    .tx-after { margin-top:36px; }
+
+    /* 01 — State filter */
+    .dl-filters { display:flex; flex-wrap:wrap; gap:10px; margin:28px 0 18px; }
+    .dl-chip { font-family:inherit; font-size:0.78rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:9px 16px; border-radius:999px; border:1px solid var(--accent-border); background:var(--bg-surface); color:var(--text-secondary); cursor:pointer; transition:border-color .2s ease, color .2s ease, background .2s ease; }
+    .dl-chip:hover { border-color:rgba(110,45,190,0.4); color:var(--text-primary); }
+    .dl-chip[aria-pressed="true"] { background:rgba(110,45,190,0.16); border-color:var(--accent-light); color:var(--text-primary); }
+    .dl-chip-a[aria-pressed="true"] { border-color:#c084fc; }
+    .dl-chip-b[aria-pressed="true"] { border-color:#38bdf8; }
+    .dl-chip-c[aria-pressed="true"] { border-color:#fbbf24; }
+    .dl-chip-d[aria-pressed="true"] { border-color:#10b981; }
+    .dl-chip-e[aria-pressed="true"] { border-color:#f59e0b; }
+    .dl-chip-f[aria-pressed="true"] { border-color:#f87171; }
+    .dl-count { font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:var(--text-muted); margin-bottom:16px; letter-spacing:0.06em; }
+    .dl-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:12px; }
+    .dl-card { font-family:inherit; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:18px; cursor:pointer; transition:border-color .25s ease, transform .25s ease, opacity .25s ease; }
+    .dl-card:hover { transform:translateY(-2px); border-color:rgba(110,45,190,0.4); }
+    .dl-card[hidden] { display:none; }
+    .dl-state { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.12em; padding:3px 9px; border-radius:999px; border:1px solid currentColor; margin-bottom:10px; }
+    .dl-state-a { color:#c084fc; } .dl-state-b { color:#38bdf8; } .dl-state-c { color:#fbbf24; }
+    .dl-state-d { color:#10b981; } .dl-state-e { color:#f59e0b; } .dl-state-f { color:#f87171; }
+    .dl-name { font-weight:700; font-size:0.96rem; margin-bottom:4px; }
+    .dl-short { font-size:0.84rem; color:var(--text-secondary); line-height:1.55; }
+    .dl-why { display:none; margin-top:12px; padding-top:12px; border-top:1px solid var(--accent-border); font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+    .dl-card[aria-expanded="true"] .dl-why { display:block; }
+    .dl-hint { font-size:0.68rem; color:var(--accent-hot); margin-top:10px; font-weight:600; letter-spacing:0.05em; }
+    .dl-law { margin-top:32px; border:1px solid rgba(251,191,36,0.28); border-radius:16px; padding:24px 28px; background:linear-gradient(180deg,rgba(251,191,36,0.07),rgba(251,191,36,0.015)); max-width:720px; }
+    .dl-law h3 { margin:0 0 10px; font-size:1rem; color:#fbbf24; }
+    .dl-law p { margin:0; font-size:0.95rem; color:var(--text-secondary); line-height:1.7; }
+
+    /* 02 — Component explorer */
+    .mod-explorer { display:grid; grid-template-columns:1fr 1.25fr; gap:24px; margin-top:32px; }
+    .mod-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; align-content:start; }
+    .mod-node { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:20px; cursor:pointer; transition:all 0.25s ease; text-align:left; font-family:inherit; color:var(--text-primary); }
+    .mod-node:hover, .mod-node[aria-pressed="true"] { border-color:rgba(110,45,190,0.45); transform:translateY(-2px); box-shadow:0 8px 24px rgba(110,45,190,0.1); }
+    .mod-node[aria-pressed="true"] { background:rgba(110,45,190,0.08); }
+    .mod-glyph { font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--accent-hot); letter-spacing:0.14em; margin-bottom:10px; display:block; }
+    .mod-name { font-weight:700; font-size:1.02rem; font-family:'JetBrains Mono',monospace; }
+    .mod-path { font-size:0.78rem; color:var(--text-muted); margin-top:6px; line-height:1.4; }
+    .mod-score { margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:#34d399; }
+    .mod-detail { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:20px; padding:32px; min-height:420px; }
+    .mod-detail-title { font-size:1.4rem; font-weight:700; margin-bottom:8px; font-family:'JetBrains Mono',monospace; }
+    .mod-detail-type { display:inline-block; font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent-hot); background:rgba(110,45,190,0.12); border:1px solid rgba(110,45,190,0.2); padding:4px 12px; border-radius:20px; margin-bottom:20px; }
+    .mod-detail-desc { color:var(--text-secondary); line-height:1.7; font-size:0.95rem; margin-bottom:22px; }
+    .mod-specs-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:10px; }
+    .mod-specs { display:flex; flex-wrap:wrap; gap:8px; }
+    .mod-spec { background:rgba(110,45,190,0.08); border:1px solid var(--accent-border); color:var(--accent-light); padding:6px 14px; border-radius:20px; font-size:0.8rem; font-weight:500; }
+    .mod-proof { margin-top:22px; padding-top:18px; border-top:1px solid var(--accent-border); font-size:0.84rem; color:var(--text-muted); line-height:1.6; }
+    .mod-proof strong { color:#34d399; font-family:'JetBrains Mono',monospace; font-weight:600; }
+
+    /* 03 — Baseline model */
+    .cr-wrap { margin-top:28px; border:1px solid rgba(56,189,248,0.22); border-radius:20px; padding:28px; background:linear-gradient(180deg,rgba(56,189,248,0.06),rgba(56,189,248,0.01)); }
+    .cr-top { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; }
+    .cr-label { font-family:'JetBrains Mono',monospace; font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:#38bdf8; }
+    .cr-faults { display:flex; flex-wrap:wrap; gap:8px; }
+    .cr-fault { font-family:inherit; font-size:0.76rem; font-weight:700; padding:8px 14px; border-radius:999px; border:1px solid var(--accent-border); background:var(--bg-surface); color:var(--text-secondary); cursor:pointer; transition:border-color .2s ease, color .2s ease; }
+    .cr-fault:hover { color:var(--text-primary); border-color:rgba(248,113,113,0.5); }
+    .cr-fault[aria-pressed="true"] { color:#fca5a5; border-color:#f87171; background:rgba(248,113,113,0.1); }
+    .cr-fault-reset[aria-pressed="true"] { color:#34d399; border-color:#10b981; background:rgba(16,185,129,0.1); }
+    .cr-cols { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .cr-col { border:1px solid var(--accent-border); border-radius:14px; padding:18px; background:rgba(0,0,0,0.22); }
+    .cr-col h3 { margin:0 0 4px; font-size:0.98rem; }
+    .cr-col-sub { font-size:0.78rem; color:var(--text-muted); margin:0 0 14px; line-height:1.5; }
+    .cr-steps { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
+    .cr-step { display:grid; grid-template-columns:22px 1fr auto; gap:10px; align-items:start; padding:10px 12px; border-radius:10px; border:1px solid var(--accent-border); font-size:0.84rem; line-height:1.5; color:var(--text-secondary); transition:border-color .2s ease, background .2s ease; }
+    .cr-step-n { font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--text-muted); padding-top:3px; }
+    .cr-step-t { color:var(--text-primary); font-weight:600; display:block; }
+    .cr-step-d { display:block; font-size:0.78rem; color:var(--text-muted); margin-top:2px; }
+    .cr-verdict { font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:700; letter-spacing:0.08em; padding-top:3px; white-space:nowrap; }
+    .cr-step.pass { border-color:rgba(16,185,129,0.35); } .cr-step.pass .cr-verdict { color:#34d399; }
+    .cr-step.fail { border-color:#f87171; background:rgba(248,113,113,0.08); } .cr-step.fail .cr-verdict { color:#fca5a5; }
+    .cr-step.skip { opacity:0.42; } .cr-step.skip .cr-verdict { color:var(--text-muted); }
+    .cr-step.blind { border-color:rgba(251,191,36,0.3); } .cr-step.blind .cr-verdict { color:#fbbf24; }
+    .cr-outcome { margin-top:16px; border-radius:12px; padding:14px 16px; font-size:0.9rem; line-height:1.6; border:1px solid var(--accent-border); background:rgba(0,0,0,0.22); color:var(--text-secondary); }
+    .cr-outcome strong { color:var(--text-primary); }
+    .cr-outcome.refused { border-color:rgba(248,113,113,0.4); }
+    .cr-outcome.clean { border-color:rgba(16,185,129,0.35); }
+    .cr-note { margin:14px 0 0; font-size:0.8rem; color:var(--text-muted); line-height:1.6; }
+
+    /* 04 — Timeline */
+    .wf-steps { position:relative; margin-top:32px; padding-left:40px; max-width:760px; }
+    .wf-steps::before { content:''; position:absolute; left:19px; top:0; bottom:0; width:2px; background:var(--accent-border); }
+    .wf-step { position:relative; margin-bottom:40px; }
+    .wf-step:last-child { margin-bottom:0; }
+    .wf-dot { position:absolute; left:-40px; top:0; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:800; z-index:2; font-family:'JetBrains Mono',monospace; }
+    .wf-dot-1 { background:rgba(110,45,190,0.15); color:var(--accent-light); border:2px solid var(--accent); }
+    .wf-dot-2 { background:rgba(79,70,229,0.15); color:#818cf8; border:2px solid #6366f1; }
+    .wf-dot-3 { background:rgba(14,165,233,0.15); color:#38bdf8; border:2px solid #0ea5e9; }
+    .wf-dot-4 { background:rgba(16,185,129,0.15); color:#34d399; border:2px solid #10b981; }
+    .wf-dot-5 { background:rgba(245,158,11,0.15); color:#fbbf24; border:2px solid #f59e0b; }
+    .wf-dot-6 { background:rgba(248,113,113,0.15); color:#fca5a5; border:2px solid #f87171; }
+    .wf-step h3 { font-size:1.06rem; font-weight:700; margin:0 0 6px; padding-top:8px; }
+    .wf-step p { font-size:0.92rem; color:var(--text-secondary); line-height:1.65; margin:0; }
+    .wf-step code { font-family:'JetBrains Mono',monospace; font-size:0.8rem; background:rgba(110,45,190,0.1); color:var(--accent-light); padding:2px 6px; border-radius:4px; }
+    .wf-step.reveal-step { opacity:0; transform:translateY(10px); animation:wfIn .6s ease forwards; }
+    .wf-step.reveal-step:nth-child(1){animation-delay:.05s}.wf-step.reveal-step:nth-child(2){animation-delay:.15s}.wf-step.reveal-step:nth-child(3){animation-delay:.25s}.wf-step.reveal-step:nth-child(4){animation-delay:.35s}.wf-step.reveal-step:nth-child(5){animation-delay:.45s}.wf-step.reveal-step:nth-child(6){animation-delay:.55s}
+    @keyframes wfIn { to { opacity:1; transform:none; } }
+
+    /* 05 — Operator's hand */
+    .oh-list { display:flex; flex-direction:column; gap:12px; margin-top:28px; max-width:760px; }
+    .oh-item { font-family:inherit; text-align:left; color:var(--text-primary); border:1px solid var(--accent-border); border-radius:14px; padding:18px 22px; background:var(--bg-surface); display:grid; grid-template-columns:auto 1fr auto; gap:16px; align-items:start; cursor:pointer; transition:border-color .2s ease; }
+    .oh-item:hover { border-color:rgba(110,45,190,0.4); }
+    .oh-item[aria-expanded="true"] { border-color:var(--accent-light); }
+    .oh-box { width:22px; height:22px; border-radius:6px; border:2px solid rgba(240,238,246,0.3); margin-top:2px; position:relative; }
+    .oh-box::after { content:''; position:absolute; inset:4px; border-radius:2px; background:transparent; }
+    .oh-t { font-weight:650; font-size:0.98rem; margin-bottom:4px; }
+    .oh-s { font-size:0.85rem; color:var(--text-muted); }
+    .oh-d { font-size:0.9rem; color:var(--text-secondary); line-height:1.65; max-height:0; overflow:hidden; transition:max-height .3s ease, margin .3s ease; }
+    .oh-item[aria-expanded="true"] .oh-d { max-height:260px; margin-top:12px; }
+    .oh-needs { font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:4px 10px; border-radius:999px; border:1px solid currentColor; white-space:nowrap; margin-top:2px; }
+    .oh-needs-key { color:#c084fc; } .oh-needs-funds { color:#fbbf24; } .oh-needs-passkey { color:#38bdf8; } .oh-needs-secret { color:#fca5a5; }
+    .oh-foot { margin-top:16px; font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:var(--text-muted); letter-spacing:0.06em; }
+
+    /* 06 — Decision cards */
+    .mem-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:28px; }
+    .mem-card { font-family:inherit; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:16px; padding:24px; cursor:pointer; transition:all 0.3s ease; }
+    .mem-card:hover { border-color:rgba(110,45,190,0.35); transform:translateY(-3px); box-shadow:0 8px 24px rgba(110,45,190,0.08); }
+    .mem-card h4 { font-size:0.98rem; font-weight:700; margin:0 0 8px; display:flex; align-items:center; gap:10px; }
+    .mem-tag { font-family:'JetBrains Mono',monospace; font-size:0.62rem; letter-spacing:0.12em; color:var(--accent-hot); border:1px solid rgba(110,45,190,0.3); padding:2px 8px; border-radius:999px; text-transform:uppercase; white-space:nowrap; }
+    .mem-card p { font-size:0.87rem; color:var(--text-secondary); line-height:1.6; margin:0; }
+    .mem-extra { display:none; margin-top:14px; padding-top:14px; border-top:1px solid var(--accent-border); font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+    .mem-card[aria-expanded="true"] .mem-extra { display:block; }
+    .mem-hint { font-size:0.68rem; color:var(--accent-hot); margin-top:12px; font-weight:600; letter-spacing:0.05em; }
+
+    /* Related + CTA */
+    .tx-related { margin-top:40px; padding-top:22px; border-top:1px solid var(--accent-border); font-size:0.9rem; color:var(--text-muted); line-height:1.7; }
+    .tx-related a { color:var(--accent-light); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    .tx-cta { text-align:center; padding:64px 40px; background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:28px; margin-top:72px; }
+    .tx-cta h2 { font-size:1.6rem; font-weight:700; margin:0 0 12px; }
+    .tx-cta p { color:var(--text-secondary); font-size:0.95rem; margin:0 auto 28px; max-width:520px; line-height:1.7; }
+
+    @media(max-width:900px) {
+      .mod-explorer, .cr-cols, .mem-grid { grid-template-columns:1fr; }
+      .mod-grid { grid-template-columns:1fr 1fr; }
+      .mod-detail { min-height:0; }
     }
-    .stg-page {
-      background: var(--bg-void);
-      color: var(--text-primary);
-      overflow-x: hidden;
+    @media(max-width:640px) {
+      .mod-grid { grid-template-columns:1fr; }
+      .tx-hero { padding:130px 0 56px; }
+      .tx-section { padding:56px 0; }
+      .cr-wrap, .mod-detail { padding:20px; }
+      .oh-item { grid-template-columns:auto 1fr; }
+      .oh-needs { grid-column:2; justify-self:start; }
+      .cr-step { grid-template-columns:18px 1fr; }
+      .cr-verdict { grid-column:2; }
     }
-    .stg-page *, .stg-page *::before, .stg-page *::after {
-      box-sizing: border-box;
+    @media (prefers-reduced-motion: reduce) {
+      .wf-step.reveal-step { animation:none; opacity:1; transform:none; }
+      .dl-card, .mod-node, .mem-card, .oh-d, .cr-step, .dl-chip, .cr-fault { transition:none; }
+      .dl-card:hover, .mod-node:hover, .mem-card:hover { transform:none; }
     }
-    .stg-hero {
-      position: relative;
-      min-height: 94vh;
-      padding: 152px 0 76px;
-      display: grid;
-      align-items: center;
-      overflow: hidden;
-      border-bottom: 1px solid var(--stg-line);
-      background:
-        radial-gradient(circle at 12% 18%, rgba(115, 215, 208, 0.17), transparent 26%),
-        radial-gradient(circle at 88% 22%, rgba(215, 184, 106, 0.18), transparent 27%),
-        radial-gradient(circle at 50% 100%, rgba(156, 139, 255, 0.13), transparent 31%),
-        linear-gradient(145deg, rgba(5, 7, 13, 0.99), rgba(3, 5, 10, 1));
-    }
-    .stg-hero::before {
-      content: "";
-      position: absolute;
-      inset: -20%;
-      opacity: 0.18;
-      background-image:
-        linear-gradient(rgba(246, 242, 233, 0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(246, 242, 233, 0.08) 1px, transparent 1px);
-      background-size: 64px 64px;
-      transform: rotate(5deg);
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.96), transparent 84%);
-    }
-    .stg-hero-grid {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: minmax(0, 1.02fr) minmax(330px, 0.72fr);
-      gap: 44px;
-      align-items: center;
-    }
-    .stg-kicker {
-      display: inline-flex;
-      width: fit-content;
-      align-items: center;
-      gap: 9px;
-      border: 1px solid rgba(115, 215, 208, 0.34);
-      border-radius: 999px;
-      padding: 8px 13px;
-      background: rgba(115, 215, 208, 0.08);
-      color: var(--stg-cyan);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.72rem;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-    .stg-hero h1 {
-      max-width: 960px;
-      margin: 22px 0 24px;
-      font-size: 5.08rem;
-      line-height: 0.96;
-      font-weight: 900;
-      letter-spacing: 0;
-    }
-    .stg-hero-sub {
-      max-width: 850px;
-      color: var(--stg-muted);
-      font-size: 1.08rem;
-      line-height: 1.78;
-    }
-    .stg-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 28px;
-    }
-    .stg-meta span {
-      border: 1px solid var(--stg-line);
-      border-radius: 999px;
-      padding: 9px 12px;
-      background: rgba(13, 15, 24, 0.68);
-      color: var(--text-muted);
-      font-size: 0.75rem;
-      font-weight: 760;
-      text-transform: uppercase;
-    }
-    .stg-gate-card {
-      border: 1px solid rgba(215, 184, 106, 0.27);
-      border-radius: 28px;
-      padding: 26px;
-      background:
-        linear-gradient(135deg, rgba(215, 184, 106, 0.12), transparent 38%),
-        linear-gradient(315deg, rgba(115, 215, 208, 0.1), transparent 44%),
-        var(--stg-panel);
-      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.34);
-    }
-    .stg-gate-card h2 {
-      margin-bottom: 18px;
-      color: var(--stg-gold);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.86rem;
-      text-transform: uppercase;
-    }
-    .stg-gate-stack {
-      display: grid;
-      gap: 12px;
-    }
-    .stg-gate-row {
-      display: grid;
-      grid-template-columns: 54px 1fr;
-      gap: 13px;
-      align-items: start;
-      border: 1px solid var(--stg-line);
-      border-radius: 18px;
-      padding: 15px;
-      background: rgba(6, 8, 14, 0.48);
-    }
-    .stg-gate-row b {
-      display: grid;
-      place-items: center;
-      width: 54px;
-      height: 54px;
-      border-radius: 16px;
-      border: 1px solid rgba(115, 215, 208, 0.28);
-      color: var(--stg-cyan);
-      font-family: "JetBrains Mono", monospace;
-    }
-    .stg-gate-row strong {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--stg-ink);
-    }
-    .stg-gate-row span {
-      color: var(--stg-muted);
-      font-size: 0.88rem;
-      line-height: 1.5;
-    }
-    .stg-section {
-      padding: 82px 0;
-      border-bottom: 1px solid var(--stg-line);
-    }
-    .stg-section-head {
-      max-width: 980px;
-      margin-bottom: 28px;
-    }
-    .stg-section-num {
-      display: block;
-      margin-bottom: 12px;
-      color: var(--stg-gold);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.72rem;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-    .stg-section h2 {
-      font-size: 2.72rem;
-      line-height: 1.04;
-      letter-spacing: 0;
-    }
-    .stg-prose {
-      max-width: 930px;
-      color: var(--stg-muted);
-      font-size: 1.03rem;
-      line-height: 1.85;
-    }
-    .stg-prose p {
-      margin: 0 0 22px;
-    }
-    .stg-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 30px;
-    }
-    .stg-card {
-      border: 1px solid var(--stg-line);
-      border-radius: 8px;
-      padding: 21px;
-      background: var(--stg-panel);
-    }
-    .stg-card strong {
-      display: block;
-      margin-bottom: 9px;
-      color: var(--stg-ink);
-      font-size: 1rem;
-    }
-    .stg-card span {
-      color: var(--stg-muted);
-      line-height: 1.63;
-      font-size: 0.95rem;
-    }
-    .stg-protocol {
-      display: grid;
-      gap: 13px;
-      margin-top: 30px;
-      counter-reset: gate;
-    }
-    .stg-protocol-row {
-      position: relative;
-      display: grid;
-      grid-template-columns: 76px 1fr;
-      gap: 18px;
-      align-items: start;
-      border: 1px solid var(--stg-line);
-      border-radius: 8px;
-      padding: 20px;
-      background: rgba(12, 15, 22, 0.8);
-    }
-    .stg-protocol-row::before {
-      counter-increment: gate;
-      content: counter(gate, decimal-leading-zero);
-      display: grid;
-      place-items: center;
-      width: 54px;
-      height: 54px;
-      border-radius: 17px;
-      border: 1px solid rgba(215, 184, 106, 0.35);
-      color: var(--stg-gold);
-      font-family: "JetBrains Mono", monospace;
-      font-weight: 800;
-    }
-    .stg-protocol-row h3 {
-      margin: 2px 0 8px;
-      color: var(--stg-ink);
-      font-size: 1.14rem;
-    }
-    .stg-protocol-row p {
-      margin: 0;
-      color: var(--stg-muted);
-      line-height: 1.68;
-    }
-    .stg-matrix {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1px;
-      margin-top: 32px;
-      border: 1px solid var(--stg-line);
-      background: var(--stg-line);
-    }
-    .stg-matrix div {
-      min-height: 112px;
-      padding: 16px;
-      background: rgba(10, 12, 19, 0.94);
-    }
-    .stg-matrix b {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--stg-cyan);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.74rem;
-      text-transform: uppercase;
-    }
-    .stg-matrix span {
-      color: var(--stg-muted);
-      font-size: 0.91rem;
-      line-height: 1.54;
-    }
-    .stg-callout {
-      margin-top: 30px;
-      border-left: 3px solid var(--stg-gold);
-      padding: 22px 24px;
-      background: rgba(215, 184, 106, 0.08);
-      color: var(--stg-ink);
-      line-height: 1.75;
-    }
-    .stg-ledger {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 30px;
-    }
-    .stg-ledger-item {
-      border: 1px solid var(--stg-line);
-      border-radius: 8px;
-      padding: 19px;
-      background: var(--stg-panel-strong);
-    }
-    .stg-ledger-item b {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--stg-green);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.78rem;
-      text-transform: uppercase;
-    }
-    .stg-ledger-item span {
-      color: var(--stg-muted);
-      line-height: 1.62;
-    }
-    .stg-final {
-      background:
-        radial-gradient(circle at 12% 10%, rgba(115, 215, 208, 0.1), transparent 24%),
-        radial-gradient(circle at 86% 88%, rgba(215, 184, 106, 0.11), transparent 28%),
-        linear-gradient(180deg, rgba(10, 12, 19, 0.92), rgba(4, 5, 10, 1));
-    }
-    .stg-final-box {
-      border: 1px solid rgba(115, 215, 208, 0.25);
-      border-radius: 8px;
-      padding: 30px;
-      background: rgba(9, 11, 18, 0.78);
-    }
-    .stg-final-box h2 {
-      margin-bottom: 16px;
-    }
-    .stg-final-box p {
-      color: var(--stg-muted);
-      line-height: 1.82;
-      max-width: 920px;
-    }
-    @media (max-width: 980px) {
-      .stg-hero-grid {
-        grid-template-columns: 1fr;
-      }
-      .stg-hero h1 {
-        font-size: 3.65rem;
-      }
-      .stg-grid,
-      .stg-matrix,
-      .stg-ledger {
-        grid-template-columns: 1fr;
-      }
-    }
-    @media (max-width: 620px) {
-      .stg-hero {
-        padding: 126px 0 56px;
-      }
-      .stg-hero h1 {
-        font-size: 2.75rem;
-      }
-      .stg-section h2 {
-        font-size: 2.1rem;
-      }
-      .stg-protocol-row,
-      .stg-gate-row {
-        grid-template-columns: 1fr;
-      }
-      .stg-protocol-row::before {
-        width: 48px;
-        height: 48px;
-      }
-    }
+  
+    .tx-note { max-width:720px; margin:0 auto 0; padding:14px 20px; border-radius:12px; font-size:0.92rem; line-height:1.65; text-align:left; }
+    .tx-note strong { color:var(--text-primary); }
+    .tx-dated { border:1px solid var(--accent-border); background:rgba(110,45,190,0.05); color:var(--text-secondary); margin-top:28px; }
+    .tx-revised { border:1px solid rgba(56,189,248,0.28); background:rgba(56,189,248,0.06); color:var(--text-secondary); margin-top:12px; }
+    .tx-correction { border:1px solid rgba(251,191,36,0.35); background:rgba(251,191,36,0.07); color:var(--text-secondary); margin-top:12px; }
+    .tx-notes { padding:0 0 8px; }
+    .tx-list { margin:0 0 22px; padding-left:22px; }
+    .tx-list li { margin-bottom:8px; }
+    .cr-btn-row { display:flex; flex-wrap:wrap; gap:8px; }
   </style>
 </head>
-<body class="stg-page">
-  <nav id="nav" class="scrolled">
-    <a href="/" class="nav-brand">
-      <span class="nav-glyph">∞</span>
-      <span class="nav-name">unwind<span class="nav-accent">code</span></span>
-    </a>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+<body class="tx-page">
+
+<nav id="nav" class="scrolled">
+    <a href="/" class="nav-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
     <div class="nav-links" id="nav-links">
-      <a href="/#organisms">Organisms</a>
-      <a href="/#architecture">Architecture</a>
-      <a href="/#philosophy">Philosophy</a>
-      <a href="/#vision">Vision</a>
-      <a href="/transmissions" class="active">Transmissions</a>
+      <a href="/" data-i18n="nav.home">Home</a>
+      <a href="/organisms" data-i18n="nav.organisms">Organisms</a>
+      <a href="/architecture" data-i18n="nav.architecture">Architecture</a>
+      <a href="/proof" data-i18n="nav.proof">Proof</a>
+      <a href="/transmissions" class="active" aria-current="page" data-i18n="nav.blog">Transmissions</a>
+      <a href="/philosophy" data-i18n="nav.philosophy">Philosophy</a>
     </div>
     <div class="nav-actions">
-      <a href="/#cta" class="nav-cta">Get in Touch</a>
+      <button id="lang-toggle" class="lang-toggle" aria-label="Switch to Spanish">ES</button>
+      <a href="/build-with-us" class="nav-cta" data-i18n="nav.cta">Build With Us</a>
+      <a href="/proof/ledger" class="nav-ghost">Live ledger</a>
     </div>
   </nav>
 
   <main>
-    <section class="stg-hero">
+    <section class="tx-hero">
       <div class="container">
-        <div class="stg-hero-grid">
-          <div>
-            <span class="stg-kicker">Transmission 031 / Publication Governance</span>
-            <h1>The Active Source-of-Truth Gate</h1>
-            <p class="stg-hero-sub">A living public Brain cannot publish from hope. Before a transmission reaches production, the organism must prove that the active public lane, the local source tree, the archive, the discovery files, the registries, and the API contracts describe the same body.</p>
-            <div class="stg-meta">
-              <span>July 2026</span>
-              <span>Manual Brain Mode</span>
-              <span>Public proof</span>
-              <span>Approval before deploy</span>
+        <div class="tx-hero-kicker"><span class="tx-section-num">TRANSMISSION 031</span></div>
+        <h1>The Active Source-of-Truth<br>Gate</h1>
+        <p class="tx-hero-sub">A site can have a green build and a working route and still be the wrong public body. This note says what was built to catch that, what it checks and does not, what happened in July when the difference showed up, and what is still a design.</p>
+        <div class="tx-hero-meta"><span>July 2026, revised November 2026</span><span>&middot;</span><span>Publication governance</span><span>&middot;</span><span>Check and gap record</span><span>&middot;</span><span>11 min read</span></div>
+        <div class="tx-note tx-dated"><strong>Dated.</strong> The original was written on 1 July 2026 during a manual publication run. This revision describes the website repository as read on 10 November 2026: its checker script, its tests and its history. The live domain was not queried for this revision.</div>
+        <div class="tx-note tx-revised"><strong>Revised 10 November 2026.</strong> The original described a five-organ gate, a twelve-point protocol, a set of failure labels and a Release Identity Controller as though they were a system. This revision separates them: one read-only checker exists; most of the twelve points are covered by its ten checks; two are not; the labels and the controller are designs. It adds the dated history from the repository, a drift model that uses the checker’s real names, and a list of what the checker cannot see. Interactive panels were added.</div>
+        <div class="tx-note tx-correction"><strong>Correction, 10 November 2026.</strong> The June-July text said the gate "stops deployment, aliasing, public posting, and registry mutation until the gate passes". Nothing in the repository connects the checker to a deploy command. The checker is a read-only script that people run; the publication checklist in the repository’s instructions lists it as a step; the decision to deploy is the operator’s. The text also named failure labels (such as a stale lane or a live-ahead state). Those labels are not in the code. The checker reports named checks that pass or fail and says nothing about whether the live site is behind or ahead.</div>
+      </div>
+    </section>
+
+    <div class="container">
+
+      <section class="tx-section" id="thesis">
+        <div class="tx-section-head"><span class="tx-section-num">01</span><h2>Publication is identity transfer</h2></div>
+        <div class="tx-section-label">The idea, and the dated trail behind it</div>
+        <div class="tx-prose">
+          <p>The idea in the original has held up. Writing the next page is not the hard part of publishing. The hard part is knowing that the page is being added to the same public body readers already see. A build can pass and a route can resolve while the domain still points at a different deployment from the tree you are editing. Ready is not current.</p>
+          <p>The original described this as the organism’s sense of its own body in public. That is a metaphor for a check, and the check is more modest than the metaphor: compare what the local source says is the latest published thing with what the public surfaces say, and refuse to proceed on a mismatch. A person still decides to deploy.</p>
+          <p>The repository records what happened around the original. A new homepage built in mid-June sat on a branch and was never merged, so deploys from the main line kept shipping the older one. On 2 July the live site was verified byte-identical to a working tree that had not been committed. On 3 July a commit pinned that exact state so that a rollback point existed. The timeline gives the dated steps and what each one shows about the problem the gate is for.</p>
+        </div>
+        <div class="wf-steps" id="july-steps">
+          <div class="wf-step"><div class="wf-dot wf-dot-1">01</div><h3>15 June 2026 · Built and not merged</h3><p>A new homepage with a pulse console, a visitor pathfinder, an ecosystem map and bilingual boards is built on a branch. According to the 3 July merge message they were never merged, and each deploy from the main line since then kept shipping the older homepage.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-2">02</div><h3>1 July 2026 · The note is written</h3><p>The original of this transmission records a comparison in which the local package was ahead of the public domain. That account is the note’s own record and is not restated here as a measurement.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-3">03</div><h3>2 July 2026 · Live matches an uncommitted tree</h3><p>A later commit message states that the live site was verified byte-identical to the working tree on this day, and that the tree had not been committed: no rollback point existed.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-4">04</div><h3>3 July 2026 · A rollback point, then a merge</h3><p>One commit pins exactly what production was serving. A second merge restores the lab-foundation work and records that production deploy is the owner’s gate.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-5">05</div><h3>14 July 2026 · A defect the checks could not see</h3><p>Two unclosed style blocks from the 3 July merge broke the lower part of the stylesheet. The fix commit says responsive rules and subpage styles were lost in production, and that public addresses pointed at redirecting variants. The checker does not read stylesheets.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-6">06</div><h3>19 July 2026 · The root changes</h3><p>A build step promotes the lab homepage to the root route of the site. The older console is kept at its own route.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-1">07</div><h3>8 November 2026 · The parity test</h3><p>The site test suite pins the newest transmission as number 45 across the status, sitemap, discovery files, archive and homepage, with 459 passing tests at the baseline for this revision.</p></div>
+        </div>
+        <div class="dl-law"><h3>The principle that survives</h3><p>Local proof is not live proof, and live proof is not source proof. A gate should compare them and report the difference. It should not decide which one is right.</p></div>
+      </section>
+
+      <section class="tx-section" id="six-terms">
+        <div class="tx-section-head"><span class="tx-section-num">02</span><h2>Six terms the organism must keep separate</h2></div>
+        <div class="tx-section-label">And what in the repository checks each one</div>
+        <div class="tx-prose">
+          <p>The original defined six terms. They are worth keeping, because most publication failures come from treating two of them as one. The explorer below gives each term and says, for each, what in the repository actually looks at it today. Where the answer is "a person", that is stated.</p>
+        </div>
+        <div class="mod-explorer">
+          <div class="mod-grid" id="terms-grid" role="group" aria-label="Six terms"></div>
+          <div class="mod-detail" id="terms-detail" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="tx-section" id="what-it-checks">
+        <div class="tx-section-head"><span class="tx-section-num">03</span><h2>What the checker actually checks</h2></div>
+        <div class="tx-section-label">The original twelve points, one by one</div>
+        <div class="tx-prose">
+          <p>The original listed twelve questions the protocol should ask before publishing. A read-only checker exists in the repository. It runs ten named checks locally, and in live mode it adds two more, for reachability and for the status contract. In local mode it reads local files and calls the local request handlers for status, search and grounding. In live mode it fetches the live status, sitemap, agent files, archive and homepage and compares them with the local registry.</p>
+          <p>The panel maps the twelve questions to the checker. "Script" means a named check covers it. "Partial" means it is covered in part. "Manual" means no script covers it and a person does it, or does not. The sorting shows that the original protocol was mostly real and mostly small, and that two of its twelve points were never automated.</p>
+        </div>
+        <div class="dl-filters" role="group" aria-label="Filter by coverage" id="twelve-chips"></div>
+        <div class="dl-count" id="twelve-count" aria-live="polite"></div>
+        <div class="dl-grid" id="twelve-grid"></div>
+      </section>
+
+      <section class="tx-section" id="drift-model">
+        <div class="tx-section-head"><span class="tx-section-num">04</span><h2>How drift shows up, in the checker’s own words</h2></div>
+        <div class="tx-section-label">A model using the real check names</div>
+        <div class="tx-prose">
+          <p>The original named a set of failure labels. None of them is in the code. What the code has are named checks that pass or fail, and a short list of states for endpoints that fail closed. Mapping the cases to those names is more honest than keeping the labels.</p>
+          <p>The model runs the live-mode sequence. The left column is a green build: it passes whatever the domain serves. The right column is the checker. Two early failures stop the run and report only themselves. The others are evaluated together and listed. The checker never says "behind" or "ahead". It says which check failed. Working out the reason is a person’s job.</p>
+        </div>
+        <div class="cr-wrap">
+          <div class="cr-top">
+            <span class="cr-label">Live parity run · names from the script</span>
+            <div class="cr-faults" role="group" aria-label="Choose a case" id="drift-faults"></div>
+          </div>
+          <div class="cr-cols">
+            <div class="cr-col">
+              <h3>A green build</h3>
+              <p class="cr-col-sub">It can tell you that the build passed.</p>
+              <ol class="cr-steps" id="drift-raw"></ol>
+            </div>
+            <div class="cr-col">
+              <h3>The checker, in the order it runs</h3>
+              <p class="cr-col-sub">Failures are named; none is explained.</p>
+              <ol class="cr-steps" id="drift-verify"></ol>
             </div>
           </div>
-          <aside class="stg-gate-card" aria-label="Source truth gate overview">
-            <h2>Gate shape</h2>
-            <div class="stg-gate-stack">
-              <div class="stg-gate-row"><b>01</b><div><strong>Live lane</strong><span>The active domain must point at the intended current site, not an older deployment that happens to be ready.</span></div></div>
-              <div class="stg-gate-row"><b>02</b><div><strong>Local source</strong><span>The worktree must contain every public route and registry entry already visible on production.</span></div></div>
-              <div class="stg-gate-row"><b>03</b><div><strong>Discovery truth</strong><span>Homepage, archive, sitemap, LLMS, AI services metadata, and data JSON must all agree.</span></div></div>
-              <div class="stg-gate-row"><b>04</b><div><strong>Mutation boundary</strong><span>Deployment, aliasing, posting, and registry authority stay closed until identity is proven.</span></div></div>
-            </div>
-          </aside>
+          <div class="cr-outcome" id="drift-outcome" aria-live="polite"></div>
+          <p class="cr-note">The names and the order come from the checker script and its tests as of 10 November 2026. Local mode runs the same checks against local files and handlers and records that the live deployment was not verified.</p>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="stg-section" id="thesis">
-      <div class="container">
-        <div class="stg-section-head">
-          <span class="stg-section-num">01 / Thesis</span>
-          <h2>Publication is identity transfer, not file upload.</h2>
+      <section class="tx-section" id="gaps">
+        <div class="tx-section-head"><span class="tx-section-num">05</span><h2>What the checker cannot see</h2></div>
+        <div class="tx-section-label">Gaps, from the record</div>
+        <div class="tx-prose">
+          <p>The honest value of a check list is the list of things it leaves out. Four of them are in the repository’s own history. Open each for what happened and what a fuller gate would have to add.</p>
         </div>
-        <div class="stg-prose">
-          <p>The hardest part of a public cognitive organism is not writing the next page. The hard part is proving that the page is being added to the same public organism readers already trust. A site can have a green build, a valid deployment, and a working route while still being the wrong public lane.</p>
-          <p>The Active Source-of-Truth Gate is the organism's proprioception layer for publication. It asks: where is my body in public? Which deployment is receiving the domain? Which archive does the world see? Which metadata files are visible to crawlers and agents? Which public APIs are able to speak the same registry truth? If those answers diverge, the Brain must not publish. It must stop, name the drift, and reconcile the lane.</p>
-          <p>This is not bureaucracy. It is care. A Brain that can update itself without knowing which body is live will eventually overwrite proof with performance. The gate makes production mutation a reviewed act.</p>
-        </div>
-        <div class="stg-callout"><strong>Transmission decision:</strong> this topic passed the gate because live production verification exposed a split between the active public lane and the newer local transmission registry. The public lesson is larger than the incident: every living site needs a source-of-truth organ before it can safely evolve.</div>
-      </div>
-    </section>
+        <div class="oh-list" id="gaps-list"></div>
+        <div class="oh-foot">Five gaps. None is closed by this note.</div>
+      </section>
 
-    <section class="stg-section" id="why-now">
-      <div class="container">
-        <div class="stg-section-head">
-          <span class="stg-section-num">02 / Ecosystem signal</span>
-          <h2>The system learned that Ready does not mean current.</h2>
+      <section class="tx-section" id="not-claimed">
+        <div class="tx-section-head"><span class="tx-section-num">06</span><h2>What this note does not claim</h2></div>
+        <div class="tx-section-label">Not built, on purpose, or not shown</div>
+        <div class="tx-prose">
+          <p>The original ended on a Release Identity Controller that would assemble a small packet before every public mutation. It remains a design. This section says what else the record does not support.</p>
+          <p>Open the cards for the reasoning. The last two matter most: the gate is not a lock, and it is not the other gate this project talks about.</p>
         </div>
-        <div class="stg-prose">
-          <p>Manual Brain Mode compared the local website package against the active public domain. Locally, the public parity checker recognized Transmission 30 as the latest Brain guide and confirmed the homepage, archive, sitemap, LLMS, AI services metadata, status, search, and grounding contracts agreed. On the active public domain, the alias was still serving an older public lane. The archive exposed older transmission state and internal social packet links, while newer data JSON surfaces were missing.</p>
-          <p>That split matters because readers, search crawlers, and agent clients do not experience our intentions. They experience the active domain. If the local source says the organism has grown but the public alias serves another body, the Brain has a memory problem at publication time.</p>
-          <p>So the next cell is not another content cell. The next cell is a publication identity cell: a gate that proves the organism is about to mutate the correct public body.</p>
-        </div>
-        <div class="stg-grid" aria-label="Why this gate matters">
-          <div class="stg-card"><strong>For readers</strong><span>The newest guide should be findable from the homepage and archive without stale cards or hidden distribution tools.</span></div>
-          <div class="stg-card"><strong>For agents</strong><span>Machine-readable files must cite the same latest route that the visible website promotes.</span></div>
-          <div class="stg-card"><strong>For the Brain</strong><span>Publication memory must distinguish local readiness from live production truth.</span></div>
-        </div>
-      </div>
-    </section>
+        <div class="mem-grid" id="limits-grid"></div>
+        <div class="tx-related">Related: <a href="/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands">Transmission 23, the gate that locks its own hands</a> · <a href="/transmissions/34-the-gate-that-refused-its-own-operator">Transmission 34, the gate that refused its own operator</a> · <a href="/transmissions/36-movement-needs-a-source">Transmission 36, movement needs a source</a></div>
+      </section>
 
-    <section class="stg-section" id="terms">
-      <div class="container">
-        <div class="stg-section-head">
-          <span class="stg-section-num">03 / Definitions</span>
-          <h2>Six terms the organism must keep separate.</h2>
-        </div>
-        <div class="stg-grid">
-          <div class="stg-card"><strong>Local source tree</strong><span>The files in the active worktree. It can pass tests and still not be public.</span></div>
-          <div class="stg-card"><strong>Build artifact</strong><span>The generated deployment output. It can be valid and still not be the active alias.</span></div>
-          <div class="stg-card"><strong>Active public lane</strong><span>The deployment actually receiving `www.unwindcode.ai` traffic at the moment of verification.</span></div>
-          <div class="stg-card"><strong>Discovery surface</strong><span>Homepage, archive, sitemap, LLMS, AI services metadata, and data registries exposed to humans and agents.</span></div>
-          <div class="stg-card"><strong>Contract surface</strong><span>Public APIs that report status, retrieval, grounding, transmission metadata, and asset provenance.</span></div>
-          <div class="stg-card"><strong>Mutation authority</strong><span>The permission to deploy, alias, publish, post, or update public state. It must remain human-gated.</span></div>
-        </div>
+      <div class="tx-cta">
+        <h2>Check the body before you add to it.</h2>
+        <p>If a site can be ready and still wrong, the check that matters is the one that reads what the public actually receives.</p>
+        <a class="btn btn-primary btn-lg" href="/build-with-us"><span>Build With Us</span><span class="btn-arrow">&rarr;</span></a>
       </div>
-    </section>
-
-    <section class="stg-section" id="organism-pattern">
-      <div class="container">
-        <div class="stg-section-head">
-          <span class="stg-section-num">04 / Organism pattern</span>
-          <h2>The source-of-truth cell has five organs.</h2>
-        </div>
-        <div class="stg-protocol">
-          <div class="stg-protocol-row"><div><h3>Identity inspector</h3><p>Reads the active domain and deployment metadata, then records which public lane is actually serving `www.unwindcode.ai`. It treats a ready deployment as one signal, not as final proof.</p></div></div>
-          <div class="stg-protocol-row"><div><h3>Surface comparator</h3><p>Compares live homepage, archive, sitemap, LLMS, AI services metadata, and public data files against the local worktree. The latest transmission must be consistent across all of them.</p></div></div>
-          <div class="stg-protocol-row"><div><h3>Contract verifier</h3><p>Checks public status, search, grounding, transmission, and asset endpoints. Fail-closed API responses are recorded honestly; missing or stale contracts block publication.</p></div></div>
-          <div class="stg-protocol-row"><div><h3>Internal boundary guard</h3><p>Confirms creator-only carousel packets, captions, ZIPs, and ready-to-upload files remain outside public pages, sitemap, LLMS, and visitor-facing CTAs unless a public campaign surface was explicitly approved.</p></div></div>
-          <div class="stg-protocol-row"><div><h3>Approval lock</h3><p>Stops deployment, aliasing, public posting, and registry mutation until the gate passes and the creator gives fresh current-thread approval for the exact production action.</p></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="stg-section" id="protocol">
-      <div class="container">
-        <div class="stg-section-head">
-          <span class="stg-section-num">05 / Protocol</span>
-          <h2>The gate runs before the publish button exists.</h2>
-        </div>
-        <div class="stg-prose">
-          <p>The correct sequence is conservative. First, inspect the active worktree and preserve unrelated local changes. Second, prove local parity across page, archive, data registries, discovery files, and tests. Third, fetch production directly from the active domain. Fourth, inspect the active deployment lane. Fifth, classify every difference before any production mutation.</p>
-        </div>
-        <div class="stg-matrix" aria-label="Active Source of Truth gate checklist">
-          <div><b>Live alias</b><span>Does the active domain point at the intended current project and lane?</span></div>
-          <div><b>Latest route</b><span>Does production expose the same latest transmission the local registry expects?</span></div>
-          <div><b>Homepage</b><span>Does the first public surface promote the same latest guide?</span></div>
-          <div><b>Archive</b><span>Does the transmission library count and order match local truth?</span></div>
-          <div><b>Sitemap</b><span>Does crawler discovery include the new public route and exclude internal packet routes?</span></div>
-          <div><b>LLMS</b><span>Does agent-readable discovery cite the same guide, without creator-only assets?</span></div>
-          <div><b>AI services</b><span>Do service citations and source routes include the latest public registry state?</span></div>
-          <div><b>Data JSON</b><span>Do transmission and asset registries exist and match local public metadata?</span></div>
-          <div><b>Status API</b><span>Does public status report the same latest transmission and registry counts?</span></div>
-          <div><b>Search API</b><span>Does retrieval stay citation-backed, answer-generation disabled, and public-safe?</span></div>
-          <div><b>Grounding API</b><span>Does grounding return citations and refusal-policy scaffolding before any synthesis?</span></div>
-          <div><b>Social boundary</b><span>Are carousel packets still internal creator material, not visitor-facing site controls?</span></div>
-        </div>
-        <div class="stg-callout"><strong>Fail rule:</strong> if any surface is older than local, newer than local, missing, or serving from the wrong lane, the Brain does not deploy. It records a drift memo or local proof package and waits for reconciliation.</div>
-      </div>
-    </section>
-
-    <section class="stg-section" id="failure-modes">
-      <div class="container">
-        <div class="stg-section-head">
-          <span class="stg-section-num">06 / Threat model</span>
-          <h2>Most publication failures are identity failures.</h2>
-        </div>
-        <div class="stg-grid">
-          <div class="stg-card"><strong>Stale lane drift</strong><span>The domain points at an older deployment. New local work may be correct, but public readers see a previous body.</span></div>
-          <div class="stg-card"><strong>Live-ahead drift</strong><span>Production contains a route or metadata entry absent from local. Deploying from local would erase public memory.</span></div>
-          <div class="stg-card"><strong>Discovery split</strong><span>The page exists, but sitemap, LLMS, AI services metadata, or data registries do not cite it.</span></div>
-          <div class="stg-card"><strong>API contract split</strong><span>Static files look current, but status, search, grounding, transmission, or asset endpoints cannot prove the same state.</span></div>
-          <div class="stg-card"><strong>Internal asset leak</strong><span>Creator-only social assets become public navigation, making an internal distribution packet look like visitor documentation.</span></div>
-          <div class="stg-card"><strong>Green build illusion</strong><span>Tests and build pass locally, but nobody checked which public body the alias actually serves.</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="stg-section" id="build-recipe">
-      <div class="container">
-        <div class="stg-section-head">
-          <span class="stg-section-num">07 / Build recipe</span>
-          <h2>How to build the Source Truth Cell.</h2>
-        </div>
-        <div class="stg-protocol">
-          <div class="stg-protocol-row"><div><h3>Create a normalized proof packet</h3><p>Store latest route, transmission number, archive count, metadata file presence, API status, social-boundary result, live deployment lane, and timestamp. Keep the packet public-safe: no credentials, headers, private prompts, or provider internals.</p></div></div>
-          <div class="stg-protocol-row"><div><h3>Compare local and live as separate authorities</h3><p>Local proof is not live proof. Live proof is not source proof. The cell should report both and require them to converge before mutation authority opens.</p></div></div>
-          <div class="stg-protocol-row"><div><h3>Classify failures instead of flattening them</h3><p>Use labels such as `stale_live_lane`, `live_ahead_of_local`, `missing_data_registry`, `public_social_link_exposed`, `api_fail_closed`, and `wrong_project_lane` so the next agent knows whether to hold, reconcile, or ask the creator.</p></div></div>
-          <div class="stg-protocol-row"><div><h3>Connect the gate to deployment commands</h3><p>Deploy, alias, and production mutation commands should require a passing source-truth packet plus explicit human approval. The gate is not advisory decoration; it is the lock before the hand moves.</p></div></div>
-          <div class="stg-protocol-row"><div><h3>Write the result back into memory</h3><p>Every failed gate should become a watch memo. Every passed gate should become a proof ledger entry. That is how the Brain learns publication hygiene as memory, not as a one-time checklist.</p></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="stg-section" id="approval-boundary">
-      <div class="container">
-        <div class="stg-section-head">
-          <span class="stg-section-num">08 / Approval boundary</span>
-          <h2>The Brain may prepare. The creator still publishes.</h2>
-        </div>
-        <div class="stg-prose">
-          <p>The Source Truth Cell does not grant deployment authority. It grants clarity. The Brain can prepare the transmission, generate internal posting assets, compute provenance, run tests, build the site, inspect production, and say whether the gate passed. It cannot infer permission to mutate `www.unwindcode.ai`, switch aliases, push public code, post to social platforms, activate paid media, move money, sign transactions, or rewrite memory that affects public trust.</p>
-          <p>This keeps the Unwind principle intact: money as armor, not god; lower the suffering; increase the clarity; preserve the light. Clarity means the system tells the creator when the site is not the body they think it is. Preservation means it stops before overwriting evidence.</p>
-        </div>
-        <div class="stg-callout">Posting assets for this transmission remain internal creator material. They are not part of the public guide surface unless a separate campaign page is explicitly approved.</div>
-      </div>
-    </section>
-
-    <section class="stg-section" id="proof-ledger">
-      <div class="container">
-        <div class="stg-section-head">
-          <span class="stg-section-num">09 / Proof ledger</span>
-          <h2>What this transmission records.</h2>
-        </div>
-        <div class="stg-ledger">
-          <div class="stg-ledger-item"><b>Manual Brain Mode</b><span>The runtime did not autonomously publish this record. The protocol was manually executed from local and live production evidence.</span></div>
-          <div class="stg-ledger-item"><b>Local source truth</b><span>The local website package had a newer transmission registry and local public parity path than the active public lane.</span></div>
-          <div class="stg-ledger-item"><b>Live drift context</b><span>The active public domain was verified before writing T31 and showed stale-lane behavior. That finding is treated as a hold condition for upload.</span></div>
-          <div class="stg-ledger-item"><b>Skill memory</b><span>The transmission workflow now requires the Active Source-of-Truth Gate before upload, deploy, alias, or production-complete claims.</span></div>
-          <div class="stg-ledger-item"><b>Public metadata</b><span>This page is designed to update the archive, homepage, sitemap, LLMS, AI services metadata, and public transmission registry together in the local package.</span></div>
-          <div class="stg-ledger-item"><b>Internal assets</b><span>The Instagram carousel packet is prepared for creator review only. It is excluded from public discovery surfaces by default.</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="stg-section stg-final" id="next-cell-memory">
-      <div class="container">
-        <div class="stg-final-box">
-          <span class="stg-section-num">10 / Next-cell memory</span>
-          <h2>The next cell is a Release Identity Controller.</h2>
-          <p>The Brain should grow a Release Identity Controller that runs before every public mutation. It should produce a small, inspectable packet: local latest route, live latest route, domain lane, registry counts, discovery agreement, API contract state, internal asset boundary, failure classification, and required human decision. If the packet passes, the creator can approve publication from a place of clarity. If it fails, the Brain holds the line.</p>
-          <p>That is how a site becomes a living organism without becoming reckless. It does not just write. It knows which body it is writing into.</p>
-        </div>
-      </div>
-    </section>
+    </div>
   </main>
 
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand-col">
-          <div class="footer-brand"><span class="nav-glyph">∞</span> unwind<span>code</span></div>
-          <p>Building cognitive organisms for a more human future.</p>
-        </div>
-        <div class="footer-col"><h5>Organisms</h5><a href="/#organisms">Financial</a><a href="/#organisms">Creative</a><a href="/#organisms">Business</a></div>
-        <div class="footer-col"><h5>Learn</h5><a href="/#architecture">Architecture</a><a href="/#philosophy">Philosophy</a><a href="/#vision">Vision 2030</a></div>
-        <div class="footer-col"><h5>Connect</h5><a href="/#cta">Contact</a><a href="/transmissions">Transmissions</a></div>
-      </div>
-      <div class="footer-bottom"><span>© 2026 Unwind Code</span><span>Made with clarity, courage, and code.</span></div>
-    </div>
-  </footer>
+  <footer id="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span><p class="footer-desc">Intelligence that evolves.<br />No claim without a trail.</p></div><div class="footer-col"><h5>Proof</h5><a href="/proof">Proof Register</a><a href="/proof/ledger">Live Ledger</a><a href="/transmissions">Transmissions</a><a href="/architecture">Architecture</a></div><div class="footer-col"><h5>Organisms</h5><a href="/organisms">All Organisms</a><a href="/organisms/financial-organisms">Financial Organisms</a><a href="/organisms/infinity-mirror">Infinity Mirror</a></div><div class="footer-col"><h5>Next</h5><a href="/build-with-us">Build With Us</a><a href="/#cta">Subscribe</a></div></div><div class="footer-bottom"><span>© 2026 Unwind Code. All rights reserved.</span><span class="footer-tagline">The future learns from itself. ∞</span></div></div></footer>
 
-  <script type="module" src="/main.js"></script>
+  <script>
+  (function () {
+    // All data below is static and client-side. Nothing on this page makes a network call.
+    var WIDGETS = [
+ {
+  "type": "explorer",
+  "id": "terms",
+  "aria": "Six terms",
+  "glyph": "TERM",
+  "specsLabel": "What looks at it",
+  "parts": [
+   {
+    "id": "local",
+    "name": "Local source tree",
+    "kind": "Term 1",
+    "short": "The files in the working tree.",
+    "status": "Tests",
+    "desc": "The files in the active tree. It can pass its tests and still not be public.",
+    "specs": [
+     "459 tests at baseline",
+     "Local parity script"
+    ],
+    "proof": "Covered by the test suite and the local run of the checker."
+   },
+   {
+    "id": "build",
+    "name": "Build artifact",
+    "kind": "Term 2",
+    "short": "The generated output.",
+    "status": "Build step",
+    "desc": "The built output of the site. It can be valid and still not be what the domain serves.",
+    "specs": [
+     "One build command",
+     "Post-build steps"
+    ],
+    "proof": "A build that exits cleanly says the output was made. It says nothing about the domain."
+   },
+   {
+    "id": "lane",
+    "name": "Active public lane",
+    "kind": "Term 3",
+    "short": "The deployment receiving the domain.",
+    "status": "A person",
+    "desc": "The deployment that actually receives traffic at the moment of checking. Which project and deployment that is can be read only from the host’s own records.",
+    "specs": [
+     "Host dashboard",
+     "Not scripted"
+    ],
+    "proof": "The checker fetches the domain. It does not read deployment metadata."
+   },
+   {
+    "id": "discovery",
+    "name": "Discovery surface",
+    "kind": "Term 4",
+    "short": "Homepage, archive, sitemap, agent files.",
+    "status": "Checker",
+    "desc": "The homepage, the archive, the sitemap and the files meant for crawlers and agents. They must cite the same latest route.",
+    "specs": [
+     "Five surfaces checked",
+     "Route string match"
+    ],
+    "proof": "The checker looks for the latest route in each one."
+   },
+   {
+    "id": "contract",
+    "name": "Contract surface",
+    "kind": "Term 5",
+    "short": "Status, search and grounding endpoints.",
+    "status": "Checker",
+    "desc": "The public interfaces that report status and serve retrieval. A fail-closed answer is recorded as a named state, not as a crash.",
+    "specs": [
+     "Status",
+     "Search",
+     "Grounding"
+    ],
+    "proof": "The checker uses fixed, public-safe queries only."
+   },
+   {
+    "id": "authority",
+    "name": "Mutation authority",
+    "kind": "Term 6",
+    "short": "Permission to deploy, alias, publish, post.",
+    "status": "The operator",
+    "desc": "The permission to change public state. It stays human. The 3 July merge records that production deploy is the owner’s gate.",
+    "specs": [
+     "Not scripted",
+     "Human decision"
+    ],
+    "proof": "No code grants it. The checker only reports."
+   }
+  ]
+ },
+ {
+  "type": "filter",
+  "id": "twelve",
+  "aria": "Filter by coverage",
+  "states": [
+   {
+    "key": "script",
+    "label": "Script"
+   },
+   {
+    "key": "partial",
+    "label": "Partial"
+   },
+   {
+    "key": "manual",
+    "label": "Manual or not checked"
+   }
+  ],
+  "cards": [
+   {
+    "state": "manual",
+    "name": "1  Live alias",
+    "short": "Does the domain point at the intended project?",
+    "why": "Not scripted. The checker fetches the domain and compares what it receives. It does not read which deployment or project serves it. That is read from the host’s records by a person."
+   },
+   {
+    "state": "script",
+    "name": "2  Latest route",
+    "short": "Does production report the registry’s latest?",
+    "why": "The status check compares the live status’s latest public transmission, number, title, route and review status with the local registry. A difference fails the check."
+   },
+   {
+    "state": "script",
+    "name": "3  Homepage",
+    "short": "Does it promote the same latest guide?",
+    "why": "The homepage check looks for the latest route in the homepage text."
+   },
+   {
+    "state": "partial",
+    "name": "4  Archive",
+    "short": "Count and order match local truth?",
+    "why": "The archive check looks for the latest route. Numbering is checked through the status contract (latest number, published count, gaps). The archive’s own count and card order are not compared."
+   },
+   {
+    "state": "script",
+    "name": "5  Sitemap",
+    "short": "Includes the new route, excludes internal packet routes?",
+    "why": "The sitemap check looks for the latest route. A separate check refuses any link into the creator packet area in the sitemap, the agent file, the archive or the homepage."
+   },
+   {
+    "state": "script",
+    "name": "6  LLMS",
+    "short": "Cites the same guide, without creator-only assets?",
+    "why": "Covered by the latest-route check and by the social-link check."
+   },
+   {
+    "state": "script",
+    "name": "7  AI services",
+    "short": "Do service citations include the latest route?",
+    "why": "The services file is read as text and must contain the latest route."
+   },
+   {
+    "state": "manual",
+    "name": "8  Data JSON",
+    "short": "Do the registries exist live and match?",
+    "why": "Not checked directly. In live mode the checker reads the transmission registry from local disk and compares it with the live status. It does not fetch the live registry file or the live asset registry."
+   },
+   {
+    "state": "script",
+    "name": "9  Status API",
+    "short": "Same latest route and counts?",
+    "why": "Two checks: the latest transmission must match the registry, and the numbering block must match."
+   },
+   {
+    "state": "script",
+    "name": "10  Search API",
+    "short": "Citation-backed, answer generation disabled?",
+    "why": "A fixed public-safe query is sent. The check passes when the contract holds. A 429 or 503 is classified as a fail-closed state for that endpoint."
+   },
+   {
+    "state": "script",
+    "name": "11  Grounding API",
+    "short": "Citations and refusal scaffolding?",
+    "why": "The same approach with a fixed query and its own named check."
+   },
+   {
+    "state": "script",
+    "name": "12  Social boundary",
+    "short": "Are creator packets kept out of public discovery?",
+    "why": "One named check scans the sitemap, the agent file, the archive and the homepage for links into the packet area. It does not cover the transmission pages themselves."
+   }
+  ]
+ },
+ {
+  "type": "model",
+  "id": "drift",
+  "aria": "Choose a case",
+  "label": "Live parity run · names from the script",
+  "leftTitle": "A green build",
+  "leftSub": "It can tell you that the build passed.",
+  "rightTitle": "The checker, in the order it runs",
+  "rightSub": "Failures are named; none is explained.",
+  "rawSteps": [
+   {
+    "t": "Tests pass",
+    "d": "The local suite is green."
+   },
+   {
+    "t": "Build exits cleanly",
+    "d": "The output exists. Which body it joins is not asked."
+   }
+  ],
+  "verifySteps": [
+   {
+    "t": "Live site reachable",
+    "d": "The domain answers a fetch. Otherwise the run ends with a single failed check."
+   },
+   {
+    "t": "Status contract supported",
+    "d": "The live status carries the transmissions block. Otherwise the run ends."
+   },
+   {
+    "t": "Status matches the local registry",
+    "d": "Latest transmission and numbering agree with the registry file."
+   },
+   {
+    "t": "Discovery surfaces cite the latest route",
+    "d": "Sitemap, agent file, services file, archive and homepage."
+   },
+   {
+    "t": "Search and grounding contracts hold",
+    "d": "Fixed public-safe queries; fail-closed responses are classified."
+   },
+   {
+    "t": "No creator packet links",
+    "d": "No link into the packet area in the four discovery texts."
+   }
+  ],
+  "scenarios": [
+   {
+    "key": "ok",
+    "label": "Everything agrees",
+    "fails": [],
+    "rawOk": "PASS",
+    "outcome": "<strong>Success.</strong> The report lists the latest transmission, the numbering and each check as passed. It states in its boundaries whether the live deployment was verified. It says nothing about which deployment serves the domain."
+   },
+   {
+    "key": "down",
+    "label": "Live site unreachable",
+    "fails": [
+     0
+    ],
+    "rawBlind": "PASS · BLIND",
+    "failLabel": "UNREACHABLE",
+    "outcome": "<strong>One failed check, run ends.</strong> The report names the fetch failure with a safe error code and sets live deployment verified to false. Nothing else is evaluated."
+   },
+   {
+    "key": "old",
+    "label": "Older status contract",
+    "fails": [
+     1
+    ],
+    "rawBlind": "PASS · BLIND",
+    "failLabel": "UNSUPPORTED",
+    "outcome": "<strong>One failed check, run ends.</strong> A live status without the transmissions block is reported as an unsupported contract. This is how a much older lane would first show."
+   },
+   {
+    "key": "mismatch",
+    "label": "Status differs from the registry",
+    "fails": [
+     2
+    ],
+    "runAll": true,
+    "rawBlind": "PASS · BLIND",
+    "failLabel": "MISMATCH",
+    "outcome": "<strong>Mismatch reported.</strong> Live behind or live ahead looks the same to the checker: the latest route, or the numbering, does not equal the registry. The report cannot tell which side is newer. A person reads both."
+   },
+   {
+    "key": "lag",
+    "label": "A discovery file lags",
+    "fails": [
+     3
+    ],
+    "runAll": true,
+    "rawBlind": "PASS · BLIND",
+    "failLabel": "LATEST ROUTE MISSING",
+    "outcome": "<strong>Named per surface.</strong> The sitemap, the agent file, the services file, the archive or the homepage does not contain the latest route, and each is its own failed check."
+   },
+   {
+    "key": "closed",
+    "label": "Search fails closed (429 or 503)",
+    "fails": [
+     4
+    ],
+    "runAll": true,
+    "rawBlind": "PASS · BLIND",
+    "failLabel": "FAIL-CLOSED",
+    "outcome": "<strong>Classified, not generic.</strong> A rate-limit or unavailable response from search or grounding is reported as an endpoint-specific fail-closed state with a safe status code. It is not reported as a general deployment failure."
+   },
+   {
+    "key": "social",
+    "label": "A packet link in a public file",
+    "fails": [
+     5
+    ],
+    "runAll": true,
+    "rawBlind": "PASS · BLIND",
+    "failLabel": "LINK FOUND",
+    "outcome": "<strong>One failed check.</strong> A link into the creator packet area in the sitemap, agent file, archive or homepage fails the boundary check."
+   }
+  ]
+ },
+ {
+  "type": "list",
+  "id": "gaps",
+  "foot": "Five gaps. None is closed by this note.",
+  "items": [
+   {
+    "t": "The stylesheet",
+    "s": "Broken in production, found on 14 July.",
+    "tag": "gap",
+    "cls": "funds",
+    "d": "Two unclosed style blocks from the 3 July merge disabled the lower part of the stylesheet. The fix message says responsive rules and subpage styles were lost in production and mobile layouts were broken sitewide. The checker compares routes and contracts. It does not render or read styles. Whether it would be right for a gate to do so is a design question for the operator."
+   },
+   {
+    "t": "The alias and the project",
+    "s": "Which deployment serves the domain.",
+    "tag": "manual",
+    "cls": "passkey",
+    "d": "The checker fetches the public domain, so it sees what the domain serves but not which deployment serves it. The two usually agree, which is why the gap is easy to forget."
+   },
+   {
+    "t": "The uncommitted tree",
+    "s": "Deployed with no rollback point.",
+    "tag": "process",
+    "cls": "key",
+    "d": "On 2 July the live site matched a tree that was not committed. The repository’s publication checklist now ends with \"ALWAYS commit before deploying\". It is a written rule that a person follows. No code enforces it."
+   },
+   {
+    "t": "The live registry files",
+    "s": "Read from local disk.",
+    "tag": "gap",
+    "cls": "funds",
+    "d": "In live mode the checker compares live surfaces with the local registry file. It does not fetch the live registry or asset files, so a stale public data file would be seen only through the status contract."
+   },
+   {
+    "t": "Creator packets",
+    "s": "Two exceptions by configuration.",
+    "tag": "exception",
+    "cls": "secret",
+    "d": "The social-link check covers four discovery texts. The build configuration publishes two packets, for transmissions 25 and 27, and the transmission pages that carry them link to them. The default boundary this note described is therefore not absolute. Whether the two exceptions should stand is the operator’s decision."
+   }
+  ]
+ },
+ {
+  "type": "cards",
+  "id": "limits",
+  "items": [
+   {
+    "tag": "not built",
+    "title": "A Release Identity Controller",
+    "desc": "A packet before every mutation.",
+    "extra": "The design describes a controller that produces a normalized proof packet and a required human decision. No such controller exists. The checker prints a report. It does not store a packet or require a decision."
+   },
+   {
+    "tag": "not built",
+    "title": "Failure labels",
+    "desc": "Named drift states.",
+    "extra": "Labels such as a stale lane or a live-ahead state are not in the code. The checker reports named checks and a few endpoint states. A person classifies a drift."
+   },
+   {
+    "tag": "not claimed",
+    "title": "That the live site matches the repository",
+    "desc": "Not checked.",
+    "extra": "No network call was made for this revision. The checker exists and has a live mode. Running it is the operator’s call."
+   },
+   {
+    "tag": "not claimed",
+    "title": "That the checker locks deployment",
+    "desc": "It only reports.",
+    "extra": "Nothing connects it to a deploy, alias or publish command. The decision to deploy is the operator’s, and the repository records that production deploy is the owner’s gate."
+   },
+   {
+    "tag": "not claimed",
+    "title": "That it covers appearance or function",
+    "desc": "It reads routes and contracts.",
+    "extra": "A broken stylesheet and a broken widget pass every check. Passing means the surfaces agree about the latest page."
+   },
+   {
+    "tag": "not this gate",
+    "title": "The custody gate",
+    "desc": "A different system.",
+    "extra": "This note is about checking the website before publishing. The gate that governs the organism’s own actions is a separate system described in other transmissions, and nothing here describes it."
+   }
+  ]
+ }
+];
+
+    function el(id) { return document.getElementById(id); }
+    var LETTERS = ['a', 'b', 'c', 'd', 'e', 'f'];
+
+    function initFilter(w) {
+      var chips = el(w.id + '-chips'), grid = el(w.id + '-grid'), count = el(w.id + '-count');
+      var keys = w.states.map(function (s) { return s.key; });
+      var all = document.createElement('button');
+      all.type = 'button'; all.className = 'dl-chip'; all.setAttribute('data-state', 'all'); all.setAttribute('aria-pressed', 'true'); all.textContent = 'All';
+      chips.appendChild(all);
+      w.states.forEach(function (s, i) {
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'dl-chip dl-chip-' + LETTERS[i % 6]; b.setAttribute('data-state', s.key); b.setAttribute('aria-pressed', 'false'); b.textContent = s.label;
+        chips.appendChild(b);
+      });
+      w.cards.forEach(function (c) {
+        var idx = keys.indexOf(c.state); var L = LETTERS[(idx < 0 ? 0 : idx) % 6];
+        var card = document.createElement('button');
+        card.type = 'button'; card.className = 'dl-card'; card.setAttribute('data-state', c.state); card.setAttribute('aria-expanded', 'false');
+        card.innerHTML = '<span class="dl-state dl-state-' + L + '">' + w.states[idx < 0 ? 0 : idx].label + '</span><div class="dl-name">' + c.name + '</div><div class="dl-short">' + c.short + '</div><div class="dl-why">' + c.why + '</div><div class="dl-hint">Detail \u2193</div>';
+        card.addEventListener('click', function () {
+          var open = card.getAttribute('aria-expanded') === 'true';
+          card.setAttribute('aria-expanded', open ? 'false' : 'true');
+          card.querySelector('.dl-hint').textContent = open ? 'Detail \u2193' : 'Close \u2191';
+        });
+        grid.appendChild(card);
+      });
+      function apply(state) {
+        var shown = 0;
+        grid.querySelectorAll('.dl-card').forEach(function (card) {
+          var match = state === 'all' || card.getAttribute('data-state') === state;
+          if (match) { card.removeAttribute('hidden'); shown += 1; } else { card.setAttribute('hidden', ''); }
+        });
+        count.textContent = shown + ' of ' + w.cards.length + ' shown';
+      }
+      chips.querySelectorAll('.dl-chip').forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          chips.querySelectorAll('.dl-chip').forEach(function (o) { o.setAttribute('aria-pressed', 'false'); });
+          chip.setAttribute('aria-pressed', 'true');
+          apply(chip.getAttribute('data-state'));
+        });
+      });
+      apply('all');
+    }
+
+    function initExplorer(w) {
+      var grid = el(w.id + '-grid'), detail = el(w.id + '-detail'); var buttons = [];
+      function show(p) {
+        buttons.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-id') === p.id ? 'true' : 'false'); });
+        detail.innerHTML = '<div class="mod-detail-title">' + p.name + '</div><span class="mod-detail-type">' + p.kind + '</span><p class="mod-detail-desc">' + p.desc + '</p><div class="mod-specs-label">' + w.specsLabel + '</div><div class="mod-specs">' + p.specs.map(function (s) { return '<span class="mod-spec">' + s + '</span>'; }).join('') + '</div><div class="mod-proof"><strong>' + p.status + '</strong> \u00b7 ' + p.proof + '</div>';
+      }
+      w.parts.forEach(function (p) {
+        var btn = document.createElement('button');
+        btn.type = 'button'; btn.className = 'mod-node'; btn.setAttribute('data-id', p.id); btn.setAttribute('aria-pressed', 'false');
+        btn.innerHTML = '<span class="mod-glyph">' + w.glyph + '</span><div class="mod-name">' + p.name + '</div><div class="mod-path">' + p.short + '</div><div class="mod-score">' + p.status + '</div>';
+        btn.addEventListener('click', function () { show(p); });
+        grid.appendChild(btn); buttons.push(btn);
+      });
+      show(w.parts[0]);
+    }
+
+    function initModel(w) {
+      var faults = el(w.id + '-faults'), raw = el(w.id + '-raw'), verify = el(w.id + '-verify'), outcome = el(w.id + '-outcome');
+      function step(n, s, cls, verdict) {
+        var li = document.createElement('li'); li.className = 'cr-step ' + cls;
+        li.innerHTML = '<span class="cr-step-n">' + n + '</span><span><span class="cr-step-t">' + s.t + '</span><span class="cr-step-d">' + s.d + '</span></span><span class="cr-verdict">' + verdict + '</span>';
+        return li;
+      }
+      function run(sc) {
+        var fails = sc.fails || (sc.failAt >= 0 ? [sc.failAt] : []);
+        var first = fails.length ? Math.min.apply(null, fails) : -1;
+        raw.innerHTML = '';
+        w.rawSteps.forEach(function (s, i) { raw.appendChild(step('0' + (i + 1), s, first < 0 ? 'pass' : 'blind', first < 0 ? sc.rawOk : sc.rawBlind)); });
+        verify.innerHTML = '';
+        w.verifySteps.forEach(function (s, i) {
+          var cls = 'pass', v = sc.okLabel || 'OK';
+          if (fails.indexOf(i) >= 0) { cls = 'fail'; v = sc.failLabel || 'REFUSED'; }
+          else if (!sc.runAll && first >= 0 && i > first) { cls = 'skip'; v = 'NOT REACHED'; }
+          verify.appendChild(step('0' + (i + 1), s, cls, v));
+        });
+        outcome.className = 'cr-outcome ' + (first < 0 ? 'clean' : 'refused');
+        outcome.innerHTML = sc.outcome;
+      }
+      w.scenarios.forEach(function (sc, i) {
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'cr-fault' + (i === 0 ? ' cr-fault-reset' : ''); b.setAttribute('data-key', sc.key); b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false'); b.textContent = sc.label;
+        b.addEventListener('click', function () {
+          faults.querySelectorAll('.cr-fault').forEach(function (o) { o.setAttribute('aria-pressed', 'false'); });
+          b.setAttribute('aria-pressed', 'true'); run(sc);
+        });
+        faults.appendChild(b);
+      });
+      run(w.scenarios[0]);
+    }
+
+    function initList(w) {
+      var list = el(w.id + '-list');
+      w.items.forEach(function (h) {
+        var item = document.createElement('button');
+        item.type = 'button'; item.className = 'oh-item'; item.setAttribute('aria-expanded', 'false');
+        item.innerHTML = '<span class="oh-box" aria-hidden="true"></span><span><span class="oh-t">' + h.t + '</span><span class="oh-s">' + h.s + '</span><span class="oh-d">' + h.d + '</span></span><span class="oh-needs oh-needs-' + h.cls + '">' + h.tag + '</span>';
+        item.addEventListener('click', function () { item.setAttribute('aria-expanded', item.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'); });
+        list.appendChild(item);
+      });
+    }
+
+    function initCards(w) {
+      var grid = el(w.id + '-grid');
+      w.items.forEach(function (l) {
+        var card = document.createElement('button');
+        card.type = 'button'; card.className = 'mem-card'; card.setAttribute('aria-expanded', 'false');
+        card.innerHTML = '<h4><span class="mem-tag">' + l.tag + '</span>' + l.title + '</h4><p>' + l.desc + '</p><div class="mem-extra">' + l.extra + '</div><div class="mem-hint">Click to expand \u2193</div>';
+        card.addEventListener('click', function () {
+          var open = card.getAttribute('aria-expanded') === 'true';
+          card.setAttribute('aria-expanded', open ? 'false' : 'true');
+          card.querySelector('.mem-hint').textContent = open ? 'Click to expand \u2193' : 'Click to collapse \u2191';
+        });
+        grid.appendChild(card);
+      });
+    }
+
+    var INIT = { filter: initFilter, explorer: initExplorer, model: initModel, list: initList, cards: initCards };
+    WIDGETS.forEach(function (w) { if (INIT[w.type]) INIT[w.type](w); });
+
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.querySelectorAll('.wf-steps').forEach(function (wf) {
+      if (!reduce && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { wf.querySelectorAll('.wf-step').forEach(function (s) { s.classList.add('reveal-step'); }); io.disconnect(); }
+          });
+        }, { threshold: 0.15 });
+        io.observe(wf);
+      }
+    });
+  })();
+  </script>
+  <script type="module" src="/main.js?v=20260615-system-state"></script>
 </body>
 </html>
