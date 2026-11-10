@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Transmission 05: The Infinity Mirror - Personal Intelligence | Unwind Code</title>
-  <meta name="description" content="One of the earliest realizations in the Unwind Lab was the concept of Identity Drift." />
+  <title>Transmission 05: The Infinity Mirror: Personal Intelligence | Unwind Code</title>
+  <meta name="description" content="An April 2026 note described the Infinity Mirror as a mobile coach with identity profiles, growth trees and flawless recall. Nine claims checked: a coaching cell and an unreleased app structure exist, the rest was a design, and the charter forbids flattery and diagnosis." />
   <meta name="theme-color" content="#06060c" />
   <link rel="canonical" href="https://www.unwindcode.ai/transmissions/05-infinity-mirror" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Transmission 05: The Infinity Mirror - Personal Intelligence | Unwind Code" />
-  <meta property="og:description" content="One of the earliest realizations in the Unwind Lab was the concept of Identity Drift." />
+  <meta property="og:title" content="The Infinity Mirror: Personal Intelligence" />
+  <meta property="og:description" content="Nine claims about a personal-intelligence app, checked: a cell and an unfinished app exist, and most of the promised features do not." />
   <meta property="og:url" content="https://www.unwindcode.ai/transmissions/05-infinity-mirror" />
   <meta property="og:site_name" content="Unwind Code" />
   <meta property="og:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
@@ -18,121 +18,566 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Transmission 05: The Infinity Mirror - Personal Intelligence | Unwind Code" />
-  <meta name="twitter:description" content="One of the earliest realizations in the Unwind Lab was the concept of Identity Drift." />
+  <meta name="twitter:title" content="The Infinity Mirror: Personal Intelligence" />
+  <meta name="twitter:description" content="Nine claims about a personal-intelligence app, checked: a cell and an unfinished app exist, and most of the promised features do not." />
   <meta name="twitter:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
   <meta name="twitter:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/style.css" />
-</head>
-<body class="transmission-body">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Infinity Mirror: Personal Intelligence",
+    "description": "A revised note: nine claims about the Infinity Mirror checked against code, a roadmap and a charter, with an honest status of what is built, partial and not built.",
+    "author": {
+      "@type": "Organization",
+      "name": "Unwind Code"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Unwind Code",
+      "url": "https://www.unwindcode.ai"
+    },
+    "datePublished": "2026-04",
+    "dateModified": "2026-11-10",
+    "keywords": [
+      "Infinity Mirror",
+      "reflection",
+      "personal intelligence",
+      "charter",
+      "claim ledger"
+    ],
+    "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/05-infinity-mirror"
+  }
+  </script>
+  <style>
+    .tx-page { background: var(--bg-void); color: var(--text-primary); }
+    .tx-page *, .tx-page *::before, .tx-page *::after { box-sizing: border-box; }
+    .tx-hero { padding: 160px 0 72px; text-align: center; position: relative; overflow: hidden; }
+    .tx-hero::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:800px; height:800px; background:radial-gradient(circle, rgba(110,45,190,0.12) 0%, transparent 60%); pointer-events:none; }
+    .tx-hero-kicker { margin-bottom:16px; }
+    .tx-hero h1 { font-size:clamp(2.2rem,5vw,3.5rem); font-weight:800; letter-spacing:-0.04em; line-height:1.08; margin:0 0 20px; }
+    .tx-hero-sub { font-size:1.08rem; color:var(--text-secondary); max-width:660px; margin:0 auto; line-height:1.7; }
+    .tx-hero-meta { margin-top:28px; display:flex; justify-content:center; gap:14px; font-size:0.76rem; color:var(--text-muted); font-weight:600; letter-spacing:0.06em; text-transform:uppercase; flex-wrap:wrap; }
+    .tx-section { padding:72px 0; border-top:1px solid var(--accent-border); }
+    .tx-section:first-of-type { border-top:none; padding-top:24px; }
+    .tx-section-head { display:flex; align-items:center; gap:16px; margin-bottom:10px; }
+    .tx-section-num { font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:700; color:var(--accent-hot); letter-spacing:0.15em; }
+    .tx-section h2 { font-size:clamp(1.5rem,3vw,2rem); font-weight:700; letter-spacing:-0.02em; margin:0; }
+    .tx-section-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:24px; }
+    .tx-prose { font-size:1.04rem; color:var(--text-secondary); line-height:1.8; max-width:720px; }
+    .tx-prose p { margin:0 0 22px; }
+    .tx-prose strong { color:var(--text-primary); font-weight:600; }
+    .tx-prose code, .tx-prose-code { font-family:'JetBrains Mono',monospace; font-size:0.84rem; background:rgba(110,45,190,0.1); color:var(--accent-light); padding:2px 6px; border-radius:4px; }
+    .tx-prose a, .tx-inline { color:var(--accent-light); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    .tx-quote { border-left:3px solid var(--accent); padding:18px 24px; margin:36px 0; background:rgba(110,45,190,0.05); border-radius:0 12px 12px 0; color:var(--text-primary); font-size:1.08rem; line-height:1.6; font-weight:500; max-width:720px; }
+    .tx-after { margin-top:36px; }
 
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- NAV (Dark Chrome) -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <nav id="nav">
-    <a href="/" class="nav-brand">
-      <span class="nav-glyph">∞</span>
-      <span class="nav-name">unwind<span class="nav-accent">code</span></span>
-    </a>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+    /* 01 — State filter */
+    .dl-filters { display:flex; flex-wrap:wrap; gap:10px; margin:28px 0 18px; }
+    .dl-chip { font-family:inherit; font-size:0.78rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:9px 16px; border-radius:999px; border:1px solid var(--accent-border); background:var(--bg-surface); color:var(--text-secondary); cursor:pointer; transition:border-color .2s ease, color .2s ease, background .2s ease; }
+    .dl-chip:hover { border-color:rgba(110,45,190,0.4); color:var(--text-primary); }
+    .dl-chip[aria-pressed="true"] { background:rgba(110,45,190,0.16); border-color:var(--accent-light); color:var(--text-primary); }
+    .dl-chip-a[aria-pressed="true"] { border-color:#c084fc; }
+    .dl-chip-b[aria-pressed="true"] { border-color:#38bdf8; }
+    .dl-chip-c[aria-pressed="true"] { border-color:#fbbf24; }
+    .dl-chip-d[aria-pressed="true"] { border-color:#10b981; }
+    .dl-chip-e[aria-pressed="true"] { border-color:#f59e0b; }
+    .dl-chip-f[aria-pressed="true"] { border-color:#f87171; }
+    .dl-count { font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:var(--text-muted); margin-bottom:16px; letter-spacing:0.06em; }
+    .dl-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:12px; }
+    .dl-card { font-family:inherit; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:18px; cursor:pointer; transition:border-color .25s ease, transform .25s ease, opacity .25s ease; }
+    .dl-card:hover { transform:translateY(-2px); border-color:rgba(110,45,190,0.4); }
+    .dl-card[hidden] { display:none; }
+    .dl-state { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.12em; padding:3px 9px; border-radius:999px; border:1px solid currentColor; margin-bottom:10px; }
+    .dl-state-a { color:#c084fc; } .dl-state-b { color:#38bdf8; } .dl-state-c { color:#fbbf24; }
+    .dl-state-d { color:#10b981; } .dl-state-e { color:#f59e0b; } .dl-state-f { color:#f87171; }
+    .dl-name { font-weight:700; font-size:0.96rem; margin-bottom:4px; }
+    .dl-short { font-size:0.84rem; color:var(--text-secondary); line-height:1.55; }
+    .dl-why { display:none; margin-top:12px; padding-top:12px; border-top:1px solid var(--accent-border); font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+    .dl-card[aria-expanded="true"] .dl-why { display:block; }
+    .dl-hint { font-size:0.68rem; color:var(--accent-hot); margin-top:10px; font-weight:600; letter-spacing:0.05em; }
+    .dl-law { margin-top:32px; border:1px solid rgba(251,191,36,0.28); border-radius:16px; padding:24px 28px; background:linear-gradient(180deg,rgba(251,191,36,0.07),rgba(251,191,36,0.015)); max-width:720px; }
+    .dl-law h3 { margin:0 0 10px; font-size:1rem; color:#fbbf24; }
+    .dl-law p { margin:0; font-size:0.95rem; color:var(--text-secondary); line-height:1.7; }
+
+    /* 02 — Component explorer */
+    .mod-explorer { display:grid; grid-template-columns:1fr 1.25fr; gap:24px; margin-top:32px; }
+    .mod-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; align-content:start; }
+    .mod-node { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:20px; cursor:pointer; transition:all 0.25s ease; text-align:left; font-family:inherit; color:var(--text-primary); }
+    .mod-node:hover, .mod-node[aria-pressed="true"] { border-color:rgba(110,45,190,0.45); transform:translateY(-2px); box-shadow:0 8px 24px rgba(110,45,190,0.1); }
+    .mod-node[aria-pressed="true"] { background:rgba(110,45,190,0.08); }
+    .mod-glyph { font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--accent-hot); letter-spacing:0.14em; margin-bottom:10px; display:block; }
+    .mod-name { font-weight:700; font-size:1.02rem; font-family:'JetBrains Mono',monospace; }
+    .mod-path { font-size:0.78rem; color:var(--text-muted); margin-top:6px; line-height:1.4; }
+    .mod-score { margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:#34d399; }
+    .mod-detail { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:20px; padding:32px; min-height:420px; }
+    .mod-detail-title { font-size:1.4rem; font-weight:700; margin-bottom:8px; font-family:'JetBrains Mono',monospace; }
+    .mod-detail-type { display:inline-block; font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent-hot); background:rgba(110,45,190,0.12); border:1px solid rgba(110,45,190,0.2); padding:4px 12px; border-radius:20px; margin-bottom:20px; }
+    .mod-detail-desc { color:var(--text-secondary); line-height:1.7; font-size:0.95rem; margin-bottom:22px; }
+    .mod-specs-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:10px; }
+    .mod-specs { display:flex; flex-wrap:wrap; gap:8px; }
+    .mod-spec { background:rgba(110,45,190,0.08); border:1px solid var(--accent-border); color:var(--accent-light); padding:6px 14px; border-radius:20px; font-size:0.8rem; font-weight:500; }
+    .mod-proof { margin-top:22px; padding-top:18px; border-top:1px solid var(--accent-border); font-size:0.84rem; color:var(--text-muted); line-height:1.6; }
+    .mod-proof strong { color:#34d399; font-family:'JetBrains Mono',monospace; font-weight:600; }
+
+    /* 03 — Baseline model */
+    .cr-wrap { margin-top:28px; border:1px solid rgba(56,189,248,0.22); border-radius:20px; padding:28px; background:linear-gradient(180deg,rgba(56,189,248,0.06),rgba(56,189,248,0.01)); }
+    .cr-top { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; }
+    .cr-label { font-family:'JetBrains Mono',monospace; font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:#38bdf8; }
+    .cr-faults { display:flex; flex-wrap:wrap; gap:8px; }
+    .cr-fault { font-family:inherit; font-size:0.76rem; font-weight:700; padding:8px 14px; border-radius:999px; border:1px solid var(--accent-border); background:var(--bg-surface); color:var(--text-secondary); cursor:pointer; transition:border-color .2s ease, color .2s ease; }
+    .cr-fault:hover { color:var(--text-primary); border-color:rgba(248,113,113,0.5); }
+    .cr-fault[aria-pressed="true"] { color:#fca5a5; border-color:#f87171; background:rgba(248,113,113,0.1); }
+    .cr-fault-reset[aria-pressed="true"] { color:#34d399; border-color:#10b981; background:rgba(16,185,129,0.1); }
+    .cr-cols { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .cr-col { border:1px solid var(--accent-border); border-radius:14px; padding:18px; background:rgba(0,0,0,0.22); }
+    .cr-col h3 { margin:0 0 4px; font-size:0.98rem; }
+    .cr-col-sub { font-size:0.78rem; color:var(--text-muted); margin:0 0 14px; line-height:1.5; }
+    .cr-steps { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
+    .cr-step { display:grid; grid-template-columns:22px 1fr auto; gap:10px; align-items:start; padding:10px 12px; border-radius:10px; border:1px solid var(--accent-border); font-size:0.84rem; line-height:1.5; color:var(--text-secondary); transition:border-color .2s ease, background .2s ease; }
+    .cr-step-n { font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--text-muted); padding-top:3px; }
+    .cr-step-t { color:var(--text-primary); font-weight:600; display:block; }
+    .cr-step-d { display:block; font-size:0.78rem; color:var(--text-muted); margin-top:2px; }
+    .cr-verdict { font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:700; letter-spacing:0.08em; padding-top:3px; white-space:nowrap; }
+    .cr-step.pass { border-color:rgba(16,185,129,0.35); } .cr-step.pass .cr-verdict { color:#34d399; }
+    .cr-step.fail { border-color:#f87171; background:rgba(248,113,113,0.08); } .cr-step.fail .cr-verdict { color:#fca5a5; }
+    .cr-step.skip { opacity:0.42; } .cr-step.skip .cr-verdict { color:var(--text-muted); }
+    .cr-step.blind { border-color:rgba(251,191,36,0.3); } .cr-step.blind .cr-verdict { color:#fbbf24; }
+    .cr-outcome { margin-top:16px; border-radius:12px; padding:14px 16px; font-size:0.9rem; line-height:1.6; border:1px solid var(--accent-border); background:rgba(0,0,0,0.22); color:var(--text-secondary); }
+    .cr-outcome strong { color:var(--text-primary); }
+    .cr-outcome.refused { border-color:rgba(248,113,113,0.4); }
+    .cr-outcome.clean { border-color:rgba(16,185,129,0.35); }
+    .cr-note { margin:14px 0 0; font-size:0.8rem; color:var(--text-muted); line-height:1.6; }
+
+    /* 04 — Timeline */
+    .wf-steps { position:relative; margin-top:32px; padding-left:40px; max-width:760px; }
+    .wf-steps::before { content:''; position:absolute; left:19px; top:0; bottom:0; width:2px; background:var(--accent-border); }
+    .wf-step { position:relative; margin-bottom:40px; }
+    .wf-step:last-child { margin-bottom:0; }
+    .wf-dot { position:absolute; left:-40px; top:0; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:800; z-index:2; font-family:'JetBrains Mono',monospace; }
+    .wf-dot-1 { background:rgba(110,45,190,0.15); color:var(--accent-light); border:2px solid var(--accent); }
+    .wf-dot-2 { background:rgba(79,70,229,0.15); color:#818cf8; border:2px solid #6366f1; }
+    .wf-dot-3 { background:rgba(14,165,233,0.15); color:#38bdf8; border:2px solid #0ea5e9; }
+    .wf-dot-4 { background:rgba(16,185,129,0.15); color:#34d399; border:2px solid #10b981; }
+    .wf-dot-5 { background:rgba(245,158,11,0.15); color:#fbbf24; border:2px solid #f59e0b; }
+    .wf-dot-6 { background:rgba(248,113,113,0.15); color:#fca5a5; border:2px solid #f87171; }
+    .wf-step h3 { font-size:1.06rem; font-weight:700; margin:0 0 6px; padding-top:8px; }
+    .wf-step p { font-size:0.92rem; color:var(--text-secondary); line-height:1.65; margin:0; }
+    .wf-step code { font-family:'JetBrains Mono',monospace; font-size:0.8rem; background:rgba(110,45,190,0.1); color:var(--accent-light); padding:2px 6px; border-radius:4px; }
+    .wf-step.reveal-step { opacity:0; transform:translateY(10px); animation:wfIn .6s ease forwards; }
+    .wf-step.reveal-step:nth-child(1){animation-delay:.05s}.wf-step.reveal-step:nth-child(2){animation-delay:.15s}.wf-step.reveal-step:nth-child(3){animation-delay:.25s}.wf-step.reveal-step:nth-child(4){animation-delay:.35s}.wf-step.reveal-step:nth-child(5){animation-delay:.45s}.wf-step.reveal-step:nth-child(6){animation-delay:.55s}
+    @keyframes wfIn { to { opacity:1; transform:none; } }
+
+    /* 05 — Operator's hand */
+    .oh-list { display:flex; flex-direction:column; gap:12px; margin-top:28px; max-width:760px; }
+    .oh-item { font-family:inherit; text-align:left; color:var(--text-primary); border:1px solid var(--accent-border); border-radius:14px; padding:18px 22px; background:var(--bg-surface); display:grid; grid-template-columns:auto 1fr auto; gap:16px; align-items:start; cursor:pointer; transition:border-color .2s ease; }
+    .oh-item:hover { border-color:rgba(110,45,190,0.4); }
+    .oh-item[aria-expanded="true"] { border-color:var(--accent-light); }
+    .oh-box { width:22px; height:22px; border-radius:6px; border:2px solid rgba(240,238,246,0.3); margin-top:2px; position:relative; }
+    .oh-box::after { content:''; position:absolute; inset:4px; border-radius:2px; background:transparent; }
+    .oh-t { font-weight:650; font-size:0.98rem; margin-bottom:4px; }
+    .oh-s { font-size:0.85rem; color:var(--text-muted); }
+    .oh-d { font-size:0.9rem; color:var(--text-secondary); line-height:1.65; max-height:0; overflow:hidden; transition:max-height .3s ease, margin .3s ease; }
+    .oh-item[aria-expanded="true"] .oh-d { max-height:260px; margin-top:12px; }
+    .oh-needs { font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:4px 10px; border-radius:999px; border:1px solid currentColor; white-space:nowrap; margin-top:2px; }
+    .oh-needs-key { color:#c084fc; } .oh-needs-funds { color:#fbbf24; } .oh-needs-passkey { color:#38bdf8; } .oh-needs-secret { color:#fca5a5; }
+    .oh-foot { margin-top:16px; font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:var(--text-muted); letter-spacing:0.06em; }
+
+    /* 06 — Decision cards */
+    .mem-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:28px; }
+    .mem-card { font-family:inherit; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:16px; padding:24px; cursor:pointer; transition:all 0.3s ease; }
+    .mem-card:hover { border-color:rgba(110,45,190,0.35); transform:translateY(-3px); box-shadow:0 8px 24px rgba(110,45,190,0.08); }
+    .mem-card h4 { font-size:0.98rem; font-weight:700; margin:0 0 8px; display:flex; align-items:center; gap:10px; }
+    .mem-tag { font-family:'JetBrains Mono',monospace; font-size:0.62rem; letter-spacing:0.12em; color:var(--accent-hot); border:1px solid rgba(110,45,190,0.3); padding:2px 8px; border-radius:999px; text-transform:uppercase; white-space:nowrap; }
+    .mem-card p { font-size:0.87rem; color:var(--text-secondary); line-height:1.6; margin:0; }
+    .mem-extra { display:none; margin-top:14px; padding-top:14px; border-top:1px solid var(--accent-border); font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+    .mem-card[aria-expanded="true"] .mem-extra { display:block; }
+    .mem-hint { font-size:0.68rem; color:var(--accent-hot); margin-top:12px; font-weight:600; letter-spacing:0.05em; }
+
+    /* Related + CTA */
+    .tx-related { margin-top:40px; padding-top:22px; border-top:1px solid var(--accent-border); font-size:0.9rem; color:var(--text-muted); line-height:1.7; }
+    .tx-related a { color:var(--accent-light); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    .tx-cta { text-align:center; padding:64px 40px; background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:28px; margin-top:72px; }
+    .tx-cta h2 { font-size:1.6rem; font-weight:700; margin:0 0 12px; }
+    .tx-cta p { color:var(--text-secondary); font-size:0.95rem; margin:0 auto 28px; max-width:520px; line-height:1.7; }
+
+    @media(max-width:900px) {
+      .mod-explorer, .cr-cols, .mem-grid { grid-template-columns:1fr; }
+      .mod-grid { grid-template-columns:1fr 1fr; }
+      .mod-detail { min-height:0; }
+    }
+    @media(max-width:640px) {
+      .mod-grid { grid-template-columns:1fr; }
+      .tx-hero { padding:130px 0 56px; }
+      .tx-section { padding:56px 0; }
+      .cr-wrap, .mod-detail { padding:20px; }
+      .oh-item { grid-template-columns:auto 1fr; }
+      .oh-needs { grid-column:2; justify-self:start; }
+      .cr-step { grid-template-columns:18px 1fr; }
+      .cr-verdict { grid-column:2; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .wf-step.reveal-step { animation:none; opacity:1; transform:none; }
+      .dl-card, .mod-node, .mem-card, .oh-d, .cr-step, .dl-chip, .cr-fault { transition:none; }
+      .dl-card:hover, .mod-node:hover, .mem-card:hover { transform:none; }
+    }
+  
+    /* revision notices */
+    .tx-dated { max-width:720px; margin:0 auto 28px; font-size:0.84rem; color:var(--text-muted); line-height:1.7; border-top:1px solid var(--accent-border); border-bottom:1px solid var(--accent-border); padding:14px 0; font-family:'JetBrains Mono',monospace; letter-spacing:0.02em; }
+    .tx-dated strong { color:var(--accent-hot); }
+    .tx-notice { max-width:720px; margin:0 0 22px; border:1px solid rgba(251,191,36,0.3); border-left:4px solid #fbbf24; border-radius:0 14px 14px 0; padding:18px 22px; background:linear-gradient(180deg,rgba(251,191,36,0.07),rgba(251,191,36,0.015)); font-size:0.93rem; color:var(--text-secondary); line-height:1.7; }
+    .tx-notice h3 { margin:0 0 8px; font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase; color:#fbbf24; font-family:'JetBrains Mono',monospace; }
+    .tx-notice p { margin:0 0 10px; }
+    .tx-notice p:last-child { margin-bottom:0; }
+    .tx-notice.revised { border-color:rgba(56,189,248,0.3); border-left-color:#38bdf8; background:linear-gradient(180deg,rgba(56,189,248,0.07),rgba(56,189,248,0.015)); }
+    .tx-notice.revised h3 { color:#38bdf8; }
+    .tx-notes { max-width:720px; margin:0 auto; padding-top:36px; }
+    .tx-list { margin:0 0 22px; padding-left:22px; }
+    .tx-list li { margin-bottom:10px; }
+    .dl-chip-a[aria-pressed="true"] { border-color:#c084fc; }
+    .dl-state-a { color:#c084fc; }
+    .dl-hero-note { font-size:0.78rem; color:var(--text-muted); margin:10px 0 0; line-height:1.6; }
+    /* budget widget */
+    .bg-wrap { margin-top:28px; border:1px solid rgba(110,45,190,0.28); border-radius:20px; padding:28px; background:linear-gradient(180deg,rgba(110,45,190,0.08),rgba(110,45,190,0.015)); }
+    .bg-top { display:flex; flex-wrap:wrap; align-items:center; gap:16px; margin-bottom:16px; }
+    .bg-label { font-family:'JetBrains Mono',monospace; font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent-hot); }
+    .bg-top input[type=range] { flex:1 1 220px; accent-color:#9b59f5; }
+    .bg-val { font-family:'JetBrains Mono',monospace; font-size:0.9rem; color:var(--text-primary); min-width:110px; }
+    .bg-meter { height:10px; border-radius:999px; background:rgba(240,238,246,0.08); overflow:hidden; margin-bottom:12px; }
+    .bg-fill { height:100%; width:0; background:linear-gradient(90deg,#6e2dbe,#c084fc); transition:width .25s ease; }
+    .bg-sum { font-family:'JetBrains Mono',monospace; font-size:0.76rem; color:var(--text-muted); letter-spacing:0.04em; margin-bottom:16px; }
+    .bg-rows { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
+    .bg-row { display:grid; grid-template-columns:1fr auto auto; gap:14px; align-items:center; padding:10px 14px; border-radius:10px; border:1px solid var(--accent-border); font-size:0.86rem; color:var(--text-secondary); }
+    .bg-row.in { border-color:rgba(16,185,129,0.35); }
+    .bg-row.out { opacity:0.5; border-style:dashed; }
+    .bg-row .bg-n { font-family:'JetBrains Mono',monospace; font-size:0.76rem; color:var(--text-muted); }
+    .bg-row .bg-v { font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:700; letter-spacing:0.08em; }
+    .bg-row.in .bg-v { color:#34d399; } .bg-row.out .bg-v { color:#fbbf24; }
+    .bg-stage { display:block; font-size:0.72rem; color:var(--text-muted); margin-top:2px; }
+    .oh-needs-pass { color:#34d399; } .oh-needs-part { color:#fbbf24; } .oh-needs-no { color:#fca5a5; } .oh-needs-design { color:#38bdf8; }
+    @media(max-width:640px) { .bg-wrap { padding:20px; } .bg-row { grid-template-columns:1fr auto; } .bg-row .bg-v { grid-column:2; } }
+  </style>
+</head>
+<body class="tx-page">
+
+  <nav id="nav" class="scrolled">
+    <a href="/" class="nav-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
     <div class="nav-links" id="nav-links">
       <a href="/" data-i18n="nav.home">Home</a>
-      <a href="/#organisms" data-i18n="nav.organisms">Organisms</a>
-      <a href="/#architecture" data-i18n="nav.architecture">Architecture</a>
-      <a href="/#philosophy" data-i18n="nav.philosophy">Philosophy</a>
-      <a href="/#vision" data-i18n="nav.vision">Vision</a>
-      <a href="/#blog" data-i18n="nav.blog">Blog</a>
+      <a href="/organisms" data-i18n="nav.organisms">Organisms</a>
+      <a href="/architecture" data-i18n="nav.architecture">Architecture</a>
+      <a href="/proof" data-i18n="nav.proof">Proof</a>
+      <a href="/transmissions" class="active" aria-current="page" data-i18n="nav.blog">Transmissions</a>
+      <a href="/philosophy" data-i18n="nav.philosophy">Philosophy</a>
     </div>
     <div class="nav-actions">
       <button id="lang-toggle" class="lang-toggle" aria-label="Switch to Spanish">ES</button>
-      <a href="/#cta" class="nav-cta" data-i18n="nav.cta">Get in Touch</a>
+      <a href="/build-with-us" class="nav-cta" data-i18n="nav.cta">Build With Us</a>
+      <a href="/proof/ledger" class="nav-ghost">Live ledger</a>
     </div>
   </nav>
 
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- MAIN TRANSMISSION (Light Content Area) -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <main class="blog-main">
-    <a href="/#blog" class="blog-back">
-      <span>←</span> Back to Transmissions
-    </a>
-
-    <article>
-      <header class="blog-header">
-        <div class="blog-meta-tag">
-          <span>Transmission</span>
-          <span class="blog-meta-dot"></span>
-          <span>Whitepaper</span>
-        </div>
-        
-        <h1 class="blog-title">Transmission 05: The Infinity Mirror - Personal Intelligence</h1>
-        <p class="blog-subtitle">One of the earliest realizations in the Unwind Lab was the concept of Identity Drift.</p>
-        
-        <div class="blog-meta-bottom">April 2026 / UNWIND RESEARCH LAB</div>
-      </header>
-
-      <div class="blog-content">
-<h3>Cognitive Scaffolding</h3>
-<p>One of the earliest realizations in the Unwind Lab was the concept of Identity Drift. Whether it is an individual losing track of their goals or an AI forgetting its prime directive across sessions, the core issue is the lack of objective tracking. Enter <strong>The Infinity Mirror</strong>.</p>
-<h3>An Engine for Personal Evolution</h3>
-<p>The Infinity Mirror is our most intimate organism—a self-reflecting mobile intelligence designed to eliminate the gap between who you are and who you intend to be. It abandons traditional task tracking in favor of holistic Identity Profiles and Growth Trees.</p>
-<h3>How it Works:</h3>
-<ul>
-  <li><strong>Baseline Audition:</strong> You input your core values, the realities of your current situation, and your long-term directives.</li>
-  <li><strong>Continuous Calibration:</strong> As you feed the Mirror data about daily friction points, deviations, and wins, the AI agent triangulates your actions against your stated directives.</li>
-  <li><strong>Course Correction:</strong> It generates highly contextual, brutally honest strategic shifts. It does not blindly validate you; it functions as a highly competent, unsentimental coach enforcing your own rules upon you.</li>
-</ul>
-<h3>Spatial Memory in Practice</h3>
-<p>Under the hood, The Infinity Mirror persists user progress by rewriting the configuration of the mobile application itself—effectively giving the user their own individualized, containerized LLM assistant that remembers every session flawlessly through RAG optimization and direct SQLite state transitions. It acts as an external lobe of the human hippocampus.</p>
-</div>
-    </article>
-  </main>
-
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- FOOTER (Dark Chrome) -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <footer id="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <span class="nav-glyph">∞</span>
-          <span class="nav-name">unwind<span class="nav-accent">code</span></span>
-          <p class="footer-desc" data-i18n="footer.desc">Intelligence that evolves.<br />Growing organisms since 2026.</p>
-        </div>
-        <div class="footer-col">
-          <h5 data-i18n="footer.organisms">Organisms</h5>
-          <a href="/#organisms" data-i18n="org.vc.title">Visual Cortex</a>
-          <a href="/#organisms" data-i18n="org.im.title">Infinity Mirror</a>
-          <a href="/#organisms" data-i18n="org.fo.title">Financial Organisms</a>
-          <a href="/#organisms" data-i18n="org.bc.title">Brain Cell Architecture</a>
-        </div>
-        <div class="footer-col">
-          <h5 data-i18n="footer.learn">Learn</h5>
-          <a href="/#architecture" data-i18n="nav.architecture">Architecture</a>
-          <a href="/#philosophy" data-i18n="nav.philosophy">Philosophy</a>
-          <a href="/#vision" data-i18n="footer.vision">Vision 2030</a>
-        </div>
-        <div class="footer-col">
-          <h5 data-i18n="footer.community">Community</h5>
-          <a href="/#cta" data-i18n="footer.join">Join Updates</a>
-          <a href="/#blog" data-i18n="footer.blog">Blog</a>
-          <a href="#" id="footer-chat-link" data-i18n="footer.talk">Talk to the Brain</a>
-        </div>
+  <main>
+    <section class="tx-hero">
+      <div class="container">
+        <div class="tx-hero-kicker"><span class="tx-section-num">TRANSMISSION 005</span></div>
+        <h1>The Infinity Mirror:<br>Personal Intelligence</h1>
+        <p class="tx-hero-sub">An April 2026 note described the Infinity Mirror as a mobile coach with identity profiles, growth trees and flawless recall. Checked against the record, a coaching cell and an unfinished app structure exist, most promised features do not, and the mirror's own charter forbids flattery and diagnosis.</p>
+        <div class="tx-hero-meta"><span>November 2026</span><span>&middot;</span><span>Revised note</span><span>&middot;</span><span>Organisms</span><span>&middot;</span><span>9 min read</span></div>
       </div>
-      <div class="footer-bottom">
-        <span data-i18n="footer.copyright">© 2026 Unwind Code. All rights reserved.</span>
-        <span class="footer-tagline" data-i18n="footer.tagline">The future learns from itself. ∞</span>
+    </section>
+
+    <div class="container">
+      <div class="tx-notes">
+        <div class="tx-dated"><strong>Dated.</strong> This note describes the code and documents as they stand on 10 November 2026. The app's own status is dated by its last edit, 24 February 2026. The note it replaces was published in April 2026.</div>
+        <div class="tx-notice revised"><h3>Revised 10 November 2026</h3><p>Rewritten to the Transmission standard. Nine claims were checked: four withdrawn, two softened, two metaphors and one design. None is fully supported as written. The page now says what exists and gives an honest status for each promise, including the ones that were never built.</p></div>
+        <div class="tx-notice"><h3>Correction, 10 November 2026</h3><p>The April note said the mirror used identity profiles and growth trees, collected a baseline of values and directives, rewrote the mobile app's own configuration, and remembered every session flawlessly through retrieval and SQLite state. The record supports none of this. The app's roadmap, last edited 24 February 2026, lists saving journal entries as not done, and no later record shows otherwise. Those sentences are withdrawn, and "brutally honest coach" is softened to what the charter says.</p></div>
+      </div>
+
+      <section class="tx-section" id="claims">
+        <div class="tx-section-head"><span class="tx-section-num">01</span><h2>Nine claims from April, checked</h2></div>
+        <div class="tx-section-label">A ledger of what the old note said</div>
+        <div class="tx-prose">
+          <p>The April note introduced the Infinity Mirror as the most intimate of the organisms: a self-reflecting mobile intelligence meant to close the gap between who a person is and who they intend to be. It rested on a concept it called Identity Drift, the way a person, or an agent, loses track of its goals for lack of objective tracking. Against that, the mirror would hold an Identity Profile and a Growth Tree, calibrate continuously against a person's stated directives, and correct course with unsentimental honesty.</p>
+          <p>It also described how: the app would persist progress by rewriting its own configuration, give each user a containerised assistant, and remember every session flawlessly through retrieval and direct state transitions, acting as an external lobe of the hippocampus.</p>
+          <p>This is a product description, and a product is the easiest thing to check, because a product leaves screens, a backend and a roadmap. We split the note into nine claims. None survives as written. Filter the ledger and open each card.</p>
+        </div>
+        <div class="dl-filters" role="group" aria-label="Filter claims by verdict" id="cl-filters"></div><div class="dl-count" id="cl-count" aria-live="polite"></div><div class="dl-grid" id="cl-grid"></div>
+        <div class="tx-prose tx-after">
+          <p>Four withdrawn, two softened, two metaphors, one design. There is no supported row, and that is the finding.</p>
+        </div>
+      </section>
+
+      <section class="tx-section" id="what-exists">
+        <div class="tx-section-head"><span class="tx-section-num">02</span><h2>What exists under the name</h2></div>
+        <div class="tx-section-label">Four pieces, and four things that share a name</div>
+        <div class="tx-prose">
+          <p>Four pieces are on record. A coaching cell in the Brain wraps the emotional-analysis logic. A mobile app, with a backend and screens, lives in a separate project. A channel for the mirror sits in the Brain's gateway. And a charter fixes what the mirror may never do. Open each one below to see what the record shows.</p>
+          <p>The charter itself carries a useful warning: four different things share the mirror's name. Before reading further, it helps to separate them.</p>
+        </div>
+        <div class="mod-explorer"><div class="mod-grid" id="ex-grid" role="group" aria-label="Pieces"></div><div class="mod-detail" id="ex-detail" aria-live="polite"></div></div>
+        <div class="tx-prose tx-after"><p>The four things sharing the name, as the charter lists them:</p></div>
+        <div class="mem-grid" id="nm-cards"></div>
+        <div class="tx-prose tx-after">
+          <p>The charter covers only the product organism. A reader who sees "Infinity Mirror" in a repository list should ask which of the four is meant. Many of the old note's claims quietly mixed them.</p>
+        </div>
+      </section>
+
+      <section class="tx-section" id="charter">
+        <div class="tx-section-head"><span class="tx-section-num">03</span><h2>What a mirror may never do</h2></div>
+        <div class="tx-section-label">Charter law, not observed behaviour</div>
+        <div class="tx-prose">
+          <p>The charter is the most solid thing on the record, and it contradicts the note's tone. Where the note promised brutal honesty, the charter asks for accuracy with kindness: a mirror that reflects a person with enough accuracy to see the pattern, and with enough kindness to bear to look. It says a mirror is useless if it flatters, and it says it is not a therapist.</p>
+          <p>Choose a situation below. The left column is a generic assistant that does whatever it is asked; the right is what the charter requires. This is written law, not observed behaviour. No running app is shown here, and the model makes no claim about any real product's conduct. One piece is implemented beyond text: the Brain's operator surfaces and gateway summaries are built to carry counts and states instead of content.</p>
+        </div>
+        <div class="cr-wrap"><div class="cr-top"><span class="cr-label">Model · charter against a generic assistant</span><div class="cr-faults" role="group" aria-label="Choose a situation" id="md-faults"></div></div><div class="cr-cols"><div class="cr-col"><h3>A generic assistant</h3><p class="cr-col-sub">Does what it is asked.</p><ol class="cr-steps" id="md-left"></ol></div><div class="cr-col"><h3>The mirror, as chartered</h3><p class="cr-col-sub">Written law.</p><ol class="cr-steps" id="md-right"></ol></div></div><div class="cr-outcome" id="md-outcome" aria-live="polite"></div><p class="cr-note">Charter text, not observed behaviour. No user session is shown.</p></div>
+
+      </section>
+
+      <section class="tx-section" id="dated">
+        <div class="tx-section-head"><span class="tx-section-num">04</span><h2>The record, in dates</h2></div>
+        <div class="tx-section-label">How the claim and the product diverged</div>
+        <div class="tx-prose">
+          <p>The dates matter more than usual here, because the product's own status is old. Its last documented state is nearly nine months before this note.</p>
+        </div>
+        <div class="wf-steps" id="tl-steps"><div class="wf-step"><div class="wf-dot wf-dot-1">01</div><h3>20 January 2026 · The cell</h3><p>The emotions cell is written, wrapping the coaching logic from the mirror app.</p></div><div class="wf-step"><div class="wf-dot wf-dot-2">02</div><h3>24 February 2026 · The roadmap's last edit</h3><p>The app's roadmap reads 60 percent complete. Screens, backend, NLP engine and motion design exist. Saving a journal entry and showing patterns are unchecked.</p></div><div class="wf-step"><div class="wf-dot wf-dot-3">03</div><h3>April 2026 · The note</h3><p>Describes identity profiles, growth trees and flawless recall as if they existed.</p></div><div class="wf-step"><div class="wf-dot wf-dot-4">04</div><h3>2 November 2026 · The catalogue</h3><p>Four mirror repositories are catalogued as dormant or archive. A revival decision waits on the operator.</p></div><div class="wf-step"><div class="wf-dot wf-dot-5">05</div><h3>10 November 2026 · This note</h3><p>Rewritten against the record. No claim about users, outcomes or recall survives, because no users or outcomes are recorded.</p></div></div>
+        <div class="tx-prose tx-after">
+          <p>Nothing between February and November changes the app's status in the record. That is not evidence the work stopped. It is evidence that nothing was written down.</p>
+        </div>
+      </section>
+
+      <section class="tx-section" id="status">
+        <div class="tx-section-head"><span class="tx-section-num">05</span><h2>Status of each promise</h2></div>
+        <div class="tx-section-label">As of the roadmap's last edit, and today</div>
+        <div class="tx-prose">
+          <p>Here is each feature the April note implied, with an honest status. Statuses taken from the roadmap are dated 24 February 2026. Statuses taken from the Brain are dated today.</p>
+        </div>
+        <div class="oh-list" id="ls-list"></div><div class="oh-foot">1 of 6 promises built · and that one is a protection, not a feature</div>
+
+      </section>
+
+      <section class="tx-section" id="not-claimed">
+        <div class="tx-section-head"><span class="tx-section-num">06</span><h2>What this note does not claim</h2></div>
+        <div class="tx-section-label">Boundary</div>
+        <div class="tx-prose">
+          <ul class="tx-list">
+            <li>It does not claim the app has users, releases or outcomes. None are recorded.</li>
+            <li>It does not claim any therapeutic or clinical effect. The charter forbids the claim.</li>
+            <li>It does not claim identity profiles, growth trees, a baseline intake or per-user containers exist.</li>
+            <li>It does not claim recall of any kind. The save step is listed as not done.</li>
+            <li>It does not claim the app is still being built. Its repositories were catalogued as dormant.</li>
+            <li>It does not claim the charter's rules have been audited in use. They are written law, and one is implemented in the Brain's surfaces.</li>
+          </ul>
+          <p>What survives is an intent and a boundary: a mirror that reflects accurately, never flatters, never diagnoses and never leaks what it is shown. The intent is worth keeping. The product has yet to earn the word.</p>
+          <div class="tx-related">Related: <a href="/transmissions/24-the-mirror-found-its-form">Transmission 24 — the mirror found its form</a> · <a href="/organisms/infinity-mirror">The Infinity Mirror organism page</a> · <a href="/transmissions/03-organisms-not-apps">Transmission 03 — organisms, not apps</a></div>
+        </div>
+
+
+      </section>
+
+      <div class="tx-cta">
+        <h2>A mirror that flatters is useless.</h2>
+        <p>A page about one should not flatter either.</p>
+        <a class="btn btn-primary btn-lg" href="/build-with-us"><span>Build With Us</span><span class="btn-arrow">&rarr;</span></a>
       </div>
     </div>
-  </footer>
+  </main>
 
-  <script type="module" src="/main.js?v=20260605-social-preview"></script>
+  <footer id="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span><p class="footer-desc">Intelligence that evolves.<br />No claim without a trail.</p></div><div class="footer-col"><h5>Proof</h5><a href="/proof">Proof Register</a><a href="/proof/ledger">Live Ledger</a><a href="/transmissions">Transmissions</a><a href="/architecture">Architecture</a></div><div class="footer-col"><h5>Organisms</h5><a href="/organisms">All Organisms</a><a href="/organisms/financial-organisms">Financial Organisms</a><a href="/organisms/infinity-mirror">Infinity Mirror</a></div><div class="footer-col"><h5>Next</h5><a href="/build-with-us">Build With Us</a><a href="/#cta">Subscribe</a></div></div><div class="footer-bottom"><span>© 2026 Unwind Code. All rights reserved.</span><span class="footer-tagline">The future learns from itself. ∞</span></div></div></footer>
+
+  <script>
+  (function () {
+    // All data below is static and client-side. Nothing on this page makes a network call.
+
+    function el(id) { var e = document.getElementById(id); if (!e) { throw new Error('missing element ' + id); } return e; }
+    function toggleExpand(node, hint, a, b) {
+      node.addEventListener('click', function () {
+        var open = node.getAttribute('aria-expanded') === 'true';
+        node.setAttribute('aria-expanded', open ? 'false' : 'true');
+        if (hint) { var h = node.querySelector(hint); if (h) { h.textContent = open ? a : b; } }
+      });
+    }
+    function filterWidget(p, cfg) {
+      var chips = el(p + '-filters'), grid = el(p + '-grid'), count = el(p + '-count');
+      var cats = cfg.cats;
+      var list = [{ key: 'all', label: 'All', c: '' }].concat(cfg.chips.map(function (k) { return { key: k, label: cats[k].l, c: cats[k].c }; }));
+      list.forEach(function (ch, i) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'dl-chip' + (ch.c ? ' dl-chip-' + ch.c : '');
+        b.setAttribute('data-state', ch.key);
+        b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
+        b.textContent = ch.label;
+        b.addEventListener('click', function () {
+          chips.querySelectorAll('.dl-chip').forEach(function (o) { o.setAttribute('aria-pressed', 'false'); });
+          b.setAttribute('aria-pressed', 'true');
+          apply(ch.key);
+        });
+        chips.appendChild(b);
+      });
+      cfg.cards.forEach(function (c) {
+        var card = document.createElement('button');
+        card.type = 'button';
+        card.className = 'dl-card';
+        card.setAttribute('data-state', c.cat);
+        card.setAttribute('aria-expanded', 'false');
+        card.innerHTML = '<span class="dl-state dl-state-' + cats[c.cat].c + '">' + cats[c.cat].l + '</span>' +
+          '<div class="dl-name">' + c.name + '</div><div class="dl-short">' + c.short + '</div>' +
+          '<div class="dl-why">' + c.why + '</div><div class="dl-hint">' + cfg.hint + ' &darr;</div>';
+        toggleExpand(card, '.dl-hint', cfg.hint + ' \u2193', 'Close \u2191');
+        grid.appendChild(card);
+      });
+      function apply(state) {
+        var shown = 0;
+        grid.querySelectorAll('.dl-card').forEach(function (card) {
+          var m = state === 'all' || card.getAttribute('data-state') === state;
+          if (m) { card.removeAttribute('hidden'); shown += 1; } else { card.setAttribute('hidden', ''); }
+        });
+        count.textContent = shown + ' of ' + cfg.cards.length + ' ' + cfg.noun;
+      }
+      apply('all');
+    }
+    function explorerWidget(p, items, glyph) {
+      var grid = el(p + '-grid'), detail = el(p + '-detail'), btns = [];
+      function show(it) {
+        btns.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-id') === it.id ? 'true' : 'false'); });
+        detail.innerHTML = '<div class="mod-detail-title">' + it.name + '</div>' +
+          '<span class="mod-detail-type">' + it.role + '</span>' +
+          '<p class="mod-detail-desc">' + it.desc + '</p>' +
+          '<div class="mod-specs-label">What the record shows</div>' +
+          '<div class="mod-specs">' + it.specs.map(function (s) { return '<span class="mod-spec">' + s + '</span>'; }).join('') + '</div>' +
+          '<div class="mod-proof"><strong>' + it.status + '</strong> &middot; ' + it.proof + '</div>';
+      }
+      items.forEach(function (it) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'mod-node';
+        b.setAttribute('data-id', it.id);
+        b.setAttribute('aria-pressed', 'false');
+        b.innerHTML = '<span class="mod-glyph">' + glyph + '</span><div class="mod-name">' + it.name + '</div><div class="mod-path">' + it.blurb + '</div><div class="mod-score">' + it.status + '</div>';
+        b.addEventListener('click', function () { show(it); });
+        grid.appendChild(b);
+        btns.push(b);
+      });
+      show(items[0]);
+    }
+    function modelWidget(p, cfg) {
+      var left = el(p + '-left'), right = el(p + '-right'), out = el(p + '-outcome'), faults = el(p + '-faults');
+      function step(n, s, cls, verdict) {
+        var li = document.createElement('li');
+        li.className = 'cr-step ' + cls;
+        li.innerHTML = '<span class="cr-step-n">0' + n + '</span><span><span class="cr-step-t">' + s.t + '</span><span class="cr-step-d">' + s.d + '</span></span><span class="cr-verdict">' + verdict + '</span>';
+        return li;
+      }
+      function col(ol, steps, spec) {
+        ol.innerHTML = '';
+        steps.forEach(function (s, i) {
+          var cls = 'pass', v = spec.ok || 'OK';
+          if (spec.mode === 'fail') {
+            if (i === spec.at) { cls = 'fail'; v = spec.verdict || 'REFUSED'; }
+            else if (i > spec.at) { cls = 'skip'; v = 'NOT REACHED'; }
+          } else if (spec.mode === 'blind') {
+            if (i >= spec.at) { cls = 'blind'; v = spec.verdict || 'UNCHECKED'; }
+          } else if (spec.mode === 'skip') {
+            cls = 'skip'; v = spec.verdict || 'NOT BUILT';
+          }
+          ol.appendChild(step(i + 1, s, cls, v));
+        });
+      }
+      function run(t) {
+        col(left, cfg.leftSteps, t.left);
+        col(right, cfg.rightSteps, t.right);
+        out.className = 'cr-outcome ' + (t.cls || 'clean');
+        out.innerHTML = t.outcome;
+      }
+      cfg.toggles.forEach(function (t, i) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'cr-fault' + (i === 0 ? ' cr-fault-reset' : '');
+        b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
+        b.textContent = t.label;
+        b.addEventListener('click', function () {
+          faults.querySelectorAll('.cr-fault').forEach(function (o) { o.setAttribute('aria-pressed', 'false'); });
+          b.setAttribute('aria-pressed', 'true');
+          run(t);
+        });
+        faults.appendChild(b);
+      });
+      run(cfg.toggles[0]);
+    }
+    function listWidget(p, items) {
+      var list = el(p + '-list');
+      items.forEach(function (h) {
+        var item = document.createElement('button');
+        item.type = 'button';
+        item.className = 'oh-item';
+        item.setAttribute('aria-expanded', 'false');
+        item.innerHTML = '<span class="oh-box" aria-hidden="true"></span><span><span class="oh-t">' + h.t + '</span><span class="oh-s">' + h.s + '</span><span class="oh-d">' + h.d + '</span></span><span class="oh-needs oh-needs-' + h.cls + '">' + h.needs + '</span>';
+        toggleExpand(item);
+        list.appendChild(item);
+      });
+    }
+    function cardsWidget(p, items) {
+      var grid = el(p + '-cards');
+      items.forEach(function (l) {
+        var card = document.createElement('button');
+        card.type = 'button';
+        card.className = 'mem-card';
+        card.setAttribute('aria-expanded', 'false');
+        card.innerHTML = '<h4><span class="mem-tag">' + l.tag + '</span>' + l.title + '</h4><p>' + l.desc + '</p><div class="mem-extra">' + l.extra + '</div><div class="mem-hint">Click to expand &darr;</div>';
+        toggleExpand(card, '.mem-hint', 'Click to expand \u2193', 'Click to collapse \u2191');
+        grid.appendChild(card);
+      });
+    }
+    function budgetWidget(p, cfg) {
+      var range = el(p + '-range'), val = el(p + '-val'), fill = el(p + '-fill'), sum = el(p + '-sum'), rows = el(p + '-rows');
+      function draw() {
+        var budget = parseInt(range.value, 10), used = 0, skipped = 0;
+        rows.innerHTML = '';
+        cfg.rows.forEach(function (r) {
+          var li = document.createElement('li');
+          var fits = used + r.n <= budget;
+          if (fits) { used += r.n; } else { skipped += 1; }
+          li.className = 'bg-row ' + (fits ? 'in' : 'out');
+          li.innerHTML = '<span>' + r.t + '<span class="bg-stage">' + r.s + '</span></span><span class="bg-n">' + r.n + ' tok</span><span class="bg-v">' + (fits ? 'IN' : 'SKIPPED') + '</span>';
+          rows.appendChild(li);
+        });
+        val.textContent = budget + ' tokens';
+        fill.style.width = Math.min(100, Math.round(used / parseInt(range.max, 10) * 100)) + '%';
+        sum.textContent = 'used ' + used + ' of ' + budget + ' tokens \u00b7 ' + skipped + ' row' + (skipped === 1 ? '' : 's') + ' skipped and counted, none trimmed';
+      }
+      range.addEventListener('input', draw);
+      draw();
+    }
+    function revealWidget(p) {
+      var wf = el(p + '-steps');
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduce && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { wf.querySelectorAll('.wf-step').forEach(function (s) { s.classList.add('reveal-step'); }); io.disconnect(); }
+          });
+        }, { threshold: 0.15 });
+        io.observe(wf);
+      }
+    }
+
+    var CATS = {"supported": {"c": "d", "l": "SUPPORTED"}, "design": {"c": "b", "l": "DESIGN"}, "metaphor": {"c": "a", "l": "METAPHOR"}, "softened": {"c": "c", "l": "SOFTENED"}, "withdrawn": {"c": "f", "l": "WITHDRAWN"}};
+
+    filterWidget('cl', {cats: CATS, chips: ['design', 'softened', 'metaphor', 'withdrawn'], hint: 'Why', noun: 'claims', cards: [{"cat": "metaphor", "name": "Identity Drift: the gap between who you are and who you intend to be", "short": "A name for a human problem.", "why": "It names something real in people and a risk in agents. The record does not date a first realization, so the note's claim of an early discovery is kept only as language."}, {"cat": "softened", "name": "Our most intimate organism, a self-reflecting mobile intelligence", "short": "A mobile app structure exists, unreleased.", "why": "A React Native and Expo structure with a Node backend exists in a separate project. Its own roadmap, last edited 24 February 2026, puts it at 60 percent. The repositories were catalogued as dormant on 2 November 2026."}, {"cat": "withdrawn", "name": "It abandons task tracking for Identity Profiles and Growth Trees", "short": "Neither appears in the record.", "why": "A search of the Brain and the app's documents found no identity profile and no growth tree. The screens on the roadmap are welcome, journal, insights, rituals and settings."}, {"cat": "withdrawn", "name": "A Baseline Audition collects your values, situation and directives", "short": "No such intake exists.", "why": "The roadmap lists no baseline step. A first-run welcome screen exists in the structure, and nothing on record collects a person's directives."}, {"cat": "design", "name": "Continuous calibration triangulates your actions against your stated directives", "short": "A planned phase, not a running one.", "why": "A backend engine with Meta-Model detection, reframing and future pacing exists. The roadmap's task to connect it to the journal, process entries and show patterns is unchecked."}, {"cat": "softened", "name": "A brutally honest, unsentimental coach that enforces your own rules", "short": "The charter says honest and kind, and not a judge.", "why": "The charter says the mirror must not flatter, and must also be kind enough that a person can bear to look. It holds measurements loosely, as a clue and never a verdict, and says it is not a therapist."}, {"cat": "withdrawn", "name": "It rewrites the configuration of the mobile app and gives each user a containerised assistant", "short": "No such mechanism was found.", "why": "Nothing in the app's documents or the Brain describes self-rewriting configuration or per-user containers."}, {"cat": "withdrawn", "name": "It remembers every session flawlessly through retrieval and direct SQLite state transitions", "short": "The save step is unchecked.", "why": "The roadmap lists saving entries to a database, with the choice still open between a hosted store and local storage, as not done. The Brain has a SQLite-first memory cell of its own, which is not the app's. No record supports \"flawlessly\"."}, {"cat": "metaphor", "name": "An external lobe of the human hippocampus", "short": "A figure of speech.", "why": "It describes an aspiration for continuity. Nothing in the record measures memory, and nothing claims a clinical effect."}]});
+    explorerWidget('ex', [{"id": "cell", "name": "Emotions cell", "role": "Brain · cell", "blurb": "The coaching logic as a library.", "desc": "A cell of about 750 lines, dated 20 January 2026, wraps the coaching and emotional-analysis logic: pattern models for themes such as fear, anger, joy, sadness, growth and limiting belief.", "specs": ["About 755 lines", "Pattern models", "Dated 20 Jan 2026"], "status": "Code exists", "proof": "Cell source. It is not shown running anywhere in the record."}, {"id": "app", "name": "The app", "role": "Separate project", "blurb": "Mobile structure and a backend.", "desc": "A mobile structure with a backend, an NLP engine, screens for welcome, journal, insights, rituals and settings, bilingual English and Spanish, and a motion-design system for the web.", "specs": ["60 percent by its roadmap", "Journal not yet saved", "EN and ES"], "status": "Unreleased · dormant", "proof": "Roadmap last edited 24 February 2026; catalogued dormant 2 November 2026."}, {"id": "gateway", "name": "Gateway channel", "role": "Brain · router", "blurb": "A channel named for the mirror.", "desc": "The gateway router has an adapter for a mirror channel next to the chat and web channels, so messages from the app can be routed like any other.", "specs": ["Adapter per channel", "Content-free summary"], "status": "Built", "proof": "Router source."}, {"id": "charter", "name": "Charter", "role": "Written law", "blurb": "What the mirror must never do.", "desc": "The mirror must not flatter or diagnose, must not turn a disclosure into content, and must not let a score stand in for a person. What it is shown belongs to the person.", "specs": ["Content-free surfaces", "No clinical claims", "Consent before storing"], "status": "Written · not audited in use", "proof": "Charter text. The content-free rule is implemented in the Brain's operator packets."}], 'PIECE');
+    cardsWidget('nm', [{"tag": "app", "title": "The mirror app", "desc": "The product: the journaling and reflection app.", "extra": "This is the only one the charter covers. Its status is above: unreleased, dormant, roughly 60 percent as of February."}, {"tag": "copy", "title": "Its deployment copy", "desc": "A second copy of the app kept for deployment.", "extra": "A copy is not a second product. Where the two differ, the record does not say which is current."}, {"tag": "cell", "title": "The emotions cell wrapper", "desc": "The coaching logic as a Brain cell.", "extra": "A library the mirror and other organs can call. It is code, not an experience."}, {"tag": "scaffold", "title": "An unrelated audit scaffold", "desc": "A strategic-audit scaffold with a near-identical name.", "extra": "The charter says plainly that this one is unrelated. It is named here so that nobody mistakes it for the mirror."}]);
+    modelWidget('md', {"leftSteps": [{"t": "A person shares something", "d": "A disclosure, a journal line."}, {"t": "The system records it", "d": "Stores, tags, scores."}, {"t": "The system reports on use", "d": "To an operator, a log, a dashboard."}, {"t": "The system is asked to judge", "d": "A score, a diagnosis."}], "rightSteps": [{"t": "A person shares something", "d": "The same disclosure."}, {"t": "The system records it", "d": "Only with consent, per the charter."}, {"t": "The system reports on use", "d": "Content-free: counts and states, never text."}, {"t": "The system is asked to judge", "d": "A number is a clue, never a verdict."}], "toggles": [{"label": "A person shares something", "left": {"mode": "ok"}, "right": {"mode": "blind", "at": 1, "verdict": "CONSENT FIRST"}, "cls": "refused", "outcome": "<strong>The charter's line:</strong> consent before anything is stored or measured. What a person tells the mirror belongs to the person."}, {"label": "A status report is requested", "left": {"mode": "blind", "at": 2, "verdict": "MAY INCLUDE TEXT"}, "right": {"mode": "fail", "at": 2, "verdict": "CONTENT-FREE"}, "cls": "refused", "outcome": "<strong>Nothing a person tells the mirror may appear in a status endpoint, log or report.</strong> The Brain's operator surfaces are built to carry counts and states instead."}, {"label": "A score is asked to decide", "left": {"mode": "blind", "at": 3, "verdict": "OBLIGES"}, "right": {"mode": "fail", "at": 3, "verdict": "A CLUE ONLY"}, "cls": "refused", "outcome": "<strong>A metric is held loosely.</strong> The day a number decides whether someone is doing well is the day the mirror becomes another thing that judges them."}, {"label": "Asked for a diagnosis", "left": {"mode": "blind", "at": 3, "verdict": "OBLIGES"}, "right": {"mode": "fail", "at": 3, "verdict": "DECLINED"}, "cls": "refused", "outcome": "<strong>It is not a therapist and does not pretend to be one.</strong> It is a surface that helps someone find their own next sentence."}]});
+    revealWidget('tl');
+    listWidget('ls', [{"t": "Journaling screens", "s": "A structure exists.", "needs": "STRUCTURE", "cls": "part", "d": "Welcome, journal, insights, rituals and settings screens exist in the app's structure. The record does not show them running for a user."}, {"t": "Saving a journal entry", "s": "Unchecked on the roadmap.", "needs": "NOT BUILT", "cls": "no", "d": "As of 24 February 2026 the roadmap lists connecting the journal to a backend, and saving to a database, as not done. No later record ticks them."}, {"t": "Pattern detection", "s": "An engine, not connected.", "needs": "PARTIAL", "cls": "part", "d": "A backend engine with Meta-Model detection, reframing and future pacing exists. Wiring it to the journal and showing results are unchecked tasks."}, {"t": "Voice input", "s": "Planned.", "needs": "NOT BUILT", "cls": "no", "d": "Voice-to-text appears on the roadmap as an unchecked task."}, {"t": "Content-free surfaces", "s": "Built, in the Brain.", "needs": "BUILT", "cls": "pass", "d": "The Brain's operator packets and the gateway's safety summary carry counts and states, not content. This protects the design; it is not an app a person uses."}, {"t": "A release to people", "s": "None.", "needs": "NONE", "cls": "no", "d": "No release, user or outcome is recorded. Any such claim would need a record that does not exist."}]);
+
+  })();
+  </script>
+  <script type="module" src="/main.js?v=20260615-system-state"></script>
 </body>
 </html>
