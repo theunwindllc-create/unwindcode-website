@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Transmission 15: How We Give Machines a Mind | Unwind Code</title>
-  <meta name="description" content="Inside the three-layer cognitive architecture Unwind Code uses to build AI organisms that observe, reason, remember, coordinate, and evolve." />
+  <meta name="description" content="A design note on how Unwind Code frames a machine mind: six build phases, six modules and four memory layers, revised 10 November 2026 with the state of each part on the record." />
   <meta name="theme-color" content="#06060c" />
-  <link rel="canonical" href="https://unwindcode.ai/transmissions/15-how-we-give-machines-a-mind.html" />
+  <link rel="canonical" href="https://www.unwindcode.ai/transmissions/15-how-we-give-machines-a-mind" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Transmission 15: How We Give Machines a Mind | Unwind Code" />
-  <meta property="og:description" content="Inside the three-layer cognitive architecture Unwind Code uses to build AI organisms that observe, reason, remember, coordinate, and evolve." />
-  <meta property="og:url" content="https://unwindcode.ai/transmissions/15-how-we-give-machines-a-mind.html" />
+  <meta property="og:description" content="A design note on how Unwind Code frames a machine mind, revised 10 November 2026 with the state of each part on the record." />
+  <meta property="og:url" content="https://www.unwindcode.ai/transmissions/15-how-we-give-machines-a-mind" />
   <meta property="og:site_name" content="Unwind Code" />
   <meta property="og:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
   <meta property="og:image:type" content="image/svg+xml" />
@@ -19,14 +19,26 @@
   <meta property="og:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Transmission 15: How We Give Machines a Mind | Unwind Code" />
-  <meta name="twitter:description" content="Inside the three-layer cognitive architecture Unwind Code uses to build AI organisms that observe, reason, remember, coordinate, and evolve." />
+  <meta name="twitter:description" content="A design note on how Unwind Code frames a machine mind, revised 10 November 2026 with the state of each part on the record." />
   <meta name="twitter:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
   <meta name="twitter:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How We Give Machines a Mind",
+    "description": "A design note on how Unwind Code frames a machine mind: six build phases, six modules and four memory layers, revised 10 November 2026 with the state of each part on the record.",
+    "author": {"@type": "Organization", "name": "Unwind Code"},
+    "publisher": {"@type": "Organization", "name": "Unwind Code", "url": "https://www.unwindcode.ai"},
+    "datePublished": "2026-05-16",
+    "dateModified": "2026-11-10",
+    "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/15-how-we-give-machines-a-mind"
+  }
+  </script>
   <style>
     .tx-page { background: var(--bg-void); color: var(--text-primary); }
     .tx-hero { padding: 160px 0 80px; text-align: center; position: relative; overflow: hidden; }
@@ -110,6 +122,29 @@
       .tx-hero { padding:130px 0 60px; }
       .tx-hero-meta { flex-wrap:wrap; justify-content:center; }
     }
+  
+    /* revision 2026-11-10: dated notes and state-of-record table */
+    .tx-dateline { margin-top:18px; font-size:0.84rem; color:var(--text-muted); }
+    .tx-revised { max-width:780px; margin:26px auto 0; text-align:left; background:rgba(110,45,190,0.07); border:1px solid var(--accent-border); border-left:3px solid var(--accent-hot); border-radius:12px; padding:16px 20px; font-size:0.9rem; line-height:1.65; color:var(--text-secondary); }
+    .tx-revised p { margin:0 0 10px; }
+    .tx-revised p:last-child { margin-bottom:0; }
+    .tx-revised strong { color:var(--text-primary); }
+    .st-wrap { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:20px; padding:24px; margin-top:28px; }
+    .st-wrap h3 { font-size:1.1rem; font-weight:700; margin-bottom:4px; }
+    .st-sub { font-size:0.82rem; color:var(--text-muted); margin-bottom:14px; }
+    .st-filter { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:8px; }
+    .st-filter button { background:rgba(110,45,190,0.08); border:1px solid var(--accent-border); color:var(--text-secondary); padding:6px 14px; border-radius:20px; font:inherit; font-size:0.8rem; cursor:pointer; }
+    .st-filter button.active { color:var(--text-primary); border-color:var(--accent-hot); background:rgba(110,45,190,0.2); }
+    .st-row { display:grid; grid-template-columns:170px 120px 1fr; gap:14px; padding:12px 0; border-top:1px solid var(--accent-border); font-size:0.88rem; line-height:1.55; color:var(--text-secondary); }
+    .st-row b { color:var(--text-primary); font-weight:600; }
+    .st-pill { display:inline-block; font-size:0.7rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:3px 10px; border-radius:20px; border:1px solid var(--accent-border); align-self:start; justify-self:start; }
+    .st-pill.built { color:#34d399; border-color:rgba(16,185,129,0.4); }
+    .st-pill.idle { color:#fbbf24; border-color:rgba(245,158,11,0.4); }
+    .st-pill.failing { color:#f87171; border-color:rgba(239,68,68,0.4); }
+    .st-pill.design { color:#a5b4fc; border-color:rgba(99,102,241,0.4); }
+    .nc-list { max-width:720px; color:var(--text-secondary); line-height:1.75; font-size:1rem; padding-left:20px; }
+    .nc-list li { margin-bottom:10px; }
+    @media(max-width:700px){ .st-row { grid-template-columns:1fr; gap:6px; } }
   </style>
 </head>
 <body class="tx-page">
@@ -133,7 +168,12 @@
         <div style="margin-bottom:16px;"><span class="tx-section-num">TRANSMISSION 015</span></div>
         <h1>How We Give Machines<br>a Mind</h1>
         <p class="tx-hero-sub">Most software is born finished. We build organisms — systems designed to observe, reason, remember, coordinate, and evolve. This is the architecture behind them.</p>
-        <div class="tx-hero-meta"><span>May 2026</span><span>·</span><span>Architecture</span><span>·</span><span>7 min read</span></div>
+        <div class="tx-hero-meta"><span>May 2026</span><span>·</span><span>Architecture</span><span>·</span><span>Revised 10 Nov 2026</span><span>·</span><span>7 min read</span></div>
+        <p class="tx-dateline">Written in May 2026 as a design note. State of the record checked on 10 November 2026 against the consolidation audit of 8 November and the organ-health diagnosis of 10 November.</p>
+        <div class="tx-revised">
+          <p><strong>Revised 10 November 2026.</strong> This page began as a design essay and read in places like a status report. It now says which is which.</p>
+          <p><strong>Correction, 10 November 2026.</strong> The two charts that stood in section 03 plotted figures that were never measured: a "capability index" for five domains, and a thirty-cycle series of knowledge nodes and rule mutations that the page generated at random in the browser. Both are removed and replaced by a table of what the record shows. Claims that held for the design but not for the running system, such as nightly reflective logs, a fixed context size, an approval path through a messaging app and a continuously self-auditing mirror, are corrected or removed. Source paths are removed from the module list.</p>
+        </div>
       </div>
     </section>
 
@@ -148,11 +188,11 @@
         </div>
         <div class="wf-steps">
           <div class="wf-step"><div class="wf-dot wf-dot-1">01</div><h3>Research</h3><p>Map the terrain, the stakes, and the failure modes. Understand the domain before writing a single line of architecture.</p></div>
-          <div class="wf-step"><div class="wf-dot wf-dot-2">02</div><h3>Architecture</h3><p>Define the agent roles, the decision graph, and the control surface. This is the <code>src/cortex/</code> blueprint.</p></div>
-          <div class="wf-step"><div class="wf-dot wf-dot-3">03</div><h3>Memory Design</h3><p>Decide what should persist, decay, or be promoted. Four memory layers map to <code>src/memory/</code>.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-2">02</div><h3>Architecture</h3><p>Define the agent roles, the decision graph, and the control surface. This is the cortex blueprint.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-3">03</div><h3>Memory Design</h3><p>Decide what should persist, decay, or be promoted. Four memory layers, set out in section 04.</p></div>
           <div class="wf-step"><div class="wf-dot wf-dot-4">04</div><h3>Protocols</h3><p>Govern how agents communicate, escalate, and recover. The nervous system of orchestration.</p></div>
           <div class="wf-step"><div class="wf-dot wf-dot-5">05</div><h3>Knowledge Integration</h3><p>Load frameworks, references, and domain context the organism needs to reason about its environment.</p></div>
-          <div class="wf-step"><div class="wf-dot wf-dot-6">06</div><h3>Delivery</h3><p>Place the organism in a real operating environment where it can run, observe, and improve autonomously.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-6">06</div><h3>Delivery</h3><p>Place the organism in a real operating environment where it can run and be observed. Improving by itself is a design aim, not a measured result: section 03 shows what the record holds.</p></div>
         </div>
         <div class="tx-prose" style="margin-top:40px;">
           <p>The point is not to imitate a human mind theatrically. The point is to construct a system with enough internal structure that intelligence has somewhere to live. Without that structure, you do not have a mind. You have <strong>autocomplete with better branding</strong>.</p>
@@ -164,14 +204,14 @@
         <div class="tx-section-head"><span class="tx-section-num">02</span><h2>Connection — Synaptic Formation</h2></div>
         <div class="tx-section-label">Explore the Cell Matrix</div>
         <div class="tx-prose">
-          <p>A single capable agent can be useful. A coordinated network of agents becomes resilient. Click any module below to explore its architectural role.</p>
+          <p>A single capable agent can be useful. A coordinated network of agents is meant to be more resilient than one agent. Click any module below to read its design and its state on the record.</p>
         </div>
         <div class="mod-explorer">
           <div class="mod-grid" id="mod-grid"></div>
           <div class="mod-detail" id="mod-detail">
             <div style="text-align:center;color:var(--text-muted);margin-top:80px;">
               <div style="font-size:2.5rem;margin-bottom:12px;">←</div>
-              <p>Select a neural cell to view its specifications.</p>
+              <p>Select a module to read its design and its state on the record.</p>
             </div>
           </div>
         </div>
@@ -181,21 +221,19 @@
       <!-- 03: EVOLUTION — Charts -->
       <section class="tx-section" id="evolution">
         <div class="tx-section-head"><span class="tx-section-num">03</span><h2>Evolution — Neural Plasticity</h2></div>
-        <div class="tx-section-label">Recursive Self-Improvement Metrics</div>
+        <div class="tx-section-label">Improvement, as the record shows it</div>
         <div class="tx-prose">
-          <p>Static systems plateau early. Organisms do not. Every run creates residue — a successful pattern, a failed assumption, a sharper default. The charts below visualize how organisms evolve over operational cycles.</p>
+          <p>The design hope is that every run leaves residue, a successful pattern, a failed assumption, a sharper default, and that the next run starts from it. The table below sets that hope against what the record holds for each of the five domains the old chart claimed to score.</p>
         </div>
-        <div class="charts-row">
-          <div class="chart-wrap">
-            <h3>Organism Capability Spectrum</h3>
-            <p class="chart-sub">Performance across five cognitive domains</p>
-            <div class="chart-box"><canvas id="radarChart"></canvas></div>
-          </div>
-          <div class="chart-wrap">
-            <h3>Knowledge Accrual vs. Adaptation</h3>
-            <p class="chart-sub">Knowledge growth and rule mutations over 30 cycles</p>
-            <div class="chart-box"><canvas id="lineChart"></canvas></div>
-          </div>
+        <div class="st-wrap" id="st-wrap">
+          <h3>The five domains, as the record shows them</h3>
+          <p class="st-sub">Replaces a capability chart. Status on 8 November 2026 (organ health re-read on 10 November). Filter by state.</p>
+          <div class="st-filter"><button type="button" class="active" data-f="all">All</button><button type="button" data-f="built">Built, tested</button><button type="button" data-f="idle">Idle</button><button type="button" data-f="failing">Failing</button></div>
+          <div class="st-row" data-s="built"><b>Observation</b><span class="st-pill built">Built, tested</span><span>Scheduled organs beat: a canary, a dead-man reader, a task watcher, telemetry and a daily digest (8 November). The dead-man reader exits 1 whenever it has findings, so its own task reads as failed every ten minutes; that is by design. The external witness beat has been rejected on every attempt since 9 November, a fault on the service side that waits on the operator.</span></div>
+          <div class="st-row" data-s="idle"><b>Reasoning</b><span class="st-pill idle">Idle</span><span>No language model has been resident since the 27 October boot and the last routed call was on 25 October (state of 8 November). Reasoning on the record is done by human-driven tool sessions.</span></div>
+          <div class="st-row" data-s="failing"><b>Memory</b><span class="st-pill failing">Failing</span><span>The vault is read and written daily, but semantic search has held zero embeddings since 3 November and most files lost that day are still unrestored.</span></div>
+          <div class="st-row" data-s="idle"><b>Coordination</b><span class="st-pill idle">Idle</span><span>The task calendar holds 402 tasks, 155 of them done. It has no running consumer: its last change was on 5 November, and the build loop that would consume it has run nothing in forty days.</span></div>
+          <div class="st-row" data-s="failing"><b>Adaptation</b><span class="st-pill failing">Failing</span><span>The nightly evaluation has come back incomplete every night since 26 October, was red on 41 of 70 nights, and the 14-night green chain it is meant to prove has never started. Nothing changes its own rules; changes are made by hands.</span></div>
         </div>
       </section>
 
@@ -214,10 +252,23 @@
         <div class="tx-section-head"><span class="tx-section-num">05</span><h2>What We Are Actually Building</h2></div>
         <div class="tx-section-label">Closing Transmission</div>
         <div class="tx-prose">
-          <p>Unwind is building systems that do not just execute commands. They <strong>accumulate judgment</strong>. They coordinate across specialized minds. They keep context alive long enough for intelligence to deepen.</p>
-          <p>That is the shift we care about most. Not software that looks intelligent for a moment, but architecture that lets intelligence <strong>mature over time</strong>.</p>
+          <p>Unwind is designing systems that are meant to do more than execute commands: to <strong>accumulate judgment</strong>, to coordinate across specialized parts, and to keep context alive long enough for intelligence to deepen. Section 03 shows how far the record has got.</p>
+          <p>That is the shift we care about most. Not software that looks intelligent for a moment, but architecture that would let intelligence <strong>mature over time</strong>.</p>
           <p>This is how we give machines a mind.</p>
         </div>
+      </section>
+
+      <!-- 06: NOT CLAIMED -->
+      <section class="tx-section" id="not-claimed">
+        <div class="tx-section-head"><span class="tx-section-num">06</span><h2>What This Note Does Not Claim</h2></div>
+        <div class="tx-section-label">Added 10 November 2026</div>
+        <ul class="nc-list">
+          <li>It does not claim that any machine here is conscious, feels, or has a mind. "Mind", "organism", "neural" and "immune system" are language for a design.</li>
+          <li>It does not claim that the modules above are running together as one system. Some are code that has not run for weeks; some are concepts.</li>
+          <li>It does not claim measured capability. The old capability scores were not measurements and are gone.</li>
+          <li>It does not claim self-improvement. On the record, procedures and code are changed by hands and committed; the loop meant to do that on its own has run nothing in forty days.</li>
+          <li>It does not claim to be a current status page. For the day-to-day state, read the newer field notes from 8 November onward.</li>
+        </ul>
       </section>
 
       <!-- CTA -->
@@ -244,25 +295,25 @@
     const t=document.getElementById('nav-toggle'), l=document.getElementById('nav-links');
     if(t&&l){t.addEventListener('click',()=>{t.classList.toggle('active');l.classList.toggle('open')});l.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{t.classList.remove('active');l.classList.remove('open')}))}
 
-    // MODULE EXPLORER
+    // MODULE EXPLORER (design plus the state on the record, 10 November 2026)
     const modules = [
-      {icon:'⚡',name:'Cortex',type:'Core Processing',path:'src/cortex/',desc:'Central routing and decision-making matrix. Evaluates incoming stimuli and dictates execution paths across all cells. Houses primary logic for task delegation and heuristic evaluation.',specs:['State Management','Task Routing','Heuristic Evaluation']},
-      {icon:'🌐',name:'Gateway',type:'External Interface',path:'src/gateway/',desc:'The system\'s perception layer. Handles outbound API requests, web scraping, multi-channel communication via WebSocket, and live data extraction from external sources.',specs:['Web Scraping','API Integration','WebSocket Router']},
-      {icon:'🧠',name:'Memory',type:'Context Buffer',path:'src/memory/',desc:'Active context buffer tracking current tasks, recent data, and conversational state. Flushed or consolidated into long-term Knowledge upon task completion.',specs:['Context Windows','Vector DB','Data Consolidation']},
-      {icon:'🪞',name:'Infinite Mirror',type:'Self-Reflection',path:'src/cells/mirror/',desc:'Recursive self-evaluation engine. Continuously analyzes system output, compares against rules.md, and proposes structural updates to improve future performance.',specs:['Self-Auditing','Rule Mutation','Spec Rewriting']},
-      {icon:'⚙️',name:'Kinetic Engine',type:'Execution Loop',path:'src/cells/kinetic/',desc:'Chronological heartbeat of the organism. Orchestrates continuous loops, manages objective queues, and ensures tasks don\'t stall or timeout.',specs:['Cron Orchestration','Loop Management','Timeout Recovery']},
-      {icon:'🛡️',name:'Security',type:'Immune System',path:'src/security/',desc:'Sandbox manager and approval gate. Executes generated code in ephemeral Docker containers. High-risk operations require human-in-the-loop approval via Telegram.',specs:['Docker Sandbox','Approval Gate','DinD Isolation']}
+      {icon:'⚡',name:'Cortex',type:'Core Processing',tag:'code, idle',desc:'Design: the routing and decision layer. It evaluates what arrives and dictates how work is delegated across the other parts.',specs:['State Management','Task Routing','Heuristic Evaluation'],state:'Tested code exists. As of 8 November 2026 no language model has been resident since 27 October and the runtime has not run a task since 30 September. The work a cortex would do is done today by human-driven tool sessions.'},
+      {icon:'🌐',name:'Gateway',type:'External Interface',tag:'narrow, running',desc:'Design: the perception boundary, the way the organism reaches outward and the way messages reach it.',specs:['Outbound Allowlist','Read-only Tools','Typed Messages'],state:'What runs is deliberately narrow: an egress proxy that allows three approved domains and a tool gateway that exposes six read-only tools. Nothing here scrapes the web or holds open channels.'},
+      {icon:'🧠',name:'Memory',type:'Context and Store',tag:'vault, degraded',desc:'Design: a working buffer for the task at hand, consolidated into long-term knowledge when the task ends.',specs:['Context Window','Notes and Journal','Consolidation'],state:'Long-term memory is a plain-text vault of notes and a daily journal. Since a loss on 3 November, semantic search has held zero embeddings and most of the lost files are still unrestored (state of 8 November).'},
+      {icon:'🪞',name:'Infinite Mirror',type:'Self-Reflection',tag:'concept, demo',desc:'Design: a reflective layer that would compare output against written rules and propose changes to improve later work.',specs:['Self-Auditing','Rule Proposals','Spec Review'],state:'A concept and a static web demo from July. Nothing on the record evaluates output on a schedule or proposes rule changes. What to do with it is a product decision that waits on the operator.'},
+      {icon:'⚙️',name:'Kinetic Engine',type:'Execution Loop',tag:'OS scheduler instead',desc:'Design: the heartbeat that runs loops, keeps an objective queue and stops tasks from stalling.',specs:['Scheduled Runs','Loop Limits','Timeout Recovery'],state:'The heartbeat that actually fires is the operating system task scheduler, running seven scheduled organs. The build loop, the only autonomous executor of planned work, has run nothing in forty days: its last success was 29 September and it has refused every run since, for stated reasons.'},
+      {icon:'🛡️',name:'Security',type:'Immune System',tag:'sandbox, gate',desc:'Design: a sandbox for generated code and an approval gate, so that consequential steps need a human.',specs:['Container Sandbox','Approval Gate','Fail Closed'],state:'A container sandbox for generated code was repaired and proven on 16 October; the one generated cell it produced is still staged and has never been activated. The custody gate sits at Stage 0 because its Stage-1 grant expired on 4 October, so every consequential step is the operator\'s hand.'}
     ];
     const grid=document.getElementById('mod-grid'), detail=document.getElementById('mod-detail');
     let activeNode=null;
     modules.forEach(m=>{
       const btn=document.createElement('button');
       btn.className='mod-node';
-      btn.innerHTML=`<span class="mod-icon">${m.icon}</span><div class="mod-name">${m.name}</div><div class="mod-path">${m.path}</div>`;
+      btn.innerHTML=`<span class="mod-icon">${m.icon}</span><div class="mod-name">${m.name}</div><div class="mod-path">${m.tag}</div>`;
       btn.addEventListener('click',()=>{
         if(activeNode)activeNode.classList.remove('active');
         btn.classList.add('active'); activeNode=btn;
-        detail.innerHTML=`<div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;"><span style="font-size:2.5rem">${m.icon}</span><div><div class="mod-detail-title">${m.name}</div><span class="mod-detail-type">${m.type}</span></div></div><div style="margin-bottom:16px;"><span style="font-size:0.72rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em">Directory</span><code style="display:block;background:rgba(110,45,190,0.08);color:var(--accent-light);padding:8px 12px;border-radius:8px;margin-top:6px;font-family:'JetBrains Mono',monospace;font-size:0.82rem">${m.path}</code></div><p class="mod-detail-desc">${m.desc}</p><div style="font-size:0.72rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px">Core Specs</div><div class="mod-specs">${m.specs.map(s=>`<span class="mod-spec">${s}</span>`).join('')}</div>`;
+        detail.innerHTML=`<div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;"><span style="font-size:2.5rem">${m.icon}</span><div><div class="mod-detail-title">${m.name}</div><span class="mod-detail-type">${m.type}</span></div></div><p class="mod-detail-desc">${m.desc}</p><div style="margin-bottom:16px;"><span style="font-size:0.72rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em">On the record, 10 November 2026</span><p style="margin-top:6px;font-size:0.88rem;line-height:1.65;color:var(--text-secondary)">${m.state}</p></div><div style="font-size:0.72rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px">Design themes</div><div class="mod-specs">${m.specs.map(s=>`<span class="mod-spec">${s}</span>`).join('')}</div>`;
       });
       grid.appendChild(btn);
     });
@@ -270,10 +321,10 @@
 
     // MEMORY CARDS
     const memData = [
-      {icon:'⚡',title:'Working Memory',desc:'The live buffer: current objectives, active constraints, immediate context.',extra:'Implemented as the active context window. Holds ~128K tokens of immediate task state. Flushed after each execution cycle, with key findings promoted to semantic or episodic layers.'},
-      {icon:'📋',title:'Procedural Memory',desc:'The learned method: playbooks, response rules, checklists.',extra:'Stored as versioned rules.md files. The Infinite Mirror module can mutate these based on performance feedback, creating an evolutionary pressure toward better protocols.'},
-      {icon:'📚',title:'Semantic Memory',desc:'The domain layer: concepts, frameworks, structural understanding.',extra:'Powered by vector embeddings in the Knowledge store. Enables semantic search across all ingested domain knowledge — the organism reasons with its library, not just its prompt.'},
-      {icon:'🕰️',title:'Episodic Memory',desc:'The history of becoming: prior runs, lessons, case patterns.',extra:'Consciousness logs written nightly. Each entry captures decisions made, outcomes observed, and behavioral adjustments recommended. The organism develops institutional memory.'}
+      {icon:'⚡',title:'Working Memory',desc:'The live buffer: current objectives, active constraints, immediate context.',extra:'Design: the context of the task in hand, flushed when the task ends, with findings promoted to the other layers. On the record this is the context of a tool session; nothing is promoted automatically.'},
+      {icon:'📋',title:'Procedural Memory',desc:'The learned method: playbooks, response rules, checklists.',extra:'Design: written procedures that improve with feedback. On the record the procedures are written notes in the vault and are changed by hands, people and tool sessions, then committed. No module rewrites them by itself.'},
+      {icon:'📚',title:'Semantic Memory',desc:'The domain layer: concepts, frameworks, structural understanding.',extra:'Design: search by meaning across everything ingested. State on 8 November 2026: the vault holds notes, but its semantic index has held zero embeddings since 3 November, so search by meaning is not working.'},
+      {icon:'🕰️',title:'Episodic Memory',desc:'The history of becoming: prior runs, lessons, case patterns.',extra:'Design: a record of what was decided and what happened. On the record this is the dated journal, written by the organs and by the hands at the end of a task. An older module meant to write nightly reflective logs is dormant.'}
     ];
     const memGrid=document.getElementById('mem-grid');
     memData.forEach(m=>{
@@ -287,25 +338,21 @@
       memGrid.appendChild(card);
     });
 
-    // CHARTS
-    const chartColors = {accent:'rgba(155,89,245,1)',accentFill:'rgba(155,89,245,0.15)',hot:'rgba(192,132,252,1)',teal:'rgba(13,148,136,0.7)',grid:'rgba(240,238,246,0.08)',text:'rgba(240,238,246,0.35)'};
-    const commonOpts = {responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:chartColors.text,font:{family:'Inter'}}},tooltip:{backgroundColor:'rgba(15,15,30,0.95)',titleFont:{family:'Inter'},bodyFont:{family:'Inter'},padding:10,cornerRadius:8}}};
-
-    new Chart(document.getElementById('radarChart'),{
-      type:'radar',
-      data:{labels:['Observation','Reasoning','Memory','Coordination','Adaptation'],datasets:[{label:'Capability Index',data:[8.5,9.2,8.9,7.8,9.5],backgroundColor:chartColors.accentFill,borderColor:chartColors.accent,pointBackgroundColor:chartColors.hot,pointBorderColor:'#0f0f1e',borderWidth:2}]},
-      options:{...commonOpts,scales:{r:{angleLines:{color:chartColors.grid},grid:{color:chartColors.grid},pointLabels:{color:chartColors.text,font:{family:'Inter',size:11}},ticks:{display:false,min:0,max:10}}}}
-    });
-
-    const days=Array.from({length:30},(_,i)=>`D${i+1}`);
-    let kb=100; const kbData=[],ruData=[];
-    for(let i=0;i<30;i++){kb+=Math.floor(Math.random()*15)+5;kbData.push(kb);ruData.push(Math.random()>0.7?Math.floor(Math.random()*3)+1:0)}
-
-    new Chart(document.getElementById('lineChart'),{
-      type:'line',
-      data:{labels:days,datasets:[{type:'line',label:'Knowledge Nodes',data:kbData,borderColor:chartColors.accent,backgroundColor:chartColors.accentFill,borderWidth:2,tension:0.4,fill:true,yAxisID:'y'},{type:'bar',label:'Rule Mutations',data:ruData,backgroundColor:chartColors.teal,borderRadius:4,yAxisID:'y1'}]},
-      options:{...commonOpts,interaction:{mode:'index',intersect:false},scales:{x:{grid:{display:false},ticks:{maxTicksLimit:10,color:chartColors.text}},y:{position:'left',title:{display:true,text:'Knowledge Nodes',color:chartColors.text,font:{size:10}},grid:{color:chartColors.grid},border:{display:false},ticks:{color:chartColors.text}},y1:{position:'right',title:{display:true,text:'Mutations',color:chartColors.text,font:{size:10}},grid:{drawOnChartArea:false},border:{display:false},ticks:{stepSize:1,color:chartColors.text}}}}
-    });
+    // STATE-OF-RECORD FILTER (revised 2026-11-10)
+    (function () {
+      var wrap = document.getElementById('st-wrap');
+      if (!wrap) return;
+      var rows = wrap.querySelectorAll('.st-row');
+      var btns = wrap.querySelectorAll('.st-filter button');
+      btns.forEach(function (b) {
+        b.addEventListener('click', function () {
+          btns.forEach(function (x) { x.classList.remove('active'); });
+          b.classList.add('active');
+          var f = b.getAttribute('data-f');
+          rows.forEach(function (r) { r.style.display = (f === 'all' || r.getAttribute('data-s') === f) ? '' : 'none'; });
+        });
+      });
+    })();
   });
   </script>
 </body>
