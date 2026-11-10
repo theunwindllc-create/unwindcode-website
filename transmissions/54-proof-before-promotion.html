@@ -335,21 +335,21 @@
         <div class="wf-steps" id="wf-steps">
           <div class="wf-step"><div class="wf-dot wf-dot-1">01</div><h3>The rule is written</h3><p><strong>What "unbroken" has to mean.</strong> A gap is tolerated inside a bound, as long as every gap is detected, explained in a dated record with its cause, and closed by the next successful proof carrying forward from where it left off.</p></div>
           <div class="wf-step"><div class="wf-dot wf-dot-2">02</div><h3>A shared job board adopts it</h3><p><strong>A job is not finished until it names its own result.</strong> The board counts nothing but a finished task's own receipt.</p></div>
-          <div class="wf-step"><div class="wf-dot wf-dot-3">03</div><h3>A wider audit applies it</h3><p><strong>Claimed agents checked against ones with an actual running trace.</strong> The roster shrinks to what can be shown.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-3">03</div><h3>A wider audit applies it</h3><p><strong>Claimed agents checked against ones with an actual running trace.</strong></p></div>
           <div class="wf-step"><div class="wf-dot wf-dot-4">04</div><h3>The roadmap counts only receipts</h3><p><strong>Progress table rewritten to count nothing but receipts.</strong> Claims stop moving the number.</p></div>
         </div>
         <div class="oh-list" id="oh-list"></div>
         <div class="oh-foot">5 reasons · receipts only · 0 credited on a claim</div>
         <div class="oh-refusal">
-          <h3>Nothing here is done</h3>
-          <p>A plan that reads as done is not a receipt. Nothing on this page counts as progress until a receipt names it.</p>
+          <h3>Nothing counts without a receipt</h3>
+          <p>A plan that reads as done is not a receipt. Nothing counts as progress until a receipt names it.</p>
         </div>
         <div class="tx-quote">Claims are not receipts.</div>
       </section>
 
       <div class="tx-cta">
-        <h2>Draw the boundary before the code.</h2>
-        <p>If you are moving an autonomous system onto a chain and the real question is what must never move with it, we should talk.</p>
+        <h2>Count receipts, not claims.</h2>
+        <p>If your agents report progress and the real question is how much of it you can verify, we should talk.</p>
         <a class="btn btn-primary btn-lg" href="/build-with-us"><span>Build With Us</span><span class="btn-arrow">→</span></a>
       </div>
     </div>
@@ -364,13 +364,13 @@
     // 01 — CATEGORY READINGS: claimed vs currently receipted
     var states = { a: 'Claimed', b: 'Currently receipted' };
     var components = [
-      { state: 'a', name: 'Finished tasks', short: 'Several in flight · 0 verified this week', why: 'Refused without a receipt: a finished task counts only when it names its own result.' },
-      { state: 'b', name: 'Finished tasks', short: '0 verified receipts', why: 'Receipted: zero. Work in flight is not counted.' },
-      { state: 'a', name: 'Resident agents', short: 'Several active · 1 hand receipted in 30 days', why: 'Claimed: a full roster of planned agent seats.' },
-      { state: 'b', name: 'Resident agents', short: '0 seats receipted', why: 'Receipted: zero seats carry a running trace.' },
-      { state: 'a', name: 'Clean nights of checks', short: '14 nights run', why: 'Claimed: fourteen nightly checks executed.' },
-      { state: 'b', name: 'Clean nights of checks', short: '0 came back clean', why: 'Receipted: zero clean nights.' },
-      { state: 'a', name: 'A dollar of revenue', short: 'Work delivered, billed', why: 'Claimed: revenue on the books.' },
+      { state: 'a', name: 'Finished tasks', short: 'A task asserted as done.', why: 'Refused without a receipt: a finished task counts only when it names its own result.' },
+      { state: 'b', name: 'Finished tasks', short: '0 executed tasks with a verified receipt that week', why: 'Receipted: zero.' },
+      { state: 'a', name: 'Resident agents', short: 'An agent asserted as working.', why: 'Refused without a running trace.' },
+      { state: 'b', name: 'Resident agents', short: '1 hand receipted in the prior 30 days; 0 planned agent seats', why: 'Receipted: one hand of several active on the machine, and no planned seat.' },
+      { state: 'a', name: 'Clean nights of checks', short: 'A night asserted as clean.', why: 'Refused without a receipt.' },
+      { state: 'b', name: 'Clean nights of checks', short: '0 of the prior 14 nightly checks came back clean', why: 'Receipted: zero clean nights.' },
+      { state: 'a', name: 'A dollar of revenue', short: 'Revenue asserted.', why: 'Refused until it is verified.' },
       { state: 'b', name: 'A dollar of revenue', short: '$0 verified', why: 'Receipted: verified revenue stands at zero.' }
     ];
     var dlGrid = document.getElementById('dl-grid');
@@ -414,12 +414,12 @@
 
     // 02 — THREE INSTANCES OF THE PATTERN
     var cards = [
-      { id: 'chain', role: 'On the record', score: 'in force',
+      { id: 'chain', role: 'On the record', score: 'on the record',
         name: 'Chain-tolerance rule',
         short: 'Defines exactly how a gap is detected and closed instead of assuming an unbroken chain.',
         specs: ['Gap allowed inside a bound', 'Automatically detected', 'Dated record with cause', 'Closed by next proof'],
         proof: 'Unbroken is a property of the design, not of conditions outside its control.' },
-      { id: 'board', role: 'On the record', score: 'in force',
+      { id: 'board', role: 'On the record', score: 'on the record',
         name: 'Shared job board',
         short: 'A job is not finished until it names its own result.',
         specs: ['Job board', 'Receipt per finished task', 'No claim without a result'],
@@ -458,17 +458,17 @@
 
     // 03 — CLAIMED VERSUS RECEIPTED
     var rawSteps = [
-      { t: 'Tasks claimed this week', d: 'Several in flight, none receipted.' },
-      { t: 'Agent seats claimed', d: 'A full roster on paper.' },
-      { t: 'Nightly checks claimed', d: 'Fourteen runs asserted.' },
-      { t: 'Approval items claimed', d: 'Roughly seventy open.' },
-      { t: 'Revenue claimed', d: 'Work delivered, billed.' }
+      { t: 'Tasks', d: 'A count of finished tasks, asserted.' },
+      { t: 'Agent seats', d: 'A roster of planned seats, on paper.' },
+      { t: 'Nightly checks', d: 'Checks asserted as passing.' },
+      { t: 'Approval items', d: 'Items asserted as handled.' },
+      { t: 'Revenue', d: 'Revenue, asserted.' }
     ];
     var verifySteps = [
       { t: 'Verified receipts this week', d: '0.' },
-      { t: 'Seats with a running trace', d: '0 seats; 1 hand receipted in 30 days.' },
+      { t: 'Seats with a receipt', d: '0 planned seats; 1 hand receipted in 30 days.' },
       { t: 'Clean nights of 14', d: '0.' },
-      { t: 'Approvals closed with receipt', d: '0.' },
+      { t: 'Approval items waiting', d: 'Roughly seventy, the oldest over two months old.' },
       { t: 'Verified revenue', d: '$0.' }
     ];
     var faultFailsAt = { none: -1, a: 1, b: 3, c: 4 };
@@ -554,11 +554,11 @@
 
     // 06 — WHY THE RULE HOLDS (F5)
     var baselines = [
-      { t: 'A receipt is not optional', s: 'the design rule', needs: 'key', d: '"done means a tested, end-to-end result with a receipt, never a document or profile created."' },
-      { t: 'Claims are never traced', s: 'the failure the rule blocks', needs: 'key', d: 'Counting claims instead of receipts is exactly what an audit elsewhere on the record already caught once — far fewer agents had an actual running trace than had been claimed.' },
-      { t: 'Gaps are detected, not hidden', s: 'chain tolerance', needs: 'passkey', d: 'A gap in proof is allowed within a bound when it is automatically detected, explained in a dated record with its cause, and closed by the next successful proof.' },
-      { t: 'Zero is honest', s: 'the cost the rule accepts', needs: 'key', d: 'A system that counts only receipts shows low or zero progress on anything not yet receipted — even work that may be substantially done. The rule accepts that on purpose.' },
-      { t: 'Nothing is credited on faith', s: 'why the rule holds', needs: 'key', d: 'A receipts-only count cannot repeat that failure, because it never credits a claim it cannot trace.' }
+      { t: 'A receipt is not optional', s: 'the design rule', tag: 'rule', d: '"done means a tested, end-to-end result with a receipt, never a document or profile created."' },
+      { t: 'A claim can outrun its trace', s: 'the failure the rule blocks', tag: 'audit', d: 'Counting claims instead of receipts is exactly what an audit elsewhere on the record already caught once — far fewer agents had an actual running trace than had been claimed.' },
+      { t: 'Gaps are detected, not hidden', s: 'chain tolerance', tag: 'chain', d: 'A gap in proof is allowed within a bound when it is automatically detected, explained in a dated record with its cause, and closed by the next successful proof.' },
+      { t: 'Zero is honest', s: 'the cost the rule accepts', tag: 'cost', d: 'A system that counts only receipts shows low or zero progress on anything not yet receipted — even work that may be substantially done. The rule accepts that on purpose.' },
+      { t: 'Nothing is credited on faith', s: 'why the rule holds', tag: 'result', d: 'A receipts-only count cannot repeat that failure, because it never credits a claim it cannot trace.' }
     ];
     var ohList = document.getElementById('oh-list');
     baselines.forEach(function (h) {
@@ -566,7 +566,7 @@
       item.type = 'button';
       item.className = 'oh-item';
       item.setAttribute('aria-expanded', 'false');
-      item.innerHTML = '<span class="oh-box" aria-hidden="true"></span><span><span class="oh-t">' + h.t + '</span><span class="oh-s">' + h.s + '</span><span class="oh-d">' + h.d + '</span></span><span class="oh-needs oh-needs-' + h.needs + '">' + h.needs + '</span>';
+      item.innerHTML = '<span class="oh-box" aria-hidden="true"></span><span><span class="oh-t">' + h.t + '</span><span class="oh-s">' + h.s + '</span><span class="oh-d">' + h.d + '</span></span><span class="oh-needs oh-needs-key">' + h.tag + '</span>';
       item.addEventListener('click', function () {
         item.setAttribute('aria-expanded', item.getAttribute('aria-expanded') === 'true' ? 'false' : 'true');
       });
