@@ -35,7 +35,7 @@
     "author": {"@type": "Organization", "name": "Unwind Code"},
     "publisher": {"@type": "Organization", "name": "Unwind Code", "url": "https://www.unwindcode.ai"},
     "datePublished": "2026-11-08",
-    "dateModified": "2026-11-08",
+    "dateModified": "2026-11-10",
     "keywords": ["audit", "agent registry", "consolidation", "baselines", "custody boundary"],
     "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/41-the-audit-counted-eighty-seven-agents"
   }
@@ -212,6 +212,9 @@
       .dl-card, .mod-node, .mem-card, .oh-d, .cr-step, .dl-chip, .cr-fault { transition:none; }
       .dl-card:hover, .mod-node:hover, .mem-card:hover { transform:none; }
     }
+    .tx-dateline { max-width:720px; margin:32px auto 0; text-align:left; border:1px solid rgba(232,161,92,0.28); border-radius:14px; padding:16px 20px; background:linear-gradient(180deg,rgba(232,161,92,0.07),rgba(232,161,92,0.015)); font-size:0.88rem; line-height:1.65; color:var(--text-secondary); }
+    .tx-dateline strong { color:#e8a15c; font-weight:650; }
+    .tx-dateline + .tx-dateline { margin-top:12px; }
   </style>
 </head>
 <body class="tx-page">
@@ -241,6 +244,8 @@
         <h1>The Audit Counted<br>Eighty-Seven Agents</h1>
         <p class="tx-hero-sub">On 8 November 2026 six auditors ran in parallel, read-only, against the operator's consolidation brief. The result: seven documents, nothing else — no code changed, nothing installed, no credits spent — and a registry count of eighty-seven, fourteen of them real.</p>
         <div class="tx-hero-meta"><span>November 2026</span><span>·</span><span>Field note</span><span>·</span><span>Consolidation</span><span>·</span><span>8 min read</span></div>
+        <p class="tx-dateline"><strong>Dated note.</strong> This note describes the read-only audit of 8 November 2026 and was written and published that day. Every figure is a baseline of that day, not today.</p>
+        <p class="tx-dateline"><strong>Correction, 10 November 2026.</strong> The inline script of this page contained a syntax error (an unescaped apostrophe) that stopped every interactive panel from running; it is fixed. The day panel in section 04 showed four of the six timestamps and tagged past events "needs approval"; it now lists all six, as recorded. The Skills and Tools cards now say what the registry says. The closing status line now says that "nothing built" refers to the audit and the plan, not to the rest of that day. The "renew its grant" card no longer calls an expired Stage-1 grant "spending authority". The calendar truth pass did run on the local model; the page itself was drafted by a free cloud-hosted model from public-safe facts, then reviewed by other hands.</p>
       </div>
     </section>
 
@@ -308,7 +313,7 @@
           <div class="wf-step"><div class="wf-dot wf-dot-6">06</div><h3>The review branch</h3><p>18:22 — uncommitted work went out in twenty-one commits to a review branch through the custody gate.</p></div>
         </div>
         <div class="oh-list" id="oh-list"></div>
-        <div class="oh-foot">0 / 5 executable by the organism · documents and proposals only</div>
+        <div class="oh-foot">Six timestamps from the day's journal · nothing here is executable from this page</div>
       </section>
 
       <!-- 05: THE PROPOSAL -->
@@ -362,7 +367,7 @@
         </div>
         <div class="mem-grid" id="mem-grid"></div>
         <div class="tx-prose tx-after">
-          <p>Status: proposal. Nothing built, changed, installed or spent. Seven decisions wait on the operator's hand: the safety steps; commit the gate code; re-pin the gate code; renew its grant; the rules-file restore, done 8 November; an off-box vault backup target; approval of the architecture and its order.</p>
+          <p>Status: proposal. The audit and the consolidation plan themselves built, changed, installed and spent nothing; the rail, the rules-file restore and the commits listed in section 04 were separate acts the same day. Seven decisions wait on the operator's hand: the safety steps; commit the gate code; re-pin the gate code; renew its grant; the rules-file restore, done 8 November; an off-box vault backup target; approval of the architecture and its order.</p>
         </div>
         <div class="tx-related">
           Related: <a href="/transmissions/38-one-board-for-every-hand">Transmission 38 — one board for every hand</a> · <a href="/transmissions/40-twenty-seats-one-owner-per-step">Transmission 40 — twenty seats, one owner per step</a>
@@ -388,8 +393,8 @@
     var components = [
       { state: 'real', name: 'Real agents', short: 'Fourteen rows.', why: '"Real" means an executed session as itself with a verifiable result — run as itself at least once. It is not persistence.' },
       { state: 'persona', name: 'Personas', short: 'Forty-one rows.', why: 'Defined and named, but no session has ever run under them as themselves.' },
-      { state: 'skill', name: 'Skills', short: 'Ten rows.', why: 'Procedures the organs can follow, indexed by name.' },
-      { state: 'tool', name: 'Tools', short: 'Six rows.', why: 'Entries in the skill catalog the system may call.' },
+      { state: 'skill', name: 'Skills', short: 'Ten rows.', why: 'Skill packs and registered skills. Counted in the registry, but not agents that ran as themselves.' },
+      { state: 'tool', name: 'Tools', short: 'Six rows.', why: 'Runtime tools and agent cards the system may call. Counted in the registry, but not agents that ran as themselves.' },
       { state: 'placeholder', name: 'Placeholders', short: 'Thirteen rows.', why: 'A row that names a role no agent holds yet.' },
       { state: 'shelved', name: 'Shelved', short: 'Three rows.', why: 'Installed, operation off; launchable only by explicit drill.' },
     ];
@@ -557,9 +562,11 @@
     // 05 — OPERATOR'S HAND
     var hand = [
       { t: '14:42 · First deliverable', s: 'One commit, not pushed.', needs: 'key', cls: 'key', d: 'Seven documents from six read-only auditors; no code changed, nothing installed, no credits spent.' },
-      { t: '15:23 · Unified roadmap', s: 'Forty-five sources, five waves.', needs: 'key', cls: 'key', d: 'A consolidation proposal awaiting the operator's approval.' },
-      { t: '16:08 · Rail opened', s: 'The interim job board.', needs: 'key', cls: 'key', d: 'Every hand reads it before starting work; nothing in it is built yet.' },
+      { t: '15:23 · Unified roadmap', s: 'Forty-five sources, five waves.', needs: 'key', cls: 'key', d: 'A consolidation proposal awaiting the operator\'s approval.' },
+      { t: '16:08 · Rail opened', s: 'The interim job board.', needs: 'key', cls: 'key', d: 'Every hand reads it before starting work. It is interim; the real job board is still a proposal.' },
       { t: '16:28 · Calendar truth pass', s: 'Four rows proposed, none flipped.', needs: 'key', cls: 'key', d: 'The local model\'s first rail job proposed four calendar rows and changed nothing.' },
+      { t: '17:14 · Push ruling', s: 'Always push after every commit.', needs: 'key', cls: 'key', d: 'The operator ruled that nothing stays only on the machine.' },
+      { t: '18:22 · Review branch', s: 'Twenty-one commits.', needs: 'key', cls: 'key', d: 'Uncommitted work went out to a review branch through the custody gate.' },
     ];
     var ohList = document.getElementById('oh-list');
     hand.forEach(function (h) {
@@ -567,7 +574,7 @@
       item.type = 'button';
       item.className = 'oh-item';
       item.setAttribute('aria-expanded', 'false');
-      item.innerHTML = '<span class="oh-box" aria-hidden="true"></span><span><span class="oh-t">' + h.t + '</span><span class="oh-s">' + h.s + '</span><span class="oh-d">' + h.d + '</span></span><span class="oh-needs oh-needs-' + h.cls + '">needs approval</span>';
+      item.innerHTML = '<span class="oh-box" aria-hidden="true"></span><span><span class="oh-t">' + h.t + '</span><span class="oh-s">' + h.s + '</span><span class="oh-d">' + h.d + '</span></span><span class="oh-needs oh-needs-' + h.cls + '">recorded</span>';
       item.addEventListener('click', function () {
         item.setAttribute('aria-expanded', item.getAttribute('aria-expanded') === 'true' ? 'false' : 'true');
       });
@@ -579,7 +586,7 @@
       { tag: 'decision', title: 'The safety steps', desc: 'P0 safety, executed by the operator\'s hand.', extra: 'Nothing autonomous proceeds past the custody boundary.' },
       { tag: 'decision', title: 'Commit the gate code', desc: 'The custody gate code committed and pinned.', extra: 'A ruling, not a default.' },
       { tag: 'decision', title: 'Re-pin the gate code', desc: 'The gate\'s pin renewed.', extra: 'Kept under the gate, not beside it.' },
-      { tag: 'decision', title: 'Renew its grant', desc: 'The gate\'s spending authority renewed.', extra: 'Absolute caps, separated authority, expiry.' },
+      { tag: 'decision', title: 'Renew its grant', desc: 'The gate\'s Stage-1 grant renewed; it expired on 4 October 2026.', extra: 'Authority only by ruling, with an expiry.' },
       { tag: 'done', title: 'Rules-file restore', desc: 'Done 8 November, Transmission 38.', extra: 'Already in the operator\'s hands.' },
       { tag: 'decision', title: 'Off-box vault backup target', desc: 'A backup target outside this box.', extra: 'Private memory stays where it is.' },
       { tag: 'decision', title: 'Approval of the architecture and its order', desc: 'P0 through P4, approved and sequenced.', extra: 'Nothing is built until the operator says so.' },
