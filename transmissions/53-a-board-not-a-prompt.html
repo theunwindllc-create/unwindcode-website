@@ -322,7 +322,7 @@
             </div>
           </div>
           <div class="cr-outcome" id="cr-outcome" aria-live="polite"></div>
-          <p class="cr-note">Outlook, not measured fact. Marked as this note's own analysis (F5), distinct from F1-F4.</p>
+          <p class="cr-note">Outlook, not measured fact. This is the note's own analysis, distinct from the observed facts above.</p>
         </div>
       </section>
 
@@ -392,26 +392,26 @@
 
     // 02 — FOUR HANDS
     var hands = [
-      { id: 'seat', role: 'Paid seat · most of the work until now', score: 'early claims',
+      { id: 'seat', role: 'Subscription coding agent', score: 'most of the work',
         name: 'A subscription coding agent',
-        short: "The hand that ran most of the board's early jobs.",
-        specs: ['Subscription seat', 'First hand on the board'],
-        proof: 'Most early claims finished through this hand.' },
-      { id: 'term', role: 'Command-line hand · same machine', score: 'live claims',
+        short: 'The hand that had been doing most of the work until the board went live.',
+        specs: ['Subscription-based', 'Reads the board first'],
+        proof: 'Every hand reads the board before it starts a session.' },
+      { id: 'term', role: 'Terminal coding agent', score: 'reads the board',
         name: 'A terminal coding agent',
-        short: 'Reads the board from a terminal and works the jobs it claims.',
-        specs: ['Terminal hand', 'Local-first'],
-        proof: 'Claims and finishes jobs from the same rail file.' },
-      { id: 'local', role: 'Free lane · nothing leaves the box', score: 'first free finish',
+        short: 'A second kind of hand that reads the same board before it starts a session.',
+        specs: ['Terminal-based', 'Reads the board first'],
+        proof: 'One file, read by every hand before acting.' },
+      { id: 'local', role: 'Free local-model agent', score: 'first free finish',
         name: 'A free local-model agent',
-        short: 'The first free hand to finish a job independently of the subscription seat.',
-        specs: ['Free lane', 'Local model'],
-        proof: 'Finished a rail job on its own the day the board went live.' },
-      { id: 'shelved', role: 'Installed · not in the loop', score: 'shelved',
+        short: 'Finished a job independently of the subscription coding agent, for the first time, on the day the board went live.',
+        specs: ['Free', 'Local model'],
+        proof: 'Worked from the same board as the other hands.' },
+      { id: 'shelved', role: 'Currently shelved', score: 'shelved',
         name: 'A fourth agent, shelved',
-        short: 'Demoted to shelved operation; it runs only in an explicit, witnessed drill.',
-        specs: ['Shelved', 'Drill only'],
-        proof: 'Normal operation stays off while the shelter marker exists.' }
+        short: 'A fourth agent is currently shelved; it is named in the board but is not part of the day-one work.',
+        specs: ['Shelved'],
+        proof: 'The board lists it as a hand to read the board once it is un-shelved.' }
     ];
     var modGrid = document.getElementById('mod-grid');
     var modDetail = document.getElementById('mod-detail');
@@ -501,9 +501,9 @@
     // 05 — WHAT THE BOARD IS NOT YET
     var limits = [
       { tag: 'not yet', title: 'Not a calendar', desc: 'Scheduling and dates belong to the planned replacement.', extra: 'The board holds open work; it does not schedule it.' },
-      { tag: 'not yet', title: 'Not a dispatcher', desc: 'Matching each job to an owner, with dependencies, comes next.', extra: 'The dispatcher is planned; the board names it.' },
-      { tag: 'not yet', title: 'Not an agent registry', desc: 'Seats, organs and hands are registered in the planned system.', extra: 'This file lists jobs; it does not register hands.' },
-      { tag: 'stopgap', title: 'A stand-in until then', desc: 'The calendar, the dispatcher and the registry are the planned replacement; this file is the stopgap.', extra: 'It states its own limits on the page.' }
+      { tag: 'not yet', title: 'Not a dispatcher', desc: 'A dispatcher is part of the planned replacement.', extra: 'The dispatcher is planned; the board names it.' },
+      { tag: 'not yet', title: 'Not an agent registry', desc: 'Registering the agents is part of the planned replacement.', extra: 'This file lists jobs; it does not register hands.' },
+      { tag: 'stopgap', title: 'A stand-in until then', desc: 'The calendar, the dispatcher and the registry are the planned replacement; this file is the stopgap.', extra: 'It calls itself interim.' }
     ];
     var memGrid = document.getElementById('mem-grid');
     limits.forEach(function (l) {
@@ -522,7 +522,7 @@
 
     // 06 — DAY ONE RESULTS
     var results = [
-      { t: 'No duplicate work', s: 'No two hands reported doing the same job', needs: 'one file', d: 'Each hand read the same file before acting, so no job was taken twice.' },
+      { t: 'No duplicate work', s: 'No two hands reported doing the same job', needs: 'one file', d: 'Each hand read the same file before acting; no duplicate job was reported on day one.' },
       { t: 'Authority stays with the job', s: 'A claim grants no authority of its own', needs: 'no grant', d: 'A hand may do only what that job\'s own plan already allows; the board adds nothing.' }
     ];
     var ohList = document.getElementById('oh-list');
