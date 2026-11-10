@@ -4,13 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Transmission 27: The Quotation Cell | Unwind Code</title>
-  <meta name="description" content="A public-safe whitepaper build record for the Quotation Cell: manual Brain protocol, quote-package architecture, supplier memory, correction loops, transaction readiness, proof metadata, and human approval before commitment." />
-  <meta name="keywords" content="AI quoting, CPQ agents, quote automation, AI organisms, transaction readiness, approval gates, supplier memory, Unwind Code" />
+  <meta name="description" content="A June 2026 build record for a quotation cell, rewritten on 10 November against the record: a quote as a reviewable packet, with human approval before commitment. What exists is a page, a guarded build script and a design; no quoting service." />
   <meta name="theme-color" content="#06060c" />
   <link rel="canonical" href="https://www.unwindcode.ai/transmissions/27-the-quotation-cell" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Transmission 27: The Quotation Cell | Unwind Code" />
-  <meta property="og:description" content="A public-safe whitepaper build record for the Quotation Cell: manual Brain protocol, quote-package architecture, supplier memory, correction loops, transaction readiness, proof metadata, and human approval before commitment." />
+  <meta property="og:title" content="The Quotation Cell" />
+  <meta property="og:description" content="A quote is a governed packet, not a promise. This revision separates the build record that exists from the quoting system that does not, and runs the correction loop as a model." />
   <meta property="og:url" content="https://www.unwindcode.ai/transmissions/27-the-quotation-cell" />
   <meta property="og:site_name" content="Unwind Code" />
   <meta property="og:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
@@ -19,19 +18,231 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Transmission 27: The Quotation Cell | Unwind Code" />
-  <meta name="twitter:description" content="A public-safe whitepaper build record for the Quotation Cell: manual Brain protocol, quote-package architecture, supplier memory, correction loops, transaction readiness, proof metadata, and human approval before commitment." />
+  <meta name="twitter:title" content="The Quotation Cell" />
+  <meta name="twitter:description" content="A quote is a governed packet, not a promise. This revision separates the build record that exists from the quoting system that does not, and runs the correction loop as a model." />
   <meta name="twitter:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
   <meta name="twitter:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/style.css" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The Quotation Cell","description":"A public-safe whitepaper build record for the Quotation Cell: manual Brain protocol, quote-package architecture, supplier memory, correction loops, transaction readiness, proof metadata, and human approval before commitment.","author":{"@type":"Organization","name":"Unwind Code"},"publisher":{"@type":"Organization","name":"Unwind Code","url":"https://www.unwindcode.ai/"},"datePublished":"2026-06-07","dateModified":"2026-06-07","keywords":["AI quoting","CPQ agents","quote packages","transaction readiness","supplier memory","manual Brain protocol","organism build record","human approval"],"mainEntityOfPage":"https://www.unwindcode.ai/transmissions/27-the-quotation-cell"}</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Quotation Cell",
+    "description": "Domain cell build record (June 2026), revised 10 November 2026: the quote-package design, supplier memory, correction loop and readiness boundary, with an honest account of what exists and what does not.",
+    "author": {
+      "@type": "Organization",
+      "name": "Unwind Code"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Unwind Code",
+      "url": "https://www.unwindcode.ai"
+    },
+    "datePublished": "2026-06-07",
+    "dateModified": "2026-11-10",
+    "keywords": [
+      "quotation cell",
+      "quote package",
+      "supplier memory",
+      "human approval",
+      "build record"
+    ],
+    "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/27-the-quotation-cell"
+  }
+  </script>
+  <style>
+    .tx-page { background: var(--bg-void); color: var(--text-primary); }
+    .tx-page *, .tx-page *::before, .tx-page *::after { box-sizing: border-box; }
+    .tx-hero { padding: 160px 0 72px; text-align: center; position: relative; overflow: hidden; }
+    .tx-hero::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:800px; height:800px; background:radial-gradient(circle, rgba(110,45,190,0.12) 0%, transparent 60%); pointer-events:none; }
+    .tx-hero-kicker { margin-bottom:16px; }
+    .tx-hero h1 { font-size:clamp(2.2rem,5vw,3.5rem); font-weight:800; letter-spacing:-0.04em; line-height:1.08; margin:0 0 20px; }
+    .tx-hero-sub { font-size:1.08rem; color:var(--text-secondary); max-width:660px; margin:0 auto; line-height:1.7; }
+    .tx-hero-meta { margin-top:28px; display:flex; justify-content:center; gap:14px; font-size:0.76rem; color:var(--text-muted); font-weight:600; letter-spacing:0.06em; text-transform:uppercase; flex-wrap:wrap; }
+    .tx-section { padding:72px 0; border-top:1px solid var(--accent-border); }
+    .tx-section:first-of-type { border-top:none; padding-top:24px; }
+    .tx-section-head { display:flex; align-items:center; gap:16px; margin-bottom:10px; }
+    .tx-section-num { font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:700; color:var(--accent-hot); letter-spacing:0.15em; }
+    .tx-section h2 { font-size:clamp(1.5rem,3vw,2rem); font-weight:700; letter-spacing:-0.02em; margin:0; }
+    .tx-section-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:24px; }
+    .tx-prose { font-size:1.04rem; color:var(--text-secondary); line-height:1.8; max-width:720px; }
+    .tx-prose p { margin:0 0 22px; }
+    .tx-prose strong { color:var(--text-primary); font-weight:600; }
+    .tx-prose code, .tx-prose-code { font-family:'JetBrains Mono',monospace; font-size:0.84rem; background:rgba(110,45,190,0.1); color:var(--accent-light); padding:2px 6px; border-radius:4px; }
+    .tx-prose a, .tx-inline { color:var(--accent-light); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    .tx-quote { border-left:3px solid var(--accent); padding:18px 24px; margin:36px 0; background:rgba(110,45,190,0.05); border-radius:0 12px 12px 0; color:var(--text-primary); font-size:1.08rem; line-height:1.6; font-weight:500; max-width:720px; }
+    .tx-after { margin-top:36px; }
+
+    /* 01 — State filter */
+    .dl-filters { display:flex; flex-wrap:wrap; gap:10px; margin:28px 0 18px; }
+    .dl-chip { font-family:inherit; font-size:0.78rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:9px 16px; border-radius:999px; border:1px solid var(--accent-border); background:var(--bg-surface); color:var(--text-secondary); cursor:pointer; transition:border-color .2s ease, color .2s ease, background .2s ease; }
+    .dl-chip:hover { border-color:rgba(110,45,190,0.4); color:var(--text-primary); }
+    .dl-chip[aria-pressed="true"] { background:rgba(110,45,190,0.16); border-color:var(--accent-light); color:var(--text-primary); }
+    .dl-chip-a[aria-pressed="true"] { border-color:#c084fc; }
+    .dl-chip-b[aria-pressed="true"] { border-color:#38bdf8; }
+    .dl-chip-c[aria-pressed="true"] { border-color:#fbbf24; }
+    .dl-chip-d[aria-pressed="true"] { border-color:#10b981; }
+    .dl-chip-e[aria-pressed="true"] { border-color:#f59e0b; }
+    .dl-chip-f[aria-pressed="true"] { border-color:#f87171; }
+    .dl-count { font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:var(--text-muted); margin-bottom:16px; letter-spacing:0.06em; }
+    .dl-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:12px; }
+    .dl-card { font-family:inherit; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:18px; cursor:pointer; transition:border-color .25s ease, transform .25s ease, opacity .25s ease; }
+    .dl-card:hover { transform:translateY(-2px); border-color:rgba(110,45,190,0.4); }
+    .dl-card[hidden] { display:none; }
+    .dl-state { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.12em; padding:3px 9px; border-radius:999px; border:1px solid currentColor; margin-bottom:10px; }
+    .dl-state-a { color:#c084fc; } .dl-state-b { color:#38bdf8; } .dl-state-c { color:#fbbf24; }
+    .dl-state-d { color:#10b981; } .dl-state-e { color:#f59e0b; } .dl-state-f { color:#f87171; }
+    .dl-name { font-weight:700; font-size:0.96rem; margin-bottom:4px; }
+    .dl-short { font-size:0.84rem; color:var(--text-secondary); line-height:1.55; }
+    .dl-why { display:none; margin-top:12px; padding-top:12px; border-top:1px solid var(--accent-border); font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+    .dl-card[aria-expanded="true"] .dl-why { display:block; }
+    .dl-hint { font-size:0.68rem; color:var(--accent-hot); margin-top:10px; font-weight:600; letter-spacing:0.05em; }
+    .dl-law { margin-top:32px; border:1px solid rgba(251,191,36,0.28); border-radius:16px; padding:24px 28px; background:linear-gradient(180deg,rgba(251,191,36,0.07),rgba(251,191,36,0.015)); max-width:720px; }
+    .dl-law h3 { margin:0 0 10px; font-size:1rem; color:#fbbf24; }
+    .dl-law p { margin:0; font-size:0.95rem; color:var(--text-secondary); line-height:1.7; }
+
+    /* 02 — Component explorer */
+    .mod-explorer { display:grid; grid-template-columns:1fr 1.25fr; gap:24px; margin-top:32px; }
+    .mod-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; align-content:start; }
+    .mod-node { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:20px; cursor:pointer; transition:all 0.25s ease; text-align:left; font-family:inherit; color:var(--text-primary); }
+    .mod-node:hover, .mod-node[aria-pressed="true"] { border-color:rgba(110,45,190,0.45); transform:translateY(-2px); box-shadow:0 8px 24px rgba(110,45,190,0.1); }
+    .mod-node[aria-pressed="true"] { background:rgba(110,45,190,0.08); }
+    .mod-glyph { font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--accent-hot); letter-spacing:0.14em; margin-bottom:10px; display:block; }
+    .mod-name { font-weight:700; font-size:1.02rem; font-family:'JetBrains Mono',monospace; }
+    .mod-path { font-size:0.78rem; color:var(--text-muted); margin-top:6px; line-height:1.4; }
+    .mod-score { margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:#34d399; }
+    .mod-detail { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:20px; padding:32px; min-height:420px; }
+    .mod-detail-title { font-size:1.4rem; font-weight:700; margin-bottom:8px; font-family:'JetBrains Mono',monospace; }
+    .mod-detail-type { display:inline-block; font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent-hot); background:rgba(110,45,190,0.12); border:1px solid rgba(110,45,190,0.2); padding:4px 12px; border-radius:20px; margin-bottom:20px; }
+    .mod-detail-desc { color:var(--text-secondary); line-height:1.7; font-size:0.95rem; margin-bottom:22px; }
+    .mod-specs-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:10px; }
+    .mod-specs { display:flex; flex-wrap:wrap; gap:8px; }
+    .mod-spec { background:rgba(110,45,190,0.08); border:1px solid var(--accent-border); color:var(--accent-light); padding:6px 14px; border-radius:20px; font-size:0.8rem; font-weight:500; }
+    .mod-proof { margin-top:22px; padding-top:18px; border-top:1px solid var(--accent-border); font-size:0.84rem; color:var(--text-muted); line-height:1.6; }
+    .mod-proof strong { color:#34d399; font-family:'JetBrains Mono',monospace; font-weight:600; }
+
+    /* 03 — Baseline model */
+    .cr-wrap { margin-top:28px; border:1px solid rgba(56,189,248,0.22); border-radius:20px; padding:28px; background:linear-gradient(180deg,rgba(56,189,248,0.06),rgba(56,189,248,0.01)); }
+    .cr-top { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; }
+    .cr-label { font-family:'JetBrains Mono',monospace; font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:#38bdf8; }
+    .cr-faults { display:flex; flex-wrap:wrap; gap:8px; }
+    .cr-fault { font-family:inherit; font-size:0.76rem; font-weight:700; padding:8px 14px; border-radius:999px; border:1px solid var(--accent-border); background:var(--bg-surface); color:var(--text-secondary); cursor:pointer; transition:border-color .2s ease, color .2s ease; }
+    .cr-fault:hover { color:var(--text-primary); border-color:rgba(248,113,113,0.5); }
+    .cr-fault[aria-pressed="true"] { color:#fca5a5; border-color:#f87171; background:rgba(248,113,113,0.1); }
+    .cr-fault-reset[aria-pressed="true"] { color:#34d399; border-color:#10b981; background:rgba(16,185,129,0.1); }
+    .cr-cols { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .cr-col { border:1px solid var(--accent-border); border-radius:14px; padding:18px; background:rgba(0,0,0,0.22); }
+    .cr-col h3 { margin:0 0 4px; font-size:0.98rem; }
+    .cr-col-sub { font-size:0.78rem; color:var(--text-muted); margin:0 0 14px; line-height:1.5; }
+    .cr-steps { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
+    .cr-step { display:grid; grid-template-columns:22px 1fr auto; gap:10px; align-items:start; padding:10px 12px; border-radius:10px; border:1px solid var(--accent-border); font-size:0.84rem; line-height:1.5; color:var(--text-secondary); transition:border-color .2s ease, background .2s ease; }
+    .cr-step-n { font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--text-muted); padding-top:3px; }
+    .cr-step-t { color:var(--text-primary); font-weight:600; display:block; }
+    .cr-step-d { display:block; font-size:0.78rem; color:var(--text-muted); margin-top:2px; }
+    .cr-verdict { font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:700; letter-spacing:0.08em; padding-top:3px; white-space:nowrap; }
+    .cr-step.pass { border-color:rgba(16,185,129,0.35); } .cr-step.pass .cr-verdict { color:#34d399; }
+    .cr-step.fail { border-color:#f87171; background:rgba(248,113,113,0.08); } .cr-step.fail .cr-verdict { color:#fca5a5; }
+    .cr-step.skip { opacity:0.42; } .cr-step.skip .cr-verdict { color:var(--text-muted); }
+    .cr-step.blind { border-color:rgba(251,191,36,0.3); } .cr-step.blind .cr-verdict { color:#fbbf24; }
+    .cr-outcome { margin-top:16px; border-radius:12px; padding:14px 16px; font-size:0.9rem; line-height:1.6; border:1px solid var(--accent-border); background:rgba(0,0,0,0.22); color:var(--text-secondary); }
+    .cr-outcome strong { color:var(--text-primary); }
+    .cr-outcome.refused { border-color:rgba(248,113,113,0.4); }
+    .cr-outcome.clean { border-color:rgba(16,185,129,0.35); }
+    .cr-note { margin:14px 0 0; font-size:0.8rem; color:var(--text-muted); line-height:1.6; }
+
+    /* 04 — Timeline */
+    .wf-steps { position:relative; margin-top:32px; padding-left:40px; max-width:760px; }
+    .wf-steps::before { content:''; position:absolute; left:19px; top:0; bottom:0; width:2px; background:var(--accent-border); }
+    .wf-step { position:relative; margin-bottom:40px; }
+    .wf-step:last-child { margin-bottom:0; }
+    .wf-dot { position:absolute; left:-40px; top:0; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:800; z-index:2; font-family:'JetBrains Mono',monospace; }
+    .wf-dot-1 { background:rgba(110,45,190,0.15); color:var(--accent-light); border:2px solid var(--accent); }
+    .wf-dot-2 { background:rgba(79,70,229,0.15); color:#818cf8; border:2px solid #6366f1; }
+    .wf-dot-3 { background:rgba(14,165,233,0.15); color:#38bdf8; border:2px solid #0ea5e9; }
+    .wf-dot-4 { background:rgba(16,185,129,0.15); color:#34d399; border:2px solid #10b981; }
+    .wf-dot-5 { background:rgba(245,158,11,0.15); color:#fbbf24; border:2px solid #f59e0b; }
+    .wf-dot-6 { background:rgba(248,113,113,0.15); color:#fca5a5; border:2px solid #f87171; }
+    .wf-step h3 { font-size:1.06rem; font-weight:700; margin:0 0 6px; padding-top:8px; }
+    .wf-step p { font-size:0.92rem; color:var(--text-secondary); line-height:1.65; margin:0; }
+    .wf-step code { font-family:'JetBrains Mono',monospace; font-size:0.8rem; background:rgba(110,45,190,0.1); color:var(--accent-light); padding:2px 6px; border-radius:4px; }
+    .wf-step.reveal-step { opacity:0; transform:translateY(10px); animation:wfIn .6s ease forwards; }
+    .wf-step.reveal-step:nth-child(1){animation-delay:.05s}.wf-step.reveal-step:nth-child(2){animation-delay:.15s}.wf-step.reveal-step:nth-child(3){animation-delay:.25s}.wf-step.reveal-step:nth-child(4){animation-delay:.35s}.wf-step.reveal-step:nth-child(5){animation-delay:.45s}.wf-step.reveal-step:nth-child(6){animation-delay:.55s}
+    @keyframes wfIn { to { opacity:1; transform:none; } }
+
+    /* 05 — Operator's hand */
+    .oh-list { display:flex; flex-direction:column; gap:12px; margin-top:28px; max-width:760px; }
+    .oh-item { font-family:inherit; text-align:left; color:var(--text-primary); border:1px solid var(--accent-border); border-radius:14px; padding:18px 22px; background:var(--bg-surface); display:grid; grid-template-columns:auto 1fr auto; gap:16px; align-items:start; cursor:pointer; transition:border-color .2s ease; }
+    .oh-item:hover { border-color:rgba(110,45,190,0.4); }
+    .oh-item[aria-expanded="true"] { border-color:var(--accent-light); }
+    .oh-box { width:22px; height:22px; border-radius:6px; border:2px solid rgba(240,238,246,0.3); margin-top:2px; position:relative; }
+    .oh-box::after { content:''; position:absolute; inset:4px; border-radius:2px; background:transparent; }
+    .oh-t { font-weight:650; font-size:0.98rem; margin-bottom:4px; }
+    .oh-s { font-size:0.85rem; color:var(--text-muted); }
+    .oh-d { font-size:0.9rem; color:var(--text-secondary); line-height:1.65; max-height:0; overflow:hidden; transition:max-height .3s ease, margin .3s ease; }
+    .oh-item[aria-expanded="true"] .oh-d { max-height:260px; margin-top:12px; }
+    .oh-needs { font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:4px 10px; border-radius:999px; border:1px solid currentColor; white-space:nowrap; margin-top:2px; }
+    .oh-needs-key { color:#c084fc; } .oh-needs-funds { color:#fbbf24; } .oh-needs-passkey { color:#38bdf8; } .oh-needs-secret { color:#fca5a5; }
+    .oh-foot { margin-top:16px; font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:var(--text-muted); letter-spacing:0.06em; }
+
+    /* 06 — Decision cards */
+    .mem-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:28px; }
+    .mem-card { font-family:inherit; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:16px; padding:24px; cursor:pointer; transition:all 0.3s ease; }
+    .mem-card:hover { border-color:rgba(110,45,190,0.35); transform:translateY(-3px); box-shadow:0 8px 24px rgba(110,45,190,0.08); }
+    .mem-card h4 { font-size:0.98rem; font-weight:700; margin:0 0 8px; display:flex; align-items:center; gap:10px; }
+    .mem-tag { font-family:'JetBrains Mono',monospace; font-size:0.62rem; letter-spacing:0.12em; color:var(--accent-hot); border:1px solid rgba(110,45,190,0.3); padding:2px 8px; border-radius:999px; text-transform:uppercase; white-space:nowrap; }
+    .mem-card p { font-size:0.87rem; color:var(--text-secondary); line-height:1.6; margin:0; }
+    .mem-extra { display:none; margin-top:14px; padding-top:14px; border-top:1px solid var(--accent-border); font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+    .mem-card[aria-expanded="true"] .mem-extra { display:block; }
+    .mem-hint { font-size:0.68rem; color:var(--accent-hot); margin-top:12px; font-weight:600; letter-spacing:0.05em; }
+
+    /* Related + CTA */
+    .tx-related { margin-top:40px; padding-top:22px; border-top:1px solid var(--accent-border); font-size:0.9rem; color:var(--text-muted); line-height:1.7; }
+    .tx-related a { color:var(--accent-light); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    .tx-cta { text-align:center; padding:64px 40px; background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:28px; margin-top:72px; }
+    .tx-cta h2 { font-size:1.6rem; font-weight:700; margin:0 0 12px; }
+    .tx-cta p { color:var(--text-secondary); font-size:0.95rem; margin:0 auto 28px; max-width:520px; line-height:1.7; }
+
+    @media(max-width:900px) {
+      .mod-explorer, .cr-cols, .mem-grid { grid-template-columns:1fr; }
+      .mod-grid { grid-template-columns:1fr 1fr; }
+      .mod-detail { min-height:0; }
+    }
+    @media(max-width:640px) {
+      .mod-grid { grid-template-columns:1fr; }
+      .tx-hero { padding:130px 0 56px; }
+      .tx-section { padding:56px 0; }
+      .cr-wrap, .mod-detail { padding:20px; }
+      .oh-item { grid-template-columns:auto 1fr; }
+      .oh-needs { grid-column:2; justify-self:start; }
+      .cr-step { grid-template-columns:18px 1fr; }
+      .cr-verdict { grid-column:2; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .wf-step.reveal-step { animation:none; opacity:1; transform:none; }
+      .dl-card, .mod-node, .mem-card, .oh-d, .cr-step, .dl-chip, .cr-fault { transition:none; }
+      .dl-card:hover, .mod-node:hover, .mem-card:hover { transform:none; }
+    }
+  
+    .tx-note { max-width:720px; margin:0 auto 0; padding:14px 20px; border-radius:12px; font-size:0.92rem; line-height:1.65; text-align:left; }
+    .tx-note strong { color:var(--text-primary); }
+    .tx-dated { border:1px solid var(--accent-border); background:rgba(110,45,190,0.05); color:var(--text-secondary); margin-top:28px; }
+    .tx-revised { border:1px solid rgba(56,189,248,0.28); background:rgba(56,189,248,0.06); color:var(--text-secondary); margin-top:12px; }
+    .tx-correction { border:1px solid rgba(251,191,36,0.35); background:rgba(251,191,36,0.07); color:var(--text-secondary); margin-top:12px; }
+    .tx-notes { padding:0 0 8px; }
+    .tx-list { margin:0 0 22px; padding-left:22px; }
+    .tx-list li { margin-bottom:8px; }
+    .cr-btn-row { display:flex; flex-wrap:wrap; gap:8px; }
+    .tx-packet { margin-top:56px; padding-top:32px; border-top:1px solid var(--accent-border); }
+    .tx-packet h3 { margin:0 0 10px; font-size:1.1rem; }
+  </style>
 </head>
-<body class="lab-page tx26-page">
-  <nav id="nav" class="scrolled">
-    <a href="/" class="nav-brand"><span class="nav-glyph">&infin;</span><span class="nav-name">unwind<span class="nav-accent">code</span></span></a>
+<body class="tx-page">
+
+<nav id="nav" class="scrolled">
+    <a href="/" class="nav-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span></a>
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
     <div class="nav-links" id="nav-links">
       <a href="/" data-i18n="nav.home">Home</a>
@@ -44,314 +255,644 @@
     <div class="nav-actions">
       <button id="lang-toggle" class="lang-toggle" aria-label="Switch to Spanish">ES</button>
       <a href="/build-with-us" class="nav-cta" data-i18n="nav.cta">Build With Us</a>
+      <a href="/proof/ledger" class="nav-ghost">Live ledger</a>
     </div>
   </nav>
 
   <main>
-    <header class="tx26-hero">
+    <section class="tx-hero">
       <div class="container">
-        <span class="tx26-kicker">Transmission 27</span>
-        <h1>The Quotation Cell</h1>
-        <p class="tx26-sub">A quote is not a form submission. It is a governed transaction packet: customer intent, line items, supplier options, pricing evidence, recommendation state, correction history, and human approval before commitment.</p>
-        <div class="tx26-meta">
-          <span>June 7, 2026</span>
-          <span>Domain Cell</span>
-          <span>Manual Brain build record</span>
-          <span>human approval before commitment</span>
-        </div>
+        <div class="tx-hero-kicker"><span class="tx-section-num">TRANSMISSION 027</span></div>
+        <h1>The Quotation<br>Cell</h1>
+        <p class="tx-hero-sub">A quote is not a form submission. It is a packet: customer intent, line items, supplier options, evidence, a recommendation, a correction history, and human approval before commitment. This revision says which parts of that sentence exist and which are a design.</p>
+        <div class="tx-hero-meta"><span>June 2026, revised November 2026</span><span>&middot;</span><span>Domain cell</span><span>&middot;</span><span>Build record</span><span>&middot;</span><span>10 min read</span></div>
+        <div class="tx-note tx-dated"><strong>Dated.</strong> The first version is dated 7 June 2026. This revision describes the website repository, the Brain repository and the vault as read on 10 November 2026. It describes a design and a build record. No quoting service is running and none is claimed.</div>
+        <div class="tx-note tx-revised"><strong>Revised 10 November 2026.</strong> The "ecosystem signal" paragraph about the quoting market is removed: it was an outside claim that this revision could not verify. The page now says what the "manual Brain protocol" was in practice, adds a status for every piece, replaces the numeric readiness meter with an ordered list, and adds a model of the correction loop. The campaign packet is kept, in its own block at the end.</div>
+        <div class="tx-note tx-correction"><strong>Correction, 10 November 2026.</strong> The June text said the Brain was "not being represented as an unattended publisher" and described a manual run that would "observe the movement" and "decide whether it matters". In the repository, the decision is a fixed record inside a short build script: its signals, its score and its timestamp are constants. There was no live observation to withdraw. The script, and the guard list in it, are real; the observing is not. The sentence is corrected in section 02.</div>
       </div>
-    </header>
+    </section>
 
-    <article>
-      <section id="brain-decision" class="tx26-section">
-        <div class="container">
-          <div class="tx26-section-head">
-            <span class="tx26-section-num">01 / Brain decision</span>
-            <div>
-              <h2>The next domain cell is quoting.</h2>
-              <div class="tx26-prose">
-                <p>The ecosystem is moving from static CPQ screens toward agentic quoting: systems that collect context, prepare options, route approvals, and connect quote-to-cash work. The Unwind Brain's response is narrower and safer: a Quotation Cell that can prepare a quote package, preserve evidence, and show readiness without pretending that preparation equals authority.</p>
-                <p>The Brain is not being represented as an unattended publisher here. Until the live Brain can run this loop directly, Unwind runs the Brain protocol manually against real signals: observe the movement, decide whether it matters, shape the organism pattern, write the public memory, verify the proof surface, and only then publish.</p>
-                <p>This transmission does not name a private business or active implementation. The public lesson is the cell shape: how a domain organism turns messy intake into reviewable work while keeping pricing, availability, purchasing, fulfillment, and final commitment behind human gates.</p>
-              </div>
-            </div>
-          </div>
-          <div class="tx26-decision-grid">
-            <article class="tx26-decision-card"><span class="tx26-pill">Signal</span><h3>Agentic quote-to-cash</h3><p>Quoting is becoming a conversational workflow with catalog, pricing, approval, document, and handoff state.</p></article>
-            <article class="tx26-decision-card"><span class="tx26-pill">Rule</span><h3>Quote package before commitment</h3><p>The organism may prepare, revise, compare, and recommend. It does not finalize commercial consequence alone.</p></article>
-            <article class="tx26-decision-card"><span class="tx26-pill">Decision</span><h3>Publish the Quotation Cell</h3><p>The user-facing proof surface is a command interface backed by quote-package state, supplier memory, trust events, and approval gates.</p></article>
-          </div>
+    <div class="container">
+
+      <section class="tx-section" id="brain-decision">
+        <div class="tx-section-head"><span class="tx-section-num">01</span><h2>A packet, not a promise</h2></div>
+        <div class="tx-section-label">What the original said, and what exists</div>
+        <div class="tx-prose">
+          <p>The June note proposed a cell that prepares a quote package, keeps its evidence, and shows how ready it is, without treating preparation as authority. The sentence that carries the idea is short: the cell may prepare, revise, compare and recommend; it does not finalize commercial consequence alone. That sentence is a design position and the record supports it as one.</p>
+          <p>What the record does not support is the grammar of the rest of the original, which read as though a quoting system were in the middle of being built. A search of the Brain repository, its documents and the vault for a quotation cell finds no code and no design document. The website’s claims registry has no entry for it. What exists is this page, a build script that decides and checks the page’s outputs, a guard list tested against the page, and a social packet.</p>
+          <p>The panel sorts every piece. Filter by what can be checked.</p>
+        </div>
+        <div class="dl-filters" role="group" aria-label="Filter by status" id="pieces-chips"></div>
+        <div class="dl-count" id="pieces-count" aria-live="polite"></div>
+        <div class="dl-grid" id="pieces-grid"></div>
+      </section>
+
+      <section class="tx-section" id="manual-brain-run">
+        <div class="tx-section-head"><span class="tx-section-num">02</span><h2>What the manual run was</h2></div>
+        <div class="tx-section-label">Corrected: a fixed decision, a guard, a check</div>
+        <div class="tx-prose">
+          <p>The original made a point of saying that the Brain was not an unattended publisher and that the discipline of observing, deciding, recording and verifying had to exist before the Brain turned on. The aim is good. The description overstated what the script does.</p>
+          <p>What the script does is narrow. It holds a decision as data. It refuses its own text if a blocked phrase appears. And it checks that the files a complete publication needs are present. Nothing in it observes a market, weighs a signal or chooses a topic; the "score" is a constant. That makes it a checklist with a guard, and a checklist with a guard is useful. It is not a Brain run.</p>
+          <p>The timeline gives the build trail as the repository dates it. One date does not line up: the page is dated 7 June, and the first commit that publishes it is dated 13 June. The page keeps its own date as published.</p>
+        </div>
+        <div class="wf-steps" id="trail-steps">
+          <div class="wf-step"><div class="wf-dot wf-dot-1">01</div><h3>7 June 2026 · The page date and the decision stamp</h3><p>The page is dated this day, and the script’s decision record carries a fixed timestamp for the same day.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-2">02</div><h3>13 June 2026 · First published commit</h3><p>The repository records a commit that publishes transmissions 27 and 28, followed by a commit that raises the pages to the whitepaper standard.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-3">03</div><h3>3 July 2026 · Recovered</h3><p>A merge restores the lab-foundation work, recovering this page and Transmission 25 into the transmissions index.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-4">04</div><h3>14 July 2026 · URLs normalized</h3><p>Every public address in the site is aligned to its served form.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-5">05</div><h3>10 November 2026 · This revision</h3><p>The page is rewritten to say what it can support. Its guard list is checked against the new text.</p></div>
         </div>
       </section>
 
-      <section id="manual-brain-run" class="tx26-section">
-        <div class="container">
-          <div class="tx26-section-head">
-            <span class="tx26-section-num">02 / Manual Brain run</span>
-            <div>
-              <h2>Before the Brain turns on, the discipline still has to exist.</h2>
-              <div class="tx26-prose">
-                <p>The manual run is not theater. It is rehearsal with real data. The page is written as if the Brain were maintaining its own continuity because that is the contract the runtime will later inherit: source signal, decision, architecture implication, approval boundary, proof artifact, and next-cell memory.</p>
-                <p>This is why the transmission has to read like a whitepaper. A future Brain should be able to return to the page and understand what was learned, what was intentionally not claimed, and what the next build should make visible.</p>
-              </div>
-            </div>
-          </div>
-          <div class="tx26-gates">
-            <div class="tx26-gate-step"><span>01</span><div><h3>Observe</h3><p>Use real ecosystem signals and live build context, not a generic trend prompt.</p></div></div>
-            <div class="tx26-gate-step"><span>02</span><div><h3>Decide</h3><p>Publish only when the signal implies a concrete organism cell and public proof surface.</p></div></div>
-            <div class="tx26-gate-step"><span>03</span><div><h3>Record</h3><p>Write the thesis, architecture pattern, build recipe, boundary, metadata, and next-cell memory.</p></div></div>
-            <div class="tx26-gate-step"><span>04</span><div><h3>Verify</h3><p>Tests, build, local smoke, metadata, social packet, and production smoke become the proof trail.</p></div></div>
-          </div>
+      <section class="tx-section" id="cell-map">
+        <div class="tx-section-head"><span class="tx-section-num">03</span><h2>The quote package, as a design</h2></div>
+        <div class="tx-section-label">Six parts · none built</div>
+        <div class="tx-prose">
+          <p>The original’s build recipe is worth keeping as a design: model the quote as inspectable state before putting an agent in front of it. A chat box that talks is cheap. A package that knows which fields are settled, which evidence is fresh and which assumptions changed is the hard part, and the original was right to put it first.</p>
+          <p>The explorer lists the six parts. Each is a design. The status line on every one says so, and the last line of each says what it would have to show before it counted as built.</p>
+        </div>
+        <div class="mod-explorer">
+          <div class="mod-grid" id="parts-grid" role="group" aria-label="Parts of the quote cell"></div>
+          <div class="mod-detail" id="parts-detail" aria-live="polite"></div>
         </div>
       </section>
 
-      <section id="cell-map" class="tx26-section">
-        <div class="container">
-          <div class="tx26-section-head">
-            <span class="tx26-section-num">03 / Cell map</span>
-            <div>
-              <h2>The frontend is the command surface. The backend is the quote organ.</h2>
-              <div class="tx26-prose">
-                <p>The user should be able to talk naturally: ask for a quote, change sizes, add constraints, correct quantities, compare options, and ask what is missing. Behind that exchange, the cell builds a structured package that can be inspected before it becomes operational.</p>
-              </div>
+      <section class="tx-section" id="correction-loop">
+        <div class="tx-section-head"><span class="tx-section-num">04</span><h2>Corrections: the latest explicit request wins</h2></div>
+        <div class="tx-section-label">A model with placeholder items</div>
+        <div class="tx-prose">
+          <p>A quote agent has to survive being corrected. The model below is an illustration of the design’s correction loop, using a made-up package of "item A" and "item B" with no real prices or suppliers. Choose what happens and watch where the package stops.</p>
+          <p>The left column is a chat box that answers whatever it is asked. The right column is the package: capture the change, update the affected lines, explain it, set readiness, and then, always, wait for a person. Note that even the cleanest scenario ends at the last step.</p>
+        </div>
+        <div class="cr-wrap">
+          <div class="cr-top">
+            <span class="cr-label">Correction loop · illustration · no real quote</span>
+            <div class="cr-faults" role="group" aria-label="Choose an event" id="loop-faults"></div>
+          </div>
+          <div class="cr-cols">
+            <div class="cr-col">
+              <h3>A chat box that answers</h3>
+              <p class="cr-col-sub">It can tell you that it replied.</p>
+              <ol class="cr-steps" id="loop-raw"></ol>
+            </div>
+            <div class="cr-col">
+              <h3>The package, in order</h3>
+              <p class="cr-col-sub">Each step records its own evidence.</p>
+              <ol class="cr-steps" id="loop-verify"></ol>
             </div>
           </div>
-          <div class="tx26-module-explorer" aria-label="Quotation cell module explorer">
-            <div class="tx26-module-tabs">
-              <input id="module-sources" name="tx27-module" type="radio" checked />
-              <label for="module-sources">Intake</label>
-              <input id="module-intent" name="tx27-module" type="radio" />
-              <label for="module-intent">Supplier memory</label>
-              <input id="module-compliance" name="tx27-module" type="radio" />
-              <label for="module-compliance">Readiness</label>
-              <input id="module-actions" name="tx27-module" type="radio" />
-              <label for="module-actions">Handoff</label>
-              <div class="tx26-module-panels">
-                <article class="tx26-module-panel panel-sources"><span class="tx26-pill">Intake</span><h3>Start with stated need.</h3><p>The cell captures requested items, quantities, sizes, delivery context, constraints, and missing fields before any option is recommended.</p></article>
-                <article class="tx26-module-panel panel-intent"><span class="tx26-pill">Memory</span><h3>Remember the supply side.</h3><p>Supplier options, price snapshots, substitutions, availability notes, and confidence labels become evidence instead of hidden guesses.</p></article>
-                <article class="tx26-module-panel panel-compliance"><span class="tx26-pill">Readiness</span><h3>Make uncertainty visible.</h3><p>The package marks what is known, what changed, what needs review, and why it is or is not ready for a human to send forward.</p></article>
-                <article class="tx26-module-panel panel-actions"><span class="tx26-pill">Handoff</span><h3>Prepare, route, wait.</h3><p>The organism can draft the package and route it. Pricing confirmation, purchasing, fulfillment, and commitment stay approval-gated.</p></article>
-              </div>
-            </div>
-          </div>
+          <div class="cr-outcome" id="loop-outcome" aria-live="polite"></div>
+          <p class="cr-note">This panel models the design in the original note. The package, items and figures are placeholders. No quote, price or supplier is represented, and no system behind it is running.</p>
         </div>
       </section>
 
-      <section id="organism-build-recipe" class="tx26-section">
-        <div class="container">
-          <div class="tx26-section-head">
-            <span class="tx26-section-num">04 / Organism build recipe</span>
-            <div>
-              <h2>Build the quote organism as a state machine before it becomes an agent.</h2>
-              <div class="tx26-prose">
-                <p>The mistake would be to start with a chat box and call it automation. A serious Quotation Cell starts with inspectable state. The agent can help collect, revise, compare, and explain, but the organism has to know which fields are settled, which evidence is fresh, which assumptions changed, and which actions still require approval.</p>
-              </div>
-            </div>
-          </div>
-          <div class="tx26-card-grid">
-            <details class="tx26-boundary-card" open><summary>1. Command surface</summary><p>Create a buyer-facing or operator-facing interface where the user can ask, correct, compare, and inspect missing information without learning internal form structure.</p></details>
-            <details class="tx26-boundary-card" open><summary>2. Quote package schema</summary><p>Model customer intent, line items, constraints, supplier candidates, evidence snapshots, confidence labels, correction history, readiness state, and review owner.</p></details>
-            <details class="tx26-boundary-card" open><summary>3. Supplier memory</summary><p>Store source, timestamp, substitution logic, known limits, and stale-data warnings so recommendations are grounded rather than improvised.</p></details>
-            <details class="tx26-boundary-card"><summary>4. Correction reducer</summary><p>When a user changes quantity, size, delivery condition, or constraint, update the affected fields while preserving the trail of what changed and why.</p></details>
-            <details class="tx26-boundary-card"><summary>5. Readiness gate</summary><p>Separate internal intelligence, human-review-ready draft, supplier-check-needed package, and approval-required commitment paths.</p></details>
-            <details class="tx26-boundary-card"><summary>6. Approval receipt</summary><p>Record who reviewed the package, what evidence was visible, what remained uncertain, and what action the human allowed the system to take.</p></details>
-          </div>
+      <section class="tx-section" id="readiness">
+        <div class="tx-section-head"><span class="tx-section-num">05</span><h2>Readiness is an approval boundary</h2></div>
+        <div class="tx-section-label">Ordered, with no scores</div>
+        <div class="tx-prose">
+          <p>The original ranked five kinds of work on a bar scale with values that looked like measurements. They were illustrative and are removed. The order carries the idea: some work is safe as internal intelligence, some needs a human to review it, and very little should be treated as ready for commitment on its own.</p>
+          <p>Open each rung for what the design allows. The rule that organizes them is a simple one: authority rises only as evidence and approval rise with it.</p>
+        </div>
+        <div class="oh-list" id="ladder-list"></div>
+        <div class="oh-foot">Five rungs, ordered. The top one is never the cell’s to take.</div>
+      </section>
+
+      <section class="tx-section" id="not-claimed">
+        <div class="tx-section-head"><span class="tx-section-num">06</span><h2>What this note does not claim</h2></div>
+        <div class="tx-section-label">Boundaries</div>
+        <div class="tx-prose">
+          <p>The original closed with a promise of a "receipt for readiness". That receipt is a design. This section names what a reader should not infer from the page.</p>
+          <p>The build script keeps ten blocked phrases. The cards below say the same things in different words.</p>
+        </div>
+        <div class="mem-grid" id="limits-grid"></div>
+        <div class="tx-prose tx-after">
+          <p>Related: <a href="/transmissions/26-property-sales-intelligence-cell">Transmission 26, the property sales intelligence cell</a> · <a href="/transmissions/31-the-active-source-of-truth-gate">Transmission 31, the active source-of-truth gate</a></p>
         </div>
       </section>
 
-      <section id="correction-loop" class="tx26-section">
-        <div class="container">
-          <div class="tx26-section-head">
-            <span class="tx26-section-num">05 / Correction loop</span>
-            <div>
-              <h2>The latest explicit signal wins.</h2>
-              <div class="tx26-prose">
-                <p>A serious quote agent has to survive correction. When the user changes a size, quantity, delivery condition, or product constraint, the organism should update the package without losing the prior trail. That is memory with accountability: not a transcript dump, but a live state that explains what changed.</p>
-              </div>
-            </div>
-          </div>
-          <div class="tx26-gates">
-            <div class="tx26-gate-step"><span>01</span><div><h3>Capture</h3><p>Record the latest request and the exact field it changed.</p></div></div>
-            <div class="tx26-gate-step"><span>02</span><div><h3>Reprice</h3><p>Refresh affected lines, supplier options, and availability notes without touching unrelated context.</p></div></div>
-            <div class="tx26-gate-step"><span>03</span><div><h3>Explain</h3><p>Show the reason, confidence, missing information, and review state attached to the updated package.</p></div></div>
-            <div class="tx26-gate-step"><span>04</span><div><h3>Approve</h3><p>A human reviews before the package becomes an external quote, purchase path, or fulfillment instruction.</p></div></div>
-          </div>
+      <aside class="tx-packet tx-social-packet-section" id="social-proof-packet" aria-label="Published campaign packet">
+        <div class="tx-prose">
+          <h3>Published campaign packet</h3>
+          <p>A four-frame carousel built for this release and published by the site’s build configuration. Its text is a June asset that was not revised with this note; where it differs from the page, the page is the later record.</p>
         </div>
-      </section>
-
-      <section id="readiness-meter" class="tx26-section">
-        <div class="container">
-          <div class="tx26-section-head">
-            <span class="tx26-section-num">06 / Readiness meter</span>
-            <div>
-              <h2>Transaction readiness is an approval boundary, not a vibe.</h2>
-              <div class="tx26-prose">
-                <p>The quote package should be able to say what it is ready for. Some work is safe as internal intelligence. Some work is ready for human review. Very little should be treated as ready for commitment without explicit approval.</p>
-              </div>
-            </div>
-          </div>
-          <div class="tx26-chart-wrap">
-            <h3 id="tx27-readiness-title">Readiness Boundary by Work Type</h3>
-            <p id="tx27-readiness-desc" class="tx26-prose">Lower bars can stay inside the organism. Higher bars need stronger review before consequence.</p>
-            <ul class="tx26-authority-meter" aria-labelledby="tx27-readiness-title" aria-describedby="tx27-readiness-desc">
-              <li class="tx26-meter-item meter-classify">
-                <span class="tx26-meter-label">Capture need</span>
-                <span class="tx26-meter-track" aria-hidden="true"><span class="tx26-meter-bar"></span></span>
-                <strong>20</strong>
-                <small>Low-authority intake state.</small>
-              </li>
-              <li class="tx26-meter-item meter-summarize">
-                <span class="tx26-meter-label">Compare options</span>
-                <span class="tx26-meter-track" aria-hidden="true"><span class="tx26-meter-bar"></span></span>
-                <strong>32</strong>
-                <small>Evidence-attached review support.</small>
-              </li>
-              <li class="tx26-meter-item meter-draft">
-                <span class="tx26-meter-label">Draft package</span>
-                <span class="tx26-meter-track" aria-hidden="true"><span class="tx26-meter-bar"></span></span>
-                <strong>48</strong>
-                <small>Human-reviewed quote copy.</small>
-              </li>
-              <li class="tx26-meter-item meter-route">
-                <span class="tx26-meter-label">Route review</span>
-                <span class="tx26-meter-track" aria-hidden="true"><span class="tx26-meter-bar"></span></span>
-                <strong>72</strong>
-                <small>Pricing and supplier checks rise.</small>
-              </li>
-              <li class="tx26-meter-item meter-activate">
-                <span class="tx26-meter-label">Commit</span>
-                <span class="tx26-meter-track" aria-hidden="true"><span class="tx26-meter-bar"></span></span>
-                <strong>100</strong>
-                <small>Human approval before consequence.</small>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section id="boundary-cards" class="tx26-section">
-        <div class="container">
-          <div class="tx26-section-head">
-            <span class="tx26-section-num">07 / Boundary cards</span>
-            <div>
-              <h2>The public claim has to stop before the purchase order.</h2>
-              <div class="tx26-prose">
-                <p>The Quotation Cell is not a legal authority, payment processor, procurement system, supplier of record, fulfillment engine, or promise of price and availability. It is a governed intelligence layer for preparing reviewable quote packages.</p>
-              </div>
-            </div>
-          </div>
-          <div class="tx26-card-grid">
-            <details class="tx26-boundary-card" open><summary>What it can do</summary><p>Capture intake, preserve corrections, compare supplier options, draft quote packages, mark readiness, and route human review.</p></details>
-            <details class="tx26-boundary-card"><summary>What it must not imply</summary><p>No promise of price, available supply, unattended purchase, fulfillment, legal status, or final commercial outcome is claimed by the cell.</p></details>
-            <details class="tx26-boundary-card"><summary>What happens next</summary><p>The next proof should make the readiness state inspectable: what changed, what evidence supports it, what is blocked, and who approved the handoff.</p></details>
-          </div>
-        </div>
-      </section>
-
-      <section id="proof-ledger" class="tx26-section">
-        <div class="container">
-          <div class="tx26-section-head">
-            <span class="tx26-section-num">08 / Proof ledger</span>
-            <div>
-              <h2>The transmission is also a memory object for the Brain.</h2>
-              <div class="tx26-prose">
-                <p>Until the Brain can write and verify this record itself, the public page, metadata, tests, social packet, deployment route, and production smoke form the continuity layer. They tell the next run what was decided, what was proven, and where authority still stops.</p>
-              </div>
-            </div>
-          </div>
-          <div class="tx26-decision-grid">
-            <article class="tx26-decision-card"><span class="tx26-pill">Page</span><h3>Whitepaper surface</h3><p>The transmission carries thesis, architecture, build recipe, boundary, and next-cell implications in inspectable HTML.</p></article>
-            <article class="tx26-decision-card"><span class="tx26-pill">Metadata</span><h3>Agent-readable trail</h3><p>Sitemap, llms.txt, ai-services metadata, and asset manifest make the claim discoverable without private context.</p></article>
-            <article class="tx26-decision-card"><span class="tx26-pill">Verification</span><h3>Proof before signal</h3><p>Tests, build, local smoke, production smoke, carousel assets, and ZIP packet are the evidence that the public surface exists.</p></article>
-          </div>
-        </div>
-      </section>
-
-      <section id="social-proof-packet" class="tx26-section tx-social-packet-section">
-        <div class="container">
-          <div class="tx26-section-head">
-            <span class="tx26-section-num">09 / Social packet</span>
-            <div>
-              <h2>The Quotation Cell now has a shareable proof packet.</h2>
-              <div class="tx26-prose">
-                <p>The carousel turns the field note into four upload-ready Instagram frames. Each slide carries one public-safe beat: quote package, supplier evidence, correction loop, and approval before commitment.</p>
-              </div>
-            </div>
-          </div>
-          <div class="tx-social-packet-grid" aria-label="Transmission 27 Instagram carousel preview">
+        <div class="tx-social-packet-grid" aria-label="Transmission 27 carousel preview">
             <a class="tx-social-slide tx-social-slide-featured" href="/social/transmission-27-quotation-cell/ready-to-upload/01-quotation-cell.png" download>
-              <img src="/social/transmission-27-quotation-cell/previews/slide-01-preview.png" width="540" height="540" alt="Slide 1 preview: The Quotation Cell with quote package and governed transaction packet copy." loading="lazy" decoding="async" />
+              <img src="/social/transmission-27-quotation-cell/previews/slide-01-preview.png" width="540" height="540" alt="Slide 1 preview: The Quotation Cell, a quote package and governed transaction packet." loading="lazy" decoding="async" />
               <span>01 / Cell</span>
             </a>
             <a class="tx-social-slide tx-social-slide-support" href="/social/transmission-27-quotation-cell/ready-to-upload/02-evidence-before-price.png" download>
-              <img src="/social/transmission-27-quotation-cell/previews/slide-02-preview.png" width="540" height="540" alt="Slide 2 preview: Evidence before price, naming supplier options, price snapshots, and review state." loading="lazy" decoding="async" />
+              <img src="/social/transmission-27-quotation-cell/previews/slide-02-preview.png" width="540" height="540" alt="Slide 2 preview: Evidence before price." loading="lazy" decoding="async" />
               <span>02 / Evidence</span>
             </a>
             <a class="tx-social-slide tx-social-slide-support" href="/social/transmission-27-quotation-cell/ready-to-upload/03-latest-signal-wins.png" download>
-              <img src="/social/transmission-27-quotation-cell/previews/slide-03-preview.png" width="540" height="540" alt="Slide 3 preview: Latest signal wins with capture, update, explain, and preserve steps." loading="lazy" decoding="async" />
+              <img src="/social/transmission-27-quotation-cell/previews/slide-03-preview.png" width="540" height="540" alt="Slide 3 preview: Latest signal wins." loading="lazy" decoding="async" />
               <span>03 / Correction</span>
             </a>
             <a class="tx-social-slide tx-social-slide-support" href="/social/transmission-27-quotation-cell/ready-to-upload/04-approval-before-commitment.png" download>
-              <img src="/social/transmission-27-quotation-cell/previews/slide-04-preview.png" width="540" height="540" alt="Slide 4 preview: Approval before commitment with intake, supplier, readiness, and human gates." loading="lazy" decoding="async" />
+              <img src="/social/transmission-27-quotation-cell/previews/slide-04-preview.png" width="540" height="540" alt="Slide 4 preview: Approval before commitment." loading="lazy" decoding="async" />
               <span>04 / Approval</span>
             </a>
-          </div>
-          <div class="tx-social-packet-actions">
-            <a class="btn btn-primary" href="/social/transmission-27-quotation-cell/carousel#slide-1"><span>Open carousel</span><span class="btn-arrow">→</span></a>
-            <a class="btn btn-ghost" href="/social/transmission-27-quotation-cell/downloads/transmission-27-quotation-cell.zip" download>Download packet</a>
-            <a class="btn btn-ghost" href="/social/transmission-27-quotation-cell/caption.md">Caption packet</a>
-          </div>
         </div>
-      </section>
-
-      <section class="tx26-section">
-        <div class="container">
-          <div class="tx26-cta">
-            <h2>The next proof is a receipt for readiness.</h2>
-            <p>The Quotation Cell starts the sequence. Next, the Brain should make transaction readiness visible enough that a human can inspect what is ready, what changed, and what still cannot move.</p>
-            <a class="btn btn-primary" href="/build-with-us"><span>Design a boundary</span><span class="btn-arrow">→</span></a>
-          </div>
+        <div class="tx-social-packet-actions">
+          <a class="btn btn-primary" href="/social/transmission-27-quotation-cell/carousel#slide-1"><span>Open carousel</span><span class="btn-arrow">&rarr;</span></a>
+          <a class="btn btn-ghost" href="/social/transmission-27-quotation-cell/downloads/transmission-27-quotation-cell.zip" download>Download packet</a>
+          <a class="btn btn-ghost" href="/social/transmission-27-quotation-cell/caption.md">Caption packet</a>
         </div>
-      </section>
-    </article>
-  </main>
-
-  <footer id="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <span class="nav-glyph">&infin;</span>
-          <span class="nav-name">unwind<span class="nav-accent">code</span></span>
-          <p class="footer-desc">Intelligence that evolves.<br />Proof in public.</p>
-        </div>
-        <div class="footer-col">
-          <h5>Organisms</h5>
-          <a href="/organisms/visual-cortex">Visual Cortex</a>
-          <a href="/organisms/infinity-mirror">Infinity Mirror</a>
-          <a href="/organisms/financial-organisms">Financial Organisms</a>
-          <a href="/organisms/brain-cell-architecture">Brain Cell Architecture</a>
-        </div>
-        <div class="footer-col">
-          <h5>Proof</h5>
-          <a href="/proof">Proof Ledger</a>
-          <a href="/architecture">Architecture</a>
-          <a href="/philosophy">Philosophy</a>
-          <a href="/vision">Vision</a>
-        </div>
-        <div class="footer-col">
-          <h5>Next</h5>
-          <a href="/build-with-us">Build With Us</a>
-          <a href="/#cta">Join Updates</a>
-          <a href="/transmissions">Transmissions</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>&copy; 2026 Unwind Code. All rights reserved.</span>
-        <span class="footer-tagline">The future learns from itself. &infin;</span>
+      </aside>
+      <div class="tx-cta">
+        <h2>Prepare the packet. Leave the promise to a person.</h2>
+        <p>The useful part of a quote cell is the evidence it keeps. The commitment belongs to someone who can be held to it.</p>
+        <a class="btn btn-primary btn-lg" href="/build-with-us"><span>Build With Us</span><span class="btn-arrow">&rarr;</span></a>
       </div>
     </div>
-  </footer>
+  </main>
 
-  <script type="module" src="/main.js?v=20260607-quotation-cell"></script>
+  <footer id="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span><p class="footer-desc">Intelligence that evolves.<br />No claim without a trail.</p></div><div class="footer-col"><h5>Proof</h5><a href="/proof">Proof Register</a><a href="/proof/ledger">Live Ledger</a><a href="/transmissions">Transmissions</a><a href="/architecture">Architecture</a></div><div class="footer-col"><h5>Organisms</h5><a href="/organisms">All Organisms</a><a href="/organisms/financial-organisms">Financial Organisms</a><a href="/organisms/infinity-mirror">Infinity Mirror</a></div><div class="footer-col"><h5>Next</h5><a href="/build-with-us">Build With Us</a><a href="/#cta">Subscribe</a></div></div><div class="footer-bottom"><span>© 2026 Unwind Code. All rights reserved.</span><span class="footer-tagline">The future learns from itself. ∞</span></div></div></footer>
+
+  <script>
+  (function () {
+    // All data below is static and client-side. Nothing on this page makes a network call.
+    var WIDGETS = [
+ {
+  "type": "filter",
+  "id": "pieces",
+  "aria": "Filter by status",
+  "states": [
+   {
+    "key": "exists",
+    "label": "Exists"
+   },
+   {
+    "key": "design",
+    "label": "Design only"
+   },
+   {
+    "key": "none",
+    "label": "Not found in the record"
+   },
+   {
+    "key": "removed",
+    "label": "Removed"
+   }
+  ],
+  "cards": [
+   {
+    "state": "exists",
+    "name": "The page",
+    "short": "The build record, dated 7 June.",
+    "why": "A whitepaper-style page with a thesis, a cell map, a build recipe, a correction loop, a readiness list and boundary cards. This revision rewrites it."
+   },
+   {
+    "state": "exists",
+    "name": "The build script",
+    "short": "A short script with a fixed decision.",
+    "why": "It holds the transmission’s number, title and summary, a list of matched signals, a score and a timestamp, all as constants, and a list of ten blocked phrases. In dry-run mode it prints the decision. Otherwise it checks that the publication outputs exist."
+   },
+   {
+    "state": "exists",
+    "name": "The guard list",
+    "short": "Ten phrases the page may not contain.",
+    "why": "The script refuses its own decision text if it contains a blocked phrase, and a test checks that the page, its caption and its carousel do not contain any of them. The list covers promises of price, supply or fulfilment, a binding quote, buying on its own, removal of human review, and one private business name that is deliberately not repeated here."
+   },
+   {
+    "state": "exists",
+    "name": "The social packet",
+    "short": "One of two published by configuration.",
+    "why": "A carousel of four frames built for this release. The build configuration copies it to the public output."
+   },
+   {
+    "state": "design",
+    "name": "The quote package",
+    "short": "A schema on a page.",
+    "why": "Customer intent, line items, constraints, supplier candidates, evidence snapshots, confidence labels, correction history, readiness state and a review owner. Described. Not built."
+   },
+   {
+    "state": "design",
+    "name": "Supplier memory",
+    "short": "Source, timestamp, substitution, limits.",
+    "why": "The idea that a recommendation should carry where its numbers came from, how old they are, and a stale-data warning. Described. No store exists in the record."
+   },
+   {
+    "state": "none",
+    "name": "A quoting service",
+    "short": "No code or design document.",
+    "why": "No quotation code, no design document and no vault note were found. Nothing in the Brain repository implements this cell."
+   },
+   {
+    "state": "none",
+    "name": "A claims registry entry",
+    "short": "None.",
+    "why": "The sibling real estate cell has a registry entry with an interpretation boundary. This cell has none. Adding one is a registry change and is listed in the report that accompanies this revision."
+   },
+   {
+    "state": "removed",
+    "name": "The market signal",
+    "short": "Agentic quoting as a trend.",
+    "why": "The original grounded the cell in a movement across quoting software. It is an outside claim that cannot be checked here, and a design does not need it."
+   }
+  ]
+ },
+ {
+  "type": "explorer",
+  "id": "parts",
+  "aria": "Parts of the quote cell",
+  "glyph": "PART",
+  "specsLabel": "It would hold",
+  "parts": [
+   {
+    "id": "command",
+    "name": "Command surface",
+    "kind": "Part 1",
+    "short": "Ask, correct, compare, inspect.",
+    "status": "Design",
+    "desc": "A place where a person can ask for a quote, change a quantity or constraint, compare options and ask what is missing without learning the internal form.",
+    "specs": [
+     "Natural requests",
+     "Corrections",
+     "Missing-field questions"
+    ],
+    "proof": "Built means: a working interface whose actions change package state."
+   },
+   {
+    "id": "schema",
+    "name": "Quote package schema",
+    "kind": "Part 2",
+    "short": "The state under the chat.",
+    "status": "Design",
+    "desc": "Intent, line items, constraints, supplier candidates, evidence snapshots, confidence, correction history, readiness and a review owner.",
+    "specs": [
+     "Line items",
+     "Evidence",
+     "Readiness",
+     "Review owner"
+    ],
+    "proof": "Built means: a schema with tests and a worked example."
+   },
+   {
+    "id": "memory",
+    "name": "Supplier memory",
+    "kind": "Part 3",
+    "short": "Where the numbers came from.",
+    "status": "Design",
+    "desc": "Source, timestamp, substitution logic, known limits and stale-data warnings, so a recommendation is grounded and not improvised.",
+    "specs": [
+     "Source",
+     "Timestamp",
+     "Stale warning"
+    ],
+    "proof": "Built means: a store with real entries and a refusal on stale ones."
+   },
+   {
+    "id": "reducer",
+    "name": "Correction reducer",
+    "kind": "Part 4",
+    "short": "The latest explicit request wins.",
+    "status": "Design",
+    "desc": "When a quantity, size or condition changes, update the affected fields and keep the trail of what changed and why.",
+    "specs": [
+     "Field-level change",
+     "Trail kept",
+     "Unrelated context untouched"
+    ],
+    "proof": "Built means: tests that change one field and show the rest unchanged."
+   },
+   {
+    "id": "readiness",
+    "name": "Readiness gate",
+    "kind": "Part 5",
+    "short": "Four paths, never mixed.",
+    "status": "Design",
+    "desc": "Separate internal intelligence, a draft ready for human review, a package that needs a supplier check, and a commitment that needs approval.",
+    "specs": [
+     "Internal",
+     "Review-ready",
+     "Supplier check",
+     "Approval required"
+    ],
+    "proof": "Built means: a state machine whose illegal moves are refused."
+   },
+   {
+    "id": "receipt",
+    "name": "Approval receipt",
+    "kind": "Part 6",
+    "short": "Who looked, at what.",
+    "status": "Design",
+    "desc": "A record of who reviewed the package, what evidence they could see, what stayed uncertain and what the human allowed.",
+    "specs": [
+     "Reviewer",
+     "Evidence seen",
+     "Allowed action"
+    ],
+    "proof": "Built means: a receipt written before any action and checked after it."
+   }
+  ]
+ },
+ {
+  "type": "model",
+  "id": "loop",
+  "aria": "Choose an event",
+  "label": "Correction loop · illustration · no real quote",
+  "leftTitle": "A chat box that answers",
+  "leftSub": "It can tell you that it replied.",
+  "rightTitle": "The package, in order",
+  "rightSub": "Each step records its own evidence.",
+  "rawSteps": [
+   {
+    "t": "The reply is sent",
+    "d": "A new number appears in the chat."
+   },
+   {
+    "t": "Nothing is kept",
+    "d": "No trail of what changed or why."
+   }
+  ],
+  "verifySteps": [
+   {
+    "t": "Capture",
+    "d": "Record the latest request and the exact field it changed."
+   },
+   {
+    "t": "Update the affected lines",
+    "d": "Refresh only what the change touches; keep the rest."
+   },
+   {
+    "t": "Explain",
+    "d": "Show the reason, the confidence and what is still missing."
+   },
+   {
+    "t": "Set readiness",
+    "d": "Say which of the four paths the package is on."
+   },
+   {
+    "t": "Wait for a person",
+    "d": "Nothing becomes an external quote, a purchase or an instruction without a human."
+   }
+  ],
+  "scenarios": [
+   {
+    "key": "qty",
+    "label": "Quantity changes",
+    "failAt": 4,
+    "rawBlind": "ANSWERED · BLIND",
+    "failLabel": "WAITS",
+    "outcome": "<strong>Updated, then waiting.</strong> Item A goes from ten to twelve. Only item A’s line is refreshed, the change and its reason are recorded, and the package is marked review-ready. It still waits for a person."
+   },
+   {
+    "key": "stale",
+    "label": "A supplier figure is old",
+    "failAt": 1,
+    "rawBlind": "ANSWERED · BLIND",
+    "failLabel": "STALE",
+    "outcome": "<strong>Stopped at the update.</strong> The supplier memory entry carries a timestamp past its limit, so the line is flagged and the package moves to the \"supplier check needed\" path. A stale number is not presented as current."
+   },
+   {
+    "key": "missing",
+    "label": "A required field is missing",
+    "failAt": 3,
+    "rawBlind": "ANSWERED · BLIND",
+    "failLabel": "NOT READY",
+    "outcome": "<strong>Not ready.</strong> The delivery condition is not set. The package stays on the internal path and says which field it needs. It does not guess."
+   },
+   {
+    "key": "send",
+    "label": "Someone asks it to send the quote now",
+    "failAt": 4,
+    "rawBlind": "ANSWERED · BLIND",
+    "failLabel": "WAITS",
+    "outcome": "<strong>Not sent.</strong> The cell can prepare the package and route it for review. Sending an external quote is a human act with a receipt."
+   },
+   {
+    "key": "conflict",
+    "label": "Two requests conflict",
+    "failAt": 0,
+    "rawBlind": "ANSWERED · BLIND",
+    "failLabel": "CLARIFY",
+    "outcome": "<strong>Asked, not decided.</strong> The latest explicit request wins only when it is unambiguous. Otherwise the package records the conflict and asks."
+   }
+  ]
+ },
+ {
+  "type": "list",
+  "id": "ladder",
+  "foot": "Five rungs, ordered. The top one is never the cell’s to take.",
+  "items": [
+   {
+    "t": "Capture a need",
+    "s": "Low authority.",
+    "tag": "internal",
+    "cls": "passkey",
+    "d": "Record what was asked, with the fields and the gaps. Inside the cell; nothing leaves."
+   },
+   {
+    "t": "Compare options",
+    "s": "Evidence attached.",
+    "tag": "internal",
+    "cls": "passkey",
+    "d": "Lay supplier options next to each other with their sources and ages. Support for a reviewer, not a decision."
+   },
+   {
+    "t": "Draft a package",
+    "s": "Language for a human.",
+    "tag": "review",
+    "cls": "funds",
+    "d": "Prepare quote copy that a person reads and edits. A draft is not an offer."
+   },
+   {
+    "t": "Route for review",
+    "s": "Checks rise.",
+    "tag": "review",
+    "cls": "funds",
+    "d": "Pricing and supplier checks are named, and the package is sent to a named reviewer. This creates work for a person; it does not create a result."
+   },
+   {
+    "t": "Commit",
+    "s": "Human only.",
+    "tag": "human",
+    "cls": "key",
+    "d": "Sending an external quote, placing an order or instructing fulfilment belongs to a person who can be held to it. The cell prepares; it does not take this step."
+   }
+  ]
+ },
+ {
+  "type": "cards",
+  "id": "limits",
+  "items": [
+   {
+    "tag": "not claimed",
+    "title": "That a quoting system exists",
+    "desc": "Nothing implements it.",
+    "extra": "The Brain repository, its documents and the vault hold no quotation code or design document. The page is a build record for a design."
+   },
+   {
+    "tag": "not claimed",
+    "title": "Price or supply",
+    "desc": "No figure is current or promised.",
+    "extra": "The cell is not a price list or a stock check. Any number it showed would carry a source, a timestamp and a staleness warning, and would still need a person to confirm it."
+   },
+   {
+    "tag": "not claimed",
+    "title": "A binding offer",
+    "desc": "A package is not a contract.",
+    "extra": "No legal status is claimed for anything the cell prepares. Commercial commitment is a human act."
+   },
+   {
+    "tag": "not claimed",
+    "title": "Buying or fulfilling on its own",
+    "desc": "The cell has no purchase path.",
+    "extra": "No ordering, payment or delivery step is part of the design. The top rung of the ladder is never the cell’s."
+   },
+   {
+    "tag": "not claimed",
+    "title": "Supplier relationships",
+    "desc": "No supplier is named or connected.",
+    "extra": "The page names no business and no supplier, and no integration exists in the record."
+   },
+   {
+    "tag": "not claimed",
+    "title": "A Brain that observed the market",
+    "desc": "The decision was a constant.",
+    "extra": "The script holds a fixed decision and a guard. It is a checklist, and this note says so in the correction at the top."
+   }
+  ]
+ }
+];
+
+    function el(id) { return document.getElementById(id); }
+    var LETTERS = ['a', 'b', 'c', 'd', 'e', 'f'];
+
+    function initFilter(w) {
+      var chips = el(w.id + '-chips'), grid = el(w.id + '-grid'), count = el(w.id + '-count');
+      var keys = w.states.map(function (s) { return s.key; });
+      var all = document.createElement('button');
+      all.type = 'button'; all.className = 'dl-chip'; all.setAttribute('data-state', 'all'); all.setAttribute('aria-pressed', 'true'); all.textContent = 'All';
+      chips.appendChild(all);
+      w.states.forEach(function (s, i) {
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'dl-chip dl-chip-' + LETTERS[i % 6]; b.setAttribute('data-state', s.key); b.setAttribute('aria-pressed', 'false'); b.textContent = s.label;
+        chips.appendChild(b);
+      });
+      w.cards.forEach(function (c) {
+        var idx = keys.indexOf(c.state); var L = LETTERS[(idx < 0 ? 0 : idx) % 6];
+        var card = document.createElement('button');
+        card.type = 'button'; card.className = 'dl-card'; card.setAttribute('data-state', c.state); card.setAttribute('aria-expanded', 'false');
+        card.innerHTML = '<span class="dl-state dl-state-' + L + '">' + w.states[idx < 0 ? 0 : idx].label + '</span><div class="dl-name">' + c.name + '</div><div class="dl-short">' + c.short + '</div><div class="dl-why">' + c.why + '</div><div class="dl-hint">Detail \u2193</div>';
+        card.addEventListener('click', function () {
+          var open = card.getAttribute('aria-expanded') === 'true';
+          card.setAttribute('aria-expanded', open ? 'false' : 'true');
+          card.querySelector('.dl-hint').textContent = open ? 'Detail \u2193' : 'Close \u2191';
+        });
+        grid.appendChild(card);
+      });
+      function apply(state) {
+        var shown = 0;
+        grid.querySelectorAll('.dl-card').forEach(function (card) {
+          var match = state === 'all' || card.getAttribute('data-state') === state;
+          if (match) { card.removeAttribute('hidden'); shown += 1; } else { card.setAttribute('hidden', ''); }
+        });
+        count.textContent = shown + ' of ' + w.cards.length + ' shown';
+      }
+      chips.querySelectorAll('.dl-chip').forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          chips.querySelectorAll('.dl-chip').forEach(function (o) { o.setAttribute('aria-pressed', 'false'); });
+          chip.setAttribute('aria-pressed', 'true');
+          apply(chip.getAttribute('data-state'));
+        });
+      });
+      apply('all');
+    }
+
+    function initExplorer(w) {
+      var grid = el(w.id + '-grid'), detail = el(w.id + '-detail'); var buttons = [];
+      function show(p) {
+        buttons.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-id') === p.id ? 'true' : 'false'); });
+        detail.innerHTML = '<div class="mod-detail-title">' + p.name + '</div><span class="mod-detail-type">' + p.kind + '</span><p class="mod-detail-desc">' + p.desc + '</p><div class="mod-specs-label">' + w.specsLabel + '</div><div class="mod-specs">' + p.specs.map(function (s) { return '<span class="mod-spec">' + s + '</span>'; }).join('') + '</div><div class="mod-proof"><strong>' + p.status + '</strong> \u00b7 ' + p.proof + '</div>';
+      }
+      w.parts.forEach(function (p) {
+        var btn = document.createElement('button');
+        btn.type = 'button'; btn.className = 'mod-node'; btn.setAttribute('data-id', p.id); btn.setAttribute('aria-pressed', 'false');
+        btn.innerHTML = '<span class="mod-glyph">' + w.glyph + '</span><div class="mod-name">' + p.name + '</div><div class="mod-path">' + p.short + '</div><div class="mod-score">' + p.status + '</div>';
+        btn.addEventListener('click', function () { show(p); });
+        grid.appendChild(btn); buttons.push(btn);
+      });
+      show(w.parts[0]);
+    }
+
+    function initModel(w) {
+      var faults = el(w.id + '-faults'), raw = el(w.id + '-raw'), verify = el(w.id + '-verify'), outcome = el(w.id + '-outcome');
+      function step(n, s, cls, verdict) {
+        var li = document.createElement('li'); li.className = 'cr-step ' + cls;
+        li.innerHTML = '<span class="cr-step-n">' + n + '</span><span><span class="cr-step-t">' + s.t + '</span><span class="cr-step-d">' + s.d + '</span></span><span class="cr-verdict">' + verdict + '</span>';
+        return li;
+      }
+      function run(sc) {
+        var fails = sc.fails || (sc.failAt >= 0 ? [sc.failAt] : []);
+        var first = fails.length ? Math.min.apply(null, fails) : -1;
+        raw.innerHTML = '';
+        w.rawSteps.forEach(function (s, i) { raw.appendChild(step('0' + (i + 1), s, first < 0 ? 'pass' : 'blind', first < 0 ? sc.rawOk : sc.rawBlind)); });
+        verify.innerHTML = '';
+        w.verifySteps.forEach(function (s, i) {
+          var cls = 'pass', v = sc.okLabel || 'OK';
+          if (fails.indexOf(i) >= 0) { cls = 'fail'; v = sc.failLabel || 'REFUSED'; }
+          else if (!sc.runAll && first >= 0 && i > first) { cls = 'skip'; v = 'NOT REACHED'; }
+          verify.appendChild(step('0' + (i + 1), s, cls, v));
+        });
+        outcome.className = 'cr-outcome ' + (first < 0 ? 'clean' : 'refused');
+        outcome.innerHTML = sc.outcome;
+      }
+      w.scenarios.forEach(function (sc, i) {
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'cr-fault' + (i === 0 ? ' cr-fault-reset' : ''); b.setAttribute('data-key', sc.key); b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false'); b.textContent = sc.label;
+        b.addEventListener('click', function () {
+          faults.querySelectorAll('.cr-fault').forEach(function (o) { o.setAttribute('aria-pressed', 'false'); });
+          b.setAttribute('aria-pressed', 'true'); run(sc);
+        });
+        faults.appendChild(b);
+      });
+      run(w.scenarios[0]);
+    }
+
+    function initList(w) {
+      var list = el(w.id + '-list');
+      w.items.forEach(function (h) {
+        var item = document.createElement('button');
+        item.type = 'button'; item.className = 'oh-item'; item.setAttribute('aria-expanded', 'false');
+        item.innerHTML = '<span class="oh-box" aria-hidden="true"></span><span><span class="oh-t">' + h.t + '</span><span class="oh-s">' + h.s + '</span><span class="oh-d">' + h.d + '</span></span><span class="oh-needs oh-needs-' + h.cls + '">' + h.tag + '</span>';
+        item.addEventListener('click', function () { item.setAttribute('aria-expanded', item.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'); });
+        list.appendChild(item);
+      });
+    }
+
+    function initCards(w) {
+      var grid = el(w.id + '-grid');
+      w.items.forEach(function (l) {
+        var card = document.createElement('button');
+        card.type = 'button'; card.className = 'mem-card'; card.setAttribute('aria-expanded', 'false');
+        card.innerHTML = '<h4><span class="mem-tag">' + l.tag + '</span>' + l.title + '</h4><p>' + l.desc + '</p><div class="mem-extra">' + l.extra + '</div><div class="mem-hint">Click to expand \u2193</div>';
+        card.addEventListener('click', function () {
+          var open = card.getAttribute('aria-expanded') === 'true';
+          card.setAttribute('aria-expanded', open ? 'false' : 'true');
+          card.querySelector('.mem-hint').textContent = open ? 'Click to expand \u2193' : 'Click to collapse \u2191';
+        });
+        grid.appendChild(card);
+      });
+    }
+
+    var INIT = { filter: initFilter, explorer: initExplorer, model: initModel, list: initList, cards: initCards };
+    WIDGETS.forEach(function (w) { if (INIT[w.type]) INIT[w.type](w); });
+
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.querySelectorAll('.wf-steps').forEach(function (wf) {
+      if (!reduce && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { wf.querySelectorAll('.wf-step').forEach(function (s) { s.classList.add('reveal-step'); }); io.disconnect(); }
+          });
+        }, { threshold: 0.15 });
+        io.observe(wf);
+      }
+    });
+  })();
+  </script>
+  <script type="module" src="/main.js?v=20260615-system-state"></script>
 </body>
 </html>

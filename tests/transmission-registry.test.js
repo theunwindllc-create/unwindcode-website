@@ -149,12 +149,13 @@ test('new local transmissions read as Brain guides and compact whitepaper notes'
 
   assert.match(activeSourceOfTruthGate, /Active Source-of-Truth Gate/);
   assert.match(activeSourceOfTruthGate, /Publication is identity transfer/i);
-  assert.match(activeSourceOfTruthGate, /Ready does not mean current/i);
-  assert.match(activeSourceOfTruthGate, /live-lane identity/i);
-  assert.match(activeSourceOfTruthGate, /Internal boundary guard/i);
+  // Revised 2026-11-10 (tx-rev-d): the gate note now separates the checker that exists from the designs that do not.
+  assert.match(activeSourceOfTruthGate, /Ready is not current|Ready does not mean current/i);
+  assert.match(activeSourceOfTruthGate, /Active public lane/i);
   assert.match(activeSourceOfTruthGate, /Release Identity Controller/i);
-  assert.match(activeSourceOfTruthGate, /Manual Brain Mode/i);
-  assert.match(activeSourceOfTruthGate, /Posting assets for this transmission remain internal creator material/i);
+  assert.match(activeSourceOfTruthGate, /What this note does not claim/i);
+  assert.match(activeSourceOfTruthGate, /Revised 10 November 2026/);
+  assert.match(activeSourceOfTruthGate, /creator packets/i);
 
   assert.match(silentTruncation, /The Silent Truncation/);
   assert.match(silentTruncation, /absorbed as valid input/i);
@@ -189,13 +190,15 @@ test('transmission archive is a guide library, not a public posting desk', async
 test('property sales intelligence transmission records source-backed Brain decision', async () => {
   const page = await readFile(new URL('../transmissions/26-property-sales-intelligence-cell.html', import.meta.url), 'utf8');
 
-  assert.match(page, /02 \/ Brain decision/);
-  assert.match(page, /The signal passed because housing AI is moving from search into guided action/);
-  assert.match(page, /Zillow AI Mode source/);
-  assert.match(page, /Redfin ChatGPT source/);
-  assert.match(page, /Realtor\.com ChatGPT source/);
-  assert.match(page, /NAR TCPA source/);
-  assert.match(page, /manual protocol run, not an unattended publication/i);
+  // Revised 2026-11-10 (tx-rev-d): the unverified third-party market sources were removed on purpose.
+  // The page now records the cell's dated history and says what is design.
+  assert.match(page, /A history longer than the note/);
+  assert.match(page, /What exists, what is design, what waits/);
+  assert.match(page, /Correction, 10 November 2026/);
+  for (const removed of ['Zillow AI Mode source', 'Redfin ChatGPT source', 'Realtor.com ChatGPT source', 'NAR TCPA source']) {
+    assert.equal(page.includes(removed), false, `removed market source should not return: ${removed}`);
+  }
+  assert.match(page, /design/i);
 });
 
 test('property sales intelligence public package avoids blocked outreach phrases verbatim', async () => {
