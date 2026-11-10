@@ -25,7 +25,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="/style.css" />
   <script type="application/ld+json">
   {
@@ -43,7 +42,7 @@
       "url": "https://www.unwindcode.ai"
     },
     "datePublished": "2026-05-22",
-    "dateModified": "2026-05-22",
+    "dateModified": "2026-11-10",
     "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/18-the-source-control-nervous-system"
   }
   </script>
@@ -136,6 +135,30 @@
       .evidence-grid { grid-template-columns:1fr; }
       .chart-box { height:290px; }
     }
+  
+    /* revision 2026-11-10: dated notes and state-of-record table */
+    .tx-dateline { margin-top:18px; font-size:0.84rem; color:var(--text-muted); }
+    .tx-revised { max-width:780px; margin:26px auto 0; text-align:left; background:rgba(110,45,190,0.07); border:1px solid var(--accent-border); border-left:3px solid var(--accent-hot); border-radius:12px; padding:16px 20px; font-size:0.9rem; line-height:1.65; color:var(--text-secondary); }
+    .tx-revised p { margin:0 0 10px; }
+    .tx-revised p:last-child { margin-bottom:0; }
+    .tx-revised strong { color:var(--text-primary); }
+    .st-wrap { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:20px; padding:24px; margin-top:28px; }
+    .st-wrap h3 { font-size:1.1rem; font-weight:700; margin-bottom:4px; }
+    .st-sub { font-size:0.82rem; color:var(--text-muted); margin-bottom:14px; }
+    .st-filter { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:8px; }
+    .st-filter button { background:rgba(110,45,190,0.08); border:1px solid var(--accent-border); color:var(--text-secondary); padding:6px 14px; border-radius:20px; font:inherit; font-size:0.8rem; cursor:pointer; }
+    .st-filter button.active { color:var(--text-primary); border-color:var(--accent-hot); background:rgba(110,45,190,0.2); }
+    .st-row { display:grid; grid-template-columns:170px 120px 1fr; gap:14px; padding:12px 0; border-top:1px solid var(--accent-border); font-size:0.88rem; line-height:1.55; color:var(--text-secondary); }
+    .st-row b { color:var(--text-primary); font-weight:600; }
+    .st-pill { display:inline-block; font-size:0.7rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:3px 10px; border-radius:20px; border:1px solid var(--accent-border); align-self:start; justify-self:start; }
+    .st-pill.built { color:#34d399; border-color:rgba(16,185,129,0.4); }
+    .st-pill.idle { color:#fbbf24; border-color:rgba(245,158,11,0.4); }
+    .st-pill.failing { color:#f87171; border-color:rgba(239,68,68,0.4); }
+    .st-pill.design { color:#a5b4fc; border-color:rgba(99,102,241,0.4); }
+    .st-pill.removed { color:#9ca3af; border-color:rgba(156,163,175,0.4); }
+    .nc-list { max-width:720px; color:var(--text-secondary); line-height:1.75; font-size:1rem; padding-left:20px; }
+    .nc-list li { margin-bottom:10px; }
+    @media(max-width:700px){ .st-row { grid-template-columns:1fr; gap:6px; } }
   </style>
 </head>
 <body class="tx-page">
@@ -158,7 +181,12 @@
         <div class="tx-kicker">TRANSMISSION 018</div>
         <h1>The Source-Control Nervous System</h1>
         <p class="tx-hero-sub">The Brain is learning to build without pretending it should be trusted blindly. Branches, worktrees, commit preparation, and PR readiness become review-only nerve impulses before any source-control power is granted.</p>
-        <div class="tx-hero-meta"><span>May 2026</span><span>P4 Architecture</span><span>Harness Buildout</span><span>10 min read</span></div>
+        <div class="tx-hero-meta"><span>May 2026</span><span>P4 Architecture</span><span>Harness Buildout</span><span>Revised 10 Nov 2026</span><span>10 min read</span></div>
+        <p class="tx-dateline">Written in May 2026 as a design note. State of the record checked on 10 November 2026 against the consolidation audit of 8 November and the organ-health diagnosis of 10 November.</p>
+        <div class="tx-revised">
+          <p><strong>Revised 10 November 2026.</strong> The note keeps its design, and now says what became of it.</p>
+          <p><strong>Correction, 10 November 2026.</strong> The radar chart of "authority surface" scores (92, 88, 96, 3, 2 and 84) was never measured and is removed. Names of other agent products and a branch name are removed from section 01 and the command previews, and source file names are removed from the gate cards. The cards that described the Workbench and the written reports said more than the record shows and are corrected. Section 06 states what exists: fifteen review-only packet modules with tests, no executor, and a separate custody gate that, as of 8 November 2026, is at Stage 0.</p>
+        </div>
       </div>
     </section>
 
@@ -168,7 +196,7 @@
         <div class="tx-section-label">Click each gate to inspect the architecture</div>
         <div class="tx-prose">
           <p>When an AI system can change code, the primitive question is not "can it write a patch?" The primitive question is <strong>can it expose consequence before consequence happens?</strong></p>
-          <p>Transmission 016 showed the organism spine: durable runs, task lifecycle, approval surfaces, and debriefs. Transmission 018 zooms into a narrower organ: the source-control nervous system. This is the sequence that lets the Brain prepare work like Codex, OpenClaw, or Hermes-style agents while keeping every irreversible action behind explicit gates.</p>
+          <p>Transmission 016 showed the organism spine: durable runs, task lifecycle, approval surfaces, and debriefs. Transmission 018 zooms into a narrower organ: the source-control nervous system. This is the sequence meant to let the Brain prepare the kind of work coding agents do while keeping every irreversible action behind explicit gates.</p>
         </div>
 
         <div class="neural-board">
@@ -188,11 +216,11 @@
           <div class="pipeline" id="pipeline"></div>
           <div class="pipeline-ledger">
             <div class="ledger-panel">
-              <h3>Run Ledger Pulse</h3>
+              <h3>Run Ledger Pulse (simulated)</h3>
               <div class="ledger-lines" id="ledger-lines"></div>
             </div>
             <div class="packet-panel">
-              <h3>Packet Preview</h3>
+              <h3>Packet Preview (illustrative shape)</h3>
               <div class="packet-code" id="packet-code"></div>
             </div>
           </div>
@@ -201,7 +229,7 @@
 
       <section class="tx-section" id="evidence">
         <div class="tx-section-head"><span class="tx-section-num">03</span><h2>The Evidence Map</h2></div>
-        <div class="tx-section-label">Expandable cards for the files that make the gate real</div>
+        <div class="tx-section-label">Cards for the evidence behind the packets</div>
         <div class="tx-prose">
           <p>The Brain does not become trustworthy because it says "I am safe." It becomes more trustworthy when every cell and packet can be inspected. The source-control chain records what it wanted to do, why it stopped, what evidence it used, and what must happen next.</p>
         </div>
@@ -217,12 +245,7 @@
           <p>A normal automation path collapses "prepare" and "execute" into the same motion. The organism path separates them. The Brain can prepare a branch command, a worktree command, a diff command, and a commit command without being allowed to run any of them.</p>
         </div>
 
-        <div class="metrics-grid">
-          <div class="chart-panel">
-            <h3>Authority Surface</h3>
-            <p class="detail-copy">The P4 chain expands what the Brain can prepare while keeping consequential authority near zero until a future owner-approved executor gate.</p>
-            <div class="chart-box"><canvas id="authorityChart"></canvas></div>
-          </div>
+        <div class="metrics-grid" style="grid-template-columns:1fr">
           <div class="chart-panel">
             <h3>Mission Fit</h3>
             <div class="mission-list">
@@ -242,7 +265,27 @@
           <p>The source-control nervous system is not the destination. It is the prerequisite for agentic engineering. Once branch, worktree, commit, and PR readiness have clean review packets, the next question becomes practical: which executor gate, under which owner approval, can perform exactly one action and leave evidence behind?</p>
           <p>That is how Unwind Brain becomes useful to more humans. Each person should eventually bring their own keys, models, workspaces, policies, and cells. The organism must know the difference between preparing work and taking power.</p>
         </div>
-        <div class="tx-note">The architecture is becoming simple enough to trust: prepare deeply, show the consequence, ask before crossing the boundary, then remember exactly what happened.</div>
+        <div class="tx-note">The aim is an architecture simple enough to trust: prepare deeply, show the consequence, ask before crossing the boundary, then remember exactly what happened.</div>
+      </section>
+
+      <section class="tx-section" id="state-of-record">
+        <div class="tx-section-head"><span class="tx-section-num">06</span><h2>State of the Record, and What This Note Does Not Claim</h2></div>
+        <div class="tx-section-label">Added 10 November 2026</div>
+        <div class="st-wrap" id="st-wrap">
+          <h3>The source-control chain, as the record shows it</h3>
+          <p class="st-sub">Status on 8 November 2026 (organ health re-read on 10 November). Filter by state.</p>
+          <div class="st-filter"><button type="button" class="active" data-f="all">All</button><button type="button" data-f="built">Built, tested</button><button type="button" data-f="idle">Idle</button><button type="button" data-f="design">Design only</button><button type="button" data-f="removed">Removed</button></div>
+          <div class="st-row" data-s="built"><b>Review packets</b><span class="st-pill built">Built, tested</span><span>Fifteen modules, each with its own tests, prepare review-only packets that cannot execute. The Brain application is not running as of 8 November, and the repository holds hundreds of uncommitted files.</span></div>
+          <div class="st-row" data-s="design"><b>Executor gate</b><span class="st-pill design">Design only</span><span>The "future owner-approved executor gate" does not exist. No executor is built that would create a branch, commit or push from these packets.</span></div>
+          <div class="st-row" data-s="removed"><b>A larger packet chain</b><span class="st-pill removed">Removed</span><span>In July 2026 an architecture review of the same repository removed a far larger chain of generated approval packets, 87 modules, as ceremony without use. This chain stayed. The lesson stands for it too: count what a packet protects, not how many packets exist.</span></div>
+          <div class="st-row" data-s="idle"><b>Source control in force</b><span class="st-pill idle">Idle</span><span>The control that actually governs pushes on this machine is separate from these packets: the custody gate (pull, sign, seal; see Transmission 42). It is at Stage 0 because its Stage-1 grant expired on 4 October 2026; renewing it is the operator's.</span></div>
+        </div>
+        <ul class="nc-list" style="margin-top:28px">
+          <li>It does not claim the Brain can change source code on its own. No executor exists, and the packets prepare commands that nothing here runs.</li>
+          <li>It does not claim the packet chain is running. It is code and tests in a repository that has not been committed since August.</li>
+          <li>It does not claim packets are safety. A packet records a decision; the gates that matter are the ones a person holds.</li>
+          <li>It does not claim the simulated ledger lines or packet previews on this page come from a real run.</li>
+        </ul>
       </section>
 
       <div class="tx-cta">
@@ -283,7 +326,7 @@
       {
         title: 'P4.6 Status Snapshot',
         tag: 'SENSE',
-        path: 'src/harness/github_status_snapshot.py',
+        state: 'built, tested, review-only',
         short: 'Captures branch identity, HEAD, clean-tree evidence, changed paths, and scope drift.',
         detail: 'The sensory layer asks: what is the state of the repository before the Brain proposes any source-control move? It records evidence without creating branches, worktrees, commits, or PRs.',
         bullets: ['Requires branch and HEAD evidence.', 'Summarizes changed and untracked paths.', 'Marks clean-tree readiness before later gates.'],
@@ -292,29 +335,29 @@
       {
         title: 'P4.7 Branch Approval',
         tag: 'BRANCH',
-        path: 'src/harness/github_branch_creation_approval.py',
+        state: 'built, tested, review-only',
         short: 'Consumes a clean status snapshot and prepares an exact branch command preview.',
         detail: 'The branch gate converts readiness into a proposed branch identity. It can show the command, validate the branch name, and ask for approval, but it still cannot create the branch.',
-        bullets: ['Rejects unsafe branch names.', 'Requires clean-tree readiness.', 'Stores an approval packet under local data.'],
-        command: 'git branch codex/p4-branch <head-sha>  # executionAllowed: false'
+        bullets: ['Rejects unsafe branch names.', 'Requires clean-tree readiness.', 'Stores an approval packet as local review evidence.'],
+        command: 'git branch <branch-name> <head-sha>  # executionAllowed: false'
       },
       {
         title: 'P4.8 Worktree Approval',
         tag: 'WORKTREE',
-        path: 'src/harness/github_worktree_creation_approval.py',
+        state: 'built, tested, review-only',
         short: 'Consumes branch approval and prepares an exact worktree creation command preview.',
         detail: 'The worktree gate gives future execution a safe physical place to happen. It validates the path, links back to branch approval, and keeps workspace mutation closed.',
         bullets: ['Requires prior branch review evidence.', 'Blocks sensitive paths.', 'Prepares rollback notes before execution exists.'],
-        command: 'git worktree add ../unwind-brain-p4-8 codex/p4-branch  # preview only'
+        command: 'git worktree add <path> <branch-name>  # preview only'
       },
       {
         title: 'P4.9 Commit Preparation',
         tag: 'COMMIT',
-        path: 'src/harness/github_commit_preparation_approval.py',
+        state: 'built, tested, review-only',
         short: 'Consumes worktree approval and prepares status, diff, and commit previews.',
         detail: 'The commit preparation gate is intentionally not a commit gate. It lists what would be inspected and committed later, but it does not read Git state, stage files, or create a commit.',
         bullets: ['Previews status, diff stat, and commit message.', 'Requires changed path evidence.', 'Keeps git add, git commit, push, and PR authority false.'],
-        command: 'git -C ../worktree commit -m "..."  # command preview, no source-control write'
+        command: 'git -C <worktree> commit -m "..."  # command preview, no source-control write'
       }
     ];
 
@@ -325,7 +368,7 @@
     function renderGate(gate) {
       gateDetail.innerHTML = [
         '<h3>' + gate.title + '</h3>',
-        '<span class="path">' + gate.path + '</span>',
+        '<span class="path">' + gate.state + '</span>',
         '<p class="detail-copy">' + gate.detail + '</p>',
         '<ul class="detail-list">' + gate.bullets.map((item) => '<li>' + item + '</li>').join('') + '</ul>',
         '<div class="command-preview"><code>' + gate.command + '</code></div>'
@@ -404,23 +447,23 @@
     const evidence = [
       {
         label: 'Tests',
-        title: 'TDD packets',
-        body: 'Each gate landed with focused tests first: unsafe branches, secrets, sensitive paths, unreviewed upstream approvals, and API rejection paths.'
+        title: 'Test coverage',
+        body: 'Each gate has its own test file, fifteen in all, covering unsafe branch names, secrets, sensitive paths, unreviewed upstream approvals and API rejection paths. The tests exist and passed when the code was last worked on; the repository has had no commit since August.'
       },
       {
         label: 'Policy',
         title: 'Closed authority',
-        body: 'The packets can write local review evidence. They cannot create branches, create worktrees, read diffs, stage files, commit, push, open PRs, deploy, resolve vault material, or sign wallet actions.'
+        body: 'The packets can write local review evidence. They cannot create branches, create worktrees, read diffs, stage files, commit, push, open PRs, deploy, resolve vault material, or sign wallet actions. No executor exists that would use them.'
       },
       {
         label: 'Workbench',
         title: 'Operator surface',
-        body: 'The Workbench now renders each gate as an operator panel: required fields, blocked inputs, command preview mode, staged packet count, and latest approval evidence.'
+        body: 'Code and tests exist for operator panels over the gates: required fields, blocked inputs, command preview mode, staged packet count and latest approval evidence. They are not a running service on this machine as of 8 November 2026.'
       },
       {
         label: 'Memory',
-        title: 'Living reports',
-        body: 'Every phase updates the HTML roadmap, the product gap report, BRAIN_STRUCTURE.md, and soul.md so the organism can explain what exists before it tries to extend itself.'
+        title: 'Written reports',
+        body: 'Each phase was written up in reports and a structure document in the repository, so the project could explain what existed before extending itself. This note does not claim those documents are current.'
       }
     ];
     const evidenceGrid = document.getElementById('evidence-grid');
@@ -438,62 +481,21 @@
       evidenceGrid.appendChild(button);
     });
 
-    const chartColors = {
-      accent: 'rgba(155,89,245,1)',
-      accentFill: 'rgba(155,89,245,0.15)',
-      hot: 'rgba(192,132,252,1)',
-      teal: 'rgba(13,148,136,0.7)',
-      grid: 'rgba(240,238,246,0.08)',
-      text: 'rgba(240,238,246,0.35)'
-    };
-
-    new Chart(document.getElementById('authorityChart'), {
-      type: 'radar',
-      data: {
-        labels: ['Planning', 'Evidence', 'Command Preview', 'Git Execution', 'Public Consequence', 'Rollback Clarity'],
-        datasets: [
-          {
-            label: 'P4 packet chain',
-            data: [92, 88, 96, 3, 2, 84],
-            borderColor: chartColors.accent,
-            backgroundColor: chartColors.accentFill,
-            pointBackgroundColor: chartColors.hot,
-            pointBorderColor: chartColors.hot,
-            borderWidth: 2
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          r: {
-            min: 0,
-            max: 100,
-            angleLines: { color: chartColors.grid },
-            grid: { color: chartColors.grid },
-            pointLabels: { color: chartColors.text, font: { family: 'Inter', size: 11 } },
-            ticks: { display: false }
-          }
-        },
-        plugins: {
-          legend: {
-            position: 'bottom',
-            labels: { color: chartColors.text, font: { family: 'Inter' }, padding: 18 }
-          },
-          tooltip: {
-            backgroundColor: 'rgba(15,15,30,0.95)',
-            titleFont: { family: 'Inter' },
-            bodyFont: { family: 'Inter' },
-            padding: 10,
-            cornerRadius: 8,
-            callbacks: {
-              label: (context) => context.dataset.label + ': ' + context.parsed.r + '/100'
-            }
-          }
-        }
-      }
-    });
+    // STATE-OF-RECORD FILTER (revised 2026-11-10)
+    (function () {
+      var wrap = document.getElementById('st-wrap');
+      if (!wrap) return;
+      var rows = wrap.querySelectorAll('.st-row');
+      var btns = wrap.querySelectorAll('.st-filter button');
+      btns.forEach(function (b) {
+        b.addEventListener('click', function () {
+          btns.forEach(function (x) { x.classList.remove('active'); });
+          b.classList.add('active');
+          var f = b.getAttribute('data-f');
+          rows.forEach(function (r) { r.style.display = (f === 'all' || r.getAttribute('data-s') === f) ? '' : 'none'; });
+        });
+      });
+    })();
   });
   </script>
 </body>
