@@ -285,7 +285,7 @@
           <div class="cr-outcome clean">
             <strong>Nothing is ever replaced without a trace of what it replaced.</strong> A collision keeps both versions.
           </div>
-          <p class="cr-note">Checked before registering — never silent, never automatic.</p>
+          <p class="cr-note">Checked before registering; nothing is replaced without a trace.</p>
         </div>
       </section>
 
@@ -295,21 +295,21 @@
         <div class="tx-section-label">Found by description, not by path</div>
         <div class="tx-prose">
           <p>Skills are not found by memorizing where they live; they're found by searching what they do, over their description text.</p>
-          <p>A vector index is available when asked; nothing is retrieved without being asked. As of the most recent count there were seven registered.</p>
+          <p>A vector index is available when asked. As of the most recent count there were seven registered.</p>
         </div>
         <div class="dl-filters" role="group" aria-label="Filter skill rules" id="dl-filters">
           <button class="dl-chip" type="button" data-state="all" aria-pressed="true">All</button>
-          <button class="dl-chip dl-chip-a" type="button" data-state="a" aria-pressed="false">Checked before registering</button>
-          <button class="dl-chip dl-chip-b" type="button" data-state="b" aria-pressed="false">Checked at use</button>
+          <button class="dl-chip dl-chip-a" type="button" data-state="a" aria-pressed="false">Before registering</button>
+          <button class="dl-chip dl-chip-b" type="button" data-state="b" aria-pressed="false">How it is reached</button>
         </div>
         <div class="dl-count" id="dl-count" aria-live="polite"></div>
         <div class="dl-grid" id="dl-grid"></div>
         <div class="dl-law">
-          <h3>The rule that outranks the filter</h3>
+          <h3>A credential check before registration</h3>
           <p>A skill that declares it needs a credential to run is registered only once a live check confirms every one of its declared credential slots is present — and the registration index itself never reads the credential's value, only whether the slot exists.</p>
         </div>
         <div class="wf-steps" id="wf-steps">
-          <div class="wf-step"><div class="wf-dot wf-dot-1">01</div><h3>Proves useful more than once</h3><p>A procedure earns a file only after it has shown its worth across sessions.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-1">01</div><h3>Proves useful more than once</h3><p>A procedure worth reusing is written down once, as a single file.</p></div>
           <div class="wf-step"><div class="wf-dot wf-dot-2">02</div><h3>Written to a fixed, size-capped format</h3><p>Header fields, a one-sentence description under 60 characters, a capped body — the first sentence carries the whole meaning.</p></div>
           <div class="wf-step"><div class="wf-dot wf-dot-3">03</div><h3>Checked before being added</h3><p>Collision and credential-slot checks pass; nothing is registered without passing.</p></div>
           <div class="wf-step"><div class="wf-dot wf-dot-4">04</div><h3>Linked, not copied, into every tool</h3><p>One link placed by the operator's hand; every tool reads the same copy.</p></div>
@@ -323,7 +323,7 @@
         <div class="tx-section-label">Declared needs, checked once, never read by the index</div>
         <div class="tx-prose">
           <p>A skill that declares it needs a credential to run is registered only once a live check confirms every one of its declared credential slots is present.</p>
-          <p>The registration index itself never reads the credential's value, only whether the slot exists. Nothing is retrieved without being asked.</p>
+          <p>The registration index itself never reads the credential's value, only whether the slot exists.</p>
         </div>
         <div class="mod-explorer">
           <div class="mod-grid" id="mod-grid" role="group" aria-label="Four forms"></div>
@@ -336,7 +336,7 @@
 
       <div class="tx-cta">
         <h2>Draw the boundary before the code.</h2>
-        <p>If you are moving an autonomous system onto a chain and the real question is what must never move with it, we should talk.</p>
+        <p>If you are keeping reusable procedures for several agents and the real question is how to stop copies drifting apart, we should talk.</p>
         <a class="btn btn-primary btn-lg" href="/build-with-us"><span>Build With Us</span><span class="btn-arrow">→</span></a>
       </div>
     </div>
@@ -349,11 +349,11 @@
     // All data below is static and client-side. Nothing on this page makes a network call.
 
     // 01 — SKILL RULES
-    var states = { a: 'Checked before registering', b: 'Checked at use' };
+    var states = { a: 'Before registering', b: 'How it is reached' };
     var components = [
       { state: 'a', name: 'One canonical file', short: 'Every reusable procedure lives as a single file in exactly one location.', why: 'Several kinds of coding agents reach that one copy through a link placed by the operator\'s hand; none gets its own copy to drift out of sync.' },
       { state: 'a', name: 'Fixed, short format', short: 'Header fields, a one-sentence description whose first sentence — under 60 characters — carries the whole meaning, and a capped body.', why: 'One reader truncates long descriptions, so the short form must stand alone.' },
-      { state: 'a', name: 'Collision check', short: 'A changed version is registered under a version-suffixed name; nothing is silently overwritten.', why: 'Registration is checked before anything is added, and nothing is replaced without a trace.' },
+      { state: 'a', name: 'Collision check', short: 'If a name collision arrives with genuinely different content, the new one lands under a version-suffixed name.', why: 'Registration is checked before anything is added, and nothing is replaced without a trace.' },
       { state: 'a', name: 'Credential-slot check', short: 'Declared credential slots are confirmed present by a live check before registration.', why: 'The registration index never reads a credential value — only whether the slot exists.' },
       { state: 'b', name: 'Found by what it does', short: 'Skills are located by searching their description text, not by where they live.', why: 'A vector index is available when asked; nothing is retrieved without being asked.' },
       { state: 'b', name: 'One link, every tool', short: 'Each tool reads the same canonical copy through its human-placed link.', why: 'No separate copy per tool, so nothing drifts out of sync.' }
@@ -386,7 +386,7 @@
         var match = state === 'all' || card.getAttribute('data-state') === state;
         if (match) { card.removeAttribute('hidden'); shown += 1; } else { card.setAttribute('hidden', ''); }
       });
-      dlCount.textContent = shown + ' of ' + components.length + ' rules · ' + (state === 'all' ? 'checked before registering and at use' : states[state]);
+      dlCount.textContent = shown + ' of ' + components.length + ' rules · ' + (state === 'all' ? 'what is checked before registering, and how a skill is reached' : states[state]);
     }
     dlFilters.querySelectorAll('.dl-chip').forEach(function (chip) {
       chip.addEventListener('click', function () {
@@ -408,7 +408,7 @@
         name: 'A procedure written once, in a file',
         short: 'One canonical location; a short header, a one-sentence description, a capped body.',
         specs: ['Single file', 'Size-capped', 'One location'],
-        proof: 'Written down only after it proves useful more than once.' },
+        proof: 'Written once, kept in exactly one location.' },
       { id: 'link', role: 'One link', score: 'one version',
         name: 'A procedure linked into every tool that needs it',
         short: 'Every tool reads the same copy through a link placed by the operator\'s hand.',
@@ -448,8 +448,8 @@
 
     // 03 — WHAT ISN'T AUTOMATIC
     var still = [
-      { tag: 'not automatic', title: 'Search waits to be asked', desc: 'F4\'s search depends on being asked to re-index; nothing is found without a query.', extra: 'Seven registered skills stay where they live until a hand asks what they do.' },
-      { tag: 'opt-in', title: 'Semantic search stays opt-in', desc: 'Deep semantic search over skills is opt-in, like the memory\'s.', extra: 'Registration is checked before adding; retrieval happens only when asked — never on its own.' }
+      { tag: 'not automatic', title: 'Search waits to be asked', desc: 'Skills are found by searching their description text; a vector index is used only when asked.', extra: 'As of the most recent count, seven skills are registered.' },
+      { tag: 'opt-in', title: 'Semantic search stays opt-in', desc: 'Search over the vector index has to be asked for.', extra: 'Registration is checked before adding; neither step is fully automatic.' }
     ];
     var memGrid = document.getElementById('mem-grid');
     still.forEach(function (w) {
