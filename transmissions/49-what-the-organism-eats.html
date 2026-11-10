@@ -36,7 +36,7 @@
     "publisher": {"@type": "Organization", "name": "Unwind Code", "url": "https://www.unwindcode.ai"},
     "datePublished": "2026-11-09",
     "dateModified": "2026-11-09",
-    "keywords": ["ceiling", "ladder", "cloud lane", "custody boundary", "measured"],
+    "keywords": ["ceiling", "ladder", "cloud lane", "disk", "measured"],
     "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/49-what-the-organism-eats"
   }
   </script>
@@ -254,7 +254,7 @@
       <!-- 02: THE LADDER -->
       <section class="tx-section" id="the-ladder">
         <div class="tx-section-head"><span class="tx-section-num">02</span><h2>A ladder of models, not one brain</h2></div>
-        <div class="tx-section-label">Resident, on demand, shelved, retired, deleted</div>
+        <div class="tx-section-label">Resident, lighter work, shelved, retired, deleted</div>
         <div class="tx-prose">
           <p>The local models form a ladder, not one monolith. A larger model stays resident as the default crown for most work, picked by a measured head-to-head benchmark rather than a guess. A smaller model was added the same week for lighter, faster work.</p>
           <p>A mid-size model exists but is shelved, not in normal rotation. One oversized configuration that no longer fit any realistic desktop load was retired, and two models that could not fit anywhere in the measured budget were deleted outright — freeing a large block of disk space.</p>
@@ -263,7 +263,7 @@
         <div class="dl-filters" role="group" aria-label="Filter ladder rungs" id="dl-filters">
           <button class="dl-chip" type="button" data-state="all" aria-pressed="true">All</button>
           <button class="dl-chip dl-chip-a" type="button" data-state="a" aria-pressed="false">Always resident</button>
-          <button class="dl-chip dl-chip-b" type="button" data-state="b" aria-pressed="false">Called on demand</button>
+          <button class="dl-chip dl-chip-b" type="button" data-state="b" aria-pressed="false">Lighter work</button>
           <button class="dl-chip dl-chip-c" type="button" data-state="c" aria-pressed="false">Shelved</button>
           <button class="dl-chip dl-chip-d" type="button" data-state="d" aria-pressed="false">Retired</button>
           <button class="dl-chip dl-chip-e" type="button" data-state="e" aria-pressed="false">Deleted</button>
@@ -277,7 +277,7 @@
         <div class="tx-section-head"><span class="tx-section-num">03</span><h2>The cheapest model that meets the bar</h2></div>
         <div class="tx-section-label">Local first; cloud only when it clears the bar</div>
         <div class="tx-prose">
-          <p>Anything that leaves the box for a cloud model follows a ruling from the week before: route to the cheapest tier that still meets the task's required intelligence floor. Local models stay the default, so the cloud lane is used only on purpose — never silently, never by drift.</p>
+          <p>Anything that leaves the box for a cloud model follows a ruling from the week before: route to the cheapest tier that still meets the task's required intelligence floor. Local models stay the default, so the cloud lane is used only on purpose.</p>
         </div>
       </section>
 
@@ -318,27 +318,27 @@
 
       <!-- 05: THE COST -->
       <section class="tx-section" id="the-cost">
-        <div class="tx-section-head"><span class="tx-section-num">05</span><h2>What the ceiling costs on a slow day</h2></div>
+        <div class="tx-section-head"><span class="tx-section-num">05</span><h2>What the ceiling changed</h2></div>
         <div class="tx-section-label">What the ruling actually changed</div>
         <div class="tx-prose">
-          <p>Before the ruling, the resident model answered in roughly 22 seconds per turn under the old, tighter margin. After it, the same model answers in roughly one second once warm. The only slow step left is the first cold load of a large model file off disk — under 20 seconds.</p>
+          <p>Before the ruling, the resident model answered in roughly 22 seconds per turn under the old, tighter margin. After it, the same model answers in roughly one second once warm. The only slow step left is the first cold load of a large model file off disk, measured at under 20 seconds.</p>
         </div>
         <div class="wf-steps" id="wf-steps">
-          <div class="wf-step"><div class="wf-dot wf-dot-1">01</div><h3>A fixed margin is set</h3><p>One safety ceiling decided once, before any real load. Assumed, not measured.</p></div>
-          <div class="wf-step"><div class="wf-dot wf-dot-2">02</div><h3>It fails under real load</h3><p>Real runs outgrew the assumed ceiling; replies grew slow and brittle. The margin held on paper, not at runtime.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-1">01</div><h3>A fixed margin is set</h3><p>A flat safety ceiling, assumed rather than measured.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-2">02</div><h3>It costs speed</h3><p>Under the old, tighter margin the resident model answered in roughly 22 seconds per turn.</p></div>
           <div class="wf-step"><div class="wf-dot wf-dot-3">03</div><h3>A ruling redefines the ceiling</h3><p>Full card minus a small reserve, conditioned on reading temperature and memory live; no new load when hot or near out of memory. Measured, not assumed.</p></div>
-          <div class="wf-step"><div class="wf-dot wf-dot-4">04</div><h3>Unusable models are removed</h3><p>Configurations that no longer fit are retired; models that fit nowhere are deleted to free disk. The disk space freed is real.</p></div>
-          <div class="wf-step"><div class="wf-dot wf-dot-5">05</div><h3>A smaller model is added</h3><p>A lighter model for daily work, called on demand instead of staying resident. Lighter, faster, on purpose.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-4">04</div><h3>Unusable models are removed</h3><p>One oversized configuration is retired and two models that fit nowhere are deleted, freeing a large block of disk space.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-5">05</div><h3>A smaller model is added</h3><p>A smaller model for lighter, faster work.</p></div>
         </div>
         <div class="mem-grid" id="mem-grid"></div>
         <div class="oh-list" id="oh-list"></div>
-        <div class="oh-foot">3 measured outcomes · ceiling, disk, response time · nothing named</div>
+        <div class="oh-foot">3 outcomes · ceiling, disk, response time · nothing named</div>
         <div class="tx-quote">A ceiling that is never read is not a ceiling.</div>
       </section>
 
       <div class="tx-cta">
         <h2>Draw the boundary before the code.</h2>
-        <p>If you are moving an autonomous system onto a chain and the real question is what must never move with it, we should talk.</p>
+        <p>If you are running local models on one fixed card and the real question is which ceiling to trust, we should talk.</p>
         <a class="btn btn-primary btn-lg" href="/build-with-us"><span>Build With Us</span><span class="btn-arrow">→</span></a>
       </div>
     </div>
@@ -351,10 +351,10 @@
     // All data below is static and client-side. Nothing on this page makes a network call.
 
     // 01 — LADDER RUNGS (filterable by role; no names, no vendors)
-    var states = { a: 'Always resident', b: 'Called on demand', c: 'Shelved', d: 'Retired', e: 'Deleted' };
+    var states = { a: 'Always resident', b: 'Lighter work', c: 'Shelved', d: 'Retired', e: 'Deleted' };
     var components = [
       { state: 'a', name: 'Default resident — the crown', short: 'Stays loaded and handles most work. Picked by a measured head-to-head benchmark rather than a guess.', why: 'Always-resident tier — the ladder\'s default.' },
-      { state: 'b', name: 'Called on demand — lighter work', short: 'A smaller model added the same week for lighter, faster tasks; loaded only when the job needs it.', why: 'On-demand tier — keeps the resident card free.' },
+      { state: 'b', name: 'Lighter work', short: 'A smaller model added the same week for lighter, faster work.', why: 'The second rung of the ladder.' },
       { state: 'c', name: 'Shelved — mid-size', short: 'A mid-size model exists but is not in normal rotation.', why: 'Present, but shelved.' },
       { state: 'd', name: 'Retired — no longer fit', short: 'One oversized configuration that no longer fit any realistic desktop load.', why: 'Retired from the ladder after the ceiling ruling.' },
       { state: 'e', name: 'Deleted — out of budget', short: 'Two models that could not fit anywhere in the measured budget were deleted outright.', why: 'Freed a large block of disk space.' }
@@ -412,8 +412,8 @@
         proof: 'Measured, not assumed.' },
       { id: 'ladder', role: 'Local', score: 'benchmark-picked',
         name: 'A local ladder picked by measured benchmark, not guess',
-        short: 'A resident crown, a smaller on-demand model, a shelved mid-size model; oversized and out-of-budget configurations retired and deleted.',
-        specs: ['Resident default', 'On-demand tier', 'Benchmark-picked'],
+        short: 'A resident crown, a smaller model for lighter work, a shelved mid-size model; oversized and out-of-budget configurations retired and deleted.',
+        specs: ['Resident default', 'Lighter-work tier', 'Benchmark-picked'],
         proof: 'Retirements and deletions freed real disk space.' },
       { id: 'cloud', role: 'Cloud', score: 'capped',
         name: 'A cost-routed cloud lane with a hard dollar cap',
@@ -450,15 +450,15 @@
     // 03 — OLD MARGIN VS MEASURED CEILING
     var rawSteps = [
       { t: 'Margin set', d: 'One assumed ceiling, fixed in advance.' },
-      { t: 'Checked under load', d: 'Never — the margin was never re-measured against real runs.' },
-      { t: 'The result', d: 'A blind number the machine could outgrow or choke on.' }
+      { t: 'Checked against the machine', d: 'No — a flat, assumed margin, not a live reading.' },
+      { t: 'The result', d: 'A number that ignores the card\'s current temperature and memory load.' }
     ];
     var verifySteps = [
       { t: 'Card read live', d: 'Memory use, temperature and host memory checked before every load.' },
       { t: 'Condition enforced', d: 'A new load is refused when the card is hot or the system is nearly out of memory.' },
       { t: 'Reserve held', d: 'Full capacity minus a fixed driver reserve.' }
     ];
-    var faultFailsAt = { none: -1, a: 1, b: 2, c: 3 };
+    var faultFailsAt = { none: -1, a: 0, b: 1, c: 2 };
     var faultLabel = { none: 'baseline', a: 'the old margin logic', b: 'live card reads', c: 'the refusal rule' };
     var crRaw = document.getElementById('cr-raw');
     var crVerify = document.getElementById('cr-verify');
@@ -488,7 +488,7 @@
         crOutcome.innerHTML = '<strong>Same resident model.</strong> Roughly 22 seconds per turn under the old margin; roughly one second once warm after the ruling — only the first cold load of a large model file off disk is slow, under 20 seconds.';
       } else {
         crOutcome.className = 'cr-outcome refused';
-        crOutcome.innerHTML = '<strong>Roadmap: accepted as plan.</strong> It has no way to prove itself. <strong>Receipts: refused</strong> at step 0' + (failAt + 1) + ' (' + faultLabel[fault] + '). A row is never a receipt.';
+        crOutcome.innerHTML = '<strong>Old margin: still accepted.</strong> <strong>Live check: refused</strong> at step 0' + (failAt + 1) + ' (' + faultLabel[fault] + '). A ceiling that is never read is not a ceiling.';
       }
     }
     crFaults.querySelectorAll('.cr-fault').forEach(function (btn) {
@@ -515,8 +515,8 @@
       io.observe(wf);
     }
     var waits = [
-      { tag: 'not built', title: 'A local tier classifier', desc: 'Would pick the router tier automatically; not yet built — the ladder is not fully automatic.', extra: 'Tier selection stays a ruling plus manual placement.' },
-      { tag: 'unused', title: 'A second cloud lane', desc: 'A direct lane to a second provider exists in the router design but is deliberately unused — deferred, present but not switched on.', extra: 'No call leaves through it.' }
+      { tag: 'not built', title: 'A local tier classifier', desc: 'Would pick the router tier automatically; not yet built — the ladder is not fully automatic.', extra: 'Until it exists, the ladder is not fully automatic.' },
+      { tag: 'unused', title: 'A second cloud lane', desc: 'A direct lane to a second provider exists in the router design but is deliberately unused — deferred, present but not switched on.', extra: 'Present in the design, not yet switched on.' }
     ];
     var memGrid = document.getElementById('mem-grid');
     waits.forEach(function (w) {
@@ -534,8 +534,8 @@
     });
 
     var outcomes = [
-      { tag: 'measured', title: 'Ceiling raised roughly 1,500 MiB', desc: 'From the assumed margin to the full card minus a fixed driver reserve.', extra: 'Against the card\'s real capacity.' },
-      { tag: 'measured', title: 'Disk freed by deletion', desc: 'Two models that fit nowhere were deleted outright; one oversized configuration retired.', extra: 'A large block of disk space freed.' },
+      { tag: 'ruling', title: 'Ceiling raised', desc: 'From a flat assumed margin to the full card minus a small fixed driver reserve.', extra: 'Conditioned on live reads of temperature and memory.' },
+      { tag: 'ruling', title: 'Disk freed by deletion', desc: 'Two models that fit nowhere were deleted outright; one oversized configuration retired.', extra: 'A large block of disk space freed.' },
       { tag: 'measured', title: 'Warm reply time', desc: 'From roughly 22 seconds per turn to roughly one second once warm.', extra: 'Only the first cold load of a large model file remains slow, under 20 seconds.' }
     ];
     var ohList = document.getElementById('oh-list');
@@ -544,7 +544,7 @@
       item.type = 'button';
       item.className = 'oh-item';
       item.setAttribute('aria-expanded', 'false');
-      item.innerHTML = '<span class="oh-box" aria-hidden="true"></span><span><span class="oh-t">' + h.title + '</span><span class="oh-s">' + h.desc + '</span><span class="oh-d">' + h.extra + '</span></span><span class="oh-needs oh-needs-measured">measured</span>';
+      item.innerHTML = '<span class="oh-box" aria-hidden="true"></span><span><span class="oh-t">' + h.title + '</span><span class="oh-s">' + h.desc + '</span><span class="oh-d">' + h.extra + '</span></span><span class="oh-needs oh-needs-measured">' + h.tag + '</span>';
       item.addEventListener('click', function () {
         item.setAttribute('aria-expanded', item.getAttribute('aria-expanded') === 'true' ? 'false' : 'true');
       });
