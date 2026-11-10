@@ -32,11 +32,11 @@ test('Transmission 38 has one consistent clean route across article and discover
 test('Transmission 38 is dated to the day it describes and names the rail as interim', async () => {
   const page = await read(`transmissions/${id}.html`);
   assert.match(page, /"datePublished": "2026-11-08"/);
-  assert.match(page, /"dateModified": "2026-11-08"/);
+  assert.match(page, /"dateModified": "2026-11-10"/);
   assert.ok(page.includes('8 November 2026'), 'the day is stated in the article');
   assert.ok(page.includes('until a job board exists'), 'the board is framed as a rail before the real job board');
   assert.ok(page.includes('The rail itself is interim'), 'the article says the rail is interim');
-  assert.ok(page.includes('Hermes is shelved for now'), 'the fourth hand is reported as shelved, not active');
+  assert.ok(page.includes('a fourth hand that is shelved for now'), 'the fourth hand is reported as shelved, not active');
   assert.ok(page.includes('Claim before you start'), 'the claim rule is the headline rule');
   assert.ok(page.includes('The board grants no authority'), 'the board is not a source of authority');
   assert.ok(page.includes('No private keys on the machine. No autonomous financial execution.'), 'the custody boundary is stated above the board');

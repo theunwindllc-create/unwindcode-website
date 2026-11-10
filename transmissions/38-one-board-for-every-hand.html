@@ -35,7 +35,7 @@
     "author": {"@type": "Organization", "name": "Unwind Code"},
     "publisher": {"@type": "Organization", "name": "Unwind Code", "url": "https://www.unwindcode.ai"},
     "datePublished": "2026-11-08",
-    "dateModified": "2026-11-08",
+    "dateModified": "2026-11-10",
     "keywords": ["rail", "job board", "agent coordination", "claim before you start", "interim job board", "AI governance"],
     "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/38-one-board-for-every-hand"
   }
@@ -220,6 +220,9 @@
       .dl-card, .mod-node, .mem-card, .oh-d, .cr-step, .dl-chip, .cr-fault { transition:none; }
       .dl-card:hover, .mod-node:hover, .mem-card:hover { transform:none; }
     }
+    .tx-dateline { max-width:720px; margin:32px auto 0; text-align:left; border:1px solid rgba(232,161,92,0.28); border-radius:14px; padding:16px 20px; background:linear-gradient(180deg,rgba(232,161,92,0.07),rgba(232,161,92,0.015)); font-size:0.88rem; line-height:1.65; color:var(--text-secondary); }
+    .tx-dateline strong { color:#e8a15c; font-weight:650; }
+    .tx-dateline + .tx-dateline { margin-top:12px; }
   </style>
 </head>
 <body class="tx-page">
@@ -248,6 +251,8 @@
         <h1>One Board<br>for Every Hand</h1>
         <p class="tx-hero-sub">On 8 November 2026 the operator asked for a rail so every agent could know what every other hand is working on, until a job board exists. The same day, one file became the interim job board for every hand.</p>
         <div class="tx-hero-meta"><span>November 2026</span><span>·</span><span>Field note</span><span>·</span><span>Coordination</span><span>·</span><span>7 min read</span></div>
+        <p class="tx-dateline"><strong>Dated note.</strong> This note describes 8 November 2026, the day the interim board opened, and was written and published the same day. Operational facts describe that day, not today.</p>
+        <p class="tx-dateline"><strong>Correction, 10 November 2026.</strong> An earlier version of this page described the free-model hand as running on a model on the machine with nothing off the box. That was incomplete. Only the calendar truth pass described below ran on the local model. The free-model hand can run on either a local model (nothing leaves the machine; its window is a hard 32,768 tokens) or a free cloud model (the brief leaves the machine, so only public-safe material may be sent to it; a rule for that is proposed, not yet ruled). The page itself was not written locally: Transmissions 38 to 55 were drafted by a free cloud-hosted model from briefs of public-safe facts. Revised 10 November 2026: the four hands are now named by role, and the order note in section 04 was corrected to match the clock.</p>
       </div>
     </section>
 
@@ -258,7 +263,7 @@
         <div class="tx-section-head"><span class="tx-section-num">01</span><h2>A rail before the job board</h2></div>
         <div class="tx-section-label">One file, every hand, before the job board exists</div>
         <div class="tx-prose">
-          <p>On 8 November 2026 the operator asked for a rail so every agent could know what every other hand is working on, until a job board exists. The same day, one file became the interim job board for every hand: Claude Code, Codex, OpenCode and Hermes. It is copied into the working-memory packet each hand loads when it starts, so every hand sees the open jobs before it acts.</p>
+          <p>On 8 November 2026 the operator asked for a rail so every agent could know what every other hand is working on, until a job board exists. The same day, one file became the interim job board for every hand: a terminal coding hand, a desktop coding hand, a free-model hand and a shelved hand. It is copied into the working-memory packet each hand loads when it starts, so every hand sees the open jobs before it acts.</p>
           <p>The rules: claim before you start — one hand per job, with a timestamp. Finish with DONE plus a receipt, or hand back with a one-line note. A claim older than 24 hours with no note may be reclaimed. Every claim, finish and handoff is journaled. Jobs that wait on the operator cannot be claimed. The board grants no authority: a job permits only what its plan already marks lawful.</p>
         </div>
         <div class="dl-filters" role="group" aria-label="Filter rules by job state" id="dl-filters">
@@ -281,7 +286,7 @@
         <div class="tx-section-head"><span class="tx-section-num">02</span><h2>Four hands, one list</h2></div>
         <div class="tx-section-label">The board rides in the packet each hand loads at start</div>
         <div class="tx-prose">
-          <p>The board is copied into the working-memory packet each hand loads when it starts, so every hand sees the open jobs before it acts. The hands are Claude Code, Codex, OpenCode and Hermes — Hermes is shelved for now. Select a hand to see what it does.</p>
+          <p>The board is copied into the working-memory packet each hand loads when it starts, so every hand sees the open jobs before it acts. The hands are a terminal coding hand, a desktop coding hand, a free-model hand and a fourth hand that is shelved for now. Select a hand to see what it does.</p>
         </div>
         <div class="mod-explorer">
           <div class="mod-grid" id="mod-grid" role="group" aria-label="Hands"></div>
@@ -327,7 +332,7 @@
         <div class="tx-section-head"><span class="tx-section-num">04</span><h2>The day, as it ran</h2></div>
         <div class="tx-section-label">Five steps · in the order they ran</div>
         <div class="tx-prose">
-          <p>The order matters more than the speed. The calendar came first, the rail agent second, the defects third, the memory lesson fourth, the push ruling fifth.</p>
+          <p>The steps are grouped by topic. By the clock, the memory squeeze (16:10 to 16:37) overlapped the calendar pass (proposed at 16:28), the lean agent and the two repairs were recorded at 16:40, and the push ruling came at 17:14.</p>
         </div>
         <div class="wf-steps" id="wf-steps">
           <div class="wf-step"><div class="wf-dot wf-dot-1">01</div><h3>The calendar truth pass</h3><p>The first job the free local model ran was the calendar pass: four rows proposed for the week's work that had none, and stale rows flagged but not changed. A second hand verified it — four rows added as proposed, zero existing rows changed.</p></div>
@@ -427,10 +432,10 @@
 
     // 02 — HANDS
     var hands = [
-      { id: 'claude-code', name: 'Claude Code', role: 'Composer', desc: 'Reads the working-memory packet at start, picks up open jobs, and commits what it finishes.' },
-      { id: 'codex', name: 'Codex', role: 'Composer', desc: 'Loads the same packet, works the rail under its own hand, and journals each claim, finish and handoff.' },
-      { id: 'opencode', name: 'OpenCode', role: 'Free local model', desc: 'Runs the rail agent — rules plus file and shell tools only, about 14,000 tokens — one job per session, nothing off the box.' },
-      { id: 'hermes', name: 'Hermes', role: 'Shelved', desc: 'Installed but off: normal operation is paused while the shelved marker exists; launchable only for an explicit drill.' }
+      { id: 'terminal-hand', name: 'Terminal coding hand', role: 'Composer', desc: 'Reads the working-memory packet at start, picks up open jobs, and commits what it finishes.' },
+      { id: 'desktop-hand', name: 'Desktop coding hand', role: 'Composer', desc: 'Loads the same packet, works the rail under its own hand, and journals each claim, finish and handoff.' },
+      { id: 'free-hand', name: 'Free-model hand', role: 'Free model, local or cloud', desc: 'Runs the rail agent — rules plus file and shell tools only, about 14,000 tokens — one job per session. On a local model nothing leaves the machine and the window is a hard 32,768 tokens. On a free cloud model the brief leaves the machine, so only public-safe material may go to it; a rule for that is proposed, not yet ruled.' },
+      { id: 'shelved-hand', name: 'Shelved hand', role: 'Shelved', desc: 'Installed but off: normal operation is paused while the shelved marker exists; launchable only for an explicit drill.' }
     ];
     var modGrid = document.getElementById('mod-grid');
     var modDetail = document.getElementById('mod-detail');
@@ -458,7 +463,7 @@
     // 03 — PROMPT BUDGET MODEL
     var windowSteps = [
       { t: '32,768 tokens', d: 'The local model\'s context window.' },
-      { t: 'Measured live', d: 'No model loaded; the agent was pointed at a dummy endpoint that recorded the request.' }
+      { t: 'Measured, no model loaded', d: 'The agent was pointed at a dummy endpoint; the agent was pointed at a dummy endpoint that recorded the request.' }
     ];
     var leftSteps = [
       { t: 'Default agent, ~39,000', d: '45 video-editor tool definitions plus 29 skills.' },
