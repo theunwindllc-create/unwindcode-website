@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Transmission 23: The SEC Gate — An Organism That Locks Its Own Hands | Unwind Code</title>
-  <meta name="description" content="P5 neurogenesis is complete. The organism can now write its own cells, load them at runtime, and—critically—refuse to move money until it has proof and human approval." />
+  <meta name="description" content="A dated note on the P5 neurogenesis close and the SEC Gate: the Monad executor refuses to sign by default and needs a matching approval grant. Written May 2026, rechecked and corrected 10 November 2026." />
   <meta name="theme-color" content="#06060c" />
   <link rel="canonical" href="https://www.unwindcode.ai/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Transmission 23: The SEC Gate — An Organism That Locks Its Own Hands | Unwind Code" />
-  <meta property="og:description" content="P5 neurogenesis is complete. The organism can now write its own cells, load them at runtime, and—critically—refuse to move money until it has proof and human approval." />
+  <meta property="og:description" content="A dated note on the P5 neurogenesis close and the SEC Gate: the Monad executor refuses to sign by default and needs a matching approval grant. Written May 2026, rechecked and corrected 10 November 2026." />
   <meta property="og:url" content="https://www.unwindcode.ai/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands" />
   <meta property="og:site_name" content="Unwind Code" />
   <meta property="og:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
@@ -19,7 +19,7 @@
   <meta property="og:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Transmission 23: The SEC Gate — An Organism That Locks Its Own Hands | Unwind Code" />
-  <meta name="twitter:description" content="P5 neurogenesis is complete. The organism can now write its own cells, load them at runtime, and—critically—refuse to move money until it has proof and human approval." />
+  <meta name="twitter:description" content="A dated note on the P5 neurogenesis close and the SEC Gate: the Monad executor refuses to sign by default and needs a matching approval grant. Written May 2026, rechecked and corrected 10 November 2026." />
   <meta name="twitter:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
   <meta name="twitter:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -32,7 +32,7 @@
     "@context": "https://schema.org",
     "@type": "TechArticle",
     "headline": "The SEC Gate — An Organism That Locks Its Own Hands",
-    "description": "P5 neurogenesis is complete. The organism can now write its own cells, load them at runtime, and refuse to move money until it has proof and human approval.",
+    "description": "A dated note on the P5 neurogenesis close and the SEC Gate: the Monad executor refuses to sign by default and needs a matching approval grant. Written May 2026, rechecked and corrected 10 November 2026.",
     "author": {
       "@type": "Organization",
       "name": "Unwind Code"
@@ -43,7 +43,7 @@
       "url": "https://www.unwindcode.ai"
     },
     "datePublished": "2026-05-26",
-    "dateModified": "2026-05-26",
+    "dateModified": "2026-11-10",
     "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands"
   }
   </script>
@@ -165,8 +165,8 @@
       <div class="container">
         <div class="tx-kicker">TRANSMISSION 023 · Security Architecture</div>
         <h1>The SEC Gate:<br/>An Organism That Locks Its Own Hands</h1>
-        <p class="tx-hero-sub">Transmission 22 established the principle: clarity before financial motion. Transmission 23 closes the loop. P5 is complete — and the organism now enforces that principle in code, not just in intent.</p>
-        <div class="tx-hero-meta"><span>May 2026</span><span>Security Architecture</span><span>P5 Complete</span><span>9 min read</span></div>
+        <p class="tx-hero-sub">Transmission 22 established the principle: clarity before financial motion. Transmission 23 closes the loop. P5 was reported closed in May 2026 — and the executor's signing path enforces that principle in code, not just in intent.</p>
+        <div class="tx-hero-meta"><span>May 2026</span><span>Security Architecture</span><span>P5 closed May 2026</span><span>Revised 10 Nov 2026</span></div><div class="rev-note" role="note" style="max-width:860px;margin:24px auto 0;padding:14px 18px;border:1px solid rgba(240,238,246,0.16);border-left:3px solid #d2ac5f;border-radius:10px;background:rgba(210,172,95,0.07);text-align:left;font-size:0.92rem;line-height:1.65;color:var(--text-secondary)"><strong>This note describes the May 2026 state.</strong> It was written on 26 May 2026 and rechecked against the repository on 10 November 2026.<br/><strong>Revised 10 November 2026.</strong> Correction, 10 November 2026: three things were stated too strongly. (1) The SEC Gate is a software check inside one process, not a physical barrier: code in the same process can construct its own executor with live mode on and grant itself an approval. A later review (13 August 2026) recorded that an in-process approval engine cannot authenticate its caller, kept money-out hard-closed, and added a stronger path in which an operator-signed authorization is verified by a key the organism holds only the public half of. (2) The note claimed an audit trail of grants; the approval engine keeps no such trail, so that claim is removed. (3) Section 05 described P6 and on-chain anchoring in the present tense; they are design directions, labelled as such below. Still true on 10 November 2026: the default is dry-run, all four signing paths call the gate first, and the repository holds 11 tests for it (not re-run for this revision). No live financial execution is claimed on this page.</div>
       </div>
     </section>
 
@@ -177,8 +177,8 @@
         <div class="tx-section-head"><span class="tx-section-num">01</span><h2>P5 Neurogenesis: What Just Closed</h2></div>
         <div class="tx-section-label">Click any phase to see what it added to the organism</div>
         <div class="tx-prose">
-          <p>For the past sprint the Brain has been building the capacity to write and integrate new cognitive cells without human scaffolding. Not replacing human oversight — replacing the scaffolding around it. The phases closed in order, and the organism grew sharper with each one.</p>
-          <p>The final item was not another feature. It was a lock. <strong>The SEC Gate.</strong> An enforcement layer that makes the signing-key path physically impossible to reach without explicit human approval — in any execution mode, at any time, regardless of what other code runs around it.</p>
+          <p>For the past sprint the Brain has been building the capacity to propose, sandbox and integrate new cells, with a human approval before any graft. Human oversight stays in the path. The phases closed in order. As of 10 November 2026 one grafted cell is active in the registry (approved May 2026), and a later proposal (October 2026) is staged for owner review and not yet wired in.</p>
+          <p>The final item was not another feature. It was a lock. <strong>The SEC Gate.</strong> An enforcement layer that blocks every signing path of the Monad executor unless a matching approval grant exists: dry-run by default, in every method that signs, whichever caller invokes it. It is a software gate inside one process; section 04 says what that does and does not guarantee.</p>
         </div>
 
         <div class="phase-timeline" id="phase-timeline"></div>
@@ -213,16 +213,16 @@
         <div class="chart-grid">
           <div class="panel">
             <h3>Ungated Hand vs. SEC-Gated Hand</h3>
-            <p style="color:var(--text-muted);font-size:0.86rem;margin-bottom:12px;">Scored on properties an organism's execution layer should maximize or minimize.</p>
+            <p style="color:var(--text-muted);font-size:0.86rem;margin-bottom:12px;">Illustrative judgment scores (0 to 100) on properties an execution layer should maximize or minimize. They are the author's assessment, not measurements.</p>
             <div class="chart-box"><canvas id="gateChart"></canvas></div>
           </div>
           <div class="panel">
             <h3>What the Gate Enforces</h3>
             <div class="principle-list">
-              <div class="principle-item"><span>Default locked</span><p><code>dry_run=True</code> at construction. Signing is structurally impossible unless the caller explicitly unlocks it.</p></div>
+              <div class="principle-item"><span>Default locked</span><p><code>dry_run=True</code> at construction. Signing raises SigningGateError unless the caller explicitly sets live mode and a matching grant exists.</p></div>
               <div class="principle-item"><span>Fingerprint consent</span><p>Each action (transfer, approve, wrap, swap) has a distinct fingerprint. No blanket grants. Approval is scoped to a specific payload hash.</p></div>
               <div class="principle-item"><span>Surface-level re-raise</span><p><code>SigningGateError</code> propagates out of every method — not swallowed by the generic exception handler — so the caller always sees the block explicitly.</p></div>
-              <div class="principle-item"><span>11 tests green</span><p>Dry-run mode, unapproved live mode, session-approved live mode, and deny-list blocks are all covered and verified.</p></div>
+              <div class="principle-item"><span>11 tests in the repository</span><p>Dry-run mode, unapproved live mode, session-approved live mode, and deny-list blocks are covered by 11 test functions. Counted on 10 November 2026; not re-run for this revision.</p></div>
             </div>
           </div>
         </div>
@@ -252,7 +252,7 @@
           </div>
           <div class="qa-card">
             <button type="button">Why put this in the organism itself and not an outer layer?<span>+</span></button>
-            <div class="qa-answer">An outer layer can be bypassed. A gate inside the method cannot. If <code>execute_swap</code> calls <code>_require_signing_approval</code> before it reaches <code>sign_transaction</code>, the block travels with the method regardless of which caller invokes it — agent code, test code, dynamic cell, or human script.</div>
+            <div class="qa-answer">A check inside the method travels with the method: if <code>execute_swap</code> calls <code>_require_signing_approval</code> before it reaches <code>sign_transaction</code>, every caller meets it. Limits, added 10 November 2026: it lives in one process, so code in that process could build its own executor and grant itself an approval. What the repository adds around it is an import fence that denies dynamic cells any reference to this module, and, since August 2026, an operator-signed authorization whose private key sits outside the organism. Money-out stays closed by ruling.</div>
           </div>
         </div>
       </section>
@@ -262,21 +262,21 @@
         <div class="tx-section-head"><span class="tx-section-num">05</span><h2>What P5 Closing Means for P6</h2></div>
         <div class="tx-section-label">The organism's next growth surface</div>
         <div class="tx-prose">
-          <p>P5 delivered six capabilities: birth loop, evolution auditor, first real dynamic cell, runtime activation, lineage graph, and provenance anchor. The SEC Gate was the audit prerequisite — the one thing that had to close before any of this work could be considered safe to build on.</p>
-          <p>With P5 closed and the gate locked, the Brain now has a stable foundation for P6: reading blockchain state as intelligence, not as an execution trigger. The organism can look at on-chain data to sharpen its decisions — and because the signing path is gated, reading cannot accidentally become spending.</p>
-          <p>The separation of observation and execution is now structural, not just intended.</p>
+          <p>P5 delivered six capabilities as reported in May 2026: birth loop, evolution auditor, first dynamic cell, runtime activation, lineage graph, and provenance anchor. The SEC Gate was the audit prerequisite — the one thing that had to close before any of this work could be considered safe to build on.</p>
+          <p>With P5 closed and the gate locked, the Brain now has a stable foundation for P6: reading blockchain state as intelligence, not as an execution trigger. The aim is that reading on-chain data can sharpen decisions without any path to spending, because the signing path is gated.</p>
+          <p>The separation of observation and execution is enforced by the gate inside one process. It is a design boundary, not a hardware one.</p>
         </div>
 
         <div class="next-grid">
           <div class="next-card">
-            <span>P6 · Blockchain Intelligence</span>
+            <span>P6 · Blockchain Intelligence · design direction, May 2026</span>
             <h3>Read-only chain awareness</h3>
-            <p>The organism reads Monad block data, transaction history, and contract state as market intelligence — without any path to the signing key.</p>
+            <p>Design direction: the organism would read Monad block data, transaction history, and contract state as market intelligence, without any path to the signing key. This note does not claim it as shipped.</p>
           </div>
           <div class="next-card">
             <span>Provenance · On-chain anchoring</span>
             <h3>Graft receipts on-chain</h3>
-            <p>Cell graft events and evolution manifests anchored as on-chain digests. Off-chain artifacts, on-chain proof of their existence and hash.</p>
+            <p>Cell graft events produce an off-chain manifest and a digest. Anchoring is dry-run by default; this note does not claim a live on-chain anchor.</p>
           </div>
           <div class="next-card">
             <span>Lineage · Cell ancestry</span>
@@ -286,11 +286,13 @@
         </div>
 
         <div class="tx-note">The organism does not need to be faster. It needs to be clearer about what it knows, what it can do, and what it is not allowed to do until it asks. P5 closed that loop on three axes — growth, memory, and execution. The work ahead is intelligence without motion risk.</div>
+
+        <div class="tx-note"><strong>What this note does not claim.</strong> No live trading or money movement. No claim that the gate cannot be bypassed by code with write access to the process or its environment. No claim that the organism approves, grafts or deploys its own cells unattended. No measurement behind the radar scores. The Genesis operator on the local machine is a separate system, and is forbidden financial execution at every stage.</div>
       </section>
 
       <div class="tx-cta">
         <h2>Build the organism that guards its own growth.</h2>
-        <p>Unwind Code builds AI organisms that write new cells, load them at runtime, and refuse financial motion until the proof is clean and the human has said yes. Safety is not a layer on top. It is the shape of the organism itself.</p>
+        <p>Unwind Code designs AI organisms that propose new cells, load approved ones at runtime, and are built to refuse financial motion until the proof is clean and the human has said yes. Safety is meant to be the shape of the design, not a layer on top.</p>
         <a class="btn btn-primary btn-lg" href="/#cta"><span>Talk to the Brain</span><span class="btn-arrow">→</span></a>
       </div>
 
@@ -386,7 +388,7 @@
       {
         id: 'SEC',
         title: 'The SEC Gate',
-        desc: 'Wired SigningGateError + ApprovalEngine to all four sign_transaction paths (transfer, approve, wrap, swap). dry_run=True by default. No signing path can be reached without an explicit, fingerprint-matched grant from the approval engine. 11 tests green. P5 closed.'
+        desc: 'Wired SigningGateError + ApprovalEngine to all four sign_transaction paths (transfer, approve, wrap, swap). dry_run=True by default. Each signing path calls the gate first and needs a fingerprint-matched grant from the approval engine. 11 tests in the repository. P5 reported closed in May 2026.'
       }
     ];
 
@@ -418,9 +420,9 @@
     const gateStates = [
       {
         label: 'Dry Run',
-        title: 'Signing is structurally impossible',
+        title: 'Signing is refused by default',
         tag: 'state: dry_run=True (default)',
-        copy: 'Every MonadHand instance starts here. The private key may be loaded, the Web3 connection may be live — but no call to sign_transaction can succeed. SigningGateError is raised before the key is ever touched.',
+        copy: 'Every MonadHand instance starts here. The private key may be loaded, the Web3 connection may be live — but a call to sign_transaction raises SigningGateError before the key is used.',
         bullets: [
           'No configuration required to be safe — safe is the default.',
           'Read-only operations (balance, gas price, connection check) are fully available.',
@@ -450,8 +452,8 @@
         bullets: [
           'Grant is scoped: approving a transfer does not approve a swap.',
           'Session grants expire when the MonadHand instance is destroyed.',
-          'The audit trail records which actions were granted and when.',
-          'The human owns the grant decision — the organism cannot self-grant.'
+          'Grants live in the instance\'s in-memory approval engine. This note does not claim a durable audit trail for them.',
+          'The grant decision is meant to be the human\'s. In code the grant is an ordinary method call, so this rests on the import fence and review, not on a cryptographic guarantee.'
         ],
         stateClass: 'ok'
       }
