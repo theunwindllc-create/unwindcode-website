@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Transmission 32: The Silent Truncation | Unwind Code</title>
-  <meta name="description" content="A whitepaper-grade Brain guide for the Silent Truncation: how valid-but-wrong input killed the organism's presentation layer without a symptom, and the three structural invariants — integrity, name/form parity, provenance continuity — that now make truncation loud." />
+  <meta name="description" content="A whitepaper-grade Brain guide for the Silent Truncation: how valid-but-wrong input killed the organism's presentation layer without a symptom, and three structural invariants — integrity, name/form parity, provenance continuity. As of 10 November 2026 the last two have checks in the repository and the first (a stylesheet integrity check) does not." />
   <meta name="theme-color" content="#06060c" />
   <link rel="canonical" href="https://www.unwindcode.ai/transmissions/32-the-silent-truncation" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="The Silent Truncation" />
-  <meta property="og:description" content="The most dangerous failures do not crash. They are absorbed as valid input. How one missing brace silenced 1,300 lines of law, and how the organism learned to feel that pain." />
+  <meta property="og:description" content="The most dangerous failures do not crash. They are absorbed as valid input. How two missing braces silenced about 21,400 lines of law, and what the organism still has to build to feel that pain." />
   <meta property="og:url" content="https://www.unwindcode.ai/transmissions/32-the-silent-truncation" />
   <meta property="og:site_name" content="Unwind Code" />
   <meta property="og:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
@@ -31,11 +31,11 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "The Silent Truncation",
-    "description": "A whitepaper-grade Brain guide for the Silent Truncation: valid-but-wrong input, dead presentation law, name/form parity, and provenance continuity as enforced organism invariants.",
+    "description": "A whitepaper-grade Brain guide for the Silent Truncation: valid-but-wrong input, dead presentation law, name/form parity, and provenance continuity as organism invariants (revised 10 November 2026: the stylesheet integrity check is still a plan).",
     "author": {"@type": "Organization", "name": "Unwind Code"},
     "publisher": {"@type": "Organization", "name": "Unwind Code", "url": "https://www.unwindcode.ai"},
     "datePublished": "2026-07-14",
-    "dateModified": "2026-07-14",
+    "dateModified": "2026-11-10",
     "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/32-the-silent-truncation"
   }
   </script>
@@ -404,16 +404,17 @@
           <p class="slt-hero-sub">
             The most dangerous failures do not crash. They are absorbed as valid input.
             On 2026-07-03 a merge cut two closing braces out of this organism's stylesheet, and under
-            native CSS nesting the wound was legal syntax: the final 1,300 lines of presentation law —
+            native CSS nesting the wound was legal syntax: the last 21,400 or so lines of presentation law (about three quarters of the file) —
             every mobile rule, every lab-page style — were silently re-parented under an image element
             that never contained them. Builds stayed green. Tests stayed green. The skin was dead for
             eleven days, because no gate had been told the skin was an organ worth guarding.
           </p>
           <div class="slt-hero-meta">
             <span>Field: valid-but-wrong input</span>
-            <span>Wound: 2 braces, 1,300 dead lines</span>
+            <span>Wound: 2 braces, about 21,400 dead lines</span>
             <span>Healed: commit 48ee77d</span>
           </div>
+          <div class="rev-note" role="note" style="max-width:860px;margin:22px 0 0;padding:14px 18px;border:1px solid rgba(244,241,234,0.18);border-left:3px solid #d2ac5f;border-radius:10px;background:rgba(210,172,95,0.07);font-size:0.92rem;line-height:1.65;color:var(--slt-muted,#c9c5d6)"><strong>Revised 10 November 2026.</strong> Correction, 10 November 2026: three things were wrong or overstated in the 14 July note, checked against the repository history. (1) Size: the wound swallowed about 21,400 lines (from line 7,676 of a 29,138-line file to its end, roughly three quarters of the stylesheet), not 1,300. (2) Counts: before the fix the root sitemap listed 53 URLs and 52 of them were redirecting variants, not 61 of 62; the 576px and thirteen-page figures have no record in the repository and are removed. (3) Enforcement: the note said the structural-integrity check made a repeat impossible. The repository has no such check; it is a plan, as the last section already said. What stands: the two missing braces, the eleven days, the fix commit, the 46 canonical tags, the URL-form tests and the digest recompute script.</div>
         </div>
         <figure class="slt-wound" aria-label="The exact wound: a CSS rule truncated mid-block">
           <figcaption class="slt-wound-title"><span>style.css · line 7676</span><em>the wound</em></figcaption>
@@ -425,7 +426,7 @@
 .tx-next-section <span class="slt-brace">{</span>
   border-bottom: 0;
 <span class="slt-brace">}</span>
-<span class="ghost">/* …1,300 lines of law, now
+<span class="ghost">/* …about 21,400 lines of law, now
    descendants of an &lt;img&gt;,
    matching nothing, forever */</span></pre>
         </figure>
@@ -452,7 +453,7 @@
           downstream keeps working.
         </p>
         <p class="slt-prose">
-          The same week the stylesheet died, a second silent disagreement surfaced: 61 of 62 sitemap
+          The same week the stylesheet died, a second silent disagreement surfaced: 52 of 53 sitemap
           URLs and all 46 canonical tags pointed at redirecting variants of the organism's own pages.
           The organism's public <strong>name</strong> disagreed with its served <strong>form</strong>,
           and search infrastructure recorded the disagreement as indexing failure. Two wounds, one
@@ -462,7 +463,7 @@
         <!-- INTERACTIVE 1 -->
         <div class="slt-poison" id="slt-poison" data-state="wounded">
           <div class="slt-poison-bar">
-            <h3>Truncation console — watch one brace kill 1,300 lines</h3>
+            <h3>Truncation console — watch a missing brace kill the lines after it</h3>
             <button class="slt-toggle" id="slt-poison-toggle" aria-pressed="false">Close the brace</button>
           </div>
           <div class="slt-poison-grid">
@@ -522,7 +523,7 @@
             <div class="slt-invariant-body">
               <p>The stylesheet must balance to depth zero, and the built bundle must contain no selector nested under a leaf element. The poisoning signature is greppable; the balance scan is one pass over the file.</p>
               <div class="row"><b>Signal</b>Brace depth ≠ 0; descendant-of-<code>img</code> selectors in the bundle.</div>
-              <div class="row"><b>Gate</b>Verified before deploy; a wound this shape can no longer ship quietly.</div>
+              <div class="row"><b>Gate</b>Planned, not built as of 10 November 2026: the repository has no brace-balance or bundle-signature check in the build or the tests. The stylesheet is balanced today, but nothing would stop the same wound shipping again.</div>
             </div>
           </details>
           <details class="slt-invariant">
@@ -533,7 +534,7 @@
             <div class="slt-invariant-body">
               <p>Canonicals, sitemap entries, internal links, and registry routes must return the page directly — no redirects, no drift. Routes are names; files are files; the two never mix.</p>
               <div class="row"><b>Signal</b>A sitemap URL answering 308 instead of 200; a canonical pointing away from its own page.</div>
-              <div class="row"><b>Gate</b>The URL Contract: extensionless routes, no trailing slashes, enforced across sitemap, metadata, links, and registries.</div>
+              <div class="row"><b>Gate</b>The URL Contract: extensionless routes, no trailing slashes, checked by the tests and the public parity script across sitemap, metadata, links, and registries.</div>
             </div>
           </details>
           <details class="slt-invariant">
@@ -564,7 +565,7 @@
           <div class="slt-step">
             <div class="slt-step-rail"><span class="slt-step-dot">01</span><span class="slt-step-line"></span></div>
             <div class="slt-step-card"><button type="button" aria-expanded="false"><h3>Observe — render the organism the way a phone does.</h3>
-              <span class="slt-step-detail">Emulated 390px viewport across thirteen key pages. Probe: does the page scroll sideways; which elements cross the viewport edge. The transmissions library measured 576px wide on a 390px screen.</span></button></div>
+              <span class="slt-step-detail">Emulated 390px viewport across the key pages. Probe: does the page scroll sideways; which elements cross the viewport edge. The transmissions library was wider than the 390px screen.</span></button></div>
           </div>
           <div class="slt-step">
             <div class="slt-step-rail"><span class="slt-step-dot">02</span><span class="slt-step-line"></span></div>
@@ -594,7 +595,7 @@
           <div class="slt-step">
             <div class="slt-step-rail"><span class="slt-step-dot">07</span><span class="slt-step-line"></span></div>
             <div class="slt-step-card"><button type="button" aria-expanded="false"><h3>Prove — publish evidence a reader can re-run.</h3>
-              <span class="slt-step-detail">Every sitemap URL answers 200. Zero horizontal overflow at 390px across thirteen pages. Zero poisoned selectors in the bundle. The claims in this transmission are checkable today, from outside.</span></button></div>
+              <span class="slt-step-detail">The fix commit corrected every sitemap URL to the form the host serves (53 of 53), recorded zero horizontal overflow at 390px on the key pages, and left no poisoned selector in the stylesheet. Those checks were run on 14 July 2026; the live 200 probe was not re-run for this revision.</span></button></div>
           </div>
         </div>
       </section>
@@ -628,11 +629,11 @@
           <div class="slt-ledger-card">
             <h3>Before — 2026-07-03 → 07-14</h3>
             <div class="slt-meter">
-              <div class="slt-meter-row"><span>Sitemap URLs redirecting</span><strong>61 / 62</strong></div>
+              <div class="slt-meter-row"><span>Sitemap URLs redirecting</span><strong>52 / 53</strong></div>
               <div class="slt-meter-bar"><span class="slt-meter-fill bad" data-w="98"></span></div>
-              <div class="slt-meter-row"><span>Stylesheet law dead in production</span><strong>~1,300 lines</strong></div>
+              <div class="slt-meter-row"><span>Stylesheet law dead in production</span><strong>~21,400 lines</strong></div>
               <div class="slt-meter-bar"><span class="slt-meter-fill bad" data-w="100"></span></div>
-              <div class="slt-meter-row"><span>Library page width on a 390px phone</span><strong>576px</strong></div>
+              <div class="slt-meter-row"><span>Library page width on a 390px phone</span><strong>wider than the screen</strong></div>
               <div class="slt-meter-bar"><span class="slt-meter-fill bad" data-w="68"></span></div>
             </div>
             <p class="slt-ledger-note">Eleven days wounded. Builds green the entire time.</p>
@@ -640,11 +641,11 @@
           <div class="slt-ledger-card">
             <h3>After — commit <span style="text-transform:none">48ee77d</span>, live-verified</h3>
             <div class="slt-meter">
-              <div class="slt-meter-row"><span>Sitemap URLs answering 200</span><strong>62 / 62</strong></div>
+              <div class="slt-meter-row"><span>Sitemap URLs in the served form</span><strong>53 / 53</strong></div>
               <div class="slt-meter-bar"><span class="slt-meter-fill good" data-w="100"></span></div>
               <div class="slt-meter-row"><span>Poisoned selectors in the shipped bundle</span><strong>0</strong></div>
               <div class="slt-meter-bar"><span class="slt-meter-fill good" data-w="100"></span></div>
-              <div class="slt-meter-row"><span>Pages overflowing at 390px (of 13 probed)</span><strong>0</strong></div>
+              <div class="slt-meter-row"><span>Key pages overflowing at 390px</span><strong>0</strong></div>
               <div class="slt-meter-bar"><span class="slt-meter-fill good" data-w="100"></span></div>
             </div>
             <p class="slt-ledger-note">Verification is re-runnable: probe the live sitemap, measure the live pages, grep the live bundle.</p>
@@ -674,13 +675,13 @@
         <div class="slt-section-head"><span class="num">06 / Next-cell memory</span></div>
         <h2 id="slt-memory">What the next cell inherits.</h2>
         <p class="slt-prose">
-          <strong>Open gate:</strong> the organism still carries one deliberate spec conflict — the
+          <strong>Open gate (still open on 10 November 2026):</strong> the organism still carries one deliberate spec conflict — the
           shipped discovery files list production social packets while the live parity contract forbids
           social links on discovery surfaces. Which spec wins is a creator decision, recorded here so it
           cannot become another silent disagreement.
         </p>
         <p class="slt-prose">
-          <strong>Candidate invariants for the next build:</strong> a structural-integrity check in the
+          <strong>Candidate invariants for the next build (none built as of 10 November 2026, except the parity checker's live mode):</strong> a structural-integrity check in the
           build path that fails on brace imbalance and bundle-poisoning signatures; a live sitemap-200
           probe inside the parity checker; and a rendered-width gate that treats horizontal overflow at
           phone width as a failing state, not a cosmetic one. Ready is not the same as verified —
@@ -751,7 +752,7 @@
           poisonBrace.textContent = '}';
           poisonBrace.className = 'slt-alive';
           poisonOut.innerHTML = '<span class="slt-alive">.tx-social-previews img {\n  object-fit: cover;\n}\n@media (max-width: 900px) {\n  .transmission-atlas-layout {\n    grid-template-columns: 1fr;\n  }\n  /* Mobile collapse: ALIVE. */\n}</span>';
-          poisonVerdict.innerHTML = 'State: <strong>healed</strong> — one character restored 1,300 lines of law. The invariant, not the eyeball, is what notices next time.';
+          poisonVerdict.innerHTML = 'State: <strong>healed</strong> — one character restored the lines of law that followed it. The invariant, not the eyeball, is what notices next time.';
         } else {
           poisonBrace.textContent = '/* } missing */';
           poisonBrace.className = 'slt-brace';
