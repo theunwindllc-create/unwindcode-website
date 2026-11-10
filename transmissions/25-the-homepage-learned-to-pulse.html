@@ -4,13 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Transmission 25: The Homepage Learned to Pulse | Unwind Code</title>
-  <meta name="description" content="A release transmission for the new UnwindCode.ai organism-pulse hero: the homepage now shows how a visitor signal becomes a governed AI organism run with proof and approval boundaries." />
-  <meta name="keywords" content="AI organisms, AI architecture lab, Web3 architecture, autonomous systems, organism pulse, agentic AI safety, proof loop, immersive AI interfaces" />
+  <meta name="description" content="A June 2026 release note for the homepage Organism Pulse Field, rechecked on 10 November against the shipped code and tests: what the console is, where it lives now, and the separate, real beat reading that came later." />
   <meta name="theme-color" content="#06060c" />
   <link rel="canonical" href="https://www.unwindcode.ai/transmissions/25-the-homepage-learned-to-pulse" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Transmission 25: The Homepage Learned to Pulse | Unwind Code" />
-  <meta property="og:description" content="The homepage now shows the operating rhythm of a governed AI organism: signal, cortex, memory, proof, and authority boundary." />
+  <meta property="og:title" content="The Homepage Learned to Pulse" />
+  <meta property="og:description" content="The June pulse console was a diagram in words and motion. This revision checks it against code and tests, says where it lives now, and adds the one pulse that actually measures something." />
   <meta property="og:url" content="https://www.unwindcode.ai/transmissions/25-the-homepage-learned-to-pulse" />
   <meta property="og:site_name" content="Unwind Code" />
   <meta property="og:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
@@ -19,19 +18,231 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Transmission 25: The Homepage Learned to Pulse | Unwind Code" />
-  <meta name="twitter:description" content="A release transmission for the new organism-pulse hero and its proof-first authority boundary." />
+  <meta name="twitter:title" content="The Homepage Learned to Pulse" />
+  <meta name="twitter:description" content="The June pulse console was a diagram in words and motion. This revision checks it against code and tests, says where it lives now, and adds the one pulse that actually measures something." />
   <meta name="twitter:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
   <meta name="twitter:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/style.css" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The Homepage Learned to Pulse","description":"A release transmission for the new UnwindCode.ai organism-pulse hero: the homepage now shows how a visitor signal becomes a governed AI organism run with proof and approval boundaries.","author":{"@type":"Organization","name":"Unwind Code"},"publisher":{"@type":"Organization","name":"Unwind Code","url":"https://www.unwindcode.ai/"},"datePublished":"2026-06-05","dateModified":"2026-06-05","keywords":["AI organisms","Web3 architecture","AI organism design","proof loop","immersive AI interfaces","agentic AI safety"],"mainEntityOfPage":"https://www.unwindcode.ai/transmissions/25-the-homepage-learned-to-pulse"}</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Homepage Learned to Pulse",
+    "description": "Release note for the homepage Organism Pulse Field (June 2026), revised 10 November 2026 against the shipped code, tests and asset manifest, with the later public witness reading.",
+    "author": {
+      "@type": "Organization",
+      "name": "Unwind Code"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Unwind Code",
+      "url": "https://www.unwindcode.ai"
+    },
+    "datePublished": "2026-06-05",
+    "dateModified": "2026-11-10",
+    "keywords": [
+      "homepage",
+      "organism pulse",
+      "interface proof",
+      "public witness",
+      "accessibility"
+    ],
+    "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/25-the-homepage-learned-to-pulse"
+  }
+  </script>
+  <style>
+    .tx-page { background: var(--bg-void); color: var(--text-primary); }
+    .tx-page *, .tx-page *::before, .tx-page *::after { box-sizing: border-box; }
+    .tx-hero { padding: 160px 0 72px; text-align: center; position: relative; overflow: hidden; }
+    .tx-hero::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:800px; height:800px; background:radial-gradient(circle, rgba(110,45,190,0.12) 0%, transparent 60%); pointer-events:none; }
+    .tx-hero-kicker { margin-bottom:16px; }
+    .tx-hero h1 { font-size:clamp(2.2rem,5vw,3.5rem); font-weight:800; letter-spacing:-0.04em; line-height:1.08; margin:0 0 20px; }
+    .tx-hero-sub { font-size:1.08rem; color:var(--text-secondary); max-width:660px; margin:0 auto; line-height:1.7; }
+    .tx-hero-meta { margin-top:28px; display:flex; justify-content:center; gap:14px; font-size:0.76rem; color:var(--text-muted); font-weight:600; letter-spacing:0.06em; text-transform:uppercase; flex-wrap:wrap; }
+    .tx-section { padding:72px 0; border-top:1px solid var(--accent-border); }
+    .tx-section:first-of-type { border-top:none; padding-top:24px; }
+    .tx-section-head { display:flex; align-items:center; gap:16px; margin-bottom:10px; }
+    .tx-section-num { font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:700; color:var(--accent-hot); letter-spacing:0.15em; }
+    .tx-section h2 { font-size:clamp(1.5rem,3vw,2rem); font-weight:700; letter-spacing:-0.02em; margin:0; }
+    .tx-section-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:24px; }
+    .tx-prose { font-size:1.04rem; color:var(--text-secondary); line-height:1.8; max-width:720px; }
+    .tx-prose p { margin:0 0 22px; }
+    .tx-prose strong { color:var(--text-primary); font-weight:600; }
+    .tx-prose code, .tx-prose-code { font-family:'JetBrains Mono',monospace; font-size:0.84rem; background:rgba(110,45,190,0.1); color:var(--accent-light); padding:2px 6px; border-radius:4px; }
+    .tx-prose a, .tx-inline { color:var(--accent-light); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    .tx-quote { border-left:3px solid var(--accent); padding:18px 24px; margin:36px 0; background:rgba(110,45,190,0.05); border-radius:0 12px 12px 0; color:var(--text-primary); font-size:1.08rem; line-height:1.6; font-weight:500; max-width:720px; }
+    .tx-after { margin-top:36px; }
+
+    /* 01 — State filter */
+    .dl-filters { display:flex; flex-wrap:wrap; gap:10px; margin:28px 0 18px; }
+    .dl-chip { font-family:inherit; font-size:0.78rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:9px 16px; border-radius:999px; border:1px solid var(--accent-border); background:var(--bg-surface); color:var(--text-secondary); cursor:pointer; transition:border-color .2s ease, color .2s ease, background .2s ease; }
+    .dl-chip:hover { border-color:rgba(110,45,190,0.4); color:var(--text-primary); }
+    .dl-chip[aria-pressed="true"] { background:rgba(110,45,190,0.16); border-color:var(--accent-light); color:var(--text-primary); }
+    .dl-chip-a[aria-pressed="true"] { border-color:#c084fc; }
+    .dl-chip-b[aria-pressed="true"] { border-color:#38bdf8; }
+    .dl-chip-c[aria-pressed="true"] { border-color:#fbbf24; }
+    .dl-chip-d[aria-pressed="true"] { border-color:#10b981; }
+    .dl-chip-e[aria-pressed="true"] { border-color:#f59e0b; }
+    .dl-chip-f[aria-pressed="true"] { border-color:#f87171; }
+    .dl-count { font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:var(--text-muted); margin-bottom:16px; letter-spacing:0.06em; }
+    .dl-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:12px; }
+    .dl-card { font-family:inherit; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:18px; cursor:pointer; transition:border-color .25s ease, transform .25s ease, opacity .25s ease; }
+    .dl-card:hover { transform:translateY(-2px); border-color:rgba(110,45,190,0.4); }
+    .dl-card[hidden] { display:none; }
+    .dl-state { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.12em; padding:3px 9px; border-radius:999px; border:1px solid currentColor; margin-bottom:10px; }
+    .dl-state-a { color:#c084fc; } .dl-state-b { color:#38bdf8; } .dl-state-c { color:#fbbf24; }
+    .dl-state-d { color:#10b981; } .dl-state-e { color:#f59e0b; } .dl-state-f { color:#f87171; }
+    .dl-name { font-weight:700; font-size:0.96rem; margin-bottom:4px; }
+    .dl-short { font-size:0.84rem; color:var(--text-secondary); line-height:1.55; }
+    .dl-why { display:none; margin-top:12px; padding-top:12px; border-top:1px solid var(--accent-border); font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+    .dl-card[aria-expanded="true"] .dl-why { display:block; }
+    .dl-hint { font-size:0.68rem; color:var(--accent-hot); margin-top:10px; font-weight:600; letter-spacing:0.05em; }
+    .dl-law { margin-top:32px; border:1px solid rgba(251,191,36,0.28); border-radius:16px; padding:24px 28px; background:linear-gradient(180deg,rgba(251,191,36,0.07),rgba(251,191,36,0.015)); max-width:720px; }
+    .dl-law h3 { margin:0 0 10px; font-size:1rem; color:#fbbf24; }
+    .dl-law p { margin:0; font-size:0.95rem; color:var(--text-secondary); line-height:1.7; }
+
+    /* 02 — Component explorer */
+    .mod-explorer { display:grid; grid-template-columns:1fr 1.25fr; gap:24px; margin-top:32px; }
+    .mod-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; align-content:start; }
+    .mod-node { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:20px; cursor:pointer; transition:all 0.25s ease; text-align:left; font-family:inherit; color:var(--text-primary); }
+    .mod-node:hover, .mod-node[aria-pressed="true"] { border-color:rgba(110,45,190,0.45); transform:translateY(-2px); box-shadow:0 8px 24px rgba(110,45,190,0.1); }
+    .mod-node[aria-pressed="true"] { background:rgba(110,45,190,0.08); }
+    .mod-glyph { font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--accent-hot); letter-spacing:0.14em; margin-bottom:10px; display:block; }
+    .mod-name { font-weight:700; font-size:1.02rem; font-family:'JetBrains Mono',monospace; }
+    .mod-path { font-size:0.78rem; color:var(--text-muted); margin-top:6px; line-height:1.4; }
+    .mod-score { margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:#34d399; }
+    .mod-detail { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:20px; padding:32px; min-height:420px; }
+    .mod-detail-title { font-size:1.4rem; font-weight:700; margin-bottom:8px; font-family:'JetBrains Mono',monospace; }
+    .mod-detail-type { display:inline-block; font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent-hot); background:rgba(110,45,190,0.12); border:1px solid rgba(110,45,190,0.2); padding:4px 12px; border-radius:20px; margin-bottom:20px; }
+    .mod-detail-desc { color:var(--text-secondary); line-height:1.7; font-size:0.95rem; margin-bottom:22px; }
+    .mod-specs-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:10px; }
+    .mod-specs { display:flex; flex-wrap:wrap; gap:8px; }
+    .mod-spec { background:rgba(110,45,190,0.08); border:1px solid var(--accent-border); color:var(--accent-light); padding:6px 14px; border-radius:20px; font-size:0.8rem; font-weight:500; }
+    .mod-proof { margin-top:22px; padding-top:18px; border-top:1px solid var(--accent-border); font-size:0.84rem; color:var(--text-muted); line-height:1.6; }
+    .mod-proof strong { color:#34d399; font-family:'JetBrains Mono',monospace; font-weight:600; }
+
+    /* 03 — Baseline model */
+    .cr-wrap { margin-top:28px; border:1px solid rgba(56,189,248,0.22); border-radius:20px; padding:28px; background:linear-gradient(180deg,rgba(56,189,248,0.06),rgba(56,189,248,0.01)); }
+    .cr-top { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; }
+    .cr-label { font-family:'JetBrains Mono',monospace; font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:#38bdf8; }
+    .cr-faults { display:flex; flex-wrap:wrap; gap:8px; }
+    .cr-fault { font-family:inherit; font-size:0.76rem; font-weight:700; padding:8px 14px; border-radius:999px; border:1px solid var(--accent-border); background:var(--bg-surface); color:var(--text-secondary); cursor:pointer; transition:border-color .2s ease, color .2s ease; }
+    .cr-fault:hover { color:var(--text-primary); border-color:rgba(248,113,113,0.5); }
+    .cr-fault[aria-pressed="true"] { color:#fca5a5; border-color:#f87171; background:rgba(248,113,113,0.1); }
+    .cr-fault-reset[aria-pressed="true"] { color:#34d399; border-color:#10b981; background:rgba(16,185,129,0.1); }
+    .cr-cols { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .cr-col { border:1px solid var(--accent-border); border-radius:14px; padding:18px; background:rgba(0,0,0,0.22); }
+    .cr-col h3 { margin:0 0 4px; font-size:0.98rem; }
+    .cr-col-sub { font-size:0.78rem; color:var(--text-muted); margin:0 0 14px; line-height:1.5; }
+    .cr-steps { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
+    .cr-step { display:grid; grid-template-columns:22px 1fr auto; gap:10px; align-items:start; padding:10px 12px; border-radius:10px; border:1px solid var(--accent-border); font-size:0.84rem; line-height:1.5; color:var(--text-secondary); transition:border-color .2s ease, background .2s ease; }
+    .cr-step-n { font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--text-muted); padding-top:3px; }
+    .cr-step-t { color:var(--text-primary); font-weight:600; display:block; }
+    .cr-step-d { display:block; font-size:0.78rem; color:var(--text-muted); margin-top:2px; }
+    .cr-verdict { font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:700; letter-spacing:0.08em; padding-top:3px; white-space:nowrap; }
+    .cr-step.pass { border-color:rgba(16,185,129,0.35); } .cr-step.pass .cr-verdict { color:#34d399; }
+    .cr-step.fail { border-color:#f87171; background:rgba(248,113,113,0.08); } .cr-step.fail .cr-verdict { color:#fca5a5; }
+    .cr-step.skip { opacity:0.42; } .cr-step.skip .cr-verdict { color:var(--text-muted); }
+    .cr-step.blind { border-color:rgba(251,191,36,0.3); } .cr-step.blind .cr-verdict { color:#fbbf24; }
+    .cr-outcome { margin-top:16px; border-radius:12px; padding:14px 16px; font-size:0.9rem; line-height:1.6; border:1px solid var(--accent-border); background:rgba(0,0,0,0.22); color:var(--text-secondary); }
+    .cr-outcome strong { color:var(--text-primary); }
+    .cr-outcome.refused { border-color:rgba(248,113,113,0.4); }
+    .cr-outcome.clean { border-color:rgba(16,185,129,0.35); }
+    .cr-note { margin:14px 0 0; font-size:0.8rem; color:var(--text-muted); line-height:1.6; }
+
+    /* 04 — Timeline */
+    .wf-steps { position:relative; margin-top:32px; padding-left:40px; max-width:760px; }
+    .wf-steps::before { content:''; position:absolute; left:19px; top:0; bottom:0; width:2px; background:var(--accent-border); }
+    .wf-step { position:relative; margin-bottom:40px; }
+    .wf-step:last-child { margin-bottom:0; }
+    .wf-dot { position:absolute; left:-40px; top:0; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:800; z-index:2; font-family:'JetBrains Mono',monospace; }
+    .wf-dot-1 { background:rgba(110,45,190,0.15); color:var(--accent-light); border:2px solid var(--accent); }
+    .wf-dot-2 { background:rgba(79,70,229,0.15); color:#818cf8; border:2px solid #6366f1; }
+    .wf-dot-3 { background:rgba(14,165,233,0.15); color:#38bdf8; border:2px solid #0ea5e9; }
+    .wf-dot-4 { background:rgba(16,185,129,0.15); color:#34d399; border:2px solid #10b981; }
+    .wf-dot-5 { background:rgba(245,158,11,0.15); color:#fbbf24; border:2px solid #f59e0b; }
+    .wf-dot-6 { background:rgba(248,113,113,0.15); color:#fca5a5; border:2px solid #f87171; }
+    .wf-step h3 { font-size:1.06rem; font-weight:700; margin:0 0 6px; padding-top:8px; }
+    .wf-step p { font-size:0.92rem; color:var(--text-secondary); line-height:1.65; margin:0; }
+    .wf-step code { font-family:'JetBrains Mono',monospace; font-size:0.8rem; background:rgba(110,45,190,0.1); color:var(--accent-light); padding:2px 6px; border-radius:4px; }
+    .wf-step.reveal-step { opacity:0; transform:translateY(10px); animation:wfIn .6s ease forwards; }
+    .wf-step.reveal-step:nth-child(1){animation-delay:.05s}.wf-step.reveal-step:nth-child(2){animation-delay:.15s}.wf-step.reveal-step:nth-child(3){animation-delay:.25s}.wf-step.reveal-step:nth-child(4){animation-delay:.35s}.wf-step.reveal-step:nth-child(5){animation-delay:.45s}.wf-step.reveal-step:nth-child(6){animation-delay:.55s}
+    @keyframes wfIn { to { opacity:1; transform:none; } }
+
+    /* 05 — Operator's hand */
+    .oh-list { display:flex; flex-direction:column; gap:12px; margin-top:28px; max-width:760px; }
+    .oh-item { font-family:inherit; text-align:left; color:var(--text-primary); border:1px solid var(--accent-border); border-radius:14px; padding:18px 22px; background:var(--bg-surface); display:grid; grid-template-columns:auto 1fr auto; gap:16px; align-items:start; cursor:pointer; transition:border-color .2s ease; }
+    .oh-item:hover { border-color:rgba(110,45,190,0.4); }
+    .oh-item[aria-expanded="true"] { border-color:var(--accent-light); }
+    .oh-box { width:22px; height:22px; border-radius:6px; border:2px solid rgba(240,238,246,0.3); margin-top:2px; position:relative; }
+    .oh-box::after { content:''; position:absolute; inset:4px; border-radius:2px; background:transparent; }
+    .oh-t { font-weight:650; font-size:0.98rem; margin-bottom:4px; }
+    .oh-s { font-size:0.85rem; color:var(--text-muted); }
+    .oh-d { font-size:0.9rem; color:var(--text-secondary); line-height:1.65; max-height:0; overflow:hidden; transition:max-height .3s ease, margin .3s ease; }
+    .oh-item[aria-expanded="true"] .oh-d { max-height:260px; margin-top:12px; }
+    .oh-needs { font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:4px 10px; border-radius:999px; border:1px solid currentColor; white-space:nowrap; margin-top:2px; }
+    .oh-needs-key { color:#c084fc; } .oh-needs-funds { color:#fbbf24; } .oh-needs-passkey { color:#38bdf8; } .oh-needs-secret { color:#fca5a5; }
+    .oh-foot { margin-top:16px; font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:var(--text-muted); letter-spacing:0.06em; }
+
+    /* 06 — Decision cards */
+    .mem-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:28px; }
+    .mem-card { font-family:inherit; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:16px; padding:24px; cursor:pointer; transition:all 0.3s ease; }
+    .mem-card:hover { border-color:rgba(110,45,190,0.35); transform:translateY(-3px); box-shadow:0 8px 24px rgba(110,45,190,0.08); }
+    .mem-card h4 { font-size:0.98rem; font-weight:700; margin:0 0 8px; display:flex; align-items:center; gap:10px; }
+    .mem-tag { font-family:'JetBrains Mono',monospace; font-size:0.62rem; letter-spacing:0.12em; color:var(--accent-hot); border:1px solid rgba(110,45,190,0.3); padding:2px 8px; border-radius:999px; text-transform:uppercase; white-space:nowrap; }
+    .mem-card p { font-size:0.87rem; color:var(--text-secondary); line-height:1.6; margin:0; }
+    .mem-extra { display:none; margin-top:14px; padding-top:14px; border-top:1px solid var(--accent-border); font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+    .mem-card[aria-expanded="true"] .mem-extra { display:block; }
+    .mem-hint { font-size:0.68rem; color:var(--accent-hot); margin-top:12px; font-weight:600; letter-spacing:0.05em; }
+
+    /* Related + CTA */
+    .tx-related { margin-top:40px; padding-top:22px; border-top:1px solid var(--accent-border); font-size:0.9rem; color:var(--text-muted); line-height:1.7; }
+    .tx-related a { color:var(--accent-light); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    .tx-cta { text-align:center; padding:64px 40px; background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:28px; margin-top:72px; }
+    .tx-cta h2 { font-size:1.6rem; font-weight:700; margin:0 0 12px; }
+    .tx-cta p { color:var(--text-secondary); font-size:0.95rem; margin:0 auto 28px; max-width:520px; line-height:1.7; }
+
+    @media(max-width:900px) {
+      .mod-explorer, .cr-cols, .mem-grid { grid-template-columns:1fr; }
+      .mod-grid { grid-template-columns:1fr 1fr; }
+      .mod-detail { min-height:0; }
+    }
+    @media(max-width:640px) {
+      .mod-grid { grid-template-columns:1fr; }
+      .tx-hero { padding:130px 0 56px; }
+      .tx-section { padding:56px 0; }
+      .cr-wrap, .mod-detail { padding:20px; }
+      .oh-item { grid-template-columns:auto 1fr; }
+      .oh-needs { grid-column:2; justify-self:start; }
+      .cr-step { grid-template-columns:18px 1fr; }
+      .cr-verdict { grid-column:2; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .wf-step.reveal-step { animation:none; opacity:1; transform:none; }
+      .dl-card, .mod-node, .mem-card, .oh-d, .cr-step, .dl-chip, .cr-fault { transition:none; }
+      .dl-card:hover, .mod-node:hover, .mem-card:hover { transform:none; }
+    }
+  
+    .tx-note { max-width:720px; margin:0 auto 0; padding:14px 20px; border-radius:12px; font-size:0.92rem; line-height:1.65; text-align:left; }
+    .tx-note strong { color:var(--text-primary); }
+    .tx-dated { border:1px solid var(--accent-border); background:rgba(110,45,190,0.05); color:var(--text-secondary); margin-top:28px; }
+    .tx-revised { border:1px solid rgba(56,189,248,0.28); background:rgba(56,189,248,0.06); color:var(--text-secondary); margin-top:12px; }
+    .tx-correction { border:1px solid rgba(251,191,36,0.35); background:rgba(251,191,36,0.07); color:var(--text-secondary); margin-top:12px; }
+    .tx-notes { padding:0 0 8px; }
+    .tx-list { margin:0 0 22px; padding-left:22px; }
+    .tx-list li { margin-bottom:8px; }
+    .cr-btn-row { display:flex; flex-wrap:wrap; gap:8px; }
+    .tx-packet { margin-top:56px; padding-top:32px; border-top:1px solid var(--accent-border); }
+    .tx-packet h3 { margin:0 0 10px; font-size:1.1rem; }
+  </style>
 </head>
-<body class="lab-page tx-release-page">
-  <nav id="nav" class="scrolled">
-    <a href="/" class="nav-brand"><span class="nav-glyph">&infin;</span><span class="nav-name">unwind<span class="nav-accent">code</span></span></a>
+<body class="tx-page">
+
+<nav id="nav" class="scrolled">
+    <a href="/" class="nav-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span></a>
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
     <div class="nav-links" id="nav-links">
       <a href="/" data-i18n="nav.home">Home</a>
@@ -44,192 +255,605 @@
     <div class="nav-actions">
       <button id="lang-toggle" class="lang-toggle" aria-label="Switch to Spanish">ES</button>
       <a href="/build-with-us" class="nav-cta" data-i18n="nav.cta">Build With Us</a>
+      <a href="/proof/ledger" class="nav-ghost">Live ledger</a>
     </div>
   </nav>
 
   <main>
-    <header class="tx-release-hero">
-      <div class="container tx-release-layout">
-        <div>
-          <span class="tx-release-kicker">Transmission 025</span>
-          <h1>The homepage learned to pulse.</h1>
-          <p class="tx-release-sub">The first screen of UnwindCode.ai now does more than state a thesis. It shows the operating rhythm of an AI organism: a visitor signal enters, the cortex routes work, memory shapes the response, proof is left behind, and high-risk authority stays gated.</p>
-          <div class="tx-release-meta" aria-label="Transmission metadata">
-            <span>June 5, 2026</span>
-            <span>Interface proof</span>
-            <span>Hero organism console</span>
-          </div>
-        </div>
-
-        <figure class="tx-release-console">
-          <img src="/assets/visuals/organism-pulse-field.svg" width="1080" height="720" alt="" aria-hidden="true" loading="eager" decoding="async" />
-          <figcaption class="tx-release-console-copy">
-            <span class="tx-release-pill">Organism pulse field</span>
-            <h2>A premium visual is useful only when it explains the system.</h2>
-            <p>The image is decorative and textless. The public meaning lives in HTML, schema, translations, tests, and the asset manifest.</p>
-          </figcaption>
-          <ol class="tx-release-step-list">
-            <li><span>01</span><div><strong>Signal</strong><p>Visitor intent enters the gateway instead of falling into a generic landing page.</p></div></li>
-            <li><span>02</span><div><strong>Cortex</strong><p>The site names how context, tools, cells, and product routes become architecture.</p></div></li>
-            <li><span>03</span><div><strong>Memory</strong><p>Prior proof and public transmissions shape trust before a conversion ask appears.</p></div></li>
-            <li><span>04</span><div><strong>Proof</strong><p>The output points back to inspectable evidence, status labels, and authority boundaries.</p></div></li>
-          </ol>
-        </figure>
+    <section class="tx-hero">
+      <div class="container">
+        <div class="tx-hero-kicker"><span class="tx-section-num">TRANSMISSION 025</span></div>
+        <h1>The Homepage<br>Learned to Pulse</h1>
+        <p class="tx-hero-sub">In June 2026 the first screen of the site gained a console that explained how a request becomes a governed run. This revision reads that console against the code and the tests, says where it lives today, and separates a diagram that moves from a reading that measures.</p>
+        <div class="tx-hero-meta"><span>June 2026, revised November 2026</span><span>&middot;</span><span>Interface proof</span><span>&middot;</span><span>Release note</span><span>&middot;</span><span>9 min read</span></div>
+        <div class="tx-note tx-dated"><strong>Dated.</strong> This note describes the homepage code and tests in the site repository as of 10 November 2026. The June release is described as the code shows it. The live domain was not checked for this revision.</div>
+        <div class="tx-note tx-revised"><strong>Revised 10 November 2026.</strong> The original called the console the site’s first screen. That is no longer true: since July the root serves a different homepage. The note now says where the console lives, what each of its words is backed by, what the test suite does and does not pin, and describes the later public witness reading. Interactive panels were added. The campaign packet is kept, in its own block at the end.</div>
+        <div class="tx-note tx-correction"><strong>Correction, 10 November 2026.</strong> The June text said "The first screen of UnwindCode.ai now does more than state a thesis." Since the 19 July 2026 change the root domain serves the lab homepage, and the pulse console remains at the /home route. The page also said the new test suite "checks the hero console, schema, bilingual copy, metadata, asset safety, and discovery files". It does. It also still pins a stat of 32 public transmissions on that console, while the registry now lists 46 entries (45 numbered, plus a second page that carries number 27). That figure is stale and is flagged under section 05.</div>
       </div>
-    </header>
+    </section>
 
-    <article class="tx-release-article">
-      <section class="tx-release-section">
-        <div class="container tx-release-section-grid">
-          <div class="tx-release-section-label">
-            <span>01 / Why</span>
-            <h2>The old promise needed an operating surface.</h2>
-          </div>
-          <div class="tx-release-prose">
-            <p>Unwind Code is not selling another app wrapper. The claim is sharper than that: organisms, not apps. A governed AI organism carries memory, routes work through cells, pauses at authority boundaries, and leaves proof a human can inspect.</p>
-            <p>That idea cannot wait until a visitor reaches the architecture page. It has to be visible in the first viewport. The new organism-pulse console turns the hero into a live diagram: signal, cortex, memory, proof, and authority. It gives builders, investors, users, subscribers, and collaborators a model they can understand before they click.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="tx-release-section">
-        <div class="container tx-release-section-grid">
-          <div class="tx-release-section-label">
-            <span>02 / What shipped</span>
-            <h2>A governed hero asset with real product meaning.</h2>
-          </div>
-          <div class="tx-release-prose">
-            <p>The release adds a new textless SVG asset, the Organism Pulse Field, and gives it a semantic console in the homepage hero. The visual stays presentational. The explanation stays inspectable in code-native copy, bilingual translation keys, schema, `llms.txt`, `ai-services.json`, and `asset-manifest.json`.</p>
-            <div class="tx-release-proof-grid">
-              <div class="tx-release-proof-card">
-                <span>Asset</span>
-                <h3>Textless pulse field</h3>
-                <p>A lightweight SVG shows a request moving through the organism spine without embedding critical UI text inside the image.</p>
-              </div>
-              <div class="tx-release-proof-card">
-                <span>Accessibility</span>
-                <h3>Meaning in HTML</h3>
-                <p>The console uses semantic headings, an ordered step list, readable copy, and reduced-motion safeguards.</p>
-              </div>
-              <div class="tx-release-proof-card">
-                <span>Governance</span>
-                <h3>Manifested purpose</h3>
-                <p>The asset manifest records why the visual exists, what trust value it serves, its performance budget, and its motion policy.</p>
-              </div>
-              <div class="tx-release-proof-card">
-                <span>Proof</span>
-                <h3>Regression tested</h3>
-                <p>The site test suite now checks the hero console, schema, bilingual copy, metadata, asset safety, and discovery files.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="tx-release-section">
-        <div class="container tx-release-section-grid">
-          <div class="tx-release-section-label">
-            <span>03 / Boundary</span>
-            <h2>The premium feeling is not allowed to hide the safety posture.</h2>
-          </div>
-          <div class="tx-release-prose">
-            <p>The console names the authority boundary directly: money, files, public posts, and Web3 broadcast stay approval-gated. That line matters because the site is about autonomous systems with real-world edges. The visual language can be cinematic, but the trust model has to stay plain.</p>
-            <p>For Financial Organisms and on-chain intelligence, this means the interface keeps simulation and review separate from execution. For creative organisms, it means publishing and filesystem changes remain explicit. For self-evolving Brain cells, it means new capability enters through proof, tests, and review rather than vibes.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="social-proof-packet" class="tx-release-section tx-social-packet-section">
-        <div class="container tx-release-section-grid">
-          <div class="tx-release-section-label">
-            <span>04 / Social packet</span>
-            <h2>The transmission now leaves a shareable proof packet.</h2>
-          </div>
-          <div class="tx-release-prose">
-            <p>The carousel turns the release into four upload-ready frames for Instagram without turning the architecture into empty spectacle. Each slide carries one proof beat: pulse, organism loop, inspectable meaning, and authority boundary.</p>
-            <div class="tx-social-packet-grid" aria-label="Transmission 25 Instagram carousel preview">
-              <a class="tx-social-slide tx-social-slide-featured" href="/social/transmission-25-homepage-pulse-carousel/ready-to-upload/01-homepage-learned-to-pulse.png" download>
-                <img src="/social/transmission-25-homepage-pulse-carousel/previews/slide-01-preview.png" width="540" height="540" alt="Slide 1 preview: The homepage learned to pulse with signal, cortex, memory, and proof copy." loading="lazy" decoding="async" />
-                <span>01 / Pulse</span>
-              </a>
-              <a class="tx-social-slide tx-social-slide-support" href="/social/transmission-25-homepage-pulse-carousel/ready-to-upload/02-organisms-not-app-wrappers.png" download>
-                <img src="/social/transmission-25-homepage-pulse-carousel/previews/slide-02-preview.png" width="540" height="540" alt="Slide 2 preview: Organisms, not app wrappers, with signal, cortex, and memory steps." loading="lazy" decoding="async" />
-                <span>02 / Loop</span>
-              </a>
-              <a class="tx-social-slide tx-social-slide-support" href="/social/transmission-25-homepage-pulse-carousel/ready-to-upload/03-premium-means-provable.png" download>
-                <img src="/social/transmission-25-homepage-pulse-carousel/previews/slide-03-preview.png" width="540" height="540" alt="Slide 3 preview: Premium means provable with HTML, schema, manifest, and tests cards." loading="lazy" decoding="async" />
-                <span>03 / Proof</span>
-              </a>
-              <a class="tx-social-slide tx-social-slide-support" href="/social/transmission-25-homepage-pulse-carousel/ready-to-upload/04-authority-has-edges.png" download>
-                <img src="/social/transmission-25-homepage-pulse-carousel/previews/slide-04-preview.png" width="540" height="540" alt="Slide 4 preview: Authority has edges with approval-gated money, files, public posts, and build path." loading="lazy" decoding="async" />
-                <span>04 / Boundary</span>
-              </a>
-            </div>
-            <div class="tx-social-packet-actions">
-              <a class="btn btn-primary" href="/social/transmission-25-homepage-pulse-carousel/carousel#slide-1"><span>Open carousel</span><span class="btn-arrow">→</span></a>
-              <a class="btn btn-ghost" href="/social/transmission-25-homepage-pulse-carousel/downloads/transmission-25-homepage-pulse-carousel.zip" download>Download packet</a>
-              <a class="btn btn-ghost" href="/social/transmission-25-homepage-pulse-carousel/caption.md">Caption packet</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="tx-release-section">
-        <div class="container tx-release-section-grid">
-          <div class="tx-release-section-label">
-            <span>05 / Next</span>
-            <h2>Every visual should earn its place in the organism.</h2>
-          </div>
-          <div class="tx-release-prose">
-            <p>This release sets the rule for the next layer of UnwindCode.ai: immersive assets are not decoration. They must clarify the architecture, increase trust, help a visitor choose a path, or make a boundary easier to inspect.</p>
-            <p>The next good visual will probably not be louder. It will be more legible: a clearer product route, a stronger proof surface, a better memory diagram, or a Web3 trust layer that makes "no hidden broadcast path" impossible to miss.</p>
-            <div class="tx-release-actions">
-              <a class="btn btn-primary" href="/"><span>See the hero</span><span class="btn-arrow">→</span></a>
-              <a class="btn btn-ghost" href="/proof">Inspect the proof ledger</a>
-              <a class="btn btn-ghost" href="/build-with-us">Build with us</a>
-            </div>
-          </div>
-        </div>
-      </section>
-    </article>
-  </main>
-
-  <footer id="footer">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <span class="nav-glyph">&infin;</span>
-          <span class="nav-name">unwind<span class="nav-accent">code</span></span>
-          <p class="footer-desc">Intelligence that evolves.<br />Proof in public.</p>
+
+      <section class="tx-section" id="a-diagram-in-words">
+        <div class="tx-section-head"><span class="tx-section-num">01</span><h2>A diagram in words</h2></div>
+        <div class="tx-section-label">What the June console was</div>
+        <div class="tx-prose">
+          <p>The June release did three things on the homepage of that time. It placed a console beside the hero text with four numbered steps: signal, cortex, memory, proof. It added one boundary line stating that money, files, public posts and Web3 broadcast stay approval-gated. And it added a textless graphic, the Organism Pulse Field, a small SVG that animates with CSS.</p>
+          <p>The first thing to say about "pulse" is what it meant. The motion is decorative: a lightweight SVG and CSS animation with a reduced-motion rule inside the asset itself, no JavaScript and no data. The words are static copy, translated into Spanish under their own keys. Nothing in that console measured anything. It did not trace a real request through a real cortex. It was a diagram of an intended run, and the asset manifest says so in its own purpose line: it exists to make the hero explain how a visitor signal becomes a governed organism run.</p>
+          <p>That is a legitimate thing for a diagram to be, and the June note was right to keep the meaning in readable HTML rather than inside the image. The problem is only the title. A homepage that learned to pulse sounds like a homepage that reads a pulse. In June it did not. The explorer below goes through each word on the console and names what, in the code and registries, actually stands behind it.</p>
         </div>
-        <div class="footer-col">
-          <h5>Organisms</h5>
-          <a href="/organisms/visual-cortex">Visual Cortex</a>
-          <a href="/organisms/infinity-mirror">Infinity Mirror</a>
-          <a href="/organisms/financial-organisms">Financial Organisms</a>
-          <a href="/organisms/brain-cell-architecture">Brain Cell Architecture</a>
+        <div class="mod-explorer">
+          <div class="mod-grid" id="console-grid" role="group" aria-label="Console steps"></div>
+          <div class="mod-detail" id="console-detail" aria-live="polite"></div>
         </div>
-        <div class="footer-col">
-          <h5>Proof</h5>
-          <a href="/proof">Proof Ledger</a>
-          <a href="/architecture">Architecture</a>
-          <a href="/philosophy">Philosophy</a>
-          <a href="/vision">Vision</a>
+      </section>
+
+      <section class="tx-section" id="what-shipped">
+        <div class="tx-section-head"><span class="tx-section-num">02</span><h2>What shipped, as the code shows it</h2></div>
+        <div class="tx-section-label">Checked on 10 November 2026</div>
+        <div class="tx-prose">
+          <p>The panel below filters the June release by what can be checked. Cards marked "Shipped" are files you can open and tests you can run. Cards marked "Copy" are text. The card marked "Stale" is a figure that was right once.</p>
+          <p>Four details are exact as of today. The pulse graphic is 8,171 bytes, about half of the 16 kilobyte target the manifest sets for it. The manifest entry has status production and a review date of 5 June 2026. The graphic is loaded with empty alt text and is hidden from assistive technology, because the meaning is in the ordered list next to it, which carries its own label. And the English and Spanish copy sit under the same set of keys.</p>
         </div>
-        <div class="footer-col">
-          <h5>Next</h5>
-          <a href="/build-with-us">Build With Us</a>
-          <a href="/#cta">Join Updates</a>
-          <a href="/transmissions">Transmissions</a>
+        <div class="dl-filters" role="group" aria-label="Filter by kind of evidence" id="shipped-chips"></div>
+        <div class="dl-count" id="shipped-count" aria-live="polite"></div>
+        <div class="dl-grid" id="shipped-grid"></div>
+        <div class="tx-prose tx-after">
+          <p>One property of this list matters beyond the pulse. A test that pins a literal is a trap in both directions: it protects the page from accidental edits and it keeps a stale number alive. The fix is not to remove the test. It is to decide which numbers on a page are copy that a person updates, and which should be computed from the registry. This note does not make that change. It flags it.</p>
         </div>
-      </div>
-      <div class="footer-bottom">
-        <span>&copy; 2026 Unwind Code. All rights reserved.</span>
-        <span class="footer-tagline">The future learns from itself. &infin;</span>
+      </section>
+
+      <section class="tx-section" id="where-it-lives">
+        <div class="tx-section-head"><span class="tx-section-num">03</span><h2>Where the pulse lives now</h2></div>
+        <div class="tx-section-label">From the repository history</div>
+        <div class="tx-prose">
+          <p>Where the console sits today is a story about publication, not design, and the repository history tells it in dated steps. The June note is dated 5 June 2026 and the asset manifest was reviewed that day. In the repository, the pulse graphic first appears in a commit dated 15 June, on a branch.</p>
+          <p>According to the 3 July merge message, the new version was built on a branch on 15 June and never merged, so each deploy from the main line since then had kept shipping the older homepage until that merge restored it. That is the same class of failure that Transmission 31 describes: a thing exists and is correct, and the public body is a different one. The timeline below follows the console from there.</p>
+        </div>
+        <div class="wf-steps" id="life-steps">
+          <div class="wf-step"><div class="wf-dot wf-dot-1">01</div><h3>5 June 2026 · The note and the manifest</h3><p>The page is dated this day, and the manifest entry for the graphic carries the same review date.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-2">02</div><h3>15 June 2026 · First commit</h3><p>The graphic first appears in the repository history, in a commit on a branch. The page keeps its own date of 5 June, ten days earlier, as published.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-3">03</div><h3>3 July 2026 · The merge</h3><p>The merge message says the new homepage had been built on a branch and never merged, and that main-line deploys had kept shipping the old one. The merge restores it. Production deploy is recorded as the owner’s gate.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-4">04</div><h3>19 July 2026 · The root changes</h3><p>A build step promotes the lab homepage to the root of the site. The pulse console stays at the /home route.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-5">05</div><h3>24 September 2026 · The witness</h3><p>The lab homepage gains a public witness reading, described in the next section.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-6">06</div><h3>10 November 2026 · This revision</h3><p>The console is in the main line at /home and the witness is in the lab homepage. This note did not check the live domain.</p></div>
+        </div>
+      </section>
+
+      <section class="tx-section" id="the-witness">
+        <div class="tx-section-head"><span class="tx-section-num">04</span><h2>The pulse that measures</h2></div>
+        <div class="tx-section-label">A real reading, with rules for failing</div>
+        <div class="tx-prose">
+          <p>The lab homepage that replaced the console on the root carries something the June console did not: a reading. It shows one line from a public witness on the Internet Computer: the age of the most recent beat from one named organ, and the total number of beats counted. The code that does it is short and its rules are the interesting part.</p>
+          <p>The panel runs them. Scenarios are the cases the test suite covers: a new beat, the same beat again, a stalled endpoint, a malformed reply, a hidden tab. The left column is a pulse that animates whatever happens. The right column is the witness, step by step. The rules come down to one idea, that unknown is not zero. When the reading fails, the numbers are erased and the line says it cannot verify. It never shows the last number as if it were current, and it never shows zero.</p>
+        </div>
+        <div class="cr-wrap">
+          <div class="cr-top">
+            <span class="cr-label">Public witness · rules from code and tests</span>
+            <div class="cr-faults" role="group" aria-label="Choose a case" id="witness-faults"></div>
+          </div>
+          <div class="cr-cols">
+            <div class="cr-col">
+              <h3>A pulse that animates regardless</h3>
+              <p class="cr-col-sub">It can tell you that something moved.</p>
+              <ol class="cr-steps" id="witness-raw"></ol>
+            </div>
+            <div class="cr-col">
+              <h3>The witness, in the order it acts</h3>
+              <p class="cr-col-sub">Each rule refuses on its own evidence.</p>
+              <ol class="cr-steps" id="witness-verify"></ol>
+            </div>
+          </div>
+          <div class="cr-outcome" id="witness-outcome" aria-live="polite"></div>
+          <p class="cr-note">The rules above come from the witness module and its eight tests as of 10 November 2026. The page does not call the witness itself; this panel only models it.</p>
+        </div>
+      </section>
+
+      <section class="tx-section" id="open-items">
+        <div class="tx-section-head"><span class="tx-section-num">05</span><h2>Corrections and open items</h2></div>
+        <div class="tx-section-label">Stale, narrowed and still unsettled</div>
+        <div class="tx-prose">
+          <p>Each item below is a place where the June text, the code and the present disagree or where the question remains open. They are listed so that the page can be read next to the record, not instead of it.</p>
+        </div>
+        <div class="oh-list" id="open-list"></div>
+        <div class="oh-foot">Five items, none resolved by this note.</div>
+      </section>
+
+      <section class="tx-section" id="not-claimed">
+        <div class="tx-section-head"><span class="tx-section-num">06</span><h2>What this note does not claim</h2></div>
+        <div class="tx-section-label">Boundaries</div>
+        <div class="tx-prose">
+          <p>The June note ended with a rule that immersive assets must earn their place. It still applies. The cards below state what this revision leaves out.</p>
+        </div>
+        <div class="mem-grid" id="limits-grid"></div>
+        <div class="tx-prose tx-after">
+          <p>Related: <a href="/transmissions/31-the-active-source-of-truth-gate">Transmission 31, the active source-of-truth gate</a> · <a href="/transmissions/35-the-ledger-learned-to-be-witnessed">Transmission 35, the ledger learned to be witnessed</a> · <a href="/proof">the proof register</a></p>
+        </div>
+      </section>
+
+      <aside class="tx-packet tx-social-packet-section" id="social-proof-packet" aria-label="Published campaign packet">
+        <div class="tx-prose">
+          <h3>Published campaign packet</h3>
+          <p>A four-frame carousel built for this release and published by the site’s build configuration. Its text is a June asset that was not revised with this note; where it differs from the page, the page is the later record.</p>
+        </div>
+        <div class="tx-social-packet-grid" aria-label="Transmission 25 carousel preview">
+            <a class="tx-social-slide tx-social-slide-featured" href="/social/transmission-25-homepage-pulse-carousel/ready-to-upload/01-homepage-learned-to-pulse.png" download>
+              <img src="/social/transmission-25-homepage-pulse-carousel/previews/slide-01-preview.png" width="540" height="540" alt="Slide 1 preview: The homepage learned to pulse, with signal, cortex, memory and proof copy." loading="lazy" decoding="async" />
+              <span>01 / Pulse</span>
+            </a>
+            <a class="tx-social-slide tx-social-slide-support" href="/social/transmission-25-homepage-pulse-carousel/ready-to-upload/02-organisms-not-app-wrappers.png" download>
+              <img src="/social/transmission-25-homepage-pulse-carousel/previews/slide-02-preview.png" width="540" height="540" alt="Slide 2 preview: Organisms, not app wrappers." loading="lazy" decoding="async" />
+              <span>02 / Loop</span>
+            </a>
+            <a class="tx-social-slide tx-social-slide-support" href="/social/transmission-25-homepage-pulse-carousel/ready-to-upload/03-premium-means-provable.png" download>
+              <img src="/social/transmission-25-homepage-pulse-carousel/previews/slide-03-preview.png" width="540" height="540" alt="Slide 3 preview: Premium means provable." loading="lazy" decoding="async" />
+              <span>03 / Proof</span>
+            </a>
+            <a class="tx-social-slide tx-social-slide-support" href="/social/transmission-25-homepage-pulse-carousel/ready-to-upload/04-authority-has-edges.png" download>
+              <img src="/social/transmission-25-homepage-pulse-carousel/previews/slide-04-preview.png" width="540" height="540" alt="Slide 4 preview: Authority has edges." loading="lazy" decoding="async" />
+              <span>04 / Boundary</span>
+            </a>
+        </div>
+        <div class="tx-social-packet-actions">
+          <a class="btn btn-primary" href="/social/transmission-25-homepage-pulse-carousel/carousel#slide-1"><span>Open carousel</span><span class="btn-arrow">&rarr;</span></a>
+          <a class="btn btn-ghost" href="/social/transmission-25-homepage-pulse-carousel/downloads/transmission-25-homepage-pulse-carousel.zip" download>Download packet</a>
+          <a class="btn btn-ghost" href="/social/transmission-25-homepage-pulse-carousel/caption.md">Caption packet</a>
+        </div>
+      </aside>
+      <div class="tx-cta">
+        <h2>A pulse should be connected to something.</h2>
+        <p>If a visual says it is alive, it should be able to say what it is reading and what it shows when the reading fails.</p>
+        <a class="btn btn-primary btn-lg" href="/build-with-us"><span>Build With Us</span><span class="btn-arrow">&rarr;</span></a>
       </div>
     </div>
-  </footer>
+  </main>
 
-  <script type="module" src="/main.js?v=20260605-social-preview"></script>
+  <footer id="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span><p class="footer-desc">Intelligence that evolves.<br />No claim without a trail.</p></div><div class="footer-col"><h5>Proof</h5><a href="/proof">Proof Register</a><a href="/proof/ledger">Live Ledger</a><a href="/transmissions">Transmissions</a><a href="/architecture">Architecture</a></div><div class="footer-col"><h5>Organisms</h5><a href="/organisms">All Organisms</a><a href="/organisms/financial-organisms">Financial Organisms</a><a href="/organisms/infinity-mirror">Infinity Mirror</a></div><div class="footer-col"><h5>Next</h5><a href="/build-with-us">Build With Us</a><a href="/#cta">Subscribe</a></div></div><div class="footer-bottom"><span>© 2026 Unwind Code. All rights reserved.</span><span class="footer-tagline">The future learns from itself. ∞</span></div></div></footer>
+
+  <script>
+  (function () {
+    // All data below is static and client-side. Nothing on this page makes a network call.
+    var WIDGETS = [
+ {
+  "type": "explorer",
+  "id": "console",
+  "aria": "Console steps",
+  "glyph": "STEP",
+  "specsLabel": "What backs it",
+  "parts": [
+   {
+    "id": "signal",
+    "name": "Signal",
+    "kind": "Console step 01",
+    "short": "Visitor intent enters the gateway.",
+    "status": "Copy",
+    "desc": "The console says a visitor’s intent enters a gateway. The site does carry same-origin endpoints in code, among them a chat governance proxy and read-only search and grounding routes.",
+    "specs": [
+     "Static copy",
+     "EN and ES keys",
+     "Same-origin API routes exist"
+    ],
+    "proof": "The step describes a design. The console itself carries no request."
+   },
+   {
+    "id": "cortex",
+    "name": "Cortex",
+    "kind": "Console step 02",
+    "short": "The system chooses context, tools and cells.",
+    "status": "Design",
+    "desc": "Routing work to cells belongs to the Brain, not to the website. The website only describes it.",
+    "specs": [
+     "Static copy",
+     "No routing code on the page"
+    ],
+    "proof": "Nothing on this page chooses a tool."
+   },
+   {
+    "id": "memory",
+    "name": "Memory",
+    "kind": "Console step 03",
+    "short": "Prior proof and state shape the response.",
+    "status": "Partly backed",
+    "desc": "The site keeps public registries (transmissions, claims, architecture, organisms, assets) that search and grounding read. Grounding is retrieval scaffolding with answer generation disabled.",
+    "specs": [
+     "Public registries",
+     "Citations",
+     "Answer generation disabled"
+    ],
+    "proof": "The registry is real. \"Shapes the response\" is a hope."
+   },
+   {
+    "id": "proof",
+    "name": "Proof",
+    "kind": "Console step 04",
+    "short": "The output leaves a trail visitors can inspect.",
+    "status": "Partly backed",
+    "desc": "The proof pages, the claims registry and the public ledger view are inspectable routes. The console links to none of them by itself.",
+    "specs": [
+     "Proof route",
+     "Claims registry",
+     "Ledger view"
+    ],
+    "proof": "A trail exists. The console does not generate one."
+   },
+   {
+    "id": "boundary",
+    "name": "Authority boundary",
+    "kind": "Console footer",
+    "short": "Money, files, public posts and Web3 broadcast stay approval-gated.",
+    "status": "Registry-backed",
+    "desc": "The claims registry carries a source-backed claim that public transmissions frame financial motion as needing proof, simulation and human approval. It also states that this does not grant execution authority.",
+    "specs": [
+     "Claim: proof-gated motion",
+     "Interpretation boundary",
+     "Public-safe label"
+    ],
+    "proof": "A statement of policy, held to a registry entry, not a control."
+   }
+  ]
+ },
+ {
+  "type": "filter",
+  "id": "shipped",
+  "aria": "Filter by kind of evidence",
+  "states": [
+   {
+    "key": "shipped",
+    "label": "Shipped"
+   },
+   {
+    "key": "copy",
+    "label": "Copy"
+   },
+   {
+    "key": "stale",
+    "label": "Stale"
+   }
+  ],
+  "cards": [
+   {
+    "state": "shipped",
+    "name": "The pulse graphic",
+    "short": "A textless SVG, 8,171 bytes.",
+    "why": "A single file with no embedded text and no script. Its motion is CSS inside the file, and a reduced-motion rule turns it off. The manifest sets a target of 16 kilobytes and a mobile policy of transform-only motion with no video, canvas or scroll listeners."
+   },
+   {
+    "state": "shipped",
+    "name": "The console markup",
+    "short": "An aside with an ordered list.",
+    "why": "A labelled region, a heading, four list items and a boundary line. The graphic inside it is decorative (empty alt text, hidden from assistive technology). Meaning lives in text."
+   },
+   {
+    "state": "shipped",
+    "name": "The asset manifest entry",
+    "short": "Purpose, trust value, text policy, motion policy.",
+    "why": "The manifest records why the graphic exists, what trust value it serves, that it carries no UI text, how it moves and how large it may be. It is the reason the image can stay decorative without being unexplained."
+   },
+   {
+    "state": "shipped",
+    "name": "The tests",
+    "short": "One test pins the console, schema, copy and manifest.",
+    "why": "A test in the site suite asserts the console markup, the structured-data entry for the graphic, the Spanish and English keys, the manifest entry and the discovery files. It guards against accidental removal. It does not judge whether the console is true."
+   },
+   {
+    "state": "copy",
+    "name": "The four steps and the boundary line",
+    "short": "Words, in two languages.",
+    "why": "Signal, cortex, memory, proof and the authority boundary line are text. Section 01 gives what each is backed by. The cortex step is a design description; the website routes nothing to cells."
+   },
+   {
+    "state": "stale",
+    "name": "The stat strip: 32 public transmissions",
+    "short": "Pinned by a test, behind the registry.",
+    "why": "The console’s homepage still shows five paths, 32 public transmissions and zero hidden authority paths. A test pins those literal values. The registry now lists 46 entries. \"Zero hidden authority paths\" is homepage copy that the claims registry treats as needing context; it is not a measurement."
+   }
+  ]
+ },
+ {
+  "type": "model",
+  "id": "witness",
+  "aria": "Choose a case",
+  "label": "Public witness · rules from code and tests",
+  "leftTitle": "A pulse that animates regardless",
+  "leftSub": "It can tell you that something moved.",
+  "rightTitle": "The witness, in the order it acts",
+  "rightSub": "Each rule refuses on its own evidence.",
+  "rawSteps": [
+   {
+    "t": "Animation plays",
+    "d": "The loop moves on a timer."
+   },
+   {
+    "t": "No source is consulted",
+    "d": "It would look the same if nothing were alive."
+   }
+  ],
+  "verifySteps": [
+   {
+    "t": "The tab is visible",
+    "d": "A hidden tab cancels its timer and its request. On return it starts from unknown."
+   },
+   {
+    "t": "The read finishes in time",
+    "d": "One read, about every minute, with an eight second limit. No cookies, no referrer, no cache."
+   },
+   {
+    "t": "The reply parses to public fields",
+    "d": "Only the beat age, the sequence and the total are kept. Notes and ledger heads are never retained."
+   },
+   {
+    "t": "A failure erases the numbers",
+    "d": "Unreachable, bad status, invalid JSON or the wrong shape: the line says it cannot verify."
+   },
+   {
+    "t": "Only a new beat signals",
+    "d": "A signal needs a previous good reading and clear evidence of a newer beat. The first reading never signals."
+   }
+  ],
+  "scenarios": [
+   {
+    "key": "new",
+    "label": "New beat arrives",
+    "failAt": -1,
+    "rawOk": "ANIMATES",
+    "outcome": "<strong>Reading updated, one signal.</strong> The line shows the new age and total, and the page plays one circuit in the loop figure. The code’s own comment calls the image itself conceptual: one observed arrival, one circuit."
+   },
+   {
+    "key": "same",
+    "label": "Same beat again",
+    "failAt": 4,
+    "rawBlind": "ANIMATES · BLIND",
+    "failLabel": "NO SIGNAL",
+    "outcome": "<strong>Reading refreshed, no signal.</strong> The age grows, the sequence has not moved, and the figure stays still. A clock difference alone is not enough to count as a beat when a sequence is known."
+   },
+   {
+    "key": "slow",
+    "label": "Endpoint stalls",
+    "failAt": 1,
+    "rawBlind": "ANIMATES · BLIND",
+    "failLabel": "TIMED OUT",
+    "outcome": "<strong>The line says it cannot verify.</strong> After eight seconds the request is aborted and the numbers are erased. The loop is not told that anything happened."
+   },
+   {
+    "key": "bad",
+    "label": "Malformed reply",
+    "failAt": 2,
+    "rawBlind": "ANIMATES · BLIND",
+    "failLabel": "UNVERIFIABLE",
+    "outcome": "<strong>Unverifiable, so unknown.</strong> A reply with the wrong shape or invalid JSON is treated as unreachable. A previous number is not kept."
+   },
+   {
+    "key": "hidden",
+    "label": "Tab hidden",
+    "failAt": 0,
+    "rawBlind": "ANIMATES · BLIND",
+    "failLabel": "CANCELLED",
+    "outcome": "<strong>Cancelled.</strong> A suspended tab cannot claim a current observation. The reading resets to \"not yet read\" and refreshes from unknown on return."
+   }
+  ]
+ },
+ {
+  "type": "list",
+  "id": "open",
+  "foot": "Five items, none resolved by this note.",
+  "items": [
+   {
+    "t": "The first screen",
+    "s": "No longer the console.",
+    "tag": "corrected",
+    "cls": "passkey",
+    "d": "Since 19 July 2026 the root serves the lab homepage and the console is at /home. The June sentence about \"the first screen\" is corrected at the top of this note."
+   },
+   {
+    "t": "The stat strip",
+    "s": "32 public transmissions, pinned.",
+    "tag": "stale",
+    "cls": "funds",
+    "d": "The count is pinned by a test while the registry lists 46 entries. Either the strip should read the registry or the test should name the number it expects and why. Left for the operator."
+   },
+   {
+    "t": "Social packet",
+    "s": "Published by configuration.",
+    "tag": "open",
+    "cls": "key",
+    "d": "The carousel built for this release is one of two packets the build configuration publishes, and the site’s tests require the packet block at the end of this page. Transmission 31 describes a default boundary that keeps creator packets out of public pages. The two statements need reconciling by the operator. This note leaves the packet in place and flags the question. The carousel’s own text is a June asset and was not revised."
+   },
+   {
+    "t": "Live domain",
+    "s": "Not checked.",
+    "tag": "not done",
+    "cls": "secret",
+    "d": "This revision makes no network calls and says nothing about the live site. The parity check that compares local and live exists, and running it is the operator’s call."
+   },
+   {
+    "t": "\"Regression tested\"",
+    "s": "Narrower than it sounds.",
+    "tag": "narrowed",
+    "cls": "passkey",
+    "d": "The tests pin snippets and files. They show that the console markup, keys, manifest entry and discovery files are still present. They do not show that the console reads true or reads well."
+   }
+  ]
+ },
+ {
+  "type": "cards",
+  "id": "limits",
+  "items": [
+   {
+    "tag": "not claimed",
+    "title": "That the console shows live behaviour",
+    "desc": "It is a diagram.",
+    "extra": "The animation is decorative. The console does not carry a request or read a system."
+   },
+   {
+    "tag": "not claimed",
+    "title": "That the console is the homepage",
+    "desc": "It is at /home.",
+    "extra": "The root domain serves the lab homepage per the 19 July change."
+   },
+   {
+    "tag": "not claimed",
+    "title": "That the witness proves health",
+    "desc": "It shows a beat age and a total.",
+    "extra": "The code says unknown is never zero or evidence of an outage. A fresh beat shows that a beat was recorded, not that every organ is well."
+   },
+   {
+    "tag": "not claimed",
+    "title": "That approval gates are enforced by the page",
+    "desc": "The boundary is copy plus a registry entry.",
+    "extra": "Authority is held elsewhere. The page names a boundary; it does not enforce one."
+   },
+   {
+    "tag": "not claimed",
+    "title": "That the live site matches this repository",
+    "desc": "Not checked.",
+    "extra": "No network call was made for this revision."
+   },
+   {
+    "tag": "open",
+    "title": "The carousel",
+    "desc": "One packet is published by configuration.",
+    "extra": "The packet block below carries it. Whether it should remain public is the operator’s decision."
+   }
+  ]
+ }
+];
+
+    function el(id) { return document.getElementById(id); }
+    var LETTERS = ['a', 'b', 'c', 'd', 'e', 'f'];
+
+    function initFilter(w) {
+      var chips = el(w.id + '-chips'), grid = el(w.id + '-grid'), count = el(w.id + '-count');
+      var keys = w.states.map(function (s) { return s.key; });
+      var all = document.createElement('button');
+      all.type = 'button'; all.className = 'dl-chip'; all.setAttribute('data-state', 'all'); all.setAttribute('aria-pressed', 'true'); all.textContent = 'All';
+      chips.appendChild(all);
+      w.states.forEach(function (s, i) {
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'dl-chip dl-chip-' + LETTERS[i % 6]; b.setAttribute('data-state', s.key); b.setAttribute('aria-pressed', 'false'); b.textContent = s.label;
+        chips.appendChild(b);
+      });
+      w.cards.forEach(function (c) {
+        var idx = keys.indexOf(c.state); var L = LETTERS[(idx < 0 ? 0 : idx) % 6];
+        var card = document.createElement('button');
+        card.type = 'button'; card.className = 'dl-card'; card.setAttribute('data-state', c.state); card.setAttribute('aria-expanded', 'false');
+        card.innerHTML = '<span class="dl-state dl-state-' + L + '">' + w.states[idx < 0 ? 0 : idx].label + '</span><div class="dl-name">' + c.name + '</div><div class="dl-short">' + c.short + '</div><div class="dl-why">' + c.why + '</div><div class="dl-hint">Detail \u2193</div>';
+        card.addEventListener('click', function () {
+          var open = card.getAttribute('aria-expanded') === 'true';
+          card.setAttribute('aria-expanded', open ? 'false' : 'true');
+          card.querySelector('.dl-hint').textContent = open ? 'Detail \u2193' : 'Close \u2191';
+        });
+        grid.appendChild(card);
+      });
+      function apply(state) {
+        var shown = 0;
+        grid.querySelectorAll('.dl-card').forEach(function (card) {
+          var match = state === 'all' || card.getAttribute('data-state') === state;
+          if (match) { card.removeAttribute('hidden'); shown += 1; } else { card.setAttribute('hidden', ''); }
+        });
+        count.textContent = shown + ' of ' + w.cards.length + ' shown';
+      }
+      chips.querySelectorAll('.dl-chip').forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          chips.querySelectorAll('.dl-chip').forEach(function (o) { o.setAttribute('aria-pressed', 'false'); });
+          chip.setAttribute('aria-pressed', 'true');
+          apply(chip.getAttribute('data-state'));
+        });
+      });
+      apply('all');
+    }
+
+    function initExplorer(w) {
+      var grid = el(w.id + '-grid'), detail = el(w.id + '-detail'); var buttons = [];
+      function show(p) {
+        buttons.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-id') === p.id ? 'true' : 'false'); });
+        detail.innerHTML = '<div class="mod-detail-title">' + p.name + '</div><span class="mod-detail-type">' + p.kind + '</span><p class="mod-detail-desc">' + p.desc + '</p><div class="mod-specs-label">' + w.specsLabel + '</div><div class="mod-specs">' + p.specs.map(function (s) { return '<span class="mod-spec">' + s + '</span>'; }).join('') + '</div><div class="mod-proof"><strong>' + p.status + '</strong> \u00b7 ' + p.proof + '</div>';
+      }
+      w.parts.forEach(function (p) {
+        var btn = document.createElement('button');
+        btn.type = 'button'; btn.className = 'mod-node'; btn.setAttribute('data-id', p.id); btn.setAttribute('aria-pressed', 'false');
+        btn.innerHTML = '<span class="mod-glyph">' + w.glyph + '</span><div class="mod-name">' + p.name + '</div><div class="mod-path">' + p.short + '</div><div class="mod-score">' + p.status + '</div>';
+        btn.addEventListener('click', function () { show(p); });
+        grid.appendChild(btn); buttons.push(btn);
+      });
+      show(w.parts[0]);
+    }
+
+    function initModel(w) {
+      var faults = el(w.id + '-faults'), raw = el(w.id + '-raw'), verify = el(w.id + '-verify'), outcome = el(w.id + '-outcome');
+      function step(n, s, cls, verdict) {
+        var li = document.createElement('li'); li.className = 'cr-step ' + cls;
+        li.innerHTML = '<span class="cr-step-n">' + n + '</span><span><span class="cr-step-t">' + s.t + '</span><span class="cr-step-d">' + s.d + '</span></span><span class="cr-verdict">' + verdict + '</span>';
+        return li;
+      }
+      function run(sc) {
+        var fails = sc.fails || (sc.failAt >= 0 ? [sc.failAt] : []);
+        var first = fails.length ? Math.min.apply(null, fails) : -1;
+        raw.innerHTML = '';
+        w.rawSteps.forEach(function (s, i) { raw.appendChild(step('0' + (i + 1), s, first < 0 ? 'pass' : 'blind', first < 0 ? sc.rawOk : sc.rawBlind)); });
+        verify.innerHTML = '';
+        w.verifySteps.forEach(function (s, i) {
+          var cls = 'pass', v = sc.okLabel || 'OK';
+          if (fails.indexOf(i) >= 0) { cls = 'fail'; v = sc.failLabel || 'REFUSED'; }
+          else if (!sc.runAll && first >= 0 && i > first) { cls = 'skip'; v = 'NOT REACHED'; }
+          verify.appendChild(step('0' + (i + 1), s, cls, v));
+        });
+        outcome.className = 'cr-outcome ' + (first < 0 ? 'clean' : 'refused');
+        outcome.innerHTML = sc.outcome;
+      }
+      w.scenarios.forEach(function (sc, i) {
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'cr-fault' + (i === 0 ? ' cr-fault-reset' : ''); b.setAttribute('data-key', sc.key); b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false'); b.textContent = sc.label;
+        b.addEventListener('click', function () {
+          faults.querySelectorAll('.cr-fault').forEach(function (o) { o.setAttribute('aria-pressed', 'false'); });
+          b.setAttribute('aria-pressed', 'true'); run(sc);
+        });
+        faults.appendChild(b);
+      });
+      run(w.scenarios[0]);
+    }
+
+    function initList(w) {
+      var list = el(w.id + '-list');
+      w.items.forEach(function (h) {
+        var item = document.createElement('button');
+        item.type = 'button'; item.className = 'oh-item'; item.setAttribute('aria-expanded', 'false');
+        item.innerHTML = '<span class="oh-box" aria-hidden="true"></span><span><span class="oh-t">' + h.t + '</span><span class="oh-s">' + h.s + '</span><span class="oh-d">' + h.d + '</span></span><span class="oh-needs oh-needs-' + h.cls + '">' + h.tag + '</span>';
+        item.addEventListener('click', function () { item.setAttribute('aria-expanded', item.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'); });
+        list.appendChild(item);
+      });
+    }
+
+    function initCards(w) {
+      var grid = el(w.id + '-grid');
+      w.items.forEach(function (l) {
+        var card = document.createElement('button');
+        card.type = 'button'; card.className = 'mem-card'; card.setAttribute('aria-expanded', 'false');
+        card.innerHTML = '<h4><span class="mem-tag">' + l.tag + '</span>' + l.title + '</h4><p>' + l.desc + '</p><div class="mem-extra">' + l.extra + '</div><div class="mem-hint">Click to expand \u2193</div>';
+        card.addEventListener('click', function () {
+          var open = card.getAttribute('aria-expanded') === 'true';
+          card.setAttribute('aria-expanded', open ? 'false' : 'true');
+          card.querySelector('.mem-hint').textContent = open ? 'Click to expand \u2193' : 'Click to collapse \u2191';
+        });
+        grid.appendChild(card);
+      });
+    }
+
+    var INIT = { filter: initFilter, explorer: initExplorer, model: initModel, list: initList, cards: initCards };
+    WIDGETS.forEach(function (w) { if (INIT[w.type]) INIT[w.type](w); });
+
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.querySelectorAll('.wf-steps').forEach(function (wf) {
+      if (!reduce && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { wf.querySelectorAll('.wf-step').forEach(function (s) { s.classList.add('reveal-step'); }); io.disconnect(); }
+          });
+        }, { threshold: 0.15 });
+        io.observe(wf);
+      }
+    });
+  })();
+  </script>
+  <script type="module" src="/main.js?v=20260615-system-state"></script>
 </body>
 </html>
