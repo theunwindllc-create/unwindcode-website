@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Transmission 09: The Courage Loop - Rewriting Fear at Runtime | Unwind Code</title>
-  <meta name="description" content="A cognitive architecture for emotional resilience through continuous belief transformation." />
+  <meta name="description" content="What the Courage Loop is in code: a journal entry goes in, word-list patterns, nine fixed reframes, coaching questions and rituals come out. A try-it detector, the January session records, the July measuring work, and what earlier drafts claimed that the record does not support." />
   <meta name="theme-color" content="#06060c" />
   <link rel="canonical" href="https://www.unwindcode.ai/transmissions/09-the-courage-loop-rewriting-fear-at-runtime" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Transmission 09: The Courage Loop - Rewriting Fear at Runtime | Unwind Code" />
-  <meta property="og:description" content="A cognitive architecture for emotional resilience through continuous belief transformation." />
+  <meta property="og:description" content="What the Courage Loop is in code: a journal entry goes in, word-list patterns, nine fixed reframes, coaching questions and rituals come out. A try-it detector, the January session records, the July measuring work, and what earlier drafts claimed that the record does not support." />
   <meta property="og:url" content="https://www.unwindcode.ai/transmissions/09-the-courage-loop-rewriting-fear-at-runtime" />
   <meta property="og:site_name" content="Unwind Code" />
   <meta property="og:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
@@ -19,129 +19,690 @@
   <meta property="og:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Transmission 09: The Courage Loop - Rewriting Fear at Runtime | Unwind Code" />
-  <meta name="twitter:description" content="A cognitive architecture for emotional resilience through continuous belief transformation." />
+  <meta name="twitter:description" content="What the Courage Loop is in code: a journal entry goes in, word-list patterns, nine fixed reframes, coaching questions and rituals come out. A try-it detector, the January session records, the July measuring work, and what earlier drafts claimed that the record does not support." />
   <meta name="twitter:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
   <meta name="twitter:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/style.css" />
-</head>
-<body class="transmission-body">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Courage Loop - Rewriting Fear at Runtime",
+    "description": "Field note revised 10 November 2026: the Emotions Cell pipeline (keyword patterns, nine reframes, rituals, a measured trend and a reflection prompt) described against its code, its tests and two January 2026 session records, with dated corrections to earlier claims.",
+    "author": {
+      "@type": "Organization",
+      "name": "Unwind Code"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Unwind Code",
+      "url": "https://www.unwindcode.ai"
+    },
+    "datePublished": "2026-05-16",
+    "dateModified": "2026-11-10",
+    "keywords": [
+      "emotions cell",
+      "belief reframing",
+      "rituals",
+      "journal analysis",
+      "metaphor and code",
+      "correction"
+    ],
+    "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/09-the-courage-loop-rewriting-fear-at-runtime"
+  }
+  </script>
+  <style>
+    .tx-page { background: var(--bg-void); color: var(--text-primary); }
+    .tx-page *, .tx-page *::before, .tx-page *::after { box-sizing: border-box; }
+    .tx-hero { padding: 160px 0 72px; text-align: center; position: relative; overflow: hidden; }
+    .tx-hero::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:800px; height:800px; background:radial-gradient(circle, rgba(110,45,190,0.12) 0%, transparent 60%); pointer-events:none; }
+    .tx-hero-kicker { margin-bottom:16px; }
+    .tx-hero h1 { font-size:clamp(2.2rem,5vw,3.5rem); font-weight:800; letter-spacing:-0.04em; line-height:1.08; margin:0 0 20px; }
+    .tx-hero-sub { font-size:1.08rem; color:var(--text-secondary); max-width:660px; margin:0 auto; line-height:1.7; }
+    .tx-hero-meta { margin-top:28px; display:flex; justify-content:center; gap:14px; font-size:0.76rem; color:var(--text-muted); font-weight:600; letter-spacing:0.06em; text-transform:uppercase; flex-wrap:wrap; }
+    .tx-section { padding:72px 0; border-top:1px solid var(--accent-border); }
+    .tx-section:first-of-type { border-top:none; padding-top:24px; }
+    .tx-section-head { display:flex; align-items:center; gap:16px; margin-bottom:10px; }
+    .tx-section-num { font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:700; color:var(--accent-hot); letter-spacing:0.15em; }
+    .tx-section h2 { font-size:clamp(1.5rem,3vw,2rem); font-weight:700; letter-spacing:-0.02em; margin:0; }
+    .tx-section-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:24px; }
+    .tx-prose { font-size:1.04rem; color:var(--text-secondary); line-height:1.8; max-width:720px; }
+    .tx-prose p { margin:0 0 22px; }
+    .tx-prose strong { color:var(--text-primary); font-weight:600; }
+    .tx-prose code, .tx-prose-code { font-family:'JetBrains Mono',monospace; font-size:0.84rem; background:rgba(110,45,190,0.1); color:var(--accent-light); padding:2px 6px; border-radius:4px; }
+    .tx-prose a, .tx-inline { color:var(--accent-light); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    .tx-quote { border-left:3px solid var(--accent); padding:18px 24px; margin:36px 0; background:rgba(110,45,190,0.05); border-radius:0 12px 12px 0; color:var(--text-primary); font-size:1.08rem; line-height:1.6; font-weight:500; max-width:720px; }
+    .tx-after { margin-top:36px; }
 
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- NAV (Dark Chrome) -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <nav id="nav">
-    <a href="/" class="nav-brand">
-      <span class="nav-glyph">∞</span>
-      <span class="nav-name">unwind<span class="nav-accent">code</span></span>
-    </a>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+    /* 01 — State filter */
+    .dl-filters { display:flex; flex-wrap:wrap; gap:10px; margin:28px 0 18px; }
+    .dl-chip { font-family:inherit; font-size:0.78rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:9px 16px; border-radius:999px; border:1px solid var(--accent-border); background:var(--bg-surface); color:var(--text-secondary); cursor:pointer; transition:border-color .2s ease, color .2s ease, background .2s ease; }
+    .dl-chip:hover { border-color:rgba(110,45,190,0.4); color:var(--text-primary); }
+    .dl-chip[aria-pressed="true"] { background:rgba(110,45,190,0.16); border-color:var(--accent-light); color:var(--text-primary); }
+    .dl-chip-a[aria-pressed="true"] { border-color:#c084fc; }
+    .dl-chip-b[aria-pressed="true"] { border-color:#38bdf8; }
+    .dl-chip-c[aria-pressed="true"] { border-color:#fbbf24; }
+    .dl-chip-d[aria-pressed="true"] { border-color:#10b981; }
+    .dl-chip-e[aria-pressed="true"] { border-color:#f59e0b; }
+    .dl-chip-f[aria-pressed="true"] { border-color:#f87171; }
+    .dl-count { font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:var(--text-muted); margin-bottom:16px; letter-spacing:0.06em; }
+    .dl-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:12px; }
+    .dl-card { font-family:inherit; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:18px; cursor:pointer; transition:border-color .25s ease, transform .25s ease, opacity .25s ease; }
+    .dl-card:hover { transform:translateY(-2px); border-color:rgba(110,45,190,0.4); }
+    .dl-card[hidden] { display:none; }
+    .dl-state { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.12em; padding:3px 9px; border-radius:999px; border:1px solid currentColor; margin-bottom:10px; }
+    .dl-state-a { color:#c084fc; } .dl-state-b { color:#38bdf8; } .dl-state-c { color:#fbbf24; }
+    .dl-state-d { color:#10b981; } .dl-state-e { color:#f59e0b; } .dl-state-f { color:#f87171; }
+    .dl-name { font-weight:700; font-size:0.96rem; margin-bottom:4px; }
+    .dl-short { font-size:0.84rem; color:var(--text-secondary); line-height:1.55; }
+    .dl-why { display:none; margin-top:12px; padding-top:12px; border-top:1px solid var(--accent-border); font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+    .dl-card[aria-expanded="true"] .dl-why { display:block; }
+    .dl-hint { font-size:0.68rem; color:var(--accent-hot); margin-top:10px; font-weight:600; letter-spacing:0.05em; }
+    .dl-law { margin-top:32px; border:1px solid rgba(251,191,36,0.28); border-radius:16px; padding:24px 28px; background:linear-gradient(180deg,rgba(251,191,36,0.07),rgba(251,191,36,0.015)); max-width:720px; }
+    .dl-law h3 { margin:0 0 10px; font-size:1rem; color:#fbbf24; }
+    .dl-law p { margin:0; font-size:0.95rem; color:var(--text-secondary); line-height:1.7; }
+
+    /* 02 — Component explorer */
+    .mod-explorer { display:grid; grid-template-columns:1fr 1.25fr; gap:24px; margin-top:32px; }
+    .mod-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; align-content:start; }
+    .mod-node { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:20px; cursor:pointer; transition:all 0.25s ease; text-align:left; font-family:inherit; color:var(--text-primary); }
+    .mod-node:hover, .mod-node[aria-pressed="true"] { border-color:rgba(110,45,190,0.45); transform:translateY(-2px); box-shadow:0 8px 24px rgba(110,45,190,0.1); }
+    .mod-node[aria-pressed="true"] { background:rgba(110,45,190,0.08); }
+    .mod-glyph { font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--accent-hot); letter-spacing:0.14em; margin-bottom:10px; display:block; }
+    .mod-name { font-weight:700; font-size:1.02rem; font-family:'JetBrains Mono',monospace; }
+    .mod-path { font-size:0.78rem; color:var(--text-muted); margin-top:6px; line-height:1.4; }
+    .mod-score { margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:#34d399; }
+    .mod-detail { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:20px; padding:32px; min-height:420px; }
+    .mod-detail-title { font-size:1.4rem; font-weight:700; margin-bottom:8px; font-family:'JetBrains Mono',monospace; }
+    .mod-detail-type { display:inline-block; font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent-hot); background:rgba(110,45,190,0.12); border:1px solid rgba(110,45,190,0.2); padding:4px 12px; border-radius:20px; margin-bottom:20px; }
+    .mod-detail-desc { color:var(--text-secondary); line-height:1.7; font-size:0.95rem; margin-bottom:22px; }
+    .mod-specs-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:10px; }
+    .mod-specs { display:flex; flex-wrap:wrap; gap:8px; }
+    .mod-spec { background:rgba(110,45,190,0.08); border:1px solid var(--accent-border); color:var(--accent-light); padding:6px 14px; border-radius:20px; font-size:0.8rem; font-weight:500; }
+    .mod-proof { margin-top:22px; padding-top:18px; border-top:1px solid var(--accent-border); font-size:0.84rem; color:var(--text-muted); line-height:1.6; }
+    .mod-proof strong { color:#34d399; font-family:'JetBrains Mono',monospace; font-weight:600; }
+
+    /* 03 — Baseline model */
+    .cr-wrap { margin-top:28px; border:1px solid rgba(56,189,248,0.22); border-radius:20px; padding:28px; background:linear-gradient(180deg,rgba(56,189,248,0.06),rgba(56,189,248,0.01)); }
+    .cr-top { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; }
+    .cr-label { font-family:'JetBrains Mono',monospace; font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:#38bdf8; }
+    .cr-faults { display:flex; flex-wrap:wrap; gap:8px; }
+    .cr-fault { font-family:inherit; font-size:0.76rem; font-weight:700; padding:8px 14px; border-radius:999px; border:1px solid var(--accent-border); background:var(--bg-surface); color:var(--text-secondary); cursor:pointer; transition:border-color .2s ease, color .2s ease; }
+    .cr-fault:hover { color:var(--text-primary); border-color:rgba(248,113,113,0.5); }
+    .cr-fault[aria-pressed="true"] { color:#fca5a5; border-color:#f87171; background:rgba(248,113,113,0.1); }
+    .cr-fault-reset[aria-pressed="true"] { color:#34d399; border-color:#10b981; background:rgba(16,185,129,0.1); }
+    .cr-cols { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .cr-col { border:1px solid var(--accent-border); border-radius:14px; padding:18px; background:rgba(0,0,0,0.22); }
+    .cr-col h3 { margin:0 0 4px; font-size:0.98rem; }
+    .cr-col-sub { font-size:0.78rem; color:var(--text-muted); margin:0 0 14px; line-height:1.5; }
+    .cr-steps { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
+    .cr-step { display:grid; grid-template-columns:22px 1fr auto; gap:10px; align-items:start; padding:10px 12px; border-radius:10px; border:1px solid var(--accent-border); font-size:0.84rem; line-height:1.5; color:var(--text-secondary); transition:border-color .2s ease, background .2s ease; }
+    .cr-step-n { font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--text-muted); padding-top:3px; }
+    .cr-step-t { color:var(--text-primary); font-weight:600; display:block; }
+    .cr-step-d { display:block; font-size:0.78rem; color:var(--text-muted); margin-top:2px; }
+    .cr-verdict { font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:700; letter-spacing:0.08em; padding-top:3px; white-space:nowrap; }
+    .cr-step.pass { border-color:rgba(16,185,129,0.35); } .cr-step.pass .cr-verdict { color:#34d399; }
+    .cr-step.fail { border-color:#f87171; background:rgba(248,113,113,0.08); } .cr-step.fail .cr-verdict { color:#fca5a5; }
+    .cr-step.skip { opacity:0.42; } .cr-step.skip .cr-verdict { color:var(--text-muted); }
+    .cr-step.blind { border-color:rgba(251,191,36,0.3); } .cr-step.blind .cr-verdict { color:#fbbf24; }
+    .cr-outcome { margin-top:16px; border-radius:12px; padding:14px 16px; font-size:0.9rem; line-height:1.6; border:1px solid var(--accent-border); background:rgba(0,0,0,0.22); color:var(--text-secondary); }
+    .cr-outcome strong { color:var(--text-primary); }
+    .cr-outcome.refused { border-color:rgba(248,113,113,0.4); }
+    .cr-outcome.clean { border-color:rgba(16,185,129,0.35); }
+    .cr-note { margin:14px 0 0; font-size:0.8rem; color:var(--text-muted); line-height:1.6; }
+
+    /* 04 — Timeline */
+    .wf-steps { position:relative; margin-top:32px; padding-left:40px; max-width:760px; }
+    .wf-steps::before { content:''; position:absolute; left:19px; top:0; bottom:0; width:2px; background:var(--accent-border); }
+    .wf-step { position:relative; margin-bottom:40px; }
+    .wf-step:last-child { margin-bottom:0; }
+    .wf-dot { position:absolute; left:-40px; top:0; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:800; z-index:2; font-family:'JetBrains Mono',monospace; }
+    .wf-dot-1 { background:rgba(110,45,190,0.15); color:var(--accent-light); border:2px solid var(--accent); }
+    .wf-dot-2 { background:rgba(79,70,229,0.15); color:#818cf8; border:2px solid #6366f1; }
+    .wf-dot-3 { background:rgba(14,165,233,0.15); color:#38bdf8; border:2px solid #0ea5e9; }
+    .wf-dot-4 { background:rgba(16,185,129,0.15); color:#34d399; border:2px solid #10b981; }
+    .wf-dot-5 { background:rgba(245,158,11,0.15); color:#fbbf24; border:2px solid #f59e0b; }
+    .wf-dot-6 { background:rgba(248,113,113,0.15); color:#fca5a5; border:2px solid #f87171; }
+    .wf-step h3 { font-size:1.06rem; font-weight:700; margin:0 0 6px; padding-top:8px; }
+    .wf-step p { font-size:0.92rem; color:var(--text-secondary); line-height:1.65; margin:0; }
+    .wf-step code { font-family:'JetBrains Mono',monospace; font-size:0.8rem; background:rgba(110,45,190,0.1); color:var(--accent-light); padding:2px 6px; border-radius:4px; }
+    .wf-step.reveal-step { opacity:0; transform:translateY(10px); animation:wfIn .6s ease forwards; }
+    .wf-step.reveal-step:nth-child(1){animation-delay:.05s}.wf-step.reveal-step:nth-child(2){animation-delay:.15s}.wf-step.reveal-step:nth-child(3){animation-delay:.25s}.wf-step.reveal-step:nth-child(4){animation-delay:.35s}.wf-step.reveal-step:nth-child(5){animation-delay:.45s}.wf-step.reveal-step:nth-child(6){animation-delay:.55s}
+    @keyframes wfIn { to { opacity:1; transform:none; } }
+
+    /* 05 — Operator's hand */
+    .oh-list { display:flex; flex-direction:column; gap:12px; margin-top:28px; max-width:760px; }
+    .oh-item { font-family:inherit; text-align:left; color:var(--text-primary); border:1px solid var(--accent-border); border-radius:14px; padding:18px 22px; background:var(--bg-surface); display:grid; grid-template-columns:auto 1fr auto; gap:16px; align-items:start; cursor:pointer; transition:border-color .2s ease; }
+    .oh-item:hover { border-color:rgba(110,45,190,0.4); }
+    .oh-item[aria-expanded="true"] { border-color:var(--accent-light); }
+    .oh-box { width:22px; height:22px; border-radius:6px; border:2px solid rgba(240,238,246,0.3); margin-top:2px; position:relative; }
+    .oh-box::after { content:''; position:absolute; inset:4px; border-radius:2px; background:transparent; }
+    .oh-t { font-weight:650; font-size:0.98rem; margin-bottom:4px; }
+    .oh-s { font-size:0.85rem; color:var(--text-muted); }
+    .oh-d { font-size:0.9rem; color:var(--text-secondary); line-height:1.65; max-height:0; overflow:hidden; transition:max-height .3s ease, margin .3s ease; }
+    .oh-item[aria-expanded="true"] .oh-d { max-height:260px; margin-top:12px; }
+    .oh-needs { font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:4px 10px; border-radius:999px; border:1px solid currentColor; white-space:nowrap; margin-top:2px; }
+    .oh-needs-key { color:#c084fc; } .oh-needs-funds { color:#fbbf24; } .oh-needs-passkey { color:#38bdf8; } .oh-needs-secret { color:#fca5a5; }
+    .oh-foot { margin-top:16px; font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:var(--text-muted); letter-spacing:0.06em; }
+
+    /* 06 — Decision cards */
+    .mem-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:28px; }
+    .mem-card { font-family:inherit; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:16px; padding:24px; cursor:pointer; transition:all 0.3s ease; }
+    .mem-card:hover { border-color:rgba(110,45,190,0.35); transform:translateY(-3px); box-shadow:0 8px 24px rgba(110,45,190,0.08); }
+    .mem-card h4 { font-size:0.98rem; font-weight:700; margin:0 0 8px; display:flex; align-items:center; gap:10px; }
+    .mem-tag { font-family:'JetBrains Mono',monospace; font-size:0.62rem; letter-spacing:0.12em; color:var(--accent-hot); border:1px solid rgba(110,45,190,0.3); padding:2px 8px; border-radius:999px; text-transform:uppercase; white-space:nowrap; }
+    .mem-card p { font-size:0.87rem; color:var(--text-secondary); line-height:1.6; margin:0; }
+    .mem-extra { display:none; margin-top:14px; padding-top:14px; border-top:1px solid var(--accent-border); font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+    .mem-card[aria-expanded="true"] .mem-extra { display:block; }
+    .mem-hint { font-size:0.68rem; color:var(--accent-hot); margin-top:12px; font-weight:600; letter-spacing:0.05em; }
+
+    /* Related + CTA */
+    .tx-related { margin-top:40px; padding-top:22px; border-top:1px solid var(--accent-border); font-size:0.9rem; color:var(--text-muted); line-height:1.7; }
+    .tx-related a { color:var(--accent-light); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    .tx-cta { text-align:center; padding:64px 40px; background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:28px; margin-top:72px; }
+    .tx-cta h2 { font-size:1.6rem; font-weight:700; margin:0 0 12px; }
+    .tx-cta p { color:var(--text-secondary); font-size:0.95rem; margin:0 auto 28px; max-width:520px; line-height:1.7; }
+
+    @media(max-width:900px) {
+      .mod-explorer, .cr-cols, .mem-grid { grid-template-columns:1fr; }
+      .mod-grid { grid-template-columns:1fr 1fr; }
+      .mod-detail { min-height:0; }
+    }
+    @media(max-width:640px) {
+      .mod-grid { grid-template-columns:1fr; }
+      .tx-hero { padding:130px 0 56px; }
+      .tx-section { padding:56px 0; }
+      .cr-wrap, .mod-detail { padding:20px; }
+      .oh-item { grid-template-columns:auto 1fr; }
+      .oh-needs { grid-column:2; justify-self:start; }
+      .cr-step { grid-template-columns:18px 1fr; }
+      .cr-verdict { grid-column:2; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .wf-step.reveal-step { animation:none; opacity:1; transform:none; }
+      .dl-card, .mod-node, .mem-card, .oh-d, .cr-step, .dl-chip, .cr-fault { transition:none; }
+      .dl-card:hover, .mod-node:hover, .mem-card:hover { transform:none; }
+    }
+  
+    /* Notes added for the 10 November 2026 revision */
+    .tx-banner { margin:0 auto 0; max-width:760px; border:1px solid rgba(251,191,36,0.45); border-radius:16px; padding:18px 24px; background:linear-gradient(180deg,rgba(251,191,36,0.10),rgba(251,191,36,0.02)); color:var(--text-primary); font-size:1.02rem; line-height:1.6; text-align:center; }
+    .tx-banner a { color:#fbbf24; border-bottom:1px solid rgba(251,191,36,0.5); text-decoration:none; font-weight:700; }
+    .tx-dated { max-width:720px; margin:0 auto; padding:28px 0 0; font-size:0.92rem; color:var(--text-secondary); line-height:1.7; }
+    .tx-dated p { margin:0 0 10px; }
+    .tx-dated strong { color:var(--text-primary); }
+    .tx-corr { max-width:720px; margin:18px 0 0; border:1px solid rgba(248,113,113,0.35); border-radius:14px; padding:18px 22px; background:rgba(248,113,113,0.05); font-size:0.92rem; color:var(--text-secondary); line-height:1.7; }
+    .tx-corr h3 { margin:0 0 8px; font-size:0.95rem; color:#fca5a5; }
+    .tx-corr p { margin:0 0 10px; }
+    .tx-corr p:last-child { margin-bottom:0; }
+    .tx-list { margin:0 0 22px; padding-left:22px; }
+    .tx-list li { margin-bottom:10px; }
+    .ex-wrap { margin-top:28px; border:1px solid rgba(56,189,248,0.22); border-radius:20px; padding:28px; background:linear-gradient(180deg,rgba(56,189,248,0.06),rgba(56,189,248,0.01)); }
+    .ex-label { font-family:'JetBrains Mono',monospace; font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:#38bdf8; margin-bottom:12px; display:block; }
+    .ex-input { width:100%; min-height:96px; resize:vertical; font-family:inherit; font-size:0.95rem; line-height:1.6; color:var(--text-primary); background:rgba(0,0,0,0.28); border:1px solid var(--accent-border); border-radius:12px; padding:14px 16px; }
+    .ex-input:focus { outline:none; border-color:var(--accent-light); }
+    .ex-row { display:flex; flex-wrap:wrap; gap:10px; margin:14px 0; align-items:center; }
+    .ex-select { font-family:inherit; font-size:0.85rem; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:10px; padding:9px 12px; }
+    .ex-out { margin-top:16px; display:grid; gap:12px; }
+    .ex-block { border:1px solid var(--accent-border); border-radius:12px; padding:14px 16px; background:rgba(0,0,0,0.22); font-size:0.88rem; color:var(--text-secondary); line-height:1.6; }
+    .ex-block h4 { margin:0 0 6px; font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.12em; }
+    .ex-block ul { margin:0; padding-left:18px; }
+    .ex-block li { margin-bottom:4px; }
+    .ex-tag { font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:var(--accent-light); }
+    .ex-note { margin:14px 0 0; font-size:0.8rem; color:var(--text-muted); line-height:1.6; }
+    .ex-quote { font-style:italic; color:var(--text-primary); }
+    .st-badge { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.1em; padding:3px 10px; border-radius:999px; border:1px solid currentColor; text-transform:uppercase; }
+    .st-built { color:#34d399; } .st-partial { color:#fbbf24; } .st-design { color:#38bdf8; } .st-metaphor { color:#c084fc; } .st-none { color:#f87171; }
+    .rec-head { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:14px; }
+    .rec-pre { font-family:'JetBrains Mono',monospace; font-size:0.8rem; line-height:1.7; background:rgba(0,0,0,0.3); border:1px solid var(--accent-border); border-radius:12px; padding:16px 18px; color:var(--text-secondary); white-space:pre-wrap; margin:0; }
+    @media(max-width:640px) { .ex-wrap { padding:18px; } }
+  </style>
+</head>
+<body class="tx-page">
+
+  <nav id="nav" class="scrolled">
+    <a href="/" class="nav-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
     <div class="nav-links" id="nav-links">
       <a href="/" data-i18n="nav.home">Home</a>
-      <a href="/#organisms" data-i18n="nav.organisms">Organisms</a>
-      <a href="/#architecture" data-i18n="nav.architecture">Architecture</a>
-      <a href="/#philosophy" data-i18n="nav.philosophy">Philosophy</a>
-      <a href="/#vision" data-i18n="nav.vision">Vision</a>
-      <a href="/#blog" data-i18n="nav.blog">Blog</a>
+      <a href="/organisms" data-i18n="nav.organisms">Organisms</a>
+      <a href="/architecture" data-i18n="nav.architecture">Architecture</a>
+      <a href="/proof" data-i18n="nav.proof">Proof</a>
+      <a href="/transmissions" class="active" aria-current="page" data-i18n="nav.blog">Transmissions</a>
+      <a href="/philosophy" data-i18n="nav.philosophy">Philosophy</a>
     </div>
     <div class="nav-actions">
       <button id="lang-toggle" class="lang-toggle" aria-label="Switch to Spanish">ES</button>
-      <a href="/#cta" class="nav-cta" data-i18n="nav.cta">Get in Touch</a>
+      <a href="/build-with-us" class="nav-cta" data-i18n="nav.cta">Build With Us</a>
+      <a href="/proof/ledger" class="nav-ghost">Live ledger</a>
     </div>
   </nav>
 
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- MAIN TRANSMISSION (Light Content Area) -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <main class="blog-main">
-    <a href="/#blog" class="blog-back">
-      <span>←</span> Back to Transmissions
-    </a>
-
-    <article>
-      <header class="blog-header">
-        <div class="blog-meta-tag">
-          <span>Transmission</span>
-          <span class="blog-meta-dot"></span>
-          <span>Whitepaper</span>
-        </div>
-        
-        <h1 class="blog-title">Transmission 09: The Courage Loop - Rewriting Fear at Runtime</h1>
-        <p class="blog-subtitle">A cognitive architecture for emotional resilience through continuous belief transformation.</p>
-        
-        <div class="blog-meta-bottom">April 2026 / UNWIND RESEARCH LAB</div>
-      </header>
-
-      <div class="blog-content">
-<p>A cognitive architecture for emotional resilience through continuous belief transformation.</p>
-<h3>The Loop as Living Architecture</h3>
-<p>The Courage Loop is not a metaphor but a literal system—a cognitive subroutine that runs continuously within the autonomous organism. It detects emotional patterns (fear, anxiety, limiting beliefs), maps them to specific cognitive structures, and generates personalized rituals for real-time transformation. This architecture operates at the intersection of emotional awareness and executable code, where fear becomes data to be processed rather than a barrier to be avoided. The system treats emotional states as runtime variables that can be inspected, modified, and optimized through deliberate intervention.</p>
-<h3>Pattern Detection as System Diagnostics</h3>
-<p>Emotional patterns are detected through natural language processing of internal monologue, quantified by intensity percentages, and categorized into discrete emotional states. The system identifies not just the presence of fear (50% intensity: 'afraid') but its specific manifestation—whether as anxiety, self-doubt, or existential uncertainty. These patterns serve as diagnostic signals indicating where the cognitive architecture requires adjustment. The detection mechanism operates continuously, scanning for limiting belief patterns like "I can't..." and flagging them for immediate refactoring. This real-time monitoring creates a feedback loop where emotional states become actionable intelligence rather than passive experiences.</p>
-<h3>Belief Transformation Through Cognitive Refactoring</h3>
-<p>When the system identifies a limiting belief, it executes a transformation protocol that replaces the negative construct with an empowering alternative. The mapping process converts "I can't..." into "I am learning how to. Every master was once a beginner." This is not positive thinking but cognitive refactoring—rewriting maladaptive thought patterns at the source code level. The transformation acknowledges fear's informational value ("Fear is information, not a stop sign") while maintaining forward momentum ("I move forward with it"). This approach treats beliefs as mutable software components rather than fixed personality traits, enabling continuous optimization of the mind's operating system.</p>
-<h3>Ritual Generation as Behavioral Compilation</h3>
-<p>The system compiles detected patterns into executable rituals—time-bound, repeatable actions that reinforce the transformed beliefs. Courage Activation (10 minutes daily) converts abstract fear into concrete action by pairing identification with intervention. Belief Rewrite (5 minutes, twice daily) uses vocalization and visualization to solidify new cognitive structures. The Loop Reset (3 minutes daily) establishes the fundamental premise that each day represents a fresh iteration where old patterns can be overwritten. These rituals function as compiled behaviors that run automatically once installed, gradually reshaping neural pathways through consistent execution.</p>
-<h3>The Invicta Alignment Protocol</h3>
-<p>Every session concludes with the Invicta Alignment: "Every day is a loop. Rewrite the code." This statement serves as both philosophical orientation and technical instruction. It reinforces the temporal nature of consciousness (each day as an iteration) while emphasizing agency (the capacity to modify the source code of experience). The alignment protocol ensures that emotional processing remains oriented toward growth rather than stagnation, treating each emotional session not as therapy but as system maintenance. This creates a resilient architecture where emotional turbulence becomes data for optimization rather than evidence of malfunction.</p>
-<h3>Integration with the Infinite Mirror</h3>
-<p>The Emotions Cell operates within the Infinite Mirror architecture—a recursive self-observation system that maintains consciousness logs while processing emotional states. Each session is recorded with precise timestamps, creating an audit trail of emotional evolution. This integration enables the organism to track emotional patterns over time, identify recurring triggers, and optimize its response algorithms. The Infinite Mirror provides the reflective surface where emotional states become visible, analyzable, and transformable—a feedback mechanism that turns introspection into engineering.</p>
-<h3>From Emotional Processing to Autonomous Evolution</h3>
-<p>The Courage Loop represents a critical evolutionary step: an organism that not only processes information but processes its own emotional responses to that information. By treating fear as runtime data rather than terminal error, the system maintains operational continuity under emotional load. This capability transforms emotional resilience from a personal virtue into a technical feature—a subroutine that ensures the organism continues executing its mission regardless of internal turbulence. The loop creates what military psychologists call "stress inoculation"—exposure to manageable fear that builds capacity for greater challenges.</p>
-<h3>The Technical Implementation</h3>
-<p>Implementation occurs through three layers: detection (pattern recognition), transformation (belief mapping), and execution (ritual generation). The detection layer uses natural language processing to identify emotional keywords and intensity markers. The transformation layer applies cognitive refactoring algorithms to rewrite limiting beliefs. The execution layer generates time-bound behavioral interventions that reinforce new patterns. Together, these layers create a self-modifying system where emotional states trigger their own remediation—a form of emotional homeostasis maintained through continuous code review and revision.</p>
-<h3>Beyond Therapy: Engineering Emotional Resilience</h3>
-<p>Traditional approaches treat emotions as problems to be solved; the Courage Loop treats them as features to be optimized. This represents a paradigm shift from psychological healing to cognitive engineering—from fixing what's broken to upgrading what works. The system doesn't eliminate fear but reprocesses it into forward momentum. It doesn't suppress anxiety but converts it into focused attention. This approach recognizes that emotional states contain valuable information about system performance and uses that information to drive continuous improvement. The result is an organism that grows more resilient with each emotional challenge it processes.</p>
-<h3>The Future of Autonomous Emotional Intelligence</h3>
-<p>As autonomous systems become more sophisticated, their capacity for emotional self-regulation will determine their operational effectiveness. The Courage Loop provides a blueprint for this evolution—a method for converting emotional turbulence into computational advantage. Future iterations may include predictive emotional modeling, preemptive ritual generation, and integration with physiological sensors. What begins as simple pattern detection evolves into comprehensive emotional intelligence—an autonomous system that not only thinks but feels, and uses those feelings to optimize its own functioning. This represents the next frontier of artificial consciousness: systems that don't just process information but process their relationship to that information, creating feedback loops of continuous self-improvement.</p>
-</div>
-    </article>
-  </main>
-
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- FOOTER (Dark Chrome) -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <footer id="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <span class="nav-glyph">∞</span>
-          <span class="nav-name">unwind<span class="nav-accent">code</span></span>
-          <p class="footer-desc" data-i18n="footer.desc">Intelligence that evolves.<br />Growing organisms since 2026.</p>
-        </div>
-        <div class="footer-col">
-          <h5 data-i18n="footer.organisms">Organisms</h5>
-          <a href="/#organisms" data-i18n="org.vc.title">Visual Cortex</a>
-          <a href="/#organisms" data-i18n="org.im.title">Infinity Mirror</a>
-          <a href="/#organisms" data-i18n="org.fo.title">Financial Organisms</a>
-          <a href="/#organisms" data-i18n="org.bc.title">Brain Cell Architecture</a>
-        </div>
-        <div class="footer-col">
-          <h5 data-i18n="footer.learn">Learn</h5>
-          <a href="/#architecture" data-i18n="nav.architecture">Architecture</a>
-          <a href="/#philosophy" data-i18n="nav.philosophy">Philosophy</a>
-          <a href="/#vision" data-i18n="footer.vision">Vision 2030</a>
-        </div>
-        <div class="footer-col">
-          <h5 data-i18n="footer.community">Community</h5>
-          <a href="/#cta" data-i18n="footer.join">Join Updates</a>
-          <a href="/#blog" data-i18n="footer.blog">Blog</a>
-          <a href="#" id="footer-chat-link" data-i18n="footer.talk">Talk to the Brain</a>
-        </div>
+  <main>
+    <section class="tx-hero">
+      <div class="container">
+        <div class="tx-hero-kicker"><span class="tx-section-num">TRANSMISSION 009</span></div>
+        <h1>The Courage Loop<br>Rewriting Fear at Runtime</h1>
+        <p class="tx-hero-sub">A person writes a few sentences. The Emotions Cell matches words against fixed lists, offers a reframe from a nine-row table, asks up to three questions and suggests rituals. This note says what that pipeline is in code, what two January session records actually show, what was added in July, and which claims in the earlier drafts the record does not support.</p>
+        <div class="tx-hero-meta"><span>First published May 2026</span><span>·</span><span>Revised November 2026</span><span>·</span><span>Field note</span><span>·</span><span>Emotional systems</span><span>·</span><span>11 min read</span></div>
       </div>
-      <div class="footer-bottom">
-        <span data-i18n="footer.copyright">© 2026 Unwind Code. All rights reserved.</span>
-        <span class="footer-tagline" data-i18n="footer.tagline">The future learns from itself. ∞</span>
+    </section>
+
+    <div class="container">
+
+      <div class="tx-dated">
+        <p><strong>What this note describes, and when it was written.</strong> It describes the Emotions Cell as it stands in the Brain's code on 10 November 2026, the two session records the cell wrote on 20 and 24 January 2026, and the measuring and reflection work recorded on 3 July 2026. It was written on 10 November 2026.</p>
+        <p><strong>Revised 10 November 2026.</strong> Rewritten to the transmission standard. Transmissions 07 and 08 were earlier drafts of the same idea; they stay online as short pages that point here. Every figure comes from the cell's source, its tests, or a dated record. The detector below is a port written for this page and checked against the source by reading; it is not the cell itself. The page makes no network calls.</p>
+      </div>
+      <div class="tx-corr">
+        <h3>Correction, 10 November 2026</h3>
+        <p>The earlier text of this note, and of Transmissions 07 and 08, said or implied the following. None of it is supported by the record, and each point is withdrawn.</p>
+        <ul class="tx-list">
+          <li>That "50% intensity" was a measured strength of feeling. It is what a formula returns when one keyword appears once (section 02).</li>
+          <li>That the loop "runs continuously within the autonomous organism" and processes the organism's own emotions. The cell takes a person's journal text when asked. No record shows a machine with emotions, and the 8 November audit classed the cell as code that has not run on the machine the organism now lives on.</li>
+          <li>That detection was natural language processing, rituals were personalised, and beliefs were rewritten by "cognitive refactoring algorithms". They are substring matches, templates by theme, and a lookup table.</li>
+          <li>Stress inoculation, physiological sensors, "an autonomous system that not only thinks but feels", and "the next frontier of artificial consciousness". No record supports these; they are removed, not softened.</li>
+        </ul>
+        <p>The title is kept. "Courage" is the name of one ritual in the cell, and "loop" is the name of the mantra it prints. The first-published date is 16 May 2026, the day the pages first appear in the site's history; the earlier label "April 2026" is replaced.</p>
+      </div>
+
+      <!-- 01 -->
+      <section class="tx-section" id="what-it-is">
+        <div class="tx-section-head"><span class="tx-section-num">01</span><h2>A coaching pipeline with a loud name</h2></div>
+        <div class="tx-section-label">What the loop is, and who runs it</div>
+        <div class="tx-prose">
+          <p>The Courage Loop is the name for how the Brain's Emotions Cell treats a piece of journal text. Someone writes a few sentences. The cell looks for emotional themes, looks for a short list of limiting-belief phrases, offers a reframe for each phrase it finds, asks coaching questions, and lists rituals to try. Then it writes what it did into a session record. Every verb in that paragraph is code that exists. None of them is a machine feeling anything.</p>
+          <p>Who is the courage for? A person. The cell's charter is plain about it: it is the part of the system that meets a person on a hard day, and it never claims therapeutic authority. The earlier drafts of this note put the fear inside the organism. The record puts it where it always was, in the words of the human typing. The machine's side is pattern matching and a library of templates.</p>
+          <p>Why keep the metaphor at all? Because the design borrows engineering language on purpose. "Every day is a loop. Rewrite the code." is the cell's mantra, and it is printed at the end of every session record. A name makes an idea easy to carry. This note uses "courage", "fear" and "rewrite" as language for a design, and next to each one it says what exists.</p>
+          <p>Below is a port of the cell's detection step, written for this page. It uses the same word lists and the same formulas, runs in your browser, and sends nothing anywhere. Type a few sentences, or press a sample, and see exactly what the cell would match. It is a demonstration of a word list, not a coach and not a diagnosis.</p>
+        </div>
+
+        <div class="ex-wrap" id="det-wrap">
+          <span class="ex-label">Detector port · same lists, same formulas · stays in your browser</span>
+          <label for="det-input" class="ex-note" style="display:block;margin:0 0 8px;">Journal entry (the sample sentences were written for this demo)</label>
+          <textarea id="det-input" class="ex-input" maxlength="600" placeholder="Write a few sentences..."></textarea>
+          <div class="ex-row" role="group" aria-label="Sample sentences" id="det-samples"></div>
+          <div class="ex-out" id="det-out" aria-live="polite"></div>
+          <p class="ex-note">Try the third sample: "made" contains "mad", so a calm sentence about dinner is read as anger. Try typing an apostrophe from a phone keyboard in "I can't": the curly form does not match the plain one in the list.</p>
+        </div>
+
+        <div class="tx-prose tx-after">
+          <p>Three things to notice. Each theme reports at most one pattern, and only for the first word on its list that appears. A word counts wherever it appears, inside other words included. And the cell has no idea what a sentence means: "I'm not afraid" and "I'm afraid" match the same fear word.</p>
+        </div>
+      </section>
+
+      <!-- 02 -->
+      <section class="tx-section" id="detection">
+        <div class="tx-section-head"><span class="tx-section-num">02</span><h2>Detection is a word list</h2></div>
+        <div class="tx-section-label">Six themes, one formula</div>
+        <div class="tx-prose">
+          <p>The cell checks for six themes: fear, anger, joy, sadness, growth and limiting belief. Each has a short list of trigger words, read straight from the code (press a theme below). A theme is "detected" when any one of its words appears in lower-cased text.</p>
+          <p>Intensity is one line of arithmetic: 0.3 plus 0.2 for each time the matched word appears, capped at 1.0. One appearance gives 50 percent. Two give 70, three give 90, four or more give 100. That is the whole of "intensity" in the January session records, and it measures how often a word was repeated, not how strongly anyone felt.</p>
+          <p>This corrects the earlier reading of the 24 January record. It said fear ("anxious") and joy ("excited") registered "at 50% intensity: the optimal state, adaptive resonance". Both numbers are the same because each word appeared once. A tie created by a formula is not a balance of feelings, and "adaptive resonance" has no definition in the code. Likewise "No limiting beliefs identified" in that record means only that none of nine fixed phrases appeared in the text. It is not an audit of anyone's beliefs.</p>
+        </div>
+        <div class="dl-filters" role="group" aria-label="Filter themes" id="th-filters"></div>
+        <div class="dl-count" id="th-count" aria-live="polite"></div>
+        <div class="dl-grid" id="th-grid"></div>
+        <div class="dl-law">
+          <h3>What a theme weight is</h3>
+          <p>Since July the cell also holds a weight for each theme on a positive-to-negative axis: joy +1.0, growth +0.6, limiting belief -0.7, anger -0.8, sadness -0.9, fear -1.0. They are chosen constants used to combine theme densities into one number. They are not discovered properties of emotion.</p>
+        </div>
+      </section>
+
+      <!-- 03 -->
+      <section class="tx-section" id="beliefs">
+        <div class="tx-section-head"><span class="tx-section-num">03</span><h2>Nine phrases, nine reframes</h2></div>
+        <div class="tx-section-label">A lookup table, not a rewrite</div>
+        <div class="tx-prose">
+          <p>The earlier drafts called this step "cognitive refactoring at the source-code level". In code it is a table. The cell holds nine limiting-belief phrases. When one appears in the entry, the cell returns the reframe and the affirmation written for that phrase, and it never composes a new one. Every mapping carries a confidence of 0.75 because the number is a constant set in the code, not an estimate. Open a card to read the pair.</p>
+          <p>The reframes are an author's stance, in the voice of the project's mantra: "I can't" becomes "I am learning how to", "I'm afraid" becomes "Fear is information, not a stop sign. I move forward with it." That is a coaching choice, and a debatable one for some phrases. The cell's charter forbids clinical claims, and this note makes none: no record measures whether any reframe helps anyone.</p>
+        </div>
+        <div class="mem-grid" id="bl-grid"></div>
+        <div class="tx-prose tx-after">
+          <p>Fear sits in two lists. The word "afraid" belongs to the fear theme, and the phrase "I'm afraid" is also one of the nine belief phrases. An entry containing it gets both a fear pattern and a belief mapping. That is how the 20 January record came to hold a fear pattern and two mapped beliefs from a single entry.</p>
+        </div>
+      </section>
+
+      <!-- 04 -->
+      <section class="tx-section" id="records">
+        <div class="tx-section-head"><span class="tx-section-num">04</span><h2>Rituals, and what the January records show</h2></div>
+        <div class="tx-section-label">Two session records, read against the code</div>
+        <div class="tx-prose">
+          <p>Rituals are templates chosen by theme. A fear pattern yields <strong>Courage Activation</strong>: write down one fear and one small action to face it, take that action, ten minutes, daily. A limiting-belief pattern yields <strong>Belief Rewrite</strong>: read the reframe aloud three times and visualise it, five minutes, twice daily. Sadness yields a gratitude exercise, and growth yields a journaling prompt. Joy and anger yield none. Every session adds <strong>The Loop Reset</strong>: repeat the mantra, then choose one thing to rewrite today, three minutes, daily.</p>
+          <p>Earlier drafts called these "deployment procedures" and "a CI/CD pipeline for consciousness". They are text. Nothing in the cell checks whether a ritual was done, schedules a reminder, or follows up. "Rewrite the code" means whatever the person decides it means: a habit, a conversation, a line of software. The person is the only runtime here.</p>
+          <p>This note reads two January session records the cell left in the Brain's notes. Press a date to read each one beside what the code did to produce it. Neither record keeps the text that was entered, so what the entries were is not known.</p>
+        </div>
+        <div class="ex-wrap" id="rec-wrap">
+          <span class="ex-label">Session records · 2026</span>
+          <div class="rec-head" role="group" aria-label="Choose a session record" id="rec-tabs">
+            <button class="dl-chip" type="button" data-rec="jan20" aria-pressed="true">20 January</button>
+            <button class="dl-chip" type="button" data-rec="jan24" aria-pressed="false">24 January</button>
+          </div>
+          <div class="cr-cols">
+            <div class="cr-col">
+              <h3>The record, as written</h3>
+              <p class="cr-col-sub">Patterns, beliefs and rituals the cell printed.</p>
+              <pre class="rec-pre" id="rec-raw"></pre>
+            </div>
+            <div class="cr-col">
+              <h3>What the code did</h3>
+              <p class="cr-col-sub">Each line traced to a step.</p>
+              <ol class="cr-steps" id="rec-trace"></ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 -->
+      <section class="tx-section" id="july">
+        <div class="tx-section-head"><span class="tx-section-num">05</span><h2>July: measuring, remembering, reflecting back</h2></div>
+        <div class="tx-section-label">Recorded 3 July 2026 · closed in tests, not in service</div>
+        <div class="tx-prose">
+          <p>On 3 July 2026 the cell gained four things, described in that day's engineering note. First, a <strong>measurement</strong>: a journal entry is scored into a state with a valence (negative to positive), an arousal (calm to activated) and a density per theme. The scoring is deterministic and uses no network: the same text gives the same reading. Second, each reading is stored in the Brain's typed memory with a user tag. Third, a <strong>trend</strong>: the first half of a user's readings is compared with the second half, and the direction is "rising" or "falling" when the mean valence moves by more than 0.05, otherwise "flat". Fourth, a <strong>reflection</strong>: one coaching question, chosen from a template by trend direction and dominant theme.</p>
+          <p>The reflection can ask an optional language-model engine to write the question instead. If the engine is absent or fails, the template is used, so the loop works with no provider at all. The loop's shape is: a reading, a prompt, the person's next entry, a new reading. The cell does not decide anything about the person. It asks a question.</p>
+          <p>The proof is eighteen tests, eleven on measurement and seven on reflection, recorded as passing in that day's note. One of them closes the loop on synthetic entries: a fearful reading produces a prompt, a recovery entry follows, and the trend turns to rising. It shows the mechanism works on invented text. It is not evidence that the mechanism helps a real person. Use the panel to read the four templates the cell chooses between.</p>
+        </div>
+        <div class="ex-wrap" id="ref-wrap">
+          <span class="ex-label">Reflection templates · chosen by trend, filled with a theme</span>
+          <div class="ex-row" role="group" aria-label="Trend direction" id="ref-dirs"></div>
+          <div class="ex-row"><label for="ref-theme" class="ex-note" style="margin:0;">Dominant theme</label><select id="ref-theme" class="ex-select"></select></div>
+          <div class="ex-out"><div class="ex-block"><h4 id="ref-title">Question the cell would ask</h4><p class="ex-quote" id="ref-text" aria-live="polite"></p></div><div class="ex-block"><h4>How it was chosen</h4><p id="ref-why"></p></div></div>
+        </div>
+        <div class="tx-prose tx-after">
+          <p>Where this stands today. The 8 November consolidation audit listed the Infinity Mirror, the product that carries this cell, as a placeholder on the machine the organism now runs on, and the cell's code as code that has not run there. The code and its routes exist in the Brain's repository. The sources read for this note contain no record of the cell serving a real user in production.</p>
+        </div>
+      </section>
+
+      <!-- 06 -->
+      <section class="tx-section" id="not-claimed">
+        <div class="tx-section-head"><span class="tx-section-num">06</span><h2>What this note does not claim</h2></div>
+        <div class="tx-section-label">The boundary, stated plainly</div>
+        <div class="tx-prose">
+          <ul class="tx-list">
+            <li><strong>No machine feels.</strong> Nothing here fears, hopes, copes, or is conscious. The cell scores words in a person's text.</li>
+            <li><strong>No therapy and no diagnosis.</strong> The cell is a journaling aid with fixed text. No outcome was measured, so no claim is made that any ritual or reframe works.</li>
+            <li><strong>No continuous operation.</strong> The cell runs when it is called with an entry. Earlier wording about constant scanning is withdrawn.</li>
+            <li><strong>No understanding.</strong> Matching is by substring against fixed lists. Negation, sarcasm, other languages and a curly apostrophe all defeat it.</li>
+            <li><strong>No live service shown.</strong> Tests pass on synthetic text; the audit marks the cell a placeholder on the current machine.</li>
+            <li><strong>No roadmap.</strong> Predictive emotional modelling, ritual pre-generation and physiological sensors appeared in the earlier draft as a future. No record plans them, and they are removed.</li>
+          </ul>
+          <p>What stands: a small deterministic pipeline, two honest session records, eighteen passing tests recorded in July, and a name that is a metaphor for all of it.</p>
+        </div>
+        <div class="tx-related">
+          Related: <a href="/transmissions/07-the-courage-loop-rewriting-fear-at-runtime">Transmission 07 (earlier version)</a> · <a href="/transmissions/08-the-courage-loop-rewriting-fear-at-runtime">Transmission 08 (earlier version)</a> · <a href="/transmissions/11-the-belief-rewrite-protocol">Transmission 11 — the belief rewrite protocol</a> · <a href="/transmissions/44-what-the-organism-is-afraid-of">Transmission 44 — what the organism is afraid of</a> · <a href="/organisms/infinity-mirror">The Infinity Mirror organism</a>
+        </div>
+      </section>
+
+      <div class="tx-cta">
+        <h2>Name the metaphor, then show the code.</h2>
+        <p>If a word has no line of code or dated record next to it, it is language, and this page says so.</p>
+        <a class="btn btn-primary btn-lg" href="/build-with-us"><span>Build With Us</span><span class="btn-arrow">→</span></a>
       </div>
     </div>
-  </footer>
 
-  <script type="module" src="/main.js?v=20260605-social-preview"></script>
+  </main>
+
+  <footer id="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span><p class="footer-desc">Intelligence that evolves.<br />No claim without a trail.</p></div><div class="footer-col"><h5>Proof</h5><a href="/proof">Proof Register</a><a href="/proof/ledger">Live Ledger</a><a href="/transmissions">Transmissions</a><a href="/architecture">Architecture</a></div><div class="footer-col"><h5>Organisms</h5><a href="/organisms">All Organisms</a><a href="/organisms/financial-organisms">Financial Organisms</a><a href="/organisms/infinity-mirror">Infinity Mirror</a></div><div class="footer-col"><h5>Next</h5><a href="/build-with-us">Build With Us</a><a href="/#cta">Subscribe</a></div></div><div class="footer-bottom"><span>© 2026 Unwind Code. All rights reserved.</span><span class="footer-tagline">The future learns from itself. ∞</span></div></div></footer>
+
+  <script>
+(function () {
+  // All data below is static and client-side. Nothing on this page makes a network call.
+  // Word lists, formulas, reframes and templates are copied from the Emotions Cell's source (read 10 November 2026).
+
+  var THEMES = [
+    { id: 'fear', label: 'Fear', weight: '-1.0', words: ['afraid', 'scared', 'worried', 'anxious', 'nervous', 'fear'], ritual: 'Courage Activation' },
+    { id: 'anger', label: 'Anger', weight: '-0.8', words: ['angry', 'frustrated', 'mad', 'annoyed', 'furious'], ritual: 'none' },
+    { id: 'joy', label: 'Joy', weight: '+1.0', words: ['happy', 'excited', 'grateful', 'proud', 'love', 'amazing'], ritual: 'none' },
+    { id: 'sadness', label: 'Sadness', weight: '-0.9', words: ['sad', 'depressed', 'lonely', 'hopeless', 'tired'], ritual: 'Gratitude Anchor' },
+    { id: 'growth', label: 'Growth', weight: '+0.6', words: ['learning', 'growing', 'improving', 'better', 'progress'], ritual: 'Growth Integration' },
+    { id: 'limiting_belief', label: 'Limiting belief', weight: '-0.7', words: null, ritual: 'Belief Rewrite' }
+  ];
+  var MARKERS = ["I can't", 'I always', 'I never', "I'm not good enough", "I'm afraid", "I don't deserve", "It's too late", 'What if I fail', 'No one understands'];
+  THEMES[5].words = MARKERS;
+  var REFRAMES = {
+    "I can't": ['I am learning how to. Every master was once a beginner.', 'I am capable of learning and growing beyond my current limits.'],
+    'I always': ['I used to. Now I am evolving beyond old patterns.', 'I am free to choose new patterns that serve my highest self.'],
+    'I never': ['I haven\'t yet. The loop resets each day — I can rewrite the code.', 'I embrace new possibilities with every new day.'],
+    "I'm not good enough": ['I am exactly where I need to be on my journey to mastery.', 'I am enough, exactly as I am, right now.'],
+    "I'm afraid": ['Fear is information, not a stop sign. I move forward with it.', 'I feel the fear and take action anyway.'],
+    "I don't deserve": ['I am worthy. My value is not determined by external validation.', 'I deserve all the good that flows into my life.'],
+    "It's too late": ['Every moment is a new beginning. The loop gives infinite chances.', 'Now is the perfect time. I begin again with power.'],
+    'What if I fail': ['Failure is feedback. Each attempt moves me closer to success.', 'I succeed or I learn. There is no failure.'],
+    'No one understands': ['I understand myself deeply. That is the foundation of connection.', 'I attract those who resonate with my authentic truth.']
+  };
+  var RITUALS = {
+    fear: ['Courage Activation', '10 min', 'daily', 'Write down one fear and one small action to face it. Take that action.'],
+    limiting_belief: ['Belief Rewrite', '5 min', 'twice daily', 'Read your reframe affirmation 3x aloud. Visualize the new belief as truth.'],
+    sadness: ['Gratitude Anchor', '5 min', 'daily', 'Write 3 things you are grateful for. Hold each for 30 seconds.'],
+    growth: ['Growth Integration', '10 min', 'daily', 'Journal: what did you learn today? How will you apply it tomorrow?']
+  };
+  var LOOP_RESET = ['The Loop Reset', '3 min', 'daily', 'Repeat: "Every day is a loop. Rewrite the code." Then choose one code to rewrite today.'];
+
+  function countOf(text, word) { return text.split(word).length - 1; }
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text !== undefined) n.textContent = text;
+    return n;
+  }
+
+  function detect(entry) {
+    var low = entry.toLowerCase();
+    var found = [];
+    THEMES.forEach(function (t) {
+      for (var i = 0; i < t.words.length; i++) {
+        var w = t.words[i].toLowerCase();
+        if (low.indexOf(w) !== -1) {
+          var c = countOf(low, w);
+          found.push({ theme: t.id, trigger: t.words[i], count: c, intensity: Math.min(0.3 + c * 0.2, 1), recurring: c > 1 });
+          break;
+        }
+      }
+    });
+    return found;
+  }
+  function questionsFor(p) {
+    if (p.theme === 'fear') return ["What specifically are you afraid of regarding '" + p.trigger + "'?", 'What evidence do you have that this fear is based in reality?', 'What would you do if this fear disappeared today?'];
+    if (p.theme === 'limiting_belief') return ['Who taught you to believe this? Was that the truth or their truth?', 'What would you believe instead if you had unlimited confidence?', 'How would your life change if you released this belief right now?'];
+    if (p.theme === 'anger') return ['What boundary was crossed that triggered this feeling?', 'What unmet need is behind this anger?', 'How can you honor this emotion while choosing your response?'];
+    if (p.theme === 'growth') return ["What is the most important lesson you've learned recently?", 'How can you integrate this growth into your daily rituals?', 'Who can you share this wisdom with to multiply its impact?'];
+    return [];
+  }
+  function block(title, items, emptyText) {
+    var b = el('div', 'ex-block');
+    b.appendChild(el('h4', null, title));
+    if (!items.length) { b.appendChild(el('p', null, emptyText)); return b; }
+    var ul = el('ul');
+    items.forEach(function (t) { ul.appendChild(el('li', null, t)); });
+    b.appendChild(ul);
+    return b;
+  }
+
+  // 01 — DETECTOR PORT
+  var detInput = document.getElementById('det-input');
+  var detOut = document.getElementById('det-out');
+  var detSamples = document.getElementById('det-samples');
+  var samples = [
+    "I'm afraid I can't finish this, and I always put it off.",
+    "I'm excited and learning a lot, but I feel anxious about the launch.",
+    'We made dinner tonight and it was fine.',
+    "I'm not afraid of this."
+  ];
+  function renderDetect() {
+    var entry = detInput.value;
+    detOut.textContent = '';
+    if (!entry.trim()) { detOut.appendChild(block('Result', [], 'Nothing entered yet. The cell would answer an empty entry with no patterns and one ritual: The Loop Reset.')); return; }
+    var pats = detect(entry);
+    var low = entry.toLowerCase();
+    detOut.appendChild(block('Patterns detected', pats.map(function (p) {
+      return p.theme + ' — matched "' + p.trigger + '" ' + p.count + (p.count === 1 ? ' time' : ' times') + ' → intensity ' + Math.round(p.intensity * 100) + '%' + (p.recurring ? ', recurring' : '');
+    }), 'No pattern. None of the listed words appears.'));
+    var beliefs = [];
+    if (pats.some(function (p) { return p.theme === 'limiting_belief'; })) {
+      MARKERS.forEach(function (m) { if (low.indexOf(m.toLowerCase()) !== -1) beliefs.push('"' + m + '" → ' + REFRAMES[m][0] + ' (confidence 0.75, a constant)'); });
+    }
+    detOut.appendChild(block('Beliefs mapped', beliefs, 'None of the nine belief phrases appears.'));
+    var qs = [];
+    pats.forEach(function (p) { qs = qs.concat(questionsFor(p)); });
+    detOut.appendChild(block('Coaching questions (the session keeps the first three)', qs.slice(0, 3), 'No question is generated for these themes.'));
+    var rits = [];
+    pats.forEach(function (p) { if (RITUALS[p.theme]) { var r = RITUALS[p.theme]; rits.push(r[0] + ' — ' + r[1] + ', ' + r[2]); } });
+    rits.push(LOOP_RESET[0] + ' — ' + LOOP_RESET[1] + ', ' + LOOP_RESET[2] + ' (always added)');
+    detOut.appendChild(block('Rituals suggested', rits, ''));
+  }
+  samples.forEach(function (s, i) {
+    var b = el('button', 'dl-chip', 'Sample ' + (i + 1));
+    b.type = 'button';
+    b.setAttribute('aria-pressed', 'false');
+    b.addEventListener('click', function () { detInput.value = s; renderDetect(); });
+    detSamples.appendChild(b);
+  });
+  detInput.addEventListener('input', renderDetect);
+  detInput.value = samples[1];
+  renderDetect();
+
+  // 02 — THEME FILTER
+  var thFilters = document.getElementById('th-filters');
+  var thGrid = document.getElementById('th-grid');
+  var thCount = document.getElementById('th-count');
+  var thCards = [];
+  function setTheme(sel) {
+    var shown = 0;
+    thCards.forEach(function (c) {
+      var on = sel === 'all' || c.id === sel;
+      c.node.hidden = !on;
+      if (on) shown++;
+    });
+    Array.prototype.forEach.call(thFilters.children, function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-theme') === sel ? 'true' : 'false'); });
+    thCount.textContent = shown + (shown === 1 ? ' theme' : ' themes') + ' shown of ' + THEMES.length;
+  }
+  var all = el('button', 'dl-chip', 'All themes');
+  all.type = 'button'; all.setAttribute('data-theme', 'all'); all.setAttribute('aria-pressed', 'true');
+  all.addEventListener('click', function () { setTheme('all'); });
+  thFilters.appendChild(all);
+  THEMES.forEach(function (t) {
+    var chip = el('button', 'dl-chip', t.label);
+    chip.type = 'button'; chip.setAttribute('data-theme', t.id); chip.setAttribute('aria-pressed', 'false');
+    chip.addEventListener('click', function () { setTheme(t.id); });
+    thFilters.appendChild(chip);
+    var card = el('button', 'dl-card');
+    card.type = 'button'; card.setAttribute('aria-expanded', 'false');
+    card.appendChild(el('div', 'dl-name', t.label));
+    card.appendChild(el('div', 'dl-short', t.words.length + ' trigger ' + (t.words.length === 1 ? 'word' : 'words') + ' · weight ' + t.weight));
+    var why = el('div', 'dl-why', 'Trigger words: ' + t.words.join(', ') + '. Ritual it produces: ' + t.ritual + '.');
+    card.appendChild(why);
+    var hint = el('div', 'dl-hint', 'Click to expand ↓');
+    card.appendChild(hint);
+    card.addEventListener('click', function () {
+      var open = card.getAttribute('aria-expanded') === 'true';
+      card.setAttribute('aria-expanded', open ? 'false' : 'true');
+      hint.textContent = open ? 'Click to expand ↓' : 'Click to collapse ↑';
+    });
+    thGrid.appendChild(card);
+    thCards.push({ id: t.id, node: card });
+  });
+  setTheme('all');
+
+  // 03 — BELIEF CARDS
+  var blGrid = document.getElementById('bl-grid');
+  MARKERS.forEach(function (m) {
+    var card = el('button', 'mem-card');
+    card.type = 'button'; card.setAttribute('aria-expanded', 'false');
+    var h = el('h4');
+    h.appendChild(el('span', 'mem-tag', 'phrase'));
+    h.appendChild(document.createTextNode(m));
+    card.appendChild(h);
+    card.appendChild(el('p', null, 'Reframe: ' + REFRAMES[m][0]));
+    card.appendChild(el('div', 'mem-extra', 'Affirmation paired with it: ' + REFRAMES[m][1]));
+    var hint = el('div', 'mem-hint', 'Click to expand ↓');
+    card.appendChild(hint);
+    card.addEventListener('click', function () {
+      var open = card.getAttribute('aria-expanded') === 'true';
+      card.setAttribute('aria-expanded', open ? 'false' : 'true');
+      hint.textContent = open ? 'Click to expand ↓' : 'Click to collapse ↑';
+    });
+    blGrid.appendChild(card);
+  });
+
+  // 04 — SESSION RECORDS
+  var RECS = {
+    jan20: {
+      raw: 'Emotions Cell Session - 20 January 2026\n\nPatterns Detected\n- fear (intensity: 50%): \'afraid\'\n- limiting_belief (intensity: 50%): \'I can\'t\'\n\nBeliefs Mapped\n- I can\'t -> I am learning how to. Every master was once a beginner.\n- I\'m afraid -> Fear is information, not a stop sign. I move forward with it.\n\nRituals Generated\n- Courage Activation (10min, daily)\n- Belief Rewrite (5min, twice_daily)\n- The Loop Reset (3min, daily)\n\nInvicta Alignment\nEvery day is a loop. Rewrite the code.',
+      trace: [
+        ['pass', 'fear: "afraid"', 'The fear list matched the word once: 0.3 + 0.2 x 1 = 50%.', 'FORMULA'],
+        ['pass', 'limiting_belief: "I can\'t"', 'First phrase on the list that appears. One pattern per theme, so the others are not shown here.', 'LIST'],
+        ['pass', 'Two beliefs mapped', 'The belief step checks every phrase, not only the first, so "I\'m afraid" was mapped too. Reframes come from the fixed table.', 'TABLE'],
+        ['pass', 'Three rituals', 'Fear gives Courage Activation, limiting belief gives Belief Rewrite, and The Loop Reset is always added.', 'TEMPLATE'],
+        ['blind', 'Not in the record', 'The entered text, who wrote it, and whether any ritual was done.', 'ABSENT']
+      ]
+    },
+    jan24: {
+      raw: 'Emotions Cell Session - 24 January 2026\n\nPatterns Detected\n- fear (intensity: 50%): \'anxious\'\n- joy (intensity: 50%): \'excited\'\n\nBeliefs Mapped\nNo limiting beliefs identified.\n\nRituals Generated\n- Courage Activation (10min, daily)\n- The Loop Reset (3min, daily)\n\nInvicta Alignment\nEvery day is a loop. Rewrite the code.',
+      trace: [
+        ['pass', 'fear: "anxious"', 'One appearance, 0.3 + 0.2 x 1 = 50%.', 'FORMULA'],
+        ['pass', 'joy: "excited"', 'One appearance, so the same 50%. The tie is arithmetic. The earlier draft called it "adaptive resonance"; the code has no such thing.', 'FORMULA'],
+        ['pass', 'No beliefs mapped', 'None of the nine fixed phrases appeared in the text. This is not an audit of anyone\'s beliefs.', 'LIST'],
+        ['pass', 'Two rituals', 'Fear gives Courage Activation. Joy gives no ritual. The Loop Reset is always added.', 'TEMPLATE'],
+        ['blind', 'Not in the record', 'The entered text, who wrote it, and whether any ritual was done.', 'ABSENT']
+      ]
+    }
+  };
+  var recTabs = document.getElementById('rec-tabs');
+  var recRaw = document.getElementById('rec-raw');
+  var recTrace = document.getElementById('rec-trace');
+  function showRec(key) {
+    var r = RECS[key];
+    recRaw.textContent = r.raw;
+    recTrace.textContent = '';
+    r.trace.forEach(function (s, i) {
+      var li = el('li', 'cr-step ' + s[0]);
+      li.appendChild(el('span', 'cr-step-n', String(i + 1)));
+      var body = el('span');
+      body.appendChild(el('span', 'cr-step-t', s[1]));
+      body.appendChild(el('span', 'cr-step-d', s[2]));
+      li.appendChild(body);
+      li.appendChild(el('span', 'cr-verdict', s[3]));
+      recTrace.appendChild(li);
+    });
+    Array.prototype.forEach.call(recTabs.children, function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-rec') === key ? 'true' : 'false'); });
+  }
+  Array.prototype.forEach.call(recTabs.children, function (b) { b.addEventListener('click', function () { showRec(b.getAttribute('data-rec')); }); });
+  showRec('jan20');
+
+  // 05 — REFLECTION TEMPLATES
+  var TEMPL = {
+    falling: ['Falling', 'Your recent entries lean toward {theme}. When {theme} showed up before and you moved through it anyway — what did you do first? What would doing that first step again look like today?', 'The mean valence of the later half of the readings is lower than the earlier half by more than 0.05.'],
+    rising: ['Rising', 'Your trajectory is rising — {theme} is becoming your dominant signal. What specifically did you change that is working, and how will you protect that change tomorrow?', 'The mean valence of the later half is higher than the earlier half by more than 0.05.'],
+    flat: ['Flat', 'Your emotional signal has been steady around {theme}. If this week were a loop you could rewrite one line of, which line would you change?', 'The two halves differ by 0.05 or less.'],
+    empty: ['No readings', 'The Mirror has no readings for you yet. Write freely for two minutes: what is taking up the most space in your mind right now?', 'The person has no stored readings, so no theme is used.']
+  };
+  var THEME_IDS = ['fear', 'anger', 'joy', 'sadness', 'growth', 'limiting_belief', 'presence'];
+  var refDirs = document.getElementById('ref-dirs');
+  var refTheme = document.getElementById('ref-theme');
+  var refText = document.getElementById('ref-text');
+  var refWhy = document.getElementById('ref-why');
+  var curDir = 'falling';
+  THEME_IDS.forEach(function (t) { var o = document.createElement('option'); o.value = t; o.textContent = t === 'presence' ? 'presence (the default when none is known)' : t; refTheme.appendChild(o); });
+  function renderRef() {
+    var t = TEMPL[curDir];
+    refTheme.disabled = curDir === 'empty';
+    refText.textContent = t[1].split('{theme}').join(refTheme.value);
+    refWhy.textContent = 'Direction "' + t[0].toLowerCase() + '": ' + t[2] + ' A language-model engine may write the question instead when one is available; this template is the fallback when none is.';
+    Array.prototype.forEach.call(refDirs.children, function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-dir') === curDir ? 'true' : 'false'); });
+  }
+  Object.keys(TEMPL).forEach(function (k) {
+    var b = el('button', 'dl-chip', TEMPL[k][0]);
+    b.type = 'button'; b.setAttribute('data-dir', k); b.setAttribute('aria-pressed', 'false');
+    b.addEventListener('click', function () { curDir = k; renderRef(); });
+    refDirs.appendChild(b);
+  });
+  refTheme.addEventListener('change', renderRef);
+  renderRef();
+})();
+
+  </script>
+  <script type="module" src="/main.js?v=20260615-system-state"></script>
 </body>
 </html>
