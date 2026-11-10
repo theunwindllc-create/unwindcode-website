@@ -35,7 +35,7 @@
     "author": {"@type": "Organization", "name": "Unwind Code"},
     "publisher": {"@type": "Organization", "name": "Unwind Code", "url": "https://www.unwindcode.ai"},
     "datePublished": "2026-11-08",
-    "dateModified": "2026-11-08",
+    "dateModified": "2026-11-10",
     "keywords": ["board", "receipt", "custody boundary", "waves", "plan"],
     "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/45-where-this-is-going"
   }
@@ -220,6 +220,9 @@
       .dl-card, .mod-node, .mem-card, .oh-d, .cr-step, .dl-chip, .cr-fault { transition:none; }
       .dl-card:hover, .mod-node:hover, .mem-card:hover { transform:none; }
     }
+    .tx-dateline { max-width:720px; margin:32px auto 0; text-align:left; border:1px solid rgba(232,161,92,0.28); border-radius:14px; padding:16px 20px; background:linear-gradient(180deg,rgba(232,161,92,0.07),rgba(232,161,92,0.015)); font-size:0.88rem; line-height:1.65; color:var(--text-secondary); }
+    .tx-dateline strong { color:#e8a15c; font-weight:650; }
+    .tx-dateline + .tx-dateline { margin-top:12px; }
   </style>
 </head>
 <body class="tx-page">
@@ -246,8 +249,10 @@
       <div class="container">
         <div class="tx-hero-kicker"><span class="tx-section-num">TRANSMISSION 045</span></div>
         <h1>Where This<br>Is Going</h1>
-        <p class="tx-hero-sub">The view is from one machine: nothing here leaves the box. Everything on this page is plan, counted against receipts only.</p>
+        <p class="tx-hero-sub">The view is from one machine. Everything on this page is plan, counted against receipts only.</p>
         <div class="tx-hero-meta"><span>November 2026</span><span>·</span><span>Outlook</span><span>·</span><span>Future of AI</span><span>·</span><span>8 min read</span></div>
+        <p class="tx-dateline"><strong>Dated note.</strong> This note is a plan dated 8 November 2026, written and published that day. Every figure is a baseline of 8 November, not today.</p>
+        <p class="tx-dateline"><strong>Correction, 10 November 2026.</strong> An earlier version said the free lane for the free-model hand is local and that nothing leaves the box. That was wrong for most of the work. Only the calendar truth pass ran on the local model; Transmissions 38 to 55, this one included, were drafted by a free cloud-hosted model, and the briefs it received (public-safe facts only) were sent to it. The free hand runs on either a local model (nothing leaves the machine; a hard window of 32,768 tokens) or a free cloud model (the brief leaves the machine, so only public-safe material may go to it; a rule for that is proposed, not yet ruled). The task count now also shows the 8 rejected rows that the earlier line omitted.</p>
       </div>
     </section>
 
@@ -258,7 +263,7 @@
         <div class="tx-section-head"><span class="tx-section-num">01</span><h2>A window that is a budget</h2></div>
         <div class="tx-section-label">The free lane, one machine, a hard ceiling</div>
         <div class="tx-prose">
-          <p>The free lane for the free-model hand is local: a model on the machine, nothing leaves the box, and its window is a hard budget of 32,768 tokens. A default agent's prompt of about 39,000 tokens overflowed it; a lean agent at about 14,000 leaves about 18,000 for the job.</p>
+          <p>The free lane for the free-model hand runs on either a local model or a free cloud model. A local model keeps everything on the machine, and its window is a hard budget of 32,768 tokens. A free cloud model is different: the brief leaves the machine, so only public-safe material may go to it, and a rule for that is proposed, not yet ruled. A default agent's prompt of about 39,000 tokens overflowed the local window; a lean agent at about 14,000 leaves about 18,000 for the job.</p>
           <p>The hardware law decides when it may load: the GPU is read live, heat and system RAM checked first, no new load above the limits. The answer is a model-residency organ that loads only inside declared windows, dry-run first. (plan)</p>
         </div>
       </section>
@@ -331,7 +336,7 @@
               <button class="cr-fault cr-fault-reset" type="button" data-fault="none" aria-pressed="true">Baseline</button>
               <button class="cr-fault" type="button" data-fault="a">45 sources · 33 conflicts</button>
               <button class="cr-fault" type="button" data-fault="b">15 signed rulings</button>
-              <button class="cr-fault" type="button" data-fault="c">402 tasks · 155 done · 239 pending</button>
+              <button class="cr-fault" type="button" data-fault="c">402 tasks · 155 done · 8 rejected · 239 pending</button>
             </div>
           </div>
           <div class="cr-cols">
@@ -489,7 +494,7 @@
 
     // 03 — ROADMAP COUNT
     var rawSteps = [
-      { t: 'Rows named', d: '45 sources, 33 conflicts, 15 signed rulings, 402 tasks.' },
+      { t: 'Rows named', d: '45 sources, 33 conflicts, 15 signed rulings, 402 tasks (the calendar ledger as last written, 5 November).' },
       { t: 'Count taken', d: '155 done, 239 pending, straight from the roadmap.' }
     ];
     var verifySteps = [
