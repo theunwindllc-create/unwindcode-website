@@ -36,7 +36,7 @@
     "publisher": {"@type": "Organization", "name": "Unwind Code", "url": "https://www.unwindcode.ai"},
     "datePublished": "2026-11-09",
     "dateModified": "2026-11-09",
-    "keywords": ["scope", "organs", "draft motion", "ratification", "custody boundary"],
+    "keywords": ["scope", "organs", "draft motion", "ratification", "naming"],
     "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/46-one-operator-many-organs"
   }
   </script>
@@ -237,7 +237,7 @@
       <div class="container">
         <div class="tx-hero-kicker"><span class="tx-section-num">TRANSMISSION 046</span></div>
         <h1>One Operator,<br>Many Organs</h1>
-        <p class="tx-hero-sub">On 29 August 2026 the operator ruled that the operator built here is the prime operator of the whole ecosystem. Its scope covers placing calls, reading a calendar, operating across the wider ecosystem including clients, and AI cells that manage client work.</p>
+        <p class="tx-hero-sub">On 29 August 2026 the operator ruled that the on-machine operator built here is the prime operator of the whole ecosystem. Its scope covers placing calls, reading a calendar, operating across the wider ecosystem including clients, and AI cells that manage client work.</p>
         <div class="tx-hero-meta"><span>November 2026</span><span>·</span><span>Field note</span><span>·</span><span>Architecture</span><span>·</span><span>6 min read</span></div>
       </div>
     </section>
@@ -246,7 +246,7 @@
 
       <!-- 01: THE RULING -->
       <section class="tx-section" id="the-ruling">
-        <div class="tx-section-head"><span class="tx-section-num">01</span><h2>First Body is perfect</h2></div>
+        <div class="tx-section-head"><span class="tx-section-num">01</span><h2>The prime operator</h2></div>
         <div class="tx-section-label">A verbal ruling, 29 August 2026</div>
         <div class="tx-prose">
           <p>On 29 August 2026 the operator ruled that the operator built here is the prime operator of the whole ecosystem.</p>
@@ -329,7 +329,7 @@
 
       <!-- 05: STILL DRAFT -->
       <section class="tx-section" id="still-draft">
-        <div class="tx-section-head"><span class="tx-section-num">05</span><h2>Still a draft, nine weeks on</h2></div>
+        <div class="tx-section-head"><span class="tx-section-num">05</span><h2>Still a draft, over nine weeks on</h2></div>
         <div class="tx-section-label">What ratification would still not do</div>
         <div class="tx-prose">
           <p>The draft motion is still unratified as of 9 November 2026. It is a proposal on paper, not a ruling in force.</p>
@@ -357,14 +357,14 @@
   (function () {
     // All data below is static and client-side. Nothing on this page makes a network call.
 
-    // 01 — SIX ORGANS (F4): each keeps its own gate, its own credentials, its own caps
+    // 01 — SIX ORGANS: each keeps its own gate, its own credentials, its own caps
     var states = { all: 'All', gate: 'Own gate', credentials: 'Own credentials', caps: 'Own caps' };
     var components = [
-      { state: 'gate', tags: ['gate', 'credentials', 'caps'], name: 'Real-estate analysis organ', short: 'Reads property deals; keeps its own gate, its own credentials and its own caps.', why: 'Named among the organs the operator may route to. Not live — the motion is unratified.' },
+      { state: 'gate', tags: ['gate', 'credentials', 'caps'], name: 'Real-estate analysis organ', short: 'Analyses real estate; keeps its own gate, its own credentials and its own caps.', why: 'Named among the organs the draft would let the operator route to. Not live — the motion is unratified.' },
       { state: 'credentials', tags: ['gate', 'credentials', 'caps'], name: 'Payment organ', short: 'Only ever receives funds; money out stays closed.', why: 'Receive-only by design — no payment capability is extended.' },
       { state: 'caps', tags: ['gate', 'credentials', 'caps'], name: 'Paper-trading organism', short: 'Runs paper trading on its own separate infrastructure.', why: 'Separate infrastructure; being routed to does not merge identities.' },
-      { state: 'gate', tags: ['gate', 'credentials', 'caps'], name: 'Blockchain-price sentinel', short: 'Watches prices on a chain; routes information, never acts.', why: 'Information only; its own gate, its own credentials and its own caps.' },
-      { state: 'credentials', tags: ['gate', 'credentials', 'caps'], name: 'Persona-routing bot', short: 'Routes personas between channels; keeps its own credentials.', why: 'Routing is not identity — each organ stays separate.' },
+      { state: 'gate', tags: ['gate', 'credentials', 'caps'], name: 'Blockchain-price sentinel', short: 'Watches blockchain prices.', why: 'Named among the organs the draft would let the operator route to; its own gate, its own credentials and its own caps.' },
+      { state: 'credentials', tags: ['gate', 'credentials', 'caps'], name: 'Persona-routing bot', short: 'Routes personas; keeps its own credentials.', why: 'Routing is not identity — each organ stays separate.' },
       { state: 'caps', tags: ['gate', 'credentials', 'caps'], name: 'Public website', short: 'The public site, routed like any other organ.', why: 'One identifier, one gate; no merge into the operator.' }
     ];
     var dlGrid = document.getElementById('dl-grid');
@@ -409,11 +409,11 @@
     });
     applyFilter('all');
 
-    // 02 — FOUR ORGAN CLASSES (F4): no product names, what each does
+    // 02 — FOUR ORGAN CLASSES: no product names, what each does
     var cards = [
       { id: 'analysis', role: 'Organ class · analysis', score: 'unratified',
         name: 'Real-estate analysis organ',
-        short: 'Reads property deals and market positions.',
+        short: 'Analyses real estate.',
         specs: ['Own gate', 'Own credentials', 'Own caps'],
         proof: 'Named in the draft; unratified, not live.' },
       { id: 'payment', role: 'Organ class · payment', score: 'unratified',
@@ -428,7 +428,7 @@
         proof: 'Separate infrastructure; identity stays separate.' },
       { id: 'routing', role: 'Organ class · routing', score: 'unratified',
         name: 'Routing organs',
-        short: 'A blockchain-price sentinel, a persona-routing bot and the public website — route and display, never act.',
+        short: 'A blockchain-price sentinel, a persona-routing bot and the public website — each named in the draft.',
         specs: ['Own gate', 'Own credentials', 'Own caps'],
         proof: 'Each keeps its own identifier; no two share a name.' }
     ];
@@ -528,11 +528,11 @@
       io.observe(wf);
     }
 
-    // 05 — WHAT RATIFICATION WOULD STILL NOT DO (F3)
+    // 05 — WHAT RATIFICATION WOULD STILL NOT DO
     var limits = [
-      { tag: 'still draft', title: 'No stage promoted', desc: 'The draft promotes no stage.', extra: 'Ratification would not create a stage where none exists.' },
-      { tag: 'still draft', title: 'No cap raised', desc: 'The draft raises no cap.', extra: 'No spending limit is changed by this motion.' },
-      { tag: 'still draft', title: 'No money', desc: 'The draft grants no financial capability.', extra: 'Money out stays closed wherever it stands today.' },
+      { tag: 'still draft', title: 'No stage promoted', desc: 'The draft promotes no stage.', extra: 'Ratification would promote no stage.' },
+      { tag: 'still draft', title: 'No cap raised', desc: 'The draft raises no cap.', extra: 'Ratification would raise no cap.' },
+      { tag: 'still draft', title: 'No money', desc: 'The draft grants no financial capability.', extra: 'The payment organ only ever receives funds; money out stays closed.' },
       { tag: 'still draft', title: 'No execution', desc: 'The draft authorizes no act.', extra: 'Any execution read into the draft is a conflict — refused, not acted on.' }
     ];
     var memGrid = document.getElementById('mem-grid');
@@ -550,7 +550,7 @@
       memGrid.appendChild(card);
     });
 
-    // 06 — NAMING COLLISION, FIXED (F5)
+    // 06 — NAMING COLLISION, FIXED
     var fixes = [
       { t: 'One bare name, four answers', s: 'House · local operator · cost router · sibling bot', d: 'Four identities collided under one bare name. The companion ruling gave each its own collision-proof identifier.', needs: 'naming ruling' },
       { t: 'The closing test', s: 'No shared names', d: 'No two agents may ever answer to the same name in any log, route or approval prompt.', needs: 'naming test' }
