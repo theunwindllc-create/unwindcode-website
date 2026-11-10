@@ -29,7 +29,7 @@ test('Transmission 42 has one consistent clean route across article and discover
 test('Transmission 42 is dated to 8 November 2026 and states it is a design, not a build', async () => {
   const page = await read(`transmissions/${id}.html`);
   assert.match(page, /"datePublished": "2026-11-08"/);
-  assert.match(page, /"dateModified": "2026-11-08"/);
+  assert.match(page, /"dateModified": "2026-11-10"/);
   for (const required of [
     'the machine pulls requests, every request is signed by the operator',
     'secrets travel sealed',
