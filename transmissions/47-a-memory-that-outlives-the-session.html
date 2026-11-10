@@ -329,11 +329,11 @@
           <p>If the gate finds a problem, the entry still exists on disk — only the receipt is withheld. The fix is to correct the problem, never to bypass the gate.</p>
         </div>
         <div class="wf-steps" id="wf-steps">
-          <div class="wf-step"><div class="wf-dot wf-dot-1">01</div><h3>The ruling fixes what the memory is</h3><p>A persistent, organized store — not a chat transcript. <span class="tx-prose-code">(F1)</span></p></div>
-          <div class="wf-step"><div class="wf-dot wf-dot-2">02</div><h3>An organ emits at its own decision points</h3><p>No scheduler, no clock — a failed job, a recovery, a session end. <span class="tx-prose-code">(F2)</span></p></div>
-          <div class="wf-step"><div class="wf-dot wf-dot-3">03</div><h3>Every write re-indexes immediately</h3><p>The index stays current with the journal, write by write.</p></div>
-          <div class="wf-step"><div class="wf-dot wf-dot-4">04</div><h3>A gated commit</h3><p>Scan, size and format check, foundational files protected — receipt withheld, never bypassed. <span class="tx-prose-code">(F4)</span></p></div>
-          <div class="wf-step"><div class="wf-dot wf-dot-5">05</div><h3>The index is searchable</h3><p>Keyword by default; meaning-based search is opt-in and asked for explicitly. <span class="tx-prose-code">(F5)</span></p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-1">01</div><h3>The ruling fixes what the memory is</h3><p>A persistent, organized store — not a chat transcript.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-2">02</div><h3>An organ emits at its own decision points</h3><p>No scheduler, no clock — a failed job, a recovery, a session end.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-3">03</div><h3>Every emit refreshes the index</h3><p>The searchable index is updated each time an entry is written.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-4">04</div><h3>A gated commit</h3><p>Scan, size and format check, foundational files protected — receipt withheld, never bypassed.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-5">05</div><h3>Search stays opt-in where it is deeper</h3><p>Meaning-based search is opt-in and asked for explicitly.</p></div>
         </div>
       </section>
 
@@ -343,7 +343,7 @@
         <div class="tx-section-label">Deliberate boundaries, not gaps</div>
         <div class="tx-prose">
           <p>Deeper search over the memory — meaning-based, not just keyword — is opt-in and has to be asked for explicitly; it does not run by default on every write. A single machine's working-memory summary for any hand is capped at a small, fixed size on purpose, so what loads at the start of a session stays a short brief, not the whole archive.</p>
-          <p>Raw operational logs, embeddings and private working notes stay outside on purpose. The memory is what the hands judged worth a line — nothing more, nothing automated beyond the five rules above.</p>
+          <p>Raw operational logs stay outside on purpose, and deeper search is opt-in. The memory is what the hands judged worth a line, nothing more.</p>
         </div>
         <div class="mem-grid" id="mem-grid"></div>
         <div class="oh-list" id="oh-list"></div>
@@ -357,7 +357,7 @@
 
       <div class="tx-cta">
         <h2>Draw the boundary before the code.</h2>
-        <p>If you are moving an autonomous system onto a chain and the real question is what must never move with it, we should talk.</p>
+        <p>If you are building a memory for agents and the real question is what must never be written into it, we should talk.</p>
         <a class="btn btn-primary btn-lg" href="/build-with-us"><span>Build With Us</span><span class="btn-arrow">→</span></a>
       </div>
     </div>
@@ -370,13 +370,13 @@
     // All data below is static and client-side. Nothing on this page makes a network call.
 
     // 01 — MEMORY FOLDERS
-    var states = { a: 'Operator', b: 'Any hand', c: 'Promotion', d: 'Gate', e: 'Gate' };
+    var states = { a: 'Operator', b: 'Any hand', c: 'Promotion', d: 'Gate' };
     var components = [
-      { state: 'a', name: 'The laws of the house', short: 'Foundational rules — amended only by the operator, never silently rewritten.', specs: ['Who writes: the operator', 'How checked: amendment in the open', 'Protected: foundational files'], proof: 'The gate rejects any silent rewrite of a foundational file.' },
-      { state: 'b', name: 'Daily journal', short: 'Dated entries at decision points — a failed job, a recovery, a session end — never on a timer.', specs: ['Who writes: any hand', 'How checked: dated entry, not settled', 'Promotes: through review'], proof: 'A line here is a line written, not a claim known.' },
-      { state: 'c', name: 'Knowledge folder', short: 'Only what survived review lives here; anything that relies on the memory reads from here.', specs: ['Who writes: promotion only', 'How checked: the review gate', 'Relied on: by every hand'], proof: 'Nothing reads from the journal until a review moves it up.' },
-      { state: 'd', name: 'Procedures', short: 'Recorded workflows — how a hand opens the rail, journals a finish, copies a page.', specs: ['Who writes: the hands', 'How checked: size and format scan', 'Format: short brief per job'], proof: 'One recorded workflow at a time.' },
-      { state: 'e', name: 'Skills', short: 'Working recipes for repeated jobs — each a short brief, not the whole archive.', specs: ['Who writes: a hand after the job works', 'How checked: gate scan before commit', 'Size: capped working set'], proof: 'The session start loads a summary, never the archive.' }
+      { state: 'a', name: 'Laws', short: 'Foundational rules; a handful of foundational files can never be silently rewritten.', specs: ['Who writes: the operator', 'Protected: foundational files'], proof: 'The gate stops a silent rewrite of a foundational file.' },
+      { state: 'b', name: 'Daily journal', short: 'Dated entries at decision points — a failed job, a recovery, a session end — never on a timer.', specs: ['Who writes: any hand', 'Status: dated entry, not settled fact', 'Promotes: through review'], proof: 'A line here is a line written, not a claim known.' },
+      { state: 'c', name: 'Knowledge folder', short: 'Only what survived review lives here; anything that relies on the memory reads from here.', specs: ['Who writes: promotion only', 'How checked: review before promotion'], proof: 'Nothing relies on a journal line until a review moves it up.' },
+      { state: 'd', name: 'Procedures', short: 'Recorded workflows that the hands repeat.', specs: ['Who writes: the hands', 'How checked: the gate before commit'], proof: 'Every write passes the same gate.' },
+      { state: 'd', name: 'Skills', short: 'Working recipes for repeated jobs.', specs: ['Who writes: the hands', 'How checked: the gate before commit'], proof: 'Every write passes the same gate.' }
     ];
     var dlGrid = document.getElementById('dl-grid');
     var dlCount = document.getElementById('dl-count');
@@ -424,25 +424,25 @@
         reads: 'the working-set summary, before it acts',
         writes: 'a dated entry when it finishes',
         specs: ['Reads: working-set summary', 'Writes: dated entry at finish', 'Clock: none', 'State: active'],
-        proof: 'Wired to the memory from its first session.' },
+        proof: 'Wired to the memory like the others: no scheduler, no clock.' },
       { id: 'hand-term', role: 'Hand · journaling', score: 'active',
         name: 'A terminal coding agent',
         reads: 'the working-set summary, before it acts',
         writes: 'a dated entry when it finishes',
         specs: ['Reads: working-set summary', 'Writes: dated entry at finish', 'Clock: none', 'State: active'],
-        proof: 'Wired to the memory from its first session.' },
+        proof: 'Wired to the memory like the others: no scheduler, no clock.' },
       { id: 'hand-local', role: 'Hand · journaling', score: 'active',
         name: 'A free local-model agent',
         reads: 'the working-set summary, before it acts',
         writes: 'a dated entry when it finishes',
         specs: ['Reads: working-set summary', 'Writes: dated entry at finish', 'Clock: none', 'State: active'],
-        proof: 'Wired to the memory from its first session.' },
+        proof: 'Wired to the memory like the others: no scheduler, no clock.' },
       { id: 'hand-shelved', role: 'Hand · journaling', score: 'shelved',
         name: 'A shelved autonomous agent',
         reads: 'the working-set summary, when it runs',
         writes: 'a dated entry when it finishes',
         specs: ['Reads: working-set summary', 'Writes: dated entry at finish', 'Clock: none', 'State: shelved'],
-        proof: 'Holds its place in the memory until un-shelved.' }
+        proof: 'Currently shelved; the fourth of the four wired hands.' }
     ];
     var modGrid = document.getElementById('mod-grid');
     var modDetail = document.getElementById('mod-detail');
@@ -537,28 +537,11 @@
       }, { threshold: 0.15 });
       io.observe(wf);
     }
-    var steps = [
-      { tag: 'plan', title: 'The ruling fixes what the memory is', desc: 'A persistent, organized store — not a chat transcript.', extra: 'The record calls it the ruled memory substrate. (F1)' },
-      { tag: 'plan', title: 'An organ emits at its own decision points', desc: 'No scheduler, no clock — a failed job, a recovery, a session end.', extra: 'Each hand reads the working-set summary before it acts. (F2)' },
-      { tag: 'plan', title: 'Every write re-indexes immediately', desc: 'The index stays current with the journal, write by write.', extra: 'Searchable from the next write onward.' },
-      { tag: 'plan', title: 'A gated commit', desc: 'Scan, size and format check, foundational files protected.', extra: 'Problem found: entry stays on disk, receipt withheld, gate never bypassed. (F4)' },
-      { tag: 'plan', title: 'The index is searchable', desc: 'Keyword by default; meaning-based search is opt-in.', extra: 'Asked for explicitly, never on every write. (F5)' }
-    ];
-    steps.forEach(function (s, i) {
-      var dotClass = 'wf-dot-' + ((i % 7) + 1);
-      var li = document.createElement('div');
-      li.className = 'wf-step';
-      li.innerHTML = '<div class="wf-dot ' + dotClass + '">' + (i + 1) + '</div><h3>' + s.title + '</h3><p>' + s.desc + '</p>';
-      wf.appendChild(li);
-    });
-
     // 05 — MEMORY BOUNDARIES + OPERATOR'S HAND
     var outside = [
-      { tag: 'opt-in', title: 'Meaning-based search', desc: 'Not keyword only — and it never runs by default on every write.', extra: 'It has to be asked for explicitly.' },
+      { tag: 'opt-in', title: 'Meaning-based search', desc: 'Retrieval by meaning, not keyword only. It does not run by default on every write.', extra: 'It has to be asked for explicitly.' },
       { tag: 'outside', title: 'Raw operational logs', desc: 'Ledgers, telemetry, per-run traces stay outside the memory entirely.', extra: 'Only events judged worth a line come in.' },
-      { tag: 'opt-in', title: 'Embeddings', desc: 'Meaning-based retrieval is opt-in; nothing is embedded on write by default.', extra: 'Requested per hand, never automatic.' },
-      { tag: 'outside', title: 'Private working notes', desc: 'Scratch thinking never enters the shared memory.', extra: "A hand's notes stay its own." },
-      { tag: 'capped', title: 'Working-memory summary', desc: 'Capped at a small, fixed size so session start loads a short brief.', extra: 'Not the whole archive — ever.' }
+      { tag: 'capped', title: 'Working-memory summary', desc: 'Capped at a small, fixed size so session start loads a short brief.', extra: 'A brief, not the whole archive.' }
     ];
     var memGrid = document.getElementById('mem-grid');
     outside.forEach(function (w) {
@@ -576,10 +559,10 @@
     });
 
     var changes = [
-      { t: 'Four hands, one memory', s: 'Four hands', d: 'Each reads the working-set summary before it acts and writes a dated entry when it finishes.', needs: 'baseline' },
-      { t: 'Written is not known', s: 'Promotion rule', d: 'A journal line promotes to knowledge only through review — never on write alone.', needs: 'baseline' },
-      { t: 'The gate holds the floor', s: 'The gate', d: 'Scan, size and format, foundational files protected; a problem withholds the receipt and is never bypassed.', needs: 'baseline' },
-      { t: 'Outside on purpose', s: 'Boundary', d: 'Raw logs, opt-in embeddings and private working notes stay out of the memory.', needs: 'baseline' }
+      { t: 'Four hands, one memory', s: 'Four hands', d: 'Each reads the working-set summary before it acts and writes a dated entry when it finishes.', needs: 'wired' },
+      { t: 'Written is not known', s: 'Promotion rule', d: 'A journal line promotes to knowledge only through review — never on write alone.', needs: 'rule' },
+      { t: 'The gate holds the floor', s: 'The gate', d: 'Scan, size and format, foundational files protected; a problem withholds the receipt and is never bypassed.', needs: 'gate' },
+      { t: 'Outside on purpose', s: 'Boundary', d: 'Raw logs stay out of the memory, and deeper search is opt-in.', needs: 'boundary' }
     ];
     var ohList = document.getElementById('oh-list');
     changes.forEach(function (h) {
