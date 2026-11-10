@@ -36,7 +36,7 @@
     "author": {"@type": "Organization", "name": "Unwind Code"},
     "publisher": {"@type": "Organization", "name": "Unwind Code", "url": "https://www.unwindcode.ai"},
     "datePublished": "2026-06-13",
-    "dateModified": "2026-06-13",
+    "dateModified": "2026-11-10",
     "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/27-the-site-became-a-public-index"
   }
   </script>
@@ -289,7 +289,7 @@
         <span class="pi-kicker">Transmission 027</span>
         <h1>The Site Became a Public Index</h1>
         <p class="pi-hero-sub">This is the Public Index Protocol: a compact guide for turning the website into a public coordinate system, so the Unwind Brain can retrieve, cite, qualify, and refuse before it ever claims answer authority.</p>
-        <div class="pi-meta"><span>June 2026</span><span>Brain Guide</span><span>Whitepaper Record</span><span>Public Memory</span></div>
+        <div class="pi-meta"><span>June 2026</span><span>Brain Guide</span><span>Whitepaper Record</span><span>Public Memory</span><span>Revised 10 Nov 2026</span></div><div class="rev-note" role="note" style="max-width:860px;margin:24px auto 0;padding:14px 18px;border:1px solid rgba(240,238,246,0.16);border-left:3px solid #d2ac5f;border-radius:10px;background:rgba(210,172,95,0.07);text-align:left;font-size:0.92rem;line-height:1.65;color:var(--text-secondary)"><strong>This note describes the state of 13 June 2026.</strong><br/><strong>Revised 10 November 2026.</strong> Rechecked against the shipped site code: the search and grounding routes still keep answer generation disabled, and the claim registry still labels claims with evidence status and risk. Two clarifications. (1) The claim registry holds six entries, covering the homepage positioning and the financial claims, as of 10 November 2026; it does not label the claims inside individual transmissions, so a citation from this index is not a verified claim. (2) The site also has a chat route that applies the same grounding policy to financial and site-claim questions. This note describes the search and grounding routes only. The "next cell" at the end, a source-backed answer draft cell, is a plan and has not been built as a separate cell.</div>
       </div>
     </section>
 
@@ -298,7 +298,7 @@
         <div class="pi-section-head"><span class="pi-section-num">01 / Failure mode</span><h2>Context without coordinates becomes agent entropy.</h2></div>
         <div class="pi-prose">
           <p>The early Unwind transmissions named the central failure of long-running agents: the model begins with intent, then loses shape as memory stays trapped in conversation. The public site answers that failure by giving public knowledge a place, a route, a status, and a boundary.</p>
-          <p>The Public Index Protocol is not a blog feature. It is the first safe external memory organ. It holds reviewed concepts, routes, claims, assets, and transmission summaries so future agents can retrieve public context without touching private runtime state.</p>
+          <p>The Public Index Protocol is not a blog feature. It is meant to be a safe external memory organ, and it is the first one the site built. It holds reviewed concepts, routes, claims, assets, and transmission summaries so future agents can retrieve public context without touching private runtime state.</p>
           <p>The key principle is simple: retrieval is not authority. A source can be found, ranked, cited, and qualified, and the Brain may still have no permission to answer, execute, deploy, post, advise, sign, spend, or mutate anything. The protocol keeps those powers separate.</p>
         </div>
         <div class="pi-atlas">
@@ -334,8 +334,8 @@
           <p>The law of the protocol is: no source without boundary, no answer without citations, no action without approval. That law turns the site from a brochure into a public reasoning substrate.</p>
         </div>
         <div class="pi-chart-grid">
-          <div class="pi-chart-card"><h3>Surface mix</h3><div class="pi-chart-box"><canvas id="piSurfaceChart"></canvas></div></div>
-          <div class="pi-chart-card"><h3>Authority posture</h3><div class="pi-chart-box"><canvas id="piAuthorityChart"></canvas></div></div>
+          <div class="pi-chart-card"><h3>Surface mix (illustrative judgment, not measured)</h3><div class="pi-chart-box"><canvas id="piSurfaceChart"></canvas></div></div>
+          <div class="pi-chart-card"><h3>Authority posture (a design target, not measured)</h3><div class="pi-chart-box"><canvas id="piAuthorityChart"></canvas></div></div>
         </div>
       </div>
     </section>
@@ -373,7 +373,7 @@
             <div class="pi-flow-step"><b>01</b><div><h3>Locate the public organ</h3><p>Route the question to architecture, claims, assets, organisms, transmissions, or status. Do not search private memory to answer a public reader.</p></div></div>
             <div class="pi-flow-step"><b>02</b><div><h3>Carry the boundary forward</h3><p>Every retrieved source keeps its review flags, claim context, and refusal rules attached. A citation without its boundary is not a citation.</p></div></div>
             <div class="pi-flow-step"><b>03</b><div><h3>Keep synthesis earned</h3><p>If the answer would move from source summary into advice, recommendation, public posting, deployment, file mutation, signing, or spending, the protocol exits retrieval mode.</p></div></div>
-            <div class="pi-flow-step"><b>04</b><div><h3>Record the next-cell memory</h3><p>The next cell should render source-backed answer drafts from grounding packets, but synthesis remains disabled until review proves the packet is complete.</p></div></div>
+            <div class="pi-flow-step"><b>04</b><div><h3>Record the next-cell memory</h3><p>Plan, not built as of 10 November 2026: the next cell should render source-backed answer drafts from grounding packets, but synthesis stays disabled until review proves the packet is complete.</p></div></div>
           </div>
         </div>
         <div class="pi-cta">
@@ -467,12 +467,12 @@
     };
     new Chart(document.getElementById('piSurfaceChart'), {
       type: 'bar',
-      data: { labels: ['Registry', 'Search', 'Grounding', 'Claims', 'Approval'], datasets: [{ label: 'Local surface depth', data: [9, 8, 8, 7, 7], backgroundColor: [chartColors.teal, chartColors.violet, chartColors.teal, chartColors.amber, chartColors.violet], borderRadius: 9 }] },
+      data: { labels: ['Registry', 'Search', 'Grounding', 'Claims', 'Approval'], datasets: [{ label: 'Illustrative surface depth (author\'s judgment)', data: [9, 8, 8, 7, 7], backgroundColor: [chartColors.teal, chartColors.violet, chartColors.teal, chartColors.amber, chartColors.violet], borderRadius: 9 }] },
       options: common
     });
     new Chart(document.getElementById('piAuthorityChart'), {
       type: 'radar',
-      data: { labels: ['Retrieve', 'Cite', 'Qualify', 'Refuse', 'Advise', 'Execute'], datasets: [{ label: 'Allowed posture', data: [9, 9, 8, 9, 2, 1], borderColor: chartColors.teal, backgroundColor: 'rgba(76,181,165,0.14)', pointBackgroundColor: chartColors.teal }] },
+      data: { labels: ['Retrieve', 'Cite', 'Qualify', 'Refuse', 'Advise', 'Execute'], datasets: [{ label: 'Intended posture (design target)', data: [9, 9, 8, 9, 2, 1], borderColor: chartColors.teal, backgroundColor: 'rgba(76,181,165,0.14)', pointBackgroundColor: chartColors.teal }] },
       options: { ...common, scales: { r: { grid: { color: chartColors.grid }, angleLines: { color: chartColors.grid }, pointLabels: { color: chartColors.text }, ticks: { display: false, min: 0, max: 10 } } } }
     });
   });
