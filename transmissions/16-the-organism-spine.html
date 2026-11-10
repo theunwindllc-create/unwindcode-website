@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Transmission 16: The Organism Spine | Unwind Code</title>
-  <meta name="description" content="How the Unwind Brain harness turns durable ledgers, task inboxes, approval maps, and exportable debriefs into an organism spine without unrestricted autonomy." />
+  <meta name="description" content="A design note on the Brain operating harness: a durable run ledger, a task lifecycle and an approval engine exist as tested code; a debrief exporter is a plan. Revised 10 November 2026." />
   <meta name="theme-color" content="#06060c" />
-  <link rel="canonical" href="https://unwindcode.ai/transmissions/16-the-organism-spine.html" />
+  <link rel="canonical" href="https://www.unwindcode.ai/transmissions/16-the-organism-spine" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Transmission 16: The Organism Spine | Unwind Code" />
-  <meta property="og:description" content="How the Unwind Brain harness turns durable ledgers, task inboxes, approval maps, and exportable debriefs into an organism spine without unrestricted autonomy." />
-  <meta property="og:url" content="https://unwindcode.ai/transmissions/16-the-organism-spine.html" />
+  <meta property="og:description" content="A design note on the Brain operating harness: a durable run ledger, a task lifecycle and an approval engine exist as tested code; a debrief exporter is a plan. Revised 10 November 2026." />
+  <meta property="og:url" content="https://www.unwindcode.ai/transmissions/16-the-organism-spine" />
   <meta property="og:site_name" content="Unwind Code" />
   <meta property="og:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
   <meta property="og:image:type" content="image/svg+xml" />
@@ -19,20 +19,19 @@
   <meta property="og:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Transmission 16: The Organism Spine | Unwind Code" />
-  <meta name="twitter:description" content="How the Unwind Brain harness turns durable ledgers, task inboxes, approval maps, and exportable debriefs into an organism spine without unrestricted autonomy." />
+  <meta name="twitter:description" content="A design note on the Brain operating harness: a durable run ledger, a task lifecycle and an approval engine exist as tested code; a debrief exporter is a plan. Revised 10 November 2026." />
   <meta name="twitter:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
   <meta name="twitter:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="/style.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "The Organism Spine",
-    "description": "How the Unwind Brain harness turns durable ledgers, task inboxes, approval maps, and exportable debriefs into an organism spine without unrestricted autonomy.",
+    "description": "A design note on the Brain operating harness: a durable run ledger, a task lifecycle and an approval engine exist as tested code; a debrief exporter is a plan. Revised 10 November 2026.",
     "author": {
       "@type": "Organization",
       "name": "Unwind Code"
@@ -40,11 +39,11 @@
     "publisher": {
       "@type": "Organization",
       "name": "Unwind Code",
-      "url": "https://unwindcode.ai"
+      "url": "https://www.unwindcode.ai"
     },
     "datePublished": "2026-05-20",
-    "dateModified": "2026-05-20",
-    "mainEntityOfPage": "https://unwindcode.ai/transmissions/16-the-organism-spine.html"
+    "dateModified": "2026-11-10",
+    "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/16-the-organism-spine"
   }
   </script>
   <style>
@@ -136,6 +135,29 @@
       .spine-detail, .queue-panel, .approval-panel, .chart-wrap, .debrief-panel { padding:20px; }
       .chart-box { height:280px; }
     }
+  
+    /* revision 2026-11-10: dated notes and state-of-record table */
+    .tx-dateline { margin-top:18px; font-size:0.84rem; color:var(--text-muted); }
+    .tx-revised { max-width:780px; margin:26px auto 0; text-align:left; background:rgba(110,45,190,0.07); border:1px solid var(--accent-border); border-left:3px solid var(--accent-hot); border-radius:12px; padding:16px 20px; font-size:0.9rem; line-height:1.65; color:var(--text-secondary); }
+    .tx-revised p { margin:0 0 10px; }
+    .tx-revised p:last-child { margin-bottom:0; }
+    .tx-revised strong { color:var(--text-primary); }
+    .st-wrap { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:20px; padding:24px; margin-top:28px; }
+    .st-wrap h3 { font-size:1.1rem; font-weight:700; margin-bottom:4px; }
+    .st-sub { font-size:0.82rem; color:var(--text-muted); margin-bottom:14px; }
+    .st-filter { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:8px; }
+    .st-filter button { background:rgba(110,45,190,0.08); border:1px solid var(--accent-border); color:var(--text-secondary); padding:6px 14px; border-radius:20px; font:inherit; font-size:0.8rem; cursor:pointer; }
+    .st-filter button.active { color:var(--text-primary); border-color:var(--accent-hot); background:rgba(110,45,190,0.2); }
+    .st-row { display:grid; grid-template-columns:170px 120px 1fr; gap:14px; padding:12px 0; border-top:1px solid var(--accent-border); font-size:0.88rem; line-height:1.55; color:var(--text-secondary); }
+    .st-row b { color:var(--text-primary); font-weight:600; }
+    .st-pill { display:inline-block; font-size:0.7rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:3px 10px; border-radius:20px; border:1px solid var(--accent-border); align-self:start; justify-self:start; }
+    .st-pill.built { color:#34d399; border-color:rgba(16,185,129,0.4); }
+    .st-pill.idle { color:#fbbf24; border-color:rgba(245,158,11,0.4); }
+    .st-pill.failing { color:#f87171; border-color:rgba(239,68,68,0.4); }
+    .st-pill.design { color:#a5b4fc; border-color:rgba(99,102,241,0.4); }
+    .nc-list { max-width:720px; color:var(--text-secondary); line-height:1.75; font-size:1rem; padding-left:20px; }
+    .nc-list li { margin-bottom:10px; }
+    @media(max-width:700px){ .st-row { grid-template-columns:1fr; gap:6px; } }
   </style>
 </head>
 <body class="tx-page">
@@ -158,7 +180,12 @@
         <div class="tx-kicker">TRANSMISSION 016</div>
         <h1>The Organism Spine</h1>
         <p class="tx-hero-sub">The Unwind Brain harness is becoming the operational spine: durable runs, a task inbox, governed authority, lifecycle controls, and debriefs that can leave the system as clean evidence.</p>
-        <div class="tx-hero-meta"><span>May 2026</span><span>Phase 3.1 / 3.2</span><span>Harness Architecture</span><span>8 min read</span></div>
+        <div class="tx-hero-meta"><span>May 2026</span><span>Phase 3.1 / 3.2</span><span>Harness Architecture</span><span>Revised 10 Nov 2026</span><span>8 min read</span></div>
+        <p class="tx-dateline" style="text-align:center">Written in May 2026 as a design note. State of the record checked on 10 November 2026 against the consolidation audit of 8 November and the organ-health diagnosis of 10 November.</p>
+        <div class="tx-revised">
+          <p><strong>Revised 10 November 2026.</strong> The note now separates what is built from what is planned.</p>
+          <p><strong>Correction, 10 November 2026.</strong> The percentages in the "Run Surface by Authority" chart (58, 34 and 8) were never measured; the chart is removed. Two of the four modules described, a standalone authority map and a debrief exporter, do not exist as code: the task inbox and approval handling are parts of the operator harness and the approval engine, and debrief export is a plan. Source file names are removed from the module cards. The sample tasks, ledger lines and debriefs in the widgets are illustrative and now say so. Section 06 gives the state of each part on 8 November 2026.</p>
+        </div>
       </div>
     </section>
 
@@ -167,7 +194,7 @@
         <div class="tx-section-head"><span class="tx-section-num">01</span><h2>From Harness to Spine</h2></div>
         <div class="tx-section-label">Click the organs to inspect the operating layer</div>
         <div class="tx-prose">
-          <p>A harness is not the mind. It is the anatomy that lets the mind keep its posture under load. Phase 3.1 and 3.2 move the Brain from loose execution toward a governed operating spine: every run leaves a ledger, every task enters a lifecycle, and every risky move is routed through explicit authority.</p>
+          <p>A harness is not the mind. It is the anatomy that lets the mind keep its posture under load. Phase 3.1 and 3.2 moved the Brain from loose execution toward a governed operating spine. In the code a run is written to a ledger, a task can be queued, assigned and cancelled, and an approval engine decides whether a step needs a human. Section 06 says which of this is running.</p>
           <p>The claim is narrow and important: <strong>this is not unrestricted autonomy</strong>. It is controlled orchestration with durable memory of what happened, who authorized it, and what should happen next.</p>
         </div>
 
@@ -186,6 +213,7 @@
 
         <div class="lifecycle">
           <div class="queue-panel">
+            <div class="st-sub" style="margin-bottom:12px">A simulation in your browser. It stores nothing and touches no system.</div>
             <div class="queue-toolbar">
               <button type="button" data-action="queue">Queue Task</button>
               <button type="button" data-action="assign">Assign</button>
@@ -196,8 +224,8 @@
             <div id="task-list"></div>
           </div>
           <div class="approval-panel">
-            <h3>Durable Run Ledger</h3>
-            <p class="detail-copy">The ledger records transitions as operational facts. It is not a personality layer. It is a spine: timestamped, replayable, and exportable.</p>
+            <h3>Durable Run Ledger (simulated)</h3>
+            <p class="detail-copy">In the real code the ledger records transitions as timestamped rows. It is not a personality layer. The lines below are simulated for this page.</p>
             <div class="ledger-box" id="ledger-box"></div>
           </div>
         </div>
@@ -237,14 +265,9 @@
           <p>When the run ends, the system should leave behind a useful artifact: what changed, what was blocked, what needs approval, and what should be queued next. The debrief is the bridge between the harness and the human organization around it.</p>
         </div>
 
-        <div class="debrief-grid">
-          <div class="chart-wrap">
-            <h3>Run Surface by Authority</h3>
-            <p class="detail-copy">A representative view of how the harness separates safe coordination from approval-gated work.</p>
-            <div class="chart-box"><canvas id="authorityChart"></canvas></div>
-          </div>
+        <div class="debrief-grid" style="grid-template-columns:1fr">
           <div class="debrief-panel">
-            <h3>Debrief Format Preview</h3>
+            <h3>Debrief Format Preview (a plan, not built)</h3>
             <div class="debrief-actions">
               <button type="button" data-debrief="operator">Operator</button>
               <button type="button" data-debrief="engineer">Engineer</button>
@@ -263,12 +286,33 @@
           <p>The organism spine lowers suffering by reducing ambiguity. It increases clarity by exposing state, permission, and next action. It preserves the light by keeping human authority where consequences leave the sandbox.</p>
         </div>
         <div class="fit-strip">
-          <div class="fit-item"><span>Ledger</span><p>Every run can be reviewed instead of reconstructed from scattered chat residue.</p></div>
+          <div class="fit-item"><span>Ledger</span><p>A run recorded in the ledger can be reviewed instead of reconstructed from scattered chat residue.</p></div>
           <div class="fit-item"><span>Inbox</span><p>Work enters a visible queue, gets owned, and can be cancelled before it drifts.</p></div>
-          <div class="fit-item"><span>Authority</span><p>The Brain can coordinate aggressively while stopping at public, financial, and host-impact boundaries.</p></div>
-          <div class="fit-item"><span>Debrief</span><p>The output becomes a clean artifact for humans, clients, and future cells.</p></div>
+          <div class="fit-item"><span>Authority</span><p>The design is to coordinate internally while stopping at public, financial, and host-impact boundaries.</p></div>
+          <div class="fit-item"><span>Debrief</span><p>Planned: the output becomes a clean artifact for humans, clients, and future cells.</p></div>
         </div>
-        <div class="tx-note">The spine does not make the Brain sovereign. It makes the Brain legible, interruptible, and useful enough to trust with more of the loop over time.</div>
+        <div class="tx-note">The spine does not make the Brain sovereign. It is meant to make the Brain legible and interruptible, so that more of the loop could be trusted to it over time.</div>
+      </section>
+
+      <section class="tx-section" id="state-of-record">
+        <div class="tx-section-head"><span class="tx-section-num">06</span><h2>State of the Record, and What This Note Does Not Claim</h2></div>
+        <div class="tx-section-label">Added 10 November 2026</div>
+        <div class="st-wrap" id="st-wrap">
+          <h3>The spine, as the record shows it</h3>
+          <p class="st-sub">Status on 8 November 2026 (organ health re-read on 10 November). Filter by state.</p>
+          <div class="st-filter"><button type="button" class="active" data-f="all">All</button><button type="button" data-f="built">Built, tested</button><button type="button" data-f="idle">Idle</button><button type="button" data-f="failing">Failing</button><button type="button" data-f="design">Design only</button></div>
+          <div class="st-row" data-s="built"><b>Run ledger</b><span class="st-pill built">Built, tested</span><span>Code and tests exist: runs and their events written to a database. The Brain application is not running as of 8 November; the repository has had no commit since August and holds hundreds of uncommitted files.</span></div>
+          <div class="st-row" data-s="built"><b>Task lifecycle</b><span class="st-pill built">Built, tested</span><span>Queue, assign and cancel exist in code with tests; cancelling a finished run is refused. The queue in daily use is a separate calendar of 402 tasks (155 done) with no running consumer.</span></div>
+          <div class="st-row" data-s="idle"><b>Approval authority</b><span class="st-pill idle">Idle</span><span>An approval engine tied to the exact action is built and tested. The live approval path holds no pending approvals and its newest decision was on 30 September. The custody gate is at Stage 0 because its Stage-1 grant expired on 4 October.</span></div>
+          <div class="st-row" data-s="design"><b>Debrief export</b><span class="st-pill design">Design only</span><span>No exporter exists. Debriefs on the record are journal entries and receipts written by the hands that did the work.</span></div>
+          <div class="st-row" data-s="failing"><b>Unattended running</b><span class="st-pill failing">Failing</span><span>Nothing runs unattended in the way the word suggests. The one autonomous executor of planned work, the build loop, has run nothing in forty days; its last success was 29 September.</span></div>
+        </div>
+        <ul class="nc-list" style="margin-top:28px">
+          <li>It does not claim the spine is running. The code and tests exist; the application that would use them has not run for weeks.</li>
+          <li>It does not claim debriefs are exported. That is a plan.</li>
+          <li>It does not claim any percentage of work is safe, gated or blocked. The old chart was not a measurement.</li>
+          <li>It does not claim the sample tasks, ledger lines or debriefs are real runs.</li>
+        </ul>
       </section>
 
       <div class="tx-cta">
@@ -309,34 +353,34 @@
       {
         name: 'Durable Run Ledger',
         tag: 'REPLAY',
-        path: 'src/cortex/run_ledger.py',
-        short: 'Append-only record of run events, decisions, approvals, failures, and debrief outputs.',
-        detail: 'The ledger turns execution into evidence. A run can be resumed, inspected, summarized, or audited because its transitions are recorded as structured facts instead of buried in a model transcript.',
-        bullets: ['Records lifecycle transitions and timestamps.', 'Links approvals to the exact action being authorized.', 'Feeds exportable debriefs without inventing history.']
+        state: 'built, tested, idle',
+        short: 'A durable record of runs and the events inside them.',
+        detail: 'Code and design: a run and its events are written to a database, so what happened can be inspected afterward instead of being buried in a model transcript. The code and its tests exist. The Brain application that would write to it has not been running (state of 8 November 2026).',
+        bullets: ['Records runs, events and status changes with timestamps.', 'Events are appended; a run\'s status is updated in place, so the ledger is durable, not immutable.', 'Approval decisions can be recorded as events beside the action they cover.']
       },
       {
-        name: 'Task Inbox',
+        name: 'Task Lifecycle',
         tag: 'INTAKE',
-        path: 'src/cortex/task_inbox.py',
-        short: 'A visible work surface for queued, active, blocked, cancelled, and completed tasks.',
-        detail: 'The inbox gives the Brain a front door. It separates incoming work from active work, makes ownership explicit, and allows cancellation before wasted motion becomes structural confusion.',
-        bullets: ['Queues tasks before execution.', 'Assigns work to a cell or operator context.', 'Keeps blocked tasks visible instead of forgotten.']
+        state: 'built, tested, idle',
+        short: 'Queue, assign and cancel, with each step recorded.',
+        detail: 'Inside the operator harness a task can be queued, assigned to an owner and cancelled, and cancelling a finished run is refused. It is a small, tested piece of code. The queue in daily use today is a separate calendar of tasks that has no running consumer.',
+        bullets: ['Queues a task before anything executes.', 'Records an assignee as metadata on the run.', 'Statuses in the code are pending, running, completed, failed and cancelled; there is no blocked state.']
       },
       {
-        name: 'Approval Authority Map',
+        name: 'Approval Authority',
         tag: 'GOVERN',
-        path: 'src/cortex/authority_map.py',
-        short: 'A permission matrix for what can run, what must pause, and what is out of bounds.',
-        detail: 'Authority is treated as architecture. The harness can route low-risk internal work quickly while requiring approval for filesystem writes, public messaging, deployment changes, and any financial or irreversible consequence.',
-        bullets: ['Allows internal coordination within defined scope.', 'Escalates consequential work to the human operator.', 'Blocks unrestricted autonomy and unapproved financial execution.']
+        state: 'engine built; band map is design',
+        short: 'An approval engine, and a design for three authority bands.',
+        detail: 'The approval engine decides per exact action, identified by a fingerprint of the action and its payload, with scopes such as once, session, deny and defer. The three bands in section 03 are the design the engine is meant to serve. Authority on the record sits one level up: the custody gate is at Stage 0 and every consequential step is the operator\'s hand.',
+        bullets: ['An approval applies to the exact action it names, not to a class of actions.', 'Unapproved financial execution and unrestricted autonomy are outside the harness by design.', 'The live approval path holds no pending approvals; the newest decision was on 30 September.']
       },
       {
         name: 'Exportable Debriefs',
-        tag: 'PROOF',
-        path: 'src/cortex/debrief_exporter.py',
-        short: 'Structured run summaries for operators, engineers, clients, and future cells.',
-        detail: 'A debrief converts the run ledger into an artifact. It reports what happened, what was intentionally not done, which approvals were requested, and what task should enter the next queue.',
-        bullets: ['Summarizes outcomes without overstating capability.', 'Exports operator and engineering views from the same record.', 'Creates continuity between runs without public self-modification.']
+        tag: 'PLAN',
+        state: 'plan, not built',
+        short: 'A planned summary of a run for operators, engineers and clients.',
+        detail: 'Design only. No debrief exporter exists in the code. The debriefs on the record are journal entries and receipts written by the hands that did the work. The previews in section 04 show a possible format, not output from a real run.',
+        bullets: ['Would summarize outcomes without overstating capability.', 'Would derive from the ledger only, so it cannot invent history.', 'Plan: operator, engineer and client views from one record.']
       }
     ];
 
@@ -347,7 +391,7 @@
     function renderSpineDetail(module) {
       spineDetail.innerHTML = [
         '<h3>' + module.name + '</h3>',
-        '<span class="path">' + module.path + '</span>',
+        '<span class="path">' + module.state + '</span>',
         '<p class="detail-copy">' + module.detail + '</p>',
         '<ul class="detail-list">' + module.bullets.map((item) => '<li>' + item + '</li>').join('') + '</ul>'
       ].join('');
@@ -369,9 +413,9 @@
     });
 
     const tasks = [
-      { title: 'Draft gateway run debrief', state: 'queued', note: 'Collect ledger events and produce operator summary.' },
-      { title: 'Route mobile command request', state: 'blocked', note: 'Requires approval before touching an external device channel.' },
-      { title: 'Map inbox cancellation path', state: 'queued', note: 'Verify cancelled work cannot continue downstream.' }
+      { title: 'Example task: draft a run summary', state: 'queued', note: 'Illustrative. Nothing here is stored or run.' },
+      { title: 'Example task: ask before an outside action', state: 'blocked', note: 'Illustrative. The real code has no blocked state; this is how a held task could be shown.' },
+      { title: 'Example task: check that a cancel stops work', state: 'queued', note: 'Illustrative.' }
     ];
     const taskList = document.getElementById('task-list');
     const ledgerBox = document.getElementById('ledger-box');
@@ -393,17 +437,17 @@
     }
 
     const lifecycleText = {
-      queue: 'queued new task: export latest run as markdown and JSON',
-      assign: 'assigned task to cortex.harness with operator visibility',
-      run: 'started run after authority check: internal coordination only',
-      cancel: 'cancelled blocked mobile command before external action',
-      debrief: 'exported debrief: outcomes, blocked actions, approvals, next tasks'
+      queue: 'queued a new example task (simulated)',
+      assign: 'assigned the task to an owner (simulated)',
+      run: 'started the example run after a simulated authority check',
+      cancel: 'cancelled the held example task (simulated)',
+      debrief: 'previewed a debrief; no exporter exists (plan)'
     };
 
     document.querySelectorAll('[data-action]').forEach((button) => {
       button.addEventListener('click', () => {
         const action = button.dataset.action;
-        if (action === 'queue') tasks.unshift({ title: 'Export latest run as markdown and JSON', state: 'queued', note: 'Prepared for operator review, not public posting.' });
+        if (action === 'queue') tasks.unshift({ title: 'Example task: new item', state: 'queued', note: 'Illustrative. Nothing is stored.' });
         if (action === 'assign') tasks[0].state = 'assigned';
         if (action === 'run') tasks[0].state = 'running';
         if (action === 'cancel') tasks[1].state = 'cancelled';
@@ -414,7 +458,7 @@
     });
 
     renderTasks();
-    log('ledger initialized for transmission preview');
+    log('simulated ledger started in this page; nothing is stored');
 
     const authorityResult = document.getElementById('authority-result');
     const authorityCopy = {
@@ -430,9 +474,9 @@
 
     const debriefOutput = document.getElementById('debrief-output');
     const debriefs = {
-      operator: '<h4>Operator Debrief</h4><code>run_id: ub-2026-05-20-031\nstatus: completed_with_blocks\ncompleted:\n  - queued and assigned inbox tasks\n  - generated exportable run summary\nblocked:\n  - external command required approval\nnext:\n  - review blocked command\n  - approve, revise, or cancel</code>',
-      engineer: '<h4>Engineer Debrief</h4><code>components:\n  - run_ledger\n  - task_inbox\n  - authority_map\n  - debrief_exporter\nnotes:\n  - cancellation path must terminate downstream work\n  - approval events should link to exact command payload\n  - debrief output should derive from ledger only</code>',
-      client: '<h4>Client Debrief</h4><code>summary:\n  The Brain completed internal coordination tasks and produced a structured run report.\nlimits:\n  It did not execute financial actions, publish publicly, or modify live systems without approval.\nvalue:\n  Clear state, visible blockers, and a concrete next-action list.</code>'
+      operator: '<h4>Operator Debrief (illustrative format)</h4><code>run_id: example-run\nstatus: completed_with_blocks\ncompleted:\n  - queued and assigned inbox tasks\n  - generated exportable run summary\nblocked:\n  - external command required approval\nnext:\n  - review blocked command\n  - approve, revise, or cancel</code>',
+      engineer: '<h4>Engineer Debrief (illustrative format)</h4><code>components:\n  - run_ledger\n  - task_inbox\n  - authority_map\n  - debrief_exporter\nnotes:\n  - cancellation path must terminate downstream work\n  - approval events should link to exact command payload\n  - debrief output should derive from ledger only</code>',
+      client: '<h4>Client Debrief (illustrative format)</h4><code>summary:\n  The Brain completed internal coordination tasks and produced a structured run report.\nlimits:\n  It did not execute financial actions, publish publicly, or modify live systems without approval.\nvalue:\n  Clear state, visible blockers, and a concrete next-action list.</code>'
     };
     document.querySelectorAll('[data-debrief]').forEach((button) => {
       button.addEventListener('click', () => {
@@ -441,49 +485,21 @@
     });
     debriefOutput.innerHTML = debriefs.operator;
 
-    const chartColors = {
-      accent: 'rgba(155,89,245,1)',
-      accentFill: 'rgba(155,89,245,0.15)',
-      hot: 'rgba(192,132,252,1)',
-      teal: 'rgba(13,148,136,0.7)',
-      grid: 'rgba(240,238,246,0.08)',
-      text: 'rgba(240,238,246,0.35)'
-    };
-
-    new Chart(document.getElementById('authorityChart'), {
-      type: 'doughnut',
-      data: {
-        labels: ['Internal coordination', 'Approval-gated', 'Blocked by policy'],
-        datasets: [{
-          data: [58, 34, 8],
-          backgroundColor: [chartColors.teal, chartColors.accent, 'rgba(239,68,68,0.66)'],
-          borderColor: 'rgba(6,6,12,0.9)',
-          borderWidth: 3,
-          hoverOffset: 6
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            position: 'bottom',
-            labels: { color: chartColors.text, font: { family: 'Inter' }, padding: 18 }
-          },
-          tooltip: {
-            backgroundColor: 'rgba(15,15,30,0.95)',
-            titleFont: { family: 'Inter' },
-            bodyFont: { family: 'Inter' },
-            padding: 10,
-            cornerRadius: 8,
-            callbacks: {
-              label: (context) => context.label + ': ' + context.parsed + '% of represented run surface'
-            }
-          }
-        },
-        cutout: '62%'
-      }
-    });
+    // STATE-OF-RECORD FILTER (revised 2026-11-10)
+    (function () {
+      var wrap = document.getElementById('st-wrap');
+      if (!wrap) return;
+      var rows = wrap.querySelectorAll('.st-row');
+      var btns = wrap.querySelectorAll('.st-filter button');
+      btns.forEach(function (b) {
+        b.addEventListener('click', function () {
+          btns.forEach(function (x) { x.classList.remove('active'); });
+          b.classList.add('active');
+          var f = b.getAttribute('data-f');
+          rows.forEach(function (r) { r.style.display = (f === 'all' || r.getAttribute('data-s') === f) ? '' : 'none'; });
+        });
+      });
+    })();
   });
   </script>
 </body>
