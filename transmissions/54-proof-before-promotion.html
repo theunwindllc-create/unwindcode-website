@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Transmission 54: Proof Before Promotion | Unwind Code</title>
+  <meta name="description" content="Done means a tested, end-to-end result with a receipt, never a document or profile created — a system that counts only receipts shows zero where nothing is verified, and that zero is the point." />
+  <meta name="theme-color" content="#06060c" />
+  <link rel="canonical" href="https://www.unwindcode.ai/transmissions/54-proof-before-promotion" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Proof Before Promotion" />
+  <meta property="og:description" content="Done means a tested, end-to-end result with a receipt, never a document or profile created — a system that counts only receipts shows zero where nothing is verified, and that zero is the point." />
+  <meta property="og:url" content="https://www.unwindcode.ai/transmissions/54-proof-before-promotion" />
+  <meta property="og:site_name" content="Unwind Code" />
+  <meta property="og:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
+  <meta property="og:image:type" content="image/svg+xml" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Unwind Code AI organism architecture lab visual" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Proof Before Promotion" />
+  <meta name="twitter:description" content="Done means a tested, end-to-end result with a receipt, never a document or profile created — a system that counts only receipts shows zero where nothing is verified, and that zero is the point." />
+  <meta name="twitter:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
+  <meta name="twitter:image:alt" content="Unwind Code AI organism architecture lab visual" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Proof Before Promotion",
+    "description": "Done means a tested, end-to-end result with a receipt, never a document or profile created — a system that counts only receipts shows zero where nothing is verified, and that zero is the point.",
+    "author": {"@type": "Organization", "name": "Unwind Code"},
+    "publisher": {"@type": "Organization", "name": "Unwind Code", "url": "https://www.unwindcode.ai"},
+    "datePublished": "2026-11-09",
+    "dateModified": "2026-11-09",
+    "keywords": ["receipt", "proof", "done", "audit", "custody boundary"],
+    "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/54-proof-before-promotion"
+  }
+  </script>
+  <style>
+    .tx-page { background: var(--bg-void); color: var(--text-primary); }
+    .tx-page *, .tx-page *::before, .tx-page *::after { box-sizing: border-box; }
+    .tx-hero { padding: 160px 0 72px; text-align: center; position: relative; overflow: hidden; }
+    .tx-hero::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:800px; height:800px; background:radial-gradient(circle, rgba(110,45,190,0.12) 0%, transparent 60%); pointer-events:none; }
+    .tx-hero-kicker { margin-bottom:16px; }
+    .tx-hero h1 { font-size:clamp(2.2rem,5vw,3.5rem); font-weight:800; letter-spacing:-0.04em; line-height:1.08; margin:0 0 20px; }
+    .tx-hero-sub { font-size:1.08rem; color:var(--text-secondary); max-width:660px; margin:0 auto; line-height:1.7; }
+    .tx-hero-meta { margin-top:28px; display:flex; justify-content:center; gap:14px; font-size:0.76rem; color:var(--text-muted); font-weight:600; letter-spacing:0.06em; text-transform:uppercase; flex-wrap:wrap; }
+    .tx-section { padding:72px 0; border-top:1px solid var(--accent-border); }
+    .tx-section:first-of-type { border-top:none; padding-top:24px; }
+    .tx-section-head { display:flex; align-items:center; gap:16px; margin-bottom:10px; }
+    .tx-section-num { font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:700; color:var(--accent-hot); letter-spacing:0.15em; }
+    .tx-section h2 { font-size:clamp(1.5rem,3vw,2rem); font-weight:700; letter-spacing:-0.02em; margin:0; }
+    .tx-section-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:24px; }
+    .tx-prose { font-size:1.04rem; color:var(--text-secondary); line-height:1.8; max-width:720px; }
+    .tx-prose p { margin:0 0 22px; }
+    .tx-prose strong { color:var(--text-primary); font-weight:600; }
+    .tx-prose code, .tx-prose-code { font-family:'JetBrains Mono',monospace; font-size:0.84rem; background:rgba(110,45,190,0.1); color:var(--accent-light); padding:2px 6px; border-radius:4px; }
+    .tx-prose a, .tx-inline { color:var(--accent-light); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    .tx-quote { border-left:3px solid var(--accent); padding:18px 24px; margin:36px 0; background:rgba(110,45,190,0.05); border-radius:0 12px 12px 0; color:var(--text-primary); font-size:1.08rem; line-height:1.6; font-weight:500; max-width:720px; }
+    .tx-after { margin-top:36px; }
+
+    /* 01 — Dividing line filter */
+    .dl-filters { display:flex; flex-wrap:wrap; gap:10px; margin:28px 0 18px; }
+    .dl-chip { font-family:inherit; font-size:0.78rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:9px 16px; border-radius:999px; border:1px solid var(--accent-border); background:var(--bg-surface); color:var(--text-secondary); cursor:pointer; transition:border-color .2s ease, color .2s ease, background .2s ease; }
+    .dl-chip:hover { border-color:rgba(110,45,190,0.4); color:var(--text-primary); }
+    .dl-chip[aria-pressed="true"] { background:rgba(110,45,190,0.16); border-color:var(--accent-light); color:var(--text-primary); }
+    .dl-chip-a[aria-pressed="true"] { border-color:#9b59f5; }
+    .dl-chip-b[aria-pressed="true"] { border-color:#38bdf8; }
+    .dl-count { font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:var(--text-muted); margin-bottom:16px; letter-spacing:0.06em; }
+    .dl-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:12px; }
+    .dl-card { font-family:inherit; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:18px; cursor:pointer; transition:border-color .25s ease, transform .25s ease, opacity .25s ease; }
+    .dl-card:hover { transform:translateY(-2px); border-color:rgba(110,45,190,0.4); }
+    .dl-card[hidden] { display:none; }
+    .dl-state { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.12em; padding:3px 9px; border-radius:999px; border:1px solid currentColor; margin-bottom:10px; }
+    .dl-state-a { color:#c084fc; } .dl-state-b { color:#38bdf8; } .dl-state-c { color:#fbbf24; } .dl-state-d { color:#fbbf24; } .dl-state-e { color:#38bdf8; }
+    .dl-name { font-weight:700; font-size:0.96rem; margin-bottom:4px; }
+    .dl-short { font-size:0.84rem; color:var(--text-secondary); line-height:1.55; }
+    .dl-why { display:none; margin-top:12px; padding-top:12px; border-top:1px solid var(--accent-border); font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+    .dl-card[aria-expanded="true"] .dl-why { display:block; }
+    .dl-hint { font-size:0.68rem; color:var(--accent-hot); margin-top:10px; font-weight:600; letter-spacing:0.05em; }
+    .dl-law { margin-top:32px; border:1px solid rgba(251,191,36,0.28); border-radius:16px; padding:24px 28px; background:linear-gradient(180deg,rgba(251,191,36,0.07),rgba(251,191,36,0.015)); max-width:720px; }
+    .dl-law h3 { margin:0 0 10px; font-size:1rem; color:#fbbf24; }
+    .dl-law p { margin:0; font-size:0.95rem; color:var(--text-secondary); line-height:1.7; }
+
+    /* 02 — Canister explorer */
+    .mod-explorer { display:grid; grid-template-columns:1fr 1.25fr; gap:24px; margin-top:32px; }
+    .mod-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; align-content:start; }
+    .mod-node { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:20px; cursor:pointer; transition:all 0.25s ease; text-align:left; font-family:inherit; color:var(--text-primary); }
+    .mod-node:hover, .mod-node[aria-pressed="true"] { border-color:rgba(110,45,190,0.45); transform:translateY(-2px); box-shadow:0 8px 24px rgba(110,45,190,0.1); }
+    .mod-node[aria-pressed="true"] { background:rgba(110,45,190,0.08); }
+    .mod-glyph { font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--accent-hot); letter-spacing:0.14em; margin-bottom:10px; display:block; }
+    .mod-name { font-weight:700; font-size:1.02rem; font-family:'JetBrains Mono',monospace; }
+    .mod-path { font-size:0.78rem; color:var(--text-muted); margin-top:6px; line-height:1.4; }
+    .mod-score { margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:#34d399; }
+    .mod-detail { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:20px; padding:32px; min-height:420px; }
+    .mod-detail-title { font-size:1.4rem; font-weight:700; margin-bottom:8px; font-family:'JetBrains Mono',monospace; }
+    .mod-detail-type { display:inline-block; font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent-hot); background:rgba(110,45,190,0.12); border:1px solid rgba(110,45,190,0.2); padding:4px 12px; border-radius:20px; margin-bottom:20px; }
+    .mod-detail-desc { color:var(--text-secondary); line-height:1.7; font-size:0.95rem; margin-bottom:22px; }
+    .mod-specs-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:10px; }
+    .mod-specs { display:flex; flex-wrap:wrap; gap:8px; }
+    .mod-spec { background:rgba(110,45,190,0.08); border:1px solid var(--accent-border); color:var(--accent-light); padding:6px 14px; border-radius:20px; font-size:0.8rem; font-weight:500; }
+    .mod-proof { margin-top:22px; padding-top:18px; border-top:1px solid var(--accent-border); font-size:0.84rem; color:var(--text-muted); line-height:1.6; }
+    .mod-proof strong { color:#34d399; font-family:'JetBrains Mono',monospace; font-weight:600; }
+    .mod-deploy { margin-top:24px; display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:12px; }
+    .mod-stat { border:1px solid var(--accent-border); border-radius:12px; padding:16px; background:rgba(0,0,0,0.2); }
+    .mod-stat-k { font-family:'JetBrains Mono',monospace; font-size:0.64rem; letter-spacing:0.13em; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; }
+    .mod-stat-v { font-family:'JetBrains Mono',monospace; font-size:1.2rem; font-weight:600; line-height:1.25; }
+
+    /* 03 — Certified read model */
+    .cr-wrap { margin-top:28px; border:1px solid rgba(56,189,248,0.22); border-radius:20px; padding:28px; background:linear-gradient(180deg,rgba(56,189,248,0.06),rgba(56,189,248,0.01)); }
+    .cr-top { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; }
+    .cr-label { font-family:'JetBrains Mono',monospace; font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:#38bdf8; }
+    .cr-faults { display:flex; flex-wrap:wrap; gap:8px; }
+    .cr-fault { font-family:inherit; font-size:0.76rem; font-weight:700; padding:8px 14px; border-radius:999px; border:1px solid var(--accent-border); background:var(--bg-surface); color:var(--text-secondary); cursor:pointer; transition:border-color .2s ease, color .2s ease; }
+    .cr-fault:hover { color:var(--text-primary); border-color:rgba(248,113,113,0.5); }
+    .cr-fault[aria-pressed="true"] { color:#fca5a5; border-color:#f87171; background:rgba(248,113,113,0.1); }
+    .cr-fault-reset[aria-pressed="true"] { color:#34d399; border-color:#10b981; background:rgba(16,185,129,0.1); }
+    .cr-cols { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .cr-col { border:1px solid var(--accent-border); border-radius:14px; padding:18px; background:rgba(0,0,0,0.22); }
+    .cr-col h3 { margin:0 0 4px; font-size:0.98rem; }
+    .cr-col-sub { font-size:0.78rem; color:var(--text-muted); margin:0 0 14px; line-height:1.5; }
+    .cr-steps { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
+    .cr-step { display:grid; grid-template-columns:22px 1fr auto; gap:10px; align-items:start; padding:10px 12px; border-radius:10px; border:1px solid var(--accent-border); font-size:0.84rem; line-height:1.5; color:var(--text-secondary); transition:border-color .2s ease, background .2s ease; }
+    .cr-step-n { font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--text-muted); padding-top:3px; }
+    .cr-step-t { color:var(--text-primary); font-weight:600; display:block; }
+    .cr-step-d { display:block; font-size:0.78rem; color:var(--text-muted); margin-top:2px; }
+    .cr-verdict { font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:700; letter-spacing:0.08em; padding-top:3px; white-space:nowrap; }
+    .cr-step.pass { border-color:rgba(16,185,129,0.35); } .cr-step.pass .cr-verdict { color:#34d399; }
+    .cr-step.fail { border-color:#f87171; background:rgba(248,113,113,0.08); } .cr-step.fail .cr-verdict { color:#fca5a5; }
+    .cr-step.skip { opacity:0.42; } .cr-step.skip .cr-verdict { color:var(--text-muted); }
+    .cr-step.blind { border-color:rgba(251,191,36,0.3); } .cr-step.blind .cr-verdict { color:#fbbf24; }
+    .cr-outcome { margin-top:16px; border-radius:12px; padding:14px 16px; font-size:0.9rem; line-height:1.6; border:1px solid var(--accent-border); background:rgba(0,0,0,0.22); color:var(--text-secondary); }
+    .cr-outcome strong { color:var(--text-primary); }
+    .cr-outcome.refused { border-color:rgba(248,113,113,0.4); }
+    .cr-outcome.clean { border-color:rgba(16,185,129,0.35); }
+    .cr-note { margin:14px 0 0; font-size:0.8rem; color:var(--text-muted); line-height:1.6; }
+    .tx-bound { border:1px solid rgba(232,161,92,0.28); border-radius:16px; padding:26px 28px; background:linear-gradient(180deg,rgba(232,161,92,0.08),rgba(232,161,92,0.02)); margin:32px 0 0; max-width:760px; }
+    .tx-bound h3 { margin:0 0 12px; color:#e8a15c; font-size:1.02rem; }
+    .tx-bound p { margin:0 0 12px; font-size:0.95rem; color:var(--text-secondary); line-height:1.7; }
+    .tx-bound p:last-child { margin:0; }
+    .tx-bound code { font-family:'JetBrains Mono',monospace; font-size:0.8rem; color:var(--text-primary); }
+
+    /* 04 — Timeline + toolchain cards */
+    .wf-steps { position:relative; margin-top:32px; padding-left:40px; max-width:760px; }
+    .wf-steps::before { content:''; position:absolute; left:19px; top:0; bottom:0; width:2px; background:var(--accent-border); }
+    .wf-step { position:relative; margin-bottom:40px; }
+    .wf-step:last-child { margin-bottom:0; }
+    .wf-dot { position:absolute; left:-40px; top:0; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:800; z-index:2; font-family:'JetBrains Mono',monospace; }
+    .wf-dot-1 { background:rgba(110,45,190,0.15); color:var(--accent-light); border:2px solid var(--accent); }
+    .wf-dot-2 { background:rgba(79,70,229,0.15); color:#818cf8; border:2px solid #6366f1; }
+    .wf-dot-3 { background:rgba(14,165,233,0.15); color:#38bdf8; border:2px solid #0ea5e9; }
+    .wf-dot-4 { background:rgba(16,185,129,0.15); color:#34d399; border:2px solid #10b981; }
+    .wf-dot-5 { background:rgba(245,158,11,0.15); color:#fbbf24; border:2px solid #f59e0b; }
+    .wf-dot-6 { background:rgba(248,113,113,0.15); color:#fca5a5; border:2px solid #f87171; }
+    .wf-dot-7 { background:linear-gradient(135deg,var(--accent),var(--accent-light)); color:#fff; border:none; }
+    .wf-step h3 { font-size:1.06rem; font-weight:700; margin:0 0 6px; padding-top:8px; }
+    .wf-step p { font-size:0.92rem; color:var(--text-secondary); line-height:1.65; margin:0; }
+    .wf-step code { font-family:'JetBrains Mono',monospace; font-size:0.8rem; background:rgba(110,45,190,0.1); color:var(--accent-light); padding:2px 6px; border-radius:4px; }
+    .wf-step.reveal-step { opacity:0; transform:translateY(10px); animation:wfIn .6s ease forwards; }
+    .wf-step.reveal-step:nth-child(1){animation-delay:.05s}.wf-step.reveal-step:nth-child(2){animation-delay:.15s}.wf-step.reveal-step:nth-child(3){animation-delay:.25s}.wf-step.reveal-step:nth-child(4){animation-delay:.35s}.wf-step.reveal-step:nth-child(5){animation-delay:.45s}.wf-step.reveal-step:nth-child(6){animation-delay:.55s}.wf-step.reveal-step:nth-child(7){animation-delay:.65s}
+    @keyframes wfIn { to { opacity:1; transform:none; } }
+    .mem-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:28px; }
+    .mem-card { font-family:inherit; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:16px; padding:24px; cursor:pointer; transition:all 0.3s ease; }
+    .mem-card:hover { border-color:rgba(110,45,190,0.35); transform:translateY(-3px); box-shadow:0 8px 24px rgba(110,45,190,0.08); }
+    .mem-card h4 { font-size:0.98rem; font-weight:700; margin:0 0 8px; display:flex; align-items:center; gap:10px; }
+    .mem-tag { font-family:'JetBrains Mono',monospace; font-size:0.62rem; letter-spacing:0.12em; color:var(--accent-hot); border:1px solid rgba(110,45,190,0.3); padding:2px 8px; border-radius:999px; text-transform:uppercase; white-space:nowrap; }
+    .mem-card p { font-size:0.87rem; color:var(--text-secondary); line-height:1.6; margin:0; }
+    .mem-extra { display:none; margin-top:14px; padding-top:14px; border-top:1px solid var(--accent-border); font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+    .mem-card[aria-expanded="true"] .mem-extra { display:block; }
+    .mem-hint { font-size:0.68rem; color:var(--accent-hot); margin-top:12px; font-weight:600; letter-spacing:0.05em; }
+
+    /* 05 — Operator's hand */
+    .oh-list { display:flex; flex-direction:column; gap:12px; margin-top:28px; max-width:760px; }
+    .oh-item { font-family:inherit; text-align:left; color:var(--text-primary); border:1px solid var(--accent-border); border-radius:14px; padding:18px 22px; background:var(--bg-surface); display:grid; grid-template-columns:auto 1fr auto; gap:16px; align-items:start; cursor:pointer; transition:border-color .2s ease; }
+    .oh-item:hover { border-color:rgba(110,45,190,0.4); }
+    .oh-item[aria-expanded="true"] { border-color:var(--accent-light); }
+    .oh-box { width:22px; height:22px; border-radius:6px; border:2px solid rgba(240,238,246,0.3); margin-top:2px; position:relative; }
+    .oh-box::after { content:''; position:absolute; inset:4px; border-radius:2px; background:transparent; }
+    .oh-t { font-weight:650; font-size:0.98rem; margin-bottom:4px; }
+    .oh-s { font-size:0.85rem; color:var(--text-muted); }
+    .oh-d { font-size:0.9rem; color:var(--text-secondary); line-height:1.65; max-height:0; overflow:hidden; transition:max-height .3s ease, margin .3s ease; }
+    .oh-item[aria-expanded="true"] .oh-d { max-height:260px; margin-top:12px; }
+    .oh-needs { font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:4px 10px; border-radius:999px; border:1px solid currentColor; white-space:nowrap; margin-top:2px; }
+    .oh-needs-key { color:#c084fc; } .oh-needs-funds { color:#fbbf24; } .oh-needs-passkey { color:#38bdf8; } .oh-needs-secret { color:#fca5a5; }
+    .oh-foot { margin-top:16px; font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:var(--text-muted); letter-spacing:0.06em; }
+    .oh-refusal { margin-top:36px; border:1px solid rgba(248,113,113,0.3); border-radius:16px; padding:26px 28px; background:linear-gradient(180deg,rgba(248,113,113,0.07),rgba(248,113,113,0.015)); max-width:760px; }
+    .oh-refusal h3 { margin:0 0 12px; font-size:1.02rem; color:#fca5a5; }
+    .oh-refusal p { margin:0 0 12px; font-size:0.95rem; color:var(--text-secondary); line-height:1.7; }
+    .oh-refusal p:last-child { margin:0; }
+
+    /* Related + CTA */
+    .tx-related { margin-top:40px; padding-top:22px; border-top:1px solid var(--accent-border); font-size:0.9rem; color:var(--text-muted); line-height:1.7; }
+    .tx-related a { color:var(--accent-light); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    .tx-cta { text-align:center; padding:64px 40px; background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:28px; margin-top:72px; }
+    .tx-cta h2 { font-size:1.6rem; font-weight:700; margin:0 0 12px; }
+    .tx-cta p { color:var(--text-secondary); font-size:0.95rem; margin:0 auto 28px; max-width:520px; line-height:1.7; }
+
+    @media(max-width:900px) {
+      .mod-explorer, .cr-cols, .mem-grid { grid-template-columns:1fr; }
+      .mod-grid { grid-template-columns:1fr 1fr; }
+      .mod-detail { min-height:0; }
+    }
+    @media(max-width:640px) {
+      .mod-grid { grid-template-columns:1fr; }
+      .tx-hero { padding:130px 0 56px; }
+      .tx-section { padding:56px 0; }
+      .cr-wrap, .mod-detail { padding:20px; }
+      .oh-item { grid-template-columns:auto 1fr; }
+      .oh-needs { grid-column:2; justify-self:start; }
+      .cr-step { grid-template-columns:18px 1fr; }
+      .cr-verdict { grid-column:2; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .wf-step.reveal-step { animation:none; opacity:1; transform:none; }
+      .dl-card, .mod-node, .mem-card, .oh-d, .cr-step, .dl-chip, .cr-fault { transition:none; }
+      .dl-card:hover, .mod-node:hover, .mem-card:hover { transform:none; }
+    }
+  </style>
+</head>
+<body class="tx-page">
+
+  <nav id="nav" class="scrolled">
+    <a href="/" class="nav-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="/" data-i18n="nav.home">Home</a>
+      <a href="/organisms" data-i18n="nav.organisms">Organisms</a>
+      <a href="/architecture" data-i18n="nav.architecture">Architecture</a>
+      <a href="/proof" data-i18n="nav.proof">Proof</a>
+      <a href="/transmissions" class="active" aria-current="page" data-i18n="nav.blog">Transmissions</a>
+      <a href="/philosophy" data-i18n="nav.philosophy">Philosophy</a>
+    </div>
+    <div class="nav-actions">
+      <button id="lang-toggle" class="lang-toggle" aria-label="Switch to Spanish">ES</button>
+      <a href="/build-with-us" class="nav-cta" data-i18n="nav.cta">Build With Us</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="tx-hero">
+      <div class="container">
+        <div class="tx-hero-kicker"><span class="tx-section-num">TRANSMISSION 054</span></div>
+        <h1>Proof Before<br>Promotion</h1>
+        <p class="tx-hero-sub">Done means a tested, end-to-end result with a receipt, never a document or profile created. That standard already governs three parts of the organism: an unbroken proof chain, a shared job board where a job is not finished until it names its own result, and an audit that checked claimed agents against ones with a running trace.</p>
+        <div class="tx-hero-meta"><span>November 2026</span><span>·</span><span>Field note</span><span>·</span><span>Evidence</span><span>·</span><span>6 min read</span></div>
+      </div>
+    </section>
+
+    <div class="container">
+
+      <!-- 01: THE RULE -->
+      <section class="tx-section" id="the-rule">
+        <div class="tx-section-head"><span class="tx-section-num">01</span><h2>Done means a receipt, not a claim</h2></div>
+        <div class="tx-section-label">The planning document's rule, written 8 November 2026</div>
+        <div class="tx-prose">
+          <p>The planning document's own definition states the rule plainly: done means a tested, end-to-end result with a receipt, never a document or profile created. That standard already governs three parts of the organism: a rule for what counts as an unbroken proof chain, a shared job board where a job is not finished until it names its own result, and an audit that checked a claimed roster of working agents against which ones actually had a running trace.</p>
+        </div>
+        <div class="dl-filters" role="group" aria-label="Filter category readings" id="dl-filters">
+          <button class="dl-chip" type="button" data-state="all" aria-pressed="true">All</button>
+          <button class="dl-chip dl-chip-a" type="button" data-state="a" aria-pressed="false">Claimed</button>
+          <button class="dl-chip dl-chip-b" type="button" data-state="b" aria-pressed="false">Currently receipted</button>
+        </div>
+        <div class="dl-count" id="dl-count" aria-live="polite"></div>
+        <div class="dl-grid" id="dl-grid"></div>
+      </section>
+
+      <!-- 02: MEASURED, NOT ASSUMED -->
+      <section class="tx-section" id="measured-not-assumed">
+        <div class="tx-section-head"><span class="tx-section-num">02</span><h2>A gap is measured, not assumed away</h2></div>
+        <div class="tx-section-label">What "unbroken" actually has to mean</div>
+        <div class="tx-prose">
+          <p>The chain-tolerance rule treats "unbroken" as a property of the design, not of conditions outside its control. A gap in proof is allowed, within a bound, as long as it is automatically detected, explained in a dated record with its cause, and closed by the next successful proof carrying forward from where it left off — rather than pretending gaps don't happen, or treating any single gap as fatal.</p>
+        </div>
+        <div class="mod-explorer">
+          <div class="mod-grid" id="mod-grid" role="group" aria-label="Three instances of the pattern on the record"></div>
+          <div class="mod-detail" id="mod-detail" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <!-- 03: THE COUNT -->
+      <section class="tx-section" id="the-count">
+        <div class="tx-section-head"><span class="tx-section-num">03</span><h2>What the receipts actually show</h2></div>
+        <div class="tx-section-label">Baselines, 8 November 2026</div>
+        <div class="tx-prose">
+          <p>By the planning document's own count on 8 November 2026: zero executed tasks carried a verified receipt that week; one hand of several active on the machine had a receipt in the prior 30 days against zero on a roster of planned agent seats; zero of fourteen prior nightly checks came back clean; roughly seventy open approval items waited, the oldest over two months old; verified revenue stood at zero.</p>
+        </div>
+        <div class="cr-wrap">
+          <div class="cr-top">
+            <span class="cr-label">Claimed versus receipted — the measured gap</span>
+            <div class="cr-faults" role="group" aria-label="Where receipts refuse the claim" id="cr-faults">
+              <button class="cr-fault cr-fault-reset" type="button" data-fault="none" aria-pressed="true">Baseline</button>
+              <button class="cr-fault" type="button" data-fault="a">Tasks and seats</button>
+              <button class="cr-fault" type="button" data-fault="b">Checks and approvals</button>
+              <button class="cr-fault" type="button" data-fault="c">Revenue</button>
+            </div>
+          </div>
+          <div class="cr-cols">
+            <div class="cr-col">
+              <h3>Claimed</h3>
+              <p class="cr-col-sub">A number asserted, with no trace a reviewer can check.</p>
+              <ol class="cr-steps" id="cr-raw"></ol>
+            </div>
+            <div class="cr-col">
+              <h3>Receipted</h3>
+              <p class="cr-col-sub">A number with a trace a reviewer can check.</p>
+              <ol class="cr-steps" id="cr-verify"></ol>
+            </div>
+          </div>
+          <div class="cr-outcome" id="cr-outcome" aria-live="polite"></div>
+          <p class="cr-note">Claimed progress exists on paper. Progress exists only where a receipt is.</p>
+        </div>
+      </section>
+
+      <!-- 04: THE COST -->
+      <section class="tx-section" id="the-cost">
+        <div class="tx-section-head"><span class="tx-section-num">04</span><h2>What this costs in speed</h2></div>
+        <div class="tx-section-label">The price of a receipts-only count</div>
+        <div class="tx-prose">
+          <p>A system that counts only receipts will, by construction, show low or zero progress on anything not yet receipted — even if real, unverified work exists behind that number. The rule accepts that cost on purpose rather than crediting an unverified claim. Most measured categories read at or near zero right now, because the rule refuses to credit anything else.</p>
+        </div>
+        <div class="mem-grid" id="mem-grid"></div>
+      </section>
+
+      <!-- 05: WHY IT HOLDS -->
+      <section class="tx-section" id="why-it-holds">
+        <div class="tx-section-head"><span class="tx-section-num">05</span><h2>Why the rule stays, anyway</h2></div>
+        <div class="tx-section-label">What an audit elsewhere on the record already proved</div>
+        <div class="tx-prose">
+          <p>Counting claims instead of receipts is exactly the failure an audit elsewhere on the record already caught once, when a far smaller number of agents turned out to have an actual running trace than had been claimed. A receipts-only count cannot repeat that failure, because it never credits a claim it cannot trace.</p>
+        </div>
+        <div class="wf-steps" id="wf-steps">
+          <div class="wf-step"><div class="wf-dot wf-dot-1">01</div><h3>The rule is written</h3><p><strong>What "unbroken" has to mean.</strong> A gap is tolerated inside a bound, as long as every gap is detected, explained in a dated record with its cause, and closed by the next successful proof carrying forward from where it left off.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-2">02</div><h3>A shared job board adopts it</h3><p><strong>A job is not finished until it names its own result.</strong> The board counts nothing but a finished task's own receipt.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-3">03</div><h3>A wider audit applies it</h3><p><strong>Claimed agents checked against ones with an actual running trace.</strong></p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-4">04</div><h3>The roadmap counts only receipts</h3><p><strong>Progress table rewritten to count nothing but receipts.</strong> Claims stop moving the number.</p></div>
+        </div>
+        <div class="oh-list" id="oh-list"></div>
+        <div class="oh-foot">5 reasons · receipts only · 0 credited on a claim</div>
+        <div class="oh-refusal">
+          <h3>Nothing counts without a receipt</h3>
+          <p>A plan that reads as done is not a receipt. Nothing counts as progress until a receipt names it.</p>
+        </div>
+        <div class="tx-quote">Claims are not receipts.</div>
+      </section>
+
+      <div class="tx-cta">
+        <h2>Count receipts, not claims.</h2>
+        <p>If your agents report progress and the real question is how much of it you can verify, we should talk.</p>
+        <a class="btn btn-primary btn-lg" href="/build-with-us"><span>Build With Us</span><span class="btn-arrow">→</span></a>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span><p class="footer-desc">Intelligence that evolves.<br />No claim without a trail.</p></div><div class="footer-col"><h5>Proof</h5><a href="/proof">Proof Register</a><a href="/proof/ledger">Live Ledger</a><a href="/transmissions">Transmissions</a><a href="/architecture">Architecture</a></div><div class="footer-col"><h5>Organisms</h5><a href="/organisms">All Organisms</a><a href="/organisms/financial-organisms">Financial Organisms</a><a href="/organisms/infinity-mirror">Infinity Mirror</a></div><div class="footer-col"><h5>Next</h5><a href="/build-with-us">Build With Us</a><a href="/#cta">Subscribe</a></div></div><div class="footer-bottom"><span>© 2026 Unwind Code. All rights reserved.</span><span class="footer-tagline">The future learns from itself. ∞</span></div></div></footer>
+
+  <script>
+  (function () {
+    // All data below is static and client-side. Nothing on this page makes a network call.
+
+    // 01 — CATEGORY READINGS: claimed vs currently receipted
+    var states = { a: 'Claimed', b: 'Currently receipted' };
+    var components = [
+      { state: 'a', name: 'Finished tasks', short: 'A task asserted as done.', why: 'Refused without a receipt: a finished task counts only when it names its own result.' },
+      { state: 'b', name: 'Finished tasks', short: '0 executed tasks with a verified receipt that week', why: 'Receipted: zero.' },
+      { state: 'a', name: 'Resident agents', short: 'An agent asserted as working.', why: 'Refused without a running trace.' },
+      { state: 'b', name: 'Resident agents', short: '1 hand receipted in the prior 30 days; 0 planned agent seats', why: 'Receipted: one hand of several active on the machine, and no planned seat.' },
+      { state: 'a', name: 'Clean nights of checks', short: 'A night asserted as clean.', why: 'Refused without a receipt.' },
+      { state: 'b', name: 'Clean nights of checks', short: '0 of the prior 14 nightly checks came back clean', why: 'Receipted: zero clean nights.' },
+      { state: 'a', name: 'A dollar of revenue', short: 'Revenue asserted.', why: 'Refused until it is verified.' },
+      { state: 'b', name: 'A dollar of revenue', short: '$0 verified', why: 'Receipted: verified revenue stands at zero.' }
+    ];
+    var dlGrid = document.getElementById('dl-grid');
+    var dlCount = document.getElementById('dl-count');
+    var dlFilters = document.getElementById('dl-filters');
+    components.forEach(function (c) {
+      var card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'dl-card';
+      card.setAttribute('data-state', c.state);
+      card.setAttribute('aria-expanded', 'false');
+      card.innerHTML =
+        '<span class="dl-state dl-state-' + c.state + '">' + states[c.state] + '</span>' +
+        '<div class="dl-name">' + c.name + '</div>' +
+        '<div class="dl-short">' + c.short + '</div>' +
+        '<div class="dl-why">' + c.why + '</div>' +
+        '<div class="dl-hint">Why here ↓</div>';
+      card.addEventListener('click', function () {
+        var open = card.getAttribute('aria-expanded') === 'true';
+        card.setAttribute('aria-expanded', open ? 'false' : 'true');
+        card.querySelector('.dl-hint').textContent = open ? 'Why here ↓' : 'Close ↑';
+      });
+      dlGrid.appendChild(card);
+    });
+    function applyFilter(state) {
+      var shown = 0;
+      dlGrid.querySelectorAll('.dl-card').forEach(function (card) {
+        var match = state === 'all' || card.getAttribute('data-state') === state;
+        if (match) { card.removeAttribute('hidden'); shown += 1; } else { card.setAttribute('hidden', ''); }
+      });
+      dlCount.textContent = shown + ' of ' + components.length + ' category readings · ' + (state === 'all' ? 'claimed versus receipted' : states[state]);
+    }
+    dlFilters.querySelectorAll('.dl-chip').forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        dlFilters.querySelectorAll('.dl-chip').forEach(function (other) { other.setAttribute('aria-pressed', 'false'); });
+        chip.setAttribute('aria-pressed', 'true');
+        applyFilter(chip.getAttribute('data-state'));
+      });
+    });
+    applyFilter('all');
+
+    // 02 — THREE INSTANCES OF THE PATTERN
+    var cards = [
+      { id: 'chain', role: 'On the record', score: 'on the record',
+        name: 'Chain-tolerance rule',
+        short: 'Defines exactly how a gap is detected and closed instead of assuming an unbroken chain.',
+        specs: ['Gap allowed inside a bound', 'Automatically detected', 'Dated record with cause', 'Closed by next proof'],
+        proof: 'Unbroken is a property of the design, not of conditions outside its control.' },
+      { id: 'board', role: 'On the record', score: 'on the record',
+        name: 'Shared job board',
+        short: 'A job is not finished until it names its own result.',
+        specs: ['Job board', 'Receipt per finished task', 'No claim without a result'],
+        proof: 'A claim on the board is not a receipt.' },
+      { id: 'audit', role: 'On the record', score: 'on the record',
+        name: 'Agent audit',
+        short: 'Claimed agents counted against ones with an actual running trace.',
+        specs: ['Claimed roster', 'Running trace', 'Receipt per agent'],
+        proof: 'The agents with a trace were far fewer than the agents claimed.' }
+    ];
+    var modGrid = document.getElementById('mod-grid');
+    var modDetail = document.getElementById('mod-detail');
+    var modButtons = [];
+    function showCard(c) {
+      modButtons.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-id') === c.id ? 'true' : 'false'); });
+      modDetail.innerHTML =
+        '<div class="mod-detail-title">' + c.name + '</div>' +
+        '<span class="mod-detail-type">' + c.role + '</span>' +
+        '<p class="mod-detail-desc">' + c.short + '</p>' +
+        '<div class="mod-specs-label">Marked</div>' +
+        '<div class="mod-specs">' + c.specs.map(function (s) { return '<span class="mod-spec">' + s + '</span>'; }).join('') + '</div>' +
+        '<div class="mod-proof"><strong>' + c.score + '</strong> · ' + c.proof + '</div>';
+    }
+    cards.forEach(function (c) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'mod-node';
+      btn.setAttribute('data-id', c.id);
+      btn.setAttribute('aria-pressed', 'false');
+      btn.innerHTML = '<span class="mod-glyph">RECEIPT</span><div class="mod-name">' + c.name + '</div><div class="mod-path">' + c.role + '</div><div class="mod-score">' + c.score + '</div>';
+      btn.addEventListener('click', function () { showCard(c); });
+      modGrid.appendChild(btn);
+      modButtons.push(btn);
+    });
+    showCard(cards[0]);
+
+    // 03 — CLAIMED VERSUS RECEIPTED
+    var rawSteps = [
+      { t: 'Tasks', d: 'A count of finished tasks, asserted.' },
+      { t: 'Agent seats', d: 'A roster of planned seats, on paper.' },
+      { t: 'Nightly checks', d: 'Checks asserted as passing.' },
+      { t: 'Approval items', d: 'Items asserted as handled.' },
+      { t: 'Revenue', d: 'Revenue, asserted.' }
+    ];
+    var verifySteps = [
+      { t: 'Verified receipts this week', d: '0.' },
+      { t: 'Seats with a receipt', d: '0 planned seats; 1 hand receipted in 30 days.' },
+      { t: 'Clean nights of 14', d: '0.' },
+      { t: 'Approval items waiting', d: 'Roughly seventy, the oldest over two months old.' },
+      { t: 'Verified revenue', d: '$0.' }
+    ];
+    var faultFailsAt = { none: -1, a: 1, b: 3, c: 4 };
+    var faultLabel = { none: 'baseline', a: 'tasks and seats', b: 'checks and approvals', c: 'revenue' };
+    var crRaw = document.getElementById('cr-raw');
+    var crVerify = document.getElementById('cr-verify');
+    var crOutcome = document.getElementById('cr-outcome');
+    var crFaults = document.getElementById('cr-faults');
+    function renderStep(n, step, cls, verdict) {
+      var li = document.createElement('li');
+      li.className = 'cr-step ' + cls;
+      li.innerHTML = '<span class="cr-step-n">' + n + '</span><span><span class="cr-step-t">' + step.t + '</span><span class="cr-step-d">' + step.d + '</span></span><span class="cr-verdict">' + verdict + '</span>';
+      return li;
+    }
+    function runModel(fault) {
+      var failAt = faultFailsAt[fault];
+      crRaw.innerHTML = '';
+      rawSteps.forEach(function (s, i) {
+        crRaw.appendChild(renderStep('0' + (i + 1), s, fault === 'none' ? 'pass' : 'blind', fault === 'none' ? 'OK' : 'ACCEPTED · BLIND'));
+      });
+      crVerify.innerHTML = '';
+      verifySteps.forEach(function (s, i) {
+        var cls = 'pass', verdict = 'OK';
+        if (failAt >= 0 && i === failAt) { cls = 'fail'; verdict = 'REFUSED'; }
+        else if (failAt >= 0 && i > failAt) { cls = 'skip'; verdict = 'NOT REACHED'; }
+        crVerify.appendChild(renderStep('0' + (i + 1), s, cls, verdict));
+      });
+      if (fault === 'none') {
+        crOutcome.className = 'cr-outcome clean';
+        crOutcome.innerHTML = '<strong>Both columns accept.</strong> The difference is invisible until something is wrong — a claim versus a receipt.';
+      } else {
+        crOutcome.className = 'cr-outcome refused';
+        crOutcome.innerHTML = '<strong>Claimed: accepted as the week\'s report.</strong> Receipts: refused at step 0' + (failAt + 1) + ' (' + faultLabel[fault] + '). A claim is never a receipt.';
+      }
+    }
+    crFaults.querySelectorAll('.cr-fault').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        crFaults.querySelectorAll('.cr-fault').forEach(function (other) { other.setAttribute('aria-pressed', 'false'); });
+        btn.setAttribute('aria-pressed', 'true');
+        runModel(btn.getAttribute('data-fault'));
+      });
+    });
+    runModel('none');
+
+    // 04 — TIMELINE REVEAL
+    var wf = document.getElementById('wf-steps');
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce && 'IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            wf.querySelectorAll('.wf-step').forEach(function (s) { s.classList.add('reveal-step'); });
+            io.disconnect();
+          }
+        });
+      }, { threshold: 0.15 });
+      io.observe(wf);
+    }
+
+    // 05 — MEASURED CATEGORIES (cost of the rule, F4)
+    var waits = [
+      { tag: 'measured', title: 'Verified receipts this week', desc: '0', extra: 'Tasks executed with a verified receipt: none.' },
+      { tag: 'measured', title: 'Agents receipted in 30 days', desc: '1 hand, 0 seats', extra: 'Measured from receipts only.' },
+      { tag: 'measured', title: 'Clean nights of 14', desc: '0 clean', extra: 'Zero of fourteen prior nightly checks came back clean.' },
+      { tag: 'measured', title: 'Approval items waiting', desc: '~70', extra: 'The oldest over two months old.' },
+      { tag: 'measured', title: 'Verified revenue', desc: '$0', extra: 'Receipts only.' },
+      { tag: 'measured', title: 'The gap is the point', desc: 'Claimed versus receipted', extra: 'Low numbers are the rule working, not a bug — nothing unverified is credited.' }
+    ];
+    var memGrid = document.getElementById('mem-grid');
+    waits.forEach(function (w) {
+      var card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'mem-card';
+      card.setAttribute('aria-expanded', 'false');
+      card.innerHTML = '<h4><span class="mem-tag">' + w.tag + '</span>' + w.title + '</h4><p>' + w.desc + '</p><div class="mem-extra">' + w.extra + '</div><div class="mem-hint">Click to expand ↓</div>';
+      card.addEventListener('click', function () {
+        var open = card.getAttribute('aria-expanded') === 'true';
+        card.setAttribute('aria-expanded', open ? 'false' : 'true');
+        card.querySelector('.mem-hint').textContent = open ? 'Click to expand ↓' : 'Click to collapse ↑';
+      });
+      memGrid.appendChild(card);
+    });
+
+    // 06 — WHY THE RULE HOLDS (F5)
+    var baselines = [
+      { t: 'A receipt is not optional', s: 'the design rule', tag: 'rule', d: '"done means a tested, end-to-end result with a receipt, never a document or profile created."' },
+      { t: 'A claim can outrun its trace', s: 'the failure the rule blocks', tag: 'audit', d: 'Counting claims instead of receipts is exactly what an audit elsewhere on the record already caught once — far fewer agents had an actual running trace than had been claimed.' },
+      { t: 'Gaps are detected, not hidden', s: 'chain tolerance', tag: 'chain', d: 'A gap in proof is allowed within a bound when it is automatically detected, explained in a dated record with its cause, and closed by the next successful proof.' },
+      { t: 'Zero is honest', s: 'the cost the rule accepts', tag: 'cost', d: 'A system that counts only receipts shows low or zero progress on anything not yet receipted — even work that may be substantially done. The rule accepts that on purpose.' },
+      { t: 'Nothing is credited on faith', s: 'why the rule holds', tag: 'result', d: 'A receipts-only count cannot repeat that failure, because it never credits a claim it cannot trace.' }
+    ];
+    var ohList = document.getElementById('oh-list');
+    baselines.forEach(function (h) {
+      var item = document.createElement('button');
+      item.type = 'button';
+      item.className = 'oh-item';
+      item.setAttribute('aria-expanded', 'false');
+      item.innerHTML = '<span class="oh-box" aria-hidden="true"></span><span><span class="oh-t">' + h.t + '</span><span class="oh-s">' + h.s + '</span><span class="oh-d">' + h.d + '</span></span><span class="oh-needs oh-needs-key">' + h.tag + '</span>';
+      item.addEventListener('click', function () {
+        item.setAttribute('aria-expanded', item.getAttribute('aria-expanded') === 'true' ? 'false' : 'true');
+      });
+      ohList.appendChild(item);
+    });
+  })();
+  </script>
+  <script type="module" src="/main.js?v=20260615-system-state"></script>
+</body>
+</html>
