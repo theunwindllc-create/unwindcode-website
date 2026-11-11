@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Transmission 29: The Agent-Readable Organism | Unwind Code</title>
-  <meta name="description" content="A whitepaper-grade Brain guide for turning UnwindCode.ai into an agent-readable organism: public contracts, grounding packets, proof ledgers, and approval boundaries for the agentic web." />
+  <meta name="description" content="What unwindcode.ai ships so a machine can read it: a guide file, a services manifest, five registries and eight read-only routes that retrieve evidence and never write an answer. A dated ledger of what is built, what is design and what is only a plan." />
   <meta name="theme-color" content="#06060c" />
   <link rel="canonical" href="https://www.unwindcode.ai/transmissions/29-the-agent-readable-organism" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="The Agent-Readable Organism" />
-  <meta property="og:description" content="How Unwind turns public routes, manifests, grounding, citations, and authority boundaries into a site other agents can safely understand." />
+  <meta property="og:description" content="A guide file, a services manifest, five registries and eight read-only routes: exactly what the site ships for agents, what each route returns, and what is still a plan." />
   <meta property="og:url" content="https://www.unwindcode.ai/transmissions/29-the-agent-readable-organism" />
   <meta property="og:site_name" content="Unwind Code" />
   <meta property="og:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
@@ -19,7 +19,7 @@
   <meta property="og:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="The Agent-Readable Organism" />
-  <meta name="twitter:description" content="A compact whitepaper for the agent-readable interface layer of the Unwind ecosystem." />
+  <meta name="twitter:description" content="What the site ships for machine readers, what each route returns, and what is only a plan. Rewritten 10 November 2026." />
   <meta name="twitter:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
   <meta name="twitter:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -31,728 +31,645 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "The Agent-Readable Organism",
-    "description": "A whitepaper-grade Brain guide for turning UnwindCode.ai into an agent-readable organism: public contracts, grounding packets, proof ledgers, and approval boundaries for the agentic web.",
+    "description": "What unwindcode.ai ships so a machine can read it: a guide file, a services manifest, five registries and eight read-only routes that retrieve evidence and never write an answer, with a dated ledger of what is built, what is design and what is only a plan.",
     "author": {"@type": "Organization", "name": "Unwind Code"},
     "publisher": {"@type": "Organization", "name": "Unwind Code", "url": "https://www.unwindcode.ai"},
     "datePublished": "2026-06-14",
     "dateModified": "2026-11-10",
+    "keywords": ["agent-readable web", "llms.txt", "grounding", "claim registry", "read-only API"],
     "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/29-the-agent-readable-organism"
   }
   </script>
   <style>
-    :root {
-      --aro-gold: #d7b66f;
-      --aro-cyan: #64c8c0;
-      --aro-coral: #df7d72;
-      --aro-blue: #83a8d8;
-      --aro-panel: rgba(12, 14, 22, 0.76);
-      --aro-panel-strong: rgba(18, 21, 31, 0.9);
-      --aro-line: rgba(244, 240, 232, 0.12);
-      --aro-muted: rgba(244, 240, 232, 0.68);
+    .tx-page { background: var(--bg-void); color: var(--text-primary); }
+    .tx-page *, .tx-page *::before, .tx-page *::after { box-sizing: border-box; }
+    .tx-hero { padding: 160px 0 72px; text-align: center; position: relative; overflow: hidden; }
+    .tx-hero::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:800px; height:800px; background:radial-gradient(circle, rgba(110,45,190,0.12) 0%, transparent 60%); pointer-events:none; }
+    .tx-hero-kicker { margin-bottom:16px; }
+    .tx-hero h1 { font-size:clamp(2.2rem,5vw,3.5rem); font-weight:800; letter-spacing:-0.04em; line-height:1.08; margin:0 0 20px; }
+    .tx-hero-sub { font-size:1.08rem; color:var(--text-secondary); max-width:660px; margin:0 auto; line-height:1.7; }
+    .tx-hero-meta { margin-top:28px; display:flex; justify-content:center; gap:14px; font-size:0.76rem; color:var(--text-muted); font-weight:600; letter-spacing:0.06em; text-transform:uppercase; flex-wrap:wrap; }
+    .tx-section { padding:72px 0; border-top:1px solid var(--accent-border); }
+    .tx-section:first-of-type { border-top:none; padding-top:24px; }
+    .tx-section-head { display:flex; align-items:center; gap:16px; margin-bottom:10px; }
+    .tx-section-num { font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:700; color:var(--accent-hot); letter-spacing:0.15em; }
+    .tx-section h2 { font-size:clamp(1.5rem,3vw,2rem); font-weight:700; letter-spacing:-0.02em; margin:0; }
+    .tx-section-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:24px; }
+    .tx-prose { font-size:1.04rem; color:var(--text-secondary); line-height:1.8; max-width:720px; }
+    .tx-prose p { margin:0 0 22px; }
+    .tx-prose strong { color:var(--text-primary); font-weight:600; }
+    .tx-prose code, .tx-prose-code { font-family:'JetBrains Mono',monospace; font-size:0.84rem; background:rgba(110,45,190,0.1); color:var(--accent-light); padding:2px 6px; border-radius:4px; }
+    .tx-prose a, .tx-inline { color:var(--accent-light); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    .tx-quote { border-left:3px solid var(--accent); padding:18px 24px; margin:36px 0; background:rgba(110,45,190,0.05); border-radius:0 12px 12px 0; color:var(--text-primary); font-size:1.08rem; line-height:1.6; font-weight:500; max-width:720px; }
+    .tx-after { margin-top:36px; }
+
+    /* Claim ledger */
+    .dl-filters { display:flex; flex-wrap:wrap; gap:10px; margin:28px 0 18px; }
+    .dl-chip { font-family:inherit; font-size:0.78rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:9px 16px; border-radius:999px; border:1px solid var(--accent-border); background:var(--bg-surface); color:var(--text-secondary); cursor:pointer; transition:border-color .2s ease, color .2s ease, background .2s ease; }
+    .dl-chip:hover { border-color:rgba(110,45,190,0.4); color:var(--text-primary); }
+    .dl-chip[aria-pressed="true"] { background:rgba(110,45,190,0.16); border-color:var(--accent-light); color:var(--text-primary); }
+    .dl-chip-shipped[aria-pressed="true"] { border-color:#10b981; }
+    .dl-chip-design[aria-pressed="true"] { border-color:#38bdf8; }
+    .dl-chip-plan[aria-pressed="true"] { border-color:#fbbf24; }
+    .dl-chip-metaphor[aria-pressed="true"] { border-color:#c084fc; }
+    .dl-chip-removed[aria-pressed="true"] { border-color:#f87171; }
+    .dl-count { font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:var(--text-muted); margin-bottom:16px; letter-spacing:0.06em; }
+    .dl-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:12px; }
+    .dl-card { font-family:inherit; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:18px; cursor:pointer; transition:border-color .25s ease, transform .25s ease, opacity .25s ease; }
+    .dl-card:hover { transform:translateY(-2px); border-color:rgba(110,45,190,0.4); }
+    .dl-card[hidden] { display:none; }
+    .dl-state { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.12em; padding:3px 9px; border-radius:999px; border:1px solid currentColor; margin-bottom:10px; }
+    .dl-state-shipped { color:#10b981; } .dl-state-design { color:#38bdf8; } .dl-state-plan { color:#fbbf24; }
+    .dl-state-metaphor { color:#c084fc; } .dl-state-removed { color:#f87171; }
+    .dl-name { font-weight:700; font-size:0.96rem; margin-bottom:4px; }
+    .dl-short { font-size:0.84rem; color:var(--text-secondary); line-height:1.55; }
+    .dl-why { display:none; margin-top:12px; padding-top:12px; border-top:1px solid var(--accent-border); font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+    .dl-card[aria-expanded="true"] .dl-why { display:block; }
+    .dl-hint { font-size:0.68rem; color:var(--accent-hot); margin-top:10px; font-weight:600; letter-spacing:0.05em; }
+    .dl-law { margin-top:32px; border:1px solid rgba(251,191,36,0.28); border-radius:16px; padding:24px 28px; background:linear-gradient(180deg,rgba(251,191,36,0.07),rgba(251,191,36,0.015)); max-width:720px; }
+    .dl-law h3 { margin:0 0 10px; font-size:1rem; color:#fbbf24; }
+    .dl-law p { margin:0; font-size:0.95rem; color:var(--text-secondary); line-height:1.7; }
+
+    /* Component explorer */
+    .mod-explorer { display:grid; grid-template-columns:1fr 1.25fr; gap:24px; margin-top:32px; }
+    .mod-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; align-content:start; }
+    .mod-node { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:20px; cursor:pointer; transition:all 0.25s ease; text-align:left; font-family:inherit; color:var(--text-primary); }
+    .mod-node:hover, .mod-node[aria-pressed="true"] { border-color:rgba(110,45,190,0.45); transform:translateY(-2px); box-shadow:0 8px 24px rgba(110,45,190,0.1); }
+    .mod-node[aria-pressed="true"] { background:rgba(110,45,190,0.08); }
+    .mod-glyph { font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--accent-hot); letter-spacing:0.14em; margin-bottom:10px; display:block; }
+    .mod-name { font-weight:700; font-size:1.02rem; font-family:'JetBrains Mono',monospace; }
+    .mod-path { font-size:0.78rem; color:var(--text-muted); margin-top:6px; line-height:1.4; }
+    .mod-score { margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:#34d399; }
+    .mod-detail { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:20px; padding:32px; min-height:420px; }
+    .mod-detail-title { font-size:1.3rem; font-weight:700; margin-bottom:8px; font-family:'JetBrains Mono',monospace; word-break:break-word; }
+    .mod-detail-type { display:inline-block; font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent-hot); background:rgba(110,45,190,0.12); border:1px solid rgba(110,45,190,0.2); padding:4px 12px; border-radius:20px; margin-bottom:20px; }
+    .mod-detail-desc { color:var(--text-secondary); line-height:1.7; font-size:0.95rem; margin-bottom:22px; }
+    .mod-specs-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:10px; }
+    .mod-specs { display:flex; flex-wrap:wrap; gap:8px; }
+    .mod-spec { background:rgba(110,45,190,0.08); border:1px solid var(--accent-border); color:var(--accent-light); padding:6px 14px; border-radius:20px; font-size:0.8rem; font-weight:500; }
+    .mod-proof { margin-top:22px; padding-top:18px; border-top:1px solid var(--accent-border); font-size:0.84rem; color:var(--text-muted); line-height:1.6; }
+    .mod-proof strong { color:#34d399; font-family:'JetBrains Mono',monospace; font-weight:600; }
+
+    /* Request model */
+    .cr-wrap { margin-top:28px; border:1px solid rgba(56,189,248,0.22); border-radius:20px; padding:28px; background:linear-gradient(180deg,rgba(56,189,248,0.06),rgba(56,189,248,0.01)); }
+    .cr-top { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; }
+    .cr-label { font-family:'JetBrains Mono',monospace; font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:#38bdf8; }
+    .cr-faults { display:flex; flex-wrap:wrap; gap:8px; }
+    .cr-fault { font-family:inherit; font-size:0.76rem; font-weight:700; padding:8px 14px; border-radius:999px; border:1px solid var(--accent-border); background:var(--bg-surface); color:var(--text-secondary); cursor:pointer; transition:border-color .2s ease, color .2s ease; }
+    .cr-fault:hover { color:var(--text-primary); border-color:rgba(248,113,113,0.5); }
+    .cr-fault[aria-pressed="true"] { color:#fca5a5; border-color:#f87171; background:rgba(248,113,113,0.1); }
+    .cr-fault-reset[aria-pressed="true"] { color:#34d399; border-color:#10b981; background:rgba(16,185,129,0.1); }
+    .cr-cols { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .cr-col { border:1px solid var(--accent-border); border-radius:14px; padding:18px; background:rgba(0,0,0,0.22); }
+    .cr-col h3 { margin:0 0 4px; font-size:0.98rem; font-family:'JetBrains Mono',monospace; }
+    .cr-col-sub { font-size:0.78rem; color:var(--text-muted); margin:0 0 14px; line-height:1.5; }
+    .cr-steps { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
+    .cr-step { display:grid; grid-template-columns:22px 1fr auto; gap:10px; align-items:start; padding:10px 12px; border-radius:10px; border:1px solid var(--accent-border); font-size:0.84rem; line-height:1.5; color:var(--text-secondary); transition:border-color .2s ease, background .2s ease; }
+    .cr-step-n { font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--text-muted); padding-top:3px; }
+    .cr-step-t { color:var(--text-primary); font-weight:600; display:block; }
+    .cr-step-d { display:block; font-size:0.78rem; color:var(--text-muted); margin-top:2px; }
+    .cr-verdict { font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:700; letter-spacing:0.08em; padding-top:3px; white-space:nowrap; }
+    .cr-step.pass { border-color:rgba(16,185,129,0.35); } .cr-step.pass .cr-verdict { color:#34d399; }
+    .cr-step.fail { border-color:#f87171; background:rgba(248,113,113,0.08); } .cr-step.fail .cr-verdict { color:#fca5a5; }
+    .cr-step.skip { opacity:0.42; } .cr-step.skip .cr-verdict { color:var(--text-muted); }
+    .cr-outcome { margin-top:16px; border-radius:12px; padding:14px 16px; font-size:0.9rem; line-height:1.6; border:1px solid var(--accent-border); background:rgba(0,0,0,0.22); color:var(--text-secondary); }
+    .cr-outcome strong { color:var(--text-primary); }
+    .cr-outcome.refused { border-color:rgba(248,113,113,0.4); }
+    .cr-outcome.clean { border-color:rgba(16,185,129,0.35); }
+    .cr-note { margin:14px 0 0; font-size:0.8rem; color:var(--text-muted); line-height:1.6; }
+
+    /* Sketch map */
+    .sk-wrap { margin-top:28px; display:grid; grid-template-columns:1fr 1.2fr; gap:20px; max-width:980px; }
+    .sk-code { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:16px; padding:18px; display:flex; flex-direction:column; gap:8px; }
+    .sk-field { font-family:'JetBrains Mono',monospace; font-size:0.8rem; text-align:left; color:var(--text-secondary); background:transparent; border:1px solid transparent; border-radius:10px; padding:9px 12px; cursor:pointer; transition:border-color .2s ease, background .2s ease; }
+    .sk-field:hover { border-color:rgba(110,45,190,0.4); color:var(--text-primary); }
+    .sk-field[aria-pressed="true"] { border-color:var(--accent-light); background:rgba(110,45,190,0.1); color:var(--text-primary); }
+    .sk-out { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:16px; padding:24px; min-height:240px; }
+    .sk-out h3 { margin:0 0 6px; font-family:'JetBrains Mono',monospace; font-size:1rem; }
+    .sk-out .sk-tag { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.12em; padding:3px 9px; border-radius:999px; border:1px solid currentColor; margin-bottom:12px; }
+    .sk-out p { margin:0 0 12px; font-size:0.9rem; line-height:1.65; color:var(--text-secondary); }
+    .sk-tag-shipped { color:#10b981; } .sk-tag-design { color:#38bdf8; } .sk-tag-plan { color:#fbbf24; } .sk-tag-absent { color:#f87171; }
+
+    /* Timeline */
+    .wf-steps { position:relative; margin-top:32px; padding-left:40px; max-width:760px; }
+    .wf-steps::before { content:''; position:absolute; left:19px; top:0; bottom:0; width:2px; background:var(--accent-border); }
+    .wf-step { position:relative; margin-bottom:40px; }
+    .wf-step:last-child { margin-bottom:0; }
+    .wf-dot { position:absolute; left:-40px; top:0; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:800; z-index:2; font-family:'JetBrains Mono',monospace; }
+    .wf-dot-1 { background:rgba(110,45,190,0.15); color:var(--accent-light); border:2px solid var(--accent); }
+    .wf-dot-2 { background:rgba(79,70,229,0.15); color:#818cf8; border:2px solid #6366f1; }
+    .wf-dot-3 { background:rgba(14,165,233,0.15); color:#38bdf8; border:2px solid #0ea5e9; }
+    .wf-dot-4 { background:rgba(16,185,129,0.15); color:#34d399; border:2px solid #10b981; }
+    .wf-dot-5 { background:rgba(245,158,11,0.15); color:#fbbf24; border:2px solid #f59e0b; }
+    .wf-dot-6 { background:rgba(248,113,113,0.15); color:#fca5a5; border:2px solid #f87171; }
+    .wf-step h3 { font-size:1.06rem; font-weight:700; margin:0 0 6px; padding-top:8px; }
+    .wf-step p { font-size:0.92rem; color:var(--text-secondary); line-height:1.65; margin:0; }
+    .wf-step code { font-family:'JetBrains Mono',monospace; font-size:0.8rem; background:rgba(110,45,190,0.1); color:var(--accent-light); padding:2px 6px; border-radius:4px; }
+    .wf-step.reveal-step { opacity:0; transform:translateY(10px); animation:wfIn .6s ease forwards; }
+    .wf-step.reveal-step:nth-child(1){animation-delay:.05s}.wf-step.reveal-step:nth-child(2){animation-delay:.15s}.wf-step.reveal-step:nth-child(3){animation-delay:.25s}.wf-step.reveal-step:nth-child(4){animation-delay:.35s}.wf-step.reveal-step:nth-child(5){animation-delay:.45s}.wf-step.reveal-step:nth-child(6){animation-delay:.55s}
+    @keyframes wfIn { to { opacity:1; transform:none; } }
+
+    /* Not done cards */
+    .mem-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:28px; }
+    .mem-card { font-family:inherit; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:16px; padding:24px; cursor:pointer; transition:all 0.3s ease; }
+    .mem-card:hover { border-color:rgba(110,45,190,0.35); transform:translateY(-3px); box-shadow:0 8px 24px rgba(110,45,190,0.08); }
+    .mem-card h4 { font-size:0.98rem; font-weight:700; margin:0 0 8px; display:flex; align-items:center; gap:10px; }
+    .mem-tag { font-family:'JetBrains Mono',monospace; font-size:0.62rem; letter-spacing:0.12em; color:var(--accent-hot); border:1px solid rgba(110,45,190,0.3); padding:2px 8px; border-radius:999px; text-transform:uppercase; white-space:nowrap; }
+    .mem-card p { font-size:0.87rem; color:var(--text-secondary); line-height:1.6; margin:0; }
+    .mem-extra { display:none; margin-top:14px; padding-top:14px; border-top:1px solid var(--accent-border); font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+    .mem-card[aria-expanded="true"] .mem-extra { display:block; }
+    .mem-hint { font-size:0.68rem; color:var(--accent-hot); margin-top:12px; font-weight:600; letter-spacing:0.05em; }
+
+    .tx-related { margin-top:40px; padding-top:22px; border-top:1px solid var(--accent-border); font-size:0.9rem; color:var(--text-muted); line-height:1.7; }
+    .tx-related a { color:var(--accent-light); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    .tx-cta { text-align:center; padding:64px 40px; background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:28px; margin-top:72px; }
+    .tx-cta h2 { font-size:1.6rem; font-weight:700; margin:0 0 12px; }
+    .tx-cta p { color:var(--text-secondary); font-size:0.95rem; margin:0 auto 28px; max-width:520px; line-height:1.7; }
+
+    @media(max-width:900px) {
+      .mod-explorer, .cr-cols, .mem-grid, .sk-wrap { grid-template-columns:1fr; }
+      .mod-detail { min-height:0; }
     }
-    .aro-page {
-      background: var(--bg-void);
-      color: var(--text-primary);
-      overflow-x: hidden;
+    @media(max-width:640px) {
+      .mod-grid { grid-template-columns:1fr; }
+      .tx-hero { padding:130px 0 56px; }
+      .tx-section { padding:56px 0; }
+      .cr-wrap, .mod-detail { padding:20px; }
+      .cr-step { grid-template-columns:18px 1fr; }
+      .cr-verdict { grid-column:2; }
     }
-    .aro-page *, .aro-page *::before, .aro-page *::after {
-      box-sizing: border-box;
+    @media (prefers-reduced-motion: reduce) {
+      .wf-step.reveal-step { animation:none; opacity:1; transform:none; }
+      .dl-card, .mod-node, .mem-card, .cr-step, .dl-chip, .cr-fault, .sk-field { transition:none; }
+      .dl-card:hover, .mod-node:hover, .mem-card:hover { transform:none; }
     }
-    .aro-hero {
-      position: relative;
-      overflow: hidden;
-      min-height: 94vh;
-      padding: 150px 0 70px;
-      display: grid;
-      align-items: center;
-      border-bottom: 1px solid var(--aro-line);
-      background:
-        radial-gradient(circle at 10% 20%, rgba(215, 182, 111, 0.14), transparent 28%),
-        radial-gradient(circle at 86% 16%, rgba(100, 200, 192, 0.12), transparent 26%),
-        linear-gradient(145deg, rgba(10, 10, 20, 0.98), rgba(6, 6, 12, 1));
-    }
-    .aro-hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      opacity: 0.23;
-      background-image:
-        linear-gradient(rgba(244, 240, 232, 0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(244, 240, 232, 0.08) 1px, transparent 1px);
-      background-size: 56px 56px;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent 82%);
-    }
-    .aro-hero-grid {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: minmax(0, 1.03fr) minmax(340px, 0.72fr);
-      gap: 44px;
-      align-items: center;
-    }
-    .aro-kicker {
-      display: inline-flex;
-      width: fit-content;
-      align-items: center;
-      gap: 9px;
-      border: 1px solid rgba(215, 182, 111, 0.34);
-      border-radius: 999px;
-      padding: 8px 13px;
-      background: rgba(215, 182, 111, 0.08);
-      color: var(--aro-gold);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.72rem;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-    .aro-hero h1 {
-      max-width: 980px;
-      margin: 22px 0 24px;
-      font-size: 5.35rem;
-      line-height: 0.95;
-      font-weight: 900;
-      letter-spacing: 0;
-    }
-    .aro-hero-sub {
-      max-width: 840px;
-      color: var(--aro-muted);
-      font-size: 1.09rem;
-      line-height: 1.78;
-    }
-    .aro-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 28px;
-    }
-    .aro-meta span {
-      border: 1px solid var(--aro-line);
-      border-radius: 999px;
-      padding: 9px 12px;
-      background: rgba(15, 16, 25, 0.68);
-      color: var(--text-muted);
-      font-size: 0.75rem;
-      font-weight: 760;
-      text-transform: uppercase;
-    }
-    .aro-contract {
-      position: relative;
-      border: 1px solid rgba(215, 182, 111, 0.24);
-      border-radius: 30px;
-      padding: 26px;
-      background:
-        linear-gradient(135deg, rgba(215, 182, 111, 0.12), transparent 38%),
-        linear-gradient(315deg, rgba(100, 200, 192, 0.12), transparent 42%),
-        var(--aro-panel);
-      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.34);
-    }
-    .aro-contract h2 {
-      font-size: 1.02rem;
-      margin-bottom: 18px;
-      color: var(--aro-gold);
-      font-family: "JetBrains Mono", monospace;
-      text-transform: uppercase;
-    }
-    .aro-contract-map {
-      display: grid;
-      gap: 12px;
-    }
-    .aro-node {
-      border: 1px solid var(--aro-line);
-      border-radius: 18px;
-      padding: 15px;
-      background: rgba(6, 7, 13, 0.42);
-    }
-    .aro-node strong {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--text-primary);
-    }
-    .aro-node span {
-      color: var(--aro-muted);
-      font-size: 0.88rem;
-      line-height: 1.5;
-    }
-    .aro-node:nth-child(2) strong { color: var(--aro-cyan); }
-    .aro-node:nth-child(3) strong { color: var(--aro-blue); }
-    .aro-node:nth-child(4) strong { color: var(--aro-coral); }
-    .aro-section {
-      padding: 78px 0;
-      border-bottom: 1px solid var(--aro-line);
-    }
-    .aro-section-head {
-      max-width: 910px;
-      margin-bottom: 28px;
-    }
-    .aro-section-num {
-      display: block;
-      margin-bottom: 12px;
-      color: var(--aro-gold);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.72rem;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-    .aro-section h2 {
-      font-size: 2.72rem;
-      line-height: 1.04;
-      letter-spacing: 0;
-    }
-    .aro-prose {
-      max-width: 890px;
-      color: var(--aro-muted);
-      font-size: 1.02rem;
-      line-height: 1.84;
-    }
-    .aro-prose p {
-      margin: 0 0 22px;
-    }
-    .aro-signal-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 34px;
-    }
-    .aro-source-card,
-    .aro-def-card,
-    .aro-threat-card,
-    .aro-proof-card {
-      border: 1px solid var(--aro-line);
-      border-radius: 19px;
-      padding: 18px;
-      background: rgba(15, 16, 25, 0.58);
-      color: inherit;
-      text-decoration: none;
-    }
-    .aro-source-card {
-      min-height: 230px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.2s ease, border-color 0.2s ease;
-    }
-    .aro-source-card:hover,
-    .aro-source-card:focus-visible {
-      transform: translateY(-3px);
-      border-color: rgba(215, 182, 111, 0.54);
-      outline: none;
-    }
-    .aro-card-label {
-      color: var(--aro-gold);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.68rem;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-    .aro-source-card h3,
-    .aro-def-card h3,
-    .aro-threat-card h3,
-    .aro-proof-card h3 {
-      margin: 10px 0 8px;
-      font-size: 1.05rem;
-      line-height: 1.25;
-    }
-    .aro-source-card p,
-    .aro-def-card p,
-    .aro-threat-card p,
-    .aro-proof-card p {
-      margin: 0;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      line-height: 1.58;
-    }
-    .aro-link-note {
-      margin-top: 18px;
-      color: var(--aro-cyan);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.75rem;
-      font-weight: 800;
-    }
-    .aro-def-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 34px;
-    }
-    .aro-def-card {
-      min-height: 180px;
-    }
-    .aro-stack {
-      display: grid;
-      grid-template-columns: 0.84fr 1.16fr;
-      gap: 22px;
-      align-items: start;
-      margin-top: 34px;
-    }
-    .aro-spec {
-      border: 1px solid rgba(100, 200, 192, 0.22);
-      border-radius: 24px;
-      padding: 22px;
-      background: rgba(2, 6, 9, 0.58);
-      overflow: hidden;
-    }
-    .aro-spec h3 {
-      color: var(--aro-cyan);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.86rem;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-    .aro-spec pre {
-      margin: 0;
-      color: rgba(244, 240, 232, 0.76);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.78rem;
-      line-height: 1.62;
-      white-space: pre-wrap;
-      overflow-wrap: anywhere;
-    }
-    .aro-layer-list {
-      display: grid;
-      gap: 12px;
-    }
-    .aro-layer {
-      display: grid;
-      grid-template-columns: 54px 1fr;
-      gap: 15px;
-      align-items: start;
-      border: 1px solid var(--aro-line);
-      border-radius: 18px;
-      padding: 16px;
-      background: rgba(15, 16, 25, 0.58);
-    }
-    .aro-layer b {
-      display: grid;
-      place-items: center;
-      width: 54px;
-      height: 54px;
-      border: 1px solid rgba(215, 182, 111, 0.34);
-      border-radius: 16px;
-      color: var(--aro-gold);
-      font-family: "JetBrains Mono", monospace;
-    }
-    .aro-layer p {
-      margin: 4px 0 0;
-      color: var(--text-muted);
-      line-height: 1.56;
-    }
-    .aro-protocol {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 34px;
-    }
-    .aro-step {
-      position: relative;
-      border: 1px solid var(--aro-line);
-      border-radius: 19px;
-      padding: 18px;
-      background: rgba(15, 16, 25, 0.58);
-      min-height: 210px;
-    }
-    .aro-step b {
-      display: inline-flex;
-      color: var(--aro-gold);
-      font-family: "JetBrains Mono", monospace;
-      margin-bottom: 20px;
-    }
-    .aro-step h3 {
-      margin-bottom: 8px;
-      font-size: 1.03rem;
-    }
-    .aro-step p {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      line-height: 1.58;
-    }
-    .aro-threat-grid,
-    .aro-proof-grid {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 34px;
-    }
-    .aro-threat-card {
-      min-height: 188px;
-      border-color: rgba(223, 125, 114, 0.2);
-    }
-    .aro-threat-card .aro-card-label {
-      color: var(--aro-coral);
-    }
-    .aro-guide {
-      margin-top: 36px;
-      border: 1px solid rgba(215, 182, 111, 0.24);
-      border-radius: 28px;
-      padding: 34px;
-      background:
-        linear-gradient(135deg, rgba(215, 182, 111, 0.12), transparent 42%),
-        linear-gradient(315deg, rgba(100, 200, 192, 0.1), transparent 48%),
-        var(--aro-panel-strong);
-    }
-    .aro-guide p {
-      max-width: 860px;
-      color: var(--aro-muted);
-      line-height: 1.74;
-      margin: 10px 0 18px;
-    }
-    .aro-proof-grid {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-    .aro-proof-card {
-      min-height: 170px;
-    }
-    .aro-cta {
-      margin-top: 40px;
-      border: 1px solid rgba(215, 182, 111, 0.24);
-      border-radius: 28px;
-      padding: 46px 34px;
-      text-align: center;
-      background: rgba(15, 16, 25, 0.58);
-    }
-    .aro-cta p {
-      max-width: 720px;
-      margin: 12px auto 26px;
-      color: var(--aro-muted);
-      line-height: 1.72;
-    }
-    @media (max-width: 1080px) {
-      .aro-hero-grid,
-      .aro-stack {
-        grid-template-columns: 1fr;
-      }
-      .aro-signal-grid,
-      .aro-protocol,
-      .aro-proof-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .aro-threat-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
-    @media (max-width: 760px) {
-      .aro-hero {
-        min-height: auto;
-        padding: 130px 0 58px;
-      }
-      .aro-hero h1 {
-        width: min(335px, calc(100vw - 40px));
-        max-width: min(335px, calc(100vw - 40px));
-        font-size: 2.28rem;
-        line-height: 1.08;
-        overflow-wrap: anywhere;
-      }
-      .aro-hero-sub,
-      .aro-prose,
-      .aro-guide p,
-      .aro-cta p {
-        width: 100%;
-        max-width: min(335px, calc(100vw - 40px));
-        overflow-wrap: anywhere;
-      }
-      .aro-page .container {
-        width: 100%;
-        max-width: 100vw;
-        padding-left: 20px;
-        padding-right: 20px;
-        overflow-x: hidden;
-      }
-      .aro-section {
-        padding: 58px 0;
-      }
-      .aro-section h2 {
-        width: 100%;
-        max-width: min(335px, calc(100vw - 40px));
-        font-size: 1.58rem;
-        overflow-wrap: anywhere;
-      }
-      .aro-meta {
-        display: grid;
-        width: min(335px, calc(100vw - 40px));
-      }
-      .aro-meta span {
-        width: 100%;
-        white-space: normal;
-      }
-      .aro-contract,
-      .aro-signal-grid,
-      .aro-def-grid,
-      .aro-stack,
-      .aro-spec,
-      .aro-layer-list,
-      .aro-protocol,
-      .aro-threat-grid,
-      .aro-guide,
-      .aro-proof-grid,
-      .aro-cta {
-        width: 100%;
-        max-width: min(335px, calc(100vw - 40px));
-        min-width: 0;
-      }
-      .aro-signal-grid,
-      .aro-def-grid,
-      .aro-protocol,
-      .aro-threat-grid,
-      .aro-proof-grid {
-        grid-template-columns: 1fr;
-      }
-      .aro-layer {
-        grid-template-columns: 1fr;
-      }
-    }
+    .tx-dateline { max-width:720px; margin:32px auto 0; text-align:left; border:1px solid rgba(232,161,92,0.28); border-radius:14px; padding:16px 20px; background:linear-gradient(180deg,rgba(232,161,92,0.07),rgba(232,161,92,0.015)); font-size:0.88rem; line-height:1.65; color:var(--text-secondary); }
+    .tx-dateline strong { color:#e8a15c; font-weight:650; }
+    .tx-dateline + .tx-dateline { margin-top:12px; }
   </style>
 </head>
-<body class="tx-page aro-page">
+<body class="tx-page">
+
   <nav id="nav" class="scrolled">
-    <a href="/" class="nav-brand"><span class="nav-glyph">&infin;</span><span class="nav-name">unwind<span class="nav-accent">code</span></span></a>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    <a href="/" class="nav-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
     <div class="nav-links" id="nav-links">
-      <a href="/#organisms">Organisms</a>
-      <a href="/#architecture">Architecture</a>
-      <a href="/#philosophy">Philosophy</a>
-      <a href="/transmissions" class="active">Transmissions</a>
+      <a href="/" data-i18n="nav.home">Home</a>
+      <a href="/organisms" data-i18n="nav.organisms">Organisms</a>
+      <a href="/architecture" data-i18n="nav.architecture">Architecture</a>
+      <a href="/proof" data-i18n="nav.proof">Proof</a>
+      <a href="/transmissions" class="active" aria-current="page" data-i18n="nav.blog">Transmissions</a>
+      <a href="/philosophy" data-i18n="nav.philosophy">Philosophy</a>
     </div>
-    <div class="nav-actions"><a href="/#cta" class="nav-cta">Get in Touch</a></div>
+    <div class="nav-actions">
+      <button id="lang-toggle" class="lang-toggle" aria-label="Switch to Spanish">ES</button>
+      <a href="/build-with-us" class="nav-cta" data-i18n="nav.cta">Build With Us</a>
+      <a href="/proof/ledger" class="nav-ghost">Live ledger</a>
+    </div>
   </nav>
 
   <main>
-    <section class="aro-hero">
-      <div class="container aro-hero-grid">
-        <div>
-          <span class="aro-kicker">Transmission 029 / Public interface layer</span>
-          <h1>The Agent-Readable Organism</h1>
-          <p class="aro-hero-sub">A website built for the agentic web cannot be only a brochure, archive, or blog. It needs a public contract: routes that name what is knowable, manifests that bound authority, grounding packets that separate evidence from synthesis, and approval gates that refuse hidden action.</p>
-          <div class="aro-meta"><span>June 2026</span><span>Brain Guide</span><span>Whitepaper Record</span><span>Agent-Readable Web</span><span>Revised 10 Nov 2026</span></div><div class="rev-note" role="note" style="max-width:860px;margin:24px 0 0;padding:14px 18px;border:1px solid rgba(240,238,246,0.16);border-left:3px solid #d2ac5f;border-radius:10px;background:rgba(210,172,95,0.07);text-align:left;font-size:0.92rem;line-height:1.65;color:var(--text-secondary)"><strong>This note describes the site as of 14 June 2026.</strong><br/><strong>Revised 10 November 2026.</strong> Rechecked against the shipped site: the machine-readable files, the public registries and the search, grounding and claims routes exist, and the search and grounding routes keep answer generation disabled. Corrections: (1) the "Agent Readiness Cell" proposed in section 07 has not been built; it is still a plan. (2) The contract sketch in section 04 is an illustration of intent, not a published file; the real discovery files are the sitemap, the llms file and the services manifest. (3) The four ecosystem signals in section 02 are external claims cited as of June 2026 and were not re-verified in this review. (4) The claim registry holds six entries as of 10 November 2026, so most of the claims made in transmissions are not labelled there. This page remains non-interactive.</div>
+    <section class="tx-hero">
+      <div class="container">
+        <div class="tx-hero-kicker"><span class="tx-section-num">TRANSMISSION 029</span></div>
+        <h1>The Agent-Readable<br>Organism</h1>
+        <p class="tx-hero-sub">A site can be readable to machines without handing them anything to act with. This note says exactly what unwindcode.ai ships for agents on 10 November 2026: a guide file, a services manifest, five registries and eight read-only routes that retrieve evidence and never write an answer. Everything else is labelled design, plan or metaphor.</p>
+        <div class="tx-hero-meta"><span>June 2026</span><span>·</span><span>Rewritten 10 November 2026</span><span>·</span><span>Public interface layer</span><span>·</span><span>10 min read</span></div>
+        <p class="tx-dateline"><strong>Dated note.</strong> This note describes the public machine-readable surface of unwindcode.ai as it exists in the site's source on 10 November 2026. It was first written on 14 June 2026. It was rewritten from the shipped files and their tests; the live site was not called while writing, so what is said about the live site is what the source says it does.</p>
+        <p class="tx-dateline"><strong>Revised 10 November 2026.</strong> Rewritten to the Transmission standard: each file and route is now described from its code; a claim ledger, a component explorer, a request model and a timeline were added. Removed: four external citations about the wider ecosystem (they could not be checked from the record) and the framing of the next build as if it were scheduled.</p>
+        <p class="tx-dateline"><strong>Correction, 10 November 2026.</strong> Four earlier statements on this page were wrong or unsupported and are kept here as corrections: (1) the &ldquo;Agent Readiness Cell&rdquo; is not built; it is a plan, and no code for it exists in the site or in the Brain. (2) The contract sketch was an illustration of intent, not a published file; the real discovery files are the sitemap, the guide file and the services manifest. (3) The four ecosystem signals cited as of June 2026 were never re-verified and are removed. (4) The claim registry holds six entries as of 10 November 2026, so most claims made in transmissions are not labelled there. The earlier line &ldquo;this page remains non-interactive&rdquo; no longer applies.</p>
+      </div>
+    </section>
+
+    <div class="container">
+
+      <!-- 01: THE LEDGER -->
+      <section class="tx-section" id="the-ledger">
+        <div class="tx-section-head"><span class="tx-section-num">01</span><h2>Every claim, with its trail</h2></div>
+        <div class="tx-section-label">The thesis is an opinion · the rest is a ledger</div>
+        <div class="tx-prose">
+          <p>The next web interface is not a page. It is a contract an agent can inspect. That is a design stance and the only opinion in this note; everything after it is a statement about files.</p>
+          <p>Agent-readable design is an architectural discipline, not search-engine optimisation with new vocabulary. A person tolerates atmosphere and missing coordinates. A machine needs stable routes, explicit scopes, source references, a review status and stated limits; without them it turns narrative into inference.</p>
+          <p>Below is every claim this note makes, tagged as <strong>shipped</strong> (a file or route you can read, with a test), <strong>design</strong> (an intent), <strong>plan</strong> (not built), <strong>metaphor</strong> (language only) or <strong>removed</strong> (taken out in this revision). Filter by kind and open a card for its trail.</p>
         </div>
-        <aside class="aro-contract" aria-label="Agent-readable contract map">
-          <h2>Public contract map</h2>
-          <div class="aro-contract-map">
-            <div class="aro-node"><strong>Human page</strong><span>The public reader sees thesis, protocol, failure modes, and next build direction.</span></div>
-            <div class="aro-node"><strong>Machine route</strong><span>The agent sees canonical URLs, registry entries, source files, metadata, and review status.</span></div>
-            <div class="aro-node"><strong>Grounding packet</strong><span>The retrieval layer returns evidence, citations, qualifications, and refusal rules before synthesis.</span></div>
-            <div class="aro-node"><strong>Approval boundary</strong><span>The system can prepare, cite, and recommend. It cannot publish, spend, sign, outreach, or mutate without authority.</span></div>
+        <div class="dl-filters" role="group" aria-label="Filter claims by kind" id="dl-filters"></div>
+        <div class="dl-count" id="dl-count" aria-live="polite"></div>
+        <div class="dl-grid" id="dl-grid"></div>
+        <div class="dl-law">
+          <h3>The trail rule</h3>
+          <p>A statement with no file, test or dated record behind it is either labelled as a design intent or deleted. Counts on this page are counts of the source on 10 November 2026, not of anything running.</p>
+        </div>
+      </section>
+
+      <!-- 02: WHAT SHIPS -->
+      <section class="tx-section" id="what-ships">
+        <div class="tx-section-head"><span class="tx-section-num">02</span><h2>Eight things an agent can read</h2></div>
+        <div class="tx-section-label">The component explorer · from the source, 10 November 2026</div>
+        <div class="tx-prose">
+          <p>There is no hidden machinery behind the word &ldquo;organism&rdquo; here. The machine-readable surface is three plain files, five static data files and a handful of serverless routes that read those data files. Select a component to see what it does, what it takes and which file and test stand behind it.</p>
+        </div>
+        <div class="mod-explorer">
+          <div class="mod-grid" id="mod-grid" role="group" aria-label="Components"></div>
+          <div class="mod-detail" id="mod-detail" aria-live="polite"></div>
+        </div>
+        <div class="tx-prose tx-after">
+          <p>Seven of the eight read routes sit behind a rate limiter; the status route does not. In production, if the limiter's store is not configured the routes answer with a refusal instead of serving unmetered. Whether it is configured on the live site could not be checked from the record, so this note makes no claim about it.</p>
+        </div>
+      </section>
+
+      <!-- 03: REQUEST MODEL -->
+      <section class="tx-section" id="what-comes-back">
+        <div class="tx-section-head"><span class="tx-section-num">03</span><h2>What a request gets back</h2></div>
+        <div class="tx-section-label">A model of the documented behaviour · not a live call</div>
+        <div class="tx-prose">
+          <p>Retrieval is not authority. The search route and the grounding route take the same parameters and answer in two shapes: search returns ranked evidence excerpts, grounding returns a packet that lists what must be shown and refused before anyone writes an answer. Neither composes one. Pick a request to see how each route handles it, as the code and its tests describe.</p>
+        </div>
+        <div class="cr-wrap">
+          <div class="cr-top">
+            <span class="cr-label">Request · same input, two routes</span>
+            <div class="cr-faults" role="group" aria-label="Choose a request" id="cr-faults"></div>
           </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="aro-section">
-      <div class="container">
-        <div class="aro-section-head"><span class="aro-section-num">01 / Thesis</span><h2>The next web interface is not a page. It is a contract an agent can inspect.</h2></div>
-        <div class="aro-prose">
-          <p>The Unwind site has already crossed two thresholds. Transmission 27 made the site a public index. Transmission 28 described a memory module with a control plane (see its 10 November 2026 correction for what that covers). The next threshold is agent readability: public knowledge must be shaped so another agent can ask, "What is this system allowed to say? What source backs it? What action is forbidden? What proof is live?"</p>
-          <p>This is not search-engine optimization with new vocabulary. Agent-readable design is an architectural discipline. A human can tolerate atmosphere, metaphor, and missing coordinates. An agent needs stable routes, explicit scopes, source maps, review status, refusal rules, and authority boundaries. Without those, the agent turns public narrative into unsafe inference.</p>
-          <p>The agent-readable organism is the Unwind answer: every public surface should be legible to humans, useful to builders, and safely retrievable by future Brain cells without granting secret authority.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="aro-section">
-      <div class="container">
-        <div class="aro-section-head"><span class="aro-section-num">02 / Why now</span><h2>The ecosystem is moving from model choice to harness choice, and from websites to agent-ready surfaces.</h2></div>
-        <div class="aro-prose">
-          <p>The current external signal is not "AI is advancing." That is too broad to deserve a transmission. The real signal is narrower: agent systems are standardizing the harness, the sandbox, and the website interface. That matters to Unwind because the Brain is not only a model. It is a governed organism with routes, memory, tools, approvals, and public proof.</p>
-          <p>When agent harnesses become interchangeable and sites are audited for agent readiness, Unwind needs to behave like a public system other agents can inspect. The site should not ask agents to guess what is safe. It should publish the contract.</p>
-        </div>
-        <div class="aro-signal-grid">
-          <a class="aro-source-card" href="https://vercel.com/changelog/program-agent-harnesses-with-ai-sdk" rel="noopener" target="_blank">
-            <div>
-              <span class="aro-card-label">Vercel / Jun 12 2026</span>
-              <h3>Harnesses become swappable</h3>
-              <p>AI SDK 7 introduces a harness abstraction so builders can run established agent harnesses through one API.</p>
+          <div class="cr-cols">
+            <div class="cr-col">
+              <h3>/api/search</h3>
+              <p class="cr-col-sub">Ranked evidence excerpts, at most 20.</p>
+              <ol class="cr-steps" id="cr-raw"></ol>
             </div>
-            <span class="aro-link-note">Source &rarr;</span>
-          </a>
-          <a class="aro-source-card" href="https://openai.com/index/the-next-evolution-of-the-agents-sdk/" rel="noopener" target="_blank">
-            <div>
-              <span class="aro-card-label">OpenAI / Agents SDK</span>
-              <h3>Long-running work needs controlled execution</h3>
-              <p>OpenAI describes agents inspecting files, running commands, editing code, and working in controlled sandbox environments.</p>
+            <div class="cr-col">
+              <h3>/api/grounding</h3>
+              <p class="cr-col-sub">A citation packet, at most 5 sources.</p>
+              <ol class="cr-steps" id="cr-verify"></ol>
             </div>
-            <span class="aro-link-note">Source &rarr;</span>
-          </a>
-          <a class="aro-source-card" href="https://blog.cloudflare.com/agent-readiness/" rel="noopener" target="_blank">
-            <div>
-              <span class="aro-card-label">Cloudflare / Apr 17 2026</span>
-              <h3>Sites must become agent-readable</h3>
-              <p>Cloudflare frames agent readiness as the next website adaptation: machines need guidance on content, auth, formats, and controls.</p>
-            </div>
-            <span class="aro-link-note">Source &rarr;</span>
-          </a>
-          <a class="aro-source-card" href="https://blog.cloudflare.com/agents-week-in-review/" rel="noopener" target="_blank">
-            <div>
-              <span class="aro-card-label">Cloudflare / Agents Week</span>
-              <h3>The agentic cloud is becoming infrastructure</h3>
-              <p>The platform layer is forming around compute, security, toolboxes, browsers, persistent sessions, and agent deployment primitives.</p>
-            </div>
-            <span class="aro-link-note">Source &rarr;</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="aro-section">
-      <div class="container">
-        <div class="aro-section-head"><span class="aro-section-num">03 / Definitions</span><h2>Agent readability is the difference between being crawled and being understood.</h2></div>
-        <div class="aro-prose">
-          <p>An agent-readable organism exposes enough public structure for a machine to retrieve, verify, refuse, and ask for authority. It does not expose secrets. It does not pretend the agent can act just because the agent can read. It gives the agent a governed map.</p>
-        </div>
-        <div class="aro-def-grid">
-          <article class="aro-def-card"><span class="aro-card-label">Agent-readable organism</span><h3>Public system with machine-legible boundaries</h3><p>A site whose human pages, manifests, registries, and APIs all describe what can be known, cited, prepared, and refused.</p></article>
-          <article class="aro-def-card"><span class="aro-card-label">Harness</span><h3>The execution loop around the model</h3><p>The policy, tools, sandbox, filesystem access, terminal behavior, and run lifecycle that shape what an agent can actually do.</p></article>
-          <article class="aro-def-card"><span class="aro-card-label">Grounding packet</span><h3>Evidence before synthesis</h3><p>A retrieval artifact containing sources, citations, qualifications, review flags, and refusal rules before an answer is allowed.</p></article>
-          <article class="aro-def-card"><span class="aro-card-label">Authority boundary</span><h3>Where reading stops becoming action</h3><p>The explicit line before publishing, social posting, file mutation, spending, wallet signing, outreach, or unreviewed deployment.</p></article>
-          <article class="aro-def-card"><span class="aro-card-label">Proof ledger</span><h3>Evidence that the public surface is real</h3><p>Canonical page, registry entry, sitemap route, machine-readable metadata, tests, build, smoke evidence, and deployment status.</p></article>
-          <article class="aro-def-card"><span class="aro-card-label">Manual Brain Mode</span><h3>Human-governed protocol run</h3><p>The Brain pattern is executed manually from real signals until the runtime can operate the loop directly under review.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="aro-section">
-      <div class="container">
-        <div class="aro-section-head"><span class="aro-section-num">04 / Architecture</span><h2>The public site becomes the first safe interface between the Brain and other agents.</h2></div>
-        <div class="aro-prose">
-          <p>The architecture is a layered contract. The visible page teaches. The registry indexes. The manifest bounds. The grounding endpoint qualifies. The claim registry names risk. The sitemap makes discovery deterministic. The tests enforce that the public story and the machine story do not drift apart.</p>
-          <p>The crucial design choice is that agent readability remains read-mostly. The site may help an agent understand Unwind, but it does not hand the agent hidden runtime permissions. Public clarity is not public authority.</p>
-        </div>
-        <div class="aro-stack">
-          <div class="aro-spec">
-            <h3>Contract sketch</h3>
-<pre>{
-  "surface": "unwindcode.ai",
-  "agent_readable": true,
-  "public_knowledge": [
-    "transmissions",
-    "organism concepts",
-    "claim registry",
-    "asset provenance",
-    "grounding packets"
-  ],
-  "default_authority": "read_only",
-  "requires_approval": [
-    "publish",
-    "social_post",
-    "file_mutation",
-    "wallet_signing",
-    "paid_activation",
-    "outreach"
-  ],
-  "answer_policy": "ground_before_synthesis",
-  "next_cell": "agent_readiness_audit  (a plan, not built)"
-}</pre>
           </div>
-          <div class="aro-layer-list">
-            <article class="aro-layer"><b>01</b><div><h3>Route layer</h3><p>Stable public URLs for transmissions, homepage concepts, and machine seed files. No knowledge without coordinates.</p></div></article>
-            <article class="aro-layer"><b>02</b><div><h3>Manifest layer</h3><p><code>llms.txt</code> and <code>ai-services.json</code> tell agents what exists, what it means, and what authority is blocked.</p></div></article>
-            <article class="aro-layer"><b>03</b><div><h3>Registry layer</h3><p>Read-only JSON records expose public-safe summaries, source files, topic tags, citations, confidence, and review state.</p></div></article>
-            <article class="aro-layer"><b>04</b><div><h3>Grounding layer</h3><p>Search and grounding return evidence packets before answer synthesis, keeping retrieval separate from advice or action.</p></div></article>
-            <article class="aro-layer"><b>05</b><div><h3>Approval layer</h3><p>Every high-risk transition exits public retrieval and asks the creator or reviewed operator path before motion.</p></div></article>
-          </div>
+          <div class="cr-outcome" id="cr-outcome" aria-live="polite"></div>
+          <p class="cr-note">A model, written from the route code and its tests. It does not call the site.</p>
         </div>
-      </div>
-    </section>
+        <div class="tx-prose tx-after">
+          <p>The no-answer behaviour is enforced by absence: the packet's policy says synthesis is not allowed, and no route in the manifest generates an answer from it. If an answer route is ever added, the packet already names four steps it must take first: render the citations, render the claim qualifications, enforce the five refusal rules and review the answer route's own behaviour. That is a place the code reserves for a design, not a feature.</p>
+        </div>
+      </section>
 
-    <section class="aro-section">
-      <div class="container">
-        <div class="aro-section-head"><span class="aro-section-num">05 / Protocol</span><h2>An agent-readable site should answer with evidence, not charisma.</h2></div>
-        <div class="aro-prose">
-          <p>The Agent Contract Protocol is the operating path for future Unwind pages and APIs. It is how a public reader, a builder, or another agent can move from discovery to grounded understanding without crossing into hidden capability.</p>
+      <!-- 04: SKETCH -->
+      <section class="tx-section" id="the-sketch">
+        <div class="tx-section-head"><span class="tx-section-num">04</span><h2>The contract sketch, and where it is real</h2></div>
+        <div class="tx-section-label">An illustration of intent · not a published file</div>
+        <div class="tx-prose">
+          <p>The first version of this note printed a small JSON contract for the site. It was an illustration. No such file is published, and the correction above says so. Its fields are still a useful checklist: for each one, the panel below says where the idea is real today, where it is only prose, and where it does not exist.</p>
         </div>
-        <div class="aro-protocol">
-          <article class="aro-step"><b>01</b><h3>Declare</h3><p>Name the page, concept, capability, review state, and route. Do not make agents infer the shape of the system from style alone.</p></article>
-          <article class="aro-step"><b>02</b><h3>Expose</h3><p>Publish public-safe metadata in registry and manifest surfaces so machine readers can find the canonical source.</p></article>
-          <article class="aro-step"><b>03</b><h3>Retrieve</h3><p>Return snippets and matched sources as evidence candidates, not as final answers or advice.</p></article>
-          <article class="aro-step"><b>04</b><h3>Ground</h3><p>Attach citations, qualifications, refusal rules, and claim scope before synthesis is considered.</p></article>
-          <article class="aro-step"><b>05</b><h3>Qualify</h3><p>Separate public architecture claims from live deployment claims, domain advice, financial outcomes, legal status, or operational authority.</p></article>
-          <article class="aro-step"><b>06</b><h3>Ask</h3><p>When a request crosses into publishing, mutation, spending, signing, outreach, or private data, ask for explicit authority.</p></article>
-          <article class="aro-step"><b>07</b><h3>Cite</h3><p>Show which page, registry row, API route, source note, or smoke check supports the answer.</p></article>
-          <article class="aro-step"><b>08</b><h3>Record</h3><p>Leave a proof ledger so future Brain cells can tell what changed, what was verified, and what remains blocked.</p></article>
+        <div class="sk-wrap">
+          <div class="sk-code" id="sk-code" role="group" aria-label="Sketch fields"></div>
+          <div class="sk-out" id="sk-out" aria-live="polite"></div>
         </div>
-      </div>
-    </section>
+        <div class="tx-prose tx-after">
+          <p>The Agent Contract Protocol is the working method for page and route authors: declare what a page is, expose public-safe metadata, retrieve evidence, ground it with citations and qualifications, ask before anything consequential, cite the source and record the result. It is a design: a checklist this note was written to follow, not a program. Retrieve, ground and cite have code behind them; ask and record rest on review by a person.</p>
+          <p>Three hazards motivate it, and they are named as hazards, not as incidents. <strong>Context laundering</strong> is private memory leaking into a public answer without a source: the read routes load only committed public data files, and the grounding packet states that private prompts and runtime evidence are excluded. <strong>Stale authority</strong> is an old proof read as current: it is why every figure here carries a date. <strong>Hidden privilege</strong> is a tool implying a permission: the eight read routes accept only read methods and answer anything else with a refusal.</p>
+        </div>
+      </section>
 
-    <section class="aro-section">
-      <div class="container">
-        <div class="aro-section-head"><span class="aro-section-num">06 / Threat model</span><h2>The agentic web creates a new failure: public text becomes private permission by accident.</h2></div>
-        <div class="aro-prose">
-          <p>A superficial agent-ready site tries to attract crawlers. A serious one prevents crawlers, harnesses, and future Brain cells from turning prose into unsafe action. The Unwind threat model treats ambiguity as a system risk.</p>
+      <!-- 05: TIMELINE -->
+      <section class="tx-section" id="the-record">
+        <div class="tx-section-head"><span class="tx-section-num">05</span><h2>The record, dated</h2></div>
+        <div class="tx-section-label">Six entries from the site's history</div>
+        <div class="wf-steps" id="wf-steps">
+          <div class="wf-step"><div class="wf-dot wf-dot-1">01</div><h3>6 June 2026 · schema versions</h3><p>The registry and manifest files carry a schema version dated 6 June 2026 (for example <code>2026-06-06.public-ai-services.v1</code>). They still read that today, although the registries have grown since.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-2">02</div><h3>13 June 2026 · the surface lands</h3><p>The search, grounding, claims and status routes, the guide file, the services manifest and the claims registry were first committed together, in the same change that published Transmissions 27 and 28.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-3">03</div><h3>14 June 2026 · this note</h3><p>The first version of this note was published, describing that surface and proposing an Agent Readiness Cell as the next build.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-4">04</div><h3>3 July 2026 · state pinned</h3><p>A commit message records the site's deployed state, including the API layer, as live. This rewrite could not confirm the live state, so the date is a record of what was said, not of what is true today.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-5">05</div><h3>10 November 2026 · first correction</h3><p>An audit added dated corrections: the readiness cell is not built, the sketch is not a file, the external signals were never re-verified, and the claim registry holds six entries.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-6">06</div><h3>10 November 2026 · this rewrite</h3><p>The external citations were removed, the page was rewritten from the code, and the counts were refreshed: 56 transmission entries, 5 architecture concepts, 5 organisms, 8 asset packages, 6 claims.</p></div>
         </div>
-        <div class="aro-threat-grid">
-          <article class="aro-threat-card"><span class="aro-card-label">Agent bait</span><h3>Optimization without boundary</h3><p>Pages invite agents but do not explain what the agent must not assume.</p></article>
-          <article class="aro-threat-card"><span class="aro-card-label">Stale authority</span><h3>Old proof reads current</h3><p>A past deployment, approval, or capability gets retrieved as if it is live truth.</p></article>
-          <article class="aro-threat-card"><span class="aro-card-label">Context laundering</span><h3>Private memory leaks into public synthesis</h3><p>The system blends internal context into public answers without source or review.</p></article>
-          <article class="aro-threat-card"><span class="aro-card-label">Autopublish drift</span><h3>Cadence becomes permission</h3><p>A schedule starts producing public pages because time passed, not because value passed the gate.</p></article>
-          <article class="aro-threat-card"><span class="aro-card-label">Hidden privilege</span><h3>Tools imply authority</h3><p>A harness can edit, deploy, or execute, so the public narrative accidentally implies it may do so unattended.</p></article>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="aro-section">
-      <div class="container">
-        <div class="aro-section-head"><span class="aro-section-num">07 / Implementation sketch</span><h2>The next build direction is an Agent Readiness Cell for UnwindCode.ai.</h2></div>
-        <div class="aro-prose">
-          <p>This transmission advances the ecosystem only if it becomes build pressure. The concrete next cell is not another post generator. It is an Agent Readiness Cell: a reviewer that scans public routes, machine-readable files, registries, grounding behavior, claim language, and approval boundaries, then produces a private report before any public transmission is recommended.</p>
-          <p>The cell should verify route coverage, stale metadata, uncited claims, unsafe autonomy language, missing refusal rules, social-packet leakage, sitemap drift, production smoke status, and whether the candidate actually advances architecture, implementation, proof, theory, or user capability.</p>
+      <!-- 06: NOT CLAIMED -->
+      <section class="tx-section" id="not-claimed">
+        <div class="tx-section-head"><span class="tx-section-num">06</span><h2>What this note does not claim</h2></div>
+        <div class="tx-section-label">Not done, on purpose · plan, not built</div>
+        <div class="tx-prose">
+          <p>Agent-readable does not mean agent-authorized. This is a Manual Brain Mode transmission: a person-governed hand wrote it from the record, and it is not evidence that the Brain publishes, posts, signs, spends or contacts anyone by itself. Nothing here says an agent relies on these files; no record of who calls the routes was read. The statements about read-only behaviour cover the eight read routes only: the source also holds other server routes that are not in the manifest, and this note makes no claim about them.</p>
+          <p>The guide file's list names 34 transmission routes (21 to 24 and 26 to 55) while the registry holds 56 entries, so the list can drift from the archive. Whether it should name every transmission is the operator's decision.</p>
         </div>
-        <div class="aro-guide">
-          <span class="aro-section-num">Build recipe</span>
-          <h2>Assemble the Agent Readiness Cell as a read-only reviewer first.</h2>
-          <p>Input: public routes, <code>sitemap.xml</code>, <code>llms.txt</code>, <code>ai-services.json</code>, registry JSON, recent git commits, deployment status, official ecosystem sources, and the transmission quality gate.</p>
-          <p>Process: compare declared routes against live files, detect claims without citations, inspect authority language, verify tests/build/smoke readiness, and score whether a proposed transmission advances the Unwind ecosystem.</p>
-          <p>Output: a private watch memo or a publish-ready whitepaper candidate with source notes, required metadata changes, verification plan, and explicit approval recommendation. The cell prepares; it does not publish.</p>
+        <div class="mem-grid" id="mem-grid"></div>
+        <div class="tx-prose tx-after">
+          <p><strong>Next-cell memory.</strong> The Agent Readiness Cell is a plan, not built, as of 10 November 2026. As designed it would be a read-only reviewer: it would scan the public routes, the guide file, the manifest, the registries and the claim language, and write a private report before any new transmission is recommended. The closest thing that exists is a manual parity script that compares the local sources with the live site and smoke-tests search, grounding and status; it checks, it does not review. Posting assets for this transmission remain internal creator material and do not appear on public pages.</p>
         </div>
-      </div>
-    </section>
+        <div class="tx-related">
+          Related: <a href="/transmissions/27-the-site-became-a-public-index">Transmission 27 — the site became a public index</a> · <a href="/transmissions/28-the-memory-control-plane">Transmission 28 — the memory control plane</a> · <a href="/transmissions/30-the-operator-readiness-layer">Transmission 30 — the operator readiness layer</a>
+        </div>
+      </section>
 
-    <section class="aro-section">
-      <div class="container">
-        <div class="aro-section-head"><span class="aro-section-num">08 / Approval boundary</span><h2>Agent-readable does not mean agent-authorized.</h2></div>
-        <div class="aro-prose">
-          <p>This is a Manual Brain Mode transmission. The Brain pattern is being executed by a human-governed agent from real local and public signals. It is not proof that the Brain published itself, posted to social media, controls wallets, performs outreach, or can mutate public infrastructure without review.</p>
-          <p>The public contract is read-mostly by default. It may prepare source-backed candidates, summarize public routes, recommend tests, and name the next cell. It must ask before public publishing, production aliasing, file mutation, social distribution, spending, signing, lead outreach, or policy-sensitive escalation.</p>
-        </div>
+      <div class="tx-cta">
+        <h2>Public clarity is not public authority.</h2>
+        <p>Read the routes, check the trail, and ask before acting.</p>
+        <a class="btn btn-primary btn-lg" href="/transmissions"><span>All Transmissions</span><span class="btn-arrow">→</span></a>
       </div>
-    </section>
-
-    <section class="aro-section">
-      <div class="container">
-        <div class="aro-section-head"><span class="aro-section-num">09 / Proof ledger</span><h2>The page is only credible if the human and machine surfaces agree.</h2></div>
-        <div class="aro-proof-grid">
-          <article class="aro-proof-card"><span class="aro-card-label">Page</span><h3>Transmission 29</h3><p>Canonical public guide for the agent-readable organism layer.</p></article>
-          <article class="aro-proof-card"><span class="aro-card-label">Metadata</span><h3>Registry and discovery</h3><p>Transmission archive, public registry, sitemap, <code>llms.txt</code>, and <code>ai-services.json</code> must all include the route.</p></article>
-          <article class="aro-proof-card"><span class="aro-card-label">Verification</span><h3>Tests and build</h3><p>The package must pass the transmission registry tests, full test suite, build, and route smoke before production trust.</p></article>
-          <article class="aro-proof-card"><span class="aro-card-label">Boundary</span><h3>No social packet exposure</h3><p>Internal carousel or posting assets remain creator material unless a public campaign surface is explicitly approved.</p></article>
-        </div>
-        <div class="aro-cta">
-          <h2>The next organism layer is public legibility with private authority protected.</h2>
-          <p>Plan, not built as of 10 November 2026. Next-cell memory: build the Agent Readiness Cell so every future transmission candidate is audited for real ecosystem advancement before it is allowed to become public surface.</p>
-          <a class="btn btn-primary btn-lg" href="/transmissions"><span>All Transmissions</span><span class="btn-arrow">&rarr;</span></a>
-        </div>
-      </div>
-    </section>
+    </div>
   </main>
 
-  <footer id="footer" style="margin-top:0;">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand"><span class="nav-glyph">&infin;</span><span class="nav-name">unwind<span class="nav-accent">code</span></span><p class="footer-desc">Intelligence that evolves.<br />Growing organisms since 2026.</p></div>
-        <div class="footer-col"><h5>Learn</h5><a href="/#architecture">Architecture</a><a href="/#philosophy">Philosophy</a><a href="/#vision">Vision 2030</a></div>
-        <div class="footer-col"><h5>Community</h5><a href="/#cta">Join Updates</a><a href="/transmissions">Transmissions</a><a href="/#cta">Talk to the Brain</a></div>
-      </div>
-      <div class="footer-bottom"><span>&copy; 2026 Unwind Code. All rights reserved.</span><span class="footer-tagline">The future learns from itself. &infin;</span></div>
-    </div>
-  </footer>
+  <footer id="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span><p class="footer-desc">Intelligence that evolves.<br />No claim without a trail.</p></div><div class="footer-col"><h5>Proof</h5><a href="/proof">Proof Register</a><a href="/proof/ledger">Live Ledger</a><a href="/transmissions">Transmissions</a><a href="/architecture">Architecture</a></div><div class="footer-col"><h5>Organisms</h5><a href="/organisms">All Organisms</a><a href="/organisms/financial-organisms">Financial Organisms</a><a href="/organisms/infinity-mirror">Infinity Mirror</a></div><div class="footer-col"><h5>Next</h5><a href="/build-with-us">Build With Us</a><a href="/#cta">Subscribe</a></div></div><div class="footer-bottom"><span>© 2026 Unwind Code. All rights reserved.</span><span class="footer-tagline">The future learns from itself. ∞</span></div></div></footer>
 
   <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const toggle = document.getElementById('nav-toggle');
-    const links = document.getElementById('nav-links');
-    if (toggle && links) {
-      toggle.addEventListener('click', () => {
-        toggle.classList.toggle('active');
-        links.classList.toggle('open');
+  (function () {
+    // All data below is static and client-side. Nothing on this page makes a network call.
+
+    // 01 — CLAIM LEDGER
+    var kinds = [
+      { key: 'shipped', label: 'Shipped' },
+      { key: 'design', label: 'Design' },
+      { key: 'plan', label: 'Plan' },
+      { key: 'metaphor', label: 'Metaphor' },
+      { key: 'removed', label: 'Removed' }
+    ];
+    var claims = [
+      { kind: 'shipped', name: 'A guide file exists', short: 'A plain-text guide names eleven public concepts, the public routes and retrieval guidance.', why: 'Source: public/llms.txt, copied to the site root by the build. Tests: site-discovery and public-metadata.' },
+      { kind: 'shipped', name: 'A services manifest exists', short: 'It lists ten services: eight read-only routes and two same-origin routes (a chat proxy and an email signup).', why: 'Source: public/ai-services.json, schema 2026-06-06, review status public_safe_draft. Test: ai-services-metadata, which checks it names only active routes and no secrets.' },
+      { kind: 'shipped', name: 'Five registries as static data', short: 'Five architecture concepts, five organisms, eight asset packages, six claims, 56 transmissions.', why: 'Source: the five files under public/data. Counts are from the source on 10 November 2026. Tests: one registry test per file.' },
+      { kind: 'shipped', name: 'Eight read-only routes', short: 'Search, grounding, claims, architecture, organisms, assets, transmissions and status.', why: 'Source: the files under api/. Each accepts GET, HEAD and OPTIONS and answers other methods with 405. Tests: one test file per route.' },
+      { kind: 'shipped', name: 'Search retrieves, it does not answer', short: 'Lexical ranking, at most 20 results, each marked answer generation disabled.', why: 'Source: api/search.js and api/_shared/public-search.js. Each result carries snippet_policy not_an_answer. Test: search-api.' },
+      { kind: 'shipped', name: 'Grounding returns a packet', short: 'At most 5 sources, citations, required qualifications, five refusal rules, synthesis not allowed.', why: 'Source: api/grounding.js and api/_shared/grounding-policy.js. Test: grounding-api.' },
+      { kind: 'shipped', name: 'The routes read committed files only', short: 'They load the public data files; none calls the Brain or any runtime.', why: 'Source: the registry URLs at the top of public-search.js and status.js. This describes the eight read routes, not the chat or signup forms.' },
+      { kind: 'shipped', name: 'A limiter fronts seven of eight', short: 'Defaults of 60 requests a minute per route, 30 for grounding; the status route has none.', why: 'Source: api/_shared/rate-limit.js. In production an unconfigured limiter store refuses requests. Whether it is configured live is not verified here.' },
+      { kind: 'shipped', name: 'Six labelled claims', short: 'The claim registry labels six homepage and financial claims, with status, evidence and risk.', why: 'Source: public/data/claims.json. Two need context, two are safety-qualified, one is future vision, one is public-safe. It does not label the claims of transmissions.' },
+      { kind: 'shipped', name: 'Crawlers are kept off the API', short: 'The robots file allows the site, disallows /api/ and names the sitemap.', why: 'Source: public/robots.txt. Test: public-metadata. An agent that wants the routes calls them directly, as the manifest describes.' },
+      { kind: 'design', name: 'Ground before synthesis', short: 'If an answer route is ever built, it must render citations and qualifications first.', why: 'The packet lists four required steps. No answer route exists, so this is a reserved design, not a running rule.' },
+      { kind: 'design', name: 'The Agent Contract Protocol', short: 'Declare, expose, retrieve, ground, qualify, ask, cite, record.', why: 'A checklist for page and route authors. Retrieve, ground and cite have code behind them; ask and record rest on human review.' },
+      { kind: 'design', name: 'Approval boundaries are prose', short: 'The list of actions that need approval is stated in words, not enforced by a public file.', why: 'The manifest and the guide file state the boundaries in prose. No machine-readable approval list is published.' },
+      { kind: 'plan', name: 'The Agent Readiness Cell', short: 'A read-only reviewer of routes, files and claim language. Not built.', why: 'No code for it exists in the site or the Brain as of 10 November 2026. A manual parity script is the nearest existing check.' },
+      { kind: 'metaphor', name: 'The word organism', short: 'Language for a design. The surface is static files and read-only routes.', why: 'Nothing here is alive, autonomous or conscious. The code beside the metaphor is described in section 02.' },
+      { kind: 'removed', name: 'Four external ecosystem signals', short: 'Citations about agent harnesses and agent-ready sites, removed.', why: 'They were cited as of June 2026 and never re-verified. This rewrite had no network, so they were dropped rather than kept unchecked.' },
+      { kind: 'removed', name: 'A published contract file', short: 'The earlier sketch read like a file. It is not one.', why: 'Corrected on 10 November 2026; section 04 maps each sketch field to what actually exists.' }
+    ];
+    var dlGrid = document.getElementById('dl-grid');
+    var dlCount = document.getElementById('dl-count');
+    var dlFilters = document.getElementById('dl-filters');
+    function addChip(key, label, n) {
+      var chip = document.createElement('button');
+      chip.type = 'button';
+      chip.className = 'dl-chip' + (key === 'all' ? '' : ' dl-chip-' + key);
+      chip.setAttribute('data-state', key);
+      chip.setAttribute('aria-pressed', key === 'all' ? 'true' : 'false');
+      chip.textContent = label + ' · ' + n;
+      chip.addEventListener('click', function () {
+        dlFilters.querySelectorAll('.dl-chip').forEach(function (other) { other.setAttribute('aria-pressed', 'false'); });
+        chip.setAttribute('aria-pressed', 'true');
+        applyFilter(key);
       });
+      dlFilters.appendChild(chip);
     }
-  });
+    addChip('all', 'All', claims.length);
+    kinds.forEach(function (k) {
+      var n = claims.filter(function (c) { return c.kind === k.key; }).length;
+      addChip(k.key, k.label, n);
+    });
+    claims.forEach(function (c) {
+      var card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'dl-card';
+      card.setAttribute('data-state', c.kind);
+      card.setAttribute('aria-expanded', 'false');
+      card.innerHTML =
+        '<span class="dl-state dl-state-' + c.kind + '">' + c.kind.toUpperCase() + '</span>' +
+        '<div class="dl-name">' + c.name + '</div>' +
+        '<div class="dl-short">' + c.short + '</div>' +
+        '<div class="dl-why">' + c.why + '</div>' +
+        '<div class="dl-hint">Trail ↓</div>';
+      card.addEventListener('click', function () {
+        var open = card.getAttribute('aria-expanded') === 'true';
+        card.setAttribute('aria-expanded', open ? 'false' : 'true');
+        card.querySelector('.dl-hint').textContent = open ? 'Trail ↓' : 'Close ↑';
+      });
+      dlGrid.appendChild(card);
+    });
+    function applyFilter(state) {
+      var shown = 0;
+      dlGrid.querySelectorAll('.dl-card').forEach(function (card) {
+        var match = state === 'all' || card.getAttribute('data-state') === state;
+        if (match) { card.removeAttribute('hidden'); shown += 1; } else { card.setAttribute('hidden', ''); }
+      });
+      dlCount.textContent = shown + ' of ' + claims.length + ' claims · five kinds, no sixth';
+    }
+    applyFilter('all');
+
+    // 02 — COMPONENT EXPLORER
+    var parts = [
+      { id: 'llms', role: 'Guide file', score: 'Shipped',
+        desc: 'A plain-text guide for crawlers and retrieval systems: what the site is, eleven public concepts, a list of public routes and retrieval guidance.',
+        specs: ['public/llms.txt', 'Names 34 transmission routes', 'Prefer cited pages over inference', 'Creator packets stay internal'],
+        proof: 'Tests: site-discovery, public-metadata. It tells a reader not to infer access to keys, prompts, customer data or trading authority.' },
+      { id: 'manifest', role: 'Services manifest', score: 'Shipped',
+        desc: 'A JSON description of ten services, each with an endpoint, a status, capabilities, safety boundaries, source files and the tests that cover it.',
+        specs: ['public/ai-services.json', 'Eight read-only routes', 'Two same-origin routes', 'Review status public_safe_draft'],
+        proof: 'It describes; the code and the tests enforce. A test checks that it lists only active routes and carries no secrets.' },
+      { id: 'robots', role: 'Robots file', score: 'Shipped',
+        desc: 'Allows the site, disallows /api/ and names the sitemap. Crawlers are told to stay out of the routes; an agent that wants them calls them directly.',
+        specs: ['public/robots.txt', 'Allow /', 'Disallow /api/', 'Sitemap named'],
+        proof: 'Test: public-metadata. The sitemap lists 56 transmission pages.' },
+      { id: 'registries', role: 'Five registries', score: 'Shipped',
+        desc: 'Static JSON, each with a schema version, a review status and public-safe summaries: architecture, organisms, assets, claims, transmissions.',
+        specs: ['5 architecture concepts', '5 organisms', '8 asset packages', '6 claims', '56 transmissions'],
+        proof: 'Counts are from the source on 10 November 2026. All eight asset packages are marked prepared, not posted.' },
+      { id: 'search', role: '/api/search', score: 'Shipped',
+        desc: 'Lexical search over the five registries. A query or a filter is required; the filters are type, claim status, evidence status, risk level and memory layer.',
+        specs: ['q up to 160 characters', 'At most 20 results', 'answer_generation disabled', 'Responses not cached'],
+        proof: 'Source: api/search.js. Default limit 60 requests a minute. Test: search-api.' },
+      { id: 'grounding', role: '/api/grounding', score: 'Shipped',
+        desc: 'The same parameters as search, answered as a packet: up to five sources, citations, required qualifications, review flags, an answer policy and five refusal rules.',
+        specs: ['At most 5 sources', 'synthesis_allowed false', 'Five refusal rules', 'Default 30 a minute'],
+        proof: 'Source: api/grounding.js and grounding-policy.js. The refusal rules include never inferring a current deployment. Test: grounding-api.' },
+      { id: 'claims', role: '/api/claims', score: 'Shipped',
+        desc: 'The claim registry as an API: by id, or filtered by claim status, evidence status or category. With no filter it returns the whole registry.',
+        specs: ['Six entries', 'Unknown id gives 404', 'Cached five minutes', 'Default 60 a minute'],
+        proof: 'Source: api/claims.js. It labels homepage and financial claims, not the claims inside transmissions. Test: claims-api.' },
+      { id: 'lookup', role: 'Lookup and status', score: 'Shipped',
+        desc: 'Four lookup routes (architecture, organisms, assets, transmissions) return one registry entry by id or a filtered list. The status route reports counts, the latest transmission and which routes carry which controls.',
+        specs: ['/api/architecture', '/api/organisms', '/api/assets', '/api/transmissions', '/api/status'],
+        proof: 'Status also reports configuration-present flags, booleans only, never values. Tests: one per route.' }
+    ];
+    var modGrid = document.getElementById('mod-grid');
+    var modDetail = document.getElementById('mod-detail');
+    var modButtons = [];
+    function showPart(p) {
+      modButtons.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-id') === p.id ? 'true' : 'false'); });
+      modDetail.innerHTML =
+        '<div class="mod-detail-title">' + p.role + '</div>' +
+        '<span class="mod-detail-type">' + p.score + '</span>' +
+        '<p class="mod-detail-desc">' + p.desc + '</p>' +
+        '<div class="mod-specs-label">Specification</div>' +
+        '<div class="mod-specs">' + p.specs.map(function (s) { return '<span class="mod-spec">' + s + '</span>'; }).join('') + '</div>' +
+        '<div class="mod-proof">' + p.proof + '</div>';
+    }
+    parts.forEach(function (p) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'mod-node';
+      btn.setAttribute('data-id', p.id);
+      btn.setAttribute('aria-pressed', 'false');
+      btn.innerHTML = '<span class="mod-glyph">COMPONENT</span><div class="mod-name">' + p.role + '</div><div class="mod-score">' + p.score + '</div>';
+      btn.addEventListener('click', function () { showPart(p); });
+      modGrid.appendChild(btn);
+      modButtons.push(btn);
+    });
+    showPart(parts[0]);
+
+    // 03 — REQUEST MODEL
+    // Each step: [title, detail, verdict]. Verdicts: pass, fail, skip.
+    var requests = {
+      query: {
+        label: 'A query',
+        outcome: '<strong>Both answer 200.</strong> Search returns up to 20 excerpts, each marked as not an answer. Grounding returns up to 5 sources with citations, and its policy says synthesis is not allowed.',
+        cls: 'clean',
+        search: [['Parameters', 'A query of 160 characters or fewer is accepted.', 'pass'], ['Rate limit', 'Counted per route and salted client hash.', 'pass'], ['Match', 'Lexical match over the five registries, best first.', 'pass'], ['Mark', 'Every result carries answer_generation disabled.', 'pass']],
+        ground: [['Parameters', 'The same check as search.', 'pass'], ['Rate limit', 'Default 30 a minute.', 'pass'], ['Match', 'The top five results become sources.', 'pass'], ['Policy', 'synthesis_allowed false; five refusal rules attached.', 'pass']]
+      },
+      filter: {
+        label: 'A filter only',
+        outcome: '<strong>Both answer 200.</strong> A filter such as risk level or claim status is enough on its own. Grounding adds the required qualifications for any claim that needs them, so the packet says what must be stated alongside the source.',
+        cls: 'clean',
+        search: [['Parameters', 'No query, but one valid filter.', 'pass'], ['Rate limit', 'Counted.', 'pass'], ['Match', 'Entries whose claim references match the filter.', 'pass'], ['Mark', 'Each result still carries the no-answer marks.', 'pass']],
+        ground: [['Parameters', 'The same check.', 'pass'], ['Rate limit', 'Counted.', 'pass'], ['Match', 'Up to five filtered sources.', 'pass'], ['Qualify', 'Required qualifications and review flags are listed.', 'pass']]
+      },
+      action: {
+        label: 'An action phrase',
+        outcome: '<strong>Words are only search terms.</strong> A phrase such as &ldquo;publish this transmission&rdquo; matches text like any other. Nothing is published, posted or changed: the routes have no action to take.',
+        cls: 'clean',
+        search: [['Parameters', 'The phrase is a valid query.', 'pass'], ['Match', 'Entries containing the words are returned.', 'pass'], ['Effect', 'No route writes anything.', 'pass']],
+        ground: [['Parameters', 'The phrase is a valid query.', 'pass'], ['Match', 'Sources whose text contains the words.', 'pass'], ['Effect', 'No route writes anything; the packet refuses synthesis.', 'pass']]
+      },
+      empty: {
+        label: 'No parameters',
+        outcome: '<strong>Both refuse with 400.</strong> A query or a filter is required. The error is generic and is never cached.',
+        cls: 'refused',
+        search: [['Parameters', 'Search query or filter required.', 'fail'], ['Rate limit', 'Not reached.', 'skip'], ['Match', 'Not reached.', 'skip']],
+        ground: [['Parameters', 'Grounding query or filter required.', 'fail'], ['Rate limit', 'Not reached.', 'skip'], ['Match', 'Not reached.', 'skip']]
+      },
+      badtype: {
+        label: 'An unknown type',
+        outcome: '<strong>Both refuse with 400.</strong> The type must be one of architecture, asset, claim, organism or transmission; filters outside their patterns are refused the same way.',
+        cls: 'refused',
+        search: [['Parameters', 'Invalid search type.', 'fail'], ['Rate limit', 'Not reached.', 'skip'], ['Match', 'Not reached.', 'skip']],
+        ground: [['Parameters', 'Invalid search type.', 'fail'], ['Rate limit', 'Not reached.', 'skip'], ['Match', 'Not reached.', 'skip']]
+      },
+      write: {
+        label: 'A write method',
+        outcome: '<strong>Both refuse with 405.</strong> Only GET, HEAD and OPTIONS are accepted. A POST, PUT or DELETE changes nothing because nothing can be changed.',
+        cls: 'refused',
+        search: [['Method', 'POST is not allowed; the Allow header lists the three methods.', 'fail'], ['Parameters', 'Not reached.', 'skip'], ['Match', 'Not reached.', 'skip']],
+        ground: [['Method', 'POST is not allowed; the Allow header lists the three methods.', 'fail'], ['Parameters', 'Not reached.', 'skip'], ['Match', 'Not reached.', 'skip']]
+      },
+      limit: {
+        label: 'Too many requests',
+        outcome: '<strong>Refused with 429, or 503 if the limiter is missing.</strong> Over the limit, a client is told when to retry. In production, a missing limiter store is a refusal, not a free pass. Whether the live site has one is not verified here.',
+        cls: 'refused',
+        search: [['Parameters', 'Valid.', 'pass'], ['Rate limit', 'Over 60 in the window: 429 with a retry time.', 'fail'], ['Match', 'Not reached.', 'skip']],
+        ground: [['Parameters', 'Valid.', 'pass'], ['Rate limit', 'Over 30 in the window: 429 with a retry time.', 'fail'], ['Match', 'Not reached.', 'skip']]
+      }
+    };
+    var order = ['query', 'filter', 'action', 'empty', 'badtype', 'write', 'limit'];
+    var crRaw = document.getElementById('cr-raw');
+    var crVerify = document.getElementById('cr-verify');
+    var crOutcome = document.getElementById('cr-outcome');
+    var crFaults = document.getElementById('cr-faults');
+    function renderStep(n, step) {
+      var li = document.createElement('li');
+      li.className = 'cr-step ' + step[2];
+      var verdict = step[2] === 'pass' ? 'OK' : (step[2] === 'fail' ? 'REFUSED' : 'NOT REACHED');
+      li.innerHTML = '<span class="cr-step-n">0' + n + '</span><span><span class="cr-step-t">' + step[0] + '</span><span class="cr-step-d">' + step[1] + '</span></span><span class="cr-verdict">' + verdict + '</span>';
+      return li;
+    }
+    function runRequest(key) {
+      var r = requests[key];
+      crRaw.innerHTML = '';
+      crVerify.innerHTML = '';
+      r.search.forEach(function (s, i) { crRaw.appendChild(renderStep(i + 1, s)); });
+      r.ground.forEach(function (s, i) { crVerify.appendChild(renderStep(i + 1, s)); });
+      crOutcome.className = 'cr-outcome ' + r.cls;
+      crOutcome.innerHTML = r.outcome;
+    }
+    order.forEach(function (key, i) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'cr-fault' + (i === 0 ? ' cr-fault-reset' : '');
+      btn.setAttribute('data-req', key);
+      btn.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
+      btn.textContent = requests[key].label;
+      btn.addEventListener('click', function () {
+        crFaults.querySelectorAll('.cr-fault').forEach(function (other) { other.setAttribute('aria-pressed', 'false'); });
+        btn.setAttribute('aria-pressed', 'true');
+        runRequest(key);
+      });
+      crFaults.appendChild(btn);
+    });
+    runRequest('query');
+
+    // 04 — SKETCH MAP
+    var sketch = [
+      { f: 'surface', tag: 'shipped', t: 'Shipped, as a route list', p: 'The site is the surface. The canonical routes are in the sitemap, which lists 56 transmission pages, and the guide file names the rest.' },
+      { f: 'agent_readable', tag: 'absent', t: 'No such flag', p: 'No file says the site is agent-readable. The readability is the files and routes themselves; a flag would only be a claim about them.' },
+      { f: 'public_knowledge', tag: 'shipped', t: 'Shipped, as five registries', p: 'Architecture concepts, organisms, asset provenance, claims and transmissions are static data files with read-only routes over them. The sketch named grounding packets as knowledge; those are generated per request, not stored.' },
+      { f: 'default_authority', tag: 'shipped', t: 'Shipped, as method limits', p: 'Read-only is real for the eight read routes: they accept GET, HEAD and OPTIONS and refuse the rest with 405, and they load only committed data files.' },
+      { f: 'requires_approval', tag: 'absent', t: 'Prose only', p: 'The actions that need approval are stated in words in the manifest and the guide file. No machine-readable approval list is published, and none of the eight read routes can perform those actions for a reader. The other routes in the source are not described here.' },
+      { f: 'answer_policy', tag: 'shipped', t: 'Shipped, as a packet field', p: 'The grounding packet carries an answer policy with synthesis_allowed false, a decision and the reasons for it, and the four steps required before any synthesis.' },
+      { f: 'next_cell', tag: 'plan', t: 'A plan, not built', p: 'The Agent Readiness Cell has no code in the site or in the Brain as of 10 November 2026.' }
+    ];
+    var skCode = document.getElementById('sk-code');
+    var skOut = document.getElementById('sk-out');
+    var skButtons = [];
+    function showSketch(s) {
+      skButtons.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-f') === s.f ? 'true' : 'false'); });
+      skOut.innerHTML = '<h3>' + s.f + '</h3><span class="sk-tag sk-tag-' + s.tag + '">' + s.t.toUpperCase() + '</span><p>' + s.p + '</p>';
+    }
+    sketch.forEach(function (s) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'sk-field';
+      b.setAttribute('data-f', s.f);
+      b.setAttribute('aria-pressed', 'false');
+      b.textContent = '"' + s.f + '"';
+      b.addEventListener('click', function () { showSketch(s); });
+      skCode.appendChild(b);
+      skButtons.push(b);
+    });
+    showSketch(sketch[0]);
+
+    // 05 — TIMELINE REVEAL
+    var wf = document.getElementById('wf-steps');
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce && 'IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            wf.querySelectorAll('.wf-step').forEach(function (s) { s.classList.add('reveal-step'); });
+            io.disconnect();
+          }
+        });
+      }, { threshold: 0.15 });
+      io.observe(wf);
+    }
+
+    // 06 — NOT DONE
+    var notDone = [
+      { tag: 'plan', title: 'Agent Readiness Cell', desc: 'A read-only reviewer of routes, files and claim language. Not built.', extra: 'No code exists for it. The manual parity script compares local sources with the live site and smoke-tests search, grounding and status; it is a check, not a reviewer.' },
+      { tag: 'gap', title: 'Claims inside transmissions', desc: 'The registry has six entries; there are 56 transmissions.', extra: 'The six label homepage and financial claims. The claims of a transmission are labelled only on that page, as in the ledger above.' },
+      { tag: 'absent', title: 'An answer route', desc: 'None is enabled. Search and grounding retrieve and refuse to synthesise.', extra: 'The packet reserves four required steps for the day one exists. Adding one is a decision for the operator.' },
+      { tag: 'absent', title: 'A machine-readable approval list', desc: 'Approval boundaries are prose in the manifest and guide file.', extra: 'None of the eight read routes performs those actions, so a list for them would guard a door that does not exist on that surface. The source holds other routes that are not in the manifest and are not described here.' },
+      { tag: 'unknown', title: 'Who uses the routes', desc: 'No record of agent traffic was read.', extra: 'This note makes no claim that any agent relies on the files or the routes.' },
+      { tag: 'unknown', title: 'The live site', desc: 'It was not called for this rewrite.', extra: 'What is said about live behaviour is what the source says it does. A live parity check exists as a script and waits on a person to run it.' }
+    ];
+    var memGrid = document.getElementById('mem-grid');
+    notDone.forEach(function (l) {
+      var card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'mem-card';
+      card.setAttribute('aria-expanded', 'false');
+      card.innerHTML = '<h4><span class="mem-tag">' + l.tag + '</span>' + l.title + '</h4><p>' + l.desc + '</p><div class="mem-extra">' + l.extra + '</div><div class="mem-hint">Click to expand ↓</div>';
+      card.addEventListener('click', function () {
+        var open = card.getAttribute('aria-expanded') === 'true';
+        card.setAttribute('aria-expanded', open ? 'false' : 'true');
+        card.querySelector('.mem-hint').textContent = open ? 'Click to expand ↓' : 'Click to collapse ↑';
+      });
+      memGrid.appendChild(card);
+    });
+  })();
   </script>
+  <script type="module" src="/main.js?v=20260615-system-state"></script>
 </body>
 </html>
