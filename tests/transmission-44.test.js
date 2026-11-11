@@ -5,7 +5,7 @@ import { readFile, readdir } from 'node:fs/promises';
 const id = '44-what-the-organism-is-afraid-of';
 const route = `/transmissions/${id}`;
 const canonical = `https://www.unwindcode.ai${route}`;
-const latestRoute = '/transmissions/45-where-this-is-going';
+const latestRoute = '/transmissions/55-what-one-machines-day-says';
 const read = file => readFile(new URL(`../${file}`, import.meta.url), 'utf8');
 
 test('Transmission 44 has one consistent clean route across article and discovery surfaces', async () => {
@@ -93,22 +93,22 @@ test('public retrieval metadata binds Transmission 44 to its dated field note wi
   }
 });
 
-test('archive, homepages and numbering place Transmission 44 directly beneath the newest transmission', async () => {
+test('archive, homepages and numbering place Transmission 44 beneath the newest transmissions', async () => {
   const files = (await readdir(new URL('../transmissions/', import.meta.url)))
     .filter(file => /^\d{2}-.+\.html$/.test(file));
   const expected = files.map(file => `/transmissions/${file.slice(0, -5)}`).sort();
   const archive = await read('transmissions/index.html');
   const cards = [...archive.matchAll(/<a href="(\/transmissions\/[^" ]+)" class="tx-card"/g)].map(match => match[1]);
   assert.deepEqual([...cards].sort(), expected, 'archive includes every real article exactly once');
-  assert.equal(cards[1], route, 'Transmission 44 is the second archive card, right after Transmission 45');
-  assert.equal(archive.match(/<a href="([^"]+)" class="tx-featured-card"/)[1], latestRoute, 'the featured card is Transmission 45, not 44');
+  assert.equal(cards[11], route, 'Transmission 44 is the twelfth archive card, after 55 down to 45');
+  assert.equal(archive.match(/<a href="([^"]+)" class="tx-featured-card"/)[1], latestRoute, 'the featured card is Transmission 55, not 44');
   const homepage = await read('public/lab/index.html');
   const homeCards = [...homepage.matchAll(/class="transmission-card"\s+href="([^"]+)"/g)].map(match => match[1]);
-  assert.equal(homeCards[1], route, 'Transmission 44 is the second card in the three-card rolling window');
+  assert.equal(homeCards.includes(route), false, 'Transmission 44 is outside the three-card rolling window');
   const legacy = await read('index.html');
   assert.ok(legacy.includes(`href="${route}"`), 'the legacy homepage keeps a link to Transmission 44');
   const registry = JSON.parse(await read('public/data/transmissions.json'));
   const numbers = new Set(registry.transmissions.map(item => item.transmission_number));
-  assert.equal(Math.max(...numbers), 45, 'Transmission 45 is the latest, not 44');
+  assert.equal(Math.max(...numbers), 55, 'Transmission 55 is the latest, not 44');
   assert.ok(numbers.has(44));
 });

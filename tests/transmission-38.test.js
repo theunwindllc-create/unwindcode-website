@@ -7,7 +7,7 @@ const route = `/transmissions/${id}`;
 const canonical = `https://www.unwindcode.ai${route}`;
 const route37 = '/transmissions/37-the-organism-drew-its-chain-boundary';
 const route36 = '/transmissions/36-movement-needs-a-source';
-const latestRoute = '/transmissions/45-where-this-is-going';
+const latestRoute = '/transmissions/55-what-one-machines-day-says';
 const latestCanonical = `https://www.unwindcode.ai${latestRoute}`;
 const read = file => readFile(new URL(`../${file}`, import.meta.url), 'utf8');
 
@@ -99,7 +99,7 @@ test('archive and service counts measure actual articles with Transmission 38 as
   assert.deepEqual([idx37 - idx38, idx36 - idx38], [1, 2], 'Transmission 38 is still followed in number order by 37 and 36');
   assert.ok(cards.includes('/transmissions/27-the-quotation-cell'));
   assert.ok(cards.includes('/transmissions/27-the-site-became-a-public-index'));
-  assert.equal(archive.match(/<a href="([^"]+)" class="tx-featured-card"/)[1], latestRoute, 'the featured card is the latest transmission, now Transmission 45');
+  assert.equal(archive.match(/<a href="([^"]+)" class="tx-featured-card"/)[1], latestRoute, 'the featured card is the latest transmission, now Transmission 55');
   assert.match(archive, /<span class="tx-card-number">038<\/span>\s*<h3>One Board for Every Hand<\/h3>/);
   const schema = JSON.parse(archive.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
   const list = schema['@graph'].find(item => item['@type'] === 'ItemList');
@@ -117,9 +117,9 @@ test('archive and service counts measure actual articles with Transmission 38 as
   assert.ok(archive.includes(`<dt>${files.length}</dt>`));
   const services = JSON.parse(await read('ai-services.json'));
   assert.equal(services.transmission_library.total_transmissions, files.length);
-  assert.equal(services.transmission_library.latest.url, latestCanonical, 'the latest pointer is now Transmission 45');
-  assert.equal(services.transmission_library.latest.id, 'transmission_45');
-  assert.deepEqual(services.transmission_library.transmission_45, services.transmission_library.latest, 'the library entry and the latest pointer agree');
+  assert.equal(services.transmission_library.latest.url, latestCanonical, 'the latest pointer is now Transmission 55');
+  assert.equal(services.transmission_library.latest.id, 'transmission_55');
+  assert.deepEqual(services.transmission_library.transmission_55, services.transmission_library.latest, 'the library entry and the latest pointer agree');
   assert.equal(services.transmission_library.transmission_38.url, canonical, 'Transmission 38 keeps its own library entry');
   assert.equal(services.transmission_library.transmission_37.url, `https://www.unwindcode.ai${route37}`, 'Transmission 37 keeps its own library entry');
   const llms = await read('llms.txt');
@@ -146,7 +146,7 @@ test('both homepages still carry Transmission 38 in number order after 37, even 
 
 test('public retrieval metadata binds Transmission 38 to its dated field note without operational authority', async () => {
   const registry = JSON.parse(await read('public/data/transmissions.json'));
-  assert.equal(registry.transmissions[0].id, '45-where-this-is-going', 'the newest transmission is now Transmission 45');
+  assert.equal(registry.transmissions[0].id, '55-what-one-machines-day-says', 'the newest transmission is now Transmission 55');
   const records = registry.transmissions.filter(item => item.id === id);
   assert.equal(records.length, 1);
   const entry = records[0];
@@ -173,16 +173,16 @@ test('public retrieval metadata binds Transmission 38 to its dated field note wi
   }
 });
 
-test('the transmission numbering is contiguous through Transmission 45, with Transmission 38 still in place', async () => {
+test('the transmission numbering is contiguous through Transmission 55, with Transmission 38 still in place', async () => {
   const registry = JSON.parse(await read('public/data/transmissions.json'));
   const numbers = new Set(registry.transmissions.map(item => item.transmission_number));
   const latest = Math.max(...numbers);
-  assert.equal(latest, 45);
+  assert.equal(latest, 55);
   assert.ok(numbers.has(38), 'Transmission 38 is still registered');
   const missing = Array.from({ length: latest }, (_, index) => index + 1).filter(number => !numbers.has(number));
   assert.deepEqual(missing, []);
   const parityTest = await read('tests/public-parity-script.test.js');
-  assert.match(parityTest, /latest_number: 45,\s+published_count: 46,\s+has_gaps: false,\s+missing_numbers: \[\]/, 'the parity snapshot states the new latest with no gap');
+  assert.match(parityTest, /latest_number: 55,\s+published_count: 56,\s+has_gaps: false,\s+missing_numbers: \[\]/, 'the parity snapshot states the new latest with no gap');
   const statusTest = await read('tests/status-api.test.js');
-  assert.match(statusTest, /latest_number: 45,\s+published_count: 46,/, 'the status snapshot states the new latest');
+  assert.match(statusTest, /latest_number: 55,\s+published_count: 56,/, 'the status snapshot states the new latest');
 });

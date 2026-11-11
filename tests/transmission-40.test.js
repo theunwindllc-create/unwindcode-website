@@ -5,7 +5,7 @@ import { readFile, readdir } from 'node:fs/promises';
 const id = '40-twenty-seats-one-owner-per-step';
 const route = `/transmissions/${id}`;
 const canonical = `https://www.unwindcode.ai${route}`;
-const latestRoute = '/transmissions/45-where-this-is-going';
+const latestRoute = '/transmissions/55-what-one-machines-day-says';
 const read = file => readFile(new URL(`../${file}`, import.meta.url), 'utf8');
 
 test('Transmission 40 has one consistent clean route across article and discovery surfaces', async () => {
@@ -102,7 +102,7 @@ test('archive, homepages and numbering place Transmission 40 correctly beneath t
   const cards = [...archive.matchAll(/<a href="(\/transmissions\/[^" ]+)" class="tx-card"/g)].map(match => match[1]);
   assert.deepEqual([...cards].sort(), expected, 'archive includes every real article exactly once');
   assert.ok(cards.includes(route), 'Transmission 40 is in the archive');
-  assert.equal(archive.match(/<a href="([^"]+)" class="tx-featured-card"/)[1], latestRoute, 'the featured card is Transmission 45, not 40');
+  assert.equal(archive.match(/<a href="([^"]+)" class="tx-featured-card"/)[1], latestRoute, 'the featured card is Transmission 55, not 40');
   const homepage = await read('public/lab/index.html');
   const homeCards = [...homepage.matchAll(/class="transmission-card"\s+href="([^"]+)"/g)].map(match => match[1]);
   assert.equal(homeCards.includes(route), false, 'Transmission 40 is outside the three-card rolling window');
@@ -110,6 +110,6 @@ test('archive, homepages and numbering place Transmission 40 correctly beneath t
   assert.ok(legacy.includes(`href="${route}"`), 'the legacy homepage keeps a link to Transmission 40');
   const registry = JSON.parse(await read('public/data/transmissions.json'));
   const numbers = new Set(registry.transmissions.map(item => item.transmission_number));
-  assert.equal(Math.max(...numbers), 45, 'Transmission 45 is the latest, not 40');
+  assert.equal(Math.max(...numbers), 55, 'Transmission 55 is the latest, not 40');
   assert.ok(numbers.has(40));
 });

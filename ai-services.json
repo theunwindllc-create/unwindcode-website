@@ -968,7 +968,7 @@
       "url": "https://www.unwindcode.ai/transmissions/26-property-sales-intelligence-cell",
       "audience": "real_estate_teams",
       "authority_boundary": "No SMS, email, call, import activation, campaign enrollment, or public claim escalation without human approval.",
-      "interface_boundary": "The authority scale is rendered as semantic HTML and shared CSS, with no third-party chart runtime, inline style block, or canvas dependency."
+      "design_status": "Design only: documents, a read-only wiring design and a cost sheet exist; no outreach is built."
     },
     {
       "id": "transmission_27_social_carousel",
@@ -989,13 +989,13 @@
       "type": "domain_cell_boundary",
       "status": "public",
       "trust_question": "Can a quotation cell prepare quote packages without taking commercial authority?",
-      "proves": "The public cell is bounded to intake, supplier memory, correction loops, transaction readiness, and human approval before commitment, with a manual Brain protocol and organism build recipe recorded as public proof.",
+      "proves": "The public page records a design for intake, supplier memory, a correction loop and a readiness boundary with human approval before commitment. No quoting service exists.",
       "url": "https://www.unwindcode.ai/transmissions/27-the-quotation-cell",
       "audience": "operators_and_sales_teams",
       "authority_boundary": "No promise of price, available supply, unattended purchase, fulfillment, legal status, or final commercial outcome without human approval.",
       "privacy_boundary": "Public copy abstracts the domain cell and does not name private businesses or active client implementations.",
-      "execution_mode": "manual_brain_protocol_until_runtime_is_live",
-      "builder_use": "Use the page as a whitepaper-style build record for assembling a Quotation Cell: command surface, quote package schema, supplier memory, correction reducer, readiness gate, approval receipt, metadata, tests, and deployment smoke."
+      "execution_mode": "design_only_no_quoting_service",
+      "builder_use": "Use the page as a design record for a Quotation Cell: quote package, supplier memory, correction loop and readiness boundary. It promises no live pricing, availability, automatic purchasing or binding quote, and no quotation code exists."
     }
   ],
   "social_preview_assets": [
@@ -1061,7 +1061,7 @@
       ],
       "authority_boundary": "The desk prepares manual posting assets only; no social network posting, public distribution, or claim escalation happens without creator approval."
     },
-    "total_transmissions": 46,
+    "total_transmissions": 56,
     "reader_lanes": [
       {
         "lane": "whitepaper",
@@ -1095,11 +1095,11 @@
       }
     ],
     "latest": {
-      "id": "transmission_45",
-      "title": "Where This Is Going",
-      "url": "https://www.unwindcode.ai/transmissions/45-where-this-is-going",
-      "lane": "roadmap",
-      "use_for": "Understand the plan ahead: agents read a shared board instead of a private prompt, progress is counted only from receipts rather than claims, and authority stays in a human-held wallet until the operator signs. The day's facts are a dated 2026-11-08 record, not live status."
+      "id": "transmission_55",
+      "title": "What One Machine's Day Says About the Next Ten Years",
+      "url": "https://www.unwindcode.ai/transmissions/55-what-one-machines-day-says",
+      "lane": "outlook",
+      "use_for": "Understand five dated observations from one machine's day (cheap by default, a record that remembers, authority held by a wallet, counting only what has a receipt) and this note's own outlook on agentic AI, marked as opinion and kept apart from the observed. The facts are a dated 2026-11-09 record, not live status."
     },
     "transmission_33": {
       "id": "transmission_33",
@@ -1162,7 +1162,7 @@
       "title": "The Audit Counted Eighty-Seven Agents",
       "url": "https://www.unwindcode.ai/transmissions/41-the-audit-counted-eighty-seven-agents",
       "lane": "agent_audit",
-      "use_for": "Understand how six read-only auditors checked the consolidation brief on 8 November 2026 and found seven real documents and nothing else behind a claim of eighty-seven agents, counted fourteen as real, set baselines of zero receipts, zero seats, and zero revenue, and left seventy-four items waiting on the operator."
+      "use_for": "Understand how six read-only auditors checked the consolidation brief on 8 November 2026 and found seven documents and nothing built, an agent registry of eighty-seven rows of which fourteen are real, set baselines of zero receipts, zero seats, and zero revenue, and left seventy-four items waiting on the operator."
     },
     "transmission_42": {
       "id": "transmission_42",
@@ -1191,6 +1191,76 @@
       "url": "https://www.unwindcode.ai/transmissions/45-where-this-is-going",
       "lane": "roadmap",
       "use_for": "Understand the plan ahead: agents read a shared board instead of a private prompt, progress is counted only from receipts rather than claims, and authority stays in a human-held wallet until the operator signs. The day's facts are a dated 2026-11-08 record, not live status."
+    },
+    "transmission_46": {
+      "id": "transmission_46",
+      "title": "One Operator, Many Organs",
+      "url": "https://www.unwindcode.ai/transmissions/46-one-operator-many-organs",
+      "lane": "scope_governance",
+      "use_for": "Understand a draft motion that would extend the operator's reach to the ecosystem's organs: scope, not powers, with no condition lifted, no stage promoted, no cap raised, no financial capability granted and no act authorized, and why the motion is still a draft. The facts are a dated 2026-11-09 record, not live status."
+    },
+    "transmission_47": {
+      "id": "transmission_47",
+      "title": "A Memory That Outlives the Session",
+      "url": "https://www.unwindcode.ai/transmissions/47-a-memory-that-outlives-the-session",
+      "lane": "memory_substrate",
+      "use_for": "Understand the operator ruling that memory is a store rather than a transcript: every hand writes into it at its own moment and never on a clock, written is not the same as known, and what a line may never carry. The facts are a dated 2026-11-09 record, not live status."
+    },
+    "transmission_48": {
+      "id": "transmission_48",
+      "title": "One Owner Per Step",
+      "url": "https://www.unwindcode.ai/transmissions/48-one-owner-per-step",
+      "lane": "production_process",
+      "use_for": "Understand why a post-delivery review found that work split across several agents with no named owner per step repeated a single generalist's old failures, and how the job was rewritten as a numbered chain with one owner and one gate per step, where nobody approves their own work. The facts are a dated 2026-11-09 record, not live status."
+    },
+    "transmission_49": {
+      "id": "transmission_49",
+      "title": "What the Organism Eats",
+      "url": "https://www.unwindcode.ai/transmissions/49-what-the-organism-eats",
+      "lane": "local_compute",
+      "use_for": "Understand how everything the organism thinks runs on one fixed graphics card under a live-checked ceiling, why a ladder of models is chosen by measured benchmark rather than guess, and why free still has a ceiling. The facts are a dated 2026-11-09 record, not live status."
+    },
+    "transmission_50": {
+      "id": "transmission_50",
+      "title": "A Skill Is a Dated Source",
+      "url": "https://www.unwindcode.ai/transmissions/50-a-skill-is-a-dated-source",
+      "lane": "procedural_memory",
+      "use_for": "Understand why every reusable procedure is written once as a single canonical file linked into every tool that reads it, why a changed version is kept rather than silently replaced, and what a skill is never allowed to carry. The facts are a dated 2026-11-09 record, not live status."
+    },
+    "transmission_51": {
+      "id": "transmission_51",
+      "title": "The Voice at the Door",
+      "url": "https://www.unwindcode.ai/transmissions/51-the-voice-at-the-door",
+      "lane": "voice_boundary",
+      "use_for": "Understand why voice is another door into the same house rather than a new set of powers: a voice cannot prove who is speaking, requests are sorted by what it would cost to be wrong, and a deliberately powerless public demo line answers, takes a message and ends the call. The facts are a dated 2026-11-09 record, not live status."
+    },
+    "transmission_52": {
+      "id": "transmission_52",
+      "title": "Constraints That Make Autonomy Possible",
+      "url": "https://www.unwindcode.ai/transmissions/52-constraints-that-make-autonomy-possible",
+      "lane": "spending_design",
+      "use_for": "Understand a spending design that keeps two wallets structurally separate, climbs a ladder of stages rather than leaping, and fixes every cap as an absolute figure decided at the time of the ruling, never a percentage of holdings. The facts are a dated 2026-11-09 record, not live status."
+    },
+    "transmission_53": {
+      "id": "transmission_53",
+      "title": "A Board, Not a Prompt",
+      "url": "https://www.unwindcode.ai/transmissions/53-a-board-not-a-prompt",
+      "lane": "agent_coordination",
+      "use_for": "Understand how a single shared file went live on 8 November 2026 as the board every hand reads before acting, how a hand claims, finishes or hands back a job, why more than one kind of hand used it within the day, and why the board says it is interim. The facts are a dated 2026-11-09 record, not live status."
+    },
+    "transmission_54": {
+      "id": "transmission_54",
+      "title": "Proof Before Promotion",
+      "url": "https://www.unwindcode.ai/transmissions/54-proof-before-promotion",
+      "lane": "receipts_proof",
+      "use_for": "Understand why done means a tested, end-to-end result with a receipt rather than a document or profile created, why a system that counts only receipts shows zero where nothing is verified, what the receipts actually show and what the rule costs in speed. The facts are a dated 2026-11-09 record, not live status."
+    },
+    "transmission_55": {
+      "id": "transmission_55",
+      "title": "What One Machine's Day Says About the Next Ten Years",
+      "url": "https://www.unwindcode.ai/transmissions/55-what-one-machines-day-says",
+      "lane": "outlook",
+      "use_for": "Understand five dated observations from one machine's day (cheap by default, a record that remembers, authority held by a wallet, counting only what has a receipt) and this note's own outlook on agentic AI, marked as opinion and kept apart from the observed. The facts are a dated 2026-11-09 record, not live status."
     }
   },
   "proof_urls": [

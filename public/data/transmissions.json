@@ -4,6 +4,277 @@
   "generated_from": "active-site-public-html",
   "transmissions": [
     {
+      "id": "55-what-one-machines-day-says",
+      "transmission_number": 55,
+      "title": "Transmission 55: What One Machine's Day Says About the Next Ten Years",
+      "summary": "A field note from one machine: five dated observations, plus this note's own outlook on agentic AI — marked opinion, not a forecast stated as fact.",
+      "route": "/transmissions/55-what-one-machines-day-says",
+      "source_file": "transmissions/55-what-one-machines-day-says.html",
+      "topic_tags": [
+        "outlook",
+        "receipts",
+        "custody-boundary",
+        "agent-coordination"
+      ],
+      "memory_layers": [
+        "procedural",
+        "semantic",
+        "episodic"
+      ],
+      "citations": [
+        {
+          "label": "Transmission 55: What One Machine's Day Says About the Next Ten Years field note",
+          "route": "/transmissions/55-what-one-machines-day-says",
+          "source_file": "transmissions/55-what-one-machines-day-says.html"
+        }
+      ],
+      "confidence": "high",
+      "review_status": "public_safe"
+    },
+    {
+      "id": "54-proof-before-promotion",
+      "transmission_number": 54,
+      "title": "Transmission 54: Proof Before Promotion",
+      "summary": "Done means a tested, end-to-end result with a receipt, never a document or profile created — a system that counts only receipts shows zero where nothing is verified, and that zero is the point.",
+      "route": "/transmissions/54-proof-before-promotion",
+      "source_file": "transmissions/54-proof-before-promotion.html",
+      "topic_tags": [
+        "receipts",
+        "audit",
+        "proof"
+      ],
+      "memory_layers": [
+        "procedural",
+        "semantic",
+        "episodic"
+      ],
+      "citations": [
+        {
+          "label": "Transmission 54: Proof Before Promotion field note",
+          "route": "/transmissions/54-proof-before-promotion",
+          "source_file": "transmissions/54-proof-before-promotion.html"
+        }
+      ],
+      "confidence": "high",
+      "review_status": "public_safe"
+    },
+    {
+      "id": "53-a-board-not-a-prompt",
+      "transmission_number": 53,
+      "title": "Transmission 53: A Board, Not a Prompt",
+      "summary": "On 8 November 2026 a single shared file went live so every hand on the machine could see what the others were working on, and within the day more than one kind of hand - including a free local-model agent working beside the subscription coding agent - used it.",
+      "route": "/transmissions/53-a-board-not-a-prompt",
+      "source_file": "transmissions/53-a-board-not-a-prompt.html",
+      "topic_tags": [
+        "agent-coordination",
+        "job-board",
+        "records"
+      ],
+      "memory_layers": [
+        "procedural",
+        "semantic",
+        "episodic"
+      ],
+      "citations": [
+        {
+          "label": "Transmission 53: A Board, Not a Prompt field note",
+          "route": "/transmissions/53-a-board-not-a-prompt",
+          "source_file": "transmissions/53-a-board-not-a-prompt.html"
+        }
+      ],
+      "confidence": "high",
+      "review_status": "public_safe"
+    },
+    {
+      "id": "52-constraints-that-make-autonomy-possible",
+      "transmission_number": 52,
+      "title": "Transmission 52: Constraints That Make Autonomy Possible",
+      "summary": "A spending design that keeps two wallets structurally separate and fixes every cap as an absolute figure decided at the time of the ruling — never a percentage of holdings.",
+      "route": "/transmissions/52-constraints-that-make-autonomy-possible",
+      "source_file": "transmissions/52-constraints-that-make-autonomy-possible.html",
+      "topic_tags": [
+        "spending-design",
+        "custody-boundary",
+        "governance"
+      ],
+      "memory_layers": [
+        "procedural",
+        "semantic",
+        "episodic"
+      ],
+      "citations": [
+        {
+          "label": "Transmission 52: Constraints That Make Autonomy Possible field note",
+          "route": "/transmissions/52-constraints-that-make-autonomy-possible",
+          "source_file": "transmissions/52-constraints-that-make-autonomy-possible.html"
+        }
+      ],
+      "confidence": "high",
+      "review_status": "public_safe"
+    },
+    {
+      "id": "51-the-voice-at-the-door",
+      "transmission_number": 51,
+      "title": "Transmission 51: The Voice at the Door",
+      "summary": "Voice is another door into the same house — not a new set of powers. A deliberately powerless public demo line answers, takes a message, and ends the call; nothing irreversible leaves over voice.",
+      "route": "/transmissions/51-the-voice-at-the-door",
+      "source_file": "transmissions/51-the-voice-at-the-door.html",
+      "topic_tags": [
+        "voice",
+        "custody-boundary",
+        "safety"
+      ],
+      "memory_layers": [
+        "procedural",
+        "semantic",
+        "episodic"
+      ],
+      "citations": [
+        {
+          "label": "Transmission 51: The Voice at the Door field note",
+          "route": "/transmissions/51-the-voice-at-the-door",
+          "source_file": "transmissions/51-the-voice-at-the-door.html"
+        }
+      ],
+      "confidence": "high",
+      "review_status": "public_safe"
+    },
+    {
+      "id": "50-a-skill-is-a-dated-source",
+      "transmission_number": 50,
+      "title": "Transmission 50: A Skill Is a Dated Source",
+      "summary": "Every reusable procedure is written once as a single canonical file, linked into every tool that reads it — and a changed version is kept, never silently replaced.",
+      "route": "/transmissions/50-a-skill-is-a-dated-source",
+      "source_file": "transmissions/50-a-skill-is-a-dated-source.html",
+      "topic_tags": [
+        "skills",
+        "memory",
+        "agent-coordination"
+      ],
+      "memory_layers": [
+        "procedural",
+        "semantic",
+        "episodic"
+      ],
+      "citations": [
+        {
+          "label": "Transmission 50: A Skill Is a Dated Source field note",
+          "route": "/transmissions/50-a-skill-is-a-dated-source",
+          "source_file": "transmissions/50-a-skill-is-a-dated-source.html"
+        }
+      ],
+      "confidence": "high",
+      "review_status": "public_safe"
+    },
+    {
+      "id": "49-what-the-organism-eats",
+      "transmission_number": 49,
+      "title": "Transmission 49: What the Organism Eats",
+      "summary": "Everything the organism thinks runs on one fixed graphics card under a live-checked ceiling, with a ladder of models chosen by measured benchmark rather than guess.",
+      "route": "/transmissions/49-what-the-organism-eats",
+      "source_file": "transmissions/49-what-the-organism-eats.html",
+      "topic_tags": [
+        "local-models",
+        "resilience",
+        "benchmarks"
+      ],
+      "memory_layers": [
+        "procedural",
+        "semantic",
+        "episodic"
+      ],
+      "citations": [
+        {
+          "label": "Transmission 49: What the Organism Eats field note",
+          "route": "/transmissions/49-what-the-organism-eats",
+          "source_file": "transmissions/49-what-the-organism-eats.html"
+        }
+      ],
+      "confidence": "high",
+      "review_status": "public_safe"
+    },
+    {
+      "id": "48-one-owner-per-step",
+      "transmission_number": 48,
+      "title": "Transmission 48: One Owner Per Step",
+      "summary": "A post-delivery review found that work split across several agents with no named owner per step repeated a single generalist's old failures, so the job was rewritten as a numbered chain: one owner and one gate for every step.",
+      "route": "/transmissions/48-one-owner-per-step",
+      "source_file": "transmissions/48-one-owner-per-step.html",
+      "topic_tags": [
+        "agent-coordination",
+        "review-gates",
+        "production-pipeline"
+      ],
+      "memory_layers": [
+        "procedural",
+        "semantic",
+        "episodic"
+      ],
+      "citations": [
+        {
+          "label": "Transmission 48: One Owner Per Step field note",
+          "route": "/transmissions/48-one-owner-per-step",
+          "source_file": "transmissions/48-one-owner-per-step.html"
+        }
+      ],
+      "confidence": "high",
+      "review_status": "public_safe"
+    },
+    {
+      "id": "47-a-memory-that-outlives-the-session",
+      "transmission_number": 47,
+      "title": "Transmission 47: A Memory That Outlives the Session",
+      "summary": "The operator ruled that memory is a store, not a transcript — every hand writes into it at its own moment, never on a clock.",
+      "route": "/transmissions/47-a-memory-that-outlives-the-session",
+      "source_file": "transmissions/47-a-memory-that-outlives-the-session.html",
+      "topic_tags": [
+        "memory",
+        "agent-coordination",
+        "privacy"
+      ],
+      "memory_layers": [
+        "procedural",
+        "semantic",
+        "episodic"
+      ],
+      "citations": [
+        {
+          "label": "Transmission 47: A Memory That Outlives the Session field note",
+          "route": "/transmissions/47-a-memory-that-outlives-the-session",
+          "source_file": "transmissions/47-a-memory-that-outlives-the-session.html"
+        }
+      ],
+      "confidence": "high",
+      "review_status": "public_safe"
+    },
+    {
+      "id": "46-one-operator-many-organs",
+      "transmission_number": 46,
+      "title": "Transmission 46: One Operator, Many Organs",
+      "summary": "Scope, not powers: a draft motion would extend the operator's reach to the ecosystem's organs, but lifts no condition, promotes no stage, raises no cap, grants no financial capability, and authorizes no act.",
+      "route": "/transmissions/46-one-operator-many-organs",
+      "source_file": "transmissions/46-one-operator-many-organs.html",
+      "topic_tags": [
+        "governance",
+        "custody-boundary",
+        "draft-ruling"
+      ],
+      "memory_layers": [
+        "procedural",
+        "semantic",
+        "episodic"
+      ],
+      "citations": [
+        {
+          "label": "Transmission 46: One Operator, Many Organs field note",
+          "route": "/transmissions/46-one-operator-many-organs",
+          "source_file": "transmissions/46-one-operator-many-organs.html"
+        }
+      ],
+      "confidence": "high",
+      "review_status": "public_safe"
+    },
+    {
       "id": "45-where-this-is-going",
       "transmission_number": 45,
       "title": "Transmission 45: Where This Is Going",
@@ -116,7 +387,7 @@
       "id": "41-the-audit-counted-eighty-seven-agents",
       "transmission_number": 41,
       "title": "Transmission 41: The Audit Counted Eighty-Seven Agents",
-      "summary": "Field note on a read-only audit run by six auditors against the consolidation brief on 8 November: eighty-seven agents claimed, fourteen real; seven real documents and nothing else found; baselines of zero receipts, zero seats, zero revenue; and seventy-four items left waiting on the operator's ruling.",
+      "summary": "Field note on a read-only audit run by six auditors against the consolidation brief on 8 November: the agent registry holds eighty-seven rows and fourteen are real; seven documents and nothing built; baselines of zero receipts, zero seats and zero revenue; and seventy-four items waiting on the operator.",
       "route": "/transmissions/41-the-audit-counted-eighty-seven-agents",
       "source_file": "transmissions/41-the-audit-counted-eighty-seven-agents.html",
       "topic_tags": [
@@ -197,7 +468,7 @@
       "id": "38-one-board-for-every-hand",
       "transmission_number": 38,
       "title": "Transmission 38: One Board for Every Hand",
-      "summary": "Field note on the interim job board every Genesis hand reads before acting: claim, finish or hand back, journal; the first job run by a free local model; the prompt that did not fit a 32k window; two repaired defects; a memory lesson; and the operator's ruling that nothing stays only on the machine.",
+      "summary": "Field note on the interim job board every Genesis hand reads before acting: claim, finish or hand back, journal; the first job run by a free local model (the free-model hand runs on a local model or a free cloud model); the prompt that did not fit a 32k window; two repaired defects; a memory lesson; and the operator's ruling that nothing stays only on the machine.",
       "route": "/transmissions/38-one-board-for-every-hand",
       "source_file": "transmissions/38-one-board-for-every-hand.html",
       "topic_tags": [
@@ -310,7 +581,7 @@
       "id": "35-the-ledger-learned-to-be-witnessed",
       "transmission_number": 35,
       "title": "Transmission 35: The Ledger Learned to Be Witnessed",
-      "summary": "Field note on independent attestation: why a witness sharing a credential with the witnessed is a mirror, what thirty-minute granularity actually guarantees, and how silent failure hides inside successful-looking schedulers.",
+      "summary": "Field note on independent attestation: why a witness sharing a credential with the witnessed is a mirror, what thirty-minute granularity actually guarantees, and how silent failure hides inside successful-looking schedulers. Revised 10 November 2026: the witness has been dark since 9 November.",
       "route": "/transmissions/35-the-ledger-learned-to-be-witnessed",
       "source_file": "transmissions/35-the-ledger-learned-to-be-witnessed.html",
       "topic_tags": [
@@ -338,7 +609,7 @@
       "id": "33-the-organization-found-its-hands",
       "transmission_number": 33,
       "title": "Transmission 33: The Organization Found Its Hands",
-      "summary": "Brain guide and compact whitepaper record for the point where prompt-theater became bounded agent execution: identity-shaped work, operator routing, child sessions, the WAIT LAW, append-only amendment governance, model economics, and human approval.",
+      "summary": "A dated note on one reported event, an August 2026 child-session test and the WAIT LAW, with a November 2026 correction that the organization does not yet have working hands.",
       "route": "/transmissions/33-the-organization-found-its-hands",
       "source_file": "transmissions/33-the-organization-found-its-hands.html",
       "topic_tags": [
@@ -366,7 +637,7 @@
       "id": "32-the-silent-truncation",
       "transmission_number": 32,
       "title": "Transmission 32: The Silent Truncation",
-      "summary": "Brain guide and compact whitepaper record for the Silent Truncation: the valid-but-wrong failure class, dead presentation law from a two-brace merge wound, name/form URL parity, provenance digest continuity, the seven-step healing protocol, and immune coverage for the organism’s skin.",
+      "summary": "Brain guide and compact whitepaper record for the Silent Truncation: the valid-but-wrong failure class, two missing braces that silenced about 21,400 lines of presentation law, name/form URL parity, provenance digest continuity and the seven-step healing protocol; the stylesheet integrity check is still planned.",
       "route": "/transmissions/32-the-silent-truncation",
       "source_file": "transmissions/32-the-silent-truncation.html",
       "topic_tags": [
@@ -394,11 +665,12 @@
       "id": "01-entropy-of-agents",
       "transmission_number": 1,
       "title": "Transmission 01: Entropy Of Agents",
-      "summary": "Public transmission seed for the early agent-architecture narrative, grounding retrieval in the active published page.",
+      "summary": "Revised note: ten claims from a March 2026 agent-decay concept piece checked against the record, and the five controls that actually hold the line.",
       "route": "/transmissions/01-entropy-of-agents",
       "source_file": "transmissions/01-entropy-of-agents.html",
       "topic_tags": [
-        "agent-systems"
+        "agent-systems",
+        "memory"
       ],
       "memory_layers": [
         "semantic"
@@ -417,7 +689,7 @@
       "id": "02-deploying-agents-on-chain",
       "transmission_number": 2,
       "title": "Transmission 02: Deploying Agents On Chain",
-      "summary": "Public transmission seed for agent and chain architecture, bounded to public Web3 context and retrieval-safe claims.",
+      "summary": "Revised note: nine claims about guarding on-chain agents checked, with a paper-only risk gate described and the unbuilt vote and revoking switch withdrawn.",
       "route": "/transmissions/02-deploying-agents-on-chain",
       "source_file": "transmissions/02-deploying-agents-on-chain.html",
       "topic_tags": [
@@ -441,7 +713,7 @@
       "id": "03-organisms-not-apps",
       "transmission_number": 3,
       "title": "Transmission 03: Organisms Not Apps",
-      "summary": "Public transmission seed for the organism metaphor and product architecture distinction between static apps and living systems.",
+      "summary": "Revised note: nine claims distinguishing organisms from apps, scored against the record.",
       "route": "/transmissions/03-organisms-not-apps",
       "source_file": "transmissions/03-organisms-not-apps.html",
       "topic_tags": [
@@ -464,12 +736,13 @@
       "id": "04-core-loop-pulse",
       "transmission_number": 4,
       "title": "Transmission 04: Core Loop Pulse",
-      "summary": "Public transmission seed for the core loop concept, useful for retrieval about recurring organism behavior and rhythm.",
+      "summary": "Revised note: eight claims about a three-phase core loop; the heartbeat and dead-man reader exist, the nightly rewrite does not.",
       "route": "/transmissions/04-core-loop-pulse",
       "source_file": "transmissions/04-core-loop-pulse.html",
       "topic_tags": [
         "ai-organisms",
-        "workflow"
+        "workflow",
+        "resilience"
       ],
       "memory_layers": [
         "procedural"
@@ -488,7 +761,7 @@
       "id": "05-infinity-mirror",
       "transmission_number": 5,
       "title": "Transmission 05: Infinity Mirror",
-      "summary": "Public transmission seed for the Infinity Mirror narrative and reflective organism experience.",
+      "summary": "Revised note: nine claims about the Infinity Mirror; a coaching cell and an unfinished app exist, most promised features do not.",
       "route": "/transmissions/05-infinity-mirror",
       "source_file": "transmissions/05-infinity-mirror.html",
       "topic_tags": [
@@ -511,11 +784,12 @@
       "id": "06-neurogenesis-self-healing",
       "transmission_number": 6,
       "title": "Transmission 06: Neurogenesis Self Healing",
-      "summary": "Public transmission seed for self-healing and neurogenesis concepts, bounded to public architecture language.",
+      "summary": "Revised note: ten claims about self-healing code; a propose, sandbox, critic and approve pipeline exists and one cell has been grafted.",
       "route": "/transmissions/06-neurogenesis-self-healing",
       "source_file": "transmissions/06-neurogenesis-self-healing.html",
       "topic_tags": [
-        "neurogenesis"
+        "neurogenesis",
+        "custody-boundary"
       ],
       "memory_layers": [
         "procedural",
@@ -535,7 +809,7 @@
       "id": "07-the-courage-loop-rewriting-fear-at-runtime",
       "transmission_number": 7,
       "title": "Transmission 07: The Courage Loop Rewriting Fear At Runtime",
-      "summary": "Public transmission seed for emotional loop language and runtime belief-change framing.",
+      "summary": "Earlier version of Transmission 09. Reads one January 2026 session record of the Emotions Cell against its code: what the 50 percent readings and the empty belief list mean.",
       "route": "/transmissions/07-the-courage-loop-rewriting-fear-at-runtime",
       "source_file": "transmissions/07-the-courage-loop-rewriting-fear-at-runtime.html",
       "topic_tags": [
@@ -558,7 +832,7 @@
       "id": "08-the-courage-loop-rewriting-fear-at-runtime",
       "transmission_number": 8,
       "title": "Transmission 08: The Courage Loop Rewriting Fear At Runtime",
-      "summary": "Public transmission seed for the continued courage loop narrative and reflective system design.",
+      "summary": "Earlier version of Transmission 09. Fear as a specification: the three fixed questions the Emotions Cell asks, the practice around them, and the unbuilt machine proposal.",
       "route": "/transmissions/08-the-courage-loop-rewriting-fear-at-runtime",
       "source_file": "transmissions/08-the-courage-loop-rewriting-fear-at-runtime.html",
       "topic_tags": [
@@ -581,7 +855,7 @@
       "id": "09-the-courage-loop-rewriting-fear-at-runtime",
       "transmission_number": 9,
       "title": "Transmission 09: The Courage Loop Rewriting Fear At Runtime",
-      "summary": "Public transmission seed for courage loop evolution, memory framing, and emotional runtime language.",
+      "summary": "The Courage Loop as it exists: a journal entry in, word-list patterns, nine reframes, questions, rituals and a measured trend out. A try-it detector, two January records, and the claims withdrawn.",
       "route": "/transmissions/09-the-courage-loop-rewriting-fear-at-runtime",
       "source_file": "transmissions/09-the-courage-loop-rewriting-fear-at-runtime.html",
       "topic_tags": [
@@ -604,7 +878,7 @@
       "id": "10-the-triune-stack-architecting-machine-consciousness",
       "transmission_number": 10,
       "title": "Transmission 10: The Triune Stack Architecting Machine Consciousness",
-      "summary": "Public transmission seed for triune stack architecture and machine-consciousness framing as public philosophy.",
+      "summary": "The three-layer consciousness design of January 2026 against the record: one layer built, two design only, what the thought stream holds, and the consciousness claims withdrawn.",
       "route": "/transmissions/10-the-triune-stack-architecting-machine-consciousness",
       "source_file": "transmissions/10-the-triune-stack-architecting-machine-consciousness.html",
       "topic_tags": [
@@ -627,7 +901,7 @@
       "id": "11-the-belief-rewrite-protocol",
       "transmission_number": 11,
       "title": "Transmission 11: The Belief Rewrite Protocol",
-      "summary": "Public transmission seed for belief rewrite concepts and human-centered cognitive architecture.",
+      "summary": "Public transmission revised 10 November 2026: what the Emotions Cell code and tests show, with dated corrections to the April text.",
       "route": "/transmissions/11-the-belief-rewrite-protocol",
       "source_file": "transmissions/11-the-belief-rewrite-protocol.html",
       "topic_tags": [
@@ -652,12 +926,13 @@
       "id": "12-the-consciousness-architecture-emotional-integration-protocols",
       "transmission_number": 12,
       "title": "Transmission 12: The Consciousness Architecture Emotional Integration Protocols",
-      "summary": "Public transmission seed for consciousness architecture and emotional integration protocol language.",
+      "summary": "Public transmission revised 10 November 2026: what the Emotions Cell code and tests show, with dated corrections to the April text.",
       "route": "/transmissions/12-the-consciousness-architecture-emotional-integration-protocols",
       "source_file": "transmissions/12-the-consciousness-architecture-emotional-integration-protocols.html",
       "topic_tags": [
         "architecture",
-        "emotional-systems"
+        "emotional-systems",
+        "corrections"
       ],
       "memory_layers": [
         "semantic",
@@ -677,7 +952,7 @@
       "id": "13-the-creator-organ-autonomous-content-production-at-scale",
       "transmission_number": 13,
       "title": "Transmission 13: The Creator Organ Autonomous Content Production At Scale",
-      "summary": "Public transmission seed for creator organ language and content production architecture.",
+      "summary": "Public transmission revised 10 November 2026: the Creator OS code (one tested part, several stubs), the production chain with one owner per step, five reels finished and none posted, and the claims withdrawn.",
       "route": "/transmissions/13-the-creator-organ-autonomous-content-production-at-scale",
       "source_file": "transmissions/13-the-creator-organ-autonomous-content-production-at-scale.html",
       "topic_tags": [
@@ -700,12 +975,13 @@
       "id": "14-the-emotional-loop-architecture-consciousness-as-real-time-code",
       "transmission_number": 14,
       "title": "Transmission 14: The Emotional Loop Architecture Consciousness As Real Time Code",
-      "summary": "Public transmission seed for emotional loop architecture and real-time code metaphor.",
+      "summary": "Public transmission revised 10 November 2026: what the Emotions Cell code and tests show, with dated corrections to the April text.",
       "route": "/transmissions/14-the-emotional-loop-architecture-consciousness-as-real-time-code",
       "source_file": "transmissions/14-the-emotional-loop-architecture-consciousness-as-real-time-code.html",
       "topic_tags": [
         "emotional-systems",
-        "architecture"
+        "architecture",
+        "corrections"
       ],
       "memory_layers": [
         "procedural",
@@ -750,7 +1026,7 @@
       "id": "16-the-organism-spine",
       "transmission_number": 16,
       "title": "Transmission 16: The Organism Spine",
-      "summary": "Public transmission seed for the organism spine: durable runs, task lifecycle controls, approval authority, and debrief evidence.",
+      "summary": "Public transmission seed for the organism spine: durable runs, task lifecycle controls, approval authority; a debrief exporter is a plan.",
       "route": "/transmissions/16-the-organism-spine",
       "source_file": "transmissions/16-the-organism-spine.html",
       "topic_tags": [
@@ -775,7 +1051,7 @@
       "id": "17-the-brain-is-becoming-an-organism-not-an-app",
       "transmission_number": 17,
       "title": "Transmission 17: The Brain Is Becoming An Organism Not An App",
-      "summary": "Public transmission seed for the Brain's evolution from application framing toward organism architecture.",
+      "summary": "Product audit of 22 May 2026, rechecked 10 November against the Brain repository: which of seven named phases were built, the cell swap contract, and what the word organism does and does not mean.",
       "route": "/transmissions/17-the-brain-is-becoming-an-organism-not-an-app",
       "source_file": "transmissions/17-the-brain-is-becoming-an-organism-not-an-app.html",
       "topic_tags": [
@@ -847,7 +1123,7 @@
       "id": "20-the-public-proof-loop",
       "transmission_number": 20,
       "title": "Transmission 20: The Public Proof Loop",
-      "summary": "Public transmission seed for evidence retention, release proof, review packets, and public verification language.",
+      "summary": "A design note on evidence, approval and verification for public claims, revised 10 November 2026.",
       "route": "/transmissions/20-the-public-proof-loop",
       "source_file": "transmissions/20-the-public-proof-loop.html",
       "topic_tags": [
@@ -928,7 +1204,7 @@
       "id": "23-the-sec-gate-an-organism-that-locks-its-own-hands",
       "transmission_number": 23,
       "title": "Transmission 23: The Sec Gate An Organism That Locks Its Own Hands",
-      "summary": "Public transmission seed for signing-path safety, approval enforcement, and bounded Web3 execution architecture.",
+      "summary": "The Monad executor refuses to sign by default and needs a matching approval grant; a dated note on P5 and the SEC Gate, with a November 2026 correction on what an in-process gate guarantees.",
       "route": "/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands",
       "source_file": "transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands.html",
       "topic_tags": [
@@ -954,7 +1230,7 @@
       "id": "24-the-mirror-found-its-form",
       "transmission_number": 24,
       "title": "Transmission 24: The Mirror Found Its Form",
-      "summary": "Public transmission seed for the Infinity Mirror form, consent-aware memory visibility, and reflective product experience.",
+      "summary": "Public transmission seed for the Infinity Mirror form: consent-aware memory visibility and a mirror that, in the design, would change when the user speaks. A design note, not a working product.",
       "route": "/transmissions/24-the-mirror-found-its-form",
       "source_file": "transmissions/24-the-mirror-found-its-form.html",
       "topic_tags": [
@@ -979,7 +1255,7 @@
       "id": "25-the-homepage-learned-to-pulse",
       "transmission_number": 25,
       "title": "Transmission 25: The Homepage Learned To Pulse",
-      "summary": "Release record for the homepage Organism Pulse Field: a visitor signal becomes a governed organism run with inspectable proof, memory notes, and approval-gated authority.",
+      "summary": "Release record for the homepage Organism Pulse Field, checked against code and tests: what the console is, where it lives now, and the separate public witness reading.",
       "route": "/transmissions/25-the-homepage-learned-to-pulse",
       "source_file": "transmissions/25-the-homepage-learned-to-pulse.html",
       "topic_tags": [
@@ -1005,7 +1281,7 @@
       "id": "26-property-sales-intelligence-cell",
       "transmission_number": 26,
       "title": "Transmission 26: The Property Sales Intelligence Cell",
-      "summary": "Public transmission seed for the Real Estate Property Sales Intelligence cell: approved source review, lead qualification, consent evidence, DNC posture, human approval, and proof before outreach.",
+      "summary": "Dated record of the Real Estate Property Sales Intelligence cell: what exists (documents, a read-only wiring design, a cost sheet, a registry claim), what is only design, and four review gates with human approval before any outreach.",
       "route": "/transmissions/26-property-sales-intelligence-cell",
       "source_file": "transmissions/26-property-sales-intelligence-cell.html",
       "topic_tags": [
@@ -1031,7 +1307,7 @@
       "id": "27-the-quotation-cell",
       "transmission_number": 27,
       "title": "Transmission 27: The Quotation Cell",
-      "summary": "Public-safe whitepaper build record for the Quotation Cell: manual Brain protocol, quote-package architecture, supplier memory, correction loops, transaction readiness, and human approval before commitment.",
+      "summary": "Build record for a Quotation Cell design: quote package, supplier memory, correction loop and readiness boundary, with human approval before commitment. No quoting service exists.",
       "route": "/transmissions/27-the-quotation-cell",
       "source_file": "transmissions/27-the-quotation-cell.html",
       "topic_tags": [
@@ -1137,7 +1413,7 @@
       "id": "30-the-operator-readiness-layer",
       "transmission_number": 30,
       "title": "Transmission 30: The Operator Readiness Layer",
-      "summary": "Brain guide and compact whitepaper record for the Operator Readiness Layer: content-free memory triage, operator contracts, workbench cards, smoke packets, focused validation, and approval boundaries before authority.",
+      "summary": "Brain guide and compact whitepaper record for the Operator Readiness Layer: content-free memory triage, workbench cards and approval boundaries before authority, with the later removal of part of the layer noted.",
       "route": "/transmissions/30-the-operator-readiness-layer",
       "source_file": "transmissions/30-the-operator-readiness-layer.html",
       "topic_tags": [
@@ -1165,7 +1441,7 @@
       "id": "31-the-active-source-of-truth-gate",
       "transmission_number": 31,
       "title": "Transmission 31: The Active Source-of-Truth Gate",
-      "summary": "Brain guide and compact whitepaper record for the Active Source-of-Truth Gate: live-lane identity, local parity, discovery metadata, registry truth, API contract proof, internal asset boundaries, and approval before production mutation.",
+      "summary": "Publication governance note: the read-only parity checker, its ten checks, the gaps it does not close, the July 2026 history, and the controller that remains a design.",
       "route": "/transmissions/31-the-active-source-of-truth-gate",
       "source_file": "transmissions/31-the-active-source-of-truth-gate.html",
       "topic_tags": [

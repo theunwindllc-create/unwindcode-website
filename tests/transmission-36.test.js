@@ -5,7 +5,7 @@ import { readFile, readdir } from 'node:fs/promises';
 const id = '36-movement-needs-a-source';
 const route = `/transmissions/${id}`;
 const canonical = `https://www.unwindcode.ai${route}`;
-const latestRoute = '/transmissions/45-where-this-is-going';
+const latestRoute = '/transmissions/55-what-one-machines-day-says';
 const route37 = '/transmissions/37-the-organism-drew-its-chain-boundary';
 const route38 = '/transmissions/38-one-board-for-every-hand';
 const latestCanonical = `https://www.unwindcode.ai${latestRoute}`;
@@ -111,7 +111,7 @@ test('Transmission 36 public copy carries no internal paths, hosts or operationa
   }
 });
 
-test('archive and service counts measure actual articles while Transmission 45 is the latest', async () => {
+test('archive and service counts measure actual articles while Transmission 55 is the latest', async () => {
   const files = (await readdir(new URL('../transmissions/', import.meta.url)))
     .filter(file => /^\d{2}-.+\.html$/.test(file));
   const expected = files.map(file => `/transmissions/${file.slice(0, -5)}`).sort();
@@ -138,7 +138,7 @@ test('archive and service counts measure actual articles while Transmission 45 i
   assert.ok(archive.includes(`<dt>${files.length}</dt>`));
   const services = JSON.parse(await read('ai-services.json'));
   assert.equal(services.transmission_library.total_transmissions, files.length);
-  assert.equal(services.transmission_library.latest.url, latestCanonical, 'every latest pointer is on Transmission 45');
+  assert.equal(services.transmission_library.latest.url, latestCanonical, 'every latest pointer is on Transmission 55');
   assert.equal(services.transmission_library.transmission_36.url, canonical);
   assert.ok((await read('llms.txt')).includes(`${files.length} dispatches as a proof library`));
 });
@@ -192,7 +192,7 @@ test('the transmission numbering is contiguous with Transmission 36 registered',
   const registry = JSON.parse(await read('public/data/transmissions.json'));
   const numbers = new Set(registry.transmissions.map(item => item.transmission_number));
   const latest = Math.max(...numbers);
-  assert.equal(latest, 45);
+  assert.equal(latest, 55);
   const missing = Array.from({ length: latest }, (_, index) => index + 1).filter(number => !numbers.has(number));
   assert.deepEqual(missing, []);
 });

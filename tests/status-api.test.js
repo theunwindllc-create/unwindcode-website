@@ -169,18 +169,18 @@ test('returns public-safe backend status from active registries', async () => {
   assert.equal(res.body.status.registries.claims.needs_context_count, 2);
   assert.equal(res.body.status.registries.claims.safety_qualified_count, 2);
   assert.equal(res.body.status.registries.organisms.count, 5);
-  assert.equal(res.body.status.registries.transmissions.count, 46);
+  assert.equal(res.body.status.registries.transmissions.count, 56);
   assert.deepEqual(res.body.status.registries.transmissions.latest_public_transmission, {
-    id: '45-where-this-is-going',
-    transmission_number: 45,
-    title: 'Transmission 45: Where This Is Going',
-    route: '/transmissions/45-where-this-is-going',
-    source_file: 'transmissions/45-where-this-is-going.html',
+    id: '55-what-one-machines-day-says',
+    transmission_number: 55,
+    title: "Transmission 55: What One Machine's Day Says About the Next Ten Years",
+    route: '/transmissions/55-what-one-machines-day-says',
+    source_file: 'transmissions/55-what-one-machines-day-says.html',
     review_status: 'public_safe',
   });
   assert.deepEqual(res.body.status.registries.transmissions.numbering, {
-    latest_number: 45,
-    published_count: 46,
+    latest_number: 55,
+    published_count: 56,
     has_gaps: false,
     missing_numbers: [],
   });

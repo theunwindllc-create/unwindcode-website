@@ -152,12 +152,12 @@
     {
       "id": "real-estate-property-sales-intelligence-boundary",
       "category": "domain-cell-safety",
-      "text": "Real Estate Property Sales Intelligence is framed as a source-aware, consent-aware, human-governed real estate sales intelligence cell.",
+      "text": "Real Estate Property Sales Intelligence is framed as a design-only, source-aware, consent-aware, human-governed real estate sales intelligence cell: documents, a read-only wiring design and a cost sheet exist, and no outreach is built.",
       "public_label": "A public-safe real estate cell claim that must stay bounded to approved sources, review routing, consent evidence, DNC posture, and proof before outreach.",
       "claim_status": "safety_qualified",
       "evidence_status": "source_backed",
       "risk_level": "medium",
-      "interpretation_boundary": "This does not prove live CRM deployment, provider credentials, lead imports, autonomous messages, autonomous calls, legal compliance, or permission to contact any person.",
+      "interpretation_boundary": "The cell is design-only. This does not prove live CRM deployment, provider credentials, lead imports, autonomous messages, autonomous calls, legal compliance, or permission to contact any person.",
       "source_routes": [
         "/transmissions/26-property-sales-intelligence-cell"
       ],

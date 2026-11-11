@@ -5,7 +5,7 @@ import { readFile, readdir } from 'node:fs/promises';
 const id = '37-the-organism-drew-its-chain-boundary';
 const route = `/transmissions/${id}`;
 const canonical = `https://www.unwindcode.ai${route}`;
-const latestRoute = '/transmissions/45-where-this-is-going';
+const latestRoute = '/transmissions/55-what-one-machines-day-says';
 const route38 = '/transmissions/38-one-board-for-every-hand';
 const canonical38 = `https://www.unwindcode.ai${route38}`;
 const latestCanonical = `https://www.unwindcode.ai${latestRoute}`;
@@ -66,7 +66,7 @@ test('archive and service counts measure actual articles while preserving both l
   const archive = await read('transmissions/index.html');
   const cards = [...archive.matchAll(/<a href="(\/transmissions\/[^" ]+)" class="tx-card"/g)].map(match => match[1]);
   assert.deepEqual([...cards].sort(), expected, 'archive includes every real article exactly once');
-  assert.equal(cards[0], latestRoute, 'Transmission 45 is now the latest');
+  assert.equal(cards[0], latestRoute, 'Transmission 55 is now the latest');
   const idx38 = cards.indexOf(route38);
   const idx37 = cards.indexOf(route);
   assert.equal(idx38 + 1, idx37, 'Transmission 37 follows Transmission 38 in number order');
@@ -85,7 +85,7 @@ test('archive and service counts measure actual articles while preserving both l
   assert.ok(archive.includes(`<dt>${files.length}</dt>`));
   const services = JSON.parse(await read('ai-services.json'));
   assert.equal(services.transmission_library.total_transmissions, files.length);
-  assert.equal(services.transmission_library.latest.url, latestCanonical, 'the latest pointer moved to Transmission 45');
+  assert.equal(services.transmission_library.latest.url, latestCanonical, 'the latest pointer moved to Transmission 55');
   assert.equal(services.transmission_library.transmission_37.url, canonical, 'Transmission 37 keeps its own library entry');
   assert.ok((await read('llms.txt')).includes(`${files.length} dispatches as a proof library`));
 });

@@ -389,7 +389,17 @@
         "/transmissions/42-pull-sign-seal",
         "/transmissions/43-an-organism-that-hires",
         "/transmissions/44-what-the-organism-is-afraid-of",
-        "/transmissions/45-where-this-is-going"
+        "/transmissions/45-where-this-is-going",
+        "/transmissions/46-one-operator-many-organs",
+        "/transmissions/47-a-memory-that-outlives-the-session",
+        "/transmissions/48-one-owner-per-step",
+        "/transmissions/49-what-the-organism-eats",
+        "/transmissions/50-a-skill-is-a-dated-source",
+        "/transmissions/51-the-voice-at-the-door",
+        "/transmissions/52-constraints-that-make-autonomy-possible",
+        "/transmissions/53-a-board-not-a-prompt",
+        "/transmissions/54-proof-before-promotion",
+        "/transmissions/55-what-one-machines-day-says"
       ],
       "source_files": [
         "api/assets.js",
@@ -481,6 +491,46 @@
         {
           "label": "Transmission 45 Where This Is Going guide",
           "route": "/transmissions/45-where-this-is-going"
+        },
+        {
+          "label": "Transmission 46 One Operator, Many Organs guide",
+          "route": "/transmissions/46-one-operator-many-organs"
+        },
+        {
+          "label": "Transmission 47 A Memory That Outlives the Session guide",
+          "route": "/transmissions/47-a-memory-that-outlives-the-session"
+        },
+        {
+          "label": "Transmission 48 One Owner Per Step guide",
+          "route": "/transmissions/48-one-owner-per-step"
+        },
+        {
+          "label": "Transmission 49 What the Organism Eats guide",
+          "route": "/transmissions/49-what-the-organism-eats"
+        },
+        {
+          "label": "Transmission 50 A Skill Is a Dated Source guide",
+          "route": "/transmissions/50-a-skill-is-a-dated-source"
+        },
+        {
+          "label": "Transmission 51 The Voice at the Door guide",
+          "route": "/transmissions/51-the-voice-at-the-door"
+        },
+        {
+          "label": "Transmission 52 Constraints That Make Autonomy Possible guide",
+          "route": "/transmissions/52-constraints-that-make-autonomy-possible"
+        },
+        {
+          "label": "Transmission 53 A Board, Not a Prompt guide",
+          "route": "/transmissions/53-a-board-not-a-prompt"
+        },
+        {
+          "label": "Transmission 54 Proof Before Promotion guide",
+          "route": "/transmissions/54-proof-before-promotion"
+        },
+        {
+          "label": "Transmission 55 What One Machine's Day Says About the Next Ten Years guide",
+          "route": "/transmissions/55-what-one-machines-day-says"
         }
       ],
       "review_status": "public_safe"
@@ -630,7 +680,17 @@
         "/transmissions/42-pull-sign-seal",
         "/transmissions/43-an-organism-that-hires",
         "/transmissions/44-what-the-organism-is-afraid-of",
-        "/transmissions/45-where-this-is-going"
+        "/transmissions/45-where-this-is-going",
+        "/transmissions/46-one-operator-many-organs",
+        "/transmissions/47-a-memory-that-outlives-the-session",
+        "/transmissions/48-one-owner-per-step",
+        "/transmissions/49-what-the-organism-eats",
+        "/transmissions/50-a-skill-is-a-dated-source",
+        "/transmissions/51-the-voice-at-the-door",
+        "/transmissions/52-constraints-that-make-autonomy-possible",
+        "/transmissions/53-a-board-not-a-prompt",
+        "/transmissions/54-proof-before-promotion",
+        "/transmissions/55-what-one-machines-day-says"
       ],
       "source_files": [
         "api/transmissions.js",
@@ -722,6 +782,46 @@
         {
           "label": "Transmission 45 where this is going",
           "route": "/transmissions/45-where-this-is-going"
+        },
+        {
+          "label": "Transmission 46 one operator, many organs",
+          "route": "/transmissions/46-one-operator-many-organs"
+        },
+        {
+          "label": "Transmission 47 a memory that outlives the session",
+          "route": "/transmissions/47-a-memory-that-outlives-the-session"
+        },
+        {
+          "label": "Transmission 48 one owner per step",
+          "route": "/transmissions/48-one-owner-per-step"
+        },
+        {
+          "label": "Transmission 49 what the organism eats",
+          "route": "/transmissions/49-what-the-organism-eats"
+        },
+        {
+          "label": "Transmission 50 a skill is a dated source",
+          "route": "/transmissions/50-a-skill-is-a-dated-source"
+        },
+        {
+          "label": "Transmission 51 the voice at the door",
+          "route": "/transmissions/51-the-voice-at-the-door"
+        },
+        {
+          "label": "Transmission 52 constraints that make autonomy possible",
+          "route": "/transmissions/52-constraints-that-make-autonomy-possible"
+        },
+        {
+          "label": "Transmission 53 a board, not a prompt",
+          "route": "/transmissions/53-a-board-not-a-prompt"
+        },
+        {
+          "label": "Transmission 54 proof before promotion",
+          "route": "/transmissions/54-proof-before-promotion"
+        },
+        {
+          "label": "Transmission 55 what one machine's day says about the next ten years",
+          "route": "/transmissions/55-what-one-machines-day-says"
         }
       ],
       "review_status": "public_safe"

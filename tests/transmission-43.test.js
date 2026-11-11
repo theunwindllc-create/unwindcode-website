@@ -5,7 +5,7 @@ import { readFile, readdir } from 'node:fs/promises';
 const id = '43-an-organism-that-hires';
 const route = `/transmissions/${id}`;
 const canonical = `https://www.unwindcode.ai${route}`;
-const latestRoute = '/transmissions/45-where-this-is-going';
+const latestRoute = '/transmissions/55-what-one-machines-day-says';
 const read = file => readFile(new URL(`../${file}`, import.meta.url), 'utf8');
 
 test('Transmission 43 has one consistent clean route across article and discovery surfaces', async () => {
@@ -99,15 +99,15 @@ test('archive, homepages and numbering place Transmission 43 correctly beneath t
   const cards = [...archive.matchAll(/<a href="(\/transmissions\/[^" ]+)" class="tx-card"/g)].map(match => match[1]);
   assert.deepEqual([...cards].sort(), expected, 'archive includes every real article exactly once');
   assert.ok(cards.includes(route), 'Transmission 43 is in the archive');
-  assert.equal(cards[2], route, 'Transmission 43 is the third archive card, after 45 and 44');
-  assert.equal(archive.match(/<a href="([^"]+)" class="tx-featured-card"/)[1], latestRoute, 'the featured card is Transmission 45, not 43');
+  assert.equal(cards[12], route, 'Transmission 43 is the thirteenth archive card, after 55 down to 44');
+  assert.equal(archive.match(/<a href="([^"]+)" class="tx-featured-card"/)[1], latestRoute, 'the featured card is Transmission 55, not 43');
   const homepage = await read('public/lab/index.html');
   const homeCards = [...homepage.matchAll(/class="transmission-card"\s+href="([^"]+)"/g)].map(match => match[1]);
-  assert.equal(homeCards[2], route, 'Transmission 43 is the third card in the three-card rolling window');
+  assert.equal(homeCards.includes(route), false, 'Transmission 43 is outside the three-card rolling window');
   const legacy = await read('index.html');
   assert.ok(legacy.includes(`href="${route}"`), 'the legacy homepage keeps a link to Transmission 43');
   const registry = JSON.parse(await read('public/data/transmissions.json'));
   const numbers = new Set(registry.transmissions.map(item => item.transmission_number));
-  assert.equal(Math.max(...numbers), 45, 'Transmission 45 is the latest, not 43');
+  assert.equal(Math.max(...numbers), 55, 'Transmission 55 is the latest, not 43');
   assert.ok(numbers.has(43));
 });

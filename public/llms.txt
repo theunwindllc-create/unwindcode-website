@@ -15,7 +15,7 @@ This file is a public-safe guide for AI crawlers and retrieval systems. It inten
 - Public index: the website exposes registries, search, grounding packets, claim context, asset provenance, and refusal rules without answer-generation authority.
 - Memory control plane: the Brain memory work exposes metadata-only recent views, health, action queues, triage, and reviewed repair boundaries without exposing stored memory content.
 - Agent-readable organism: public routes, manifests, registries, grounding packets, proof ledgers, and authority boundaries let future agents understand Unwind without inferring hidden execution permission.
-- Operator readiness layer: content-free memory triage, operator contracts, workbench cards, smoke packets, sandbox checks, dynamic-cell health, and consciousness sync state let the operator inspect readiness before authority is opened.
+- Operator readiness layer: content-free memory triage, workbench cards, sandbox checks, dynamic-cell health, and consciousness sync state let the operator inspect readiness before authority is opened.
 - Active Source-of-Truth Gate: publication governance checks that the live domain, local source tree, archive, discovery metadata, data registries, public APIs, and internal asset boundaries describe the same public organism before deployment authority opens.
 
 ## Public RAG Seed Routes
@@ -46,6 +46,16 @@ This file is a public-safe guide for AI crawlers and retrieval systems. It inten
 - An Organism That Hires hiring-governance field note: https://www.unwindcode.ai/transmissions/43-an-organism-that-hires
 - What the Organism Is Afraid Of resilience field note: https://www.unwindcode.ai/transmissions/44-what-the-organism-is-afraid-of
 - Where This Is Going roadmap field note: https://www.unwindcode.ai/transmissions/45-where-this-is-going
+- One Operator, Many Organs governance field note: https://www.unwindcode.ai/transmissions/46-one-operator-many-organs
+- A Memory That Outlives the Session memory field note: https://www.unwindcode.ai/transmissions/47-a-memory-that-outlives-the-session
+- One Owner Per Step production field note: https://www.unwindcode.ai/transmissions/48-one-owner-per-step
+- What the Organism Eats local-compute field note: https://www.unwindcode.ai/transmissions/49-what-the-organism-eats
+- A Skill Is a Dated Source skills field note: https://www.unwindcode.ai/transmissions/50-a-skill-is-a-dated-source
+- The Voice at the Door voice-boundary field note: https://www.unwindcode.ai/transmissions/51-the-voice-at-the-door
+- Constraints That Make Autonomy Possible spending-design field note: https://www.unwindcode.ai/transmissions/52-constraints-that-make-autonomy-possible
+- A Board, Not a Prompt coordination field note: https://www.unwindcode.ai/transmissions/53-a-board-not-a-prompt
+- Proof Before Promotion proof field note: https://www.unwindcode.ai/transmissions/54-proof-before-promotion
+- What One Machine's Day Says About the Next Ten Years outlook field note: https://www.unwindcode.ai/transmissions/55-what-one-machines-day-says
 
 ## Retrieval Guidance
 

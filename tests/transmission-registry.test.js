@@ -181,7 +181,7 @@ test('transmission archive is a guide library, not a public posting desk', async
   const archive = await readFile(new URL('../transmissions/index.html', import.meta.url), 'utf8');
 
   assert.match(archive, /whitepaper-style records/i);
-  assert.match(archive, /46<\/span> transmissions published/);
+  assert.match(archive, /56<\/span> transmissions published/);
   assert.equal(archive.includes('id="social-packet-desk"'), false);
   assert.equal(/Social Packet Desk|Open carousel|Download ZIP|View caption/i.test(archive), false);
   assert.equal(/\/social\/transmission-[^"']+/i.test(archive), false);
