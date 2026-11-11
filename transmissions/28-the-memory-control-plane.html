@@ -36,7 +36,7 @@
     "author": {"@type": "Organization", "name": "Unwind Code"},
     "publisher": {"@type": "Organization", "name": "Unwind Code", "url": "https://www.unwindcode.ai"},
     "datePublished": "2026-06-13",
-    "dateModified": "2026-06-13",
+    "dateModified": "2026-11-10",
     "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/28-the-memory-control-plane"
   }
   </script>
@@ -283,7 +283,7 @@
         <span class="mem-kicker">Transmission 028</span>
         <h1>The Memory Control Plane</h1>
         <p class="mem-hero-sub">This is the Memory Control Plane: a compact guide for giving the Unwind Brain durable recall without allowing old context to become hidden authority. The operator sees pressure, queues, and receipts before memory is trusted or changed.</p>
-        <div class="mem-meta"><span>June 2026</span><span>Brain Guide</span><span>Whitepaper Record</span><span>Governed Recall</span></div>
+        <div class="mem-meta"><span>June 2026</span><span>Brain Guide</span><span>Whitepaper Record</span><span>Governed Recall</span><span>Revised 10 Nov 2026</span></div><div class="rev-note" role="note" style="max-width:860px;margin:24px auto 0;padding:14px 18px;border:1px solid rgba(240,238,246,0.16);border-left:3px solid #d2ac5f;border-radius:10px;background:rgba(210,172,95,0.07);text-align:left;font-size:0.92rem;line-height:1.65;color:var(--text-secondary)"><strong>This note describes the Brain's memory module as of 13 June 2026.</strong><br/><strong>Revised 10 November 2026.</strong> Correction, 10 November 2026: "control plane" names a code module with a command line and an API, covered by tests, inside the Brain repository. It is not the layer that governs the ecosystem's everyday working memory. An audit on 8 November 2026 found that working memory is a separate file-based notes vault with its own journal, index and lint tools, and that a data-loss incident on 3 November zero-filled 207 vault files, 201 of them still missing on 8 November; this control plane did not see or govern that. Two commands shown in the first panel, "memory add" and "memory receipts", do not exist in the command line and have been corrected below. The "next cell" connecting this plane to public grounding is a plan and has not been built.</div>
       </div>
     </section>
 
@@ -291,7 +291,7 @@
       <div class="container">
         <div class="mem-section-head"><span class="mem-section-num">01 / Failure mode</span><h2>Memory without a control plane becomes hidden authority.</h2></div>
         <div class="mem-prose">
-          <p>The Brain already had memory language. The control-plane pattern makes it operational: typed records, privacy levels, expiry, retrieval modes, metadata-only recent indexes, content-free health, retention previews, action queues, and reviewed mutation routes.</p>
+          <p>The Brain already had memory language. The control-plane pattern makes it operational inside the Brain's own memory module: typed records, privacy levels, expiry, retrieval modes, metadata-only recent indexes, content-free health, retention previews, action queues, and reviewed mutation routes.</p>
           <p>The theory is not "remember more." The theory is "make recall governable." A memory system that cannot show its workload becomes mysticism. A memory system that shows too much becomes surveillance. The control plane lives between those failures.</p>
           <p>The operator should be able to ask: What is stale? What needs review? Which receipts are dirty? Which records are unresolved? The operator should not need to open the private body of the memory to answer those questions. Metadata before memory body is the first law.</p>
         </div>
@@ -328,8 +328,8 @@
           <p>The control plane is the organ that lets the creator see systemic pressure without collapsing into content review. It says, "these records need triage," not "here is every private thought." It says, "this mutation needs approval," not "the system already repaired itself."</p>
         </div>
         <div class="mem-chart-grid">
-          <div class="mem-chart-card"><h3>Control surfaces</h3><div class="mem-chart-box"><canvas id="memSurfaceChart"></canvas></div></div>
-          <div class="mem-chart-card"><h3>Authority split</h3><div class="mem-chart-box"><canvas id="memAuthorityChart"></canvas></div></div>
+          <div class="mem-chart-card"><h3>Control surfaces (illustrative judgment, not measured)</h3><div class="mem-chart-box"><canvas id="memSurfaceChart"></canvas></div></div>
+          <div class="mem-chart-card"><h3>Authority split (an illustrative design split, not measured)</h3><div class="mem-chart-box"><canvas id="memAuthorityChart"></canvas></div></div>
         </div>
       </div>
     </section>
@@ -356,11 +356,12 @@
             <div class="mem-life-step"><b>01</b><div><h3>Inspect pressure</h3><p>Use recent, health, retention, and queue views to understand the workload without reading private content.</p></div></div>
             <div class="mem-life-step"><b>02</b><div><h3>Prepare a reviewed packet</h3><p>When repair or write is needed, build a packet with memory id, reason, expected mutation, retention impact, and rollback note.</p></div></div>
             <div class="mem-life-step"><b>03</b><div><h3>Wait for authority</h3><p>The system can recommend the next action, but mutation happens only after explicit creator approval or a reviewed internal gate.</p></div></div>
-            <div class="mem-life-step"><b>04</b><div><h3>Record next-cell memory</h3><p>The next cell should connect this control plane to public grounding, so answer drafts can cite current memory status without exposing private content.</p></div></div>
+            <div class="mem-life-step"><b>04</b><div><h3>Record next-cell memory</h3><p>Plan, not built as of 10 November 2026: the next cell should connect this control plane to public grounding, so answer drafts can cite current memory status without exposing private content.</p></div></div>
           </div>
         </div>
+        <div class="mem-guide" style="margin-bottom:24px"><span class="mem-section-num">What this note does not claim</span><p>It does not claim that the control plane governs the ecosystem's working memory, that it detects or repairs data loss, or that any operator is running its queues on a schedule. It does not claim the doughnut or bar figures are measurements. It claims that a memory module with typed records, metadata-only inspection, reviewed mutation routes and receipts exists in the Brain repository and has tests.</p></div>
         <div class="mem-cta">
-          <h2>The memory layer now has hands it refuses to move by itself.</h2>
+          <h2>The memory module was built so that its mutating routes need a reviewed request.</h2>
           <p>Proof ledger: the page, metadata, registry summary, tests, build, and local smoke must agree before this becomes production truth. The posting assets for this transmission remain internal creator material, not public documentation.</p>
           <a class="btn btn-primary btn-lg" href="/transmissions"><span>All Transmissions</span><span class="btn-arrow">→</span></a>
         </div>
@@ -391,12 +392,12 @@
     }
 
     const queues = [
-      ['Capture plane', 'Typed memory intake with privacy level, retention intent, source, confidence, and review posture.', 'unwind-brain memory add --type decision --privacy private --reviewed --json-output'],
+      ['Capture plane', 'Typed memory intake with privacy level, retention intent, source, confidence, and review posture.', 'POST /memory/reviewed-write (reviewed write API; there is no command-line twin)'],
       ['Index plane', 'Metadata-only inspection with filters for unresolved records, retention gaps, and receipt hygiene.', 'unwind-brain memory recent --recommended-action resolve_memory_record --json-output'],
       ['Health plane', 'Aggregate pressure, stale counts, and next-action hints without content exposure.', 'unwind-brain memory health --json-output'],
       ['Queue plane', 'Repair, resolve, retention, and receipt-hygiene work organized into read-only queues.', 'unwind-brain memory action-queues --active-only --json-output'],
       ['Mutation plane', 'Explicit reviewed routes for retention provenance, resolution, and receipt hygiene.', 'unwind-brain memory repair-receipt-hygiene --memory-id mem_... --reviewed --json-output'],
-      ['Receipt plane', 'Content-free provenance that proves what changed, why, and how rollback should work.', 'unwind-brain memory receipts --memory-id mem_... --json-output']
+      ['Receipt plane', 'Content-free provenance that proves what changed, why, and how rollback should work.', 'Receipts are returned by the reviewed mutation routes and counted by: unwind-brain memory health --json-output']
     ];
     const list = document.getElementById('mem-queue-list');
     const panel = document.getElementById('mem-panel');
@@ -442,7 +443,7 @@
     };
     new Chart(document.getElementById('memSurfaceChart'), {
       type: 'bar',
-      data: { labels: ['Capture', 'Index', 'Health', 'Queues', 'Mutation', 'Receipts'], datasets: [{ label: 'Local implementation depth', data: [8, 9, 8, 9, 7, 7], backgroundColor: [chartColors.amber, chartColors.teal, chartColors.steel, chartColors.amber, chartColors.rose, chartColors.teal], borderRadius: 9 }] },
+      data: { labels: ['Capture', 'Index', 'Health', 'Queues', 'Mutation', 'Receipts'], datasets: [{ label: 'Illustrative depth (author\'s judgment)', data: [8, 9, 8, 9, 7, 7], backgroundColor: [chartColors.amber, chartColors.teal, chartColors.steel, chartColors.amber, chartColors.rose, chartColors.teal], borderRadius: 9 }] },
       options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: chartColors.text } } }, scales: { x: { grid: { display: false }, ticks: { color: chartColors.text } }, y: { beginAtZero: true, max: 10, grid: { color: chartColors.grid }, ticks: { color: chartColors.text } } } }
     });
     new Chart(document.getElementById('memAuthorityChart'), {

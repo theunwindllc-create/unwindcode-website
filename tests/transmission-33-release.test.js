@@ -57,7 +57,7 @@ test('Transmission 33 exposes the clean route and complete article metadata', as
   assert.ok(page.includes(`<link rel="canonical" href="${canonical}" />`));
   assert.ok(page.includes(`<meta property="og:url" content="${canonical}" />`));
   assert.match(page, /"datePublished": "2026-08-09"/);
-  assert.match(page, /"dateModified": "2026-08-09"/);
+  assert.match(page, /"dateModified": "2026-11-10"/);
   assert.match(page, /"mainEntityOfPage": "https:\/\/www\.unwindcode\.ai\/transmissions\/33-the-organization-found-its-hands"/);
   assert.ok(archive.includes(`href="${ROUTE}"`));
   assert.ok(homepage.includes(`href="${ROUTE}"`));
@@ -91,8 +91,6 @@ test('Transmission 33 is a whitepaper-grade interactive Brain record', async () 
     'Invicta',
     'Genesis',
     'a second, pre-public persona',
-    'OpenClaw',
-    'sessions_spawn',
     'PUBLICA',
     'SPAWN-OK',
     'Subagent announce give up (retry-limit)',
@@ -143,6 +141,8 @@ test('Transmission 33 keeps authority, infrastructure, and social assets bounded
     /auth(?:entication)? token/i,
     /credit balance/i,
     /Canonical Sheet V2/i,
+    /OpenClaw/i,
+    /sessions_spawn/i,
   ]) {
     assert.equal(forbidden.test(page), false, `Transmission 33 leaked forbidden detail: ${forbidden}`);
   }

@@ -35,7 +35,7 @@
     "author": {"@type": "Organization", "name": "Unwind Code"},
     "publisher": {"@type": "Organization", "name": "Unwind Code", "url": "https://www.unwindcode.ai"},
     "datePublished": "2026-08-29",
-    "dateModified": "2026-09-30",
+    "dateModified": "2026-11-10",
     "keywords": ["independent witness", "attestation", "Internet Computer", "silent failure", "observability", "AI governance"],
     "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/35-the-ledger-learned-to-be-witnessed"
   }
@@ -130,6 +130,20 @@
         gateway response that this browser does not certificate-verify. It displays a public report, not an
         authenticated attestation. The witness design described in this dated note and proof of this particular
         browser response are separate questions. <a href="/proof/ledger">See the current reader limits.</a>
+      </p>
+      <p class="w-standfirst rev-note" role="note" style="margin-top:1rem;font-size:0.98rem;border-left:3px solid #d2ac5f;padding-left:14px;">
+        <strong>Revised 10 November 2026. Correction, 10 November 2026:</strong> the witness described here is
+        currently not receiving beats. The last accepted beat from the gate machine was on 9 November 2026 at
+        12:00 local time; since 12:30 that day every half-hourly beat has been rejected with HTTP 503 by the
+        gateway, and the second machine's beats stopped at about the same time. The read path still answers, so
+        the panel below will show a head that is about a day old and the label "reports stale"; that is the correct
+        reading, not a fault in the panel. The cause is not confirmed (a cycles shortfall, a canister fault or a
+        gateway problem are the candidates) and it waits on the operator, who holds the canister controls.
+        Also: the 2 November 2026 work to move the witness to a new canister, with a certified digest that a browser
+        could verify, has been built and proven only on a local replica as of 2 November 2026. Nothing from it is
+        deployed to the live network, so the raw-read limit in the 30 September correction still stands. The
+        thirty-minute design bound below is unchanged, and a dark stretch of about thirty hours is a gap in the
+        track record, not evidence of anything else.
       </p>
     </div>
   </header>

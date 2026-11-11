@@ -35,7 +35,7 @@
     "author": {"@type": "Organization", "name": "Unwind Code"},
     "publisher": {"@type": "Organization", "name": "Unwind Code", "url": "https://www.unwindcode.ai"},
     "datePublished": "2026-08-29",
-    "dateModified": "2026-08-29",
+    "dateModified": "2026-11-10",
     "keywords": ["AI custody boundary", "agent authorization", "multi-agent governance", "fail-closed", "human-in-the-loop"],
     "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/34-the-gate-that-refused-its-own-operator"
   }
@@ -148,7 +148,8 @@
         Four authorizations were drafted. Three were withdrawn. Every catch came from the side that had not
         written the thing being caught — and the refusals turned out to be worth more than the promotion.
       </p>
-      <div class="g-meta">August 2026 · Field note · Genesis 1.0</div>
+      <div class="g-meta">August 2026 · Field note · Genesis 1.0 · Revised 10 Nov 2026</div>
+      <div class="rev-note" role="note" style="max-width:760px;margin:22px 0 0;padding:14px 18px;border:1px solid rgba(240,238,246,0.18);border-left:3px solid #d2ac5f;border-radius:10px;background:rgba(210,172,95,0.07);font-size:0.92rem;line-height:1.65;color:var(--text-secondary,#c9c5d6)"><strong>This field note describes the evening of 29 August 2026.</strong> Everything about stage 1, the grant and the open condition is as of that date.<br/><strong>Revised 10 November 2026.</strong> Correction, 10 November 2026: the gate is no longer at stage 1. As of 8 November 2026 an audit found it up at stage 0, with its ledger chain intact except for one declared fork on 27 October. The sealed gate code has changes that are not yet committed, which waits on a read from the second machine and an operator re-pin; until then the build loop refuses to run, which is the gate doing its job. The binding condition that every component run under a constrained identity is only partly met: the gate and its proxy, and some organs, run under constrained accounts, but several scheduled tasks still run under the operator's own account (one by a ruled exception), and the 8 November audit flagged three organ tasks as not yet classified. The public ledger mentioned at the end has also changed: see the 10 November 2026 note in Transmission 35. Nothing in this note shows that the gate has ever approved or executed anything.</div>
     </div>
   </header>
 
@@ -163,7 +164,7 @@
         <p style="margin:0;font-size:0.94rem;"><strong>The human.</strong> Ruled on every decision that was his, and signed. Nothing was promoted without him.</p>
       </div>
       <p>
-        Genesis is a local operator that runs on a machine we call the First Body. It sits behind a policy gate
+        Genesis is a local operator that runs on one machine. It sits behind a policy gate
         it is not permitted to bypass, and the gate has stages. Stage 0 does nothing. Stage 1 lets the gate
         <em>record</em> a proposal and hand back an id — nothing executes, and there is no approval path in the
         code at all. Getting from 0 to 1 requires a cryptographic grant signed by a human being.
@@ -277,15 +278,15 @@
 
       <h2>What Stage 1 actually is</h2>
       <p>
-        Precision matters more than the milestone, so: the gate may now <strong>record</strong> a well-formed
+        Precision matters more than the milestone, so, as of 29 August 2026: the gate could then <strong>record</strong> a well-formed
         proposal and return an id. <strong>Nothing executes.</strong> There is no approval path at any stage in
-        this build. The grant expires in seven days, and deleting a single file returns it to Stage 0 immediately.
-        One binding condition remains open — every component must run under a constrained identity, and today
-        that is not yet true. It is being closed before anything executes rather than after, which is the only
+        that build. The grant expired in seven days, and deleting a single file returned it to Stage 0 immediately.
+        One binding condition remained open on that date — every component must run under a constrained identity, and
+        that was not yet true. It was being closed before anything executed rather than after, which is the only
         ordering that counts as engineering rather than remediation.
       </p>
       <p>
-        The organism's liveness and the gate's attested ledger head are readable by anyone, live, on the
+        On 29 August the organism's liveness and the gate's attested ledger head were readable by anyone on the
         <a href="/proof/ledger" style="color:var(--g-iris);text-decoration:none;border-bottom:1px solid rgba(155,89,245,0.3);">public attestation ledger</a>.
         Transmission 35 covers how that witness works and what it deliberately does not promise.
       </p>
