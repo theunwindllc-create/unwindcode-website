@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Transmission 20: The Public Proof Loop | Unwind Code</title>
-  <meta name="description" content="How the Unwind Brain turns private work and XRPL Banker research into public evidence through staged drafts, approval packets, dry-runs, separated runners, verification, and memory." />
+  <meta name="description" content="A design note on how private work could become public evidence through staged drafts, approval and verification. Revised 10 November 2026: the runner chain it describes was removed from the Brain in July 2026." />
   <meta name="theme-color" content="#06060c" />
   <link rel="canonical" href="https://www.unwindcode.ai/transmissions/20-the-public-proof-loop" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Transmission 20: The Public Proof Loop | Unwind Code" />
-  <meta property="og:description" content="How the Unwind Brain turns private work and XRPL Banker research into public evidence through staged drafts, approval packets, dry-runs, separated runners, verification, and memory." />
+  <meta property="og:description" content="A design note on how private work could become public evidence through staged drafts, approval and verification. Revised 10 November 2026: the runner chain it describes was removed from the Brain in July 2026." />
   <meta property="og:url" content="https://www.unwindcode.ai/transmissions/20-the-public-proof-loop" />
   <meta property="og:site_name" content="Unwind Code" />
   <meta property="og:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
@@ -19,20 +19,19 @@
   <meta property="og:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Transmission 20: The Public Proof Loop | Unwind Code" />
-  <meta name="twitter:description" content="How the Unwind Brain turns private work and XRPL Banker research into public evidence through staged drafts, approval packets, dry-runs, separated runners, verification, and memory." />
+  <meta name="twitter:description" content="A design note on how private work could become public evidence through staged drafts, approval and verification. Revised 10 November 2026: the runner chain it describes was removed from the Brain in July 2026." />
   <meta name="twitter:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
   <meta name="twitter:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="/style.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "The Public Proof Loop",
-    "description": "How the Unwind Brain turns private work and XRPL Banker research into public evidence through staged drafts, approval packets, dry-runs, separated runners, verification, and memory.",
+    "description": "A design note on how private work could become public evidence through staged drafts, approval and verification. Revised 10 November 2026: the runner chain it describes was removed from the Brain in July 2026.",
     "author": {
       "@type": "Organization",
       "name": "Unwind Code"
@@ -43,7 +42,7 @@
       "url": "https://www.unwindcode.ai"
     },
     "datePublished": "2026-05-23",
-    "dateModified": "2026-05-23",
+    "dateModified": "2026-11-10",
     "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/20-the-public-proof-loop"
   }
   </script>
@@ -120,7 +119,6 @@
     .metrics-grid { margin-top:34px; display:grid; grid-template-columns:1fr 1fr; gap:22px; align-items:start; }
     .panel { background:rgba(15,15,30,0.58); border:1px solid var(--accent-border); border-radius:20px; padding:24px; }
     .panel h3 { font-size:1.08rem; margin-bottom:10px; }
-    .chart-box { position:relative; width:100%; height:332px; }
     .mission-list { display:grid; gap:12px; }
     .mission-item { border:1px solid rgba(240,238,246,0.08); background:rgba(6,6,12,0.28); border-radius:14px; padding:16px; }
     .mission-item span { color:var(--accent-hot); font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; }
@@ -145,8 +143,31 @@
       .proof-node { position:relative; left:auto; right:auto; top:auto; bottom:auto; width:100%; min-height:auto; }
       .proof-detail, .runner-shell, .panel { padding:20px; }
       .packet-grid, .authority-grid { grid-template-columns:1fr; }
-      .chart-box { height:292px; }
     }
+  
+    /* revision 2026-11-10: dated notes and state-of-record table */
+    .tx-dateline { margin-top:18px; font-size:0.84rem; color:var(--text-muted); }
+    .tx-revised { max-width:780px; margin:26px auto 0; text-align:left; background:rgba(110,45,190,0.07); border:1px solid var(--accent-border); border-left:3px solid var(--accent-hot); border-radius:12px; padding:16px 20px; font-size:0.9rem; line-height:1.65; color:var(--text-secondary); }
+    .tx-revised p { margin:0 0 10px; }
+    .tx-revised p:last-child { margin-bottom:0; }
+    .tx-revised strong { color:var(--text-primary); }
+    .st-wrap { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:20px; padding:24px; margin-top:28px; }
+    .st-wrap h3 { font-size:1.1rem; font-weight:700; margin-bottom:4px; }
+    .st-sub { font-size:0.82rem; color:var(--text-muted); margin-bottom:14px; }
+    .st-filter { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:8px; }
+    .st-filter button { background:rgba(110,45,190,0.08); border:1px solid var(--accent-border); color:var(--text-secondary); padding:6px 14px; border-radius:20px; font:inherit; font-size:0.8rem; cursor:pointer; }
+    .st-filter button.active { color:var(--text-primary); border-color:var(--accent-hot); background:rgba(110,45,190,0.2); }
+    .st-row { display:grid; grid-template-columns:170px 120px 1fr; gap:14px; padding:12px 0; border-top:1px solid var(--accent-border); font-size:0.88rem; line-height:1.55; color:var(--text-secondary); }
+    .st-row b { color:var(--text-primary); font-weight:600; }
+    .st-pill { display:inline-block; font-size:0.7rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:3px 10px; border-radius:20px; border:1px solid var(--accent-border); align-self:start; justify-self:start; }
+    .st-pill.built { color:#34d399; border-color:rgba(16,185,129,0.4); }
+    .st-pill.idle { color:#fbbf24; border-color:rgba(245,158,11,0.4); }
+    .st-pill.failing { color:#f87171; border-color:rgba(239,68,68,0.4); }
+    .st-pill.design { color:#a5b4fc; border-color:rgba(99,102,241,0.4); }
+    .st-pill.removed { color:#9ca3af; border-color:rgba(156,163,175,0.4); }
+    .nc-list { max-width:720px; color:var(--text-secondary); line-height:1.75; font-size:1rem; padding-left:20px; }
+    .nc-list li { margin-bottom:10px; }
+    @media(max-width:700px){ .st-row { grid-template-columns:1fr; gap:6px; } }
   </style>
 </head>
 <body class="tx-page">
@@ -169,7 +190,12 @@
         <div class="tx-kicker">TRANSMISSION 020</div>
         <h1>The Public Proof Loop</h1>
         <p class="tx-hero-sub">A Brain that learns in private has to prove itself in public. The loop is how private debriefs, XRPL Banker research, and harness evidence become staged transmissions, approved execution packets, separated runner handoffs, live verification, and memory without giving the organism uncontrolled publishing or wallet power.</p>
-        <div class="tx-hero-meta"><span>May 2026</span><span>Public Proof</span><span>Creator OS</span><span>12 min read</span></div>
+        <div class="tx-hero-meta"><span>May 2026</span><span>Public Proof</span><span>Creator OS</span><span>Revised 10 Nov 2026</span><span>12 min read</span></div>
+        <p class="tx-dateline">Written in May 2026 as a design note. State of the record checked on 10 November 2026 against the consolidation audit of 8 November and the organ-health diagnosis of 10 November.</p>
+        <div class="tx-revised">
+          <p><strong>Revised 10 November 2026.</strong> The note keeps its design and now says what happened to it.</p>
+          <p><strong>Correction, 10 November 2026.</strong> Three statements here were stale or untrue. First, the "separated runner" and publish-packet chain described in section 02 was removed from the Brain on 2 July 2026. Second, the closing claim that the Brain "is learning to produce transmissions from its own evidence", and the line that the website is "increasingly produced by the organism", were not true then and are not true now: the transmissions since May were written by human-directed tool sessions against a written standard, reviewed by a second reader, and published on the operator's word. Third, the readiness chart compared invented scores for a "public proof loop" and "blind agent publishing"; it is removed. Each stage card now says what exists. Section 06 sets out the state.</p>
+        </div>
       </div>
     </section>
 
@@ -194,19 +220,20 @@
         <div class="tx-section-head"><span class="tx-section-num">02</span><h2>Preparation and Execution Must Stay Separate</h2></div>
         <div class="tx-section-label">The writer Brain prepares; the runner executes only after authority exists</div>
         <div class="tx-prose">
-          <p>The latest harness work keeps creating deeper approval packets because the boundary matters. A Creator OS worker can prepare drafts. A public proof worker can prepare publish packets. A separated runner can rehearse commands. But none of those roles should inherit the power to mutate the public site just because they can describe the command.</p>
-          <p>That is the core move: <strong>the Brain may become agentic, but authority must remain explicit, scoped, and replayable.</strong></p>
+          <p>In May the harness work kept creating deeper approval packets because the boundary matters. By July the Brain's own architecture review judged that chain ceremony without use and removed it (section 06). A Creator OS worker can prepare drafts. A public proof worker can prepare publish packets. A separated runner can rehearse commands. But none of those roles should inherit the power to mutate the public site just because they can describe the command.</p>
+          <p>That is the core move: <strong>the Brain may one day become agentic, but authority must remain explicit, scoped, and replayable.</strong></p>
         </div>
 
         <div class="runner-shell">
           <div class="runner-grid">
             <div class="runner-lanes">
-              <div class="runner-lane"><span>Lane 01</span><h3>Creator OS</h3><p>Turns approved debriefs, research notes, and mission-fit evidence into draft content.</p></div>
-              <div class="runner-lane"><span>Lane 02</span><h3>Approval Chain</h3><p>Records approve, hold, reject, or request-changes decisions before any consequential action.</p></div>
-              <div class="runner-lane"><span>Lane 03</span><h3>Separated Runner</h3><p>Previews publish, deploy, rollback, artifact, and verification commands without executing them.</p></div>
-              <div class="runner-lane"><span>Lane 04</span><h3>Memory</h3><p>Writes what happened back into the organism so the next transmission is sharper and more accountable.</p></div>
+              <div class="runner-lane"><span>Lane 01</span><h3>Creator OS</h3><p>Design: turns approved debriefs, research notes, and mission-fit evidence into draft content. Idle: the Brain application is not running.</p></div>
+              <div class="runner-lane"><span>Lane 02</span><h3>Approval Chain</h3><p>Design: records approve, hold, reject, or request-changes decisions before any consequential action. In practice today it is the operator's word.</p></div>
+              <div class="runner-lane"><span>Lane 03</span><h3>Separated Runner</h3><p>Design from May: previewed publish, deploy, rollback, artifact, and verification commands without executing them. Removed from the Brain in July 2026.</p></div>
+              <div class="runner-lane"><span>Lane 04</span><h3>Memory</h3><p>Design: writes what happened back into the organism so the next transmission is sharper. On the record this is the dated journal.</p></div>
             </div>
             <div class="runner-console">
+              <div class="st-sub" style="margin-bottom:10px">Simulated in your browser. Nothing is published.</div>
               <div class="console-actions" id="console-actions"></div>
               <div class="console-log" id="console-log"></div>
             </div>
@@ -216,9 +243,9 @@
 
       <section class="tx-section" id="authority-map">
         <div class="tx-section-head"><span class="tx-section-num">03</span><h2>The XRPL Banker Lane Is the Test Case</h2></div>
-        <div class="tx-section-label">Research can be autonomous; wallet authority cannot be implied</div>
+        <div class="tx-section-label">Research is read-only; wallet authority cannot be implied</div>
         <div class="tx-prose">
-          <p>The publication loop is not only for essays. It is the same pattern needed for Web3 research. The newest Banker lane work says the quiet part clearly: the Brain can ingest XRPL documentation, assemble source truth, decode proposed actions, and prepare review packets, but it cannot smuggle signing authority through the language of research.</p>
+          <p>The publication loop is not only for essays. It is the same pattern needed for Web3 research. The Banker lane work of May set out the design: ingest XRPL documentation, assemble source truth, decode proposed actions, and prepare review packets, without smuggling signing authority through the language of research. Code and tests for a read-only client, a simulation ledger and risk scoring exist; the lane is not running.</p>
           <p>This is where public proof and financial safety meet: every claim and every proposed action needs source evidence, decoded intent, unsigned simulation, expected balance delta, deterministic risk scoring, and a clear no-execution state until a separate approval path grants power.</p>
         </div>
 
@@ -234,16 +261,11 @@
         <div class="tx-section-head"><span class="tx-section-num">04</span><h2>The Product Is the Loop, Not the Post</h2></div>
         <div class="tx-section-label">How the harness becomes trust infrastructure</div>
         <div class="tx-prose">
-          <p>A public transmission is the visible artifact. The product is the invisible discipline beneath it: evidence in, draft out, gates recorded, runner separated, live state checked, memory updated. When that loop works, the public site stops being marketing and becomes proof that the organism is learning.</p>
-          <p>That is the promise of UnwindCode.ai: not just content about AI organisms, but a website increasingly produced by the organism under human-owned rules.</p>
+          <p>A public transmission is the visible artifact. The product is the invisible discipline beneath it: evidence in, draft out, gates recorded, runner separated, live state checked, memory updated. If that loop worked, the public site would stop being marketing and become proof that the organism is learning.</p>
+          <p>That is the aim of UnwindCode.ai: not just content about AI organisms, but a site whose every claim traces to a record. Today the site is written by human-directed tool sessions under a written standard; no Brain cell produces it.</p>
         </div>
 
-        <div class="metrics-grid">
-          <div class="panel">
-            <h3>Proof Loop Readiness</h3>
-            <p class="detail-copy">The target shape is high evidence quality, high reversibility, high human authority, and low silent consequence.</p>
-            <div class="chart-box"><canvas id="proofChart"></canvas></div>
-          </div>
+        <div class="metrics-grid" style="grid-template-columns:1fr">
           <div class="panel">
             <h3>Prime Directive Fit</h3>
             <div class="mission-list">
@@ -258,17 +280,39 @@
 
       <section class="tx-section" id="next">
         <div class="tx-section-head"><span class="tx-section-num">05</span><h2>What Gets Built Next</h2></div>
-        <div class="tx-section-label">A public roadmap for the next organism layer</div>
+        <div class="tx-section-label">The May roadmap, with its status</div>
         <div class="tx-prose">
-          <p>The next build is not more permission theater. It is a cleaner operator surface: one place where the human can see the source evidence, the draft, the diff, the dry-run, the runner handoff, the rollback preview, and the verification result.</p>
-          <p>After that, the same loop expands to other humans. Each person brings their own keys, models, policies, wallets, workspaces, and publishing surfaces. The Brain should adapt to those membranes without losing the prime directive.</p>
+          <p>As written in May, the next build was not more permission theater. It was a cleaner operator surface: one place where the human can see the source evidence, the draft, the diff, the dry-run, the runner handoff, the rollback preview, and the verification result.</p>
+          <p>After that, the same loop expands to other humans. Each person would bring their own keys, models, policies, wallets, workspaces, and publishing surfaces, and the Brain would adapt to those membranes without losing the prime directive. Neither step is built: the record shows no other person's keys, models or cells in the system.</p>
         </div>
         <div class="tx-note">Public proof is how an AI organism earns trust without pretending it deserves unchecked authority.</div>
       </section>
 
+      <section class="tx-section" id="state-of-record">
+        <div class="tx-section-head"><span class="tx-section-num">06</span><h2>State of the Record, and What This Note Does Not Claim</h2></div>
+        <div class="tx-section-label">Added 10 November 2026</div>
+        <div class="st-wrap" id="st-wrap">
+          <h3>The public proof loop, as the record shows it</h3>
+          <p class="st-sub">Status on 8 November 2026 (organ health re-read on 10 November). Filter by state.</p>
+          <div class="st-filter"><button type="button" class="active" data-f="all">All</button><button type="button" data-f="built">Built, tested</button><button type="button" data-f="idle">Idle</button><button type="button" data-f="design">Design only</button><button type="button" data-f="removed">Removed</button></div>
+          <div class="st-row" data-s="built"><b>The process that exists</b><span class="st-pill built">Built, tested</span><span>A written transmission standard (every claim traces to a record), a second reader who checks each page before it is called ready, a test suite and a build gate. The operator's word deploys.</span></div>
+          <div class="st-row" data-s="idle"><b>A Brain cell that drafts</b><span class="st-pill idle">Idle</span><span>The Brain's Creator OS code is idle with the rest of the Brain application (the separate Visual Cortex studio tool has been dormant since 22 September). No cell has drafted a transmission.</span></div>
+          <div class="st-row" data-s="removed"><b>Publish packets, separated runner</b><span class="st-pill removed">Removed</span><span>The chain of publication packets and runner handoffs was removed from the Brain on 2 July 2026; only a terminal public-proof gate was kept. The note's lanes 02 and 03 describe code that no longer exists.</span></div>
+          <div class="st-row" data-s="design"><b>Automatic live verification</b><span class="st-pill design">Design only</span><span>No cell checks the live page after publishing.</span></div>
+          <div class="st-row" data-s="built"><b>XRPL research lane</b><span class="st-pill built">Built, tested</span><span>Code and tests for a read-only client, a simulation ledger and risk scoring exist. It is not running, holds no keys, and has no signing authority.</span></div>
+          <div class="st-row" data-s="idle"><b>A website organ</b><span class="st-pill idle">Idle</span><span>The organ meant to read public site data has never run and has no write path.</span></div>
+        </div>
+        <ul class="nc-list" style="margin-top:28px">
+          <li>It does not claim the Brain writes or publishes this site. It does not.</li>
+          <li>It does not claim a separated runner, a publish-packet chain or automatic live verification exists today.</li>
+          <li>It does not claim financial or wallet capability. The research lane holds no keys and signs nothing.</li>
+          <li>It does not claim the console and stage widgets on this page record real events.</li>
+        </ul>
+      </section>
+
       <div class="tx-cta">
         <h2>Make the work inspectable before it becomes public.</h2>
-        <p>The Unwind Brain is learning to produce transmissions from its own evidence. The important part is not that it can write. The important part is that every public action can be traced, approved, rehearsed, verified, and remembered.</p>
+        <p>The aim is that every public action can be traced, approved, rehearsed, verified, and remembered. Today the tracing is done by a written standard and a second reader, not by the Brain.</p>
         <a class="btn btn-primary btn-lg" href="/#cta"><span>Talk to the Brain</span><span class="btn-arrow">-&gt;</span></a>
       </div>
     </div>
@@ -306,64 +350,72 @@
         title: 'Evidence',
         tag: 'source truth',
         path: 'runs / debriefs / docs',
-        copy: 'The loop starts with proof from work already done: run ledgers, test results, source documents, browser verification, deployment status, research notes, and human direction.',
-        bullets: ['No public claim should be detached from source evidence.', 'Evidence packets keep local file paths, URLs, timestamps, and verification commands.', 'Research sources remain inspectable before prose is generated.']
+        copy: 'Design: the loop starts with proof from work already done: run ledgers, test results, source documents, browser verification, deployment status, research notes, and human direction.',
+        bullets: ['No public claim should be detached from source evidence.', 'Evidence packets keep source references, URLs, timestamps, and verification commands.', 'Research sources remain inspectable before prose is generated.'],
+        onrecord: 'Ledgers, test results and dated journals exist, and the newer transmissions cite them.'
       },
       {
         className: 'node-draft',
         title: 'Draft',
         tag: 'creator os',
         path: 'content draft',
-        copy: 'The Creator OS converts evidence into a readable transmission while preserving the difference between interpretation and fact.',
-        bullets: ['Drafts can be expressive without inventing unsupported claims.', 'The writer cell does not receive publish or deploy authority.', 'Mission-fit notes explain why the transmission should exist.']
+        copy: 'Design: the Creator OS converts evidence into a readable transmission while preserving the difference between interpretation and fact.',
+        bullets: ['Drafts can be expressive without inventing unsupported claims.', 'The writer cell does not receive publish or deploy authority.', 'Mission-fit notes explain why the transmission should exist.'],
+        onrecord: 'The newer transmissions were drafted by human-directed tool sessions against a written standard. No Brain cell drafted them; the Creator OS code in the Brain is idle.'
       },
       {
         className: 'node-stage',
         title: 'Stage',
         tag: 'artifact',
         path: 'staged publish packet',
-        copy: 'Staging turns the draft into an artifact with metadata, diffs, rollback notes, and exact file targets.',
-        bullets: ['The site change is previewed before execution.', 'Generated artifacts list all files that would change.', 'Rollback paths are prepared before any public action.']
+        copy: 'Design: staging turns the draft into an artifact with metadata, diffs, rollback notes, and exact file targets.',
+        bullets: ['The site change is previewed before execution.', 'Generated artifacts list all files that would change.', 'Rollback paths are prepared before any public action.'],
+        onrecord: 'The staged-packet chain for publication was removed from the Brain in July 2026. Staging today is a branch and a diff that a person reads.'
       },
       {
         className: 'node-approve',
         title: 'Approve',
         tag: 'owner gate',
         path: 'approval ledger',
-        copy: 'Approval is not a vague yes. It is a recorded decision with scope: approve, hold, reject, or request changes.',
-        bullets: ['Approval decisions are typed and durable.', 'A hold or reject outcome preserves evidence for review.', 'Approval does not automatically unlock unrelated authorities.']
+        copy: 'Design: approval is not a vague yes. It is a recorded decision with scope: approve, hold, reject, or request changes.',
+        bullets: ['Approval decisions are typed and durable.', 'A hold or reject outcome preserves evidence for review.', 'Approval does not automatically unlock unrelated authorities.'],
+        onrecord: 'A change reaches the public site only on the operator\'s word. A second reader checks each page against its sources before it is called ready.'
       },
       {
         className: 'node-runner',
         title: 'Runner',
         tag: 'separated',
         path: 'execution handoff',
-        copy: 'The runner is separated from the writer. It receives the exact handoff packet and can rehearse commands without becoming the author of the content.',
-        bullets: ['Publish, deploy, rollback, and verification commands are previewed.', 'The runner cannot silently add wallet, vault, or GitHub mutation power.', 'Live execution remains a later, explicit boundary.']
+        copy: 'Design: the runner is separated from the writer. It receives the exact handoff packet and can rehearse commands without becoming the author of the content.',
+        bullets: ['Publish, deploy, rollback, and verification commands are previewed.', 'The runner cannot silently add wallet, vault, or repository mutation power.', 'Live execution remains a later, explicit boundary.'],
+        onrecord: 'The separated-runner modules were removed from the Brain in July 2026 after a review judged the packet chain ceremony without use. Publishing is a person\'s hand.'
       },
       {
         className: 'node-verify',
         title: 'Verify',
         tag: 'public state',
         path: 'live url check',
-        copy: 'After publication, the system checks the actual public surface: page status, content presence, index links, cache behavior, and mobile readability.',
-        bullets: ['A transmission is not live until the remote URL is verified.', 'The homepage and archive must both point at the new page.', 'Verification commands become part of the publication record.']
+        copy: 'Design: after publication, the system checks the actual public surface: page status, content presence, and index links.',
+        bullets: ['A transmission is not live until the remote URL is verified.', 'The homepage and archive must both point at the new page.', 'Verification commands become part of the publication record.'],
+        onrecord: 'A site test suite and a build gate every change (459 tests at the 10 November baseline). No Brain cell checks the live page afterward.'
       },
       {
         className: 'node-memory',
         title: 'Memory',
         tag: 'learning',
         path: 'debrief',
-        copy: 'The final step returns the outcome to the Brain. The organism remembers what was published, what failed, what was prevented, and what should improve next.',
-        bullets: ['The debrief feeds future content and engineering decisions.', 'Failures become actionable tickets, not invisible frustration.', 'Outcome metrics show clarity gained and risks avoided.']
+        copy: 'Design: the final step returns the outcome to the Brain. The organism remembers what was published, what failed, what was prevented, and what should improve next.',
+        bullets: ['The debrief feeds future content and engineering decisions.', 'Failures become actionable tickets, not invisible frustration.', 'Outcome metrics show clarity gained and risks avoided.'],
+        onrecord: 'The record is the dated journal, written by organs and by the hands that did the work. Reading it back is done by the next hand, not by a cell.'
       },
       {
         className: 'node-research',
         title: 'Research',
         tag: 'web3 membrane',
         path: 'xrpl / monad / icp',
-        copy: 'The same loop governs Web3 research. The Brain may learn from XRPL, Monad, ICP, and wallet docs, but it must keep research, simulation, signing, and execution separated.',
-        bullets: ['Sources and docs are captured before conclusions.', 'Financial actions are simulation packets until policy grants exist.', 'Research can publish proof without gaining wallet authority.']
+        copy: 'Design: the same loop governs Web3 research. The Brain may learn from XRPL, Monad, ICP, and wallet docs, but it must keep research, simulation, signing, and execution separated.',
+        bullets: ['Sources and docs are captured before conclusions.', 'Financial actions are simulation packets until policy grants exist.', 'Research can publish proof without gaining wallet authority.'],
+        onrecord: 'Code and tests exist for a read-only XRPL client, a simulation ledger and risk scoring. No wallet adapter has signing authority, and the older signing-path code is not wired to anything.'
       }
     ];
 
@@ -376,6 +428,7 @@
         '<h3>' + stage.title + ' Stage</h3>',
         '<span class="proof-path">' + stage.path + '</span>',
         '<p class="detail-copy">' + stage.copy + '</p>',
+        '<p class="detail-copy"><strong>On the record, checked 10 November 2026.</strong> ' + stage.onrecord + '</p>',
         '<ul class="detail-list">' + stage.bullets.map((item) => '<li>' + item + '</li>').join('') + '</ul>',
         '<div class="packet-grid">',
           '<div class="packet-pill"><span>Input</span><p>Evidence, source references, prior gate output, and mission-fit context.</p></div>',
@@ -460,72 +513,21 @@
       if (index === 0) button.click();
     });
 
-    const chartColors = {
-      accent: 'rgba(155,89,245,1)',
-      accentFill: 'rgba(155,89,245,0.14)',
-      hot: 'rgba(192,132,252,1)',
-      teal: 'rgba(13,148,136,0.74)',
-      tealFill: 'rgba(13,148,136,0.12)',
-      grid: 'rgba(240,238,246,0.08)',
-      text: 'rgba(240,238,246,0.36)'
-    };
-
-    new Chart(document.getElementById('proofChart'), {
-      type: 'radar',
-      data: {
-        labels: ['Evidence', 'Human Authority', 'Runner Separation', 'Rollback', 'Live Verification', 'Silent Consequence'],
-        datasets: [
-          {
-            label: 'Public Proof Loop',
-            data: [92, 96, 89, 84, 88, 6],
-            borderColor: chartColors.teal,
-            backgroundColor: chartColors.tealFill,
-            pointBackgroundColor: chartColors.hot,
-            pointBorderColor: chartColors.hot,
-            borderWidth: 2
-          },
-          {
-            label: 'Blind Agent Publishing',
-            data: [28, 18, 14, 12, 24, 82],
-            borderColor: chartColors.accent,
-            backgroundColor: chartColors.accentFill,
-            pointBackgroundColor: chartColors.accent,
-            pointBorderColor: chartColors.accent,
-            borderWidth: 2
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          r: {
-            min: 0,
-            max: 100,
-            angleLines: { color: chartColors.grid },
-            grid: { color: chartColors.grid },
-            pointLabels: { color: chartColors.text, font: { family: 'Inter', size: 11 } },
-            ticks: { display: false }
-          }
-        },
-        plugins: {
-          legend: {
-            position: 'bottom',
-            labels: { color: chartColors.text, font: { family: 'Inter' }, padding: 18 }
-          },
-          tooltip: {
-            backgroundColor: 'rgba(15,15,30,0.95)',
-            titleFont: { family: 'Inter' },
-            bodyFont: { family: 'Inter' },
-            padding: 10,
-            cornerRadius: 8,
-            callbacks: {
-              label: (context) => context.dataset.label + ': ' + context.parsed.r + '/100'
-            }
-          }
-        }
-      }
-    });
+    // STATE-OF-RECORD FILTER (revised 2026-11-10)
+    (function () {
+      var wrap = document.getElementById('st-wrap');
+      if (!wrap) return;
+      var rows = wrap.querySelectorAll('.st-row');
+      var btns = wrap.querySelectorAll('.st-filter button');
+      btns.forEach(function (b) {
+        b.addEventListener('click', function () {
+          btns.forEach(function (x) { x.classList.remove('active'); });
+          b.classList.add('active');
+          var f = b.getAttribute('data-f');
+          rows.forEach(function (r) { r.style.display = (f === 'all' || r.getAttribute('data-s') === f) ? '' : 'none'; });
+        });
+      });
+    })();
   });
   </script>
 </body>

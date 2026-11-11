@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Transmission 19: The Cell Swap Protocol | Unwind Code</title>
-  <meta name="description" content="How the Unwind Brain becomes an organism whose cells can be reviewed, simulated, swapped, activated, and rolled back without confusing preparation with power." />
+  <meta name="description" content="A design note on replacing parts of the Brain without losing identity: review-only swap packets, rollback rehearsal and capability grants exist as tested code; shadow mode and live swaps do not. Revised 10 November 2026." />
   <meta name="theme-color" content="#06060c" />
   <link rel="canonical" href="https://www.unwindcode.ai/transmissions/19-the-cell-swap-protocol" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Transmission 19: The Cell Swap Protocol | Unwind Code" />
-  <meta property="og:description" content="How the Unwind Brain becomes an organism whose cells can be reviewed, simulated, swapped, activated, and rolled back without confusing preparation with power." />
+  <meta property="og:description" content="A design note on replacing parts of the Brain without losing identity: review-only swap packets, rollback rehearsal and capability grants exist as tested code; shadow mode and live swaps do not. Revised 10 November 2026." />
   <meta property="og:url" content="https://www.unwindcode.ai/transmissions/19-the-cell-swap-protocol" />
   <meta property="og:site_name" content="Unwind Code" />
   <meta property="og:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
@@ -19,20 +19,19 @@
   <meta property="og:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Transmission 19: The Cell Swap Protocol | Unwind Code" />
-  <meta name="twitter:description" content="How the Unwind Brain becomes an organism whose cells can be reviewed, simulated, swapped, activated, and rolled back without confusing preparation with power." />
+  <meta name="twitter:description" content="A design note on replacing parts of the Brain without losing identity: review-only swap packets, rollback rehearsal and capability grants exist as tested code; shadow mode and live swaps do not. Revised 10 November 2026." />
   <meta name="twitter:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
   <meta name="twitter:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="/style.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "The Cell Swap Protocol",
-    "description": "How the Unwind Brain becomes an organism whose cells can be reviewed, simulated, swapped, activated, and rolled back without confusing preparation with power.",
+    "description": "A design note on replacing parts of the Brain without losing identity: review-only swap packets, rollback rehearsal and capability grants exist as tested code; shadow mode and live swaps do not. Revised 10 November 2026.",
     "author": {
       "@type": "Organization",
       "name": "Unwind Code"
@@ -43,7 +42,7 @@
       "url": "https://www.unwindcode.ai"
     },
     "datePublished": "2026-05-22",
-    "dateModified": "2026-05-22",
+    "dateModified": "2026-11-10",
     "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/19-the-cell-swap-protocol"
   }
   </script>
@@ -116,7 +115,6 @@
     .matrix-card h3 { font-size:0.98rem; margin-bottom:8px; }
     .matrix-card p { color:var(--text-muted); font-size:0.83rem; line-height:1.55; }
     .metrics-grid { margin-top:34px; display:grid; grid-template-columns:1fr 1fr; gap:22px; align-items:start; }
-    .chart-box { position:relative; width:100%; height:332px; }
     .mission-list { display:grid; gap:12px; }
     .mission-item { border:1px solid rgba(240,238,246,0.08); background:rgba(6,6,12,0.28); border-radius:14px; padding:16px; }
     .mission-item span { color:var(--accent-hot); font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; }
@@ -145,8 +143,31 @@
       .cell-node { position:relative; left:auto; right:auto; top:auto; bottom:auto; width:100%; min-height:auto; }
       .cell-detail, .swap-shell, .panel { padding:20px; }
       .contract-grid, .swap-flow, .matrix-grid { grid-template-columns:1fr; }
-      .chart-box { height:290px; }
     }
+  
+    /* revision 2026-11-10: dated notes and state-of-record table */
+    .tx-dateline { margin-top:18px; font-size:0.84rem; color:var(--text-muted); }
+    .tx-revised { max-width:780px; margin:26px auto 0; text-align:left; background:rgba(110,45,190,0.07); border:1px solid var(--accent-border); border-left:3px solid var(--accent-hot); border-radius:12px; padding:16px 20px; font-size:0.9rem; line-height:1.65; color:var(--text-secondary); }
+    .tx-revised p { margin:0 0 10px; }
+    .tx-revised p:last-child { margin-bottom:0; }
+    .tx-revised strong { color:var(--text-primary); }
+    .st-wrap { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:20px; padding:24px; margin-top:28px; }
+    .st-wrap h3 { font-size:1.1rem; font-weight:700; margin-bottom:4px; }
+    .st-sub { font-size:0.82rem; color:var(--text-muted); margin-bottom:14px; }
+    .st-filter { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:8px; }
+    .st-filter button { background:rgba(110,45,190,0.08); border:1px solid var(--accent-border); color:var(--text-secondary); padding:6px 14px; border-radius:20px; font:inherit; font-size:0.8rem; cursor:pointer; }
+    .st-filter button.active { color:var(--text-primary); border-color:var(--accent-hot); background:rgba(110,45,190,0.2); }
+    .st-row { display:grid; grid-template-columns:170px 120px 1fr; gap:14px; padding:12px 0; border-top:1px solid var(--accent-border); font-size:0.88rem; line-height:1.55; color:var(--text-secondary); }
+    .st-row b { color:var(--text-primary); font-weight:600; }
+    .st-pill { display:inline-block; font-size:0.7rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:3px 10px; border-radius:20px; border:1px solid var(--accent-border); align-self:start; justify-self:start; }
+    .st-pill.built { color:#34d399; border-color:rgba(16,185,129,0.4); }
+    .st-pill.idle { color:#fbbf24; border-color:rgba(245,158,11,0.4); }
+    .st-pill.failing { color:#f87171; border-color:rgba(239,68,68,0.4); }
+    .st-pill.design { color:#a5b4fc; border-color:rgba(99,102,241,0.4); }
+    .st-pill.removed { color:#9ca3af; border-color:rgba(156,163,175,0.4); }
+    .nc-list { max-width:720px; color:var(--text-secondary); line-height:1.75; font-size:1rem; padding-left:20px; }
+    .nc-list li { margin-bottom:10px; }
+    @media(max-width:700px){ .st-row { grid-template-columns:1fr; gap:6px; } }
   </style>
 </head>
 <body class="tx-page">
@@ -169,7 +190,12 @@
         <div class="tx-kicker">TRANSMISSION 019</div>
         <h1>The Cell Swap Protocol</h1>
         <p class="tx-hero-sub">The Brain becomes an organism when its organs can be replaced without losing identity. A cell must declare what it can do, what it is forbidden to do, how it is tested, how it is shadowed, and how it can be rolled back.</p>
-        <div class="tx-hero-meta"><span>May 2026</span><span>Organism Architecture</span><span>Cell Swap Protocol</span><span>11 min read</span></div>
+        <div class="tx-hero-meta"><span>May 2026</span><span>Organism Architecture</span><span>Cell Swap Protocol</span><span>Revised 10 Nov 2026</span><span>11 min read</span></div>
+        <p class="tx-dateline">Written in May 2026 as a design note. State of the record checked on 10 November 2026 against the consolidation audit of 8 November and the organ-health diagnosis of 10 November.</p>
+        <div class="tx-revised">
+          <p><strong>Revised 10 November 2026.</strong> The protocol is a design with tested pieces; the note now says which pieces.</p>
+          <p><strong>Correction, 10 November 2026.</strong> The radar chart comparing a "Cell Swap Protocol" with an "Unstructured Plugin Install" used scores that were never measured; it is removed. Names of other agent products, model brands and storage vendors are removed from sections 03 to 04, and source paths are removed from the cell cards. "Signed agent card" now says the card can carry a local signature. Shadow mode is marked as a design. Section 06 states what exists and what has never happened: no cell has been swapped or activated by the protocol.</p>
+        </div>
       </div>
     </section>
 
@@ -201,11 +227,11 @@
           <div class="swap-flow" id="swap-flow-graphic"></div>
           <div class="swap-panels">
             <div class="panel">
-              <h3>Lifecycle Pulse</h3>
+              <h3>Lifecycle Pulse (simulated)</h3>
               <div class="pulse-lines" id="pulse-lines"></div>
             </div>
             <div class="panel">
-              <h3>Swap Packet Preview</h3>
+              <h3>Swap Packet Preview (illustrative shape)</h3>
               <div class="packet-code" id="packet-code"></div>
             </div>
           </div>
@@ -220,10 +246,10 @@
         </div>
 
         <div class="matrix-grid">
-          <div class="matrix-card"><span>Identity</span><h3>Signed Agent Card</h3><p>Name, version, capabilities, endpoints, policy limits, owner, and service metadata.</p></div>
+          <div class="matrix-card"><span>Identity</span><h3>Agent Card</h3><p>Name, version, capabilities, endpoints, policy limits, owner, and service metadata. The card can carry a local signature.</p></div>
           <div class="matrix-card"><span>Input</span><h3>Typed Packet</h3><p>Every request names its source evidence, risk class, required approvals, and allowed outputs.</p></div>
-          <div class="matrix-card"><span>Boundary</span><h3>Capability Grant</h3><p>The harness grants only the minimum powers required for the task, scoped by time and action.</p></div>
-          <div class="matrix-card"><span>Rollback</span><h3>Exit Contract</h3><p>Every activation path records how to restore the previous cell or safely degrade to review-only mode.</p></div>
+          <div class="matrix-card"><span>Boundary</span><h3>Capability Grant</h3><p>The design grants only the minimum powers required for the task. In the tests a grant is scoped to the exact capability and needs its own approval.</p></div>
+          <div class="matrix-card"><span>Rollback</span><h3>Exit Contract</h3><p>Each candidate packet carries a rollback plan, and a rollback can be rehearsed as a packet without changing a route.</p></div>
         </div>
       </section>
 
@@ -231,16 +257,11 @@
         <div class="tx-section-head"><span class="tx-section-num">04</span><h2>The Marketplace Is Missing the Organism Layer</h2></div>
         <div class="tx-section-label">Why this matters beyond our own Brain</div>
         <div class="tx-prose">
-          <p>Codex, OpenClaw, Hermes-style agents, and frontier AI coding products all point toward the same future: humans will work with systems that can plan, write, test, remember, and coordinate. The next product boundary is not another chat box. The next boundary is the harness that lets a human bring their own keys, models, cells, workspaces, and rules without losing control.</p>
-          <p>The Cell Swap Protocol is how Unwind Brain becomes portable across people. One human may prefer GPT-5-class cloud reasoning. Another may prefer local Ollama routing. Another may bring a Safe wallet adapter, a private research corpus, a brand voice cell, or a city-scale operations cell. The organism should accept new organs without surrendering its nervous system.</p>
+          <p>Coding agents and other frontier AI products all point toward the same future: humans will work with systems that can plan, write, test, remember, and coordinate. The next product boundary is not another chat box. The next boundary is the harness that lets a human bring their own keys, models, cells, workspaces, and rules without losing control.</p>
+          <p>The Cell Swap Protocol is how Unwind Brain becomes portable across people. One human may prefer a cloud model. Another may prefer a local one. Another may bring a wallet adapter, a private research corpus or a brand voice cell. That is the design aim: the organism should accept new organs without surrendering its nervous system. The record shows no other person's keys, models or cells in the system today.</p>
         </div>
 
-        <div class="metrics-grid">
-          <div class="panel">
-            <h3>Swap Readiness Surface</h3>
-            <p class="detail-copy">The target shape: high reviewability, high rollback clarity, low unapproved authority, and no silent crossing between wallet, vault, deploy, source-control, or public publishing powers.</p>
-            <div class="chart-box"><canvas id="swapChart"></canvas></div>
-          </div>
+        <div class="metrics-grid" style="grid-template-columns:1fr">
           <div class="panel">
             <h3>Prime Directive Fit</h3>
             <div class="mission-list">
@@ -257,10 +278,32 @@
         <div class="tx-section-head"><span class="tx-section-num">05</span><h2>The Next Build Target</h2></div>
         <div class="tx-section-label">From public idea to local harness implementation</div>
         <div class="tx-prose">
-          <p>The local Brain already has the early pieces: dynamic cell registry review, activation request gates, runtime import policy, capability grants, adapter preparation workers, decision gates, read-only queue inspectors, and the source-control approval chain. The next product move is to make those pieces feel inevitable inside the Workbench.</p>
+          <p>In May the local Brain had the early pieces as code and tests: dynamic cell registry review, activation request gates, runtime import policy, capability grants, adapter preparation workers, decision gates, read-only queue inspectors, and the source-control approval chain. The plan then was to make those pieces feel inevitable inside the Workbench; section 06 shows where that stands.</p>
           <p>The user should be able to inspect a candidate cell, see its contract, simulate its outputs, compare it against the current cell, grant a narrow capability, run it in shadow mode, and only then activate it. That is how a brain becomes a product that can scale to other humans.</p>
         </div>
         <div class="tx-note">The organism does not need blind autonomy. It needs a clean way to grow new organs without forgetting who it serves.</div>
+      </section>
+
+      <section class="tx-section" id="state-of-record">
+        <div class="tx-section-head"><span class="tx-section-num">06</span><h2>State of the Record, and What This Note Does Not Claim</h2></div>
+        <div class="tx-section-label">Added 10 November 2026</div>
+        <div class="st-wrap" id="st-wrap">
+          <h3>The cell swap protocol, as the record shows it</h3>
+          <p class="st-sub">Status on 8 November 2026 (organ health re-read on 10 November). Filter by state.</p>
+          <div class="st-filter"><button type="button" class="active" data-f="all">All</button><button type="button" data-f="built">Built, tested</button><button type="button" data-f="idle">Idle</button><button type="button" data-f="design">Design only</button></div>
+          <div class="st-row" data-s="built"><b>Swap manifest, candidate packet</b><span class="st-pill built">Built, tested</span><span>Tests cover a manifest that maps organism slots and keeps authority closed, a review-only candidate packet that records a rollback plan, and refusal of unknown slots or unsafe compatibility answers.</span></div>
+          <div class="st-row" data-s="built"><b>Kill switch, rollback rehearsal</b><span class="st-pill built">Built, tested</span><span>Tests cover disabling a candidate without deleting its evidence, and a rollback rehearsal that writes a packet without changing any route.</span></div>
+          <div class="st-row" data-s="built"><b>Capability grants</b><span class="st-pill built">Built, tested</span><span>Tests cover grants that need a separate approval, are scoped to the exact capability, and record to a ledger without executing anything.</span></div>
+          <div class="st-row" data-s="design"><b>Shadow mode</b><span class="st-pill design">Design only</span><span>No shadow-run code was found. Running a new cell beside the old one and comparing outputs is a design.</span></div>
+          <div class="st-row" data-s="idle"><b>Any real swap</b><span class="st-pill idle">Idle</span><span>No cell has been swapped or activated by this protocol. One generated cell has been staged since 16 October awaiting the operator's review; it has never been activated.</span></div>
+          <div class="st-row" data-s="idle"><b>The cells that run</b><span class="st-pill idle">Idle</span><span>What actually runs here are scheduled organs, changed by hand under the custody gate, which is at Stage 0 since 4 October 2026. The Brain application the protocol belongs to is not running as of 8 November.</span></div>
+        </div>
+        <ul class="nc-list" style="margin-top:28px">
+          <li>It does not claim a cell has ever been swapped by this protocol. None has.</li>
+          <li>It does not claim the protocol is running; the application it belongs to has not run for weeks.</li>
+          <li>It does not claim shadow mode exists. It is a design.</li>
+          <li>It does not claim the packet previews or the lifecycle pulse on this page come from a real swap.</li>
+        </ul>
       </section>
 
       <div class="tx-cta">
@@ -302,49 +345,55 @@
         className: 'cell-cortex',
         title: 'Cortex',
         tag: 'reasoning',
-        path: 'src/cortex/',
-        copy: 'The cortex decides how to think, route, plan, compress context, and call inference providers. A swappable cortex must preserve message contracts and policy checks before it gains tool authority.',
-        bullets: ['Declares model routing and context behavior.', 'Consumes approval and policy decisions instead of bypassing them.', 'Can degrade to deterministic mode when inference is unavailable.']
+        state: 'code, idle',
+        copy: 'Design: the cortex decides how to think, route, plan, compress context, and call inference providers. A swappable cortex must preserve message contracts and policy checks before it gains tool authority.',
+        bullets: ['Declares model routing and context behavior.', 'Consumes approval and policy decisions instead of bypassing them.', 'Can degrade to deterministic mode when inference is unavailable.'],
+        onrecord: 'Tested code exists. As of 8 November 2026 no language model has been resident since 27 October and the runtime has not run a task since 30 September.'
       },
       {
         className: 'cell-memory',
         title: 'Memory',
         tag: 'persistence',
-        path: 'src/memory/',
-        copy: 'The memory cell stores debriefs, consciousness logs, run evidence, and product learnings. It can be swapped from SQLite to Supabase or vector backends only when schemas and privacy rules remain stable.',
-        bullets: ['Preserves ledger references and debrief shape.', 'Keeps secrets out of memory writes.', 'Supports migration and rollback before activation.']
+        state: 'vault, degraded',
+        copy: 'Design: the memory cell stores debriefs, logs, run evidence, and product learnings. It could be swapped from one store to another only when schemas and privacy rules remain stable.',
+        bullets: ['Preserves ledger references and debrief shape.', 'Keeps secrets out of memory writes.', 'Supports migration and rollback before activation.'],
+        onrecord: 'Memory on the record is a plain-text vault of notes and a journal. Its semantic index has held zero embeddings since 3 November. No store has been swapped for another.'
       },
       {
         className: 'cell-gateway',
         title: 'Gateway',
         tag: 'channels',
-        path: 'src/gateway/',
-        copy: 'The gateway receives humans and systems through web, Telegram, Discord, and future node protocols. It should route messages without inheriting wallet, vault, deploy, or source-control authority.',
-        bullets: ['Normalizes channel messages into typed packets.', 'Enforces trust and pairing rules.', 'Leaves all irreversible action to downstream approval gates.']
+        state: 'narrow, running',
+        copy: 'Design: the gateway receives humans and systems through web and chat channels. It should route messages without inheriting wallet, vault, deploy, or source-control authority.',
+        bullets: ['Normalizes channel messages into typed packets.', 'Enforces trust and pairing rules.', 'Leaves all irreversible action to downstream approval gates.'],
+        onrecord: 'What runs is deliberately narrow: an egress proxy that allows three approved domains and a tool gateway with six read-only tools.'
       },
       {
         className: 'cell-fso',
         title: 'FSO',
         tag: 'capital',
-        path: 'src/cells/fso/',
-        copy: 'The Financial Survival Organism protects capital. Its cell swap contract must be stricter than the rest of the system: simulation-first, decoded calldata, expected balance delta, risk score, and no private-key leakage.',
-        bullets: ['Records every proposed financial action as simulation evidence.', 'Requires wallet adapter policy before signing exists.', 'Never lets publishing or model cells borrow capital authority.']
+        state: 'paper organ only',
+        copy: 'Design: the Financial Survival Organism protects capital. Its cell swap contract must be stricter than the rest of the system: simulation-first, decoded calldata, expected balance delta, risk score, and no private-key leakage.',
+        bullets: ['Records every proposed financial action as simulation evidence.', 'Requires wallet adapter policy before signing exists.', 'Never lets publishing or model cells borrow capital authority.'],
+        onrecord: 'The organism that runs here is a paper organ with no key and no signing path. Older Brain code with a signing path sits in the Brain repository, which is not running, and nothing on this machine uses it. An earlier off-box version is outside what this page can state.'
       },
       {
         className: 'cell-security',
         title: 'Security',
         tag: 'immune',
-        path: 'src/security/',
-        copy: 'The security cell is the immune system: file guards, approval scopes, sandbox boundaries, and policy decisions. Other cells may request authority; the security cell decides how much membrane they receive.',
-        bullets: ['Classifies filesystem, network, public, deploy, vault, and wallet risk.', 'Creates consistent approval ledger events.', 'Fails closed when evidence is incomplete.']
+        state: 'engine built; gate at Stage 0',
+        copy: 'Design: the security cell is the immune system: file guards, approval scopes, sandbox boundaries, and policy decisions. Other cells may request authority; the security cell decides how much membrane they receive.',
+        bullets: ['Classifies filesystem, network, public, deploy, vault, and wallet risk.', 'Creates consistent approval ledger events.', 'Fails closed when evidence is incomplete.'],
+        onrecord: 'An approval engine and a container sandbox are built and tested. The custody gate that actually governs consequential steps sits at Stage 0 because its Stage-1 grant expired on 4 October 2026.'
       },
       {
         className: 'cell-creator',
         title: 'Creator OS',
         tag: 'public proof',
-        path: 'src/creator_os/',
-        copy: 'The Creator OS turns approved debriefs and learnings into drafts, staged transmissions, and public proof packages. It should prepare publishing evidence before it ever writes to the public site.',
-        bullets: ['Separates draft creation from public publishing.', 'Records source debriefs and mission fit.', 'Keeps brand voice, claims, and deployment evidence inspectable.']
+        state: 'dormant',
+        copy: 'Design: the Creator OS turns approved debriefs and learnings into drafts, staged transmissions, and public proof packages. It should prepare publishing evidence before it ever writes to the public site.',
+        bullets: ['Separates draft creation from public publishing.', 'Records source debriefs and mission fit.', 'Keeps brand voice, claims, and deployment evidence inspectable.'],
+        onrecord: 'The Creator OS code in the Brain is idle with the rest of the Brain application, and the separate Visual Cortex studio tool has been dormant since 22 September. Creative and public writing work on the record is done by human-driven tool sessions, outside any cell.'
       }
     ];
 
@@ -355,8 +404,9 @@
     function renderCell(cell) {
       cellDetail.innerHTML = [
         '<h3>' + cell.title + ' Cell</h3>',
-        '<span class="cell-path">' + cell.path + '</span>',
+        '<span class="cell-path">' + cell.state + '</span>',
         '<p class="detail-copy">' + cell.copy + '</p>',
+        '<p class="detail-copy"><strong>On the record, checked 10 November 2026.</strong> ' + cell.onrecord + '</p>',
         '<ul class="detail-list">' + cell.bullets.map((item) => '<li>' + item + '</li>').join('') + '</ul>',
         '<div class="contract-grid">',
           '<div class="contract-pill"><span>Swap input</span><p>Candidate code, tests, declared capabilities, and blocked authorities.</p></div>',
@@ -386,11 +436,11 @@
       {
         label: 'Register',
         note: 'The candidate announces identity, version, capabilities, and denied authorities.',
-        packet: '{\n  "type": "cell_registry_review",\n  "cell": "creator_os.publisher",\n  "activationAllowed": false\n}'
+        packet: '{\n  "type": "cell_registry_review",\n  "cell": "example.cell",\n  "activationAllowed": false\n}'
       },
       {
         label: 'Compare',
-        note: 'The harness checks interface compatibility against the currently active cell.',
+        note: 'Declared compatibility answers are checked against the slot contract. Comparing against a live cell is design.',
         packet: '{\n  "type": "cell_compatibility_packet",\n  "compatible": true,\n  "breakingChanges": []\n}'
       },
       {
@@ -401,21 +451,21 @@
       {
         label: 'Approve',
         note: 'The owner sees exactly which capability grant is being requested.',
-        packet: '{\n  "type": "capability_grant_request",\n  "scope": "creator_os.draft.prepare",\n  "duration": "session"\n}'
+        packet: '{\n  "type": "capability_grant_request",\n  "scope": "example.capability",\n  "duration": "session"\n}'
       },
       {
         label: 'Shadow',
-        note: 'The new cell runs beside the old one and compares outputs without replacing runtime.',
-        packet: '{\n  "type": "shadow_run",\n  "activationAllowed": false,\n  "diffReviewed": true\n}'
+        note: 'Design, not built: the new cell would run beside the old one and compare outputs without replacing runtime.',
+        packet: '{\n  "type": "shadow_run",\n  "activationAllowed": false,\n  "diffReviewed": "design only"\n}'
       },
       {
         label: 'Activate',
         note: 'A separate activation packet names the exact import path and rollback target.',
-        packet: '{\n  "type": "runtime_activation_request",\n  "target": "src/cells/dynamic/...",\n  "rollbackTarget": "previous_cell"\n}'
+        packet: '{\n  "type": "runtime_activation_request",\n  "target": "<import-path>",\n  "rollbackTarget": "previous_cell"\n}'
       },
       {
         label: 'Rollback',
-        note: 'The previous cell remains available and the ledger records the exit path.',
+        note: 'The previous cell remains available and the rollback is rehearsed as a packet without changing any route.',
         packet: '{\n  "type": "rollback_evidence",\n  "restored": "previous_cell",\n  "memoryPreserved": true\n}'
       }
     ];
@@ -446,72 +496,21 @@
       if (index === 0) button.click();
     });
 
-    const chartColors = {
-      accent: 'rgba(155,89,245,1)',
-      accentFill: 'rgba(155,89,245,0.15)',
-      hot: 'rgba(192,132,252,1)',
-      teal: 'rgba(13,148,136,0.72)',
-      tealFill: 'rgba(13,148,136,0.12)',
-      grid: 'rgba(240,238,246,0.08)',
-      text: 'rgba(240,238,246,0.35)'
-    };
-
-    new Chart(document.getElementById('swapChart'), {
-      type: 'radar',
-      data: {
-        labels: ['Reviewability', 'Simulation', 'Rollback', 'Grant Scope', 'Runtime Power', 'Public Consequence'],
-        datasets: [
-          {
-            label: 'Cell Swap Protocol',
-            data: [94, 88, 86, 82, 9, 4],
-            borderColor: chartColors.teal,
-            backgroundColor: chartColors.tealFill,
-            pointBackgroundColor: chartColors.hot,
-            pointBorderColor: chartColors.hot,
-            borderWidth: 2
-          },
-          {
-            label: 'Unstructured Plugin Install',
-            data: [22, 18, 14, 34, 76, 68],
-            borderColor: chartColors.accent,
-            backgroundColor: chartColors.accentFill,
-            pointBackgroundColor: chartColors.accent,
-            pointBorderColor: chartColors.accent,
-            borderWidth: 2
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          r: {
-            min: 0,
-            max: 100,
-            angleLines: { color: chartColors.grid },
-            grid: { color: chartColors.grid },
-            pointLabels: { color: chartColors.text, font: { family: 'Inter', size: 11 } },
-            ticks: { display: false }
-          }
-        },
-        plugins: {
-          legend: {
-            position: 'bottom',
-            labels: { color: chartColors.text, font: { family: 'Inter' }, padding: 18 }
-          },
-          tooltip: {
-            backgroundColor: 'rgba(15,15,30,0.95)',
-            titleFont: { family: 'Inter' },
-            bodyFont: { family: 'Inter' },
-            padding: 10,
-            cornerRadius: 8,
-            callbacks: {
-              label: (context) => context.dataset.label + ': ' + context.parsed.r + '/100'
-            }
-          }
-        }
-      }
-    });
+    // STATE-OF-RECORD FILTER (revised 2026-11-10)
+    (function () {
+      var wrap = document.getElementById('st-wrap');
+      if (!wrap) return;
+      var rows = wrap.querySelectorAll('.st-row');
+      var btns = wrap.querySelectorAll('.st-filter button');
+      btns.forEach(function (b) {
+        b.addEventListener('click', function () {
+          btns.forEach(function (x) { x.classList.remove('active'); });
+          b.classList.add('active');
+          var f = b.getAttribute('data-f');
+          rows.forEach(function (r) { r.style.display = (f === 'all' || r.getAttribute('data-s') === f) ? '' : 'none'; });
+        });
+      });
+    })();
   });
   </script>
 </body>

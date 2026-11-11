@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Transmission 22: The Monad Hand — Clarity Before Motion | Unwind Code</title>
-  <meta name="description" content="A public-safe update on the Monad Hand and Financial Survival Organism: alive but protected, approval-gated, proof-first, and designed to choose clarity before financial motion." />
+  <meta name="description" content="A design note on the Monad Hand and the Financial Survival Organism: proof first, approval-gated, clarity before financial motion. Revised 10 November 2026 with what runs today: a paper organ with no key and no signing path." />
   <meta name="theme-color" content="#06060c" />
   <link rel="canonical" href="https://www.unwindcode.ai/transmissions/22-the-monad-hand-clarity-before-motion" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Transmission 22: The Monad Hand — Clarity Before Motion | Unwind Code" />
-  <meta property="og:description" content="A public-safe update on the Monad Hand and Financial Survival Organism: alive but protected, approval-gated, proof-first, and designed to choose clarity before financial motion." />
+  <meta property="og:description" content="A design note on the Monad Hand and the Financial Survival Organism: proof first, approval-gated, clarity before financial motion. Revised 10 November 2026 with what runs today: a paper organ with no key and no signing path." />
   <meta property="og:url" content="https://www.unwindcode.ai/transmissions/22-the-monad-hand-clarity-before-motion" />
   <meta property="og:site_name" content="Unwind Code" />
   <meta property="og:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
@@ -19,20 +19,19 @@
   <meta property="og:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Transmission 22: The Monad Hand — Clarity Before Motion | Unwind Code" />
-  <meta name="twitter:description" content="A public-safe update on the Monad Hand and Financial Survival Organism: alive but protected, approval-gated, proof-first, and designed to choose clarity before financial motion." />
+  <meta name="twitter:description" content="A design note on the Monad Hand and the Financial Survival Organism: proof first, approval-gated, clarity before financial motion. Revised 10 November 2026 with what runs today: a paper organ with no key and no signing path." />
   <meta name="twitter:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
   <meta name="twitter:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="/style.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "TechArticle",
     "headline": "The Monad Hand — Clarity Before Motion",
-    "description": "A public-safe update on the Monad Hand and Financial Survival Organism: alive but protected, approval-gated, proof-first, and designed to choose clarity before financial motion.",
+    "description": "A design note on the Monad Hand and the Financial Survival Organism: proof first, approval-gated, clarity before financial motion. Revised 10 November 2026 with what runs today: a paper organ with no key and no signing path.",
     "author": {
       "@type": "Organization",
       "name": "Unwind Code"
@@ -43,7 +42,7 @@
       "url": "https://www.unwindcode.ai"
     },
     "datePublished": "2026-05-24",
-    "dateModified": "2026-05-24",
+    "dateModified": "2026-11-10",
     "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/22-the-monad-hand-clarity-before-motion"
   }
   </script>
@@ -92,7 +91,6 @@
     .chart-grid { margin-top:34px; display:grid; grid-template-columns:1fr 1fr; gap:22px; align-items:start; }
     .panel { background:rgba(15,15,30,0.58); border:1px solid var(--accent-border); border-radius:20px; padding:24px; }
     .panel h3 { font-size:1.08rem; margin-bottom:10px; }
-    .chart-box { position:relative; width:100%; height:334px; }
     .principle-list { display:grid; gap:12px; }
     .principle-item { border:1px solid rgba(240,238,246,0.08); background:rgba(6,6,12,0.28); border-radius:14px; padding:16px; }
     .principle-item span { color:var(--accent-hot); font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; }
@@ -130,8 +128,32 @@
       .proof-flow { grid-template-columns:1fr; }
       .proof-step::after { display:none; }
       .state-detail, .panel { padding:20px; }
-      .chart-box { height:292px; }
     }
+  
+    /* revision 2026-11-10: dated notes and state-of-record table */
+    .tx-dateline { margin-top:18px; font-size:0.84rem; color:var(--text-muted); }
+    .tx-revised { max-width:780px; margin:26px auto 0; text-align:left; background:rgba(110,45,190,0.07); border:1px solid var(--accent-border); border-left:3px solid var(--accent-hot); border-radius:12px; padding:16px 20px; font-size:0.9rem; line-height:1.65; color:var(--text-secondary); }
+    .tx-revised p { margin:0 0 10px; }
+    .tx-revised p:last-child { margin-bottom:0; }
+    .tx-revised strong { color:var(--text-primary); }
+    .st-wrap { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:20px; padding:24px; margin-top:28px; }
+    .st-wrap h3 { font-size:1.1rem; font-weight:700; margin-bottom:4px; }
+    .st-sub { font-size:0.82rem; color:var(--text-muted); margin-bottom:14px; }
+    .st-filter { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:8px; }
+    .st-filter button { background:rgba(110,45,190,0.08); border:1px solid var(--accent-border); color:var(--text-secondary); padding:6px 14px; border-radius:20px; font:inherit; font-size:0.8rem; cursor:pointer; }
+    .st-filter button.active { color:var(--text-primary); border-color:var(--accent-hot); background:rgba(110,45,190,0.2); }
+    .st-row { display:grid; grid-template-columns:170px 120px 1fr; gap:14px; padding:12px 0; border-top:1px solid var(--accent-border); font-size:0.88rem; line-height:1.55; color:var(--text-secondary); }
+    .st-row b { color:var(--text-primary); font-weight:600; }
+    .st-pill { display:inline-block; font-size:0.7rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:3px 10px; border-radius:20px; border:1px solid var(--accent-border); align-self:start; justify-self:start; }
+    .st-pill.built { color:#34d399; border-color:rgba(16,185,129,0.4); }
+    .st-pill.idle { color:#fbbf24; border-color:rgba(245,158,11,0.4); }
+    .st-pill.failing { color:#f87171; border-color:rgba(239,68,68,0.4); }
+    .st-pill.design { color:#a5b4fc; border-color:rgba(99,102,241,0.4); }
+    .st-pill.unknown { color:#9ca3af; border-color:rgba(156,163,175,0.4); border-style:dashed; }
+    .st-pill.removed { color:#9ca3af; border-color:rgba(156,163,175,0.4); }
+    .nc-list { max-width:720px; color:var(--text-secondary); line-height:1.75; font-size:1rem; padding-left:20px; }
+    .nc-list li { margin-bottom:10px; }
+    @media(max-width:700px){ .st-row { grid-template-columns:1fr; gap:6px; } }
   </style>
 </head>
 <body class="tx-page">
@@ -154,7 +176,12 @@
         <div class="tx-kicker">TRANSMISSION 022</div>
         <h1>The Monad Hand: Clarity Before Motion</h1>
         <p class="tx-hero-sub">A financial organism is not safer because it can move faster. It is safer when it can prove what it sees, explain why it is blocked, ask for human authority, and refuse motion until the route is clear.</p>
-        <div class="tx-hero-meta"><span>May 2026</span><span>Financial Organisms</span><span>Public-Safe Update</span><span>10 min read</span></div>
+        <div class="tx-hero-meta"><span>May 2026</span><span>Financial Organisms</span><span>Revised 10 Nov 2026</span><span>10 min read</span></div>
+        <p class="tx-dateline">Written in May 2026 as a design note. State of the record checked on 10 November 2026 against the consolidation audit of 8 November and the organ-health diagnosis of 10 November.</p>
+        <div class="tx-revised">
+          <p><strong>Revised 10 November 2026.</strong> The design stands. The page now says what runs and what does not.</p>
+          <p><strong>Correction, 10 November 2026.</strong> (1) The "Reflex vs. Governed Hand" chart scored both with invented numbers; it is removed and replaced by a table of the record. (2) The answer "Why was execution blocked?" read as if a specific block had been recorded; it now answers in the design and names the one kind of refusal on the record. (3) The organism that runs on the operator's machine is a paper organ with no key and no signing path, below its paper seed. (4) A September record says an earlier off-box version was configured for live trading in July 2026. This page, in May, said it did not claim live trading; it still does not, and it now states that this earlier version's present state cannot be read from here and waits on the operator.</p>
+        </div>
       </div>
     </section>
 
@@ -199,12 +226,18 @@
           <p>That is the difference between a reflex and a hand. A reflex snaps. A hand checks, holds, reaches, and releases.</p>
         </div>
 
-        <div class="chart-grid">
-          <div class="panel">
-            <h3>Reflex vs. Governed Hand</h3>
-            <p class="detail-copy">The target shape is high clarity, high human authority, high reversibility, and low silent consequence.</p>
-            <div class="chart-box"><canvas id="handChart"></canvas></div>
-          </div>
+        <div class="chart-grid" style="grid-template-columns:1fr">
+        <div class="st-wrap" id="st-wrap">
+          <h3>The Monad Hand, as the record shows it</h3>
+          <p class="st-sub">Replaces a chart of invented scores. Status on 8 November 2026 (organ health re-read on 10 November). Filter by state.</p>
+          <div class="st-filter"><button type="button" class="active" data-f="all">All</button><button type="button" data-f="built">Built, tested</button><button type="button" data-f="idle">Idle</button><button type="button" data-f="failing">Failing</button><button type="button" data-f="unknown">Not readable</button></div>
+          <div class="st-row" data-s="built"><b>Read-only observation</b><span class="st-pill built">Built, tested</span><span>Live market reads go through an egress proxy that allows approved domains only. The paper organ ran 2,161 scheduled runs by 8 November and its ledger was intact.</span></div>
+          <div class="st-row" data-s="idle"><b>Paper fills</b><span class="st-pill idle">Idle</span><span>The paper book stood at $87.96 of a $100 seed on 8 November, after 34 paper fills; none since 15 October.</span></div>
+          <div class="st-row" data-s="failing"><b>Reviewer model</b><span class="st-pill failing">Failing</span><span>The model meant to review each intent has been absent since 26 October because no model is resident. Intents continue without it.</span></div>
+          <div class="st-row" data-s="idle"><b>Signing and live motion</b><span class="st-pill idle">Idle</span><span>The running organism has no key and no signing path. Older Brain code for a Monad executor exists in the Brain repository, which is not running; nothing on this machine uses it.</span></div>
+          <div class="st-row" data-s="idle"><b>Human gate</b><span class="st-pill idle">Idle</span><span>The custody gate has been at Stage 0 since 4 October 2026; it refuses every consequential step. Renewing it is the operator's.</span></div>
+          <div class="st-row" data-s="unknown"><b>An earlier off-box version</b><span class="st-pill unknown">Not readable</span><span>A September record says an earlier version off this machine was configured for live trading in July 2026. Its present state cannot be read from here and waits on the operator. This page makes no claim about it.</span></div>
+        </div>
           <div class="panel">
             <h3>Operating Principles</h3>
             <div class="principle-list">
@@ -227,19 +260,19 @@
         <div class="qa-grid" id="qa-grid">
           <div class="qa-card open">
             <button type="button">What is the Monad Hand?<span>+</span></button>
-            <div class="qa-answer">It is the financial organism's execution hand for Monad-facing work: a boundary that should translate intent into read-only checks, route proof, simulation, approval, and only then controlled motion.</div>
+            <div class="qa-answer">It is the design for the financial organism's execution hand for Monad-facing work: a boundary that should translate intent into read-only checks, route proof, simulation, approval, and only then controlled motion. Code for such an executor exists in the Brain repository, which is not running, and nothing on this machine uses it; the organism that runs is a paper organ with no key.</div>
           </div>
           <div class="qa-card">
             <button type="button">Why was execution blocked?<span>+</span></button>
-            <div class="qa-answer">Because the system could not treat ambiguous or unsupported routes as safe. That is the correct behavior. A protected block is preferable to an unclear financial mutation.</div>
+            <div class="qa-answer">In the design, because the system could not treat an ambiguous or unsupported route as safe, and a protected block is preferable to an unclear financial mutation. On the record the refusals are plainer: a handful of paper-organ runs were refused by a domain fence, and the custody gate refuses everything consequential at Stage 0. No specific live route has been blocked in the record this page rests on.</div>
           </div>
           <div class="qa-card">
             <button type="button">Is this live autonomous trading?<span>+</span></button>
-            <div class="qa-answer">No. This transmission does not claim live trading is enabled, profitable, or autonomous. The public message is safety: simulation, proof, and human approval before consequence.</div>
+            <div class="qa-answer">Not on the machine this record covers: the organism there is paper-only, with no key and no signing path, and it is below its paper seed. This page does not claim live trading is enabled, profitable, or autonomous. A September record says an earlier off-box version was configured for live trading in July 2026; its present state cannot be read from here, and what to do about it waits on the operator.</div>
           </div>
           <div class="qa-card">
             <button type="button">What changed in the Brain?<span>+</span></button>
-            <div class="qa-answer">The Brain's public model evolved: status should be legible, cold intelligence should stay out of urgent decision loops, and financial motion should remain behind explicit human-owned gates.</div>
+            <div class="qa-answer">In May the Brain's public model evolved: status should be legible, cold intelligence should stay out of urgent decision loops, and financial motion should remain behind explicit human-owned gates. Since then, as of 8 November: no model has been resident since 27 October and the paper organ's reviewer is absent.</div>
           </div>
         </div>
       </section>
@@ -258,6 +291,7 @@
           <div class="mandate-card"><span>Evolution</span><h3>Make every block useful</h3><p>A blocked route is not wasted time if it becomes a better safety memory for the next attempt.</p></div>
         </div>
 
+        <div class="tx-note" style="margin-bottom:18px"><strong>What this note does not claim (added 10 November 2026).</strong> It does not claim live trading, profit, or autonomy. It does not claim the hand exists as a running system. It does not claim a route was ever proven, or that any block it describes was a recorded event. It does not claim anything about the earlier off-box version beyond what is stated above.</div>
         <div class="tx-note">The next financial organism is not the fastest trader. It is the one that can say, clearly and in time: I am alive, I am protected, and I will not move until the proof is clean.</div>
       </section>
 
@@ -326,28 +360,28 @@
         label: 'Alive',
         title: 'The organism is awake',
         tag: 'state: observing',
-        copy: 'Alive means the system can observe, report, and reason. It does not mean the hand is allowed to move money.',
+        copy: 'Alive means the system can observe, report, and reason. It does not mean the hand is allowed to move money. On 8 November 2026 the paper organ was alive in this sense: its cycles ran every thirty minutes, read live markets through an allowlisted proxy, and filled only on paper.',
         bullets: ['Status reporting should be legible to the operator.', 'Read-only posture can still be productive.', 'A living system can choose stillness.']
       },
       {
         label: 'Protected',
         title: 'The immune system is active',
         tag: 'state: blocked by design',
-        copy: 'Protected means the system has found uncertainty at the boundary where consequence begins. The right move is to stop and explain.',
+        copy: 'Protected means the system has found uncertainty at the boundary where consequence begins. The right move is to stop and explain. On the record, the running organism has no key and no signing path, so it cannot move money at all.',
         bullets: ['Ambiguous routes stay research-only.', 'Circuit breakers should be visible, not mysterious.', 'Safety blocks become evidence for future upgrades.']
       },
       {
         label: 'Proof Needed',
         title: 'Execution waits for clarity',
         tag: 'state: awaiting route proof',
-        copy: 'Proof needed means the organism must produce a supported path, simulation evidence, bounded risk, and explicit human approval before motion.',
+        copy: 'Design: proof needed means the organism must produce a supported path, simulation evidence, bounded risk, and explicit human approval before motion. Nothing has reached this step: no live path has been proven.',
         bullets: ['No private route details belong in public transmissions.', 'Simulation is not execution.', 'Approval is scoped to a specific action, not a permanent blank check.']
       },
       {
         label: 'Human Gate',
         title: 'Authority stays with the operator',
         tag: 'state: human-owned consent',
-        copy: 'The Brain can prepare decisions, but authority over consequential financial action belongs to the human.',
+        copy: 'The Brain can prepare decisions, but authority over consequential financial action belongs to the human. The custody gate has been at Stage 0 since its Stage-1 grant expired on 4 October 2026, so nothing consequential proceeds without the operator.',
         bullets: ['The system can ask, not assume.', 'The operator should see why a path is safe or blocked.', 'Money remains armor, not god.']
       }
     ];
@@ -385,72 +419,21 @@
       });
     });
 
-    const chartColors = {
-      accent: 'rgba(155,89,245,1)',
-      accentFill: 'rgba(155,89,245,0.14)',
-      hot: 'rgba(192,132,252,1)',
-      teal: 'rgba(13,148,136,0.74)',
-      tealFill: 'rgba(13,148,136,0.12)',
-      grid: 'rgba(240,238,246,0.08)',
-      text: 'rgba(240,238,246,0.36)'
-    };
-
-    new Chart(document.getElementById('handChart'), {
-      type: 'radar',
-      data: {
-        labels: ['Clarity', 'Human Authority', 'Route Proof', 'Reversibility', 'Latency Discipline', 'Silent Consequence'],
-        datasets: [
-          {
-            label: 'Governed Hand',
-            data: [94, 96, 90, 86, 82, 5],
-            borderColor: chartColors.teal,
-            backgroundColor: chartColors.tealFill,
-            pointBackgroundColor: chartColors.hot,
-            pointBorderColor: chartColors.hot,
-            borderWidth: 2
-          },
-          {
-            label: 'Blind Reflex',
-            data: [26, 18, 22, 12, 94, 84],
-            borderColor: chartColors.accent,
-            backgroundColor: chartColors.accentFill,
-            pointBackgroundColor: chartColors.accent,
-            pointBorderColor: chartColors.accent,
-            borderWidth: 2
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          r: {
-            min: 0,
-            max: 100,
-            angleLines: { color: chartColors.grid },
-            grid: { color: chartColors.grid },
-            pointLabels: { color: chartColors.text, font: { family: 'Inter', size: 11 } },
-            ticks: { display: false }
-          }
-        },
-        plugins: {
-          legend: {
-            position: 'bottom',
-            labels: { color: chartColors.text, font: { family: 'Inter' }, padding: 18 }
-          },
-          tooltip: {
-            backgroundColor: 'rgba(15,15,30,0.95)',
-            titleFont: { family: 'Inter' },
-            bodyFont: { family: 'Inter' },
-            padding: 10,
-            cornerRadius: 8,
-            callbacks: {
-              label: (context) => context.dataset.label + ': ' + context.parsed.r + '/100'
-            }
-          }
-        }
-      }
-    });
+    // STATE-OF-RECORD FILTER (revised 2026-11-10)
+    (function () {
+      var wrap = document.getElementById('st-wrap');
+      if (!wrap) return;
+      var rows = wrap.querySelectorAll('.st-row');
+      var btns = wrap.querySelectorAll('.st-filter button');
+      btns.forEach(function (b) {
+        b.addEventListener('click', function () {
+          btns.forEach(function (x) { x.classList.remove('active'); });
+          b.classList.add('active');
+          var f = b.getAttribute('data-f');
+          rows.forEach(function (r) { r.style.display = (f === 'all' || r.getAttribute('data-s') === f) ? '' : 'none'; });
+        });
+      });
+    })();
   });
   </script>
 </body>
