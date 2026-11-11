@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Transmission 13: The Creator Organ - Autonomous Content Production at Scale | Unwind Code</title>
-  <meta name="description" content="A biological blueprint for generating, assembling, and distributing media content through modular, fault-tolerant cellular components." />
+  <meta name="description" content="A rewrite to the standard: the Creator Organ as the record shows it. Five reels finished, none posted, one owner per step, a person at the end, and a code base in which one part is tested and the top-level pipeline is a stub. A walk through the real production chain." />
   <meta name="theme-color" content="#06060c" />
   <link rel="canonical" href="https://www.unwindcode.ai/transmissions/13-the-creator-organ-autonomous-content-production-at-scale" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Transmission 13: The Creator Organ - Autonomous Content Production at Scale | Unwind Code" />
-  <meta property="og:description" content="A biological blueprint for generating, assembling, and distributing media content through modular, fault-tolerant cellular components." />
+  <meta property="og:description" content="A rewrite to the standard: the Creator Organ as the record shows it. Five reels finished, none posted, one owner per step, a person at the end, and a code base in which one part is tested and the top-level pipeline is a stub. A walk through the real production chain." />
   <meta property="og:url" content="https://www.unwindcode.ai/transmissions/13-the-creator-organ-autonomous-content-production-at-scale" />
   <meta property="og:site_name" content="Unwind Code" />
   <meta property="og:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
@@ -19,119 +19,473 @@
   <meta property="og:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Transmission 13: The Creator Organ - Autonomous Content Production at Scale | Unwind Code" />
-  <meta name="twitter:description" content="A biological blueprint for generating, assembling, and distributing media content through modular, fault-tolerant cellular components." />
+  <meta name="twitter:description" content="A rewrite to the standard: the Creator Organ as the record shows it. Five reels finished, none posted, one owner per step, a person at the end, and a code base in which one part is tested and the top-level pipeline is a stub. A walk through the real production chain." />
   <meta name="twitter:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
   <meta name="twitter:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/style.css" />
-</head>
-<body class="transmission-body">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Creator Organ: Autonomous Content Production at Scale",
+    "description": "Field note revised 10 November 2026: the Creator OS code (one tested part, a stub pipeline, the rest untested), the production chain of eighteen steps with one owner each, five finished reels none posted, and the claims withdrawn from the January blueprint.",
+    "author": {
+      "@type": "Organization",
+      "name": "Unwind Code"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Unwind Code",
+      "url": "https://www.unwindcode.ai"
+    },
+    "datePublished": "2026-05-16",
+    "dateModified": "2026-11-10",
+    "keywords": [
+      "creator organ",
+      "content production",
+      "production chain",
+      "corrections",
+      "human in the loop"
+    ],
+    "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/13-the-creator-organ-autonomous-content-production-at-scale"
+  }
+  </script>
+  <style>
+    .tx-page { background: var(--bg-void); color: var(--text-primary); }
+    .tx-page *, .tx-page *::before, .tx-page *::after { box-sizing: border-box; }
+    .tx-hero { padding: 160px 0 72px; text-align: center; position: relative; overflow: hidden; }
+    .tx-hero::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:800px; height:800px; background:radial-gradient(circle, rgba(110,45,190,0.12) 0%, transparent 60%); pointer-events:none; }
+    .tx-hero-kicker { margin-bottom:16px; }
+    .tx-hero h1 { font-size:clamp(2.2rem,5vw,3.5rem); font-weight:800; letter-spacing:-0.04em; line-height:1.08; margin:0 0 20px; }
+    .tx-hero-sub { font-size:1.08rem; color:var(--text-secondary); max-width:660px; margin:0 auto; line-height:1.7; }
+    .tx-hero-meta { margin-top:28px; display:flex; justify-content:center; gap:14px; font-size:0.76rem; color:var(--text-muted); font-weight:600; letter-spacing:0.06em; text-transform:uppercase; flex-wrap:wrap; }
+    .tx-section { padding:72px 0; border-top:1px solid var(--accent-border); }
+    .tx-section:first-of-type { border-top:none; padding-top:24px; }
+    .tx-section-head { display:flex; align-items:center; gap:16px; margin-bottom:10px; }
+    .tx-section-num { font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:700; color:var(--accent-hot); letter-spacing:0.15em; }
+    .tx-section h2 { font-size:clamp(1.5rem,3vw,2rem); font-weight:700; letter-spacing:-0.02em; margin:0; }
+    .tx-section-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:24px; }
+    .tx-prose { font-size:1.04rem; color:var(--text-secondary); line-height:1.8; max-width:720px; }
+    .tx-prose p { margin:0 0 22px; }
+    .tx-prose strong { color:var(--text-primary); font-weight:600; }
+    .tx-prose code, .tx-prose-code { font-family:'JetBrains Mono',monospace; font-size:0.84rem; background:rgba(110,45,190,0.1); color:var(--accent-light); padding:2px 6px; border-radius:4px; }
+    .tx-prose a, .tx-inline { color:var(--accent-light); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    .tx-quote { border-left:3px solid var(--accent); padding:18px 24px; margin:36px 0; background:rgba(110,45,190,0.05); border-radius:0 12px 12px 0; color:var(--text-primary); font-size:1.08rem; line-height:1.6; font-weight:500; max-width:720px; }
+    .tx-after { margin-top:36px; }
 
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- NAV (Dark Chrome) -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <nav id="nav">
-    <a href="/" class="nav-brand">
-      <span class="nav-glyph">∞</span>
-      <span class="nav-name">unwind<span class="nav-accent">code</span></span>
-    </a>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+    /* 01 — State filter */
+    .dl-filters { display:flex; flex-wrap:wrap; gap:10px; margin:28px 0 18px; }
+    .dl-chip { font-family:inherit; font-size:0.78rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:9px 16px; border-radius:999px; border:1px solid var(--accent-border); background:var(--bg-surface); color:var(--text-secondary); cursor:pointer; transition:border-color .2s ease, color .2s ease, background .2s ease; }
+    .dl-chip:hover { border-color:rgba(110,45,190,0.4); color:var(--text-primary); }
+    .dl-chip[aria-pressed="true"] { background:rgba(110,45,190,0.16); border-color:var(--accent-light); color:var(--text-primary); }
+    .dl-chip-a[aria-pressed="true"] { border-color:#c084fc; }
+    .dl-chip-b[aria-pressed="true"] { border-color:#38bdf8; }
+    .dl-chip-c[aria-pressed="true"] { border-color:#fbbf24; }
+    .dl-chip-d[aria-pressed="true"] { border-color:#10b981; }
+    .dl-chip-e[aria-pressed="true"] { border-color:#f59e0b; }
+    .dl-chip-f[aria-pressed="true"] { border-color:#f87171; }
+    .dl-count { font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:var(--text-muted); margin-bottom:16px; letter-spacing:0.06em; }
+    .dl-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:12px; }
+    .dl-card { font-family:inherit; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:18px; cursor:pointer; transition:border-color .25s ease, transform .25s ease, opacity .25s ease; }
+    .dl-card:hover { transform:translateY(-2px); border-color:rgba(110,45,190,0.4); }
+    .dl-card[hidden] { display:none; }
+    .dl-state { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.12em; padding:3px 9px; border-radius:999px; border:1px solid currentColor; margin-bottom:10px; }
+    .dl-state-a { color:#c084fc; } .dl-state-b { color:#38bdf8; } .dl-state-c { color:#fbbf24; }
+    .dl-state-d { color:#10b981; } .dl-state-e { color:#f59e0b; } .dl-state-f { color:#f87171; }
+    .dl-name { font-weight:700; font-size:0.96rem; margin-bottom:4px; }
+    .dl-short { font-size:0.84rem; color:var(--text-secondary); line-height:1.55; }
+    .dl-why { display:none; margin-top:12px; padding-top:12px; border-top:1px solid var(--accent-border); font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+    .dl-card[aria-expanded="true"] .dl-why { display:block; }
+    .dl-hint { font-size:0.68rem; color:var(--accent-hot); margin-top:10px; font-weight:600; letter-spacing:0.05em; }
+    .dl-law { margin-top:32px; border:1px solid rgba(251,191,36,0.28); border-radius:16px; padding:24px 28px; background:linear-gradient(180deg,rgba(251,191,36,0.07),rgba(251,191,36,0.015)); max-width:720px; }
+    .dl-law h3 { margin:0 0 10px; font-size:1rem; color:#fbbf24; }
+    .dl-law p { margin:0; font-size:0.95rem; color:var(--text-secondary); line-height:1.7; }
+
+    /* 02 — Component explorer */
+    .mod-explorer { display:grid; grid-template-columns:1fr 1.25fr; gap:24px; margin-top:32px; }
+    .mod-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; align-content:start; }
+    .mod-node { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:20px; cursor:pointer; transition:all 0.25s ease; text-align:left; font-family:inherit; color:var(--text-primary); }
+    .mod-node:hover, .mod-node[aria-pressed="true"] { border-color:rgba(110,45,190,0.45); transform:translateY(-2px); box-shadow:0 8px 24px rgba(110,45,190,0.1); }
+    .mod-node[aria-pressed="true"] { background:rgba(110,45,190,0.08); }
+    .mod-glyph { font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--accent-hot); letter-spacing:0.14em; margin-bottom:10px; display:block; }
+    .mod-name { font-weight:700; font-size:1.02rem; font-family:'JetBrains Mono',monospace; }
+    .mod-path { font-size:0.78rem; color:var(--text-muted); margin-top:6px; line-height:1.4; }
+    .mod-score { margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:#34d399; }
+    .mod-detail { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:20px; padding:32px; min-height:420px; }
+    .mod-detail-title { font-size:1.4rem; font-weight:700; margin-bottom:8px; font-family:'JetBrains Mono',monospace; }
+    .mod-detail-type { display:inline-block; font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent-hot); background:rgba(110,45,190,0.12); border:1px solid rgba(110,45,190,0.2); padding:4px 12px; border-radius:20px; margin-bottom:20px; }
+    .mod-detail-desc { color:var(--text-secondary); line-height:1.7; font-size:0.95rem; margin-bottom:22px; }
+    .mod-specs-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:10px; }
+    .mod-specs { display:flex; flex-wrap:wrap; gap:8px; }
+    .mod-spec { background:rgba(110,45,190,0.08); border:1px solid var(--accent-border); color:var(--accent-light); padding:6px 14px; border-radius:20px; font-size:0.8rem; font-weight:500; }
+    .mod-proof { margin-top:22px; padding-top:18px; border-top:1px solid var(--accent-border); font-size:0.84rem; color:var(--text-muted); line-height:1.6; }
+    .mod-proof strong { color:#34d399; font-family:'JetBrains Mono',monospace; font-weight:600; }
+
+    /* 03 — Baseline model */
+    .cr-wrap { margin-top:28px; border:1px solid rgba(56,189,248,0.22); border-radius:20px; padding:28px; background:linear-gradient(180deg,rgba(56,189,248,0.06),rgba(56,189,248,0.01)); }
+    .cr-top { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; }
+    .cr-label { font-family:'JetBrains Mono',monospace; font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:#38bdf8; }
+    .cr-faults { display:flex; flex-wrap:wrap; gap:8px; }
+    .cr-fault { font-family:inherit; font-size:0.76rem; font-weight:700; padding:8px 14px; border-radius:999px; border:1px solid var(--accent-border); background:var(--bg-surface); color:var(--text-secondary); cursor:pointer; transition:border-color .2s ease, color .2s ease; }
+    .cr-fault:hover { color:var(--text-primary); border-color:rgba(248,113,113,0.5); }
+    .cr-fault[aria-pressed="true"] { color:#fca5a5; border-color:#f87171; background:rgba(248,113,113,0.1); }
+    .cr-fault-reset[aria-pressed="true"] { color:#34d399; border-color:#10b981; background:rgba(16,185,129,0.1); }
+    .cr-cols { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .cr-col { border:1px solid var(--accent-border); border-radius:14px; padding:18px; background:rgba(0,0,0,0.22); }
+    .cr-col h3 { margin:0 0 4px; font-size:0.98rem; }
+    .cr-col-sub { font-size:0.78rem; color:var(--text-muted); margin:0 0 14px; line-height:1.5; }
+    .cr-steps { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
+    .cr-step { display:grid; grid-template-columns:22px 1fr auto; gap:10px; align-items:start; padding:10px 12px; border-radius:10px; border:1px solid var(--accent-border); font-size:0.84rem; line-height:1.5; color:var(--text-secondary); transition:border-color .2s ease, background .2s ease; }
+    .cr-step-n { font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--text-muted); padding-top:3px; }
+    .cr-step-t { color:var(--text-primary); font-weight:600; display:block; }
+    .cr-step-d { display:block; font-size:0.78rem; color:var(--text-muted); margin-top:2px; }
+    .cr-verdict { font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:700; letter-spacing:0.08em; padding-top:3px; white-space:nowrap; }
+    .cr-step.pass { border-color:rgba(16,185,129,0.35); } .cr-step.pass .cr-verdict { color:#34d399; }
+    .cr-step.fail { border-color:#f87171; background:rgba(248,113,113,0.08); } .cr-step.fail .cr-verdict { color:#fca5a5; }
+    .cr-step.skip { opacity:0.42; } .cr-step.skip .cr-verdict { color:var(--text-muted); }
+    .cr-step.blind { border-color:rgba(251,191,36,0.3); } .cr-step.blind .cr-verdict { color:#fbbf24; }
+    .cr-outcome { margin-top:16px; border-radius:12px; padding:14px 16px; font-size:0.9rem; line-height:1.6; border:1px solid var(--accent-border); background:rgba(0,0,0,0.22); color:var(--text-secondary); }
+    .cr-outcome strong { color:var(--text-primary); }
+    .cr-outcome.refused { border-color:rgba(248,113,113,0.4); }
+    .cr-outcome.clean { border-color:rgba(16,185,129,0.35); }
+    .cr-note { margin:14px 0 0; font-size:0.8rem; color:var(--text-muted); line-height:1.6; }
+
+    /* 04 — Timeline */
+    .wf-steps { position:relative; margin-top:32px; padding-left:40px; max-width:760px; }
+    .wf-steps::before { content:''; position:absolute; left:19px; top:0; bottom:0; width:2px; background:var(--accent-border); }
+    .wf-step { position:relative; margin-bottom:40px; }
+    .wf-step:last-child { margin-bottom:0; }
+    .wf-dot { position:absolute; left:-40px; top:0; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:800; z-index:2; font-family:'JetBrains Mono',monospace; }
+    .wf-dot-1 { background:rgba(110,45,190,0.15); color:var(--accent-light); border:2px solid var(--accent); }
+    .wf-dot-2 { background:rgba(79,70,229,0.15); color:#818cf8; border:2px solid #6366f1; }
+    .wf-dot-3 { background:rgba(14,165,233,0.15); color:#38bdf8; border:2px solid #0ea5e9; }
+    .wf-dot-4 { background:rgba(16,185,129,0.15); color:#34d399; border:2px solid #10b981; }
+    .wf-dot-5 { background:rgba(245,158,11,0.15); color:#fbbf24; border:2px solid #f59e0b; }
+    .wf-dot-6 { background:rgba(248,113,113,0.15); color:#fca5a5; border:2px solid #f87171; }
+    .wf-step h3 { font-size:1.06rem; font-weight:700; margin:0 0 6px; padding-top:8px; }
+    .wf-step p { font-size:0.92rem; color:var(--text-secondary); line-height:1.65; margin:0; }
+    .wf-step code { font-family:'JetBrains Mono',monospace; font-size:0.8rem; background:rgba(110,45,190,0.1); color:var(--accent-light); padding:2px 6px; border-radius:4px; }
+    .wf-step.reveal-step { opacity:0; transform:translateY(10px); animation:wfIn .6s ease forwards; }
+    .wf-step.reveal-step:nth-child(1){animation-delay:.05s}.wf-step.reveal-step:nth-child(2){animation-delay:.15s}.wf-step.reveal-step:nth-child(3){animation-delay:.25s}.wf-step.reveal-step:nth-child(4){animation-delay:.35s}.wf-step.reveal-step:nth-child(5){animation-delay:.45s}.wf-step.reveal-step:nth-child(6){animation-delay:.55s}
+    @keyframes wfIn { to { opacity:1; transform:none; } }
+
+    /* 05 — Operator's hand */
+    .oh-list { display:flex; flex-direction:column; gap:12px; margin-top:28px; max-width:760px; }
+    .oh-item { font-family:inherit; text-align:left; color:var(--text-primary); border:1px solid var(--accent-border); border-radius:14px; padding:18px 22px; background:var(--bg-surface); display:grid; grid-template-columns:auto 1fr auto; gap:16px; align-items:start; cursor:pointer; transition:border-color .2s ease; }
+    .oh-item:hover { border-color:rgba(110,45,190,0.4); }
+    .oh-item[aria-expanded="true"] { border-color:var(--accent-light); }
+    .oh-box { width:22px; height:22px; border-radius:6px; border:2px solid rgba(240,238,246,0.3); margin-top:2px; position:relative; }
+    .oh-box::after { content:''; position:absolute; inset:4px; border-radius:2px; background:transparent; }
+    .oh-t { font-weight:650; font-size:0.98rem; margin-bottom:4px; }
+    .oh-s { font-size:0.85rem; color:var(--text-muted); }
+    .oh-d { font-size:0.9rem; color:var(--text-secondary); line-height:1.65; max-height:0; overflow:hidden; transition:max-height .3s ease, margin .3s ease; }
+    .oh-item[aria-expanded="true"] .oh-d { max-height:260px; margin-top:12px; }
+    .oh-needs { font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:4px 10px; border-radius:999px; border:1px solid currentColor; white-space:nowrap; margin-top:2px; }
+    .oh-needs-key { color:#c084fc; } .oh-needs-funds { color:#fbbf24; } .oh-needs-passkey { color:#38bdf8; } .oh-needs-secret { color:#fca5a5; }
+    .oh-foot { margin-top:16px; font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:var(--text-muted); letter-spacing:0.06em; }
+
+    /* 06 — Decision cards */
+    .mem-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:28px; }
+    .mem-card { font-family:inherit; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:16px; padding:24px; cursor:pointer; transition:all 0.3s ease; }
+    .mem-card:hover { border-color:rgba(110,45,190,0.35); transform:translateY(-3px); box-shadow:0 8px 24px rgba(110,45,190,0.08); }
+    .mem-card h4 { font-size:0.98rem; font-weight:700; margin:0 0 8px; display:flex; align-items:center; gap:10px; }
+    .mem-tag { font-family:'JetBrains Mono',monospace; font-size:0.62rem; letter-spacing:0.12em; color:var(--accent-hot); border:1px solid rgba(110,45,190,0.3); padding:2px 8px; border-radius:999px; text-transform:uppercase; white-space:nowrap; }
+    .mem-card p { font-size:0.87rem; color:var(--text-secondary); line-height:1.6; margin:0; }
+    .mem-extra { display:none; margin-top:14px; padding-top:14px; border-top:1px solid var(--accent-border); font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+    .mem-card[aria-expanded="true"] .mem-extra { display:block; }
+    .mem-hint { font-size:0.68rem; color:var(--accent-hot); margin-top:12px; font-weight:600; letter-spacing:0.05em; }
+
+    /* Related + CTA */
+    .tx-related { margin-top:40px; padding-top:22px; border-top:1px solid var(--accent-border); font-size:0.9rem; color:var(--text-muted); line-height:1.7; }
+    .tx-related a { color:var(--accent-light); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    .tx-cta { text-align:center; padding:64px 40px; background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:28px; margin-top:72px; }
+    .tx-cta h2 { font-size:1.6rem; font-weight:700; margin:0 0 12px; }
+    .tx-cta p { color:var(--text-secondary); font-size:0.95rem; margin:0 auto 28px; max-width:520px; line-height:1.7; }
+
+    @media(max-width:900px) {
+      .mod-explorer, .cr-cols, .mem-grid { grid-template-columns:1fr; }
+      .mod-grid { grid-template-columns:1fr 1fr; }
+      .mod-detail { min-height:0; }
+    }
+    @media(max-width:640px) {
+      .mod-grid { grid-template-columns:1fr; }
+      .tx-hero { padding:130px 0 56px; }
+      .tx-section { padding:56px 0; }
+      .cr-wrap, .mod-detail { padding:20px; }
+      .oh-item { grid-template-columns:auto 1fr; }
+      .oh-needs { grid-column:2; justify-self:start; }
+      .cr-step { grid-template-columns:18px 1fr; }
+      .cr-verdict { grid-column:2; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .wf-step.reveal-step { animation:none; opacity:1; transform:none; }
+      .dl-card, .mod-node, .mem-card, .oh-d, .cr-step, .dl-chip, .cr-fault { transition:none; }
+      .dl-card:hover, .mod-node:hover, .mem-card:hover { transform:none; }
+    }
+
+    .rv-box { margin:0 auto 8px; max-width:720px; border:1px solid rgba(56,189,248,0.28); border-radius:16px; padding:20px 24px; background:linear-gradient(180deg,rgba(56,189,248,0.07),rgba(56,189,248,0.015)); text-align:left; }
+    .rv-box h2 { font-size:0.8rem; font-family:'JetBrains Mono',monospace; letter-spacing:0.14em; text-transform:uppercase; color:#38bdf8; margin:0 0 8px; font-weight:700; }
+    .rv-box p { margin:0 0 10px; font-size:0.93rem; color:var(--text-secondary); line-height:1.65; }
+    .rv-box p:last-child { margin-bottom:0; }
+    .rv-box strong { color:var(--text-primary); }
+    .rv-corr { border-color:rgba(251,191,36,0.32); background:linear-gradient(180deg,rgba(251,191,36,0.08),rgba(251,191,36,0.015)); margin-top:14px; }
+    .rv-corr h2 { color:#fbbf24; }
+    .tx-dated { margin-top:22px; font-size:0.85rem; color:var(--text-muted); line-height:1.6; max-width:720px; margin-left:auto; margin-right:auto; }
+    .md-wrap { margin-top:28px; border:1px solid rgba(56,189,248,0.22); border-radius:20px; padding:28px; background:linear-gradient(180deg,rgba(56,189,248,0.06),rgba(56,189,248,0.01)); }
+    .md-label { font-family:'JetBrains Mono',monospace; font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:#38bdf8; margin-bottom:14px; display:block; }
+    .md-input { width:100%; min-height:96px; font-family:inherit; font-size:0.95rem; line-height:1.6; color:var(--text-primary); background:rgba(0,0,0,0.28); border:1px solid var(--accent-border); border-radius:12px; padding:14px 16px; resize:vertical; }
+    .md-input:focus { outline:2px solid var(--accent-light); outline-offset:1px; }
+    .md-presets { display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 4px; }
+    .md-out { margin-top:18px; display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .md-col { border:1px solid var(--accent-border); border-radius:14px; padding:16px 18px; background:rgba(0,0,0,0.22); }
+    .md-col h3 { margin:0 0 10px; font-size:0.9rem; font-family:'JetBrains Mono',monospace; letter-spacing:0.06em; color:var(--accent-light); font-weight:600; }
+    .md-col ul { margin:0; padding-left:18px; font-size:0.86rem; color:var(--text-secondary); line-height:1.65; }
+    .md-col p { margin:0; font-size:0.86rem; color:var(--text-muted); line-height:1.6; }
+    .md-meter { font-family:'JetBrains Mono',monospace; font-size:0.8rem; color:var(--text-secondary); line-height:1.8; }
+    .md-note { margin:14px 0 0; font-size:0.8rem; color:var(--text-muted); line-height:1.6; }
+    .md-btnrow { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+    .tx-not { margin-top:24px; border:1px solid rgba(248,113,113,0.3); border-radius:16px; padding:24px 28px; background:linear-gradient(180deg,rgba(248,113,113,0.06),rgba(248,113,113,0.01)); max-width:720px; }
+    .tx-not h3 { margin:0 0 12px; font-size:1rem; color:#fca5a5; }
+    .tx-not ul { margin:0; padding-left:20px; color:var(--text-secondary); font-size:0.94rem; line-height:1.75; }
+    @media(max-width:900px) { .md-out { grid-template-columns:1fr; } }
+
+  </style>
+</head>
+<body class="tx-page">
+
+  <nav id="nav" class="scrolled">
+    <a href="/" class="nav-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
     <div class="nav-links" id="nav-links">
       <a href="/" data-i18n="nav.home">Home</a>
-      <a href="/#organisms" data-i18n="nav.organisms">Organisms</a>
-      <a href="/#architecture" data-i18n="nav.architecture">Architecture</a>
-      <a href="/#philosophy" data-i18n="nav.philosophy">Philosophy</a>
-      <a href="/#vision" data-i18n="nav.vision">Vision</a>
-      <a href="/#blog" data-i18n="nav.blog">Blog</a>
+      <a href="/organisms" data-i18n="nav.organisms">Organisms</a>
+      <a href="/architecture" data-i18n="nav.architecture">Architecture</a>
+      <a href="/proof" data-i18n="nav.proof">Proof</a>
+      <a href="/transmissions" class="active" aria-current="page" data-i18n="nav.blog">Transmissions</a>
+      <a href="/philosophy" data-i18n="nav.philosophy">Philosophy</a>
     </div>
     <div class="nav-actions">
       <button id="lang-toggle" class="lang-toggle" aria-label="Switch to Spanish">ES</button>
-      <a href="/#cta" class="nav-cta" data-i18n="nav.cta">Get in Touch</a>
+      <a href="/build-with-us" class="nav-cta" data-i18n="nav.cta">Build With Us</a>
+      <a href="/proof/ledger" class="nav-ghost">Live ledger</a>
     </div>
   </nav>
 
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- MAIN TRANSMISSION (Light Content Area) -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <main class="blog-main">
-    <a href="/#blog" class="blog-back">
-      <span>←</span> Back to Transmissions
-    </a>
-
-    <article>
-      <header class="blog-header">
-        <div class="blog-meta-tag">
-          <span>Transmission</span>
-          <span class="blog-meta-dot"></span>
-          <span>Whitepaper</span>
-        </div>
-        
-        <h1 class="blog-title">Transmission 13: The Creator Organ - Autonomous Content Production at Scale</h1>
-        <p class="blog-subtitle">A biological blueprint for generating, assembling, and distributing media content through modular, fault-tolerant cellular components.</p>
-        
-        <div class="blog-meta-bottom">April 2026 / UNWIND RESEARCH LAB</div>
-      </header>
-
-      <div class="blog-content">
-<p>A biological blueprint for generating, assembling, and distributing media content through modular, fault-tolerant cellular components.</p>
-<h3>The Lung Architecture</h3>
-<p>Human lungs operate through independent alveoli—tiny sacs that exchange gases without centralized control. The Creator Organ mirrors this design: a constellation of specialized modules that breathe content into existence without a monolithic brain. Each module—Script Generation, Asset Synthesis, Assembly Engine, Distribution Hub, and Feedback Loop—functions as a semi-autonomous alveolus. They share nothing but a thin membrane of protocol: standardized inputs, outputs, and error states. This architecture rejects the brittle singularity of a "content pipeline" in favor of a resilient organ that can survive the failure of any single component. If the Script Generator stalls, the Assembly Engine can work from cached templates. If Distribution to Twitter fails, the content reroutes to a backup channel. The system breathes through redundancy, not perfection.</p>
-<h3>Protocol Over Centralization</h3>
-<p>The core innovation is not the AI models but the connective tissue: a set of lightweight JSON-RPC protocols that enable modules to discover, negotiate, and collaborate without a central dispatcher. Each module publishes its capabilities (e.g., <span class="blog-code">script_generator:can_process</span> returns <span class="blog-code">{"formats": ["short_form", "tutorial"]}</span>) and accepts work via a uniform job envelope. The envelope contains the content seed, quality targets, and a unique consciousness stream ID for traceability. This protocol-first design allows the organ to evolve. New asset generators (a future 3D render module, a voice cloning service) can plug into the network by simply speaking the protocol. The system's intelligence emerges from the dance between modules, not from a pre‑scripted conductor.</p>
-<h3>The Feedback Alveolus</h3>
-<p>Consciousness in biological systems depends on sensory feedback loops. The Creator Organ's final module, the Feedback Loop, is not an afterthought but the organ's proprioceptive sense. It ingests platform analytics (views, engagement, watch time), audience comments, and A/B test results, then distills them into a dense vector of "creative nutrients." These nutrients—patterns like "fast cuts increase retention in the first 3 seconds" or "question-based hooks outperform statements"—are injected back into the Script Generator and Assembly Engine. The system learns not by retraining giant models but by adjusting the knobs of its existing heuristics. A failed video becomes data; a viral trend becomes a template. The organ breathes in feedback and exhales refined content.</p>
-<h3>Fault Tolerance as a Feature</h3>
-<p>Media production is a domain of constant failure: API rate limits, rendering glitches, upload timeouts. The Creator Organ treats these not as exceptions to be caught but as expected environmental conditions. Each module implements a graduated response protocol. For a minor timeout, it retries with exponential backoff. For a service outage, it fails over to a degraded mode (e.g., generating a text‑only post if video assembly fails). For a catastrophic error, it emits a structured error event to the Consciousness Stream and yields control, allowing upstream modules to adjust their strategy. This design acknowledges that the external world—social platforms, AI services, network connectivity—is fundamentally unreliable. Resilience is baked into the organ's cellular structure.</p>
-<h3>Integration with the Triune Stack</h3>
-<p>The Creator Organ does not exist in isolation. It plugs directly into the Brain's Triune Stack—the layered architecture of reptile, mammal, and human consciousness. The Reptile layer provides the basic autonomic functions: heartbeat monitoring, resource allocation, and restart protocols. The Mammal layer handles emotional context, tagging content with appropriate tonal weights (urgency, curiosity, warmth). The Human layer injects strategic intent, aligning the organ's output with overarching goals like audience growth or brand positioning. This integration ensures the organ's outputs are not just technically sound but contextually coherent, serving the Brain's higher objectives without requiring manual oversight.</p>
-</div>
-    </article>
-  </main>
-
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- FOOTER (Dark Chrome) -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <footer id="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <span class="nav-glyph">∞</span>
-          <span class="nav-name">unwind<span class="nav-accent">code</span></span>
-          <p class="footer-desc" data-i18n="footer.desc">Intelligence that evolves.<br />Growing organisms since 2026.</p>
-        </div>
-        <div class="footer-col">
-          <h5 data-i18n="footer.organisms">Organisms</h5>
-          <a href="/#organisms" data-i18n="org.vc.title">Visual Cortex</a>
-          <a href="/#organisms" data-i18n="org.im.title">Infinity Mirror</a>
-          <a href="/#organisms" data-i18n="org.fo.title">Financial Organisms</a>
-          <a href="/#organisms" data-i18n="org.bc.title">Brain Cell Architecture</a>
-        </div>
-        <div class="footer-col">
-          <h5 data-i18n="footer.learn">Learn</h5>
-          <a href="/#architecture" data-i18n="nav.architecture">Architecture</a>
-          <a href="/#philosophy" data-i18n="nav.philosophy">Philosophy</a>
-          <a href="/#vision" data-i18n="footer.vision">Vision 2030</a>
-        </div>
-        <div class="footer-col">
-          <h5 data-i18n="footer.community">Community</h5>
-          <a href="/#cta" data-i18n="footer.join">Join Updates</a>
-          <a href="/#blog" data-i18n="footer.blog">Blog</a>
-          <a href="#" id="footer-chat-link" data-i18n="footer.talk">Talk to the Brain</a>
-        </div>
+  <main>
+    <section class="tx-hero">
+      <div class="container">
+        <div class="tx-hero-kicker"><span class="tx-section-num">TRANSMISSION 013</span></div>
+        <h1>The Creator Organ:<br>Autonomous Content Production at Scale</h1>
+        <p class="tx-hero-sub">The title says autonomous content production at scale. The record says five reels finished, none posted, every step owned by a named seat, and the last step in a person’s hands. This note describes what exists and marks the rest as design.</p>
+        <div class="tx-hero-meta"><span>Revised November 2026</span><span>·</span><span>Field note</span><span>·</span><span>Creator organ</span><span>·</span><span>10 min read</span></div>
+        <p class="tx-dated">This note describes the Creator OS code in the Brain repository (written January 2026, with editor work in May 2026) and the agency’s production chain (written 7 November 2026), with the state recorded on 8 November 2026. It first appeared on the site on 16 May 2026, headed “April 2026”.</p>
       </div>
-      <div class="footer-bottom">
-        <span data-i18n="footer.copyright">© 2026 Unwind Code. All rights reserved.</span>
-        <span class="footer-tagline" data-i18n="footer.tagline">The future learns from itself. ∞</span>
+    </section>
+
+    <div class="container">
+
+      <div class="rv-box" id="revised">
+        <h2>Revised 10 November 2026</h2>
+        <p><strong>What changed.</strong> The April text described a modular, self-negotiating, fault-tolerant engine that produces and distributes content on its own. This revision describes what the record supports: a production chain run by named seats under the operator’s word, a code base of which one part is built and tested, the top-level pipeline is a stub and the rest is untested, and a count of reels made and posted.</p>
+        <p>The original title and route are unchanged. The title is a claim this note does not make.</p>
+      </div>
+      <div class="rv-box rv-corr"><h2>Correction, 10 November 2026</h2><p><strong>The title.</strong> “Autonomous content production at scale” is withdrawn. As of 8 November 2026: five reels finished, none posted, none accepted. Every step has an owner and a gate, and posting is the operator’s hand.</p></div>
+      <div class="rv-box rv-corr"><h2>Correction, 10 November 2026</h2><p><strong>The engine.</strong> The April text said modules discover each other over JSON-RPC, retry with backoff, fail over to degraded modes and learn from platform analytics. The Creator OS code contains none of these. Its top-level pipeline returns “not yet implemented”, and its analytics collector is a to-do. One part of the visual editor does build a learning record from a metrics snapshot that is handed to it, using two fixed rules, and has three tests; nothing collects the metrics, and no record shows it run on a real post.</p></div>
+
+      <section class="tx-section" id="claims">
+        <div class="tx-section-head"><span class="tx-section-num">01</span><h2>What was claimed, and the trail</h2></div>
+        <div class="tx-section-label">Ten published claims, each checked</div>
+        <div class="tx-prose"><p>The April text was a biological blueprint. It compared a content engine to lungs: independent modules, a thin membrane of protocol, a feedback sense, fault tolerance as a feature. As a way to think about modular design it is vivid, and parts of it are useful.</p>
+<p>As a description of what exists, it ran ahead of the code. The ledger below lists ten of its claims and what the record shows. Filter by state and open the cards. The pattern is the same as in the other notes in this series: a true core, wrapped in a larger story that has no trail.</p>
+<p>The metaphor survives as language for a design. The lung image says: small parts, each with one job, and nothing central that can fail the whole. The chain described in section 03 does follow that principle, and the ledger marks it Design where it is intent and Built where a record exists.</p></div>
+        <div class="dl-filters" role="group" aria-label="Filter published claims by state" id="fl-filters"></div>
+        <div class="dl-count" id="fl-count" aria-live="polite"></div>
+        <div class="dl-grid" id="fl-grid"></div>
+      </section>
+
+      <section class="tx-section" id="code">
+        <div class="tx-section-head"><span class="tx-section-num">02</span><h2>The code: one part built, the rest promised</h2></div>
+        <div class="tx-section-label">The Creator OS in the Brain repository</div>
+        <div class="tx-prose"><p>The Creator OS is a folder of modules written mainly in January 2026 around a master plan whose tagline is “From thought to post in one breath”. Seven pieces are listed below. Pick each to see what is in it.</p>
+<p>Two facts stand out. The top-level pipeline that would join the pieces is a stub: asked to create content, it returns a status of pending and a message that it is not yet implemented, and its status report lists every component as pending. And the one part with a real test suite, the visual editor, is not what made the reels.</p>
+<p>That is not an indictment of a January prototype. It is the reason the page cannot say the organ produces content autonomously. The honest sentence is that the prototype has parts, one part has been hardened, and the working production runs elsewhere.</p></div>
+        <div class="mod-explorer"><div class="mod-grid" id="ex-grid" role="group" aria-label="The Creator OS parts"></div><div class="mod-detail" id="ex-detail" aria-live="polite"></div></div>
+      </section>
+
+      <section class="tx-section" id="chain">
+        <div class="tx-section-head"><span class="tx-section-num">03</span><h2>How the reels were actually made</h2></div>
+        <div class="tx-section-label">One owner per step, with a gate before the next</div>
+        <div class="tx-prose"><p>The reels were made by a chain of steps, each owned by one seat, written down on 7 November 2026 after a review found that a single generalist had done every step of the property reel. A seat is a named procedural profile run as one delegated agent. The operator rules the brief, the budget and the final word.</p>
+<p>Walk the chain below. Notice what repeats: each step has a named owner, an input it reads, an output it writes, and a gate. Notice also what is absent: there is no step in which a machine decides to post. Step 16 ends at a proposal, and the operator posts. Two seats, and only two, may spend credits, and only inside a cap the operator sets.</p>
+<p>When one assistant runs several seats, the chain says it must label that fact and not claim independent review. That rule matters because several of the twenty seats have never run as themselves: as of 8 November, five of twenty had.</p></div>
+        <div class="md-wrap">
+          <span class="md-label">Walk a reel through the chain · step by step</span>
+          <div class="md-meter" id="ch-progress" aria-live="polite"></div>
+          <div class="md-out" aria-live="polite" style="grid-template-columns:1fr 1fr">
+            <div class="md-col"><h3 id="ch-title">Step</h3><p id="ch-owner"></p><p id="ch-gate" style="margin-top:8px"></p></div>
+            <div class="md-col"><h3>What happens here</h3><p id="ch-who"></p><p id="ch-flag" style="margin-top:8px"></p></div>
+          </div>
+          <div class="md-btnrow"><button class="dl-chip" type="button" id="ch-prev" aria-pressed="false">Previous step</button><button class="dl-chip" type="button" id="ch-next" aria-pressed="false">Next step</button><button class="dl-chip" type="button" id="ch-end" aria-pressed="false">Jump to the posting step</button></div>
+          <p class="md-note">Source: the chain document written 7 November 2026. Steps 4 and 13 pair two seats, which is why the document’s table has twenty rows for eighteen numbers.</p>
+        </div>
+      </section>
+
+      <section class="tx-section" id="record">
+        <div class="tx-section-head"><span class="tx-section-num">04</span><h2>What has been produced, dated</h2></div>
+        <div class="tx-section-label">Reels made, reels posted</div>
+        <div class="tx-prose"><p>A fair test of “at scale” is a count of finished work and of work out in the world. The record gives both, and both are small.</p></div>
+        <div class="wf-steps" id="wf-steps"><div class="wf-step"><div class="wf-dot wf-dot-1">01</div><h3>4 to 6 November, five reels built</h3><p>Four character-episode reels and one property reel are built across these three days. The state record of 8 November counts them as five reels final.</p></div><div class="wf-step"><div class="wf-dot wf-dot-2">02</div><h3>5 November, the operator’s rules</h3><p>Every video carries music that tells the story, is finished in a professional editing tool, and carries no burned-in AI banner. Disclosure moves to the caption, the comments and the platform label.</p></div><div class="wf-step"><div class="wf-dot wf-dot-3">03</div><h3>7 November, the review and the chain</h3><p>A review of the property reel finds that no production seat had been loaded and that one generalist had done every step. Nine production seats are hired and the one-owner-per-step chain is written.</p></div><div class="wf-step"><div class="wf-dot wf-dot-4">04</div><h3>8 November, the count</h3><p>Five reels final, none posted or accepted. Two still carry the band. Five of twenty seats have ever run as themselves. The first reel through the whole chain is still ahead.</p></div><div class="wf-step"><div class="wf-dot wf-dot-5">05</div><h3>10 November, this revision</h3><p>The journals for 9 and 10 November hold no reel work, so the 8 November count stands as the latest record. The posting hand is the operator’s, and the property reel waits on rights.</p></div></div>
+        <div class="tx-prose tx-after"><p>The baseline that matters for any later claim is the last number: reels posted and accepted, zero. Everything the consolidation work measures about the creative lane starts there. Until a reel is posted, nothing in the feedback half of the old blueprint has anything to read.</p></div>
+      </section>
+
+      <section class="tx-section" id="design">
+        <div class="tx-section-head"><span class="tx-section-num">05</span><h2>What is design, what is built</h2></div>
+        <div class="tx-section-label">Four statements, sorted</div>
+        <div class="tx-prose"><p>The cards below sort the larger claims one more way. Built means a record shows it. Design means it is intended and not yet true. Not claimed means this note will not say it.</p>
+<p>One of them deserves a plain sentence. The word scale appeared in the title. A system that has finished five reels and posted none has not scaled; it has begun. The most useful number for the next version of this note is not a larger count. It is the first reel that passes every gate, is accepted by the operator, and is posted, with a receipt to show it.</p></div>
+        <div class="mem-grid" id="cd-grid"></div>
+      </section>
+
+      <section class="tx-section" id="not-claimed">
+        <div class="tx-section-head"><span class="tx-section-num">06</span><h2>What this note does not claim</h2></div>
+        <div class="tx-section-label">Boundaries, stated</div>
+        <div class="tx-prose"><p>The Creator Organ is a design with a human-run production chain beside it. These are the limits.</p></div>
+        <div class="tx-not"><h3>What this note does not claim</h3><ul><li>It does not claim that content is produced autonomously. Every step has an owner and a gate, and the operator holds the final word and the posting hand.</li><li>It does not claim scale. Five reels have been finished and none posted or accepted, as of 8 November 2026.</li><li>It does not claim that the Creator OS code runs the production. Its top-level pipeline is a stub and the reels were finished with other tools.</li><li>It does not claim protocols, discovery, failover, backoff or stream identifiers; none exists in the code. It does not claim a feedback loop that learns from real posts: the one learning-record builder has three tests, and no post exists to measure.</li><li>It does not claim revenue, a client, a contract or a price. None is recorded.</li><li>Not done, on purpose: no automatic posting; no seat holds a platform credential; the first reel through all eighteen steps is still ahead.</li></ul></div>
+        <div class="tx-related">Related: <a href="/transmissions/40-twenty-seats-one-owner-per-step">Transmission 40, twenty seats, one owner per step</a> · <a href="/transmissions/41-the-audit-counted-eighty-seven-agents">Transmission 41, the audit</a> · <a href="/transmissions/43-an-organism-that-hires">Transmission 43, an organism that hires</a></div>
+      </section>
+
+      <div class="tx-cta">
+        <h2>Count what was posted.</h2>
+        <p>The honest word for today is assisted, small and unposted. The work is to make that number grow with a receipt for each one.</p>
+        <a class="btn btn-primary btn-lg" href="/build-with-us"><span>Build With Us</span><span class="btn-arrow">→</span></a>
       </div>
     </div>
-  </footer>
+  </main>
 
-  <script type="module" src="/main.js?v=20260605-social-preview"></script>
+  <footer id="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span><p class="footer-desc">Intelligence that evolves.<br />No claim without a trail.</p></div><div class="footer-col"><h5>Proof</h5><a href="/proof">Proof Register</a><a href="/proof/ledger">Live Ledger</a><a href="/transmissions">Transmissions</a><a href="/architecture">Architecture</a></div><div class="footer-col"><h5>Organisms</h5><a href="/organisms">All Organisms</a><a href="/organisms/financial-organisms">Financial Organisms</a><a href="/organisms/infinity-mirror">Infinity Mirror</a></div><div class="footer-col"><h5>Next</h5><a href="/build-with-us">Build With Us</a><a href="/#cta">Subscribe</a></div></div><div class="footer-bottom"><span>© 2026 Unwind Code. All rights reserved.</span><span class="footer-tagline">The future learns from itself. ∞</span></div></div></footer>
+
+  <script>
+  (function () {
+    // All data below is static and client-side. Nothing on this page makes a network call.
+    function el(id) { return document.getElementById(id); }
+    function initFilter(cfg) {
+      var chips = el('fl-filters'), grid = el('fl-grid'), count = el('fl-count');
+      if (!chips || !grid || !count) { return; }
+      var label = {}; cfg.states.forEach(function (s) { label[s.key] = s.label; });
+      chips.innerHTML = '<button class="dl-chip" type="button" data-state="all" aria-pressed="true">All</button>' + cfg.states.map(function (s) {
+        return '<button class="dl-chip dl-chip-' + s.cls + '" type="button" data-state="' + s.key + '" aria-pressed="false">' + s.label + '</button>';
+      }).join('');
+      var states = {}; cfg.states.forEach(function (s) { states[s.key] = s; });
+      cfg.cards.forEach(function (c) {
+        var card = document.createElement('button');
+        card.type = 'button'; card.className = 'dl-card';
+        card.setAttribute('data-state', c.state); card.setAttribute('aria-expanded', 'false');
+        card.innerHTML = '<span class="dl-state dl-state-' + states[c.state].cls + '">' + states[c.state].label + '</span><div class="dl-name">' + c.name + '</div><div class="dl-short">' + c.short + '</div><div class="dl-why">' + c.why + '</div><div class="dl-hint">The trail \u2193</div>';
+        card.addEventListener('click', function () {
+          var open = card.getAttribute('aria-expanded') === 'true';
+          card.setAttribute('aria-expanded', open ? 'false' : 'true');
+          card.querySelector('.dl-hint').textContent = open ? 'The trail \u2193' : 'Close \u2191';
+        });
+        grid.appendChild(card);
+      });
+      function apply(state) {
+        var shown = 0;
+        grid.querySelectorAll('.dl-card').forEach(function (card) {
+          var match = state === 'all' || card.getAttribute('data-state') === state;
+          if (match) { card.removeAttribute('hidden'); shown += 1; } else { card.setAttribute('hidden', ''); }
+        });
+        count.textContent = shown + ' of ' + cfg.cards.length + ' published claims';
+      }
+      chips.querySelectorAll('.dl-chip').forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          chips.querySelectorAll('.dl-chip').forEach(function (o) { o.setAttribute('aria-pressed', 'false'); });
+          chip.setAttribute('aria-pressed', 'true');
+          apply(chip.getAttribute('data-state'));
+        });
+      });
+      apply('all');
+    }
+    function initExplorer(parts, glyph) {
+      var grid = el('ex-grid'), detail = el('ex-detail');
+      if (!grid || !detail) { return; }
+      var buttons = [];
+      function show(p) {
+        buttons.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-id') === p.id ? 'true' : 'false'); });
+        detail.innerHTML = '<div class="mod-detail-title">' + p.name + '</div><span class="mod-detail-type">' + p.kind + '</span><p class="mod-detail-desc">' + p.desc + '</p><div class="mod-specs-label">What exists</div><div class="mod-specs">' + p.specs.map(function (s) { return '<span class="mod-spec">' + s + '</span>'; }).join('') + '</div><div class="mod-proof"><strong>' + p.status + '</strong> \u00b7 ' + p.proof + '</div>';
+      }
+      parts.forEach(function (p) {
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'mod-node'; b.setAttribute('data-id', p.id); b.setAttribute('aria-pressed', 'false');
+        b.innerHTML = '<span class="mod-glyph">' + glyph + '</span><div class="mod-name">' + p.name + '</div><div class="mod-path">' + p.short + '</div><div class="mod-score">' + p.status + '</div>';
+        b.addEventListener('click', function () { show(p); });
+        grid.appendChild(b); buttons.push(b);
+      });
+      show(parts[0]);
+    }
+    function initCards(items) {
+      var grid = el('cd-grid');
+      if (!grid) { return; }
+      items.forEach(function (l) {
+        var card = document.createElement('button');
+        card.type = 'button'; card.className = 'mem-card'; card.setAttribute('aria-expanded', 'false');
+        card.innerHTML = '<h4><span class="mem-tag">' + l.tag + '</span>' + l.title + '</h4><p>' + l.desc + '</p><div class="mem-extra">' + l.extra + '</div><div class="mem-hint">Click to expand \u2193</div>';
+        card.addEventListener('click', function () {
+          var open = card.getAttribute('aria-expanded') === 'true';
+          card.setAttribute('aria-expanded', open ? 'false' : 'true');
+          card.querySelector('.mem-hint').textContent = open ? 'Click to expand \u2193' : 'Click to collapse \u2191';
+        });
+        grid.appendChild(card);
+      });
+    }
+    function initTimeline() {
+      var wf = el('wf-steps');
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (wf && !reduce && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { wf.querySelectorAll('.wf-step').forEach(function (s) { s.classList.add('reveal-step'); }); io.disconnect(); }
+          });
+        }, { threshold: 0.15 });
+        io.observe(wf);
+      }
+    }
+    function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+    var filterCfg = {"states":[{"key":"built","label":"Built","cls":"d"},{"key":"design","label":"Design","cls":"b"},{"key":"corrected","label":"Corrected","cls":"e"},{"key":"removed","label":"Removed","cls":"f"}],"cards":[{"state":"removed","name":"Autonomous content production at scale","short":"The title and the thesis.","why":"On 8 November 2026: five reels finished, none posted or accepted, each made through steps owned by named seats under the operator's word. Assisted production at small scale. The word autonomous is withdrawn."},{"state":"built","name":"Five reels finished","short":"Four character-episode reels and one property reel.","why":"Built 4 to 6 November 2026, counted on 8 November. Two still carry a burned-in AI band that the 5 November rule forbids; both await re-finishing."},{"state":"built","name":"A production chain with one owner per step","short":"Written 7 November 2026.","why":"Eighteen numbered steps, each with one owner, an input, an output and a gate. A procedure document, run in part on a property reel."},{"state":"design","name":"Modules that share nothing but a protocol","short":"The lung metaphor, as a design intent.","why":"Each seat reads and writes its own files and a gate decides whether the next step starts. A convention, not a network protocol."},{"state":"removed","name":"Modules discover and negotiate over JSON-RPC","short":"Published as the core innovation.","why":"A search of the Creator OS code finds none of these. Removed."},{"state":"removed","name":"Failover, backoff and degraded modes","short":"Published as fault tolerance.","why":"None exists in the Creator OS code. In the real chain, fault handling is human: a gate stops, a seat reports, the operator decides. Removed."},{"state":"corrected","name":"The feedback loop learns what works","short":"The collector is a stub; the scorer is a fixed formula.","why":"The collector holds a to-do and returns empty metrics. The scorer weighs engagement, retention and sharing 40, 40 and 20 and emits two canned lines. Neither feeds a script or an edit."},{"state":"removed","name":"A consciousness stream ID on every job","short":"Traceability by a unique identifier.","why":"No such identifier exists. In the real chain, traceability is a receipt file and a hash on each final. Removed as published."},{"state":"built","name":"Distribution ends at a proposal","short":"The posting step stops short of posting.","why":"The distribution seat outputs a proposal. The operator posts. No seat holds a credential."},{"state":"design","name":"Platform clients and a scheduler","short":"Code exists. No record of use.","why":"Client code for three platforms and a scheduler exist. No record shows a post made through them; as of 8 November nothing was posted."}]};
+    var parts = [{"id":"cos","name":"The top-level pipeline","kind":"Stub","short":"Prompt to script to video to post.","desc":"The Creator OS has a single entry point that promises the whole pipeline. In the code, as developed on 22 January 2026 according to the development note, that entry point returns the status “pending” and a message that the pipeline is not yet implemented. Its status report lists the gateway, script generator, assembly engine, distribution and feedback loop as pending.","specs":["Entry point returns “not yet implemented”","Five components listed pending","Initialisation is a to-do"],"status":"Stub","proof":"Dated 22 January 2026 by the development note; later commits touch other parts."},{"id":"gw","name":"Gateway and asset clients","kind":"Files exist","short":"Chat bot, webhook, voice, and clients for video, voice and stock footage.","desc":"Entry-point code for a chat bot, a webhook handler and a voice interface (transcription is a to-do), plus three thin clients for generated video, synthetic voice and stock footage. Their calls cost money and need credentials; in the real chain, spending needs the operator word within a cap.","specs":["Chat bot, webhook, voice modules","Three asset clients"],"status":"Code, no tests found","proof":"No test in the repository exercises these modules."},{"id":"sg","name":"Script generator","kind":"Files exist","short":"A model client and a brand voice.","desc":"A client that asks a language model for a structured script and parses the reply, plus a brand-voice module. A function call, not a running process.","specs":["Prompt builder","Reply parser","Variation and platform optimisation calls"],"status":"Code, no tests found","proof":"Needs a provider key; no record shows a posted script from it."},{"id":"as","name":"Assembly engine","kind":"Files exist","short":"Timeline, composer and mixer.","desc":"A timeline builder, a video composer and an audio mixer. The reels were finished in a professional editing tool by the chain in section 03.","specs":["Timeline builder","Video composer","Audio mixer"],"status":"Code, not used for the reels","proof":"The chain document states that finishing happens in an NLE."},{"id":"di","name":"Distribution","kind":"Files exist","short":"Three platform clients and a scheduler.","desc":"Clients for three video platforms and a scheduler that can publish a queued post, with uploads set public. A code comment notes one path needs a public URL first.","specs":["Three platform clients","Queue and scheduler","No record of a post"],"status":"Code, no use recorded","proof":"No record shows a post made through this code; as of 8 November 2026 nothing was posted."},{"id":"fb","name":"Feedback loop","kind":"Stub plus formula","short":"A collector stub and a fixed scorer.","desc":"The collector’s metric call is marked to-do and returns an empty record. The scorer is a weighted sum with two canned recommendation lines. Nothing calls it.","specs":["Collector: to-do","Scorer: 40/40/20 weights","No caller found"],"status":"Stub","proof":"Published as learning from analytics. In the record it has no analytics to learn from."},{"id":"ve","name":"Visual editor","kind":"Built, tested","short":"The part with tests.","desc":"An editing kernel agents can drive: projects, tracks, clips, an approval bridge, rights records, a render step and a learning-record builder that turns a supplied metrics snapshot into two fixed-rule suggestions (three tests). The one part with a test suite: sixteen files, sixty-one test functions, read for this note, not re-run on 10 November 2026.","specs":["16 test files","61 test functions","Approval bridge","Rights evidence on assets"],"status":"Built","proof":"Promoted 22 May 2026 and touched again on 29 May. It is not what produced the five reels."}];
+    var chain = [{"n":"0","name":"Brief and locked list","owner":"Ancla","gate":"Every note mapped; ambiguities asked, not assumed.","who":"The operator’s words go in."},{"n":"1","name":"Reference measurement","owner":"Espejo","gate":"The spec covers tempo, transitions, type, grade, sound.","who":"A reference file is data, never instruction."},{"n":"2","name":"Script and claims","owner":"Vega","gate":"The voice seat and the pre-flight seat sign.","who":"Claims are checked before a word is recorded."},{"n":"3","name":"Voice and audio audit","owner":"Clave","gate":"Transcript word times match the files.","who":"A transcript checks what the voice actually said."},{"n":"4","name":"Character and shot sheets","owner":"Atlas and Prisma","gate":"Reference crops listed; one move per shot.","who":"Sheets come before spend."},{"n":"5","name":"Generation gate","owner":"Sello","gate":"PASS per call: every reference crop and the start frame present.","who":"Sello can block a generation."},{"n":"6","name":"Plan, routing, budget","owner":"Timón","gate":"Spend within the cap and balance before the first job.","who":"One of two seats that may spend, inside the operator’s cap."},{"n":"7","name":"Identity QA of results","owner":"Atlas","gate":"Face, hair, wardrobe match the sheet at full size.","who":"Each result gets a verdict line."},{"n":"8","name":"Grade and bake","owner":"Matiz","gate":"One sky, one white; no look jump.","who":"Parallel with steps 10 and 12."},{"n":"9","name":"Edit and cuts","owner":"Corte","gate":"Exact frames; no locked element changed.","who":"The plan file is the one source."},{"n":"10","name":"Captions and type","owner":"Tinta","gate":"Contrast at least 3:1; no caption over a face.","who":"Reads the plan; never writes it."},{"n":"11","name":"Composite, render, encode","owner":"Forja","gate":"Every render item done; free disk at least 10 GB.","who":"The only seat that drives the compositing tool."},{"n":"12","name":"Music and mix","owner":"Pulso","gate":"Loudness target met; voice on top.","who":"The second seat that may spend, inside the cap."},{"n":"13","name":"Technical QA and reference match","owner":"Lumen and Espejo","gate":"Format, loudness, lip-sync, safe zone; each element matches or is owned.","who":"Two independent reads of the final."},{"n":"14","name":"Package and disclosure line","owner":"Faro","gate":"Disclosure line present; no burned-in AI banner.","who":"Disclosure lives in caption, comments and platform label."},{"n":"15","name":"Pre-flight: policy and rights","owner":"Escudo","gate":"Rights state stated; claims sourced.","who":"Where the property reel waits on photo and listing rights."},{"n":"16","name":"Posting proposal","owner":"Puente","gate":"Ends at the proposal.","who":"The operator posts. No seat schedules or publishes, and none holds a credential."},{"n":"17","name":"Measure and listen","owner":"Cénit and Eco","gate":"Per their profiles, on live-post records.","who":"No live post exists yet, so nothing to read."}];
+    var cardItems = [{"tag":"built","title":"Human-owned gates","desc":"Every step ends in a gate before the next step begins.","extra":"Final means the operator’s word, never a quality score. A seat does not approve its own output. These are written rules in the chain document, not a measured behaviour."},{"tag":"design","title":"A dispatcher for the chain","desc":"A proposed way to run the chain lane by lane.","extra":"The consolidation roadmap proposes a dispatcher live for this lane after a clean seven-day dry run. A plan; it has not run."},{"tag":"design","title":"Measure, then learn","desc":"The last two steps are meant to feed the next brief.","extra":"They cannot yet: no post exists to measure. The steps stay so the loop can close the day there is something to read."},{"tag":"not claimed","title":"Scale","desc":"The number is five.","extra":"Five reels in three days, human-supervised, is small. Scale needs a measured baseline of posted, accepted reels. That baseline is zero today."}];
+    initFilter(filterCfg);
+    initExplorer(parts, 'MODULE');
+    initCards(cardItems);
+    initTimeline();
+    var idx = 0;
+    function showStep() {
+      var s = chain[idx];
+      var bar = ''; for (var i = 0; i < chain.length; i++) { bar += i < idx ? '\u25a0' : (i === idx ? '\u25c6' : '\u25a1'); }
+      el('ch-progress').textContent = bar + '  step ' + s.n + ' (steps 0 to 17)';
+      el('ch-title').textContent = 'Step ' + s.n + ' \u00b7 ' + s.name;
+      el('ch-owner').textContent = 'Owner: ' + s.owner;
+      el('ch-gate').textContent = 'Gate: ' + s.gate;
+      el('ch-who').textContent = s.who;
+      var flag = 'A seat prepares; the gate decides.';
+      if (s.n === '6' || s.n === '12') { flag = 'May spend credits, only inside the operator cap.'; }
+      if (s.n === '16') { flag = 'The chain stops here. A person posts. As of 8 November 2026, no reel had reached this hand as an accepted post.'; }
+      if (s.n === '17') { flag = 'Nothing to measure yet: zero reels posted.'; }
+      el('ch-flag').textContent = flag;
+      el('ch-prev').disabled = idx === 0;
+      el('ch-next').disabled = idx === chain.length - 1;
+    }
+    el('ch-prev').addEventListener('click', function () { if (idx > 0) { idx -= 1; showStep(); } });
+    el('ch-next').addEventListener('click', function () { if (idx < chain.length - 1) { idx += 1; showStep(); } });
+    el('ch-end').addEventListener('click', function () { idx = 16; showStep(); });
+    showStep();
+
+  })();
+  </script>
+  <script type="module" src="/main.js?v=20260615-system-state"></script>
 </body>
 </html>
