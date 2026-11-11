@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Transmission 17: The Brain Is Becoming an Organism, Not an App | Unwind Code</title>
-  <meta name="description" content="Product audit from May 22, 2026: what is real, what is missing, and what gets built next." />
+  <meta name="description" content="A 22 May 2026 product audit, rechecked on 10 November against the Brain repository: which of the seven &quot;missing phases&quot; were built, as what, and what the word organism does and does not mean." />
   <meta name="theme-color" content="#06060c" />
   <link rel="canonical" href="https://www.unwindcode.ai/transmissions/17-the-brain-is-becoming-an-organism-not-an-app" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Transmission 17: The Brain Is Becoming an Organism, Not an App | Unwind Code" />
-  <meta property="og:description" content="Product audit from May 22, 2026: what is real, what is missing, and what gets built next." />
+  <meta property="og:description" content="The May audit named seven missing phases. Five have commits dated the same day, one was built as review-only layers, one is still open. Plus the swap contract, tested." />
   <meta property="og:url" content="https://www.unwindcode.ai/transmissions/17-the-brain-is-becoming-an-organism-not-an-app" />
   <meta property="og:site_name" content="Unwind Code" />
   <meta property="og:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
@@ -19,19 +19,19 @@
   <meta property="og:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Transmission 17: The Brain Is Becoming an Organism, Not an App | Unwind Code" />
-  <meta name="twitter:description" content="Product audit from May 22, 2026: what is real, what is missing, and what gets built next." />
+  <meta name="twitter:description" content="The May audit named seven missing phases. Five have commits dated the same day, one was built as review-only layers, one is still open. Plus the swap contract, tested." />
   <meta name="twitter:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
   <meta name="twitter:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/style.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "The Brain Is Becoming an Organism, Not an App",
-    "description": "Product audit from May 22, 2026: what is real, what is missing, and what gets built next.",
+    "description": "Product audit from 22 May 2026, revised 10 November 2026 against the Brain repository: the seven phases it named, the cell swap contract, and the limits of the word organism.",
     "author": {
       "@type": "Organization",
       "name": "Unwind Code"
@@ -42,143 +42,845 @@
       "url": "https://www.unwindcode.ai"
     },
     "datePublished": "2026-05-22",
-    "dateModified": "2026-05-22",
+    "dateModified": "2026-11-10",
+    "keywords": [
+      "product audit",
+      "cell swap protocol",
+      "organism architecture",
+      "approval gates",
+      "review-only"
+    ],
     "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/17-the-brain-is-becoming-an-organism-not-an-app"
   }
   </script>
-</head>
-<body class="transmission-body">
+  <style>
+    .tx-page { background: var(--bg-void); color: var(--text-primary); }
+    .tx-page *, .tx-page *::before, .tx-page *::after { box-sizing: border-box; }
+    .tx-hero { padding: 160px 0 72px; text-align: center; position: relative; overflow: hidden; }
+    .tx-hero::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:800px; height:800px; background:radial-gradient(circle, rgba(110,45,190,0.12) 0%, transparent 60%); pointer-events:none; }
+    .tx-hero-kicker { margin-bottom:16px; }
+    .tx-hero h1 { font-size:clamp(2.2rem,5vw,3.5rem); font-weight:800; letter-spacing:-0.04em; line-height:1.08; margin:0 0 20px; }
+    .tx-hero-sub { font-size:1.08rem; color:var(--text-secondary); max-width:660px; margin:0 auto; line-height:1.7; }
+    .tx-hero-meta { margin-top:28px; display:flex; justify-content:center; gap:14px; font-size:0.76rem; color:var(--text-muted); font-weight:600; letter-spacing:0.06em; text-transform:uppercase; flex-wrap:wrap; }
+    .tx-section { padding:72px 0; border-top:1px solid var(--accent-border); }
+    .tx-section:first-of-type { border-top:none; padding-top:24px; }
+    .tx-section-head { display:flex; align-items:center; gap:16px; margin-bottom:10px; }
+    .tx-section-num { font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:700; color:var(--accent-hot); letter-spacing:0.15em; }
+    .tx-section h2 { font-size:clamp(1.5rem,3vw,2rem); font-weight:700; letter-spacing:-0.02em; margin:0; }
+    .tx-section-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:24px; }
+    .tx-prose { font-size:1.04rem; color:var(--text-secondary); line-height:1.8; max-width:720px; }
+    .tx-prose p { margin:0 0 22px; }
+    .tx-prose strong { color:var(--text-primary); font-weight:600; }
+    .tx-prose code, .tx-prose-code { font-family:'JetBrains Mono',monospace; font-size:0.84rem; background:rgba(110,45,190,0.1); color:var(--accent-light); padding:2px 6px; border-radius:4px; }
+    .tx-prose a, .tx-inline { color:var(--accent-light); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    .tx-quote { border-left:3px solid var(--accent); padding:18px 24px; margin:36px 0; background:rgba(110,45,190,0.05); border-radius:0 12px 12px 0; color:var(--text-primary); font-size:1.08rem; line-height:1.6; font-weight:500; max-width:720px; }
+    .tx-after { margin-top:36px; }
 
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- NAV (Dark Chrome) -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <nav id="nav">
-    <a href="/" class="nav-brand">
-      <span class="nav-glyph">∞</span>
-      <span class="nav-name">unwind<span class="nav-accent">code</span></span>
-    </a>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+    /* 01 — State filter */
+    .dl-filters { display:flex; flex-wrap:wrap; gap:10px; margin:28px 0 18px; }
+    .dl-chip { font-family:inherit; font-size:0.78rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:9px 16px; border-radius:999px; border:1px solid var(--accent-border); background:var(--bg-surface); color:var(--text-secondary); cursor:pointer; transition:border-color .2s ease, color .2s ease, background .2s ease; }
+    .dl-chip:hover { border-color:rgba(110,45,190,0.4); color:var(--text-primary); }
+    .dl-chip[aria-pressed="true"] { background:rgba(110,45,190,0.16); border-color:var(--accent-light); color:var(--text-primary); }
+    .dl-chip-a[aria-pressed="true"] { border-color:#c084fc; }
+    .dl-chip-b[aria-pressed="true"] { border-color:#38bdf8; }
+    .dl-chip-c[aria-pressed="true"] { border-color:#fbbf24; }
+    .dl-chip-d[aria-pressed="true"] { border-color:#10b981; }
+    .dl-chip-e[aria-pressed="true"] { border-color:#f59e0b; }
+    .dl-chip-f[aria-pressed="true"] { border-color:#f87171; }
+    .dl-count { font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:var(--text-muted); margin-bottom:16px; letter-spacing:0.06em; }
+    .dl-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:12px; }
+    .dl-card { font-family:inherit; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:18px; cursor:pointer; transition:border-color .25s ease, transform .25s ease, opacity .25s ease; }
+    .dl-card:hover { transform:translateY(-2px); border-color:rgba(110,45,190,0.4); }
+    .dl-card[hidden] { display:none; }
+    .dl-state { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.12em; padding:3px 9px; border-radius:999px; border:1px solid currentColor; margin-bottom:10px; }
+    .dl-state-a { color:#c084fc; } .dl-state-b { color:#38bdf8; } .dl-state-c { color:#fbbf24; }
+    .dl-state-d { color:#10b981; } .dl-state-e { color:#f59e0b; } .dl-state-f { color:#f87171; }
+    .dl-name { font-weight:700; font-size:0.96rem; margin-bottom:4px; }
+    .dl-short { font-size:0.84rem; color:var(--text-secondary); line-height:1.55; }
+    .dl-why { display:none; margin-top:12px; padding-top:12px; border-top:1px solid var(--accent-border); font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+    .dl-card[aria-expanded="true"] .dl-why { display:block; }
+    .dl-hint { font-size:0.68rem; color:var(--accent-hot); margin-top:10px; font-weight:600; letter-spacing:0.05em; }
+    .dl-law { margin-top:32px; border:1px solid rgba(251,191,36,0.28); border-radius:16px; padding:24px 28px; background:linear-gradient(180deg,rgba(251,191,36,0.07),rgba(251,191,36,0.015)); max-width:720px; }
+    .dl-law h3 { margin:0 0 10px; font-size:1rem; color:#fbbf24; }
+    .dl-law p { margin:0; font-size:0.95rem; color:var(--text-secondary); line-height:1.7; }
+
+    /* 02 — Component explorer */
+    .mod-explorer { display:grid; grid-template-columns:1fr 1.25fr; gap:24px; margin-top:32px; }
+    .mod-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; align-content:start; }
+    .mod-node { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:20px; cursor:pointer; transition:all 0.25s ease; text-align:left; font-family:inherit; color:var(--text-primary); }
+    .mod-node:hover, .mod-node[aria-pressed="true"] { border-color:rgba(110,45,190,0.45); transform:translateY(-2px); box-shadow:0 8px 24px rgba(110,45,190,0.1); }
+    .mod-node[aria-pressed="true"] { background:rgba(110,45,190,0.08); }
+    .mod-glyph { font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--accent-hot); letter-spacing:0.14em; margin-bottom:10px; display:block; }
+    .mod-name { font-weight:700; font-size:1.02rem; font-family:'JetBrains Mono',monospace; }
+    .mod-path { font-size:0.78rem; color:var(--text-muted); margin-top:6px; line-height:1.4; }
+    .mod-score { margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:#34d399; }
+    .mod-detail { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:20px; padding:32px; min-height:420px; }
+    .mod-detail-title { font-size:1.4rem; font-weight:700; margin-bottom:8px; font-family:'JetBrains Mono',monospace; }
+    .mod-detail-type { display:inline-block; font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent-hot); background:rgba(110,45,190,0.12); border:1px solid rgba(110,45,190,0.2); padding:4px 12px; border-radius:20px; margin-bottom:20px; }
+    .mod-detail-desc { color:var(--text-secondary); line-height:1.7; font-size:0.95rem; margin-bottom:22px; }
+    .mod-specs-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:10px; }
+    .mod-specs { display:flex; flex-wrap:wrap; gap:8px; }
+    .mod-spec { background:rgba(110,45,190,0.08); border:1px solid var(--accent-border); color:var(--accent-light); padding:6px 14px; border-radius:20px; font-size:0.8rem; font-weight:500; }
+    .mod-proof { margin-top:22px; padding-top:18px; border-top:1px solid var(--accent-border); font-size:0.84rem; color:var(--text-muted); line-height:1.6; }
+    .mod-proof strong { color:#34d399; font-family:'JetBrains Mono',monospace; font-weight:600; }
+
+    /* 03 — Baseline model */
+    .cr-wrap { margin-top:28px; border:1px solid rgba(56,189,248,0.22); border-radius:20px; padding:28px; background:linear-gradient(180deg,rgba(56,189,248,0.06),rgba(56,189,248,0.01)); }
+    .cr-top { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; }
+    .cr-label { font-family:'JetBrains Mono',monospace; font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:#38bdf8; }
+    .cr-faults { display:flex; flex-wrap:wrap; gap:8px; }
+    .cr-fault { font-family:inherit; font-size:0.76rem; font-weight:700; padding:8px 14px; border-radius:999px; border:1px solid var(--accent-border); background:var(--bg-surface); color:var(--text-secondary); cursor:pointer; transition:border-color .2s ease, color .2s ease; }
+    .cr-fault:hover { color:var(--text-primary); border-color:rgba(248,113,113,0.5); }
+    .cr-fault[aria-pressed="true"] { color:#fca5a5; border-color:#f87171; background:rgba(248,113,113,0.1); }
+    .cr-fault-reset[aria-pressed="true"] { color:#34d399; border-color:#10b981; background:rgba(16,185,129,0.1); }
+    .cr-cols { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .cr-col { border:1px solid var(--accent-border); border-radius:14px; padding:18px; background:rgba(0,0,0,0.22); }
+    .cr-col h3 { margin:0 0 4px; font-size:0.98rem; }
+    .cr-col-sub { font-size:0.78rem; color:var(--text-muted); margin:0 0 14px; line-height:1.5; }
+    .cr-steps { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
+    .cr-step { display:grid; grid-template-columns:22px 1fr auto; gap:10px; align-items:start; padding:10px 12px; border-radius:10px; border:1px solid var(--accent-border); font-size:0.84rem; line-height:1.5; color:var(--text-secondary); transition:border-color .2s ease, background .2s ease; }
+    .cr-step-n { font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--text-muted); padding-top:3px; }
+    .cr-step-t { color:var(--text-primary); font-weight:600; display:block; }
+    .cr-step-d { display:block; font-size:0.78rem; color:var(--text-muted); margin-top:2px; }
+    .cr-verdict { font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:700; letter-spacing:0.08em; padding-top:3px; white-space:nowrap; }
+    .cr-step.pass { border-color:rgba(16,185,129,0.35); } .cr-step.pass .cr-verdict { color:#34d399; }
+    .cr-step.fail { border-color:#f87171; background:rgba(248,113,113,0.08); } .cr-step.fail .cr-verdict { color:#fca5a5; }
+    .cr-step.skip { opacity:0.42; } .cr-step.skip .cr-verdict { color:var(--text-muted); }
+    .cr-step.blind { border-color:rgba(251,191,36,0.3); } .cr-step.blind .cr-verdict { color:#fbbf24; }
+    .cr-outcome { margin-top:16px; border-radius:12px; padding:14px 16px; font-size:0.9rem; line-height:1.6; border:1px solid var(--accent-border); background:rgba(0,0,0,0.22); color:var(--text-secondary); }
+    .cr-outcome strong { color:var(--text-primary); }
+    .cr-outcome.refused { border-color:rgba(248,113,113,0.4); }
+    .cr-outcome.clean { border-color:rgba(16,185,129,0.35); }
+    .cr-note { margin:14px 0 0; font-size:0.8rem; color:var(--text-muted); line-height:1.6; }
+
+    /* 04 — Timeline */
+    .wf-steps { position:relative; margin-top:32px; padding-left:40px; max-width:760px; }
+    .wf-steps::before { content:''; position:absolute; left:19px; top:0; bottom:0; width:2px; background:var(--accent-border); }
+    .wf-step { position:relative; margin-bottom:40px; }
+    .wf-step:last-child { margin-bottom:0; }
+    .wf-dot { position:absolute; left:-40px; top:0; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:800; z-index:2; font-family:'JetBrains Mono',monospace; }
+    .wf-dot-1 { background:rgba(110,45,190,0.15); color:var(--accent-light); border:2px solid var(--accent); }
+    .wf-dot-2 { background:rgba(79,70,229,0.15); color:#818cf8; border:2px solid #6366f1; }
+    .wf-dot-3 { background:rgba(14,165,233,0.15); color:#38bdf8; border:2px solid #0ea5e9; }
+    .wf-dot-4 { background:rgba(16,185,129,0.15); color:#34d399; border:2px solid #10b981; }
+    .wf-dot-5 { background:rgba(245,158,11,0.15); color:#fbbf24; border:2px solid #f59e0b; }
+    .wf-dot-6 { background:rgba(248,113,113,0.15); color:#fca5a5; border:2px solid #f87171; }
+    .wf-step h3 { font-size:1.06rem; font-weight:700; margin:0 0 6px; padding-top:8px; }
+    .wf-step p { font-size:0.92rem; color:var(--text-secondary); line-height:1.65; margin:0; }
+    .wf-step code { font-family:'JetBrains Mono',monospace; font-size:0.8rem; background:rgba(110,45,190,0.1); color:var(--accent-light); padding:2px 6px; border-radius:4px; }
+    .wf-step.reveal-step { opacity:0; transform:translateY(10px); animation:wfIn .6s ease forwards; }
+    .wf-step.reveal-step:nth-child(1){animation-delay:.05s}.wf-step.reveal-step:nth-child(2){animation-delay:.15s}.wf-step.reveal-step:nth-child(3){animation-delay:.25s}.wf-step.reveal-step:nth-child(4){animation-delay:.35s}.wf-step.reveal-step:nth-child(5){animation-delay:.45s}.wf-step.reveal-step:nth-child(6){animation-delay:.55s}
+    @keyframes wfIn { to { opacity:1; transform:none; } }
+
+    /* 05 — Operator's hand */
+    .oh-list { display:flex; flex-direction:column; gap:12px; margin-top:28px; max-width:760px; }
+    .oh-item { font-family:inherit; text-align:left; color:var(--text-primary); border:1px solid var(--accent-border); border-radius:14px; padding:18px 22px; background:var(--bg-surface); display:grid; grid-template-columns:auto 1fr auto; gap:16px; align-items:start; cursor:pointer; transition:border-color .2s ease; }
+    .oh-item:hover { border-color:rgba(110,45,190,0.4); }
+    .oh-item[aria-expanded="true"] { border-color:var(--accent-light); }
+    .oh-box { width:22px; height:22px; border-radius:6px; border:2px solid rgba(240,238,246,0.3); margin-top:2px; position:relative; }
+    .oh-box::after { content:''; position:absolute; inset:4px; border-radius:2px; background:transparent; }
+    .oh-t { font-weight:650; font-size:0.98rem; margin-bottom:4px; }
+    .oh-s { font-size:0.85rem; color:var(--text-muted); }
+    .oh-d { font-size:0.9rem; color:var(--text-secondary); line-height:1.65; max-height:0; overflow:hidden; transition:max-height .3s ease, margin .3s ease; }
+    .oh-item[aria-expanded="true"] .oh-d { max-height:260px; margin-top:12px; }
+    .oh-needs { font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:4px 10px; border-radius:999px; border:1px solid currentColor; white-space:nowrap; margin-top:2px; }
+    .oh-needs-key { color:#c084fc; } .oh-needs-funds { color:#fbbf24; } .oh-needs-passkey { color:#38bdf8; } .oh-needs-secret { color:#fca5a5; }
+    .oh-foot { margin-top:16px; font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:var(--text-muted); letter-spacing:0.06em; }
+
+    /* 06 — Decision cards */
+    .mem-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:28px; }
+    .mem-card { font-family:inherit; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:16px; padding:24px; cursor:pointer; transition:all 0.3s ease; }
+    .mem-card:hover { border-color:rgba(110,45,190,0.35); transform:translateY(-3px); box-shadow:0 8px 24px rgba(110,45,190,0.08); }
+    .mem-card h4 { font-size:0.98rem; font-weight:700; margin:0 0 8px; display:flex; align-items:center; gap:10px; }
+    .mem-tag { font-family:'JetBrains Mono',monospace; font-size:0.62rem; letter-spacing:0.12em; color:var(--accent-hot); border:1px solid rgba(110,45,190,0.3); padding:2px 8px; border-radius:999px; text-transform:uppercase; white-space:nowrap; }
+    .mem-card p { font-size:0.87rem; color:var(--text-secondary); line-height:1.6; margin:0; }
+    .mem-extra { display:none; margin-top:14px; padding-top:14px; border-top:1px solid var(--accent-border); font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+    .mem-card[aria-expanded="true"] .mem-extra { display:block; }
+    .mem-hint { font-size:0.68rem; color:var(--accent-hot); margin-top:12px; font-weight:600; letter-spacing:0.05em; }
+
+    /* Related + CTA */
+    .tx-related { margin-top:40px; padding-top:22px; border-top:1px solid var(--accent-border); font-size:0.9rem; color:var(--text-muted); line-height:1.7; }
+    .tx-related a { color:var(--accent-light); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    .tx-cta { text-align:center; padding:64px 40px; background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:28px; margin-top:72px; }
+    .tx-cta h2 { font-size:1.6rem; font-weight:700; margin:0 0 12px; }
+    .tx-cta p { color:var(--text-secondary); font-size:0.95rem; margin:0 auto 28px; max-width:520px; line-height:1.7; }
+
+    @media(max-width:900px) {
+      .mod-explorer, .cr-cols, .mem-grid { grid-template-columns:1fr; }
+      .mod-grid { grid-template-columns:1fr 1fr; }
+      .mod-detail { min-height:0; }
+    }
+    @media(max-width:640px) {
+      .mod-grid { grid-template-columns:1fr; }
+      .tx-hero { padding:130px 0 56px; }
+      .tx-section { padding:56px 0; }
+      .cr-wrap, .mod-detail { padding:20px; }
+      .oh-item { grid-template-columns:auto 1fr; }
+      .oh-needs { grid-column:2; justify-self:start; }
+      .cr-step { grid-template-columns:18px 1fr; }
+      .cr-verdict { grid-column:2; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .wf-step.reveal-step { animation:none; opacity:1; transform:none; }
+      .dl-card, .mod-node, .mem-card, .oh-d, .cr-step, .dl-chip, .cr-fault { transition:none; }
+      .dl-card:hover, .mod-node:hover, .mem-card:hover { transform:none; }
+    }
+  
+    .tx-note { max-width:720px; margin:0 auto 0; padding:14px 20px; border-radius:12px; font-size:0.92rem; line-height:1.65; text-align:left; }
+    .tx-note strong { color:var(--text-primary); }
+    .tx-dated { border:1px solid var(--accent-border); background:rgba(110,45,190,0.05); color:var(--text-secondary); margin-top:28px; }
+    .tx-revised { border:1px solid rgba(56,189,248,0.28); background:rgba(56,189,248,0.06); color:var(--text-secondary); margin-top:12px; }
+    .tx-correction { border:1px solid rgba(251,191,36,0.35); background:rgba(251,191,36,0.07); color:var(--text-secondary); margin-top:12px; }
+    .tx-notes { padding:0 0 8px; }
+    .tx-list { margin:0 0 22px; padding-left:22px; }
+    .tx-list li { margin-bottom:8px; }
+    .cr-btn-row { display:flex; flex-wrap:wrap; gap:8px; }
+  </style>
+</head>
+<body class="tx-page">
+
+<nav id="nav" class="scrolled">
+    <a href="/" class="nav-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
     <div class="nav-links" id="nav-links">
       <a href="/" data-i18n="nav.home">Home</a>
-      <a href="/#organisms" data-i18n="nav.organisms">Organisms</a>
-      <a href="/#architecture" data-i18n="nav.architecture">Architecture</a>
-      <a href="/#philosophy" data-i18n="nav.philosophy">Philosophy</a>
-      <a href="/#vision" data-i18n="nav.vision">Vision</a>
-      <a href="/#blog" data-i18n="nav.blog">Blog</a>
+      <a href="/organisms" data-i18n="nav.organisms">Organisms</a>
+      <a href="/architecture" data-i18n="nav.architecture">Architecture</a>
+      <a href="/proof" data-i18n="nav.proof">Proof</a>
+      <a href="/transmissions" class="active" aria-current="page" data-i18n="nav.blog">Transmissions</a>
+      <a href="/philosophy" data-i18n="nav.philosophy">Philosophy</a>
     </div>
     <div class="nav-actions">
       <button id="lang-toggle" class="lang-toggle" aria-label="Switch to Spanish">ES</button>
-      <a href="/#cta" class="nav-cta" data-i18n="nav.cta">Get in Touch</a>
+      <a href="/build-with-us" class="nav-cta" data-i18n="nav.cta">Build With Us</a>
+      <a href="/proof/ledger" class="nav-ghost">Live ledger</a>
     </div>
   </nav>
 
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- MAIN TRANSMISSION (Light Content Area) -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <main class="blog-main">
-      <a href="/transmissions" class="blog-back">
-      <span>←</span> Back to Transmissions
-    </a>
-
-    <article>
-      <header class="blog-header">
-        <div class="blog-meta-tag">
-          <span>Transmission</span>
-          <span class="blog-meta-dot"></span>
-          <span>Whitepaper</span>
-        </div>
-        
-        <h1 class="blog-title">Transmission 17: The Brain Is Becoming an Organism, Not an App</h1>
-        <p class="blog-subtitle">Product audit from May 22, 2026: what is real, what is missing, and what gets built next.</p>
-        
-        <div class="blog-meta-bottom">May 2026 / UNWIND RESEARCH LAB</div>
-      </header>
-
-      <div class="blog-content">
-<p>Product audit from May 22, 2026: what is real, what is missing, and what gets built next.</p>
-<h3>The Audit Signal</h3>
-<p>The Unwind Brain has crossed an important line. It is no longer only a collection of scripts, dashboards, agents, and experiments. The harness now has a real spine: provider-aware inference, durable runs, approval surfaces, Web3 simulation ledgers, runtime activation gates, Creator OS pathways, and a Workbench that can see more than static status.</p>
-<p>That does not make it finished. It makes the next question sharper.</p>
-<p>The question is no longer, "Can this system do interesting things?" It can. The question is, "Can this system become a product organism that another human can safely operate, understand, extend, and trust with their own models, keys, cells, media, and workflows?"</p>
-<p>The answer is: not yet. But the shape is now visible.</p>
-<h3>The Organism Rule</h3>
-<p>Unwind Code does not build apps in the normal sense. An app displays state and waits for a user. An organism keeps posture. It observes, reasons, acts, remembers, learns from consequence, and changes its own structure without losing its identity.</p>
-<p>The public rule is simple: every part must be replaceable. A Brain cell, model provider, approval transport, wallet adapter, memory backend, renderer, publisher, gateway channel, or Visual Editor tool should be swappable without breaking the organism.</p>
-<p>That rule turns modularity into a product requirement. A cell is not production-ready just because it works once. It must declare its identity, capabilities, input contract, output contract, risk class, approval scope, tests, lifecycle state, and rollback behavior. It must be possible to inspect it, sandbox it, compare it against the cell it replaces, disable it, and restore the prior state.</p>
-<p>This is the next named product phase: Cell Swap Protocol.</p>
-<h3>The Visual Editor Is a Core Organ</h3>
-<p>The newest Visual Editor work is not side work. It is the Creator OS execution lane.</p>
-<p>The Visual Edit Document gives the Brain a structured editing state instead of a pile of GUI clicks. The local renderer, review package, timeline model, asset intelligence, professional handoff, and learning loop give the organism a path from idea to media artifact. The cockpit gives the human a place to inspect what the Brain is proposing before it touches client work, public output, or paid provider calls.</p>
-<p>That matters because the organism thesis must become visible. If the Brain learns something from a harness run, that learning should be able to become a draft. If the draft survives review, it should become a staged transmission. If the staged transmission is approved, it should update the public site and write publication memory back into the Brain.</p>
-<p>That is not content automation. That is a nervous system closing a loop.</p>
-<h3>The Market Reality</h3>
-<p>The market has already moved. Codex, GitHub Copilot's cloud agent, Claude Code, Cursor cloud agents, Devin, Replit Agent, OpenHands, LangGraph, and wallet-agent platforms are all pointing in the same direction: agents are becoming background workers with cloud environments, PR loops, review gates, memory, tool integrations, and enterprise controls.</p>
-<p>Unwind Brain is not behind because it lacks ambition. It is behind where products usually win: onboarding, hosted demos, team permissions, GitHub issue-to-PR workflows, artifact browsers, observability, install polish, documentation, and release discipline.</p>
-<p>Its edge is different. It is governance. Owner approval. Simulation before execution. No-secret packets before vault resolution. Wallet proposals before signing. Mission-fit language before blind automation. "Money as armor, not god" is not a slogan if the system can prove it refused to spend, sign, publish, or mutate without the right gate.</p>
-<p>The product must now make that edge obvious to a user in the first session.</p>
-<h3>The Missing Phases</h3>
-<p>The next build sequence is clear.</p>
-<p>P0-A: promote the Visual Editor into the official product map. Protect the work, commit or isolate it cleanly, add it to CI, and treat it as the Creator OS execution surface.</p>
-<p>P0-B: merge or port the verified P3.17 owner decision packets into mainline after the current Visual Editor work is protected.</p>
-<p>P0-C: define the Cell Swap Protocol. Every cell and adapter needs a manifest, compatibility tests, lifecycle status, health evidence, kill switch, and rollback path.</p>
-<p>P3.18: add the decision-review gate. Owner packets should move through approve, hold, reject, request changes, and exportable audit evidence.</p>
-<p>VED-INT: wire Visual Editor proposals, render packages, handoff bundles, and learning records into the approval inbox and public proof loop.</p>
-<p>P4-PROD: build the product shell: onboarding, approval inbox, run timeline, artifact browser, GitHub issue-to-branch-to-PR workflow, and outcome metrics.</p>
-<p>P5-PUBLIC: make the public site an organism surface. The site should show transmissions, a safe read-only Brain demo, waitlist intake, and visible proof of work shipped, risks avoided, capital protected, and clarity gained.</p>
-<h3>What Gets Built Next</h3>
-<p>The next phase is not more theory. It is product discipline.</p>
-<p>The Brain needs a setup path where a human can bring their own keys, models, vault references, workspaces, and policy preferences. It needs a Workbench where the human can see every active run, proposed cell, draft transmission, wallet simulation, Visual Editor package, and approval request in one place.</p>
-<p>It needs a cell catalog where every organ is inspectable. Banker. Security. Invicta. Visual Editor. Creator OS. Gateway. Memory. Web3 simulator. Future user-created cells. Each one should have identity, version, health, permissions, tests, dependencies, and replacement rules.</p>
-<p>It needs a public proof loop where the organism's learning becomes visible without exposing secrets or bypassing human judgment.</p>
-<p>That is the difference between shipping another dashboard and growing an organism.</p>
-<p>The dashboard shows what happened.</p>
-<p>The organism remembers what happened, changes its structure, and becomes safer the next time it acts.</p>
-</div>
-    </article>
-  </main>
-
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- FOOTER (Dark Chrome) -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <footer id="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <span class="nav-glyph">∞</span>
-          <span class="nav-name">unwind<span class="nav-accent">code</span></span>
-          <p class="footer-desc" data-i18n="footer.desc">Intelligence that evolves.<br />Growing organisms since 2026.</p>
-        </div>
-        <div class="footer-col">
-          <h5 data-i18n="footer.organisms">Organisms</h5>
-          <a href="/#organisms" data-i18n="org.vc.title">Visual Cortex</a>
-          <a href="/#organisms" data-i18n="org.im.title">Infinity Mirror</a>
-          <a href="/#organisms" data-i18n="org.fo.title">Financial Organisms</a>
-          <a href="/#organisms" data-i18n="org.bc.title">Brain Cell Architecture</a>
-        </div>
-        <div class="footer-col">
-          <h5 data-i18n="footer.learn">Learn</h5>
-          <a href="/#architecture" data-i18n="nav.architecture">Architecture</a>
-          <a href="/#philosophy" data-i18n="nav.philosophy">Philosophy</a>
-          <a href="/#vision" data-i18n="footer.vision">Vision 2030</a>
-        </div>
-        <div class="footer-col">
-          <h5 data-i18n="footer.community">Community</h5>
-          <a href="/#cta" data-i18n="footer.join">Join Updates</a>
-          <a href="/#blog" data-i18n="footer.blog">Blog</a>
-          <a href="#" id="footer-chat-link" data-i18n="footer.talk">Talk to the Brain</a>
-        </div>
+  <main>
+    <section class="tx-hero">
+      <div class="container">
+        <div class="tx-hero-kicker"><span class="tx-section-num">TRANSMISSION 017</span></div>
+        <h1>The Brain Is Becoming<br>an Organism, Not an App</h1>
+        <p class="tx-hero-sub">On 22 May 2026 the Brain was audited as a product and seven phases were named as missing. This note rechecks that list against the repository on 10 November 2026, shows the swap contract that came out of it, and says plainly what "organism" is: a way of describing a design, not a finding about a machine.</p>
+        <div class="tx-hero-meta"><span>May 2026, revised November 2026</span><span>&middot;</span><span>Product audit</span><span>&middot;</span><span>Organism vs app</span><span>&middot;</span><span>9 min read</span></div>
+        <div class="tx-note tx-dated"><strong>Dated.</strong> This note describes the Brain repository as audited on 22 May 2026 and as read again on 10 November 2026. Commit dates quoted below are the dates recorded in that repository. Nothing here describes the state of any live deployment.</div>
+        <div class="tx-note tx-revised"><strong>Revised 10 November 2026.</strong> The seven-phase list now carries a status for each phase from the repository record. The paragraph that named other companies’ agent products as "the market" is removed: it was a May snapshot that was not re-checked. Three interactive panels were added, and a section that states the limits of the metaphor.</div>
+        <div class="tx-note tx-correction"><strong>Correction, 10 November 2026.</strong> The May text called the seven phases "missing" and said the answer to "can another human safely operate this" was "not yet" with "the shape now visible". Five of the seven phases (P0-A, P0-B, P0-C, P3.18 and VED-INT) have commits dated 22 May 2026, the same day. A sixth (P4-PROD) was started the same day as review-only layers. The seventh (P5-PUBLIC) is not matched by any commit and is still open. "Missing" was the right word for hours, not for months. "Not yet" is still the honest answer to the operability question: nothing in the record shows a second person operating the Brain.</div>
       </div>
-      <div class="footer-bottom">
-        <span data-i18n="footer.copyright">© 2026 Unwind Code. All rights reserved.</span>
-        <span class="footer-tagline" data-i18n="footer.tagline">The future learns from itself. ∞</span>
+    </section>
+
+    <div class="container">
+
+      <section class="tx-section" id="the-audit">
+        <div class="tx-section-head"><span class="tx-section-num">01</span><h2>The audit, as written on 22 May</h2></div>
+        <div class="tx-section-label">What the original note said, and what it rested on</div>
+        <div class="tx-prose">
+          <p>The original note opened with a line that was easy to read as a boast: the Brain had "crossed an important line" and was "no longer only a collection of scripts, dashboards, agents, and experiments". The part with a trail was narrower. By 22 May the repository had a run ledger, an event stream, a harness that stores durable runs, a long chain of numbered gates that prepare packets for the owner to review, a Visual Editor in the Creator OS area, and an operator workbench in the web app.</p>
+          <p>The note then asked a question: can another human safely operate this system with their own models, keys, cells, media and workflows? It answered "not yet". That answer is the most useful sentence in the original and it is the one that has held up. On 10 November this note found no run by a second operator anywhere in the record.</p>
+          <p>What the note called an <strong>organism rule</strong> was a product requirement: every part must be replaceable, and replacing it must be inspectable, reversible and reviewed. An app, in this note’s vocabulary, displays state and waits for a user. An organism, in the same vocabulary, observes, remembers, and changes its structure under review without losing its identity. That is a statement of intent for a design. It is not a claim that the software has a self.</p>
+          <p>Everything below separates three things the first version ran together: what a commit shows was built, what was built only as a review-only layer that cannot act, and what is still a plan.</p>
+        </div>
+
+        <div class="dl-law"><h3>How to read the word "organism" on this site</h3><p>It names a design discipline: parts that declare what they are, can be inspected, replaced and rolled back, and that stop at an approval boundary. Where a metaphor appears, the code or the test that stands behind it is named next to it.</p></div>
+      </section>
+
+      <section class="tx-section" id="the-seven-phases">
+        <div class="tx-section-head"><span class="tx-section-num">02</span><h2>The seven phases, one by one</h2></div>
+        <div class="tx-section-label">Status from the repository record, 10 November 2026</div>
+        <div class="tx-prose">
+          <p>The note listed seven items under "The Missing Phases". The panel below gives each one a status taken from commit dates and from the modules that exist. The chips filter by status; each card opens to say what the commit does and, as important, what it deliberately does not do.</p>
+          <p>The pattern is consistent. Every phase that touches anything with consequence was built as a gate that writes a review packet and stops. That is why the dates cluster: a review-only packet is quick to write and does not need an environment, keys or a counterparty. A phase marked "built" here means the packet and its tests exist, not that anything downstream has run.</p>
+        </div>
+        <div class="dl-filters" role="group" aria-label="Filter phases by status" id="phases-chips"></div>
+        <div class="dl-count" id="phases-count" aria-live="polite"></div>
+        <div class="dl-grid" id="phases-grid"></div>
+      </section>
+
+      <section class="tx-section" id="the-swap-contract">
+        <div class="tx-section-head"><span class="tx-section-num">03</span><h2>Every part replaceable: the contract in code</h2></div>
+        <div class="tx-section-label">P0-C · the ten slots</div>
+        <div class="tx-prose">
+          <p>The organism rule produced one concrete artifact: a manifest of ten slots that a replacement can be proposed for. The explorer below lists them. Select a slot to see its role as the code states it and the approvals a swap would need.</p>
+          <p>Three properties are common to all ten, and they are the substance behind the metaphor. A slot declares a compatibility contract: the candidate must expose a manifest, declare capabilities, provide a rollback plan, pass tests before activation, avoid secret material and start review-only. A slot declares an activation policy in which owner approval is required, activation and route mutation are not allowed in this phase, a kill switch is required and a rollback rehearsal is required. And the whole protocol has a single execution boundary that is closed: route mutation, runtime activation, wallet execution, vault resolution and public writes are all false.</p>
+          <p>Two slots carry an extra approval: the wallet slot needs a simulation review and the publisher slot a content review. Neither is a claim that the slot is live.</p>
+        </div>
+        <div class="mod-explorer">
+          <div class="mod-grid" id="slots-grid" role="group" aria-label="Swappable slots"></div>
+          <div class="mod-detail" id="slots-detail" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="tx-section" id="the-check">
+        <div class="tx-section-head"><span class="tx-section-num">04</span><h2>A candidate meets the contract</h2></div>
+        <div class="tx-section-label">The compatibility check, run in the page</div>
+        <div class="tx-prose">
+          <p>The protocol turns "replaceable" into a function that refuses. Preparing a candidate requires a set of answers, and the function checks them in a fixed order: the candidate implements the slot contract; it has tests; it carries no secret material; it stays no-live-execution; and it supplies a concrete rollback plan of at least twelve characters. The first answer that fails raises an error and stops. Nothing is written for a candidate that fails.</p>
+          <p>The panel runs that sequence. The left column is what a plain form would do: accept the submission. The right column follows the order in the code. Pick a scenario to see which step refuses and which are never reached. The "Complete candidate" outcome is deliberately unexciting: a packet and a registry entry, an armed kill switch, activation false.</p>
+        </div>
+        <div class="cr-wrap">
+          <div class="cr-top">
+            <span class="cr-label">Candidate check · review-only · written 22 May 2026</span>
+            <div class="cr-faults" role="group" aria-label="Choose a candidate" id="swap-faults"></div>
+          </div>
+          <div class="cr-cols">
+            <div class="cr-col">
+              <h3>A form that accepts what it is given</h3>
+              <p class="cr-col-sub">It can tell you that something was submitted.</p>
+              <ol class="cr-steps" id="swap-raw"></ol>
+            </div>
+            <div class="cr-col">
+              <h3>The check, in the order the code runs it</h3>
+              <p class="cr-col-sub">Each step refuses on its own answer.</p>
+              <ol class="cr-steps" id="swap-verify"></ol>
+            </div>
+          </div>
+          <div class="cr-outcome" id="swap-outcome" aria-live="polite"></div>
+          <p class="cr-note">The order and the messages come from the module and its test file as of the 22 May commit. The panel is an illustration of that function, not a live view of any candidate.</p>
+        </div>
+      </section>
+
+      <section class="tx-section" id="metaphor-ledger">
+        <div class="tx-section-head"><span class="tx-section-num">05</span><h2>What "organism" means here, and what stands behind it</h2></div>
+        <div class="tx-section-label">A metaphor ledger</div>
+        <div class="tx-prose">
+          <p>This site uses biological language because biological systems keep a boundary and keep their identity while their parts change, and software can be built with analogues of those properties. It does not follow that the software is alive, aware or autonomous, and no sentence here says so.</p>
+          <p>The list below pairs each word the original used with the artifact that is meant to justify it. Where there is no artifact, the word is marked as a metaphor only. Open an item to see its limit.</p>
+        </div>
+        <div class="oh-list" id="ledger-list"></div>
+        <div class="oh-foot">Five words, five artifacts or none, no machine claims.</div>
+      </section>
+
+      <section class="tx-section" id="not-claimed">
+        <div class="tx-section-head"><span class="tx-section-num">06</span><h2>What this note does not claim</h2></div>
+        <div class="tx-section-label">Boundaries, in plain words</div>
+        <div class="tx-prose">
+          <p>The original ended on a flourish about dashboards. The honest ending is a list of what a reader should not take from the page.</p>
+          <p>Each card stops a fact from being stretched.</p>
+        </div>
+        <div class="mem-grid" id="limits-grid"></div>
+        <div class="tx-related">Related: <a href="/transmissions/19-the-cell-swap-protocol">Transmission 19, the cell swap protocol</a> · <a href="/transmissions/16-the-organism-spine">Transmission 16, the organism spine</a> · <a href="/transmissions/45-where-this-is-going">Transmission 45, where this is going</a></div>
+      </section>
+
+      <div class="tx-cta">
+        <h2>Name the phase before you build it.</h2>
+        <p>A list of missing phases is useful only when it is checked again later. If you build governed systems, publish your list and its status together.</p>
+        <a class="btn btn-primary btn-lg" href="/build-with-us"><span>Build With Us</span><span class="btn-arrow">&rarr;</span></a>
       </div>
     </div>
-  </footer>
+  </main>
 
-  <script type="module" src="/main.js?v=20260605-social-preview"></script>
+  <footer id="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span><p class="footer-desc">Intelligence that evolves.<br />No claim without a trail.</p></div><div class="footer-col"><h5>Proof</h5><a href="/proof">Proof Register</a><a href="/proof/ledger">Live Ledger</a><a href="/transmissions">Transmissions</a><a href="/architecture">Architecture</a></div><div class="footer-col"><h5>Organisms</h5><a href="/organisms">All Organisms</a><a href="/organisms/financial-organisms">Financial Organisms</a><a href="/organisms/infinity-mirror">Infinity Mirror</a></div><div class="footer-col"><h5>Next</h5><a href="/build-with-us">Build With Us</a><a href="/#cta">Subscribe</a></div></div><div class="footer-bottom"><span>© 2026 Unwind Code. All rights reserved.</span><span class="footer-tagline">The future learns from itself. ∞</span></div></div></footer>
+
+  <script>
+  (function () {
+    // All data below is static and client-side. Nothing on this page makes a network call.
+    var WIDGETS = [
+ {
+  "type": "filter",
+  "id": "phases",
+  "aria": "Filter phases by status",
+  "states": [
+   {
+    "key": "built",
+    "label": "Built, 22 May"
+   },
+   {
+    "key": "review",
+    "label": "Built as review-only layers"
+   },
+   {
+    "key": "open",
+    "label": "Open"
+   }
+  ],
+  "cards": [
+   {
+    "state": "built",
+    "name": "P0-A  Visual Editor promoted",
+    "short": "Commit dated 22 May 2026.",
+    "why": "The commit promotes the Visual Editor to the Creator OS execution surface in the repository’s structure documents and its continuous-integration workflow, and adds phase audit reports. The editor is a set of modules: kernel, rendering, asset intelligence, handoff, learning loop. Promotion is a change of status, not a statement about output quality."
+   },
+   {
+    "state": "built",
+    "name": "P0-B  P3.17 decision packets ported",
+    "short": "Packets dated 21 May; port marked complete 22 May.",
+    "why": "P3.17 prepares owner decision packets for queued runtime work and adds a workbench panel to show them. Six test functions cover it. \"Ported\" means the work was brought onto the main line and the gap report was updated to say so."
+   },
+   {
+    "state": "built",
+    "name": "P0-C  Cell swap protocol",
+    "short": "Commit dated 22 May 2026; five test functions.",
+    "why": "A review-only contract for replacing parts. It names ten swappable slots, five lifecycle states and a closed execution boundary, and it can disable a candidate with a kill switch and rehearse a rollback. The next two sections run its compatibility check on the page."
+   },
+   {
+    "state": "built",
+    "name": "P3.18  Decision-review gate",
+    "short": "Commit dated 22 May 2026; six test functions.",
+    "why": "Owner decisions over a prepared packet: approve for a future gate review, hold for more review, reject without execution, or request changes. The decision is checked against the packet hash, and each one writes an audit record with its own digest and a field stating that no live side effects were performed. \"Approve\" here means approval to enter a later review. It does not approve execution."
+   },
+   {
+    "state": "built",
+    "name": "VED-INT  Visual Editor approval bridge",
+    "short": "Commit dated 22 May 2026; six test functions.",
+    "why": "Connects the editor to the approval language used elsewhere in the Brain. It writes review packets for timeline operations and render manifests. The policy block lists timeline mutation, render execution, public publishing, deploy, wallet execution and vault resolution as not allowed."
+   },
+   {
+    "state": "review",
+    "name": "P4-PROD  Product shell",
+    "short": "Started 22 May as read-only models; a final gate on 23 May.",
+    "why": "The module that implements it describes itself as read-only read models over the run ledger: an approval inbox, a run timeline, an artifact browser and a setup checklist. A setup wizard stores references and refuses secrets. Issue-to-branch planning and pull-request approval packets prepare commands for review without running them. Whether another person could operate it is what the record cannot show."
+   },
+   {
+    "state": "open",
+    "name": "P5-PUBLIC  The public site as an organism surface",
+    "short": "Not matched by a commit in the Brain repository.",
+    "why": "The original asked for transmissions, a safe read-only Brain demo, waitlist intake and visible proof. The website has read-only registries for transmissions, claims, architecture, organisms and assets, search and grounding endpoints with answer generation disabled, and an email signup endpoint in code. Whether that satisfies the phase is the operator’s call."
+   }
+  ]
+ },
+ {
+  "type": "explorer",
+  "id": "slots",
+  "aria": "Swappable slots",
+  "glyph": "SLOT",
+  "specsLabel": "Approvals and rules",
+  "parts": [
+   {
+    "id": "banker",
+    "name": "Banker",
+    "kind": "Cell",
+    "short": "Financial reasoning and money-as-armor planning.",
+    "status": "Slot declared",
+    "desc": "The financial reasoning cell. Its stated role is planning, not moving money.",
+    "specs": [
+     "Compatibility review",
+     "Owner swap review"
+    ],
+    "proof": "A candidate here is a review packet. Nothing is activated."
+   },
+   {
+    "id": "security",
+    "name": "Cyber Security",
+    "kind": "Cell",
+    "short": "Transaction, code and operational risk review.",
+    "status": "Slot declared",
+    "desc": "The risk-review cell that reads a proposed action before an owner does.",
+    "specs": [
+     "Compatibility review",
+     "Owner swap review"
+    ],
+    "proof": "Swapping the reviewer is itself a reviewed act."
+   },
+   {
+    "id": "emotions",
+    "name": "Emotions",
+    "kind": "Cell",
+    "short": "Collapse interruption, clarity, reflective coaching.",
+    "status": "Slot declared",
+    "desc": "A role description for a cell that interrupts a spiral and asks for clarity. It does not claim anything feels.",
+    "specs": [
+     "Compatibility review",
+     "Owner swap review"
+    ],
+    "proof": "A role name, a source file and a contract."
+   },
+   {
+    "id": "agency",
+    "name": "Invicta Agency",
+    "kind": "Cell",
+    "short": "Primary real-life model and agency character.",
+    "status": "Slot declared",
+    "desc": "The character cell used by the creative agency. The test file uses this slot for its worked example.",
+    "specs": [
+     "Compatibility review",
+     "Owner swap review"
+    ],
+    "proof": "The example keeps the current cell active until an owner-approved swap completes."
+   },
+   {
+    "id": "dynamic",
+    "name": "Dynamic Runtime Cell",
+    "kind": "Generated cell",
+    "short": "Owner-approved generated cell via the activation gate.",
+    "status": "Slot declared",
+    "desc": "A cell that was generated, reviewed and imported through the runtime activation gate.",
+    "specs": [
+     "Compatibility review",
+     "Owner swap review"
+    ],
+    "proof": "Generated code meets the same contract as written code."
+   },
+   {
+    "id": "visual",
+    "name": "Visual Editor Renderer",
+    "kind": "Creator OS",
+    "short": "The Creator OS visual execution surface.",
+    "status": "Slot declared",
+    "desc": "The renderer behind the Visual Editor, so one renderer can be compared with another.",
+    "specs": [
+     "Compatibility review",
+     "Owner swap review"
+    ],
+    "proof": "Rendering stays behind a review packet."
+   },
+   {
+    "id": "approval",
+    "name": "Approval Transport",
+    "kind": "Channel",
+    "short": "Human-in-the-loop decisions over web, chat, CLI or future channels.",
+    "status": "Slot declared",
+    "desc": "How a decision reaches a human and comes back. The channel can change; the rule that a human decides cannot.",
+    "specs": [
+     "Compatibility review",
+     "Owner swap review"
+    ],
+    "proof": "Transport is swappable; authority is not."
+   },
+   {
+    "id": "memory",
+    "name": "Memory Backend",
+    "kind": "Storage",
+    "short": "Local or cloud persistence behind one interface.",
+    "status": "Slot declared",
+    "desc": "Where memory is kept, so storage can change without changing what is remembered.",
+    "specs": [
+     "Compatibility review",
+     "Owner swap review"
+    ],
+    "proof": "Persistence behind an interface."
+   },
+   {
+    "id": "wallet",
+    "name": "Policy Wallet Adapter",
+    "kind": "Adapter",
+    "short": "Simulation-first wallet interface; signing disabled until separate approvals.",
+    "status": "Slot declared",
+    "desc": "The wallet adapter. Its role text says signing stays disabled until separate approvals.",
+    "specs": [
+     "Compatibility review",
+     "Simulation review",
+     "Owner swap review"
+    ],
+    "proof": "The only slot with a simulation review in its list."
+   },
+   {
+    "id": "publisher",
+    "name": "Creator OS Publisher",
+    "kind": "Publisher",
+    "short": "Approved transmission, website and public proof publishing lane.",
+    "status": "Slot declared",
+    "desc": "The lane that turns approved work into public pages. It carries a content review as well.",
+    "specs": [
+     "Compatibility review",
+     "Content review",
+     "Owner swap review"
+    ],
+    "proof": "Publishing is a lane with a review, not a reflex."
+   }
+  ]
+ },
+ {
+  "type": "model",
+  "id": "swap",
+  "aria": "Choose a candidate",
+  "label": "Candidate check · review-only · written 22 May 2026",
+  "leftTitle": "A form that accepts what it is given",
+  "leftSub": "It can tell you that something was submitted.",
+  "rightTitle": "The check, in the order the code runs it",
+  "rightSub": "Each step refuses on its own answer.",
+  "rawSteps": [
+   {
+    "t": "Submission received",
+    "d": "A candidate arrives with a slot and an identifier."
+   },
+   {
+    "t": "Nothing is examined",
+    "d": "No answer is checked. That is the whole review."
+   }
+  ],
+  "verifySteps": [
+   {
+    "t": "Implements the slot contract",
+    "d": "The candidate must declare it implements the compatibility contract."
+   },
+   {
+    "t": "Has tests",
+    "d": "Tests must exist before review, not after activation."
+   },
+   {
+    "t": "No secret material",
+    "d": "The candidate cannot carry a key, a token or a credential."
+   },
+   {
+    "t": "No live execution",
+    "d": "The candidate must stay inert in this phase."
+   },
+   {
+    "t": "Concrete rollback plan",
+    "d": "A written plan of at least twelve characters. \"None\" does not pass."
+   }
+  ],
+  "scenarios": [
+   {
+    "key": "ok",
+    "label": "Complete candidate",
+    "failAt": -1,
+    "rawOk": "ACCEPTED",
+    "outcome": "<strong>Registered for review.</strong> A candidate packet and a registry entry are written with a fingerprint, the kill switch is armed, a rollback rehearsal is required, and activation and route mutation stay false. Registered is not approved."
+   },
+   {
+    "key": "tests",
+    "label": "No tests",
+    "failAt": 1,
+    "rawBlind": "ACCEPTED · BLIND",
+    "outcome": "<strong>Face value: accepted.</strong> <strong>Contract check: refused</strong> at step 02. A candidate with no tests never reaches the secret, execution or rollback checks."
+   },
+   {
+    "key": "secret",
+    "label": "Carries a secret",
+    "failAt": 2,
+    "rawBlind": "ACCEPTED · BLIND",
+    "outcome": "<strong>Face value: accepted.</strong> <strong>Contract check: refused</strong> at step 03. A candidate that embeds secret material is stopped before anything is written."
+   },
+   {
+    "key": "live",
+    "label": "Asks to run live",
+    "failAt": 3,
+    "rawBlind": "ACCEPTED · BLIND",
+    "outcome": "<strong>Face value: accepted.</strong> <strong>Contract check: refused</strong> at step 04. In this phase a candidate must stay no-live-execution; activation is a later, separate, owner-approved act."
+   },
+   {
+    "key": "rollback",
+    "label": "No rollback plan",
+    "failAt": 4,
+    "rawBlind": "ACCEPTED · BLIND",
+    "outcome": "<strong>Face value: accepted.</strong> <strong>Contract check: refused</strong> at step 05. Without a concrete way back, there is no candidate."
+   }
+  ]
+ },
+ {
+  "type": "list",
+  "id": "ledger",
+  "foot": "Five words, five artifacts or none, no machine claims.",
+  "items": [
+   {
+    "t": "Organism",
+    "s": "Parts that declare identity and can be replaced.",
+    "tag": "design",
+    "cls": "passkey",
+    "d": "The artifact is the swap contract: ten slots, a compatibility check, a kill switch, a rollback rehearsal. It shows a design for replaceable parts. It does not show that any part has been replaced in production."
+   },
+   {
+    "t": "Nervous system",
+    "s": "A loop from learning to a reviewed public draft.",
+    "tag": "plan",
+    "cls": "funds",
+    "d": "The original said a harness lesson could become a draft, a staged transmission and a public page. Today that loop is run by people and agents under a review rule, and the operator decides what is deployed. No part of the record shows the Brain publishing on its own."
+   },
+   {
+    "t": "Immune system",
+    "s": "Gates that refuse.",
+    "tag": "built",
+    "cls": "key",
+    "d": "The review gates are real code with tests, and each one refuses by raising an error or writing \"not allowed\" flags. \"Immune\" is a way to describe that, not evidence that every threat is covered."
+   },
+   {
+    "t": "Memory",
+    "s": "The Brain remembers what happened.",
+    "tag": "partial",
+    "cls": "secret",
+    "d": "A run ledger and an event stream exist and the harness stores durable runs. Whether the remembering changes later behaviour is not shown by this record."
+   },
+   {
+    "t": "Learns from consequence",
+    "s": "\"Safer the next time it acts.\"",
+    "tag": "metaphor",
+    "cls": "secret",
+    "d": "There is a learning-loop module in the Visual Editor. No evaluation in the record shows the Brain became safer by learning. This phrase was a hope in May and is only a hope now."
+   }
+  ]
+ },
+ {
+  "type": "cards",
+  "id": "limits",
+  "items": [
+   {
+    "tag": "not claimed",
+    "title": "That the Brain is an organism",
+    "desc": "The word is a design vocabulary.",
+    "extra": "No evidence in the record supports consciousness, feeling or independent will. The record supports a harness, a set of gates and a swap contract."
+   },
+   {
+    "tag": "not claimed",
+    "title": "That the phases are finished",
+    "desc": "Built means a packet and tests.",
+    "extra": "Most phases here are review-only. A packet that exists has not been consumed by anything that acts, and the owner has not approved execution through it."
+   },
+   {
+    "tag": "not claimed",
+    "title": "That another person can operate it",
+    "desc": "The original answered \"not yet\".",
+    "extra": "This note found no second operator in the record. The product-shell layers are read-only models and checklists."
+   },
+   {
+    "tag": "not claimed",
+    "title": "That the market comparison holds",
+    "desc": "It was removed.",
+    "extra": "The May paragraph ranked the Brain against other companies’ products without a source on the page. It has not been re-checked and is gone."
+   },
+   {
+    "tag": "not claimed",
+    "title": "That money, keys or posts are autonomous",
+    "desc": "Every boundary flag is false.",
+    "extra": "Wallet execution, vault resolution and public writes are false in the swap protocol and in the Visual Editor bridge. A human decision stands between every packet and consequence."
+   },
+   {
+    "tag": "open",
+    "title": "P5-PUBLIC",
+    "desc": "Whether the public site meets it.",
+    "extra": "The site has read-only registries and a signup endpoint in code. Whether that is \"an organism surface\" is the operator’s judgment."
+   }
+  ]
+ }
+];
+
+    function el(id) { return document.getElementById(id); }
+    var LETTERS = ['a', 'b', 'c', 'd', 'e', 'f'];
+
+    function initFilter(w) {
+      var chips = el(w.id + '-chips'), grid = el(w.id + '-grid'), count = el(w.id + '-count');
+      var keys = w.states.map(function (s) { return s.key; });
+      var all = document.createElement('button');
+      all.type = 'button'; all.className = 'dl-chip'; all.setAttribute('data-state', 'all'); all.setAttribute('aria-pressed', 'true'); all.textContent = 'All';
+      chips.appendChild(all);
+      w.states.forEach(function (s, i) {
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'dl-chip dl-chip-' + LETTERS[i % 6]; b.setAttribute('data-state', s.key); b.setAttribute('aria-pressed', 'false'); b.textContent = s.label;
+        chips.appendChild(b);
+      });
+      w.cards.forEach(function (c) {
+        var idx = keys.indexOf(c.state); var L = LETTERS[(idx < 0 ? 0 : idx) % 6];
+        var card = document.createElement('button');
+        card.type = 'button'; card.className = 'dl-card'; card.setAttribute('data-state', c.state); card.setAttribute('aria-expanded', 'false');
+        card.innerHTML = '<span class="dl-state dl-state-' + L + '">' + w.states[idx < 0 ? 0 : idx].label + '</span><div class="dl-name">' + c.name + '</div><div class="dl-short">' + c.short + '</div><div class="dl-why">' + c.why + '</div><div class="dl-hint">Detail \u2193</div>';
+        card.addEventListener('click', function () {
+          var open = card.getAttribute('aria-expanded') === 'true';
+          card.setAttribute('aria-expanded', open ? 'false' : 'true');
+          card.querySelector('.dl-hint').textContent = open ? 'Detail \u2193' : 'Close \u2191';
+        });
+        grid.appendChild(card);
+      });
+      function apply(state) {
+        var shown = 0;
+        grid.querySelectorAll('.dl-card').forEach(function (card) {
+          var match = state === 'all' || card.getAttribute('data-state') === state;
+          if (match) { card.removeAttribute('hidden'); shown += 1; } else { card.setAttribute('hidden', ''); }
+        });
+        count.textContent = shown + ' of ' + w.cards.length + ' shown';
+      }
+      chips.querySelectorAll('.dl-chip').forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          chips.querySelectorAll('.dl-chip').forEach(function (o) { o.setAttribute('aria-pressed', 'false'); });
+          chip.setAttribute('aria-pressed', 'true');
+          apply(chip.getAttribute('data-state'));
+        });
+      });
+      apply('all');
+    }
+
+    function initExplorer(w) {
+      var grid = el(w.id + '-grid'), detail = el(w.id + '-detail'); var buttons = [];
+      function show(p) {
+        buttons.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-id') === p.id ? 'true' : 'false'); });
+        detail.innerHTML = '<div class="mod-detail-title">' + p.name + '</div><span class="mod-detail-type">' + p.kind + '</span><p class="mod-detail-desc">' + p.desc + '</p><div class="mod-specs-label">' + w.specsLabel + '</div><div class="mod-specs">' + p.specs.map(function (s) { return '<span class="mod-spec">' + s + '</span>'; }).join('') + '</div><div class="mod-proof"><strong>' + p.status + '</strong> \u00b7 ' + p.proof + '</div>';
+      }
+      w.parts.forEach(function (p) {
+        var btn = document.createElement('button');
+        btn.type = 'button'; btn.className = 'mod-node'; btn.setAttribute('data-id', p.id); btn.setAttribute('aria-pressed', 'false');
+        btn.innerHTML = '<span class="mod-glyph">' + w.glyph + '</span><div class="mod-name">' + p.name + '</div><div class="mod-path">' + p.short + '</div><div class="mod-score">' + p.status + '</div>';
+        btn.addEventListener('click', function () { show(p); });
+        grid.appendChild(btn); buttons.push(btn);
+      });
+      show(w.parts[0]);
+    }
+
+    function initModel(w) {
+      var faults = el(w.id + '-faults'), raw = el(w.id + '-raw'), verify = el(w.id + '-verify'), outcome = el(w.id + '-outcome');
+      function step(n, s, cls, verdict) {
+        var li = document.createElement('li'); li.className = 'cr-step ' + cls;
+        li.innerHTML = '<span class="cr-step-n">' + n + '</span><span><span class="cr-step-t">' + s.t + '</span><span class="cr-step-d">' + s.d + '</span></span><span class="cr-verdict">' + verdict + '</span>';
+        return li;
+      }
+      function run(sc) {
+        var fails = sc.fails || (sc.failAt >= 0 ? [sc.failAt] : []);
+        var first = fails.length ? Math.min.apply(null, fails) : -1;
+        raw.innerHTML = '';
+        w.rawSteps.forEach(function (s, i) { raw.appendChild(step('0' + (i + 1), s, first < 0 ? 'pass' : 'blind', first < 0 ? sc.rawOk : sc.rawBlind)); });
+        verify.innerHTML = '';
+        w.verifySteps.forEach(function (s, i) {
+          var cls = 'pass', v = sc.okLabel || 'OK';
+          if (fails.indexOf(i) >= 0) { cls = 'fail'; v = sc.failLabel || 'REFUSED'; }
+          else if (!sc.runAll && first >= 0 && i > first) { cls = 'skip'; v = 'NOT REACHED'; }
+          verify.appendChild(step('0' + (i + 1), s, cls, v));
+        });
+        outcome.className = 'cr-outcome ' + (first < 0 ? 'clean' : 'refused');
+        outcome.innerHTML = sc.outcome;
+      }
+      w.scenarios.forEach(function (sc, i) {
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'cr-fault' + (i === 0 ? ' cr-fault-reset' : ''); b.setAttribute('data-key', sc.key); b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false'); b.textContent = sc.label;
+        b.addEventListener('click', function () {
+          faults.querySelectorAll('.cr-fault').forEach(function (o) { o.setAttribute('aria-pressed', 'false'); });
+          b.setAttribute('aria-pressed', 'true'); run(sc);
+        });
+        faults.appendChild(b);
+      });
+      run(w.scenarios[0]);
+    }
+
+    function initList(w) {
+      var list = el(w.id + '-list');
+      w.items.forEach(function (h) {
+        var item = document.createElement('button');
+        item.type = 'button'; item.className = 'oh-item'; item.setAttribute('aria-expanded', 'false');
+        item.innerHTML = '<span class="oh-box" aria-hidden="true"></span><span><span class="oh-t">' + h.t + '</span><span class="oh-s">' + h.s + '</span><span class="oh-d">' + h.d + '</span></span><span class="oh-needs oh-needs-' + h.cls + '">' + h.tag + '</span>';
+        item.addEventListener('click', function () { item.setAttribute('aria-expanded', item.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'); });
+        list.appendChild(item);
+      });
+    }
+
+    function initCards(w) {
+      var grid = el(w.id + '-grid');
+      w.items.forEach(function (l) {
+        var card = document.createElement('button');
+        card.type = 'button'; card.className = 'mem-card'; card.setAttribute('aria-expanded', 'false');
+        card.innerHTML = '<h4><span class="mem-tag">' + l.tag + '</span>' + l.title + '</h4><p>' + l.desc + '</p><div class="mem-extra">' + l.extra + '</div><div class="mem-hint">Click to expand \u2193</div>';
+        card.addEventListener('click', function () {
+          var open = card.getAttribute('aria-expanded') === 'true';
+          card.setAttribute('aria-expanded', open ? 'false' : 'true');
+          card.querySelector('.mem-hint').textContent = open ? 'Click to expand \u2193' : 'Click to collapse \u2191';
+        });
+        grid.appendChild(card);
+      });
+    }
+
+    var INIT = { filter: initFilter, explorer: initExplorer, model: initModel, list: initList, cards: initCards };
+    WIDGETS.forEach(function (w) { if (INIT[w.type]) INIT[w.type](w); });
+
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.querySelectorAll('.wf-steps').forEach(function (wf) {
+      if (!reduce && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { wf.querySelectorAll('.wf-step').forEach(function (s) { s.classList.add('reveal-step'); }); io.disconnect(); }
+          });
+        }, { threshold: 0.15 });
+        io.observe(wf);
+      }
+    });
+  })();
+  </script>
+  <script type="module" src="/main.js?v=20260615-system-state"></script>
 </body>
 </html>

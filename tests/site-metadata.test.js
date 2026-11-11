@@ -7215,11 +7215,12 @@ test('transmission 25 documents the homepage organism pulse release', async () =
     'Transmission 25: The Homepage Learned to Pulse',
     'rel="canonical" href="https://www.unwindcode.ai/transmissions/25-the-homepage-learned-to-pulse"',
     '<meta property="og:type" content="article" />',
-    '"@type":"Article"',
-    '"datePublished":"2026-06-05"',
-    '"mainEntityOfPage":"https://www.unwindcode.ai/transmissions/25-the-homepage-learned-to-pulse"',
-    'class="tx-release-console"',
-    'assets/visuals/organism-pulse-field.svg',
+    // Revised 2026-11-10 (tx-rev-d): the page was rewritten to the Transmission standard; the JSON-LD is pretty-printed.
+    'Revised 10 November 2026',
+    'Correction, 10 November 2026',
+    'What this note does not claim',
+    'id="a-diagram-in-words"',
+    'id="the-witness"',
     'id="social-proof-packet"',
     'class="tx-social-packet-grid"',
     'class="tx-social-slide tx-social-slide-featured"',
@@ -7231,12 +7232,21 @@ test('transmission 25 documents the homepage organism pulse release', async () =
     '/social/transmission-25-homepage-pulse-carousel/caption.md',
     'Download packet',
     'download',
-    'The public meaning lives in HTML, schema, translations, tests, and the asset manifest.',
-    'money, files, public posts, and Web3 broadcast stay approval-gated',
+    'Money, files, public posts and Web3 broadcast stay approval-gated',
     'href="/proof"',
     'href="/build-with-us"',
   ]) {
     assert.ok(source.includes(snippet), `Transmission 25 missing release snippet ${snippet}`);
+  }
+
+  const compact25 = source.replace(/\s+/g, '');
+  for (const snippet of [
+    '"@type":"Article"',
+    '"datePublished":"2026-06-05"',
+    '"dateModified":"2026-11-10"',
+    '"mainEntityOfPage":"https://www.unwindcode.ai/transmissions/25-the-homepage-learned-to-pulse"',
+  ]) {
+    assert.ok(compact25.includes(snippet), `Transmission 25 JSON-LD missing ${snippet}`);
   }
 
   for (const snippet of [

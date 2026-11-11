@@ -52,40 +52,38 @@ test('transmission 26 publishes the brain-selected real estate cell with bounded
   const manifest = JSON.parse(await projectFile('assets/asset-manifest.json'));
   const css = await projectFile('style.css');
 
+  // Revised 2026-11-10 (tx-rev-d): the page was rewritten to the Transmission standard. The JSON-LD is pretty-printed, so compare it whitespace-insensitively.
+  const compact26 = transmission.replace(/\s+/g, '');
   for (const snippet of [
     'Transmission 26: The Property Sales Intelligence Cell',
     'rel="canonical" href="https://www.unwindcode.ai/transmissions/26-property-sales-intelligence-cell"',
     '<meta property="og:type" content="article" />',
-    '"@type":"Article"',
-    '"datePublished":"2026-06-06"',
-    'id="brain-decision"',
-    'id="cell-map"',
-    'id="approval-gates"',
-    'id="signal-chart"',
-    'id="tx26-authority-title"',
-    'class="tx26-authority-meter"',
-    'class="tx26-meter-item meter-activate"',
-    'id="boundary-cards"',
+    'id="the-history"',
+    'id="what-exists"',
+    'id="the-gates"',
+    'id="the-ladder"',
+    'id="what-was-dropped"',
+    'id="not-claimed"',
     'Real Estate Property Sales Intelligence',
-    'permitted lead sources',
-    'human approval before outreach',
+    'Revised 10 November 2026',
+    'What this note does not claim',
   ]) {
     assert.ok(transmission.includes(snippet), `Transmission 26 missing ${snippet}`);
+  }
+  for (const snippet of ['"@type":"Article"', '"datePublished":"2026-06-06"', '"dateModified":"2026-11-10"']) {
+    assert.ok(compact26.includes(snippet), `Transmission 26 JSON-LD missing ${snippet}`);
+  }
+  for (const phrase of ['permitted lead sources', 'human approval before outreach', 'proof before outreach']) {
+    assert.ok(transmission.toLowerCase().includes(phrase), `Transmission 26 missing phrase ${phrase}`);
   }
 
   assert.equal(transmission.includes('https://cdn.jsdelivr.net/npm/chart.js'), false, 'Transmission 26 should not depend on CDN chart JavaScript');
   assert.equal(transmission.includes('<canvas'), false, 'Transmission 26 should not need canvas for the authority meter');
   assert.equal(transmission.includes('new Chart('), false, 'Transmission 26 should not run inline chart JavaScript');
-  assert.equal(transmission.includes('<style>'), false, 'Transmission 26 styles should live in shared CSS');
-
-  for (const snippet of [
-    '.tx26-authority-meter',
-    '.tx26-meter-track',
-    '.meter-activate .tx26-meter-bar',
-    '.tx26-module-tabs label:hover',
-  ]) {
-    assert.ok(css.includes(snippet), `shared CSS missing Transmission 26 snippet ${snippet}`);
-  }
+  // Transmission standard: CSS is inline in the page, and it must make no network calls.
+  assert.ok(transmission.includes('<style>'), 'Transmission 26 carries its own inline styles (Transmission standard)');
+  assert.equal(/fetch\(|XMLHttpRequest/.test(transmission), false, 'Transmission 26 makes no network calls');
+  assert.equal(/\/social\/transmission-/i.test(transmission), false, 'Transmission 26 keeps posting assets internal');
 
   for (const blocked of [
     'autonomous cold outreach',
@@ -143,19 +141,14 @@ test('transmission 27 publishes the quotation cell without private business name
     'Transmission 27: The Quotation Cell',
     'rel="canonical" href="https://www.unwindcode.ai/transmissions/27-the-quotation-cell"',
     '<meta property="og:type" content="article" />',
-    '"@type":"Article"',
-    '"datePublished":"2026-06-07"',
     'id="brain-decision"',
     'id="manual-brain-run"',
     'id="cell-map"',
-    'id="organism-build-recipe"',
     'id="correction-loop"',
-    'id="readiness-meter"',
-    'id="tx27-readiness-title"',
-    'class="tx26-authority-meter"',
-    'id="boundary-cards"',
-    'id="proof-ledger"',
+    'id="readiness"',
+    'id="not-claimed"',
     'id="social-proof-packet"',
+    'Revised 10 November 2026',
     '/social/transmission-27-quotation-cell/previews/slide-01-preview.png',
     '/social/transmission-27-quotation-cell/ready-to-upload/01-quotation-cell.png',
     '/social/transmission-27-quotation-cell/downloads/transmission-27-quotation-cell.zip',
@@ -163,13 +156,17 @@ test('transmission 27 publishes the quotation cell without private business name
     '/social/transmission-27-quotation-cell/caption.md',
     'supplier memory',
     'manual Brain protocol',
-    'Organism build recipe',
-    'public page, metadata, tests, social packet, deployment route, and production smoke',
-    'transaction readiness',
     'human approval before commitment',
+    'What this note does not claim',
   ]) {
     assert.ok(transmission.includes(snippet), `Transmission 27 missing ${snippet}`);
   }
+  // Revised 2026-11-10 (tx-rev-d): pretty-printed JSON-LD, compared whitespace-insensitively.
+  const compact27 = transmission.replace(/\s+/g, '');
+  for (const snippet of ['"@type":"Article"', '"datePublished":"2026-06-07"', '"dateModified":"2026-11-10"']) {
+    assert.ok(compact27.includes(snippet), `Transmission 27 JSON-LD missing ${snippet}`);
+  }
+  assert.ok(transmission.toLowerCase().includes('readiness'), 'Transmission 27 keeps its readiness boundary');
 
   for (const blocked of [
     'Lizard Solutions',
