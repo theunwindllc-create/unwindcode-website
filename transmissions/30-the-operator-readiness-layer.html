@@ -272,7 +272,7 @@
         <div class="tx-hero-meta"><span>June 2026</span><span>·</span><span>Rewritten 10 November 2026</span><span>·</span><span>Operator architecture</span><span>·</span><span>10 min read</span></div>
         <p class="tx-dateline"><strong>Dated note.</strong> This note describes the Brain's operator surfaces and the operator's working records as they stood on 10 November 2026. It was first written on 28 June 2026, when it described the Brain's readiness code as of that day. The rewrite reads the Brain's removal record and status file, the site's own published notes and the consolidation documents of 8 and 10 November. No test was run and no service was called for it.</p>
         <p class="tx-dateline"><strong>Revised 10 November 2026.</strong> Rewritten to the Transmission standard. The page now separates what is built, what was removed, what is historical and what is only a plan; it adds a claim ledger, an explorer of the operator's surfaces, a model of the readiness packet, a then-and-now panel and a timeline. The status, checkpoint, rail and calendar are described as they are today.</p>
-        <p class="tx-dateline"><strong>Correction, 10 November 2026.</strong> Part of what the June version described was removed within a week of it being written. The Brain's removal manifest is dated 2 July 2026 and the commit that carried it landed on 3 July 2026; the June text gave 2 July for both. That cleanup removed the &ldquo;contract&rdquo; layer: the static client contracts, the compatibility checks, the conformance checks and the drift cards, 21 HTTP routes and 26 commands in all. The workbench card deck went from four cards to three (readiness, consciousness sync, custody boundary). The data surfaces stayed. The figures in the June proof ledger (194 tests, 7 of 7 checks) are historical and were not re-run. This is a Brain module, not a statement that an operator relies on it day to day: the Brain's status of 30 September 2026 lists the control-plane deployment as waiting on scoped authentication setup.</p>
+        <p class="tx-dateline"><strong>Correction, 10 November 2026.</strong> Part of what the June version described was removed within a week of it being written. The Brain's removal manifest is dated 2 July 2026 and the commit that carried it landed on 3 July 2026; an earlier revision of this note gave 2 July for both. That cleanup removed the &ldquo;contract&rdquo; layer: the static client contracts, the compatibility checks, the conformance checks and the drift cards, 21 HTTP routes and 26 commands in all. The workbench card deck went from four cards to three (readiness, consciousness sync, custody boundary). The data surfaces stayed. The figures in the June proof ledger (194 tests, 7 of 7 checks) are historical and were not re-run. This is a Brain module, not a statement that an operator relies on it day to day: the Brain's status of 30 September 2026 lists the control-plane deployment as waiting on scoped authentication setup.</p>
       </div>
     </section>
 
@@ -343,7 +343,7 @@
       <!-- 04: REMOVED -->
       <section class="tx-section" id="what-was-removed">
         <div class="tx-section-head"><span class="tx-section-num">04</span><h2>What was removed, and when</h2></div>
-        <div class="tx-section-label">The comparison panel · as first described, then after 3 July</div>
+        <div class="tx-section-label">The comparison panel · as before the removal, then after 3 July</div>
         <div class="tx-prose">
           <p>The June version of this note described a layer of contracts: documents that told a client what shape a packet would have, checks that told it whether it could render one, and checks that proved a packet matched its own promise. On 2 July the Brain's removal manifest dropped that layer; the commit followed on 3 July. The manifest calls them meta-surfaces that proved the shape of the data layer, and keeps every surface that carries data. Choose a moment to see what stood.</p>
         </div>
@@ -421,8 +421,8 @@
       { kind: 'built', name: 'The rail', short: 'One file every hand reads before it starts: claim first, finish with a receipt, no authority granted.', why: 'Trail: Transmission 38 and the rail file it describes. A claim older than 24 hours with no note may be reclaimed.' },
       { kind: 'built', name: 'The calendar', short: '402 tasks on 8 November 2026; proposals are accepted by the operator, not by the loop.', why: 'Trail: the consolidation audit of 8 November. 155 done, 83 blocked, 74 awaiting the operator, 36 awaiting a second machine, 34 proposed; those groups sum to 382 of 402.' },
       { kind: 'removed', name: 'The contract layer', short: 'Static client contracts, compatibility checks, conformance checks and drift cards: 21 routes and 26 commands.', why: 'Trail: the removal manifest dated 2 July 2026 and the commit of 3 July 2026. Routes fell from 224 to 203.' },
-      { kind: 'removed', name: 'The fourth workbench card', short: 'The drift card is gone; the deck holds three cards.', why: 'Trail: the removal manifest. The June text described a four-card deck.' },
-      { kind: 'removed', name: 'Contract steps in the readiness packet', short: 'The packet no longer composes contract-compatibility or conformance checks.', why: 'Trail: the removal manifest. It now reports the three real checks. The June text is rewritten to match.' },
+      { kind: 'removed', name: 'The fourth workbench card', short: 'The drift card is gone; the deck holds three cards.', why: 'Trail: the removal manifest. The manifest records four cards before the removal; the June text named only two of them (readiness and consciousness sync).' },
+      { kind: 'removed', name: 'Contract steps in the readiness packet', short: 'The packet no longer composes contract-compatibility or conformance checks.', why: 'Trail: the removal manifest. It now reports the three real checks. The June text counted those checks; this page does not.' },
       { kind: 'historical', name: '194 tests and 7 of 7 checks', short: 'Figures this page recorded on 28 June 2026.', why: 'Not re-run. Part of what they counted was removed on 3 July, so they cannot be compared with today.' },
       { kind: 'historical', name: 'A full run of 1,294 passed', short: 'Recorded in the removal commit message of 3 July 2026.', why: 'Not re-run for this rewrite. The status file\'s own test line, 1,324 passed and 2 skipped, is dated the same day.' },
       { kind: 'design', name: 'Readiness before authority', short: 'The layer may inspect, recommend and route; it may not publish, spend, sign or contact.', why: 'A design rule. The code supports it by omission: the readiness and card packets carry no action that changes anything.' },
@@ -500,7 +500,7 @@
         specs: ['Canonical', 'Overwritten each session', 'Latest entry 16 October 2026', 'Test line dated 3 July 2026'],
         proof: 'A status is a dated claim. Read the date before the number.' },
       { id: 'checkpoint', role: 'Checkpoint paper', score: 'Record · public',
-        desc: 'The Brain checkpoint paper, annotated on 10 November 2026. Its checkpoint cards, as annotated: harness is review; cell growth is staged (one generated cell staged since 16 October, never activated); product surface is code only; authority is closed.',
+        desc: 'The Brain checkpoint paper, annotated on 10 November 2026. Its checkpoint cards, as annotated: harness is review; cell growth is staged (one generated cell staged for owner review since 16 October); product surface is code only; authority is closed.',
         specs: ['Transmission 21', 'Custody gate at Stage 0 since 4 October 2026', 'Panels not a running service on 8 November'],
         proof: 'The paper is a design thesis with an annotated record, not an operating manual.' },
       { id: 'rail', role: 'The rail', score: 'Record · in use',
@@ -596,13 +596,13 @@
 
     // 04 — THEN AND NOW
     var moments = {
-      june: { label: 'As first described · 28 June', rows: [
-        ['Contract routes', 'described', '21 HTTP routes across the operator and memory surfaces: contracts, compatibility and conformance.', 'changed'],
-        ['Commands', 'described', '26 commands: the same contracts, compatibility and conformance checks on the command line.', 'changed'],
-        ['Drift card', 'described', 'A fourth workbench card that showed gate drift.', 'changed'],
-        ['Workbench deck', 'described', 'Four cards.', 'changed'],
-        ['Readiness packet', 'described', 'Composed contract-compatibility and conformance checks as well as the three real ones.', 'changed'],
-        ['Total routes', 'described', '224 just before the removal commit.', 'changed'],
+      june: { label: 'Before the removal · to 2 July', rows: [
+        ['Contract routes', 'existed', '21 HTTP routes across the operator and memory surfaces: contracts, compatibility and conformance.', 'changed'],
+        ['Commands', 'existed', '26 commands: the same contracts, compatibility and conformance checks on the command line.', 'changed'],
+        ['Drift card', 'existed', 'A fourth workbench card that showed gate drift.', 'changed'],
+        ['Workbench deck', 'existed', 'Four cards.', 'changed'],
+        ['Readiness packet', 'existed', 'Composed contract-compatibility and conformance checks as well as the three real ones.', 'changed'],
+        ['Total routes', 'existed', '224 just before the removal commit.', 'changed'],
         ['Data surfaces', 'kept', 'Readiness, gates, cards, sandbox, dynamic-cell and consciousness health, and the memory routes.', 'kept']
       ] },
       july: { label: 'After the removal · 3 July', rows: [

@@ -322,7 +322,7 @@
         </div>
         <div class="tx-prose tx-after">
           <p>The Agent Contract Protocol is the working method for page and route authors: declare what a page is, expose public-safe metadata, retrieve evidence, ground it with citations and qualifications, ask before anything consequential, cite the source and record the result. It is a design: a checklist this note was written to follow, not a program. Retrieve, ground and cite have code behind them; ask and record rest on review by a person.</p>
-          <p>Three hazards motivate it, and they are named as hazards, not as incidents. <strong>Context laundering</strong> is private memory leaking into a public answer without a source: the read routes load only committed public data files, and the grounding packet states that private prompts and runtime evidence are excluded. <strong>Stale authority</strong> is an old proof read as current: it is why every figure here carries a date. <strong>Hidden privilege</strong> is a tool implying a permission: the routes accept only read methods and answer anything else with a refusal.</p>
+          <p>Three hazards motivate it, and they are named as hazards, not as incidents. <strong>Context laundering</strong> is private memory leaking into a public answer without a source: the read routes load only committed public data files, and the grounding packet states that private prompts and runtime evidence are excluded. <strong>Stale authority</strong> is an old proof read as current: it is why every figure here carries a date. <strong>Hidden privilege</strong> is a tool implying a permission: the eight read routes accept only read methods and answer anything else with a refusal.</p>
         </div>
       </section>
 
@@ -345,7 +345,7 @@
         <div class="tx-section-head"><span class="tx-section-num">06</span><h2>What this note does not claim</h2></div>
         <div class="tx-section-label">Not done, on purpose · plan, not built</div>
         <div class="tx-prose">
-          <p>Agent-readable does not mean agent-authorized. This is a Manual Brain Mode transmission: a person-governed hand wrote it from the record, and it is not evidence that the Brain publishes, posts, signs, spends or contacts anyone by itself. Nothing here says an agent relies on these files; no record of who calls the routes was read.</p>
+          <p>Agent-readable does not mean agent-authorized. This is a Manual Brain Mode transmission: a person-governed hand wrote it from the record, and it is not evidence that the Brain publishes, posts, signs, spends or contacts anyone by itself. Nothing here says an agent relies on these files; no record of who calls the routes was read. The statements about read-only behaviour cover the eight read routes only: the source also holds other server routes that are not in the manifest, and this note makes no claim about them.</p>
           <p>The guide file's list names 34 transmission routes (21 to 24 and 26 to 55) while the registry holds 56 entries, so the list can drift from the archive. Whether it should name every transmission is the operator's decision.</p>
         </div>
         <div class="mem-grid" id="mem-grid"></div>
@@ -606,7 +606,7 @@
       { f: 'agent_readable', tag: 'absent', t: 'No such flag', p: 'No file says the site is agent-readable. The readability is the files and routes themselves; a flag would only be a claim about them.' },
       { f: 'public_knowledge', tag: 'shipped', t: 'Shipped, as five registries', p: 'Architecture concepts, organisms, asset provenance, claims and transmissions are static data files with read-only routes over them. The sketch named grounding packets as knowledge; those are generated per request, not stored.' },
       { f: 'default_authority', tag: 'shipped', t: 'Shipped, as method limits', p: 'Read-only is real for the eight read routes: they accept GET, HEAD and OPTIONS and refuse the rest with 405, and they load only committed data files.' },
-      { f: 'requires_approval', tag: 'absent', t: 'Prose only', p: 'The actions that need approval are stated in words in the manifest and the guide file. No machine-readable approval list is published, and nothing on this site can perform those actions for a reader.' },
+      { f: 'requires_approval', tag: 'absent', t: 'Prose only', p: 'The actions that need approval are stated in words in the manifest and the guide file. No machine-readable approval list is published, and none of the eight read routes can perform those actions for a reader. The other routes in the source are not described here.' },
       { f: 'answer_policy', tag: 'shipped', t: 'Shipped, as a packet field', p: 'The grounding packet carries an answer policy with synthesis_allowed false, a decision and the reasons for it, and the four steps required before any synthesis.' },
       { f: 'next_cell', tag: 'plan', t: 'A plan, not built', p: 'The Agent Readiness Cell has no code in the site or in the Brain as of 10 November 2026.' }
     ];
@@ -650,7 +650,7 @@
       { tag: 'plan', title: 'Agent Readiness Cell', desc: 'A read-only reviewer of routes, files and claim language. Not built.', extra: 'No code exists for it. The manual parity script compares local sources with the live site and smoke-tests search, grounding and status; it is a check, not a reviewer.' },
       { tag: 'gap', title: 'Claims inside transmissions', desc: 'The registry has six entries; there are 56 transmissions.', extra: 'The six label homepage and financial claims. The claims of a transmission are labelled only on that page, as in the ledger above.' },
       { tag: 'absent', title: 'An answer route', desc: 'None is enabled. Search and grounding retrieve and refuse to synthesise.', extra: 'The packet reserves four required steps for the day one exists. Adding one is a decision for the operator.' },
-      { tag: 'absent', title: 'A machine-readable approval list', desc: 'Approval boundaries are prose in the manifest and guide file.', extra: 'Nothing a reader can call performs those actions, so the list guards a door that does not exist on this surface.' },
+      { tag: 'absent', title: 'A machine-readable approval list', desc: 'Approval boundaries are prose in the manifest and guide file.', extra: 'None of the eight read routes performs those actions, so a list for them would guard a door that does not exist on that surface. The source holds other routes that are not in the manifest and are not described here.' },
       { tag: 'unknown', title: 'Who uses the routes', desc: 'No record of agent traffic was read.', extra: 'This note makes no claim that any agent relies on the files or the routes.' },
       { tag: 'unknown', title: 'The live site', desc: 'It was not called for this rewrite.', extra: 'What is said about live behaviour is what the source says it does. A live parity check exists as a script and waits on a person to run it.' }
     ];

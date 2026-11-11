@@ -135,6 +135,7 @@ test('new local transmissions read as Brain guides and compact whitepaper notes'
   assert.match(agentReadableOrganism, /Agent-readable does not mean agent-authorized/i);
   assert.match(agentReadableOrganism, /next-cell memory/i);
   // Revised 2026-11-10 (tx-rev-h): the four unverified external citations were removed from Transmission 29 on purpose.
+  assert.doesNotMatch(agentReadableOrganism, /vercel\.com|openai\.com|cloudflare\.com/i);
 
   assert.match(operatorReadinessLayer, /Operator Readiness Layer/);
   assert.match(operatorReadinessLayer, /Readiness before authority/i);
