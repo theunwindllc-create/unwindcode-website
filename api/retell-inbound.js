@@ -35,6 +35,10 @@ import crypto from "node:crypto";
 
 export const config = { api: { bodyParser: false } };
 
+// Per-call duration limit sent to Retell on EVERY inbound call (the per-call override beats the saved agent).
+// 180000 ms = 3 min, about $0.39 per call at $0.13 per minute (decision Q14 option A, 2026-11-10). Never raise without a ruling.
+export const MAX_CALL_DURATION_MS = 180000;
+
 function readRaw(req) {
   return new Promise((resolve, reject) => {
     const chunks = [];
@@ -164,7 +168,7 @@ export default async function handler(req, res) {
       ...(env.RETELL_AGENT_VERSION ? { override_agent_version: Number(env.RETELL_AGENT_VERSION) } : {}),
       dynamic_variables: { security_code: String(passphrase), passphrase: String(passphrase), caller_recognized: recognized ? "true" : "false" },
       metadata: { recognized: recognized ? "true" : "false", policy: "genesis-line-v2-ab578315" },
-      agent_override: { agent: { max_call_duration_ms: 300000 } },
+      agent_override: { agent: { max_call_duration_ms: MAX_CALL_DURATION_MS } },
     },
   });
 }

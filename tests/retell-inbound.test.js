@@ -3,7 +3,7 @@ import crypto from 'node:crypto';
 import { Readable } from 'node:stream';
 import test from 'node:test';
 
-import handler from '../api/retell-inbound.js';
+import handler, { MAX_CALL_DURATION_MS } from '../api/retell-inbound.js';
 
 const TOKEN = 'test-inbound-token-not-live';
 const KEY = 'test-api-key';
@@ -157,4 +157,19 @@ test('unknown caller cap rejects, while a KV outage preserves the passphrase gat
     assert.equal(outage.body.call_inbound.override_agent_id, 'agent_test');
     assert.equal(outage.body.call_inbound.dynamic_variables.caller_recognized, 'false');
   }, { KV_REST_API_URL: 'https://kv.example.invalid', KV_REST_API_TOKEN: 'test-token' });
+});
+
+test('per-call override sent to Retell is 180000 ms (3 minutes), never above, for recognised and unrecognised numbers', async () => {
+  await withFixture(async () => {
+    assert.equal(MAX_CALL_DURATION_MS, 180000);
+    for (const from of ['+15551234567', '+15557654321']) {
+      const raw = JSON.stringify({ event: 'call_inbound', call_inbound: { from_number: from } });
+      const res = response();
+      await handler(request([Buffer.from(raw)], { signature: signature(raw) }), res);
+      assert.equal(res.statusCode, 200);
+      const limit = res.body.call_inbound.agent_override.agent.max_call_duration_ms;
+      assert.equal(limit, 180000);
+      assert.ok(limit <= 180000);
+    }
+  });
 });
