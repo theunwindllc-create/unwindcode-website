@@ -551,8 +551,8 @@
     initList(limits, '6 limits \u00b7 all checkable with the panel in section 01');
     initTimeline();
     var TEMPL = {
-      falling: 'Your recent entries lean toward {theme}. When {theme} showed up before and you moved through it anyway, what did you do first? What would doing that first step again look like today?',
-      rising: 'Your trajectory is rising, {theme} is becoming your dominant signal. What specifically did you change that is working, and how will you protect that change tomorrow?',
+      falling: 'Your recent entries lean toward {theme}. When {theme} showed up before and you moved through it anyway — what did you do first? What would doing that first step again look like today?',
+      rising: 'Your trajectory is rising — {theme} is becoming your dominant signal. What specifically did you change that is working, and how will you protect that change tomorrow?',
       flat: 'Your emotional signal has been steady around {theme}. If this week were a loop you could rewrite one line of, which line would you change?',
       empty: 'The Mirror has no readings for you yet. Write freely for two minutes: what is taking up the most space in your mind right now?'
     };
@@ -584,7 +584,7 @@
         avg = v.reduce(function (a, b) { return a + b; }, 0) / v.length;
       }
       el('lp-trend').textContent = readings.length ? readings.length + ' reading' + (readings.length === 1 ? '' : 's') + ', average valence ' + (avg >= 0 ? '+' : '') + avg.toFixed(2) + ', direction: ' + dir + '.' : 'Direction: empty. Add a reading.';
-      el('lp-prompt').textContent = TEMPL[dir].replace(/\{theme\}/g, theme.replace('_', ' '));
+      el('lp-prompt').textContent = TEMPL[dir].replace(/\{theme\}/g, theme);
     }
     el('lp-add').addEventListener('click', function () {
       if (!lpText.value.trim()) { return; }
