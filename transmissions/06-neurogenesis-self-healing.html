@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Transmission 06: Neurogenesis - The Capacity for Self-Regeneration | Unwind Code</title>
-  <meta name="description" content="If you rely on a single, monolithic large language model to dictate logic across 15 disparate domains, failure is a statistical inevitability." />
+  <title>Transmission 06: Neurogenesis: The Capacity for Self-Regeneration | Unwind Code</title>
+  <meta name="description" content="An April 2026 note said a failing organism spins up a lobe, rebuilds a cell and grafts it in unseen. Ten claims checked: a propose, sandbox, critic and approve pipeline exists, one cell has ever been grafted, and nothing heals itself without the operator." />
   <meta name="theme-color" content="#06060c" />
   <link rel="canonical" href="https://www.unwindcode.ai/transmissions/06-neurogenesis-self-healing" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Transmission 06: Neurogenesis - The Capacity for Self-Regeneration | Unwind Code" />
-  <meta property="og:description" content="If you rely on a single, monolithic large language model to dictate logic across 15 disparate domains, failure is a statistical inevitability." />
+  <meta property="og:title" content="Neurogenesis: The Capacity for Self-Regeneration" />
+  <meta property="og:description" content="Ten claims about self-healing code, checked: what the pipeline really does, the one cell it has produced, and what it never does alone." />
   <meta property="og:url" content="https://www.unwindcode.ai/transmissions/06-neurogenesis-self-healing" />
   <meta property="og:site_name" content="Unwind Code" />
   <meta property="og:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
@@ -18,116 +18,566 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Transmission 06: Neurogenesis - The Capacity for Self-Regeneration | Unwind Code" />
-  <meta name="twitter:description" content="If you rely on a single, monolithic large language model to dictate logic across 15 disparate domains, failure is a statistical inevitability." />
+  <meta name="twitter:title" content="Neurogenesis: The Capacity for Self-Regeneration" />
+  <meta name="twitter:description" content="Ten claims about self-healing code, checked: what the pipeline really does, the one cell it has produced, and what it never does alone." />
   <meta name="twitter:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
   <meta name="twitter:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/style.css" />
-</head>
-<body class="transmission-body">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Neurogenesis: The Capacity for Self-Regeneration",
+    "description": "A revised note: ten claims about self-regenerating code checked against the evolution engine, its critic, sandbox and approval gate, with the single graft on record described.",
+    "author": {
+      "@type": "Organization",
+      "name": "Unwind Code"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Unwind Code",
+      "url": "https://www.unwindcode.ai"
+    },
+    "datePublished": "2026-04",
+    "dateModified": "2026-11-10",
+    "keywords": [
+      "neurogenesis",
+      "self-healing",
+      "sandbox",
+      "critic",
+      "approval gate"
+    ],
+    "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/06-neurogenesis-self-healing"
+  }
+  </script>
+  <style>
+    .tx-page { background: var(--bg-void); color: var(--text-primary); }
+    .tx-page *, .tx-page *::before, .tx-page *::after { box-sizing: border-box; }
+    .tx-hero { padding: 160px 0 72px; text-align: center; position: relative; overflow: hidden; }
+    .tx-hero::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:800px; height:800px; background:radial-gradient(circle, rgba(110,45,190,0.12) 0%, transparent 60%); pointer-events:none; }
+    .tx-hero-kicker { margin-bottom:16px; }
+    .tx-hero h1 { font-size:clamp(2.2rem,5vw,3.5rem); font-weight:800; letter-spacing:-0.04em; line-height:1.08; margin:0 0 20px; }
+    .tx-hero-sub { font-size:1.08rem; color:var(--text-secondary); max-width:660px; margin:0 auto; line-height:1.7; }
+    .tx-hero-meta { margin-top:28px; display:flex; justify-content:center; gap:14px; font-size:0.76rem; color:var(--text-muted); font-weight:600; letter-spacing:0.06em; text-transform:uppercase; flex-wrap:wrap; }
+    .tx-section { padding:72px 0; border-top:1px solid var(--accent-border); }
+    .tx-section:first-of-type { border-top:none; padding-top:24px; }
+    .tx-section-head { display:flex; align-items:center; gap:16px; margin-bottom:10px; }
+    .tx-section-num { font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:700; color:var(--accent-hot); letter-spacing:0.15em; }
+    .tx-section h2 { font-size:clamp(1.5rem,3vw,2rem); font-weight:700; letter-spacing:-0.02em; margin:0; }
+    .tx-section-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:24px; }
+    .tx-prose { font-size:1.04rem; color:var(--text-secondary); line-height:1.8; max-width:720px; }
+    .tx-prose p { margin:0 0 22px; }
+    .tx-prose strong { color:var(--text-primary); font-weight:600; }
+    .tx-prose code, .tx-prose-code { font-family:'JetBrains Mono',monospace; font-size:0.84rem; background:rgba(110,45,190,0.1); color:var(--accent-light); padding:2px 6px; border-radius:4px; }
+    .tx-prose a, .tx-inline { color:var(--accent-light); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    .tx-quote { border-left:3px solid var(--accent); padding:18px 24px; margin:36px 0; background:rgba(110,45,190,0.05); border-radius:0 12px 12px 0; color:var(--text-primary); font-size:1.08rem; line-height:1.6; font-weight:500; max-width:720px; }
+    .tx-after { margin-top:36px; }
 
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- NAV (Dark Chrome) -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <nav id="nav">
-    <a href="/" class="nav-brand">
-      <span class="nav-glyph">∞</span>
-      <span class="nav-name">unwind<span class="nav-accent">code</span></span>
-    </a>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+    /* 01 — State filter */
+    .dl-filters { display:flex; flex-wrap:wrap; gap:10px; margin:28px 0 18px; }
+    .dl-chip { font-family:inherit; font-size:0.78rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:9px 16px; border-radius:999px; border:1px solid var(--accent-border); background:var(--bg-surface); color:var(--text-secondary); cursor:pointer; transition:border-color .2s ease, color .2s ease, background .2s ease; }
+    .dl-chip:hover { border-color:rgba(110,45,190,0.4); color:var(--text-primary); }
+    .dl-chip[aria-pressed="true"] { background:rgba(110,45,190,0.16); border-color:var(--accent-light); color:var(--text-primary); }
+    .dl-chip-a[aria-pressed="true"] { border-color:#c084fc; }
+    .dl-chip-b[aria-pressed="true"] { border-color:#38bdf8; }
+    .dl-chip-c[aria-pressed="true"] { border-color:#fbbf24; }
+    .dl-chip-d[aria-pressed="true"] { border-color:#10b981; }
+    .dl-chip-e[aria-pressed="true"] { border-color:#f59e0b; }
+    .dl-chip-f[aria-pressed="true"] { border-color:#f87171; }
+    .dl-count { font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:var(--text-muted); margin-bottom:16px; letter-spacing:0.06em; }
+    .dl-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:12px; }
+    .dl-card { font-family:inherit; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:18px; cursor:pointer; transition:border-color .25s ease, transform .25s ease, opacity .25s ease; }
+    .dl-card:hover { transform:translateY(-2px); border-color:rgba(110,45,190,0.4); }
+    .dl-card[hidden] { display:none; }
+    .dl-state { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.12em; padding:3px 9px; border-radius:999px; border:1px solid currentColor; margin-bottom:10px; }
+    .dl-state-a { color:#c084fc; } .dl-state-b { color:#38bdf8; } .dl-state-c { color:#fbbf24; }
+    .dl-state-d { color:#10b981; } .dl-state-e { color:#f59e0b; } .dl-state-f { color:#f87171; }
+    .dl-name { font-weight:700; font-size:0.96rem; margin-bottom:4px; }
+    .dl-short { font-size:0.84rem; color:var(--text-secondary); line-height:1.55; }
+    .dl-why { display:none; margin-top:12px; padding-top:12px; border-top:1px solid var(--accent-border); font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+    .dl-card[aria-expanded="true"] .dl-why { display:block; }
+    .dl-hint { font-size:0.68rem; color:var(--accent-hot); margin-top:10px; font-weight:600; letter-spacing:0.05em; }
+    .dl-law { margin-top:32px; border:1px solid rgba(251,191,36,0.28); border-radius:16px; padding:24px 28px; background:linear-gradient(180deg,rgba(251,191,36,0.07),rgba(251,191,36,0.015)); max-width:720px; }
+    .dl-law h3 { margin:0 0 10px; font-size:1rem; color:#fbbf24; }
+    .dl-law p { margin:0; font-size:0.95rem; color:var(--text-secondary); line-height:1.7; }
+
+    /* 02 — Component explorer */
+    .mod-explorer { display:grid; grid-template-columns:1fr 1.25fr; gap:24px; margin-top:32px; }
+    .mod-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; align-content:start; }
+    .mod-node { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:20px; cursor:pointer; transition:all 0.25s ease; text-align:left; font-family:inherit; color:var(--text-primary); }
+    .mod-node:hover, .mod-node[aria-pressed="true"] { border-color:rgba(110,45,190,0.45); transform:translateY(-2px); box-shadow:0 8px 24px rgba(110,45,190,0.1); }
+    .mod-node[aria-pressed="true"] { background:rgba(110,45,190,0.08); }
+    .mod-glyph { font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--accent-hot); letter-spacing:0.14em; margin-bottom:10px; display:block; }
+    .mod-name { font-weight:700; font-size:1.02rem; font-family:'JetBrains Mono',monospace; }
+    .mod-path { font-size:0.78rem; color:var(--text-muted); margin-top:6px; line-height:1.4; }
+    .mod-score { margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:#34d399; }
+    .mod-detail { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:20px; padding:32px; min-height:420px; }
+    .mod-detail-title { font-size:1.4rem; font-weight:700; margin-bottom:8px; font-family:'JetBrains Mono',monospace; }
+    .mod-detail-type { display:inline-block; font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent-hot); background:rgba(110,45,190,0.12); border:1px solid rgba(110,45,190,0.2); padding:4px 12px; border-radius:20px; margin-bottom:20px; }
+    .mod-detail-desc { color:var(--text-secondary); line-height:1.7; font-size:0.95rem; margin-bottom:22px; }
+    .mod-specs-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:10px; }
+    .mod-specs { display:flex; flex-wrap:wrap; gap:8px; }
+    .mod-spec { background:rgba(110,45,190,0.08); border:1px solid var(--accent-border); color:var(--accent-light); padding:6px 14px; border-radius:20px; font-size:0.8rem; font-weight:500; }
+    .mod-proof { margin-top:22px; padding-top:18px; border-top:1px solid var(--accent-border); font-size:0.84rem; color:var(--text-muted); line-height:1.6; }
+    .mod-proof strong { color:#34d399; font-family:'JetBrains Mono',monospace; font-weight:600; }
+
+    /* 03 — Baseline model */
+    .cr-wrap { margin-top:28px; border:1px solid rgba(56,189,248,0.22); border-radius:20px; padding:28px; background:linear-gradient(180deg,rgba(56,189,248,0.06),rgba(56,189,248,0.01)); }
+    .cr-top { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; }
+    .cr-label { font-family:'JetBrains Mono',monospace; font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:#38bdf8; }
+    .cr-faults { display:flex; flex-wrap:wrap; gap:8px; }
+    .cr-fault { font-family:inherit; font-size:0.76rem; font-weight:700; padding:8px 14px; border-radius:999px; border:1px solid var(--accent-border); background:var(--bg-surface); color:var(--text-secondary); cursor:pointer; transition:border-color .2s ease, color .2s ease; }
+    .cr-fault:hover { color:var(--text-primary); border-color:rgba(248,113,113,0.5); }
+    .cr-fault[aria-pressed="true"] { color:#fca5a5; border-color:#f87171; background:rgba(248,113,113,0.1); }
+    .cr-fault-reset[aria-pressed="true"] { color:#34d399; border-color:#10b981; background:rgba(16,185,129,0.1); }
+    .cr-cols { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .cr-col { border:1px solid var(--accent-border); border-radius:14px; padding:18px; background:rgba(0,0,0,0.22); }
+    .cr-col h3 { margin:0 0 4px; font-size:0.98rem; }
+    .cr-col-sub { font-size:0.78rem; color:var(--text-muted); margin:0 0 14px; line-height:1.5; }
+    .cr-steps { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
+    .cr-step { display:grid; grid-template-columns:22px 1fr auto; gap:10px; align-items:start; padding:10px 12px; border-radius:10px; border:1px solid var(--accent-border); font-size:0.84rem; line-height:1.5; color:var(--text-secondary); transition:border-color .2s ease, background .2s ease; }
+    .cr-step-n { font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--text-muted); padding-top:3px; }
+    .cr-step-t { color:var(--text-primary); font-weight:600; display:block; }
+    .cr-step-d { display:block; font-size:0.78rem; color:var(--text-muted); margin-top:2px; }
+    .cr-verdict { font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:700; letter-spacing:0.08em; padding-top:3px; white-space:nowrap; }
+    .cr-step.pass { border-color:rgba(16,185,129,0.35); } .cr-step.pass .cr-verdict { color:#34d399; }
+    .cr-step.fail { border-color:#f87171; background:rgba(248,113,113,0.08); } .cr-step.fail .cr-verdict { color:#fca5a5; }
+    .cr-step.skip { opacity:0.42; } .cr-step.skip .cr-verdict { color:var(--text-muted); }
+    .cr-step.blind { border-color:rgba(251,191,36,0.3); } .cr-step.blind .cr-verdict { color:#fbbf24; }
+    .cr-outcome { margin-top:16px; border-radius:12px; padding:14px 16px; font-size:0.9rem; line-height:1.6; border:1px solid var(--accent-border); background:rgba(0,0,0,0.22); color:var(--text-secondary); }
+    .cr-outcome strong { color:var(--text-primary); }
+    .cr-outcome.refused { border-color:rgba(248,113,113,0.4); }
+    .cr-outcome.clean { border-color:rgba(16,185,129,0.35); }
+    .cr-note { margin:14px 0 0; font-size:0.8rem; color:var(--text-muted); line-height:1.6; }
+
+    /* 04 — Timeline */
+    .wf-steps { position:relative; margin-top:32px; padding-left:40px; max-width:760px; }
+    .wf-steps::before { content:''; position:absolute; left:19px; top:0; bottom:0; width:2px; background:var(--accent-border); }
+    .wf-step { position:relative; margin-bottom:40px; }
+    .wf-step:last-child { margin-bottom:0; }
+    .wf-dot { position:absolute; left:-40px; top:0; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:800; z-index:2; font-family:'JetBrains Mono',monospace; }
+    .wf-dot-1 { background:rgba(110,45,190,0.15); color:var(--accent-light); border:2px solid var(--accent); }
+    .wf-dot-2 { background:rgba(79,70,229,0.15); color:#818cf8; border:2px solid #6366f1; }
+    .wf-dot-3 { background:rgba(14,165,233,0.15); color:#38bdf8; border:2px solid #0ea5e9; }
+    .wf-dot-4 { background:rgba(16,185,129,0.15); color:#34d399; border:2px solid #10b981; }
+    .wf-dot-5 { background:rgba(245,158,11,0.15); color:#fbbf24; border:2px solid #f59e0b; }
+    .wf-dot-6 { background:rgba(248,113,113,0.15); color:#fca5a5; border:2px solid #f87171; }
+    .wf-step h3 { font-size:1.06rem; font-weight:700; margin:0 0 6px; padding-top:8px; }
+    .wf-step p { font-size:0.92rem; color:var(--text-secondary); line-height:1.65; margin:0; }
+    .wf-step code { font-family:'JetBrains Mono',monospace; font-size:0.8rem; background:rgba(110,45,190,0.1); color:var(--accent-light); padding:2px 6px; border-radius:4px; }
+    .wf-step.reveal-step { opacity:0; transform:translateY(10px); animation:wfIn .6s ease forwards; }
+    .wf-step.reveal-step:nth-child(1){animation-delay:.05s}.wf-step.reveal-step:nth-child(2){animation-delay:.15s}.wf-step.reveal-step:nth-child(3){animation-delay:.25s}.wf-step.reveal-step:nth-child(4){animation-delay:.35s}.wf-step.reveal-step:nth-child(5){animation-delay:.45s}.wf-step.reveal-step:nth-child(6){animation-delay:.55s}
+    @keyframes wfIn { to { opacity:1; transform:none; } }
+
+    /* 05 — Operator's hand */
+    .oh-list { display:flex; flex-direction:column; gap:12px; margin-top:28px; max-width:760px; }
+    .oh-item { font-family:inherit; text-align:left; color:var(--text-primary); border:1px solid var(--accent-border); border-radius:14px; padding:18px 22px; background:var(--bg-surface); display:grid; grid-template-columns:auto 1fr auto; gap:16px; align-items:start; cursor:pointer; transition:border-color .2s ease; }
+    .oh-item:hover { border-color:rgba(110,45,190,0.4); }
+    .oh-item[aria-expanded="true"] { border-color:var(--accent-light); }
+    .oh-box { width:22px; height:22px; border-radius:6px; border:2px solid rgba(240,238,246,0.3); margin-top:2px; position:relative; }
+    .oh-box::after { content:''; position:absolute; inset:4px; border-radius:2px; background:transparent; }
+    .oh-t { font-weight:650; font-size:0.98rem; margin-bottom:4px; }
+    .oh-s { font-size:0.85rem; color:var(--text-muted); }
+    .oh-d { font-size:0.9rem; color:var(--text-secondary); line-height:1.65; max-height:0; overflow:hidden; transition:max-height .3s ease, margin .3s ease; }
+    .oh-item[aria-expanded="true"] .oh-d { max-height:260px; margin-top:12px; }
+    .oh-needs { font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:4px 10px; border-radius:999px; border:1px solid currentColor; white-space:nowrap; margin-top:2px; }
+    .oh-needs-key { color:#c084fc; } .oh-needs-funds { color:#fbbf24; } .oh-needs-passkey { color:#38bdf8; } .oh-needs-secret { color:#fca5a5; }
+    .oh-foot { margin-top:16px; font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:var(--text-muted); letter-spacing:0.06em; }
+
+    /* 06 — Decision cards */
+    .mem-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:28px; }
+    .mem-card { font-family:inherit; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:16px; padding:24px; cursor:pointer; transition:all 0.3s ease; }
+    .mem-card:hover { border-color:rgba(110,45,190,0.35); transform:translateY(-3px); box-shadow:0 8px 24px rgba(110,45,190,0.08); }
+    .mem-card h4 { font-size:0.98rem; font-weight:700; margin:0 0 8px; display:flex; align-items:center; gap:10px; }
+    .mem-tag { font-family:'JetBrains Mono',monospace; font-size:0.62rem; letter-spacing:0.12em; color:var(--accent-hot); border:1px solid rgba(110,45,190,0.3); padding:2px 8px; border-radius:999px; text-transform:uppercase; white-space:nowrap; }
+    .mem-card p { font-size:0.87rem; color:var(--text-secondary); line-height:1.6; margin:0; }
+    .mem-extra { display:none; margin-top:14px; padding-top:14px; border-top:1px solid var(--accent-border); font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+    .mem-card[aria-expanded="true"] .mem-extra { display:block; }
+    .mem-hint { font-size:0.68rem; color:var(--accent-hot); margin-top:12px; font-weight:600; letter-spacing:0.05em; }
+
+    /* Related + CTA */
+    .tx-related { margin-top:40px; padding-top:22px; border-top:1px solid var(--accent-border); font-size:0.9rem; color:var(--text-muted); line-height:1.7; }
+    .tx-related a { color:var(--accent-light); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    .tx-cta { text-align:center; padding:64px 40px; background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:28px; margin-top:72px; }
+    .tx-cta h2 { font-size:1.6rem; font-weight:700; margin:0 0 12px; }
+    .tx-cta p { color:var(--text-secondary); font-size:0.95rem; margin:0 auto 28px; max-width:520px; line-height:1.7; }
+
+    @media(max-width:900px) {
+      .mod-explorer, .cr-cols, .mem-grid { grid-template-columns:1fr; }
+      .mod-grid { grid-template-columns:1fr 1fr; }
+      .mod-detail { min-height:0; }
+    }
+    @media(max-width:640px) {
+      .mod-grid { grid-template-columns:1fr; }
+      .tx-hero { padding:130px 0 56px; }
+      .tx-section { padding:56px 0; }
+      .cr-wrap, .mod-detail { padding:20px; }
+      .oh-item { grid-template-columns:auto 1fr; }
+      .oh-needs { grid-column:2; justify-self:start; }
+      .cr-step { grid-template-columns:18px 1fr; }
+      .cr-verdict { grid-column:2; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .wf-step.reveal-step { animation:none; opacity:1; transform:none; }
+      .dl-card, .mod-node, .mem-card, .oh-d, .cr-step, .dl-chip, .cr-fault { transition:none; }
+      .dl-card:hover, .mod-node:hover, .mem-card:hover { transform:none; }
+    }
+  
+    /* revision notices */
+    .tx-dated { max-width:720px; margin:0 auto 28px; font-size:0.84rem; color:var(--text-muted); line-height:1.7; border-top:1px solid var(--accent-border); border-bottom:1px solid var(--accent-border); padding:14px 0; font-family:'JetBrains Mono',monospace; letter-spacing:0.02em; }
+    .tx-dated strong { color:var(--accent-hot); }
+    .tx-notice { max-width:720px; margin:0 0 22px; border:1px solid rgba(251,191,36,0.3); border-left:4px solid #fbbf24; border-radius:0 14px 14px 0; padding:18px 22px; background:linear-gradient(180deg,rgba(251,191,36,0.07),rgba(251,191,36,0.015)); font-size:0.93rem; color:var(--text-secondary); line-height:1.7; }
+    .tx-notice h3 { margin:0 0 8px; font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase; color:#fbbf24; font-family:'JetBrains Mono',monospace; }
+    .tx-notice p { margin:0 0 10px; }
+    .tx-notice p:last-child { margin-bottom:0; }
+    .tx-notice.revised { border-color:rgba(56,189,248,0.3); border-left-color:#38bdf8; background:linear-gradient(180deg,rgba(56,189,248,0.07),rgba(56,189,248,0.015)); }
+    .tx-notice.revised h3 { color:#38bdf8; }
+    .tx-notes { max-width:720px; margin:0 auto; padding-top:36px; }
+    .tx-list { margin:0 0 22px; padding-left:22px; }
+    .tx-list li { margin-bottom:10px; }
+    .dl-chip-a[aria-pressed="true"] { border-color:#c084fc; }
+    .dl-state-a { color:#c084fc; }
+    .dl-hero-note { font-size:0.78rem; color:var(--text-muted); margin:10px 0 0; line-height:1.6; }
+    /* budget widget */
+    .bg-wrap { margin-top:28px; border:1px solid rgba(110,45,190,0.28); border-radius:20px; padding:28px; background:linear-gradient(180deg,rgba(110,45,190,0.08),rgba(110,45,190,0.015)); }
+    .bg-top { display:flex; flex-wrap:wrap; align-items:center; gap:16px; margin-bottom:16px; }
+    .bg-label { font-family:'JetBrains Mono',monospace; font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent-hot); }
+    .bg-top input[type=range] { flex:1 1 220px; accent-color:#9b59f5; }
+    .bg-val { font-family:'JetBrains Mono',monospace; font-size:0.9rem; color:var(--text-primary); min-width:110px; }
+    .bg-meter { height:10px; border-radius:999px; background:rgba(240,238,246,0.08); overflow:hidden; margin-bottom:12px; }
+    .bg-fill { height:100%; width:0; background:linear-gradient(90deg,#6e2dbe,#c084fc); transition:width .25s ease; }
+    .bg-sum { font-family:'JetBrains Mono',monospace; font-size:0.76rem; color:var(--text-muted); letter-spacing:0.04em; margin-bottom:16px; }
+    .bg-rows { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
+    .bg-row { display:grid; grid-template-columns:1fr auto auto; gap:14px; align-items:center; padding:10px 14px; border-radius:10px; border:1px solid var(--accent-border); font-size:0.86rem; color:var(--text-secondary); }
+    .bg-row.in { border-color:rgba(16,185,129,0.35); }
+    .bg-row.out { opacity:0.5; border-style:dashed; }
+    .bg-row .bg-n { font-family:'JetBrains Mono',monospace; font-size:0.76rem; color:var(--text-muted); }
+    .bg-row .bg-v { font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:700; letter-spacing:0.08em; }
+    .bg-row.in .bg-v { color:#34d399; } .bg-row.out .bg-v { color:#fbbf24; }
+    .bg-stage { display:block; font-size:0.72rem; color:var(--text-muted); margin-top:2px; }
+    .oh-needs-pass { color:#34d399; } .oh-needs-part { color:#fbbf24; } .oh-needs-no { color:#fca5a5; } .oh-needs-design { color:#38bdf8; }
+    @media(max-width:640px) { .bg-wrap { padding:20px; } .bg-row { grid-template-columns:1fr auto; } .bg-row .bg-v { grid-column:2; } }
+  </style>
+</head>
+<body class="tx-page">
+
+  <nav id="nav" class="scrolled">
+    <a href="/" class="nav-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
     <div class="nav-links" id="nav-links">
       <a href="/" data-i18n="nav.home">Home</a>
-      <a href="/#organisms" data-i18n="nav.organisms">Organisms</a>
-      <a href="/#architecture" data-i18n="nav.architecture">Architecture</a>
-      <a href="/#philosophy" data-i18n="nav.philosophy">Philosophy</a>
-      <a href="/#vision" data-i18n="nav.vision">Vision</a>
-      <a href="/#blog" data-i18n="nav.blog">Blog</a>
+      <a href="/organisms" data-i18n="nav.organisms">Organisms</a>
+      <a href="/architecture" data-i18n="nav.architecture">Architecture</a>
+      <a href="/proof" data-i18n="nav.proof">Proof</a>
+      <a href="/transmissions" class="active" aria-current="page" data-i18n="nav.blog">Transmissions</a>
+      <a href="/philosophy" data-i18n="nav.philosophy">Philosophy</a>
     </div>
     <div class="nav-actions">
       <button id="lang-toggle" class="lang-toggle" aria-label="Switch to Spanish">ES</button>
-      <a href="/#cta" class="nav-cta" data-i18n="nav.cta">Get in Touch</a>
+      <a href="/build-with-us" class="nav-cta" data-i18n="nav.cta">Build With Us</a>
+      <a href="/proof/ledger" class="nav-ghost">Live ledger</a>
     </div>
   </nav>
 
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- MAIN TRANSMISSION (Light Content Area) -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <main class="blog-main">
-    <a href="/#blog" class="blog-back">
-      <span>←</span> Back to Transmissions
-    </a>
-
-    <article>
-      <header class="blog-header">
-        <div class="blog-meta-tag">
-          <span>Transmission</span>
-          <span class="blog-meta-dot"></span>
-          <span>Whitepaper</span>
-        </div>
-        
-        <h1 class="blog-title">Transmission 06: Neurogenesis - The Capacity for Self-Regeneration</h1>
-        <p class="blog-subtitle">If you rely on a single, monolithic large language model to dictate logic across 15 disparate domains, failure is a statistical inevitability.</p>
-        
-        <div class="blog-meta-bottom">April 2026 / UNWIND RESEARCH LAB</div>
-      </header>
-
-      <div class="blog-content">
-<h3>Healing A Failing Organism</h3>
-<p>If you rely on a single, monolithic large language model to dictate logic across 15 disparate domains, failure is a statistical inevitability. When the context window slides, or the parameter weights drift against your specific architectural intent, the code begins to break.</p>
-<p>Unwind Code introduces the concept of <strong>Neurogenesis</strong> to software architecture. When an AI agent encounters a persistent exception loop while running <span class="blog-code">pytest</span> inside the ephemeral sandbox, how does it recover?</p>
-<h3>Dynamic Cell Generation</h3>
-<p>The Unwind Brain treats failed code not as an execution error, but as structural decay. Using the ApplyPatchTool as an internal surgical suite, an observer agent maps the stack trace against its historical <span class="blog-code">DECISION_LOG</span> memory. It spins a localized instance of a secondary agent—a Code Refactor Lobe—that evaluates the gap analysis. The Lobe generates a completely rebuilt architectural cell in isolation. It validates the new cell against the constraints defined in <span class="blog-code">.agent/rules/</span>. If, and only if, the sandbox confirms 100% test coverage and compliance, the Observer grafts the new cell into the live organism.</p>
-<h3>Breaking Free From Scaffolds</h3>
-<p>By automating the generation, verification, and implementation of individual codebase modules (cells), we abstract away the most brittle element of AI engineering: human maintenance. The organism does not just write code; it rewrites its own anatomy to survive changing conditions.</p>
-</div>
-    </article>
-  </main>
-
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- FOOTER (Dark Chrome) -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <footer id="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <span class="nav-glyph">∞</span>
-          <span class="nav-name">unwind<span class="nav-accent">code</span></span>
-          <p class="footer-desc" data-i18n="footer.desc">Intelligence that evolves.<br />Growing organisms since 2026.</p>
-        </div>
-        <div class="footer-col">
-          <h5 data-i18n="footer.organisms">Organisms</h5>
-          <a href="/#organisms" data-i18n="org.vc.title">Visual Cortex</a>
-          <a href="/#organisms" data-i18n="org.im.title">Infinity Mirror</a>
-          <a href="/#organisms" data-i18n="org.fo.title">Financial Organisms</a>
-          <a href="/#organisms" data-i18n="org.bc.title">Brain Cell Architecture</a>
-        </div>
-        <div class="footer-col">
-          <h5 data-i18n="footer.learn">Learn</h5>
-          <a href="/#architecture" data-i18n="nav.architecture">Architecture</a>
-          <a href="/#philosophy" data-i18n="nav.philosophy">Philosophy</a>
-          <a href="/#vision" data-i18n="footer.vision">Vision 2030</a>
-        </div>
-        <div class="footer-col">
-          <h5 data-i18n="footer.community">Community</h5>
-          <a href="/#cta" data-i18n="footer.join">Join Updates</a>
-          <a href="/#blog" data-i18n="footer.blog">Blog</a>
-          <a href="#" id="footer-chat-link" data-i18n="footer.talk">Talk to the Brain</a>
-        </div>
+  <main>
+    <section class="tx-hero">
+      <div class="container">
+        <div class="tx-hero-kicker"><span class="tx-section-num">TRANSMISSION 006</span></div>
+        <h1>Neurogenesis: The Capacity<br>for Self-Regeneration</h1>
+        <p class="tx-hero-sub">An April 2026 note said a failing organism spins up a lobe, rebuilds a cell, tests it to full coverage and grafts it in unseen. Checked against the record, a pipeline of propose, sandbox, critic and approve exists and is tested; exactly one cell has been grafted; and nothing here heals itself without the operator.</p>
+        <div class="tx-hero-meta"><span>November 2026</span><span>&middot;</span><span>Revised note</span><span>&middot;</span><span>Evolution</span><span>&middot;</span><span>10 min read</span></div>
       </div>
-      <div class="footer-bottom">
-        <span data-i18n="footer.copyright">© 2026 Unwind Code. All rights reserved.</span>
-        <span class="footer-tagline" data-i18n="footer.tagline">The future learns from itself. ∞</span>
+    </section>
+
+    <div class="container">
+      <div class="tx-notes">
+        <div class="tx-dated"><strong>Dated.</strong> This note describes the evolution engine and its records as they stand on 10 November 2026. The note it replaces was published in April 2026 and described an automatic design in the present tense.</div>
+        <div class="tx-notice revised"><h3>Revised 10 November 2026</h3><p>Rewritten to the Transmission standard. Ten claims were checked: one supported, four softened, four withdrawn and one kept as a metaphor. The page now describes the pipeline that exists, stage by stage, and the near-failures that shaped it.</p></div>
+        <div class="tx-notice"><h3>Correction, 10 November 2026</h3><p>The April note said an observer maps the stack trace against a decision log, spins up a refactoring lobe, validates the cell against an agent rules directory, requires one hundred percent coverage and then grafts the cell into the live organism. The record shows a gap analysis from the failure request, a generator and a separate critic, a sandbox that passes on a clean exit, a review-only packet, and a graft only after the operator approves. That rules directory does not exist, coverage is not measured, and no cell grafts itself. Those sentences are withdrawn or softened.</p></div>
+      </div>
+
+      <section class="tx-section" id="claims">
+        <div class="tx-section-head"><span class="tx-section-num">01</span><h2>Ten claims from April, checked</h2></div>
+        <div class="tx-section-label">A ledger of what the old note said</div>
+        <div class="tx-prose">
+          <p>The April note made a dramatic promise. When an agent hits a persistent failure while running its tests, it does not just retry. An observer reads the stack trace against a decision log and spins up a second agent, a Code Refactor Lobe, that rebuilds the failing module as a new cell in isolation. The cell is checked against a rules directory and a sandbox, and "if, and only if" the sandbox confirms full coverage, the observer grafts it into the live organism. The conclusion followed: the organism rewrites its own anatomy, and human maintenance, the most brittle part of engineering, is abstracted away.</p>
+          <p>That is a claim about a system that changes itself. It deserves the hardest check in this series, and the record has a good deal to say, because this is the one early idea that was actually exercised.</p>
+          <p>We split the note into ten claims and traced each. One is supported, four are softened, four are withdrawn and one is a metaphor. Filter the ledger and open the cards.</p>
+        </div>
+        <div class="dl-filters" role="group" aria-label="Filter claims by verdict" id="cl-filters"></div><div class="dl-count" id="cl-count" aria-live="polite"></div><div class="dl-grid" id="cl-grid"></div>
+        <div class="tx-prose tx-after">
+          <p>The sentences that fell are the ones that removed the person. The ones that survived describe a staged, reviewed, budgeted proposal.</p>
+        </div>
+      </section>
+
+      <section class="tx-section" id="pipeline">
+        <div class="tx-section-head"><span class="tx-section-num">02</span><h2>The pipeline that exists</h2></div>
+        <div class="tx-section-label">Six stages, each with a trail</div>
+        <div class="tx-prose">
+          <p>Here is the real sequence. When a task keeps failing, the loop hands it to the evolution engine with the failure count and message. The engine states the missing capability, then asks a generator for a cell and a unit test, under limits that are enforced before the first call. The cell and its test run in a sandbox. A critic reviews the result. If everything holds, the engine writes a hashed, review-only proposal packet and stops.</p>
+          <p>What happens next belongs to the operator. Writing the cell into source, importing it and activating it are separate closed gates. The final one is a manifest entry that lists the cell with its hash. Without that entry the file is quarantined and never imported.</p>
+          <p>Each stage is described below. None of them is fast and none is autonomous, and each can say no.</p>
+        </div>
+        <div class="mod-explorer"><div class="mod-grid" id="ex-grid" role="group" aria-label="Stages"></div><div class="mod-detail" id="ex-detail" aria-live="polite"></div></div>
+        <div class="tx-prose tx-after">
+          <p>The engine, critic and loader suites were counted in source. The Brain's test runner was not available in the environment used for this note, so none of them was run, and the figures from September and October are dated records.</p>
+        </div>
+      </section>
+
+      <section class="tx-section" id="walk">
+        <div class="tx-section-head"><span class="tx-section-num">03</span><h2>A candidate walks both paths</h2></div>
+        <div class="tx-section-label">As described, and as built</div>
+        <div class="tx-prose">
+          <p>The difference between the two designs shows most clearly when something is wrong with the candidate. In the April design a clone with passing tests grafts itself. In the built design the critic refuses it, and a content check refuses a cell that mentions keys or pushes, and a budget above the ceiling is refused before generation.</p>
+          <p>Choose a situation. The left column is the April design, which has no code behind it. The right column is the built pipeline, with six stages. This is a model of the two designs, not a benchmark, and it is not a record of any particular proposal.</p>
+        </div>
+        <div class="cr-wrap"><div class="cr-top"><span class="cr-label">Model · one candidate, two designs</span><div class="cr-faults" role="group" aria-label="Choose a situation" id="md-faults"></div></div><div class="cr-cols"><div class="cr-col"><h3>As the April note described</h3><p class="cr-col-sub">Not built.</p><ol class="cr-steps" id="md-left"></ol></div><div class="cr-col"><h3>As the pipeline is built</h3><p class="cr-col-sub">Six stages, one hand at the end.</p><ol class="cr-steps" id="md-right"></ol></div></div><div class="cr-outcome" id="md-outcome" aria-live="polite"></div><p class="cr-note">A model of two designs. The decision log records 34 decided proposals: one graft and 33 rejections.</p></div>
+
+      </section>
+
+      <section class="tx-section" id="dated">
+        <div class="tx-section-head"><span class="tx-section-num">04</span><h2>The record, in dates</h2></div>
+        <div class="tx-section-label">What the pipeline has actually done</div>
+        <div class="tx-prose">
+          <p>The pipeline has a short history. The decision log records 34 decided proposals between 25 May and 3 July 2026: one grafted, and 33 rejected by the operator with the reason "not needed yet". It is worth reading carefully, because it is the whole evidence for the idea.</p>
+        </div>
+        <div class="wf-steps" id="tl-steps"><div class="wf-step"><div class="wf-dot wf-dot-1">01</div><h3>April 2026 · The note</h3><p>Described an observer that grafts a rebuilt cell into the live organism.</p></div><div class="wf-step"><div class="wf-dot wf-dot-2">02</div><h3>25 and 26 May 2026 · The only graft</h3><p>A task failed three times with "simulation plane capability missing". The generated cell passed the sandbox with a clean exit, and the operator integrated it on 26 May. It is an in-silico simulation cell, not a bug fix.</p></div><div class="wf-step"><div class="wf-dot wf-dot-3">03</div><h3>28 and 29 May 2026 · Guards go in</h3><p>Confined writes and the manifest quarantine are recorded as verified on 28 May. The critic's source is committed on 29 May.</p></div><div class="wf-step"><div class="wf-dot wf-dot-4">04</div><h3>7 September 2026 · Proposals get budgets</h3><p>Each proposal now runs under its own limits, enforced before generation. 26 tests.</p></div><div class="wf-step"><div class="wf-dot wf-dot-5">05</div><h3>16 October 2026 · The sandbox is repaired</h3><p>The container run learns to move generated code into writable temporary space while its root stays read-only.</p></div><div class="wf-step"><div class="wf-dot wf-dot-6">06</div><h3>10 November 2026 · Today</h3><p>One generated cell is active. No second graft appears in the record.</p></div></div>
+        <div class="tx-prose tx-after">
+          <p>One approved proposal, one active cell and 33 rejections. That is the honest scale of neurogenesis on the record today. It is a working process and a small result.</p>
+        </div>
+      </section>
+
+      <section class="tx-section" id="nearly">
+        <div class="tx-section-head"><span class="tx-section-num">05</span><h2>What nearly went wrong</h2></div>
+        <div class="tx-section-label">Four lessons the pipeline carries</div>
+        <div class="tx-prose">
+          <p>Behind the pipeline's caution sits a history of nearly going wrong. The Brain's own archive and charters record four lessons. They are the reason the note's automatic graft was never built.</p>
+        </div>
+        <div class="mem-grid" id="nr-cards"></div>
+        <div class="tx-prose tx-after">
+          <p>None of these is a triumph. Each is a repair made after the design had already failed on paper or in practice, and they are the reason the approval gate sits where it does.</p>
+        </div>
+      </section>
+
+      <section class="tx-section" id="not-claimed">
+        <div class="tx-section-head"><span class="tx-section-num">06</span><h2>What this note does not claim</h2></div>
+        <div class="tx-section-label">Boundary</div>
+        <div class="tx-prose">
+          <ul class="tx-list">
+            <li>It does not claim any code heals itself. The pipeline proposes and a person decides.</li>
+            <li>It does not claim cells are tested to full coverage. Coverage is not measured.</li>
+            <li>It does not claim the one grafted cell fixed a bug. It added a simulation capability that was missing.</li>
+            <li>It does not claim a second graft exists, or that generated cells improve the system.</li>
+            <li>It does not claim the engine reads the decision log or a rules directory. It does neither.</li>
+            <li>It does not claim the engine is running. Its last hosted commit is dated 23 August, the 8 November audit lists the Brain's runtime as dormant, and the status file records attended sessions on the local copy into October.</li>
+          </ul>
+          <p>What it does claim is narrow and checkable: a staged, budgeted, critic-reviewed and operator-approved path exists for generated code, and one cell has gone through it.</p>
+          <div class="tx-related">Related: <a href="/transmissions/19-the-cell-swap-protocol">Transmission 19 — the cell swap protocol</a> · <a href="/transmissions/23-the-sec-gate-an-organism-that-locks-its-own-hands">Transmission 23 — the SEC gate</a> · <a href="/transmissions/44-what-the-organism-is-afraid-of">Transmission 44 — what the organism is afraid of</a></div>
+        </div>
+
+
+      </section>
+
+      <div class="tx-cta">
+        <h2>Propose freely. Graft by permission.</h2>
+        <p>Self-healing code that can change itself without a person is a risk. Code that can only propose is a tool.</p>
+        <a class="btn btn-primary btn-lg" href="/build-with-us"><span>Build With Us</span><span class="btn-arrow">&rarr;</span></a>
       </div>
     </div>
-  </footer>
+  </main>
 
-  <script type="module" src="/main.js?v=20260605-social-preview"></script>
+  <footer id="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span><p class="footer-desc">Intelligence that evolves.<br />No claim without a trail.</p></div><div class="footer-col"><h5>Proof</h5><a href="/proof">Proof Register</a><a href="/proof/ledger">Live Ledger</a><a href="/transmissions">Transmissions</a><a href="/architecture">Architecture</a></div><div class="footer-col"><h5>Organisms</h5><a href="/organisms">All Organisms</a><a href="/organisms/financial-organisms">Financial Organisms</a><a href="/organisms/infinity-mirror">Infinity Mirror</a></div><div class="footer-col"><h5>Next</h5><a href="/build-with-us">Build With Us</a><a href="/#cta">Subscribe</a></div></div><div class="footer-bottom"><span>© 2026 Unwind Code. All rights reserved.</span><span class="footer-tagline">The future learns from itself. ∞</span></div></div></footer>
+
+  <script>
+  (function () {
+    // All data below is static and client-side. Nothing on this page makes a network call.
+
+    function el(id) { var e = document.getElementById(id); if (!e) { throw new Error('missing element ' + id); } return e; }
+    function toggleExpand(node, hint, a, b) {
+      node.addEventListener('click', function () {
+        var open = node.getAttribute('aria-expanded') === 'true';
+        node.setAttribute('aria-expanded', open ? 'false' : 'true');
+        if (hint) { var h = node.querySelector(hint); if (h) { h.textContent = open ? a : b; } }
+      });
+    }
+    function filterWidget(p, cfg) {
+      var chips = el(p + '-filters'), grid = el(p + '-grid'), count = el(p + '-count');
+      var cats = cfg.cats;
+      var list = [{ key: 'all', label: 'All', c: '' }].concat(cfg.chips.map(function (k) { return { key: k, label: cats[k].l, c: cats[k].c }; }));
+      list.forEach(function (ch, i) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'dl-chip' + (ch.c ? ' dl-chip-' + ch.c : '');
+        b.setAttribute('data-state', ch.key);
+        b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
+        b.textContent = ch.label;
+        b.addEventListener('click', function () {
+          chips.querySelectorAll('.dl-chip').forEach(function (o) { o.setAttribute('aria-pressed', 'false'); });
+          b.setAttribute('aria-pressed', 'true');
+          apply(ch.key);
+        });
+        chips.appendChild(b);
+      });
+      cfg.cards.forEach(function (c) {
+        var card = document.createElement('button');
+        card.type = 'button';
+        card.className = 'dl-card';
+        card.setAttribute('data-state', c.cat);
+        card.setAttribute('aria-expanded', 'false');
+        card.innerHTML = '<span class="dl-state dl-state-' + cats[c.cat].c + '">' + cats[c.cat].l + '</span>' +
+          '<div class="dl-name">' + c.name + '</div><div class="dl-short">' + c.short + '</div>' +
+          '<div class="dl-why">' + c.why + '</div><div class="dl-hint">' + cfg.hint + ' &darr;</div>';
+        toggleExpand(card, '.dl-hint', cfg.hint + ' \u2193', 'Close \u2191');
+        grid.appendChild(card);
+      });
+      function apply(state) {
+        var shown = 0;
+        grid.querySelectorAll('.dl-card').forEach(function (card) {
+          var m = state === 'all' || card.getAttribute('data-state') === state;
+          if (m) { card.removeAttribute('hidden'); shown += 1; } else { card.setAttribute('hidden', ''); }
+        });
+        count.textContent = shown + ' of ' + cfg.cards.length + ' ' + cfg.noun;
+      }
+      apply('all');
+    }
+    function explorerWidget(p, items, glyph) {
+      var grid = el(p + '-grid'), detail = el(p + '-detail'), btns = [];
+      function show(it) {
+        btns.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-id') === it.id ? 'true' : 'false'); });
+        detail.innerHTML = '<div class="mod-detail-title">' + it.name + '</div>' +
+          '<span class="mod-detail-type">' + it.role + '</span>' +
+          '<p class="mod-detail-desc">' + it.desc + '</p>' +
+          '<div class="mod-specs-label">What the record shows</div>' +
+          '<div class="mod-specs">' + it.specs.map(function (s) { return '<span class="mod-spec">' + s + '</span>'; }).join('') + '</div>' +
+          '<div class="mod-proof"><strong>' + it.status + '</strong> &middot; ' + it.proof + '</div>';
+      }
+      items.forEach(function (it) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'mod-node';
+        b.setAttribute('data-id', it.id);
+        b.setAttribute('aria-pressed', 'false');
+        b.innerHTML = '<span class="mod-glyph">' + glyph + '</span><div class="mod-name">' + it.name + '</div><div class="mod-path">' + it.blurb + '</div><div class="mod-score">' + it.status + '</div>';
+        b.addEventListener('click', function () { show(it); });
+        grid.appendChild(b);
+        btns.push(b);
+      });
+      show(items[0]);
+    }
+    function modelWidget(p, cfg) {
+      var left = el(p + '-left'), right = el(p + '-right'), out = el(p + '-outcome'), faults = el(p + '-faults');
+      function step(n, s, cls, verdict) {
+        var li = document.createElement('li');
+        li.className = 'cr-step ' + cls;
+        li.innerHTML = '<span class="cr-step-n">0' + n + '</span><span><span class="cr-step-t">' + s.t + '</span><span class="cr-step-d">' + s.d + '</span></span><span class="cr-verdict">' + verdict + '</span>';
+        return li;
+      }
+      function col(ol, steps, spec) {
+        ol.innerHTML = '';
+        steps.forEach(function (s, i) {
+          var cls = 'pass', v = spec.ok || 'OK';
+          if (spec.mode === 'fail') {
+            if (i === spec.at) { cls = 'fail'; v = spec.verdict || 'REFUSED'; }
+            else if (i > spec.at) { cls = 'skip'; v = 'NOT REACHED'; }
+          } else if (spec.mode === 'blind') {
+            if (i >= spec.at) { cls = 'blind'; v = spec.verdict || 'UNCHECKED'; }
+          } else if (spec.mode === 'skip') {
+            cls = 'skip'; v = spec.verdict || 'NOT BUILT';
+          }
+          ol.appendChild(step(i + 1, s, cls, v));
+        });
+      }
+      function run(t) {
+        col(left, cfg.leftSteps, t.left);
+        col(right, cfg.rightSteps, t.right);
+        out.className = 'cr-outcome ' + (t.cls || 'clean');
+        out.innerHTML = t.outcome;
+      }
+      cfg.toggles.forEach(function (t, i) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'cr-fault' + (i === 0 ? ' cr-fault-reset' : '');
+        b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
+        b.textContent = t.label;
+        b.addEventListener('click', function () {
+          faults.querySelectorAll('.cr-fault').forEach(function (o) { o.setAttribute('aria-pressed', 'false'); });
+          b.setAttribute('aria-pressed', 'true');
+          run(t);
+        });
+        faults.appendChild(b);
+      });
+      run(cfg.toggles[0]);
+    }
+    function listWidget(p, items) {
+      var list = el(p + '-list');
+      items.forEach(function (h) {
+        var item = document.createElement('button');
+        item.type = 'button';
+        item.className = 'oh-item';
+        item.setAttribute('aria-expanded', 'false');
+        item.innerHTML = '<span class="oh-box" aria-hidden="true"></span><span><span class="oh-t">' + h.t + '</span><span class="oh-s">' + h.s + '</span><span class="oh-d">' + h.d + '</span></span><span class="oh-needs oh-needs-' + h.cls + '">' + h.needs + '</span>';
+        toggleExpand(item);
+        list.appendChild(item);
+      });
+    }
+    function cardsWidget(p, items) {
+      var grid = el(p + '-cards');
+      items.forEach(function (l) {
+        var card = document.createElement('button');
+        card.type = 'button';
+        card.className = 'mem-card';
+        card.setAttribute('aria-expanded', 'false');
+        card.innerHTML = '<h4><span class="mem-tag">' + l.tag + '</span>' + l.title + '</h4><p>' + l.desc + '</p><div class="mem-extra">' + l.extra + '</div><div class="mem-hint">Click to expand &darr;</div>';
+        toggleExpand(card, '.mem-hint', 'Click to expand \u2193', 'Click to collapse \u2191');
+        grid.appendChild(card);
+      });
+    }
+    function budgetWidget(p, cfg) {
+      var range = el(p + '-range'), val = el(p + '-val'), fill = el(p + '-fill'), sum = el(p + '-sum'), rows = el(p + '-rows');
+      function draw() {
+        var budget = parseInt(range.value, 10), used = 0, skipped = 0;
+        rows.innerHTML = '';
+        cfg.rows.forEach(function (r) {
+          var li = document.createElement('li');
+          var fits = used + r.n <= budget;
+          if (fits) { used += r.n; } else { skipped += 1; }
+          li.className = 'bg-row ' + (fits ? 'in' : 'out');
+          li.innerHTML = '<span>' + r.t + '<span class="bg-stage">' + r.s + '</span></span><span class="bg-n">' + r.n + ' tok</span><span class="bg-v">' + (fits ? 'IN' : 'SKIPPED') + '</span>';
+          rows.appendChild(li);
+        });
+        val.textContent = budget + ' tokens';
+        fill.style.width = Math.min(100, Math.round(used / parseInt(range.max, 10) * 100)) + '%';
+        sum.textContent = 'used ' + used + ' of ' + budget + ' tokens \u00b7 ' + skipped + ' row' + (skipped === 1 ? '' : 's') + ' skipped and counted, none trimmed';
+      }
+      range.addEventListener('input', draw);
+      draw();
+    }
+    function revealWidget(p) {
+      var wf = el(p + '-steps');
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduce && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { wf.querySelectorAll('.wf-step').forEach(function (s) { s.classList.add('reveal-step'); }); io.disconnect(); }
+          });
+        }, { threshold: 0.15 });
+        io.observe(wf);
+      }
+    }
+
+    var CATS = {"supported": {"c": "d", "l": "SUPPORTED"}, "design": {"c": "b", "l": "DESIGN"}, "metaphor": {"c": "a", "l": "METAPHOR"}, "softened": {"c": "c", "l": "SOFTENED"}, "withdrawn": {"c": "f", "l": "WITHDRAWN"}};
+
+    filterWidget('cl', {cats: CATS, chips: ['supported', 'softened', 'metaphor', 'withdrawn'], hint: 'Why', noun: 'claims', cards: [{"cat": "softened", "name": "One model dictating logic across fifteen domains makes failure a statistical inevitability", "short": "The argument stays. The figure goes.", "why": "Concentrating many duties in one model is fragile, and the design answer is separate cells. No count of fifteen domains appears in the record, so the figure is withdrawn."}, {"cat": "softened", "name": "A persistent exception loop while running pytest in a sandbox triggers recovery", "short": "The trigger is a failure count.", "why": "The loop routes a task to the evolution engine after it has failed a set number of times, three or more by default. It is not specific to one test runner."}, {"cat": "supported", "name": "Failed code is treated as structural decay, not just an execution error", "short": "Persistent failure is routed onward.", "why": "The autonomous loop's charter says a task that fails twice and is never routed on is a wound chosen not to be noticed. Persistent failure does go to the engine."}, {"cat": "withdrawn", "name": "An observer maps the stack trace against decision-log memory", "short": "The engine does not read the decision log.", "why": "The engine's gap analysis works from the failure request, asking what capability is missing. The decision log is a diary and the engine does not consult it."}, {"cat": "softened", "name": "A secondary agent, a Code Refactor Lobe, rebuilds the cell in isolation", "short": "A generator, and a separate critic.", "why": "A model-backed generator writes a cell and its unit test. A separate critic then reviews the candidate. \"Lobe\" is the note's word; the code has a generator and a critic, and the critic never writes cells."}, {"cat": "withdrawn", "name": "The cell is validated against constraints defined in an agent rules directory", "short": "That directory does not exist.", "why": "The Brain's agent folder holds skills and workflows only. The checks that exist are blocked-content patterns, a safe-name rule, budget ceilings and the sandbox."}, {"cat": "softened", "name": "Only if the sandbox confirms one hundred percent test coverage", "short": "The pass condition is an exit code.", "why": "Coverage is not measured. The sandbox passes a candidate whose run exits cleanly. The Brain's own research analysis calls that a weak fitness function and notes that clone tests passed it."}, {"cat": "withdrawn", "name": "The observer grafts the new cell into the live organism", "short": "Nothing grafts without the operator.", "why": "The engine stages a review-only proposal. Source writes, imports, deploys and wallet actions stay closed until the operator approves, and a cell runs only if a hash manifest lists it as active."}, {"cat": "withdrawn", "name": "This abstracts away human maintenance", "short": "Maintenance stays human, by design.", "why": "The approval step is the point of the design. The record counts one approved cell, and it counts the lines of machinery that grew when approval was multiplied into a chain."}, {"cat": "metaphor", "name": "Neurogenesis, and the organism rewriting its own anatomy", "short": "Biology as vocabulary.", "why": "A way to name propose, test, review and graft. It is not a claim that the system regenerates itself. The real outcome so far is one reviewed cell."}]});
+    explorerWidget('ex', [{"id": "gap", "name": "Gap analysis", "role": "Evolution engine", "blurb": "What capability is missing?", "desc": "The first phase reads the failure request, which carries an error count and a message, and states the missing capability.", "specs": ["Failure count threshold", "Error message", "Capability gap"], "status": "Built", "proof": "Engine source and its suite of 15 test functions (counted, not run)."}, {"id": "gen", "name": "Generator under a budget", "role": "Evolution engine", "blurb": "A cell and a test, within limits.", "desc": "A model-backed generator writes a cell and a unit test. A proposal's own limits are enforced before anything is generated: an axis above the ceiling is refused, never clamped, and a metered generator's usage is summed against the budget.", "specs": ["Refused, not clamped", "Attempt cap", "Deadline"], "status": "Built · 7 Sep 2026 record, 26 tests", "proof": "Dated status record. Not re-run for this note."}, {"id": "sandbox", "name": "Sandbox", "role": "Container run", "blurb": "Run it where it can do no harm.", "desc": "Generated code and its test run in a container: requirement validation, no shell, wallet-key variables stripped, and a read-only root with a writable temporary area.", "specs": ["No shell", "Keys stripped", "Read-only root"], "status": "Built · repaired 16 Oct 2026", "proof": "Status record of the 16 October repair, with four new regressions."}, {"id": "critic", "name": "Critic", "role": "Loop guard", "blurb": "Pure doubt, by design.", "desc": "Rejects name-extension clones, degenerate repeated-token names and near-duplicate code, and attaches a reason to every verdict. It is simple and dependency-free on purpose, and it does not write cells.", "specs": ["3 rejection axes", "Advisory to the gate", "14 test functions"], "status": "Built", "proof": "Critic source and charter."}, {"id": "packet", "name": "Proposal packet", "role": "Review-only", "blurb": "Generated and tested is not written into source.", "desc": "A hashed packet holds the cell, the sandbox result and the budget used. Content that touches keys, signing, wallets, pushes, deploys or publishing is blocked, and cell names must match a safe pattern.", "specs": ["Hashes bound in", "Blocked content patterns", "Safe name rule"], "status": "Built", "proof": "Proposal module and its suite."}, {"id": "gate", "name": "Approval and manifest", "role": "The operator's hand", "blurb": "One gate, not a chain.", "desc": "The operator approves a proposal and a manifest entry lists the cell with its hash. Only then is the cell imported. Files the manifest does not list are quarantined.", "specs": ["One approval gate", "Hash manifest", "1 cell active"], "status": "Built · used once", "proof": "Manifest and integrated proposal record, 25 and 26 May 2026."}], 'STAGE');
+    modelWidget('md', {"leftSteps": [{"t": "Observe the failure", "d": "A persistent exception loop."}, {"t": "Generate a rebuilt cell", "d": "Written in isolation."}, {"t": "Sandbox: full coverage", "d": "As the note required."}, {"t": "Graft into the live organism", "d": "By the observer."}], "rightSteps": [{"t": "Gap analysis", "d": "Which capability is missing."}, {"t": "Generate under a budget", "d": "Limits checked first."}, {"t": "Sandbox run", "d": "A clean exit passes."}, {"t": "Critic review", "d": "Clones and near-copies refused."}, {"t": "Packet staged", "d": "Blocked content refused."}, {"t": "Operator approval", "d": "And a manifest entry."}], "toggles": [{"label": "A sound candidate", "left": {"mode": "blind", "at": 3, "verdict": "GRAFTS, NO HUMAN"}, "right": {"mode": "blind", "at": 5, "verdict": "AWAITS OPERATOR"}, "cls": "clean", "outcome": "<strong>The built path ends at a person.</strong> A sound candidate is staged and waits. The April note's path would have grafted it unseen."}, {"label": "A name-extension clone", "left": {"mode": "blind", "at": 3, "verdict": "GRAFTS, NO HUMAN"}, "right": {"mode": "fail", "at": 3, "verdict": "CRITIC REFUSES"}, "cls": "refused", "outcome": "<strong>Its own tests pass, and the critic still refuses it.</strong> A cell named like an existing one with tokens appended was the shape of an earlier runaway."}, {"label": "Content touching a wallet or a push", "left": {"mode": "blind", "at": 3, "verdict": "GRAFTS, NO HUMAN"}, "right": {"mode": "fail", "at": 4, "verdict": "BLOCKED"}, "cls": "refused", "outcome": "<strong>Blocked at the packet.</strong> A cell mentioning keys, signing, wallets, pushes, deploys or publishing cannot be staged at all."}, {"label": "A budget above the ceiling", "left": {"mode": "blind", "at": 3, "verdict": "GRAFTS, NO HUMAN"}, "right": {"mode": "fail", "at": 1, "verdict": "REFUSED, NOT CLAMPED"}, "cls": "refused", "outcome": "<strong>Refused before anything is generated.</strong> An axis over the ceiling is never trimmed to fit, and a metered axis the generator cannot meter is refused too."}, {"label": "The operator declines", "left": {"mode": "blind", "at": 3, "verdict": "GRAFTS, NO HUMAN"}, "right": {"mode": "fail", "at": 5, "verdict": "NOT GRAFTED"}, "cls": "refused", "outcome": "<strong>Nothing changes.</strong> No approval, no manifest entry, no import. A rejected proposal also keeps its lineage."}]});
+    revealWidget('tl');
+    cardsWidget('nr', [{"tag": "incident", "title": "The clone loop", "desc": "Cells began breeding near-copies of cells.", "extra": "Each looked plausible alone and together they were a tumour. Names grew by appended tokens, so a market-signal cell became a market-signal-executor cell and then repeated its own suffix. The critic was built to reject exactly those shapes, and its charter calls itself the organism's memory of the time it nearly ate itself."}, {"tag": "incident", "title": "The chain of forty gates", "desc": "Approval for every micro-step.", "extra": "The Brain's research archive counts 39 inert gates of one family and 63 of another, around 71 thousand lines of gate and ledger machinery, stacked on a loop that had never grafted a cell. The cure was one owner-approval gate."}, {"tag": "lesson", "title": "A weak fitness function", "desc": "Selection was an exit code.", "extra": "The sandbox's binary pass let clone tests through. The research analysis recommended a scored verdict: tests passing, novelty against existing cells, and a penalty for complexity. The critic is the first step toward it, and it is advisory."}, {"tag": "rule", "title": "The critic cannot write", "desc": "Doubt that makes is no longer doubt.", "extra": "The critic never grades work it authored and never writes cells. Its verdict is advisory to the human gate, never a substitute for it. A lazy pass from the critic would become the operator's mistake, so it is built to refuse a good candidate before it admits a bad one."}]);
+
+  })();
+  </script>
+  <script type="module" src="/main.js?v=20260615-system-state"></script>
 </body>
 </html>

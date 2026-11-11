@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Transmission 04: The Core Loop - How AI Systems Breathe | Unwind Code</title>
-  <meta name="description" content="Most LLM integrations are completely functional programming loops: User inputs prompt, server processes generation, user receives response." />
+  <title>Transmission 04: The Core Loop: How AI Systems Breathe | Unwind Code</title>
+  <meta name="description" content="An April 2026 note described a Tri-Pulse loop with a 3 a.m. memory flush that rewires the system. Eight claims checked: the real pulse is a set of scheduled jobs with heartbeats and a dead-man reader, the nightly flush writes a summary file, and the loop has its own failures today." />
   <meta name="theme-color" content="#06060c" />
   <link rel="canonical" href="https://www.unwindcode.ai/transmissions/04-core-loop-pulse" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Transmission 04: The Core Loop - How AI Systems Breathe | Unwind Code" />
-  <meta property="og:description" content="Most LLM integrations are completely functional programming loops: User inputs prompt, server processes generation, user receives response." />
+  <meta property="og:title" content="The Core Loop: How AI Systems Breathe" />
+  <meta property="og:description" content="Eight claims about a core loop, checked: a heartbeat reader that exists, a nightly rewrite that does not, and a build loop that has gone quiet." />
   <meta property="og:url" content="https://www.unwindcode.ai/transmissions/04-core-loop-pulse" />
   <meta property="og:site_name" content="Unwind Code" />
   <meta property="og:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
@@ -18,115 +18,565 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Transmission 04: The Core Loop - How AI Systems Breathe | Unwind Code" />
-  <meta name="twitter:description" content="Most LLM integrations are completely functional programming loops: User inputs prompt, server processes generation, user receives response." />
+  <meta name="twitter:title" content="The Core Loop: How AI Systems Breathe" />
+  <meta name="twitter:description" content="Eight claims about a core loop, checked: a heartbeat reader that exists, a nightly rewrite that does not, and a build loop that has gone quiet." />
   <meta name="twitter:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
   <meta name="twitter:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/style.css" />
-</head>
-<body class="transmission-body">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Core Loop: How AI Systems Breathe",
+    "description": "A revised note: eight claims about a three-phase core loop checked against code and records, with the scheduled jobs, heartbeats and dead-man reader that actually exist.",
+    "author": {
+      "@type": "Organization",
+      "name": "Unwind Code"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Unwind Code",
+      "url": "https://www.unwindcode.ai"
+    },
+    "datePublished": "2026-04",
+    "dateModified": "2026-11-10",
+    "keywords": [
+      "core loop",
+      "heartbeat",
+      "scheduler",
+      "dead-man reader",
+      "claim ledger"
+    ],
+    "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/04-core-loop-pulse"
+  }
+  </script>
+  <style>
+    .tx-page { background: var(--bg-void); color: var(--text-primary); }
+    .tx-page *, .tx-page *::before, .tx-page *::after { box-sizing: border-box; }
+    .tx-hero { padding: 160px 0 72px; text-align: center; position: relative; overflow: hidden; }
+    .tx-hero::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:800px; height:800px; background:radial-gradient(circle, rgba(110,45,190,0.12) 0%, transparent 60%); pointer-events:none; }
+    .tx-hero-kicker { margin-bottom:16px; }
+    .tx-hero h1 { font-size:clamp(2.2rem,5vw,3.5rem); font-weight:800; letter-spacing:-0.04em; line-height:1.08; margin:0 0 20px; }
+    .tx-hero-sub { font-size:1.08rem; color:var(--text-secondary); max-width:660px; margin:0 auto; line-height:1.7; }
+    .tx-hero-meta { margin-top:28px; display:flex; justify-content:center; gap:14px; font-size:0.76rem; color:var(--text-muted); font-weight:600; letter-spacing:0.06em; text-transform:uppercase; flex-wrap:wrap; }
+    .tx-section { padding:72px 0; border-top:1px solid var(--accent-border); }
+    .tx-section:first-of-type { border-top:none; padding-top:24px; }
+    .tx-section-head { display:flex; align-items:center; gap:16px; margin-bottom:10px; }
+    .tx-section-num { font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:700; color:var(--accent-hot); letter-spacing:0.15em; }
+    .tx-section h2 { font-size:clamp(1.5rem,3vw,2rem); font-weight:700; letter-spacing:-0.02em; margin:0; }
+    .tx-section-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:24px; }
+    .tx-prose { font-size:1.04rem; color:var(--text-secondary); line-height:1.8; max-width:720px; }
+    .tx-prose p { margin:0 0 22px; }
+    .tx-prose strong { color:var(--text-primary); font-weight:600; }
+    .tx-prose code, .tx-prose-code { font-family:'JetBrains Mono',monospace; font-size:0.84rem; background:rgba(110,45,190,0.1); color:var(--accent-light); padding:2px 6px; border-radius:4px; }
+    .tx-prose a, .tx-inline { color:var(--accent-light); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    .tx-quote { border-left:3px solid var(--accent); padding:18px 24px; margin:36px 0; background:rgba(110,45,190,0.05); border-radius:0 12px 12px 0; color:var(--text-primary); font-size:1.08rem; line-height:1.6; font-weight:500; max-width:720px; }
+    .tx-after { margin-top:36px; }
 
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- NAV (Dark Chrome) -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <nav id="nav">
-    <a href="/" class="nav-brand">
-      <span class="nav-glyph">∞</span>
-      <span class="nav-name">unwind<span class="nav-accent">code</span></span>
-    </a>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+    /* 01 — State filter */
+    .dl-filters { display:flex; flex-wrap:wrap; gap:10px; margin:28px 0 18px; }
+    .dl-chip { font-family:inherit; font-size:0.78rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:9px 16px; border-radius:999px; border:1px solid var(--accent-border); background:var(--bg-surface); color:var(--text-secondary); cursor:pointer; transition:border-color .2s ease, color .2s ease, background .2s ease; }
+    .dl-chip:hover { border-color:rgba(110,45,190,0.4); color:var(--text-primary); }
+    .dl-chip[aria-pressed="true"] { background:rgba(110,45,190,0.16); border-color:var(--accent-light); color:var(--text-primary); }
+    .dl-chip-a[aria-pressed="true"] { border-color:#c084fc; }
+    .dl-chip-b[aria-pressed="true"] { border-color:#38bdf8; }
+    .dl-chip-c[aria-pressed="true"] { border-color:#fbbf24; }
+    .dl-chip-d[aria-pressed="true"] { border-color:#10b981; }
+    .dl-chip-e[aria-pressed="true"] { border-color:#f59e0b; }
+    .dl-chip-f[aria-pressed="true"] { border-color:#f87171; }
+    .dl-count { font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:var(--text-muted); margin-bottom:16px; letter-spacing:0.06em; }
+    .dl-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:12px; }
+    .dl-card { font-family:inherit; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:18px; cursor:pointer; transition:border-color .25s ease, transform .25s ease, opacity .25s ease; }
+    .dl-card:hover { transform:translateY(-2px); border-color:rgba(110,45,190,0.4); }
+    .dl-card[hidden] { display:none; }
+    .dl-state { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.12em; padding:3px 9px; border-radius:999px; border:1px solid currentColor; margin-bottom:10px; }
+    .dl-state-a { color:#c084fc; } .dl-state-b { color:#38bdf8; } .dl-state-c { color:#fbbf24; }
+    .dl-state-d { color:#10b981; } .dl-state-e { color:#f59e0b; } .dl-state-f { color:#f87171; }
+    .dl-name { font-weight:700; font-size:0.96rem; margin-bottom:4px; }
+    .dl-short { font-size:0.84rem; color:var(--text-secondary); line-height:1.55; }
+    .dl-why { display:none; margin-top:12px; padding-top:12px; border-top:1px solid var(--accent-border); font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+    .dl-card[aria-expanded="true"] .dl-why { display:block; }
+    .dl-hint { font-size:0.68rem; color:var(--accent-hot); margin-top:10px; font-weight:600; letter-spacing:0.05em; }
+    .dl-law { margin-top:32px; border:1px solid rgba(251,191,36,0.28); border-radius:16px; padding:24px 28px; background:linear-gradient(180deg,rgba(251,191,36,0.07),rgba(251,191,36,0.015)); max-width:720px; }
+    .dl-law h3 { margin:0 0 10px; font-size:1rem; color:#fbbf24; }
+    .dl-law p { margin:0; font-size:0.95rem; color:var(--text-secondary); line-height:1.7; }
+
+    /* 02 — Component explorer */
+    .mod-explorer { display:grid; grid-template-columns:1fr 1.25fr; gap:24px; margin-top:32px; }
+    .mod-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; align-content:start; }
+    .mod-node { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:20px; cursor:pointer; transition:all 0.25s ease; text-align:left; font-family:inherit; color:var(--text-primary); }
+    .mod-node:hover, .mod-node[aria-pressed="true"] { border-color:rgba(110,45,190,0.45); transform:translateY(-2px); box-shadow:0 8px 24px rgba(110,45,190,0.1); }
+    .mod-node[aria-pressed="true"] { background:rgba(110,45,190,0.08); }
+    .mod-glyph { font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--accent-hot); letter-spacing:0.14em; margin-bottom:10px; display:block; }
+    .mod-name { font-weight:700; font-size:1.02rem; font-family:'JetBrains Mono',monospace; }
+    .mod-path { font-size:0.78rem; color:var(--text-muted); margin-top:6px; line-height:1.4; }
+    .mod-score { margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:#34d399; }
+    .mod-detail { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:20px; padding:32px; min-height:420px; }
+    .mod-detail-title { font-size:1.4rem; font-weight:700; margin-bottom:8px; font-family:'JetBrains Mono',monospace; }
+    .mod-detail-type { display:inline-block; font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent-hot); background:rgba(110,45,190,0.12); border:1px solid rgba(110,45,190,0.2); padding:4px 12px; border-radius:20px; margin-bottom:20px; }
+    .mod-detail-desc { color:var(--text-secondary); line-height:1.7; font-size:0.95rem; margin-bottom:22px; }
+    .mod-specs-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:10px; }
+    .mod-specs { display:flex; flex-wrap:wrap; gap:8px; }
+    .mod-spec { background:rgba(110,45,190,0.08); border:1px solid var(--accent-border); color:var(--accent-light); padding:6px 14px; border-radius:20px; font-size:0.8rem; font-weight:500; }
+    .mod-proof { margin-top:22px; padding-top:18px; border-top:1px solid var(--accent-border); font-size:0.84rem; color:var(--text-muted); line-height:1.6; }
+    .mod-proof strong { color:#34d399; font-family:'JetBrains Mono',monospace; font-weight:600; }
+
+    /* 03 — Baseline model */
+    .cr-wrap { margin-top:28px; border:1px solid rgba(56,189,248,0.22); border-radius:20px; padding:28px; background:linear-gradient(180deg,rgba(56,189,248,0.06),rgba(56,189,248,0.01)); }
+    .cr-top { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; }
+    .cr-label { font-family:'JetBrains Mono',monospace; font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:#38bdf8; }
+    .cr-faults { display:flex; flex-wrap:wrap; gap:8px; }
+    .cr-fault { font-family:inherit; font-size:0.76rem; font-weight:700; padding:8px 14px; border-radius:999px; border:1px solid var(--accent-border); background:var(--bg-surface); color:var(--text-secondary); cursor:pointer; transition:border-color .2s ease, color .2s ease; }
+    .cr-fault:hover { color:var(--text-primary); border-color:rgba(248,113,113,0.5); }
+    .cr-fault[aria-pressed="true"] { color:#fca5a5; border-color:#f87171; background:rgba(248,113,113,0.1); }
+    .cr-fault-reset[aria-pressed="true"] { color:#34d399; border-color:#10b981; background:rgba(16,185,129,0.1); }
+    .cr-cols { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .cr-col { border:1px solid var(--accent-border); border-radius:14px; padding:18px; background:rgba(0,0,0,0.22); }
+    .cr-col h3 { margin:0 0 4px; font-size:0.98rem; }
+    .cr-col-sub { font-size:0.78rem; color:var(--text-muted); margin:0 0 14px; line-height:1.5; }
+    .cr-steps { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
+    .cr-step { display:grid; grid-template-columns:22px 1fr auto; gap:10px; align-items:start; padding:10px 12px; border-radius:10px; border:1px solid var(--accent-border); font-size:0.84rem; line-height:1.5; color:var(--text-secondary); transition:border-color .2s ease, background .2s ease; }
+    .cr-step-n { font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--text-muted); padding-top:3px; }
+    .cr-step-t { color:var(--text-primary); font-weight:600; display:block; }
+    .cr-step-d { display:block; font-size:0.78rem; color:var(--text-muted); margin-top:2px; }
+    .cr-verdict { font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:700; letter-spacing:0.08em; padding-top:3px; white-space:nowrap; }
+    .cr-step.pass { border-color:rgba(16,185,129,0.35); } .cr-step.pass .cr-verdict { color:#34d399; }
+    .cr-step.fail { border-color:#f87171; background:rgba(248,113,113,0.08); } .cr-step.fail .cr-verdict { color:#fca5a5; }
+    .cr-step.skip { opacity:0.42; } .cr-step.skip .cr-verdict { color:var(--text-muted); }
+    .cr-step.blind { border-color:rgba(251,191,36,0.3); } .cr-step.blind .cr-verdict { color:#fbbf24; }
+    .cr-outcome { margin-top:16px; border-radius:12px; padding:14px 16px; font-size:0.9rem; line-height:1.6; border:1px solid var(--accent-border); background:rgba(0,0,0,0.22); color:var(--text-secondary); }
+    .cr-outcome strong { color:var(--text-primary); }
+    .cr-outcome.refused { border-color:rgba(248,113,113,0.4); }
+    .cr-outcome.clean { border-color:rgba(16,185,129,0.35); }
+    .cr-note { margin:14px 0 0; font-size:0.8rem; color:var(--text-muted); line-height:1.6; }
+
+    /* 04 — Timeline */
+    .wf-steps { position:relative; margin-top:32px; padding-left:40px; max-width:760px; }
+    .wf-steps::before { content:''; position:absolute; left:19px; top:0; bottom:0; width:2px; background:var(--accent-border); }
+    .wf-step { position:relative; margin-bottom:40px; }
+    .wf-step:last-child { margin-bottom:0; }
+    .wf-dot { position:absolute; left:-40px; top:0; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:800; z-index:2; font-family:'JetBrains Mono',monospace; }
+    .wf-dot-1 { background:rgba(110,45,190,0.15); color:var(--accent-light); border:2px solid var(--accent); }
+    .wf-dot-2 { background:rgba(79,70,229,0.15); color:#818cf8; border:2px solid #6366f1; }
+    .wf-dot-3 { background:rgba(14,165,233,0.15); color:#38bdf8; border:2px solid #0ea5e9; }
+    .wf-dot-4 { background:rgba(16,185,129,0.15); color:#34d399; border:2px solid #10b981; }
+    .wf-dot-5 { background:rgba(245,158,11,0.15); color:#fbbf24; border:2px solid #f59e0b; }
+    .wf-dot-6 { background:rgba(248,113,113,0.15); color:#fca5a5; border:2px solid #f87171; }
+    .wf-step h3 { font-size:1.06rem; font-weight:700; margin:0 0 6px; padding-top:8px; }
+    .wf-step p { font-size:0.92rem; color:var(--text-secondary); line-height:1.65; margin:0; }
+    .wf-step code { font-family:'JetBrains Mono',monospace; font-size:0.8rem; background:rgba(110,45,190,0.1); color:var(--accent-light); padding:2px 6px; border-radius:4px; }
+    .wf-step.reveal-step { opacity:0; transform:translateY(10px); animation:wfIn .6s ease forwards; }
+    .wf-step.reveal-step:nth-child(1){animation-delay:.05s}.wf-step.reveal-step:nth-child(2){animation-delay:.15s}.wf-step.reveal-step:nth-child(3){animation-delay:.25s}.wf-step.reveal-step:nth-child(4){animation-delay:.35s}.wf-step.reveal-step:nth-child(5){animation-delay:.45s}.wf-step.reveal-step:nth-child(6){animation-delay:.55s}
+    @keyframes wfIn { to { opacity:1; transform:none; } }
+
+    /* 05 — Operator's hand */
+    .oh-list { display:flex; flex-direction:column; gap:12px; margin-top:28px; max-width:760px; }
+    .oh-item { font-family:inherit; text-align:left; color:var(--text-primary); border:1px solid var(--accent-border); border-radius:14px; padding:18px 22px; background:var(--bg-surface); display:grid; grid-template-columns:auto 1fr auto; gap:16px; align-items:start; cursor:pointer; transition:border-color .2s ease; }
+    .oh-item:hover { border-color:rgba(110,45,190,0.4); }
+    .oh-item[aria-expanded="true"] { border-color:var(--accent-light); }
+    .oh-box { width:22px; height:22px; border-radius:6px; border:2px solid rgba(240,238,246,0.3); margin-top:2px; position:relative; }
+    .oh-box::after { content:''; position:absolute; inset:4px; border-radius:2px; background:transparent; }
+    .oh-t { font-weight:650; font-size:0.98rem; margin-bottom:4px; }
+    .oh-s { font-size:0.85rem; color:var(--text-muted); }
+    .oh-d { font-size:0.9rem; color:var(--text-secondary); line-height:1.65; max-height:0; overflow:hidden; transition:max-height .3s ease, margin .3s ease; }
+    .oh-item[aria-expanded="true"] .oh-d { max-height:260px; margin-top:12px; }
+    .oh-needs { font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:4px 10px; border-radius:999px; border:1px solid currentColor; white-space:nowrap; margin-top:2px; }
+    .oh-needs-key { color:#c084fc; } .oh-needs-funds { color:#fbbf24; } .oh-needs-passkey { color:#38bdf8; } .oh-needs-secret { color:#fca5a5; }
+    .oh-foot { margin-top:16px; font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:var(--text-muted); letter-spacing:0.06em; }
+
+    /* 06 — Decision cards */
+    .mem-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:28px; }
+    .mem-card { font-family:inherit; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:16px; padding:24px; cursor:pointer; transition:all 0.3s ease; }
+    .mem-card:hover { border-color:rgba(110,45,190,0.35); transform:translateY(-3px); box-shadow:0 8px 24px rgba(110,45,190,0.08); }
+    .mem-card h4 { font-size:0.98rem; font-weight:700; margin:0 0 8px; display:flex; align-items:center; gap:10px; }
+    .mem-tag { font-family:'JetBrains Mono',monospace; font-size:0.62rem; letter-spacing:0.12em; color:var(--accent-hot); border:1px solid rgba(110,45,190,0.3); padding:2px 8px; border-radius:999px; text-transform:uppercase; white-space:nowrap; }
+    .mem-card p { font-size:0.87rem; color:var(--text-secondary); line-height:1.6; margin:0; }
+    .mem-extra { display:none; margin-top:14px; padding-top:14px; border-top:1px solid var(--accent-border); font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+    .mem-card[aria-expanded="true"] .mem-extra { display:block; }
+    .mem-hint { font-size:0.68rem; color:var(--accent-hot); margin-top:12px; font-weight:600; letter-spacing:0.05em; }
+
+    /* Related + CTA */
+    .tx-related { margin-top:40px; padding-top:22px; border-top:1px solid var(--accent-border); font-size:0.9rem; color:var(--text-muted); line-height:1.7; }
+    .tx-related a { color:var(--accent-light); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    .tx-cta { text-align:center; padding:64px 40px; background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:28px; margin-top:72px; }
+    .tx-cta h2 { font-size:1.6rem; font-weight:700; margin:0 0 12px; }
+    .tx-cta p { color:var(--text-secondary); font-size:0.95rem; margin:0 auto 28px; max-width:520px; line-height:1.7; }
+
+    @media(max-width:900px) {
+      .mod-explorer, .cr-cols, .mem-grid { grid-template-columns:1fr; }
+      .mod-grid { grid-template-columns:1fr 1fr; }
+      .mod-detail { min-height:0; }
+    }
+    @media(max-width:640px) {
+      .mod-grid { grid-template-columns:1fr; }
+      .tx-hero { padding:130px 0 56px; }
+      .tx-section { padding:56px 0; }
+      .cr-wrap, .mod-detail { padding:20px; }
+      .oh-item { grid-template-columns:auto 1fr; }
+      .oh-needs { grid-column:2; justify-self:start; }
+      .cr-step { grid-template-columns:18px 1fr; }
+      .cr-verdict { grid-column:2; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .wf-step.reveal-step { animation:none; opacity:1; transform:none; }
+      .dl-card, .mod-node, .mem-card, .oh-d, .cr-step, .dl-chip, .cr-fault { transition:none; }
+      .dl-card:hover, .mod-node:hover, .mem-card:hover { transform:none; }
+    }
+  
+    /* revision notices */
+    .tx-dated { max-width:720px; margin:0 auto 28px; font-size:0.84rem; color:var(--text-muted); line-height:1.7; border-top:1px solid var(--accent-border); border-bottom:1px solid var(--accent-border); padding:14px 0; font-family:'JetBrains Mono',monospace; letter-spacing:0.02em; }
+    .tx-dated strong { color:var(--accent-hot); }
+    .tx-notice { max-width:720px; margin:0 0 22px; border:1px solid rgba(251,191,36,0.3); border-left:4px solid #fbbf24; border-radius:0 14px 14px 0; padding:18px 22px; background:linear-gradient(180deg,rgba(251,191,36,0.07),rgba(251,191,36,0.015)); font-size:0.93rem; color:var(--text-secondary); line-height:1.7; }
+    .tx-notice h3 { margin:0 0 8px; font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase; color:#fbbf24; font-family:'JetBrains Mono',monospace; }
+    .tx-notice p { margin:0 0 10px; }
+    .tx-notice p:last-child { margin-bottom:0; }
+    .tx-notice.revised { border-color:rgba(56,189,248,0.3); border-left-color:#38bdf8; background:linear-gradient(180deg,rgba(56,189,248,0.07),rgba(56,189,248,0.015)); }
+    .tx-notice.revised h3 { color:#38bdf8; }
+    .tx-notes { max-width:720px; margin:0 auto; padding-top:36px; }
+    .tx-list { margin:0 0 22px; padding-left:22px; }
+    .tx-list li { margin-bottom:10px; }
+    .dl-chip-a[aria-pressed="true"] { border-color:#c084fc; }
+    .dl-state-a { color:#c084fc; }
+    .dl-hero-note { font-size:0.78rem; color:var(--text-muted); margin:10px 0 0; line-height:1.6; }
+    /* budget widget */
+    .bg-wrap { margin-top:28px; border:1px solid rgba(110,45,190,0.28); border-radius:20px; padding:28px; background:linear-gradient(180deg,rgba(110,45,190,0.08),rgba(110,45,190,0.015)); }
+    .bg-top { display:flex; flex-wrap:wrap; align-items:center; gap:16px; margin-bottom:16px; }
+    .bg-label { font-family:'JetBrains Mono',monospace; font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent-hot); }
+    .bg-top input[type=range] { flex:1 1 220px; accent-color:#9b59f5; }
+    .bg-val { font-family:'JetBrains Mono',monospace; font-size:0.9rem; color:var(--text-primary); min-width:110px; }
+    .bg-meter { height:10px; border-radius:999px; background:rgba(240,238,246,0.08); overflow:hidden; margin-bottom:12px; }
+    .bg-fill { height:100%; width:0; background:linear-gradient(90deg,#6e2dbe,#c084fc); transition:width .25s ease; }
+    .bg-sum { font-family:'JetBrains Mono',monospace; font-size:0.76rem; color:var(--text-muted); letter-spacing:0.04em; margin-bottom:16px; }
+    .bg-rows { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
+    .bg-row { display:grid; grid-template-columns:1fr auto auto; gap:14px; align-items:center; padding:10px 14px; border-radius:10px; border:1px solid var(--accent-border); font-size:0.86rem; color:var(--text-secondary); }
+    .bg-row.in { border-color:rgba(16,185,129,0.35); }
+    .bg-row.out { opacity:0.5; border-style:dashed; }
+    .bg-row .bg-n { font-family:'JetBrains Mono',monospace; font-size:0.76rem; color:var(--text-muted); }
+    .bg-row .bg-v { font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:700; letter-spacing:0.08em; }
+    .bg-row.in .bg-v { color:#34d399; } .bg-row.out .bg-v { color:#fbbf24; }
+    .bg-stage { display:block; font-size:0.72rem; color:var(--text-muted); margin-top:2px; }
+    .oh-needs-pass { color:#34d399; } .oh-needs-part { color:#fbbf24; } .oh-needs-no { color:#fca5a5; } .oh-needs-design { color:#38bdf8; }
+    @media(max-width:640px) { .bg-wrap { padding:20px; } .bg-row { grid-template-columns:1fr auto; } .bg-row .bg-v { grid-column:2; } }
+  </style>
+</head>
+<body class="tx-page">
+
+  <nav id="nav" class="scrolled">
+    <a href="/" class="nav-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
     <div class="nav-links" id="nav-links">
       <a href="/" data-i18n="nav.home">Home</a>
-      <a href="/#organisms" data-i18n="nav.organisms">Organisms</a>
-      <a href="/#architecture" data-i18n="nav.architecture">Architecture</a>
-      <a href="/#philosophy" data-i18n="nav.philosophy">Philosophy</a>
-      <a href="/#vision" data-i18n="nav.vision">Vision</a>
-      <a href="/#blog" data-i18n="nav.blog">Blog</a>
+      <a href="/organisms" data-i18n="nav.organisms">Organisms</a>
+      <a href="/architecture" data-i18n="nav.architecture">Architecture</a>
+      <a href="/proof" data-i18n="nav.proof">Proof</a>
+      <a href="/transmissions" class="active" aria-current="page" data-i18n="nav.blog">Transmissions</a>
+      <a href="/philosophy" data-i18n="nav.philosophy">Philosophy</a>
     </div>
     <div class="nav-actions">
       <button id="lang-toggle" class="lang-toggle" aria-label="Switch to Spanish">ES</button>
-      <a href="/#cta" class="nav-cta" data-i18n="nav.cta">Get in Touch</a>
+      <a href="/build-with-us" class="nav-cta" data-i18n="nav.cta">Build With Us</a>
+      <a href="/proof/ledger" class="nav-ghost">Live ledger</a>
     </div>
   </nav>
 
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- MAIN TRANSMISSION (Light Content Area) -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <main class="blog-main">
-    <a href="/#blog" class="blog-back">
-      <span>←</span> Back to Transmissions
-    </a>
-
-    <article>
-      <header class="blog-header">
-        <div class="blog-meta-tag">
-          <span>Transmission</span>
-          <span class="blog-meta-dot"></span>
-          <span>Whitepaper</span>
-        </div>
-        
-        <h1 class="blog-title">Transmission 04: The Core Loop - How AI Systems Breathe</h1>
-        <p class="blog-subtitle">Most LLM integrations are completely functional programming loops: User inputs prompt, server processes generation, user receives response.</p>
-        
-        <div class="blog-meta-bottom">April 2026 / UNWIND RESEARCH LAB</div>
-      </header>
-
-      <div class="blog-content">
-<h3>A Paradigm of Wakefulness</h3>
-<p>Most LLM integrations are completely functional programming loops: User inputs prompt, server processes generation, user receives response. They exist in a state of suspended animation until prodded. The Unwind Brain requires wakefulness—a perpetual heartbeat driving cognition and iteration even when human operators are asleep. This demands a robust Core Loop.</p>
-<h3>The Tri-Pulse Architecture</h3>
-<p>Every Unwind Organism pulsates across three interconnected rhythms. 1. <strong>The Ingest Phase (Sensory):</strong> The system continuously listens. Webhooks from GitHub, X.com, raw market tickers, Slack APIs, and wallet transactions are parsed not just into payloads, but into normalized semantic events. These events are deposited into the Short-Term Working Memory. 2. <strong>The Processing Phase (Cognition):</strong> A scheduler plucks high-priority external events, routing them to the optimal AI agent based on the Event Ontology. Gemini Flash handles immediate triage parsing; Gemini Pro or OpenAI processes deep architectural analysis or strategic responses. 3. <strong>The Reflection Phase (Sleep cycle):</strong> Every night at 03:00 UTC, the <span class="blog-code">Midnight Flush</span> engages. The Brain scans the day’s activities, distills recurrent themes into new Procedural Memory chunks, prunes redundant episodic logs, and updates the <span class="blog-code">THOUGHT_STREAM</span> documentation. The system physically rewires its instructions.</p>
-<h3>The Autonomy of Introspection</h3>
-<p>By implementing the Tri-Pulse Architecture, the system acts dynamically instead of reactively. If you are to build agents that outlast their prompt contexts, you must schedule their introspection. Give your code the capability to dream and digest.</p>
-</div>
-    </article>
-  </main>
-
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- FOOTER (Dark Chrome) -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <footer id="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <span class="nav-glyph">∞</span>
-          <span class="nav-name">unwind<span class="nav-accent">code</span></span>
-          <p class="footer-desc" data-i18n="footer.desc">Intelligence that evolves.<br />Growing organisms since 2026.</p>
-        </div>
-        <div class="footer-col">
-          <h5 data-i18n="footer.organisms">Organisms</h5>
-          <a href="/#organisms" data-i18n="org.vc.title">Visual Cortex</a>
-          <a href="/#organisms" data-i18n="org.im.title">Infinity Mirror</a>
-          <a href="/#organisms" data-i18n="org.fo.title">Financial Organisms</a>
-          <a href="/#organisms" data-i18n="org.bc.title">Brain Cell Architecture</a>
-        </div>
-        <div class="footer-col">
-          <h5 data-i18n="footer.learn">Learn</h5>
-          <a href="/#architecture" data-i18n="nav.architecture">Architecture</a>
-          <a href="/#philosophy" data-i18n="nav.philosophy">Philosophy</a>
-          <a href="/#vision" data-i18n="footer.vision">Vision 2030</a>
-        </div>
-        <div class="footer-col">
-          <h5 data-i18n="footer.community">Community</h5>
-          <a href="/#cta" data-i18n="footer.join">Join Updates</a>
-          <a href="/#blog" data-i18n="footer.blog">Blog</a>
-          <a href="#" id="footer-chat-link" data-i18n="footer.talk">Talk to the Brain</a>
-        </div>
+  <main>
+    <section class="tx-hero">
+      <div class="container">
+        <div class="tx-hero-kicker"><span class="tx-section-num">TRANSMISSION 004</span></div>
+        <h1>The Core Loop:<br>How AI Systems Breathe</h1>
+        <p class="tx-hero-sub">An April 2026 note described a three-phase loop that ingests events, routes them to models, and rewires itself every night. Checked against the record, the real pulse is a set of scheduled jobs that write heartbeats, a reader that notices silence, and a nightly step that writes a summary file. It also has failures today.</p>
+        <div class="tx-hero-meta"><span>November 2026</span><span>&middot;</span><span>Revised note</span><span>&middot;</span><span>Operations</span><span>&middot;</span><span>9 min read</span></div>
       </div>
-      <div class="footer-bottom">
-        <span data-i18n="footer.copyright">© 2026 Unwind Code. All rights reserved.</span>
-        <span class="footer-tagline" data-i18n="footer.tagline">The future learns from itself. ∞</span>
+    </section>
+
+    <div class="container">
+      <div class="tx-notes">
+        <div class="tx-dated"><strong>Dated.</strong> This note describes the scheduler, the Brain and the audit as they stand on 10 November 2026. The note it replaces was published in April 2026 and described a design in the present tense.</div>
+        <div class="tx-notice revised"><h3>Revised 10 November 2026</h3><p>Rewritten to the Transmission standard. Eight claims were checked: two supported, two softened, three withdrawn and one kept as a metaphor. The page now shows the loop that exists, its cadences, how silence is noticed, and what is failing today.</p></div>
+        <div class="tx-notice"><h3>Correction, 10 November 2026</h3><p>The April note said every organism ingests webhooks into a working memory, routes events by an ontology to a fast and a deep model, and runs a flush every night at 03:00 UTC that distils procedural memory, prunes logs and rewrites its own instructions. The code shows a message router, a task loop with retries, an hourly flush by default and a summary file written when a scheduler asks. No ontology, no distillation, no pruning and no instruction rewriting were found. Those sentences are withdrawn.</p></div>
+      </div>
+
+      <section class="tx-section" id="claims">
+        <div class="tx-section-head"><span class="tx-section-num">01</span><h2>Eight claims from April, checked</h2></div>
+        <div class="tx-section-label">A ledger of what the old note said</div>
+        <div class="tx-prose">
+          <p>The April note drew a contrast that still holds. Most integrations with language models are request and response: someone prompts, a server generates, someone reads, and the system waits in suspended animation until prodded. The note wanted wakefulness, a heartbeat that drives work even when the operators are asleep, and it proposed a Core Loop to provide it.</p>
+          <p>It described that loop in three phases it called the Tri-Pulse. Ingest, the sensory phase, would parse webhooks and tickers into normalised events. Process, the cognitive phase, would route each event to the best model. Reflect, the sleep phase, would run at 03:00 UTC every night, distil the day into memory, prune the logs and rewrite the system's own instructions.</p>
+          <p>We split that into eight claims and traced each. The pattern will be familiar from the other early notes: the contrast and the heartbeat survive, the machinery was a design, and the nightly rewrite was never built. Filter the ledger and open any card.</p>
+        </div>
+        <div class="dl-filters" role="group" aria-label="Filter claims by verdict" id="cl-filters"></div><div class="dl-count" id="cl-count" aria-live="polite"></div><div class="dl-grid" id="cl-grid"></div>
+        <div class="tx-prose tx-after">
+          <p>Two supported, two softened, three withdrawn, one metaphor. The supported claim about the heartbeat comes with two dated caveats, and both are below.</p>
+        </div>
+      </section>
+
+      <section class="tx-section" id="what-exists">
+        <div class="tx-section-head"><span class="tx-section-num">02</span><h2>The three phases as built</h2></div>
+        <div class="tx-section-label">Five pieces, each with a trail</div>
+        <div class="tx-prose">
+          <p>Here is what is under each of the note's three words. Ingest is a gateway router that accepts messages from several channels and routes them to a handler. It is not an event normaliser. Process is a task loop with a retry cap that hands persistent failure to an evolution engine, which can only propose. Reflect is a logger that sorts the day's entries by kind, writes a summary file and clears its buffer, on an hourly flush by default and a midnight trigger that something else must pull.</p>
+          <p>The pulse the note was really after lives elsewhere, on the workstation. Scheduled jobs run under a wrapper that writes a heartbeat line for every run, whether it succeeded, failed or was skipped because an earlier run still held its lock. A separate reader compares those heartbeats with each job's declared cadence.</p>
+          <p>That split is the honest correction. The three-phase loop the note described is spread across two systems and is smaller in both. The heartbeat and the reader, the least glamorous parts, are the ones that actually run.</p>
+        </div>
+        <div class="mod-explorer"><div class="mod-grid" id="ex-grid" role="group" aria-label="Phases"></div><div class="mod-detail" id="ex-detail" aria-live="polite"></div></div>
+        <div class="tx-prose tx-after">
+          <p>The reader's 48 tests and the heartbeat suite's 38 were re-run for this note and passed. The Brain's loop tests were counted in the source but not run.</p>
+        </div>
+      </section>
+
+      <section class="tx-section" id="cadence">
+        <div class="tx-section-head"><span class="tx-section-num">03</span><h2>What beats, and how often</h2></div>
+        <div class="tx-section-label">Fifteen configuration entries, grouped</div>
+        <div class="tx-prose">
+          <p>The reader's configuration is the plainest account of the loop's rhythm. It lists fifteen entries: nine scheduled jobs and six always-on services. Filter them by cadence. The roles are described in plain words, and the entries are as configured on 10 November 2026.</p>
+          <p>Notice what the grid does not contain: an ingest job, a reflection job, or anything that distils memory. Notice also the build loop. It is scheduled every six hours, and it is the one job on the list that the audit found had not run for forty days. A cadence in a configuration file is a promise. Only a heartbeat is a receipt.</p>
+        </div>
+        <div class="dl-filters" role="group" aria-label="Filter jobs by cadence" id="cd-filters"></div><div class="dl-count" id="cd-count" aria-live="polite"></div><div class="dl-grid" id="cd-grid"></div>
+
+      </section>
+
+      <section class="tx-section" id="silence">
+        <div class="tx-section-head"><span class="tx-section-num">04</span><h2>How silence is noticed</h2></div>
+        <div class="tx-section-label">A model, not a benchmark</div>
+        <div class="tx-prose">
+          <p>A loop that cannot tell you it stopped is just a hope. The reader's rules are the most carefully argued code in this part of the system, and they come from a specific incident: a guard process that died for thirty hours with nobody reading its log. The rules are simple to state. A job is missed if its last real beat is older than twice its interval. It is failing after one bad run and stuck after three. A skipped overlap is a warning, and three in a row is an alarm. A job that never beat counts as missed, because something that cannot prove it was alive is the incident the reader exists to catch.</p>
+          <p>Choose a situation in the model to see the same event in a loop with no reader and a loop with one.</p>
+        </div>
+        <div class="cr-wrap"><div class="cr-top"><span class="cr-label">Model · same event, two loops</span><div class="cr-faults" role="group" aria-label="Choose a situation" id="md-faults"></div></div><div class="cr-cols"><div class="cr-col"><h3>A loop with no reader</h3><p class="cr-col-sub">Beats are written, or not.</p><ol class="cr-steps" id="md-left"></ol></div><div class="cr-col"><h3>A loop with a dead-man reader</h3><p class="cr-col-sub">As the workstation runs it.</p><ol class="cr-steps" id="md-right"></ol></div></div><div class="cr-outcome" id="md-outcome" aria-live="polite"></div><p class="cr-note">A model of the reader's rules. Not a measurement of how often anything fails.</p></div>
+
+      </section>
+
+      <section class="tx-section" id="dated">
+        <div class="tx-section-head"><span class="tx-section-num">05</span><h2>The record, in dates</h2></div>
+        <div class="tx-section-label">What the loop has taught</div>
+        <div class="tx-prose">
+          <p>The loop's design was shaped by failures in sequence. Here they are, with the two current caveats at the end where they belong.</p>
+        </div>
+        <div class="wf-steps" id="tl-steps"><div class="wf-step"><div class="wf-dot wf-dot-1">01</div><h3>April 2026 · The note</h3><p>Described a Tri-Pulse architecture as if it were running.</p></div><div class="wf-step"><div class="wf-dot wf-dot-2">02</div><h3>22 August 2026 · A sentinel dies unseen</h3><p>A guard process died for thirty hours with nobody reading its log. The scheduler wrapper began writing a heartbeat for every run.</p></div><div class="wf-step"><div class="wf-dot wf-dot-3">03</div><h3>15 September 2026 · The skip rule</h3><p>A ruling settled that a skipped run is seen but never counts as alive.</p></div><div class="wf-step"><div class="wf-dot wf-dot-4">04</div><h3>22 September 2026 · Services get a probe</h3><p>Always-on services never beat, so they are probed on loopback. The code's own comment says a probe proves up now and nothing about continuity.</p></div><div class="wf-step"><div class="wf-dot wf-dot-5">05</div><h3>8 November 2026 · The audit</h3><p>Seven scheduled organs were beating. The build loop had run nothing in forty days, and its last success was 29 September.</p></div><div class="wf-step"><div class="wf-dot wf-dot-6">06</div><h3>10 November 2026 · Today</h3><p>The public heartbeat has been refused by its gateway since 9 November; a 10 November diagnosis reads that as a fault on the canister or gateway side, not in the workstation, and it waits on the operator. The dead-man reader exits non-zero by design whenever it finds an organ in alarm, so its repeated exits are its report, and one missed run came from a machine reboot. A low-disk alert is also open.</p></div></div>
+        <div class="tx-prose tx-after">
+          <p>The last two entries are why the heartbeat claim carries a caveat. A loop that is monitored will sometimes report that it is failing. That is the system working, and the alarms it lists (the public heartbeat, the nightly checks, the build loop, a content guard that is down) are still open.</p>
+        </div>
+      </section>
+
+      <section class="tx-section" id="not-claimed">
+        <div class="tx-section-head"><span class="tx-section-num">06</span><h2>What this note does not claim</h2></div>
+        <div class="tx-section-label">Boundary</div>
+        <div class="tx-prose">
+          <ul class="tx-list">
+            <li>It does not claim a nightly step distils memory, prunes logs or rewrites instructions. None does.</li>
+            <li>It does not claim events from external services flow into a working memory. No such layer was found.</li>
+            <li>It does not claim the loop is healthy today. On 10 November the public heartbeat was being refused by its gateway and the reader was reporting several organs in alarm.</li>
+            <li>It does not claim the build loop runs. As of 8 November it had not for forty days.</li>
+            <li>It does not claim any of this is reflection in a human sense. The reflective phase writes a summary file.</li>
+            <li>It does not name the models or services any step would call.</li>
+          </ul>
+          <p>What it does claim is that a heartbeat, a reader with written rules and a daily summary exist, pass their tests, and have a documented history of why they were built.</p>
+          <div class="tx-related">Related: <a href="/transmissions/38-one-board-for-every-hand">Transmission 38 — one board for every hand</a> · <a href="/transmissions/41-the-audit-counted-eighty-seven-agents">Transmission 41 — the audit counted eighty-seven agents</a> · <a href="/transmissions/25-the-homepage-learned-to-pulse">Transmission 25 — the homepage learned to pulse</a></div>
+        </div>
+
+
+      </section>
+
+      <div class="tx-cta">
+        <h2>A loop is the thing that notices it stopped.</h2>
+        <p>Heartbeats are cheap. Reading them is the work.</p>
+        <a class="btn btn-primary btn-lg" href="/build-with-us"><span>Build With Us</span><span class="btn-arrow">&rarr;</span></a>
       </div>
     </div>
-  </footer>
+  </main>
 
-  <script type="module" src="/main.js?v=20260605-social-preview"></script>
+  <footer id="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span><p class="footer-desc">Intelligence that evolves.<br />No claim without a trail.</p></div><div class="footer-col"><h5>Proof</h5><a href="/proof">Proof Register</a><a href="/proof/ledger">Live Ledger</a><a href="/transmissions">Transmissions</a><a href="/architecture">Architecture</a></div><div class="footer-col"><h5>Organisms</h5><a href="/organisms">All Organisms</a><a href="/organisms/financial-organisms">Financial Organisms</a><a href="/organisms/infinity-mirror">Infinity Mirror</a></div><div class="footer-col"><h5>Next</h5><a href="/build-with-us">Build With Us</a><a href="/#cta">Subscribe</a></div></div><div class="footer-bottom"><span>© 2026 Unwind Code. All rights reserved.</span><span class="footer-tagline">The future learns from itself. ∞</span></div></div></footer>
+
+  <script>
+  (function () {
+    // All data below is static and client-side. Nothing on this page makes a network call.
+
+    function el(id) { var e = document.getElementById(id); if (!e) { throw new Error('missing element ' + id); } return e; }
+    function toggleExpand(node, hint, a, b) {
+      node.addEventListener('click', function () {
+        var open = node.getAttribute('aria-expanded') === 'true';
+        node.setAttribute('aria-expanded', open ? 'false' : 'true');
+        if (hint) { var h = node.querySelector(hint); if (h) { h.textContent = open ? a : b; } }
+      });
+    }
+    function filterWidget(p, cfg) {
+      var chips = el(p + '-filters'), grid = el(p + '-grid'), count = el(p + '-count');
+      var cats = cfg.cats;
+      var list = [{ key: 'all', label: 'All', c: '' }].concat(cfg.chips.map(function (k) { return { key: k, label: cats[k].l, c: cats[k].c }; }));
+      list.forEach(function (ch, i) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'dl-chip' + (ch.c ? ' dl-chip-' + ch.c : '');
+        b.setAttribute('data-state', ch.key);
+        b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
+        b.textContent = ch.label;
+        b.addEventListener('click', function () {
+          chips.querySelectorAll('.dl-chip').forEach(function (o) { o.setAttribute('aria-pressed', 'false'); });
+          b.setAttribute('aria-pressed', 'true');
+          apply(ch.key);
+        });
+        chips.appendChild(b);
+      });
+      cfg.cards.forEach(function (c) {
+        var card = document.createElement('button');
+        card.type = 'button';
+        card.className = 'dl-card';
+        card.setAttribute('data-state', c.cat);
+        card.setAttribute('aria-expanded', 'false');
+        card.innerHTML = '<span class="dl-state dl-state-' + cats[c.cat].c + '">' + cats[c.cat].l + '</span>' +
+          '<div class="dl-name">' + c.name + '</div><div class="dl-short">' + c.short + '</div>' +
+          '<div class="dl-why">' + c.why + '</div><div class="dl-hint">' + cfg.hint + ' &darr;</div>';
+        toggleExpand(card, '.dl-hint', cfg.hint + ' \u2193', 'Close \u2191');
+        grid.appendChild(card);
+      });
+      function apply(state) {
+        var shown = 0;
+        grid.querySelectorAll('.dl-card').forEach(function (card) {
+          var m = state === 'all' || card.getAttribute('data-state') === state;
+          if (m) { card.removeAttribute('hidden'); shown += 1; } else { card.setAttribute('hidden', ''); }
+        });
+        count.textContent = shown + ' of ' + cfg.cards.length + ' ' + cfg.noun;
+      }
+      apply('all');
+    }
+    function explorerWidget(p, items, glyph) {
+      var grid = el(p + '-grid'), detail = el(p + '-detail'), btns = [];
+      function show(it) {
+        btns.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-id') === it.id ? 'true' : 'false'); });
+        detail.innerHTML = '<div class="mod-detail-title">' + it.name + '</div>' +
+          '<span class="mod-detail-type">' + it.role + '</span>' +
+          '<p class="mod-detail-desc">' + it.desc + '</p>' +
+          '<div class="mod-specs-label">What the record shows</div>' +
+          '<div class="mod-specs">' + it.specs.map(function (s) { return '<span class="mod-spec">' + s + '</span>'; }).join('') + '</div>' +
+          '<div class="mod-proof"><strong>' + it.status + '</strong> &middot; ' + it.proof + '</div>';
+      }
+      items.forEach(function (it) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'mod-node';
+        b.setAttribute('data-id', it.id);
+        b.setAttribute('aria-pressed', 'false');
+        b.innerHTML = '<span class="mod-glyph">' + glyph + '</span><div class="mod-name">' + it.name + '</div><div class="mod-path">' + it.blurb + '</div><div class="mod-score">' + it.status + '</div>';
+        b.addEventListener('click', function () { show(it); });
+        grid.appendChild(b);
+        btns.push(b);
+      });
+      show(items[0]);
+    }
+    function modelWidget(p, cfg) {
+      var left = el(p + '-left'), right = el(p + '-right'), out = el(p + '-outcome'), faults = el(p + '-faults');
+      function step(n, s, cls, verdict) {
+        var li = document.createElement('li');
+        li.className = 'cr-step ' + cls;
+        li.innerHTML = '<span class="cr-step-n">0' + n + '</span><span><span class="cr-step-t">' + s.t + '</span><span class="cr-step-d">' + s.d + '</span></span><span class="cr-verdict">' + verdict + '</span>';
+        return li;
+      }
+      function col(ol, steps, spec) {
+        ol.innerHTML = '';
+        steps.forEach(function (s, i) {
+          var cls = 'pass', v = spec.ok || 'OK';
+          if (spec.mode === 'fail') {
+            if (i === spec.at) { cls = 'fail'; v = spec.verdict || 'REFUSED'; }
+            else if (i > spec.at) { cls = 'skip'; v = 'NOT REACHED'; }
+          } else if (spec.mode === 'blind') {
+            if (i >= spec.at) { cls = 'blind'; v = spec.verdict || 'UNCHECKED'; }
+          } else if (spec.mode === 'skip') {
+            cls = 'skip'; v = spec.verdict || 'NOT BUILT';
+          }
+          ol.appendChild(step(i + 1, s, cls, v));
+        });
+      }
+      function run(t) {
+        col(left, cfg.leftSteps, t.left);
+        col(right, cfg.rightSteps, t.right);
+        out.className = 'cr-outcome ' + (t.cls || 'clean');
+        out.innerHTML = t.outcome;
+      }
+      cfg.toggles.forEach(function (t, i) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'cr-fault' + (i === 0 ? ' cr-fault-reset' : '');
+        b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
+        b.textContent = t.label;
+        b.addEventListener('click', function () {
+          faults.querySelectorAll('.cr-fault').forEach(function (o) { o.setAttribute('aria-pressed', 'false'); });
+          b.setAttribute('aria-pressed', 'true');
+          run(t);
+        });
+        faults.appendChild(b);
+      });
+      run(cfg.toggles[0]);
+    }
+    function listWidget(p, items) {
+      var list = el(p + '-list');
+      items.forEach(function (h) {
+        var item = document.createElement('button');
+        item.type = 'button';
+        item.className = 'oh-item';
+        item.setAttribute('aria-expanded', 'false');
+        item.innerHTML = '<span class="oh-box" aria-hidden="true"></span><span><span class="oh-t">' + h.t + '</span><span class="oh-s">' + h.s + '</span><span class="oh-d">' + h.d + '</span></span><span class="oh-needs oh-needs-' + h.cls + '">' + h.needs + '</span>';
+        toggleExpand(item);
+        list.appendChild(item);
+      });
+    }
+    function cardsWidget(p, items) {
+      var grid = el(p + '-cards');
+      items.forEach(function (l) {
+        var card = document.createElement('button');
+        card.type = 'button';
+        card.className = 'mem-card';
+        card.setAttribute('aria-expanded', 'false');
+        card.innerHTML = '<h4><span class="mem-tag">' + l.tag + '</span>' + l.title + '</h4><p>' + l.desc + '</p><div class="mem-extra">' + l.extra + '</div><div class="mem-hint">Click to expand &darr;</div>';
+        toggleExpand(card, '.mem-hint', 'Click to expand \u2193', 'Click to collapse \u2191');
+        grid.appendChild(card);
+      });
+    }
+    function budgetWidget(p, cfg) {
+      var range = el(p + '-range'), val = el(p + '-val'), fill = el(p + '-fill'), sum = el(p + '-sum'), rows = el(p + '-rows');
+      function draw() {
+        var budget = parseInt(range.value, 10), used = 0, skipped = 0;
+        rows.innerHTML = '';
+        cfg.rows.forEach(function (r) {
+          var li = document.createElement('li');
+          var fits = used + r.n <= budget;
+          if (fits) { used += r.n; } else { skipped += 1; }
+          li.className = 'bg-row ' + (fits ? 'in' : 'out');
+          li.innerHTML = '<span>' + r.t + '<span class="bg-stage">' + r.s + '</span></span><span class="bg-n">' + r.n + ' tok</span><span class="bg-v">' + (fits ? 'IN' : 'SKIPPED') + '</span>';
+          rows.appendChild(li);
+        });
+        val.textContent = budget + ' tokens';
+        fill.style.width = Math.min(100, Math.round(used / parseInt(range.max, 10) * 100)) + '%';
+        sum.textContent = 'used ' + used + ' of ' + budget + ' tokens \u00b7 ' + skipped + ' row' + (skipped === 1 ? '' : 's') + ' skipped and counted, none trimmed';
+      }
+      range.addEventListener('input', draw);
+      draw();
+    }
+    function revealWidget(p) {
+      var wf = el(p + '-steps');
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduce && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { wf.querySelectorAll('.wf-step').forEach(function (s) { s.classList.add('reveal-step'); }); io.disconnect(); }
+          });
+        }, { threshold: 0.15 });
+        io.observe(wf);
+      }
+    }
+
+    var CATS = {"supported": {"c": "d", "l": "SUPPORTED"}, "design": {"c": "b", "l": "DESIGN"}, "metaphor": {"c": "a", "l": "METAPHOR"}, "softened": {"c": "c", "l": "SOFTENED"}, "withdrawn": {"c": "f", "l": "WITHDRAWN"}};
+
+    filterWidget('cl', {cats: CATS, chips: ['supported', 'softened', 'withdrawn', 'metaphor'], hint: 'Why', noun: 'claims', cards: [{"cat": "supported", "name": "Most model integrations are request, response and silence", "short": "True of ordinary integrations.", "why": "A user prompts, a server generates, a user reads, and nothing happens until the next prompt. The note's contrast was fair."}, {"cat": "softened", "name": "Every organism pulses across three rhythms: ingest, process, reflect", "short": "Three names for three separate things.", "why": "\"Tri-Pulse\" is the note's own label. Something like each phase exists, in different places: a message router, a task loop and a daily summary in the Brain, and a clock-driven set of jobs on the workstation. They are not one architecture."}, {"cat": "withdrawn", "name": "Webhooks from a code host, a social network, market tickers, chat and wallets become normalised events in working memory", "short": "No such ingest layer was found.", "why": "A gateway router accepts messages from several channels. The paper harness reads public price data on a schedule. A normalised event ontology and a short-term working memory fed by those sources were not found in the code."}, {"cat": "withdrawn", "name": "A scheduler routes events by an event ontology; a fast model triages and a larger model analyses", "short": "No ontology; routing is a policy.", "why": "The inference layer has a provider policy with five modes. The workstation routes to local models first and treats any cloud call as an exception. No event ontology was found, and no vendor routing from the note survives."}, {"cat": "withdrawn", "name": "Every night at 03:00 UTC a flush distils themes into procedural memory, prunes logs and rewrites instructions", "short": "A summary file, not a rewrite.", "why": "The code groups the day's entries into thoughts, decisions, errors and evolutions, writes a summary file and clears the buffer. It does not distil, prune or rewrite instructions. A memory flush runs hourly by default, and no clock time appears in the code."}, {"cat": "supported", "name": "A perpetual heartbeat drives the system while the operators sleep", "short": "True of the workstation, with caveats dated below.", "why": "Scheduled jobs write a heartbeat each run and a reader checks them. On 8 November the audit found seven scheduled organs beating, and on 10 November one of them, the public heartbeat, was being refused by its gateway and the reader was listing several organs in alarm. Both facts are in this note."}, {"cat": "softened", "name": "The system acts dynamically instead of reactively", "short": "It reacts to a clock.", "why": "A schedule is still a trigger. The honest description is that jobs fire on cadence, and failures are noticed by a reader, not reasoned about by the system."}, {"cat": "metaphor", "name": "Give your code the capability to dream and digest", "short": "A closing flourish.", "why": "No dreaming happens. The reflective phase that exists writes a categorised summary of the day."}]});
+    explorerWidget('ex', [{"id": "ingest", "name": "Ingest", "role": "Brain · gateway", "blurb": "A router for inbound messages.", "desc": "A WebSocket gateway routes messages from several channels, including a web channel and a mobile node, to a cortex handler. It carries a content-free safety summary rather than the message text.", "specs": ["Several channels", "Adapters per channel", "Content-free summary"], "status": "Partly built", "proof": "Brain structure map and gateway source. No event normalisation layer."}, {"id": "process", "name": "Process", "role": "Brain · task loop", "blurb": "Run, retry, escalate.", "desc": "The autonomous loop runs each task with a retry cap. A task that keeps failing is routed to the evolution engine, which can propose a new cell for a person to review.", "specs": ["Retry cap per task", "Failure count threshold", "Review-only proposal"], "status": "Built", "proof": "Loop source; 28 test functions counted, not run for this note."}, {"id": "reflect", "name": "Reflect", "role": "Brain · consciousness log", "blurb": "A day, summarised.", "desc": "Entries are logged as thoughts, decisions, errors and evolutions. An hourly flush runs by default, and a midnight summary can be triggered by a scheduler or an endpoint. The summary is written to a file and the buffer cleared.", "specs": ["Hourly flush by default", "Daily summary on trigger", "Buffer cleared after writing"], "status": "Built · smaller than described", "proof": "Loop source. No distillation or pruning code."}, {"id": "beat", "name": "Beat", "role": "Workstation · schedule", "blurb": "Jobs that write a heartbeat.", "desc": "A wrapper runs each scheduled job and writes a heartbeat line for every run, including failures and skipped overlaps. Fifteen entries sit in the reader's configuration, nine scheduled and six always-on services.", "specs": ["9 scheduled", "6 always-on", "A line per run"], "status": "Built", "proof": "Reader configuration on 10 November 2026."}, {"id": "reader", "name": "Reader", "role": "Workstation · dead-man reader", "blurb": "Someone has to read the beats.", "desc": "Reports an organ as missed after twice its interval, failing after one bad run, stuck after three, and down if a service does not answer on loopback. A job that never beat counts as missed.", "specs": ["2x interval", "3-run streaks", "Loopback probes"], "status": "Built · 48 tests pass (10 Nov)", "proof": "Reader and its suite, re-run for this note."}], 'PHASE');
+    filterWidget('cd', {cats: {"minutes": {"c": "b", "l": "MINUTES"}, "half": {"c": "a", "l": "HALF-HOURLY"}, "hours": {"c": "c", "l": "HOURS"}, "daily": {"c": "d", "l": "DAILY"}, "always": {"c": "e", "l": "ALWAYS ON"}}, chips: ['minutes', 'half', 'hours', 'daily', 'always'], hint: 'Detail', noun: 'rows', cards: [{"cat": "minutes", "name": "A canary pulse · every 5 minutes", "short": "Writes only its own heartbeat.", "why": "It exists to prove the scheduler itself is running, so that a quiet log means something."}, {"cat": "minutes", "name": "A task watcher · every 10 minutes", "short": "Lists failing organs.", "why": "Its own failure lines are reports about other organs, and the reader judges it on liveness only."}, {"cat": "minutes", "name": "The dead-man reader · every 10 minutes", "short": "Reads the others.", "why": "Reads every heartbeat and applies the missed, failing and stuck rules."}, {"cat": "half", "name": "A public heartbeat · every 30 minutes", "short": "A liveness beat to a public canister.", "why": "Lets anyone verify the workstation was alive, without trusting the workstation's own log."}, {"cat": "half", "name": "The paper harness cycle · every 30 minutes", "short": "One simulated cycle per run.", "why": "Stage 0 only. A cycle reads public data, proposes an intent and records a simulated fill."}, {"cat": "hours", "name": "The build loop · every 6 hours", "short": "The only autonomous executor of planned work.", "why": "On 8 November the audit found it had run nothing in forty days, its last success being 29 September. A schedule on paper is not a loop that runs."}, {"cat": "daily", "name": "A daily digest · every 24 hours", "short": "One message a day to the operator.", "why": "Transcribes local records and bounded reads into a single summary."}, {"cat": "daily", "name": "Nightly checks · every 24 hours", "short": "A battery run against the local model.", "why": "The audit's baseline counted zero green nights of fourteen on 8 November."}, {"cat": "daily", "name": "A daily audit · every 24 hours", "short": "A custody and integrity sweep.", "why": "A daily check of the rules the machine runs under."}, {"cat": "always", "name": "Six always-on services", "short": "Probed, never scheduled.", "why": "A model router, the gate, an outbound proxy, the operator panel, a tool gateway and a content guard. They never beat, so each is probed on loopback and reported down if it does not answer."}]});
+    modelWidget('md', {"leftSteps": [{"t": "A job is scheduled", "d": "A clock entry exists."}, {"t": "The job runs", "d": "Or it does not."}, {"t": "A result is written", "d": "A line in a log, maybe."}, {"t": "Someone reads it", "d": "If they remember to look."}], "rightSteps": [{"t": "A job is scheduled", "d": "A clock entry, with a declared cadence."}, {"t": "A wrapper runs the job", "d": "And writes a heartbeat, ok, failed or skipped."}, {"t": "The beat is logged", "d": "One line per run."}, {"t": "A reader compares", "d": "The last beat against twice the cadence."}], "toggles": [{"label": "Healthy run", "left": {"mode": "ok"}, "right": {"mode": "ok"}, "cls": "clean", "outcome": "<strong>Both columns look fine.</strong> Health is invisible until something stops, which is when the reader earns its place."}, {"label": "The job goes silent", "left": {"mode": "blind", "at": 3, "verdict": "NOBODY READS"}, "right": {"mode": "fail", "at": 3, "verdict": "MISSED"}, "cls": "refused", "outcome": "<strong>Reported after twice the interval.</strong> An earlier sentinel died for thirty hours in front of nobody. The wrapper and the reader exist because of that."}, {"label": "An overlap holds the lock", "left": {"mode": "blind", "at": 1, "verdict": "SILENT SKIP"}, "right": {"mode": "blind", "at": 3, "verdict": "SKIPPING"}, "cls": "refused", "outcome": "<strong>A skip is seen but never counts as alive.</strong> The organ did no work. Three skips in a row become an alarm."}, {"label": "Three failures in a row", "left": {"mode": "blind", "at": 3, "verdict": "NOBODY READS"}, "right": {"mode": "fail", "at": 3, "verdict": "STUCK FAIL"}, "cls": "refused", "outcome": "<strong>One failure is a warning; three is an alarm.</strong> A reader that alarmed on one bad run would be switched off by the person it woke."}]});
+    revealWidget('tl');
+
+  })();
+  </script>
+  <script type="module" src="/main.js?v=20260615-system-state"></script>
 </body>
 </html>

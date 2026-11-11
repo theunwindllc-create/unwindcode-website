@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Transmission 02: What We Learned Deploying Agents On-Chain | Unwind Code</title>
-  <meta name="description" content="When building an LLM agent to review code or write an email, failure is cheap." />
+  <meta name="description" content="An April 2026 note described an immune system, a dead man's switch and a three-cortex vote. Checked against the record: a real paper-only risk gate exists, no vote exists in the code we read, the dead-man reader watches organs not trades, and nothing that can move value may live on this machine." />
   <meta name="theme-color" content="#06060c" />
   <link rel="canonical" href="https://www.unwindcode.ai/transmissions/02-deploying-agents-on-chain" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Transmission 02: What We Learned Deploying Agents On-Chain | Unwind Code" />
-  <meta property="og:description" content="When building an LLM agent to review code or write an email, failure is cheap." />
+  <meta property="og:title" content="What We Learned Deploying Agents On-Chain" />
+  <meta property="og:description" content="Nine claims from an April 2026 note, checked: what the risk gate does, what was never built, and why no key may live here." />
   <meta property="og:url" content="https://www.unwindcode.ai/transmissions/02-deploying-agents-on-chain" />
   <meta property="og:site_name" content="Unwind Code" />
   <meta property="og:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
@@ -18,124 +18,564 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Transmission 02: What We Learned Deploying Agents On-Chain | Unwind Code" />
-  <meta name="twitter:description" content="When building an LLM agent to review code or write an email, failure is cheap." />
+  <meta name="twitter:title" content="What We Learned Deploying Agents On-Chain" />
+  <meta name="twitter:description" content="Nine claims from an April 2026 note, checked: what the risk gate does, what was never built, and why no key may live here." />
   <meta name="twitter:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
   <meta name="twitter:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/style.css" />
-</head>
-<body class="transmission-body">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What We Learned Deploying Agents On-Chain",
+    "description": "A revised note: nine claims about guarding on-chain agents checked against code, tests and rulings, with a paper-only risk gate described and the unbuilt vote and switch withdrawn.",
+    "author": {
+      "@type": "Organization",
+      "name": "Unwind Code"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Unwind Code",
+      "url": "https://www.unwindcode.ai"
+    },
+    "datePublished": "2026-04",
+    "dateModified": "2026-11-10",
+    "keywords": [
+      "on-chain agents",
+      "risk gate",
+      "custody boundary",
+      "dead man's switch",
+      "paper trading"
+    ],
+    "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/02-deploying-agents-on-chain"
+  }
+  </script>
+  <style>
+    .tx-page { background: var(--bg-void); color: var(--text-primary); }
+    .tx-page *, .tx-page *::before, .tx-page *::after { box-sizing: border-box; }
+    .tx-hero { padding: 160px 0 72px; text-align: center; position: relative; overflow: hidden; }
+    .tx-hero::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:800px; height:800px; background:radial-gradient(circle, rgba(110,45,190,0.12) 0%, transparent 60%); pointer-events:none; }
+    .tx-hero-kicker { margin-bottom:16px; }
+    .tx-hero h1 { font-size:clamp(2.2rem,5vw,3.5rem); font-weight:800; letter-spacing:-0.04em; line-height:1.08; margin:0 0 20px; }
+    .tx-hero-sub { font-size:1.08rem; color:var(--text-secondary); max-width:660px; margin:0 auto; line-height:1.7; }
+    .tx-hero-meta { margin-top:28px; display:flex; justify-content:center; gap:14px; font-size:0.76rem; color:var(--text-muted); font-weight:600; letter-spacing:0.06em; text-transform:uppercase; flex-wrap:wrap; }
+    .tx-section { padding:72px 0; border-top:1px solid var(--accent-border); }
+    .tx-section:first-of-type { border-top:none; padding-top:24px; }
+    .tx-section-head { display:flex; align-items:center; gap:16px; margin-bottom:10px; }
+    .tx-section-num { font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:700; color:var(--accent-hot); letter-spacing:0.15em; }
+    .tx-section h2 { font-size:clamp(1.5rem,3vw,2rem); font-weight:700; letter-spacing:-0.02em; margin:0; }
+    .tx-section-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:24px; }
+    .tx-prose { font-size:1.04rem; color:var(--text-secondary); line-height:1.8; max-width:720px; }
+    .tx-prose p { margin:0 0 22px; }
+    .tx-prose strong { color:var(--text-primary); font-weight:600; }
+    .tx-prose code, .tx-prose-code { font-family:'JetBrains Mono',monospace; font-size:0.84rem; background:rgba(110,45,190,0.1); color:var(--accent-light); padding:2px 6px; border-radius:4px; }
+    .tx-prose a, .tx-inline { color:var(--accent-light); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    .tx-quote { border-left:3px solid var(--accent); padding:18px 24px; margin:36px 0; background:rgba(110,45,190,0.05); border-radius:0 12px 12px 0; color:var(--text-primary); font-size:1.08rem; line-height:1.6; font-weight:500; max-width:720px; }
+    .tx-after { margin-top:36px; }
 
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- NAV (Dark Chrome) -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <nav id="nav">
-    <a href="/" class="nav-brand">
-      <span class="nav-glyph">∞</span>
-      <span class="nav-name">unwind<span class="nav-accent">code</span></span>
-    </a>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+    /* 01 — State filter */
+    .dl-filters { display:flex; flex-wrap:wrap; gap:10px; margin:28px 0 18px; }
+    .dl-chip { font-family:inherit; font-size:0.78rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:9px 16px; border-radius:999px; border:1px solid var(--accent-border); background:var(--bg-surface); color:var(--text-secondary); cursor:pointer; transition:border-color .2s ease, color .2s ease, background .2s ease; }
+    .dl-chip:hover { border-color:rgba(110,45,190,0.4); color:var(--text-primary); }
+    .dl-chip[aria-pressed="true"] { background:rgba(110,45,190,0.16); border-color:var(--accent-light); color:var(--text-primary); }
+    .dl-chip-a[aria-pressed="true"] { border-color:#c084fc; }
+    .dl-chip-b[aria-pressed="true"] { border-color:#38bdf8; }
+    .dl-chip-c[aria-pressed="true"] { border-color:#fbbf24; }
+    .dl-chip-d[aria-pressed="true"] { border-color:#10b981; }
+    .dl-chip-e[aria-pressed="true"] { border-color:#f59e0b; }
+    .dl-chip-f[aria-pressed="true"] { border-color:#f87171; }
+    .dl-count { font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:var(--text-muted); margin-bottom:16px; letter-spacing:0.06em; }
+    .dl-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:12px; }
+    .dl-card { font-family:inherit; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:18px; cursor:pointer; transition:border-color .25s ease, transform .25s ease, opacity .25s ease; }
+    .dl-card:hover { transform:translateY(-2px); border-color:rgba(110,45,190,0.4); }
+    .dl-card[hidden] { display:none; }
+    .dl-state { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.12em; padding:3px 9px; border-radius:999px; border:1px solid currentColor; margin-bottom:10px; }
+    .dl-state-a { color:#c084fc; } .dl-state-b { color:#38bdf8; } .dl-state-c { color:#fbbf24; }
+    .dl-state-d { color:#10b981; } .dl-state-e { color:#f59e0b; } .dl-state-f { color:#f87171; }
+    .dl-name { font-weight:700; font-size:0.96rem; margin-bottom:4px; }
+    .dl-short { font-size:0.84rem; color:var(--text-secondary); line-height:1.55; }
+    .dl-why { display:none; margin-top:12px; padding-top:12px; border-top:1px solid var(--accent-border); font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+    .dl-card[aria-expanded="true"] .dl-why { display:block; }
+    .dl-hint { font-size:0.68rem; color:var(--accent-hot); margin-top:10px; font-weight:600; letter-spacing:0.05em; }
+    .dl-law { margin-top:32px; border:1px solid rgba(251,191,36,0.28); border-radius:16px; padding:24px 28px; background:linear-gradient(180deg,rgba(251,191,36,0.07),rgba(251,191,36,0.015)); max-width:720px; }
+    .dl-law h3 { margin:0 0 10px; font-size:1rem; color:#fbbf24; }
+    .dl-law p { margin:0; font-size:0.95rem; color:var(--text-secondary); line-height:1.7; }
+
+    /* 02 — Component explorer */
+    .mod-explorer { display:grid; grid-template-columns:1fr 1.25fr; gap:24px; margin-top:32px; }
+    .mod-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; align-content:start; }
+    .mod-node { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:20px; cursor:pointer; transition:all 0.25s ease; text-align:left; font-family:inherit; color:var(--text-primary); }
+    .mod-node:hover, .mod-node[aria-pressed="true"] { border-color:rgba(110,45,190,0.45); transform:translateY(-2px); box-shadow:0 8px 24px rgba(110,45,190,0.1); }
+    .mod-node[aria-pressed="true"] { background:rgba(110,45,190,0.08); }
+    .mod-glyph { font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--accent-hot); letter-spacing:0.14em; margin-bottom:10px; display:block; }
+    .mod-name { font-weight:700; font-size:1.02rem; font-family:'JetBrains Mono',monospace; }
+    .mod-path { font-size:0.78rem; color:var(--text-muted); margin-top:6px; line-height:1.4; }
+    .mod-score { margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:#34d399; }
+    .mod-detail { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:20px; padding:32px; min-height:420px; }
+    .mod-detail-title { font-size:1.4rem; font-weight:700; margin-bottom:8px; font-family:'JetBrains Mono',monospace; }
+    .mod-detail-type { display:inline-block; font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent-hot); background:rgba(110,45,190,0.12); border:1px solid rgba(110,45,190,0.2); padding:4px 12px; border-radius:20px; margin-bottom:20px; }
+    .mod-detail-desc { color:var(--text-secondary); line-height:1.7; font-size:0.95rem; margin-bottom:22px; }
+    .mod-specs-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:10px; }
+    .mod-specs { display:flex; flex-wrap:wrap; gap:8px; }
+    .mod-spec { background:rgba(110,45,190,0.08); border:1px solid var(--accent-border); color:var(--accent-light); padding:6px 14px; border-radius:20px; font-size:0.8rem; font-weight:500; }
+    .mod-proof { margin-top:22px; padding-top:18px; border-top:1px solid var(--accent-border); font-size:0.84rem; color:var(--text-muted); line-height:1.6; }
+    .mod-proof strong { color:#34d399; font-family:'JetBrains Mono',monospace; font-weight:600; }
+
+    /* 03 — Baseline model */
+    .cr-wrap { margin-top:28px; border:1px solid rgba(56,189,248,0.22); border-radius:20px; padding:28px; background:linear-gradient(180deg,rgba(56,189,248,0.06),rgba(56,189,248,0.01)); }
+    .cr-top { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; }
+    .cr-label { font-family:'JetBrains Mono',monospace; font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:#38bdf8; }
+    .cr-faults { display:flex; flex-wrap:wrap; gap:8px; }
+    .cr-fault { font-family:inherit; font-size:0.76rem; font-weight:700; padding:8px 14px; border-radius:999px; border:1px solid var(--accent-border); background:var(--bg-surface); color:var(--text-secondary); cursor:pointer; transition:border-color .2s ease, color .2s ease; }
+    .cr-fault:hover { color:var(--text-primary); border-color:rgba(248,113,113,0.5); }
+    .cr-fault[aria-pressed="true"] { color:#fca5a5; border-color:#f87171; background:rgba(248,113,113,0.1); }
+    .cr-fault-reset[aria-pressed="true"] { color:#34d399; border-color:#10b981; background:rgba(16,185,129,0.1); }
+    .cr-cols { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .cr-col { border:1px solid var(--accent-border); border-radius:14px; padding:18px; background:rgba(0,0,0,0.22); }
+    .cr-col h3 { margin:0 0 4px; font-size:0.98rem; }
+    .cr-col-sub { font-size:0.78rem; color:var(--text-muted); margin:0 0 14px; line-height:1.5; }
+    .cr-steps { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
+    .cr-step { display:grid; grid-template-columns:22px 1fr auto; gap:10px; align-items:start; padding:10px 12px; border-radius:10px; border:1px solid var(--accent-border); font-size:0.84rem; line-height:1.5; color:var(--text-secondary); transition:border-color .2s ease, background .2s ease; }
+    .cr-step-n { font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--text-muted); padding-top:3px; }
+    .cr-step-t { color:var(--text-primary); font-weight:600; display:block; }
+    .cr-step-d { display:block; font-size:0.78rem; color:var(--text-muted); margin-top:2px; }
+    .cr-verdict { font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:700; letter-spacing:0.08em; padding-top:3px; white-space:nowrap; }
+    .cr-step.pass { border-color:rgba(16,185,129,0.35); } .cr-step.pass .cr-verdict { color:#34d399; }
+    .cr-step.fail { border-color:#f87171; background:rgba(248,113,113,0.08); } .cr-step.fail .cr-verdict { color:#fca5a5; }
+    .cr-step.skip { opacity:0.42; } .cr-step.skip .cr-verdict { color:var(--text-muted); }
+    .cr-step.blind { border-color:rgba(251,191,36,0.3); } .cr-step.blind .cr-verdict { color:#fbbf24; }
+    .cr-outcome { margin-top:16px; border-radius:12px; padding:14px 16px; font-size:0.9rem; line-height:1.6; border:1px solid var(--accent-border); background:rgba(0,0,0,0.22); color:var(--text-secondary); }
+    .cr-outcome strong { color:var(--text-primary); }
+    .cr-outcome.refused { border-color:rgba(248,113,113,0.4); }
+    .cr-outcome.clean { border-color:rgba(16,185,129,0.35); }
+    .cr-note { margin:14px 0 0; font-size:0.8rem; color:var(--text-muted); line-height:1.6; }
+
+    /* 04 — Timeline */
+    .wf-steps { position:relative; margin-top:32px; padding-left:40px; max-width:760px; }
+    .wf-steps::before { content:''; position:absolute; left:19px; top:0; bottom:0; width:2px; background:var(--accent-border); }
+    .wf-step { position:relative; margin-bottom:40px; }
+    .wf-step:last-child { margin-bottom:0; }
+    .wf-dot { position:absolute; left:-40px; top:0; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:800; z-index:2; font-family:'JetBrains Mono',monospace; }
+    .wf-dot-1 { background:rgba(110,45,190,0.15); color:var(--accent-light); border:2px solid var(--accent); }
+    .wf-dot-2 { background:rgba(79,70,229,0.15); color:#818cf8; border:2px solid #6366f1; }
+    .wf-dot-3 { background:rgba(14,165,233,0.15); color:#38bdf8; border:2px solid #0ea5e9; }
+    .wf-dot-4 { background:rgba(16,185,129,0.15); color:#34d399; border:2px solid #10b981; }
+    .wf-dot-5 { background:rgba(245,158,11,0.15); color:#fbbf24; border:2px solid #f59e0b; }
+    .wf-dot-6 { background:rgba(248,113,113,0.15); color:#fca5a5; border:2px solid #f87171; }
+    .wf-step h3 { font-size:1.06rem; font-weight:700; margin:0 0 6px; padding-top:8px; }
+    .wf-step p { font-size:0.92rem; color:var(--text-secondary); line-height:1.65; margin:0; }
+    .wf-step code { font-family:'JetBrains Mono',monospace; font-size:0.8rem; background:rgba(110,45,190,0.1); color:var(--accent-light); padding:2px 6px; border-radius:4px; }
+    .wf-step.reveal-step { opacity:0; transform:translateY(10px); animation:wfIn .6s ease forwards; }
+    .wf-step.reveal-step:nth-child(1){animation-delay:.05s}.wf-step.reveal-step:nth-child(2){animation-delay:.15s}.wf-step.reveal-step:nth-child(3){animation-delay:.25s}.wf-step.reveal-step:nth-child(4){animation-delay:.35s}.wf-step.reveal-step:nth-child(5){animation-delay:.45s}.wf-step.reveal-step:nth-child(6){animation-delay:.55s}
+    @keyframes wfIn { to { opacity:1; transform:none; } }
+
+    /* 05 — Operator's hand */
+    .oh-list { display:flex; flex-direction:column; gap:12px; margin-top:28px; max-width:760px; }
+    .oh-item { font-family:inherit; text-align:left; color:var(--text-primary); border:1px solid var(--accent-border); border-radius:14px; padding:18px 22px; background:var(--bg-surface); display:grid; grid-template-columns:auto 1fr auto; gap:16px; align-items:start; cursor:pointer; transition:border-color .2s ease; }
+    .oh-item:hover { border-color:rgba(110,45,190,0.4); }
+    .oh-item[aria-expanded="true"] { border-color:var(--accent-light); }
+    .oh-box { width:22px; height:22px; border-radius:6px; border:2px solid rgba(240,238,246,0.3); margin-top:2px; position:relative; }
+    .oh-box::after { content:''; position:absolute; inset:4px; border-radius:2px; background:transparent; }
+    .oh-t { font-weight:650; font-size:0.98rem; margin-bottom:4px; }
+    .oh-s { font-size:0.85rem; color:var(--text-muted); }
+    .oh-d { font-size:0.9rem; color:var(--text-secondary); line-height:1.65; max-height:0; overflow:hidden; transition:max-height .3s ease, margin .3s ease; }
+    .oh-item[aria-expanded="true"] .oh-d { max-height:260px; margin-top:12px; }
+    .oh-needs { font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:4px 10px; border-radius:999px; border:1px solid currentColor; white-space:nowrap; margin-top:2px; }
+    .oh-needs-key { color:#c084fc; } .oh-needs-funds { color:#fbbf24; } .oh-needs-passkey { color:#38bdf8; } .oh-needs-secret { color:#fca5a5; }
+    .oh-foot { margin-top:16px; font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:var(--text-muted); letter-spacing:0.06em; }
+
+    /* 06 — Decision cards */
+    .mem-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:28px; }
+    .mem-card { font-family:inherit; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:16px; padding:24px; cursor:pointer; transition:all 0.3s ease; }
+    .mem-card:hover { border-color:rgba(110,45,190,0.35); transform:translateY(-3px); box-shadow:0 8px 24px rgba(110,45,190,0.08); }
+    .mem-card h4 { font-size:0.98rem; font-weight:700; margin:0 0 8px; display:flex; align-items:center; gap:10px; }
+    .mem-tag { font-family:'JetBrains Mono',monospace; font-size:0.62rem; letter-spacing:0.12em; color:var(--accent-hot); border:1px solid rgba(110,45,190,0.3); padding:2px 8px; border-radius:999px; text-transform:uppercase; white-space:nowrap; }
+    .mem-card p { font-size:0.87rem; color:var(--text-secondary); line-height:1.6; margin:0; }
+    .mem-extra { display:none; margin-top:14px; padding-top:14px; border-top:1px solid var(--accent-border); font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+    .mem-card[aria-expanded="true"] .mem-extra { display:block; }
+    .mem-hint { font-size:0.68rem; color:var(--accent-hot); margin-top:12px; font-weight:600; letter-spacing:0.05em; }
+
+    /* Related + CTA */
+    .tx-related { margin-top:40px; padding-top:22px; border-top:1px solid var(--accent-border); font-size:0.9rem; color:var(--text-muted); line-height:1.7; }
+    .tx-related a { color:var(--accent-light); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    .tx-cta { text-align:center; padding:64px 40px; background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:28px; margin-top:72px; }
+    .tx-cta h2 { font-size:1.6rem; font-weight:700; margin:0 0 12px; }
+    .tx-cta p { color:var(--text-secondary); font-size:0.95rem; margin:0 auto 28px; max-width:520px; line-height:1.7; }
+
+    @media(max-width:900px) {
+      .mod-explorer, .cr-cols, .mem-grid { grid-template-columns:1fr; }
+      .mod-grid { grid-template-columns:1fr 1fr; }
+      .mod-detail { min-height:0; }
+    }
+    @media(max-width:640px) {
+      .mod-grid { grid-template-columns:1fr; }
+      .tx-hero { padding:130px 0 56px; }
+      .tx-section { padding:56px 0; }
+      .cr-wrap, .mod-detail { padding:20px; }
+      .oh-item { grid-template-columns:auto 1fr; }
+      .oh-needs { grid-column:2; justify-self:start; }
+      .cr-step { grid-template-columns:18px 1fr; }
+      .cr-verdict { grid-column:2; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .wf-step.reveal-step { animation:none; opacity:1; transform:none; }
+      .dl-card, .mod-node, .mem-card, .oh-d, .cr-step, .dl-chip, .cr-fault { transition:none; }
+      .dl-card:hover, .mod-node:hover, .mem-card:hover { transform:none; }
+    }
+  
+    /* revision notices */
+    .tx-dated { max-width:720px; margin:0 auto 28px; font-size:0.84rem; color:var(--text-muted); line-height:1.7; border-top:1px solid var(--accent-border); border-bottom:1px solid var(--accent-border); padding:14px 0; font-family:'JetBrains Mono',monospace; letter-spacing:0.02em; }
+    .tx-dated strong { color:var(--accent-hot); }
+    .tx-notice { max-width:720px; margin:0 0 22px; border:1px solid rgba(251,191,36,0.3); border-left:4px solid #fbbf24; border-radius:0 14px 14px 0; padding:18px 22px; background:linear-gradient(180deg,rgba(251,191,36,0.07),rgba(251,191,36,0.015)); font-size:0.93rem; color:var(--text-secondary); line-height:1.7; }
+    .tx-notice h3 { margin:0 0 8px; font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase; color:#fbbf24; font-family:'JetBrains Mono',monospace; }
+    .tx-notice p { margin:0 0 10px; }
+    .tx-notice p:last-child { margin-bottom:0; }
+    .tx-notice.revised { border-color:rgba(56,189,248,0.3); border-left-color:#38bdf8; background:linear-gradient(180deg,rgba(56,189,248,0.07),rgba(56,189,248,0.015)); }
+    .tx-notice.revised h3 { color:#38bdf8; }
+    .tx-notes { max-width:720px; margin:0 auto; padding-top:36px; }
+    .tx-list { margin:0 0 22px; padding-left:22px; }
+    .tx-list li { margin-bottom:10px; }
+    .dl-chip-a[aria-pressed="true"] { border-color:#c084fc; }
+    .dl-state-a { color:#c084fc; }
+    .dl-hero-note { font-size:0.78rem; color:var(--text-muted); margin:10px 0 0; line-height:1.6; }
+    /* budget widget */
+    .bg-wrap { margin-top:28px; border:1px solid rgba(110,45,190,0.28); border-radius:20px; padding:28px; background:linear-gradient(180deg,rgba(110,45,190,0.08),rgba(110,45,190,0.015)); }
+    .bg-top { display:flex; flex-wrap:wrap; align-items:center; gap:16px; margin-bottom:16px; }
+    .bg-label { font-family:'JetBrains Mono',monospace; font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent-hot); }
+    .bg-top input[type=range] { flex:1 1 220px; accent-color:#9b59f5; }
+    .bg-val { font-family:'JetBrains Mono',monospace; font-size:0.9rem; color:var(--text-primary); min-width:110px; }
+    .bg-meter { height:10px; border-radius:999px; background:rgba(240,238,246,0.08); overflow:hidden; margin-bottom:12px; }
+    .bg-fill { height:100%; width:0; background:linear-gradient(90deg,#6e2dbe,#c084fc); transition:width .25s ease; }
+    .bg-sum { font-family:'JetBrains Mono',monospace; font-size:0.76rem; color:var(--text-muted); letter-spacing:0.04em; margin-bottom:16px; }
+    .bg-rows { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
+    .bg-row { display:grid; grid-template-columns:1fr auto auto; gap:14px; align-items:center; padding:10px 14px; border-radius:10px; border:1px solid var(--accent-border); font-size:0.86rem; color:var(--text-secondary); }
+    .bg-row.in { border-color:rgba(16,185,129,0.35); }
+    .bg-row.out { opacity:0.5; border-style:dashed; }
+    .bg-row .bg-n { font-family:'JetBrains Mono',monospace; font-size:0.76rem; color:var(--text-muted); }
+    .bg-row .bg-v { font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:700; letter-spacing:0.08em; }
+    .bg-row.in .bg-v { color:#34d399; } .bg-row.out .bg-v { color:#fbbf24; }
+    .bg-stage { display:block; font-size:0.72rem; color:var(--text-muted); margin-top:2px; }
+    .oh-needs-pass { color:#34d399; } .oh-needs-part { color:#fbbf24; } .oh-needs-no { color:#fca5a5; } .oh-needs-design { color:#38bdf8; }
+    @media(max-width:640px) { .bg-wrap { padding:20px; } .bg-row { grid-template-columns:1fr auto; } .bg-row .bg-v { grid-column:2; } }
+  </style>
+</head>
+<body class="tx-page">
+
+  <nav id="nav" class="scrolled">
+    <a href="/" class="nav-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
     <div class="nav-links" id="nav-links">
       <a href="/" data-i18n="nav.home">Home</a>
-      <a href="/#organisms" data-i18n="nav.organisms">Organisms</a>
-      <a href="/#architecture" data-i18n="nav.architecture">Architecture</a>
-      <a href="/#philosophy" data-i18n="nav.philosophy">Philosophy</a>
-      <a href="/#vision" data-i18n="nav.vision">Vision</a>
-      <a href="/#blog" data-i18n="nav.blog">Blog</a>
+      <a href="/organisms" data-i18n="nav.organisms">Organisms</a>
+      <a href="/architecture" data-i18n="nav.architecture">Architecture</a>
+      <a href="/proof" data-i18n="nav.proof">Proof</a>
+      <a href="/transmissions" class="active" aria-current="page" data-i18n="nav.blog">Transmissions</a>
+      <a href="/philosophy" data-i18n="nav.philosophy">Philosophy</a>
     </div>
     <div class="nav-actions">
       <button id="lang-toggle" class="lang-toggle" aria-label="Switch to Spanish">ES</button>
-      <a href="/#cta" class="nav-cta" data-i18n="nav.cta">Get in Touch</a>
+      <a href="/build-with-us" class="nav-cta" data-i18n="nav.cta">Build With Us</a>
+      <a href="/proof/ledger" class="nav-ghost">Live ledger</a>
     </div>
   </nav>
 
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- MAIN TRANSMISSION (Light Content Area) -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <main class="blog-main">
-    <a href="/#blog" class="blog-back">
-      <span>←</span> Back to Transmissions
-    </a>
-
-    <article>
-      <header class="blog-header">
-        <div class="blog-meta-tag">
-          <span>Transmission</span>
-          <span class="blog-meta-dot"></span>
-          <span>Whitepaper</span>
-        </div>
-        
-        <h1 class="blog-title">Transmission 02: What We Learned Deploying Agents On-Chain</h1>
-        <p class="blog-subtitle">When building an LLM agent to review code or write an email, failure is cheap.</p>
-        
-        <div class="blog-meta-bottom">April 2026 / UNWIND RESEARCH LAB</div>
-      </header>
-
-      <div class="blog-content">
-<h3>The Hostile Environment</h3>
-<p>When building an LLM agent to review code or write an email, failure is cheap. A hallucination results in a minor syntax error or an awkward sentence. But when an AI organism operates directly on a decentralized ledger, deploying capital or executing smart contracts, a hallucination is catastrophic. The blockchain has no undo button.</p>
-<h3>Building the Dead Man's Switch</h3>
-<p>To allow the Financial Survival Organism (FSO) to operate securely across Monad, XRPL, and the Internet Computer, we realized that raw reasoning power was secondary to strict risk management. Before an agent can make a trade, it has to pass through the <strong>Immune System</strong>.</p>
-<p>The Immune System acts as an execution sandbox. It monitors:</p>
-<ul>
-  <li><strong>Max Drawdown Velocity:</strong> Is the organism hemorrhaging capital faster than its historical norm?</li>
-  <li><strong>Pattern Deviation:</strong> Is the trade parameter significantly outside the median confidence window?</li>
-  <li><strong>Protocol Sanity:</strong> Has the agent formatted the payload flawlessly according to the strict JSON-RPC interface?</li>
-</ul>
-<p>If any of these tripwires are activated, the trade is discarded. If the system trips the alarm sequentially, a "Dead Man's Switch" engages—revoking API keys and suspending the organism automatically until human review.</p>
-<h3>The Hive-Mind Voting Protocol</h3>
-<p>Even with a Dead Man's Switch, single-agent architectures are fragile. You are one bad system prompt or model decay away from a bad decision. In Unwind Brain, we enforce a Hive-Mind Voting protocol. Three distinct "cortexes" (Gemini, OpenAI, and a historical algorithmic tracker) must independently evaluate a market signal. Only when a 2/3 majority consensus is reached, mapping confidence to a predefined risk-matrix, is value transferred.</p>
-<h3>Conclusion</h3>
-<p>Building for Web3 requires an inversion of typical AI development. You don't optimize the LLM to be perfectly creative. You optimize the infrastructure around the LLM to restrict its creativity exclusively to profitable decisions, and you build the walls high enough that it can't accidentally destroy itself.</p>
-</div>
-    </article>
-  </main>
-
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- FOOTER (Dark Chrome) -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <footer id="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <span class="nav-glyph">∞</span>
-          <span class="nav-name">unwind<span class="nav-accent">code</span></span>
-          <p class="footer-desc" data-i18n="footer.desc">Intelligence that evolves.<br />Growing organisms since 2026.</p>
-        </div>
-        <div class="footer-col">
-          <h5 data-i18n="footer.organisms">Organisms</h5>
-          <a href="/#organisms" data-i18n="org.vc.title">Visual Cortex</a>
-          <a href="/#organisms" data-i18n="org.im.title">Infinity Mirror</a>
-          <a href="/#organisms" data-i18n="org.fo.title">Financial Organisms</a>
-          <a href="/#organisms" data-i18n="org.bc.title">Brain Cell Architecture</a>
-        </div>
-        <div class="footer-col">
-          <h5 data-i18n="footer.learn">Learn</h5>
-          <a href="/#architecture" data-i18n="nav.architecture">Architecture</a>
-          <a href="/#philosophy" data-i18n="nav.philosophy">Philosophy</a>
-          <a href="/#vision" data-i18n="footer.vision">Vision 2030</a>
-        </div>
-        <div class="footer-col">
-          <h5 data-i18n="footer.community">Community</h5>
-          <a href="/#cta" data-i18n="footer.join">Join Updates</a>
-          <a href="/#blog" data-i18n="footer.blog">Blog</a>
-          <a href="#" id="footer-chat-link" data-i18n="footer.talk">Talk to the Brain</a>
-        </div>
+  <main>
+    <section class="tx-hero">
+      <div class="container">
+        <div class="tx-hero-kicker"><span class="tx-section-num">TRANSMISSION 002</span></div>
+        <h1>What We Learned Deploying<br>Agents On-Chain</h1>
+        <p class="tx-hero-sub">An April 2026 note described an immune system, a dead man's switch and a three-cortex vote guarding an agent that acts on chain. Checked against the record: the risk gate is real, tested and paper-only; no vote exists in the code we read; the dead-man reader watches organs, not trades; and nothing that can move value is allowed to live on this machine.</p>
+        <div class="tx-hero-meta"><span>November 2026</span><span>&middot;</span><span>Revised note</span><span>&middot;</span><span>Custody</span><span>&middot;</span><span>10 min read</span></div>
       </div>
-      <div class="footer-bottom">
-        <span data-i18n="footer.copyright">© 2026 Unwind Code. All rights reserved.</span>
-        <span class="footer-tagline" data-i18n="footer.tagline">The future learns from itself. ∞</span>
+    </section>
+
+    <div class="container">
+      <div class="tx-notes">
+        <div class="tx-dated"><strong>Dated.</strong> This note describes the code and rulings as they stand on 10 November 2026. The note it replaces was published in April 2026 and described the design as if it were built.</div>
+        <div class="tx-notice revised"><h3>Revised 10 November 2026</h3><p>Rewritten to the Transmission standard. Nine claims were checked. Five are withdrawn, one is softened, and the page now describes what exists: a paper harness with two layers of risk control, a gated signing path that defaults to dry run, a heartbeat reader, and a custody rule that keeps assets out of reach of this machine.</p></div>
+        <div class="tx-notice"><h3>Correction, 10 November 2026</h3><p>The April note stated as built: a three-way vote with a two-of-three majority, an immune system that watches drawdown velocity and pattern deviation, and a dead man's switch that revokes keys and suspends the organism. None of those exist in the Brain code we read; the separately deployed organism's code was not opened. The white paper has one sentence saying agents vote on trades and another describing a fallback between two providers, but no voting module exists; the risk module checks stop-loss, take-profit, breakeven, frequency and cost; and the only dead-man mechanism built reads organ heartbeats and raises alarms. Those sentences are withdrawn.</p></div>
+      </div>
+
+      <section class="tx-section" id="claims">
+        <div class="tx-section-head"><span class="tx-section-num">01</span><h2>Nine claims from April, checked</h2></div>
+        <div class="tx-section-label">A ledger of what the old note said</div>
+        <div class="tx-prose">
+          <p>The April note opened with a good observation. When an agent drafts an email, failure is cheap. When an agent acts on a ledger, a hallucination is catastrophic and the chain has no undo. Everything after that sentence was a design, and the note wrote it in the present tense: an immune system that monitors drawdown velocity, pattern deviation and protocol sanity; a dead man's switch that revokes keys; a vote among three cortexes.</p>
+          <p>We split the note into nine claims and traced each to a record. Five are withdrawn, because nothing in the code or the rulings supports them. One is softened, because the truth is narrower than the sentence. Two are supported. One design idea survived. Filter the ledger by verdict and open any card to see the reason.</p>
+          <p>One piece of context shapes everything below. The record describes two organisms with similar names. One was deployed separately and held a small real wallet; the other is the paper-only code in the Brain and a newer paper harness on this machine. The audit of 17 September 2026 says not to read one as evidence about the other, and nobody opened the live one to write this note.</p>
+        </div>
+        <div class="dl-filters" role="group" aria-label="Filter claims by verdict" id="cl-filters"></div><div class="dl-count" id="cl-count" aria-live="polite"></div><div class="dl-grid" id="cl-grid"></div>
+        <div class="tx-prose tx-after">
+          <p>The pattern is consistent. The sentences that described machinery were the ones that fell. The sentence about caution, and the idea of building walls around the model instead of improving the model, are the ones that stood.</p>
+        </div>
+      </section>
+
+      <section class="tx-section" id="what-exists">
+        <div class="tx-section-head"><span class="tx-section-num">02</span><h2>What actually guards the money</h2></div>
+        <div class="tx-section-label">Five pieces, each with a trail</div>
+        <div class="tx-prose">
+          <p>The guards that exist are plainer than the ones the April note described, and they are tested. The first layer is deterministic: absolute dollar limits for each intent, each day and each position, a cap on open positions, a drawdown line past which no new risk is taken, and a cash floor. The limits are absolute amounts rather than percentages, because the custody rules say so.</p>
+          <p>The second layer is a local model used as a reviewer. It answers in strict JSON with a verdict of accept, shrink or veto and a size factor clamped between zero and one, so it can only ever make an intent smaller. It is resident-only: it asks which model is already loaded and never triggers a load. If it errors or times out, it is treated as absent, and when a reviewer is required, new risk is refused while risk-reducing sales still pass. A cap that stops you unwinding would be the false death of July in a new coat.</p>
+          <p>Around both sits the ledger. Every action is written to a hash-chained ledger before it happens, and the tests try to truncate, alter, forge and reorder it. In the Brain, the signing path for the Monad executor defaults to dry run and refuses unless the approval engine says otherwise, and generated code cannot import it.</p>
+        </div>
+        <div class="mod-explorer"><div class="mod-grid" id="ex-grid" role="group" aria-label="Guards"></div><div class="mod-detail" id="ex-detail" aria-live="polite"></div></div>
+        <div class="tx-prose tx-after">
+          <p>Everything above is paper. The harness holds a simulated book seeded with a hundred dollars; its tests ran with no network. The 76 harness tests and 48 dead-man tests were re-run for this note on 10 November.</p>
+        </div>
+      </section>
+
+      <section class="tx-section" id="walk">
+        <div class="tx-section-head"><span class="tx-section-num">03</span><h2>Walking one intent through the gate</h2></div>
+        <div class="tx-section-label">As described, and as built</div>
+        <div class="tx-prose">
+          <p>The April note described a path with three steps: three cortexes evaluate, two of three agree, value moves. That path does not exist. The path that does exist has four steps and no fifth: an intent is proposed, the caps judge it, a reviewer may shrink or veto it, and a paper broker records a simulated fill.</p>
+          <p>Choose a situation in the model and read both columns. The left column is marked not built throughout, because it is. The right column shows where each kind of bad intent stops. The point is not that the right column is clever. It is that it is small enough to test, and that its last step cannot send anything anywhere.</p>
+        </div>
+        <div class="cr-wrap"><div class="cr-top"><span class="cr-label">Model · two paths for one intent</span><div class="cr-faults" role="group" aria-label="Choose a situation" id="md-faults"></div></div><div class="cr-cols"><div class="cr-col"><h3>As the April note described</h3><p class="cr-col-sub">Not built.</p><ol class="cr-steps" id="md-left"></ol></div><div class="cr-col"><h3>As the paper harness does it</h3><p class="cr-col-sub">Built and tested, paper only.</p><ol class="cr-steps" id="md-right"></ol></div></div><div class="cr-outcome" id="md-outcome" aria-live="polite"></div><p class="cr-note">A model of the two paths. The left column has no code behind it.</p></div>
+
+      </section>
+
+      <section class="tx-section" id="dated">
+        <div class="tx-section-head"><span class="tx-section-num">04</span><h2>The record, in dates</h2></div>
+        <div class="tx-section-label">How the organism got here</div>
+        <div class="tx-prose">
+          <p>The lessons in this note came from a messy history, and the history is worth keeping straight. The figures below come from the 17 September 2026 audit of the organism's origins and from the rulings it cites. They are dated, and they describe the past.</p>
+        </div>
+        <div class="wf-steps" id="tl-steps"><div class="wf-step"><div class="wf-dot wf-dot-1">01</div><h3>February 2026 · A simulation</h3><p>The organism runs as a simulation. Its early record is hundreds of cycles that all decide to wait.</p></div><div class="wf-step"><div class="wf-dot wf-dot-2">02</div><h3>29 May 2026 · The audit</h3><p>The operator asks why it is not growing. The finding: it has never traded on chain, every recorded cycle is a simulation, and its portfolio figure was a constant.</p></div><div class="wf-step"><div class="wf-dot wf-dot-3">03</div><h3>4 July 2026 · Live, on order</h3><p>The operator orders live trading on a separately deployed organism, with a 5 percent position cap and a cost shield.</p></div><div class="wf-step"><div class="wf-dot wf-dot-4">04</div><h3>6 July 2026 · The false death</h3><p>A blank balance reading made the organism shut itself down while its funds were untouched. The fix: three consecutive trusted low readings before death.</p></div><div class="wf-step"><div class="wf-dot wf-dot-5">05</div><h3>22 August to 17 September 2026 · The law</h3><p>A council vote sets the treasury doctrine: receive-only, with no signing key on the machine. The stage ruling of 17 September names the organism not eligible for acts.</p></div><div class="wf-step"><div class="wf-dot wf-dot-6">06</div><h3>17 September 2026 · A paper harness</h3><p>A paper harness is built under the custody rules: 49 tests at landing, 76 in its main suite when re-run on 10 November, no network in tests, and a ledger that proves it was not rewritten.</p></div></div>
+        <div class="tx-prose tx-after">
+          <p>The 6 July entry is the one that bears most on a dead man's switch. A switch that fires on one bad reading is a way to kill a healthy organism. Its fix was not a vote. It was three confirmations before death.</p>
+        </div>
+      </section>
+
+      <section class="tx-section" id="waits">
+        <div class="tx-section-head"><span class="tx-section-num">05</span><h2>What waits on the operator</h2></div>
+        <div class="tx-section-label">Four open items</div>
+        <div class="tx-prose">
+          <p>Several things named in the April note are not just unbuilt. They are decisions that belong to a person. This list is what is open on the record, and none of it can be closed by an agent.</p>
+        </div>
+        <div class="oh-list" id="ls-list"></div><div class="oh-foot">0 of 4 executable by the organism · each waits on the operator</div>
+
+      </section>
+
+      <section class="tx-section" id="not-claimed">
+        <div class="tx-section-head"><span class="tx-section-num">06</span><h2>What this note does not claim</h2></div>
+        <div class="tx-section-label">Boundary</div>
+        <div class="tx-prose">
+          <ul class="tx-list">
+            <li>It does not claim any agent trades profitably. No profit-and-loss exists in the record.</li>
+            <li>It does not claim a vote, a revocation switch or a drawdown-velocity monitor exists. None is in the code we read; the separately deployed organism's code was not opened.</li>
+            <li>It does not claim the paper harness predicts live behaviour. It is a harness for proving a strategy or disproving it at no cost.</li>
+            <li>It does not claim the separately deployed organism is safe or unsafe. Nobody opened it to write this note, and the rules keep that boundary even for reading.</li>
+            <li>It does not claim the heartbeat reader's scheduled task is healthy today. On 10 November its runs ended with a non-zero exit, which is by design when it finds an organ in alarm, and a 10 November diagnosis found one missed run caused by a machine reboot. The alarms it lists were real; converting its task so it runs unattended waits on the operator.</li>
+            <li>It does not give figures for any wallet, address or position.</li>
+          </ul>
+          <p>What it does claim is narrow: a risk gate with two layers exists and passes its tests, signing is closed by default, and the rest of the April note was a design.</p>
+          <div class="tx-related">Related: <a href="/transmissions/37-the-organism-drew-its-chain-boundary">Transmission 37 — the organism drew its chain boundary</a> · <a href="/transmissions/44-what-the-organism-is-afraid-of">Transmission 44 — what the organism is afraid of</a> · <a href="/organisms/financial-organisms">Financial organisms</a></div>
+        </div>
+
+
+      </section>
+
+      <div class="tx-cta">
+        <h2>Build the walls before the trader.</h2>
+        <p>The record says the safest agent on a chain is one that cannot sign. That is where this note ends.</p>
+        <a class="btn btn-primary btn-lg" href="/build-with-us"><span>Build With Us</span><span class="btn-arrow">&rarr;</span></a>
       </div>
     </div>
-  </footer>
+  </main>
 
-  <script type="module" src="/main.js?v=20260605-social-preview"></script>
+  <footer id="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span><p class="footer-desc">Intelligence that evolves.<br />No claim without a trail.</p></div><div class="footer-col"><h5>Proof</h5><a href="/proof">Proof Register</a><a href="/proof/ledger">Live Ledger</a><a href="/transmissions">Transmissions</a><a href="/architecture">Architecture</a></div><div class="footer-col"><h5>Organisms</h5><a href="/organisms">All Organisms</a><a href="/organisms/financial-organisms">Financial Organisms</a><a href="/organisms/infinity-mirror">Infinity Mirror</a></div><div class="footer-col"><h5>Next</h5><a href="/build-with-us">Build With Us</a><a href="/#cta">Subscribe</a></div></div><div class="footer-bottom"><span>© 2026 Unwind Code. All rights reserved.</span><span class="footer-tagline">The future learns from itself. ∞</span></div></div></footer>
+
+  <script>
+  (function () {
+    // All data below is static and client-side. Nothing on this page makes a network call.
+
+    function el(id) { var e = document.getElementById(id); if (!e) { throw new Error('missing element ' + id); } return e; }
+    function toggleExpand(node, hint, a, b) {
+      node.addEventListener('click', function () {
+        var open = node.getAttribute('aria-expanded') === 'true';
+        node.setAttribute('aria-expanded', open ? 'false' : 'true');
+        if (hint) { var h = node.querySelector(hint); if (h) { h.textContent = open ? a : b; } }
+      });
+    }
+    function filterWidget(p, cfg) {
+      var chips = el(p + '-filters'), grid = el(p + '-grid'), count = el(p + '-count');
+      var cats = cfg.cats;
+      var list = [{ key: 'all', label: 'All', c: '' }].concat(cfg.chips.map(function (k) { return { key: k, label: cats[k].l, c: cats[k].c }; }));
+      list.forEach(function (ch, i) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'dl-chip' + (ch.c ? ' dl-chip-' + ch.c : '');
+        b.setAttribute('data-state', ch.key);
+        b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
+        b.textContent = ch.label;
+        b.addEventListener('click', function () {
+          chips.querySelectorAll('.dl-chip').forEach(function (o) { o.setAttribute('aria-pressed', 'false'); });
+          b.setAttribute('aria-pressed', 'true');
+          apply(ch.key);
+        });
+        chips.appendChild(b);
+      });
+      cfg.cards.forEach(function (c) {
+        var card = document.createElement('button');
+        card.type = 'button';
+        card.className = 'dl-card';
+        card.setAttribute('data-state', c.cat);
+        card.setAttribute('aria-expanded', 'false');
+        card.innerHTML = '<span class="dl-state dl-state-' + cats[c.cat].c + '">' + cats[c.cat].l + '</span>' +
+          '<div class="dl-name">' + c.name + '</div><div class="dl-short">' + c.short + '</div>' +
+          '<div class="dl-why">' + c.why + '</div><div class="dl-hint">' + cfg.hint + ' &darr;</div>';
+        toggleExpand(card, '.dl-hint', cfg.hint + ' \u2193', 'Close \u2191');
+        grid.appendChild(card);
+      });
+      function apply(state) {
+        var shown = 0;
+        grid.querySelectorAll('.dl-card').forEach(function (card) {
+          var m = state === 'all' || card.getAttribute('data-state') === state;
+          if (m) { card.removeAttribute('hidden'); shown += 1; } else { card.setAttribute('hidden', ''); }
+        });
+        count.textContent = shown + ' of ' + cfg.cards.length + ' ' + cfg.noun;
+      }
+      apply('all');
+    }
+    function explorerWidget(p, items, glyph) {
+      var grid = el(p + '-grid'), detail = el(p + '-detail'), btns = [];
+      function show(it) {
+        btns.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-id') === it.id ? 'true' : 'false'); });
+        detail.innerHTML = '<div class="mod-detail-title">' + it.name + '</div>' +
+          '<span class="mod-detail-type">' + it.role + '</span>' +
+          '<p class="mod-detail-desc">' + it.desc + '</p>' +
+          '<div class="mod-specs-label">What the record shows</div>' +
+          '<div class="mod-specs">' + it.specs.map(function (s) { return '<span class="mod-spec">' + s + '</span>'; }).join('') + '</div>' +
+          '<div class="mod-proof"><strong>' + it.status + '</strong> &middot; ' + it.proof + '</div>';
+      }
+      items.forEach(function (it) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'mod-node';
+        b.setAttribute('data-id', it.id);
+        b.setAttribute('aria-pressed', 'false');
+        b.innerHTML = '<span class="mod-glyph">' + glyph + '</span><div class="mod-name">' + it.name + '</div><div class="mod-path">' + it.blurb + '</div><div class="mod-score">' + it.status + '</div>';
+        b.addEventListener('click', function () { show(it); });
+        grid.appendChild(b);
+        btns.push(b);
+      });
+      show(items[0]);
+    }
+    function modelWidget(p, cfg) {
+      var left = el(p + '-left'), right = el(p + '-right'), out = el(p + '-outcome'), faults = el(p + '-faults');
+      function step(n, s, cls, verdict) {
+        var li = document.createElement('li');
+        li.className = 'cr-step ' + cls;
+        li.innerHTML = '<span class="cr-step-n">0' + n + '</span><span><span class="cr-step-t">' + s.t + '</span><span class="cr-step-d">' + s.d + '</span></span><span class="cr-verdict">' + verdict + '</span>';
+        return li;
+      }
+      function col(ol, steps, spec) {
+        ol.innerHTML = '';
+        steps.forEach(function (s, i) {
+          var cls = 'pass', v = spec.ok || 'OK';
+          if (spec.mode === 'fail') {
+            if (i === spec.at) { cls = 'fail'; v = spec.verdict || 'REFUSED'; }
+            else if (i > spec.at) { cls = 'skip'; v = 'NOT REACHED'; }
+          } else if (spec.mode === 'blind') {
+            if (i >= spec.at) { cls = 'blind'; v = spec.verdict || 'UNCHECKED'; }
+          } else if (spec.mode === 'skip') {
+            cls = 'skip'; v = spec.verdict || 'NOT BUILT';
+          }
+          ol.appendChild(step(i + 1, s, cls, v));
+        });
+      }
+      function run(t) {
+        col(left, cfg.leftSteps, t.left);
+        col(right, cfg.rightSteps, t.right);
+        out.className = 'cr-outcome ' + (t.cls || 'clean');
+        out.innerHTML = t.outcome;
+      }
+      cfg.toggles.forEach(function (t, i) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'cr-fault' + (i === 0 ? ' cr-fault-reset' : '');
+        b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
+        b.textContent = t.label;
+        b.addEventListener('click', function () {
+          faults.querySelectorAll('.cr-fault').forEach(function (o) { o.setAttribute('aria-pressed', 'false'); });
+          b.setAttribute('aria-pressed', 'true');
+          run(t);
+        });
+        faults.appendChild(b);
+      });
+      run(cfg.toggles[0]);
+    }
+    function listWidget(p, items) {
+      var list = el(p + '-list');
+      items.forEach(function (h) {
+        var item = document.createElement('button');
+        item.type = 'button';
+        item.className = 'oh-item';
+        item.setAttribute('aria-expanded', 'false');
+        item.innerHTML = '<span class="oh-box" aria-hidden="true"></span><span><span class="oh-t">' + h.t + '</span><span class="oh-s">' + h.s + '</span><span class="oh-d">' + h.d + '</span></span><span class="oh-needs oh-needs-' + h.cls + '">' + h.needs + '</span>';
+        toggleExpand(item);
+        list.appendChild(item);
+      });
+    }
+    function cardsWidget(p, items) {
+      var grid = el(p + '-cards');
+      items.forEach(function (l) {
+        var card = document.createElement('button');
+        card.type = 'button';
+        card.className = 'mem-card';
+        card.setAttribute('aria-expanded', 'false');
+        card.innerHTML = '<h4><span class="mem-tag">' + l.tag + '</span>' + l.title + '</h4><p>' + l.desc + '</p><div class="mem-extra">' + l.extra + '</div><div class="mem-hint">Click to expand &darr;</div>';
+        toggleExpand(card, '.mem-hint', 'Click to expand \u2193', 'Click to collapse \u2191');
+        grid.appendChild(card);
+      });
+    }
+    function budgetWidget(p, cfg) {
+      var range = el(p + '-range'), val = el(p + '-val'), fill = el(p + '-fill'), sum = el(p + '-sum'), rows = el(p + '-rows');
+      function draw() {
+        var budget = parseInt(range.value, 10), used = 0, skipped = 0;
+        rows.innerHTML = '';
+        cfg.rows.forEach(function (r) {
+          var li = document.createElement('li');
+          var fits = used + r.n <= budget;
+          if (fits) { used += r.n; } else { skipped += 1; }
+          li.className = 'bg-row ' + (fits ? 'in' : 'out');
+          li.innerHTML = '<span>' + r.t + '<span class="bg-stage">' + r.s + '</span></span><span class="bg-n">' + r.n + ' tok</span><span class="bg-v">' + (fits ? 'IN' : 'SKIPPED') + '</span>';
+          rows.appendChild(li);
+        });
+        val.textContent = budget + ' tokens';
+        fill.style.width = Math.min(100, Math.round(used / parseInt(range.max, 10) * 100)) + '%';
+        sum.textContent = 'used ' + used + ' of ' + budget + ' tokens \u00b7 ' + skipped + ' row' + (skipped === 1 ? '' : 's') + ' skipped and counted, none trimmed';
+      }
+      range.addEventListener('input', draw);
+      draw();
+    }
+    function revealWidget(p) {
+      var wf = el(p + '-steps');
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduce && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { wf.querySelectorAll('.wf-step').forEach(function (s) { s.classList.add('reveal-step'); }); io.disconnect(); }
+          });
+        }, { threshold: 0.15 });
+        io.observe(wf);
+      }
+    }
+
+    var CATS = {"supported": {"c": "d", "l": "SUPPORTED"}, "design": {"c": "b", "l": "DESIGN"}, "metaphor": {"c": "a", "l": "METAPHOR"}, "softened": {"c": "c", "l": "SOFTENED"}, "withdrawn": {"c": "f", "l": "WITHDRAWN"}};
+
+    filterWidget('cl', {cats: CATS, chips: ['supported', 'design', 'softened', 'withdrawn'], hint: 'Why', noun: 'claims', cards: [{"cat": "supported", "name": "On a ledger a hallucination is catastrophic and there is no undo", "short": "A property of ledgers, and a standing rule here.", "why": "The custody rules put it in their own words: the cost of an agent doing nothing is delay, and the cost of an agent doing the wrong thing with money is not recoverable."}, {"cat": "softened", "name": "The organism operates across Monad, XRPL and the Internet Computer", "short": "Three very different relationships.", "why": "Monad: executor code exists, gated, with dry run as the default. XRPL: read-only intelligence and an unsigned simulation lane, no signing. The Internet Computer: a liveness heartbeat canister, not a trading venue."}, {"cat": "withdrawn", "name": "An Immune System watches drawdown velocity, pattern deviation and payload format", "short": "Those three checks are not in the code.", "why": "In the Brain, the immune system is the container sandbox for generated code. The risk module checks stop-loss, take-profit, breakeven, trade frequency and cost against expected profit. No drawdown-velocity or pattern-deviation check was found."}, {"cat": "supported", "name": "If a tripwire trips, the trade is discarded", "short": "True in the paper harness, with tests.", "why": "In the paper harness an intent that breaks a cap is refused. 76 tests pass when re-run on 10 November 2026, with no network and temporary state."}, {"cat": "withdrawn", "name": "A Dead Man's Switch revokes API keys and suspends the organism until human review", "short": "Nothing revokes anything.", "why": "A March 2026 gap audit listed the trading dead man's switch as not fully wired; that audit was later marked superseded, and no later record shows it wired. The dead-man reader that exists watches organ heartbeats and raises alarms. It revokes no key, and the rules forbid any key that controls assets on this machine."}, {"cat": "withdrawn", "name": "Three cortexes vote and a two-of-three majority releases value", "short": "No vote is built in the code we can read.", "why": "The white paper has one sentence saying agents vote on trades and another describing a two-provider fallback; no module in the Brain implements a three-way majority. The separately deployed organism's code was not opened for this note, and the record mentions a risk debate layer there whose form we cannot show. The only second opinion in the code read is one local reviewer."}, {"cat": "withdrawn", "name": "Value is transferred once consensus is reached", "short": "No autonomous transfer is permitted at all.", "why": "Financial actions on this machine need an explicit, specific, in-the-moment instruction from the operator. The live trading executor can never run here, because it would need a signing key."}, {"cat": "withdrawn", "name": "Restrict the model's creativity to profitable decisions", "short": "No profit-and-loss exists in the record.", "why": "The 17 September 2026 audit found no profit-and-loss figure on either machine. The earlier organism had barely traded and was built to preserve capital, not grow it."}, {"cat": "design", "name": "Optimise the infrastructure around the model, not the model", "short": "The one idea that survived intact.", "why": "The paper harness is built this way: deterministic caps first, then a small local model that may shrink or veto and can never enlarge. A research note in the record argues a small model belongs at the risk gate, not as the source of edge."}]});
+    explorerWidget('ex', [{"id": "caps", "name": "Cap gate", "role": "Paper harness · layer 1", "blurb": "Code, not a model. Absolute dollar limits.", "desc": "Every intent passes deterministic limits first. Caps are absolute amounts, not percentages. An intent that reduces risk passes the caps, so the gate can never trap the organism in a position.", "specs": ["5 dollars per intent", "25 dollars per day", "10 dollars per position", "5 open positions", "10 percent drawdown line", "10 dollar cash floor"], "status": "Built · paper only", "proof": "Default limits in the risk module; 76 harness tests pass (10 Nov)."}, {"id": "reviewer", "name": "Reviewer", "role": "Paper harness · layer 2", "blurb": "A local model that can only shrink or veto.", "desc": "A resident local model returns strict JSON: accept, shrink or veto, with a size factor clamped to between zero and one. It is shown the intent, the cap verdict and market context, and no key exists in the harness for it to see.", "specs": ["Never enlarges", "Absent means recorded as absent", "Required reviewer: new risk refused", "Error or bad JSON treated as absent"], "status": "Built · paper only", "proof": "Risk module design note; tests cover shrink, veto, absent and required."}, {"id": "signing", "name": "Signing gate", "role": "Brain · Monad executor", "blurb": "Dry run unless an approval says otherwise.", "desc": "Every path from signing to broadcast is gated behind the approval engine, and dry run is the default. Dynamically generated cells are barred from importing the executor.", "specs": ["dry_run default", "Approval engine", "Import fence for generated code"], "status": "Built · not exercised here", "proof": "Executor header and the custody-boundary report, which keeps execution, signing and broadcast authority closed."}, {"id": "deadman", "name": "Dead-man reader", "role": "First Body · organs", "blurb": "Notices silence. Revokes nothing.", "desc": "Reads each scheduled organ's heartbeat and reports one that has gone silent for more than twice its interval, or has failed three times in a row. It alarms; it does not act on money.", "specs": ["Missed after 2x interval", "Stuck after 3 failures", "Loopback probe for services"], "status": "Built · 48 tests pass (10 Nov)", "proof": "Reader and its suite. Its non-zero exit means it found organs in alarm, not that it died; a 10 November diagnosis found one missed run caused by a reboot."}, {"id": "chain", "name": "Chain reads", "role": "XRPL and Monad", "blurb": "Reading, not holding.", "desc": "The XRPL lane is read-only plus an unsigned simulation. The paper harness reads public venue data and writes a hash-chained ledger before every action; its tests include truncate, alter, forge and reorder attacks on that ledger.", "specs": ["No signing, no submit", "Hash-chained ledger", "Tamper battery"], "status": "Built · paper only", "proof": "Brain structure map; harness suite."}], 'GUARD');
+    modelWidget('md', {"leftSteps": [{"t": "Three cortexes evaluate", "d": "Each reads the signal independently."}, {"t": "Two of three agree", "d": "A majority maps to a risk matrix."}, {"t": "Value is transferred", "d": "The organism acts on chain."}], "rightSteps": [{"t": "Intent proposed", "d": "A deterministic strategy writes one intent."}, {"t": "Cap gate", "d": "Absolute dollar limits, in code."}, {"t": "Reviewer", "d": "A local model may shrink or veto."}, {"t": "Paper broker", "d": "A simulated fill, written to a hash-chained ledger."}], "toggles": [{"label": "A sound intent", "left": {"mode": "skip", "verdict": "NOT BUILT"}, "right": {"mode": "ok"}, "cls": "clean", "outcome": "<strong>Right column ends in a simulated fill.</strong> There is no fifth step: nothing in the harness can send value anywhere."}, {"label": "Intent above the cap", "left": {"mode": "skip", "verdict": "NOT BUILT"}, "right": {"mode": "fail", "at": 1, "verdict": "REFUSED"}, "cls": "refused", "outcome": "<strong>Refused at the cap gate,</strong> before any model is asked. The reviewer and the broker are not reached."}, {"label": "Reviewer vetoes", "left": {"mode": "skip", "verdict": "NOT BUILT"}, "right": {"mode": "fail", "at": 2, "verdict": "VETO"}, "cls": "refused", "outcome": "<strong>The reviewer vetoes,</strong> or shrinks the size. It can only ever reduce an intent, never enlarge it."}, {"label": "No reviewer running", "left": {"mode": "skip", "verdict": "NOT BUILT"}, "right": {"mode": "blind", "at": 2, "verdict": "RECORDED ABSENT"}, "cls": "refused", "outcome": "<strong>Paper mode:</strong> the cap verdict stands and the reviewer is recorded as absent. With a reviewer required, which any later grant would need, new risk is refused instead."}]});
+    revealWidget('tl');
+    listWidget('ls', [{"t": "What the organism is for", "s": "A shield or a growth organ.", "needs": "ruling", "cls": "key", "d": "The record shows it was built to preserve capital. Adding a growth organ is a design decision nobody has taken. The question has been open since 29 May 2026 and waits on the operator."}, {"t": "A data-store access setting", "s": "Wider than needed.", "needs": "his hand", "cls": "secret", "d": "A September audit found a money-related store accepting writes from anyone holding a public key. A fix path was written and nothing was applied. It waits on the operator."}, {"t": "Any live signing", "s": "Never on this machine.", "needs": "never here", "cls": "passkey", "d": "The custody rules forbid a key that controls assets on this machine at any stage. Live signing would happen on the operator's own machine, by the operator's own instruction."}, {"t": "The treasury graduation", "s": "Receive-only, until counted proof.", "needs": "funds", "cls": "funds", "d": "The treasury doctrine keeps the wallet receive-only until a counted run of verified, operator-approved payments exists. That run has not happened."}]);
+
+  })();
+  </script>
+  <script type="module" src="/main.js?v=20260615-system-state"></script>
 </body>
 </html>
