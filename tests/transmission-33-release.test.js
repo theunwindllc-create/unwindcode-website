@@ -141,6 +141,8 @@ test('Transmission 33 keeps authority, infrastructure, and social assets bounded
     /auth(?:entication)? token/i,
     /credit balance/i,
     /Canonical Sheet V2/i,
+    /OpenClaw/i,
+    /sessions_spawn/i,
   ]) {
     assert.equal(forbidden.test(page), false, `Transmission 33 leaked forbidden detail: ${forbidden}`);
   }
