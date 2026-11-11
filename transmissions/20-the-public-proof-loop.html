@@ -119,7 +119,6 @@
     .metrics-grid { margin-top:34px; display:grid; grid-template-columns:1fr 1fr; gap:22px; align-items:start; }
     .panel { background:rgba(15,15,30,0.58); border:1px solid var(--accent-border); border-radius:20px; padding:24px; }
     .panel h3 { font-size:1.08rem; margin-bottom:10px; }
-    .chart-box { position:relative; width:100%; height:332px; }
     .mission-list { display:grid; gap:12px; }
     .mission-item { border:1px solid rgba(240,238,246,0.08); background:rgba(6,6,12,0.28); border-radius:14px; padding:16px; }
     .mission-item span { color:var(--accent-hot); font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; }
@@ -144,7 +143,6 @@
       .proof-node { position:relative; left:auto; right:auto; top:auto; bottom:auto; width:100%; min-height:auto; }
       .proof-detail, .runner-shell, .panel { padding:20px; }
       .packet-grid, .authority-grid { grid-template-columns:1fr; }
-      .chart-box { height:292px; }
     }
   
     /* revision 2026-11-10: dated notes and state-of-record table */
@@ -229,7 +227,7 @@
         <div class="runner-shell">
           <div class="runner-grid">
             <div class="runner-lanes">
-              <div class="runner-lane"><span>Lane 01</span><h3>Creator OS</h3><p>Design: turns approved debriefs, research notes, and mission-fit evidence into draft content. Dormant since 22 September.</p></div>
+              <div class="runner-lane"><span>Lane 01</span><h3>Creator OS</h3><p>Design: turns approved debriefs, research notes, and mission-fit evidence into draft content. Idle: the Brain application is not running.</p></div>
               <div class="runner-lane"><span>Lane 02</span><h3>Approval Chain</h3><p>Design: records approve, hold, reject, or request-changes decisions before any consequential action. In practice today it is the operator's word.</p></div>
               <div class="runner-lane"><span>Lane 03</span><h3>Separated Runner</h3><p>Design from May: previewed publish, deploy, rollback, artifact, and verification commands without executing them. Removed from the Brain in July 2026.</p></div>
               <div class="runner-lane"><span>Lane 04</span><h3>Memory</h3><p>Design: writes what happened back into the organism so the next transmission is sharper. On the record this is the dated journal.</p></div>
@@ -298,7 +296,7 @@
           <p class="st-sub">Status on 8 November 2026 (organ health re-read on 10 November). Filter by state.</p>
           <div class="st-filter"><button type="button" class="active" data-f="all">All</button><button type="button" data-f="built">Built, tested</button><button type="button" data-f="idle">Idle</button><button type="button" data-f="design">Design only</button><button type="button" data-f="removed">Removed</button></div>
           <div class="st-row" data-s="built"><b>The process that exists</b><span class="st-pill built">Built, tested</span><span>A written transmission standard (every claim traces to a record), a second reader who checks each page before it is called ready, a test suite and a build gate. The operator's word deploys.</span></div>
-          <div class="st-row" data-s="idle"><b>A Brain cell that drafts</b><span class="st-pill idle">Idle</span><span>The Creator OS studio and engine have been dormant since 22 September. No cell has drafted a transmission.</span></div>
+          <div class="st-row" data-s="idle"><b>A Brain cell that drafts</b><span class="st-pill idle">Idle</span><span>The Brain's Creator OS code is idle with the rest of the Brain application (the separate Visual Cortex studio tool has been dormant since 22 September). No cell has drafted a transmission.</span></div>
           <div class="st-row" data-s="removed"><b>Publish packets, separated runner</b><span class="st-pill removed">Removed</span><span>The chain of publication packets and runner handoffs was removed from the Brain on 2 July 2026; only a terminal public-proof gate was kept. The note's lanes 02 and 03 describe code that no longer exists.</span></div>
           <div class="st-row" data-s="design"><b>Automatic live verification</b><span class="st-pill design">Design only</span><span>No cell checks the live page after publishing.</span></div>
           <div class="st-row" data-s="built"><b>XRPL research lane</b><span class="st-pill built">Built, tested</span><span>Code and tests for a read-only client, a simulation ledger and risk scoring exist. It is not running, holds no keys, and has no signing authority.</span></div>
@@ -363,7 +361,7 @@
         path: 'content draft',
         copy: 'Design: the Creator OS converts evidence into a readable transmission while preserving the difference between interpretation and fact.',
         bullets: ['Drafts can be expressive without inventing unsupported claims.', 'The writer cell does not receive publish or deploy authority.', 'Mission-fit notes explain why the transmission should exist.'],
-        onrecord: 'The newer transmissions were drafted by human-directed tool sessions against a written standard. No Brain cell drafted them; the Creator OS studio has been dormant since 22 September.'
+        onrecord: 'The newer transmissions were drafted by human-directed tool sessions against a written standard. No Brain cell drafted them; the Creator OS code in the Brain is idle.'
       },
       {
         className: 'node-stage',
@@ -430,7 +428,7 @@
         '<h3>' + stage.title + ' Stage</h3>',
         '<span class="proof-path">' + stage.path + '</span>',
         '<p class="detail-copy">' + stage.copy + '</p>',
-        '<p class="detail-copy"><strong>On the record, 10 November 2026.</strong> ' + stage.onrecord + '</p>',
+        '<p class="detail-copy"><strong>On the record, checked 10 November 2026.</strong> ' + stage.onrecord + '</p>',
         '<ul class="detail-list">' + stage.bullets.map((item) => '<li>' + item + '</li>').join('') + '</ul>',
         '<div class="packet-grid">',
           '<div class="packet-pill"><span>Input</span><p>Evidence, source references, prior gate output, and mission-fit context.</p></div>',

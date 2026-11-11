@@ -98,13 +98,6 @@
     .mem-extra { display:none; margin-top:16px; padding-top:16px; border-top:1px solid var(--accent-border); font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
     .mem-expand-hint { font-size:0.7rem; color:var(--accent-hot); margin-top:12px; font-weight:600; letter-spacing:0.05em; }
 
-    /* Charts */
-    .chart-wrap { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:20px; padding:28px; }
-    .chart-wrap h3 { font-size:1.1rem; font-weight:700; margin-bottom:4px; }
-    .chart-wrap .chart-sub { font-size:0.82rem; color:var(--text-muted); margin-bottom:20px; }
-    .chart-box { position:relative; width:100%; height:320px; }
-    .charts-row { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:32px; }
-
     /* Blockquote */
     .tx-quote { border-left:3px solid var(--accent); padding:20px 24px; margin:40px 0; background:rgba(110,45,190,0.05); border-radius:0 12px 12px 0; font-style:italic; color:var(--text-secondary); font-size:1.05rem; line-height:1.7; }
 
@@ -114,7 +107,7 @@
     .tx-cta p { color:var(--text-secondary); font-size:0.95rem; margin-bottom:28px; max-width:480px; margin-left:auto; margin-right:auto; line-height:1.7; }
 
     @media(max-width:900px) {
-      .mod-explorer, .charts-row, .mem-grid { grid-template-columns:1fr; }
+      .mod-explorer, .mem-grid { grid-template-columns:1fr; }
       .mod-grid { grid-template-columns:1fr 1fr; }
     }
     @media(max-width:640px) {
@@ -230,10 +223,10 @@
           <p class="st-sub">Replaces a capability chart. Status on 8 November 2026 (organ health re-read on 10 November). Filter by state.</p>
           <div class="st-filter"><button type="button" class="active" data-f="all">All</button><button type="button" data-f="built">Built, tested</button><button type="button" data-f="idle">Idle</button><button type="button" data-f="failing">Failing</button></div>
           <div class="st-row" data-s="built"><b>Observation</b><span class="st-pill built">Built, tested</span><span>Scheduled organs beat: a canary, a dead-man reader, a task watcher, telemetry and a daily digest (8 November). The dead-man reader exits 1 whenever it has findings, so its own task reads as failed every ten minutes; that is by design. The external witness beat has been rejected on every attempt since 9 November, a fault on the service side that waits on the operator.</span></div>
-          <div class="st-row" data-s="idle"><b>Reasoning</b><span class="st-pill idle">Idle</span><span>No language model has been resident since the 27 October boot and the last routed call was on 25 October (state of 8 November). Reasoning on the record is done by human-driven tool sessions.</span></div>
+          <div class="st-row" data-s="idle"><b>Reasoning</b><span class="st-pill idle">Idle</span><span>No language model was resident from the 27 October boot to 8 November, and the last routed call was on 25 October; on 9 and 10 November a small judge model was resident at the nightly check. Reasoning on the record is done by human-driven tool sessions.</span></div>
           <div class="st-row" data-s="failing"><b>Memory</b><span class="st-pill failing">Failing</span><span>The vault is read and written daily, but semantic search has held zero embeddings since 3 November and most files lost that day are still unrestored.</span></div>
           <div class="st-row" data-s="idle"><b>Coordination</b><span class="st-pill idle">Idle</span><span>The task calendar holds 402 tasks, 155 of them done. It has no running consumer: its last change was on 5 November, and the build loop that would consume it has run nothing in forty days.</span></div>
-          <div class="st-row" data-s="failing"><b>Adaptation</b><span class="st-pill failing">Failing</span><span>The nightly evaluation has come back incomplete every night since 26 October, was red on 41 of 70 nights, and the 14-night green chain it is meant to prove has never started. Nothing changes its own rules; changes are made by hands.</span></div>
+          <div class="st-row" data-s="failing"><b>Adaptation</b><span class="st-pill failing">Failing</span><span>The nightly evaluation came back incomplete every night from 26 October to 8 November, was red on 41 of the first 70 nights, and was red again on 9 and 10 November once a judge model was resident; the 14-night green chain it is meant to prove has never started. Nothing changes its own rules; changes are made by hands.</span></div>
         </div>
       </section>
 
@@ -313,7 +306,7 @@
       btn.addEventListener('click',()=>{
         if(activeNode)activeNode.classList.remove('active');
         btn.classList.add('active'); activeNode=btn;
-        detail.innerHTML=`<div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;"><span style="font-size:2.5rem">${m.icon}</span><div><div class="mod-detail-title">${m.name}</div><span class="mod-detail-type">${m.type}</span></div></div><p class="mod-detail-desc">${m.desc}</p><div style="margin-bottom:16px;"><span style="font-size:0.72rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em">On the record, 10 November 2026</span><p style="margin-top:6px;font-size:0.88rem;line-height:1.65;color:var(--text-secondary)">${m.state}</p></div><div style="font-size:0.72rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px">Design themes</div><div class="mod-specs">${m.specs.map(s=>`<span class="mod-spec">${s}</span>`).join('')}</div>`;
+        detail.innerHTML=`<div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;"><span style="font-size:2.5rem">${m.icon}</span><div><div class="mod-detail-title">${m.name}</div><span class="mod-detail-type">${m.type}</span></div></div><p class="mod-detail-desc">${m.desc}</p><div style="margin-bottom:16px;"><span style="font-size:0.72rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em">On the record, checked 10 November 2026</span><p style="margin-top:6px;font-size:0.88rem;line-height:1.65;color:var(--text-secondary)">${m.state}</p></div><div style="font-size:0.72rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px">Design themes</div><div class="mod-specs">${m.specs.map(s=>`<span class="mod-spec">${s}</span>`).join('')}</div>`;
       });
       grid.appendChild(btn);
     });

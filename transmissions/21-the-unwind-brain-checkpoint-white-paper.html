@@ -122,7 +122,6 @@
     .source-card h3 { font-size:0.98rem; margin-bottom:8px; }
     .source-card a { color:var(--accent-light); font-weight:700; text-decoration:none; }
     .comparison { margin-top:34px; display:grid; grid-template-columns:1fr 1fr; gap:22px; }
-    .chart-box { position:relative; width:100%; height:346px; }
     .matrix { display:grid; gap:10px; }
     .matrix-row { display:grid; grid-template-columns:0.8fr 1.2fr auto; gap:12px; align-items:center; border:1px solid rgba(240,238,246,0.08); background:rgba(6,6,12,0.28); border-radius:14px; padding:14px; }
     .matrix-row b { font-size:0.9rem; }
@@ -150,7 +149,6 @@
       .flow-node::after { display:none; }
       .matrix-row { grid-template-columns:1fr; }
       .abstract-card, .panel, .stack-detail { padding:20px; }
-      .chart-box { height:306px; }
     }
   
     /* revision 2026-11-10: dated notes and state-of-record table */
@@ -338,12 +336,12 @@
           <div class="st-filter"><button type="button" class="active" data-f="all">All</button><button type="button" data-f="built">Built, tested</button><button type="button" data-f="idle">Idle</button><button type="button" data-f="failing">Failing</button></div>
           <div class="st-row" data-s="built"><b>Evidence</b><span class="st-pill built">Built, tested</span><span>Ledgers are hash-chained and intact except for one declared fork in the gate ledger. The outside witness of those ledgers has been dark since 9 November: its beat is refused on the service side, which waits on the operator.</span></div>
           <div class="st-row" data-s="idle"><b>Approvals</b><span class="st-pill idle">Idle</span><span>An approval engine is built and tested. The live approval path holds no pending approvals and its newest decision was on 30 September. The custody gate has been at Stage 0 since its Stage-1 grant expired on 4 October 2026.</span></div>
-          <div class="st-row" data-s="idle"><b>Reasoning</b><span class="st-pill idle">Idle</span><span>No language model has been resident since 27 October (state of 8 November). Reasoning on the record is done by human-directed tool sessions.</span></div>
+          <div class="st-row" data-s="idle"><b>Reasoning</b><span class="st-pill idle">Idle</span><span>No language model was resident from 27 October to 8 November; on 9 and 10 November a small judge model was resident at the nightly check. Reasoning on the record is done by human-directed tool sessions.</span></div>
           <div class="st-row" data-s="failing"><b>Memory</b><span class="st-pill failing">Failing</span><span>The vault is read and written daily, but its semantic index has held zero embeddings since 3 November, most files lost that day are unrestored, and an off-box backup target waits on the operator.</span></div>
           <div class="st-row" data-s="built"><b>Interop</b><span class="st-pill built">Built, tested</span><span>A tool gateway exposes six read-only tools. Tests cover an agent-card shape for on-chain identity; the record shows no live use.</span></div>
-          <div class="st-row" data-s="built"><b>Financial safety</b><span class="st-pill built">Built, tested</span><span>The organism that runs here is a paper organ with no key and no signing path. Older Brain code with a signing path is not wired. An earlier off-box version was configured for live trading in July 2026 according to a September record; its present state cannot be read from here and waits on the operator, and this paper makes no claim about it.</span></div>
+          <div class="st-row" data-s="built"><b>Financial safety</b><span class="st-pill built">Built, tested</span><span>The organism that runs here is a paper organ with no key and no signing path. Older Brain code with a signing path sits in the Brain repository, which is not running, and nothing on this machine uses it. An earlier off-box version was configured for live trading in July 2026 according to a September record; its present state cannot be read from here and waits on the operator, and this paper makes no claim about it.</span></div>
           <div class="st-row" data-s="idle"><b>Bounded growth</b><span class="st-pill idle">Idle</span><span>One generated cell has been staged since 16 October, awaiting the operator, and has never been activated.</span></div>
-          <div class="st-row" data-s="failing"><b>Evaluation</b><span class="st-pill failing">Failing</span><span>The nightly evaluation has been incomplete every night since 26 October, was red on 41 of 70 nights, and its 14-night green chain has never started (state of 8 November).</span></div>
+          <div class="st-row" data-s="failing"><b>Evaluation</b><span class="st-pill failing">Failing</span><span>The nightly evaluation was incomplete every night from 26 October to 8 November, was red on 41 of the first 70 nights, and was red again on 9 and 10 November once a judge model was resident; its 14-night green chain has never started.</span></div>
         </div>
           <div class="panel">
             <h3>Marketplace Position</h3>
@@ -548,7 +546,7 @@
         '<h3>' + layer.title + '</h3>',
         '<span class="stack-path">' + layer.path + '</span>',
         '<p class="detail-copy">' + layer.copy + '</p>',
-        '<p class="detail-copy"><strong>On the record, 10 November 2026.</strong> ' + layer.onrecord + '</p>',
+        '<p class="detail-copy"><strong>On the record, checked 10 November 2026.</strong> ' + layer.onrecord + '</p>',
         '<ul class="detail-list">' + layer.bullets.map((item) => '<li>' + item + '</li>').join('') + '</ul>',
         '<div class="packet-grid">',
           '<div class="packet-pill"><span>Open</span><p>Read, stage, explain, simulate, verify, and record evidence.</p></div>',

@@ -91,7 +91,6 @@
     .chart-grid { margin-top:34px; display:grid; grid-template-columns:1fr 1fr; gap:22px; align-items:start; }
     .panel { background:rgba(15,15,30,0.58); border:1px solid var(--accent-border); border-radius:20px; padding:24px; }
     .panel h3 { font-size:1.08rem; margin-bottom:10px; }
-    .chart-box { position:relative; width:100%; height:334px; }
     .principle-list { display:grid; gap:12px; }
     .principle-item { border:1px solid rgba(240,238,246,0.08); background:rgba(6,6,12,0.28); border-radius:14px; padding:16px; }
     .principle-item span { color:var(--accent-hot); font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; }
@@ -129,7 +128,6 @@
       .proof-flow { grid-template-columns:1fr; }
       .proof-step::after { display:none; }
       .state-detail, .panel { padding:20px; }
-      .chart-box { height:292px; }
     }
   
     /* revision 2026-11-10: dated notes and state-of-record table */
@@ -233,10 +231,10 @@
           <h3>The Monad Hand, as the record shows it</h3>
           <p class="st-sub">Replaces a chart of invented scores. Status on 8 November 2026 (organ health re-read on 10 November). Filter by state.</p>
           <div class="st-filter"><button type="button" class="active" data-f="all">All</button><button type="button" data-f="built">Built, tested</button><button type="button" data-f="idle">Idle</button><button type="button" data-f="failing">Failing</button><button type="button" data-f="unknown">Not readable</button></div>
-          <div class="st-row" data-s="built"><b>Read-only observation</b><span class="st-pill built">Built, tested</span><span>Live market reads go through an egress proxy that allows approved domains only. The paper organ ran 2,161 cycles by 8 November and its ledger was intact.</span></div>
+          <div class="st-row" data-s="built"><b>Read-only observation</b><span class="st-pill built">Built, tested</span><span>Live market reads go through an egress proxy that allows approved domains only. The paper organ ran 2,161 scheduled runs by 8 November and its ledger was intact.</span></div>
           <div class="st-row" data-s="idle"><b>Paper fills</b><span class="st-pill idle">Idle</span><span>The paper book stood at $87.96 of a $100 seed on 8 November, after 34 paper fills; none since 15 October.</span></div>
           <div class="st-row" data-s="failing"><b>Reviewer model</b><span class="st-pill failing">Failing</span><span>The model meant to review each intent has been absent since 26 October because no model is resident. Intents continue without it.</span></div>
-          <div class="st-row" data-s="idle"><b>Signing and live motion</b><span class="st-pill idle">Idle</span><span>The running organism has no key and no signing path. Older Brain code for a Monad executor exists but is not wired to anything.</span></div>
+          <div class="st-row" data-s="idle"><b>Signing and live motion</b><span class="st-pill idle">Idle</span><span>The running organism has no key and no signing path. Older Brain code for a Monad executor exists in the Brain repository, which is not running; nothing on this machine uses it.</span></div>
           <div class="st-row" data-s="idle"><b>Human gate</b><span class="st-pill idle">Idle</span><span>The custody gate has been at Stage 0 since 4 October 2026; it refuses every consequential step. Renewing it is the operator's.</span></div>
           <div class="st-row" data-s="unknown"><b>An earlier off-box version</b><span class="st-pill unknown">Not readable</span><span>A September record says an earlier version off this machine was configured for live trading in July 2026. Its present state cannot be read from here and waits on the operator. This page makes no claim about it.</span></div>
         </div>
@@ -262,7 +260,7 @@
         <div class="qa-grid" id="qa-grid">
           <div class="qa-card open">
             <button type="button">What is the Monad Hand?<span>+</span></button>
-            <div class="qa-answer">It is the design for the financial organism's execution hand for Monad-facing work: a boundary that should translate intent into read-only checks, route proof, simulation, approval, and only then controlled motion. Code for such an executor exists in the Brain repository but is not wired to anything; the organism that runs is a paper organ with no key.</div>
+            <div class="qa-answer">It is the design for the financial organism's execution hand for Monad-facing work: a boundary that should translate intent into read-only checks, route proof, simulation, approval, and only then controlled motion. Code for such an executor exists in the Brain repository, which is not running, and nothing on this machine uses it; the organism that runs is a paper organ with no key.</div>
           </div>
           <div class="qa-card">
             <button type="button">Why was execution blocked?<span>+</span></button>

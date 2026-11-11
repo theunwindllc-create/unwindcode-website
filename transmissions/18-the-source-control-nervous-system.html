@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Transmission 18: The Source-Control Nervous System | Unwind Code</title>
-  <meta name="description" content="How the Unwind Brain is learning to build safely: branch, worktree, commit, and PR readiness gates that turn source-control power into inspectable architecture." />
+  <meta name="description" content="A design note on review-only branch, worktree, commit and PR readiness packets for the Brain: fifteen packet modules with tests exist and no executor does. Revised 10 November 2026." />
   <meta name="theme-color" content="#06060c" />
   <link rel="canonical" href="https://www.unwindcode.ai/transmissions/18-the-source-control-nervous-system" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Transmission 18: The Source-Control Nervous System | Unwind Code" />
-  <meta property="og:description" content="How the Unwind Brain is learning to build safely: branch, worktree, commit, and PR readiness gates that turn source-control power into inspectable architecture." />
+  <meta property="og:description" content="A design note on review-only branch, worktree, commit and PR readiness packets for the Brain: fifteen packet modules with tests exist and no executor does. Revised 10 November 2026." />
   <meta property="og:url" content="https://www.unwindcode.ai/transmissions/18-the-source-control-nervous-system" />
   <meta property="og:site_name" content="Unwind Code" />
   <meta property="og:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
@@ -19,7 +19,7 @@
   <meta property="og:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Transmission 18: The Source-Control Nervous System | Unwind Code" />
-  <meta name="twitter:description" content="How the Unwind Brain is learning to build safely: branch, worktree, commit, and PR readiness gates that turn source-control power into inspectable architecture." />
+  <meta name="twitter:description" content="A design note on review-only branch, worktree, commit and PR readiness packets for the Brain: fifteen packet modules with tests exist and no executor does. Revised 10 November 2026." />
   <meta name="twitter:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
   <meta name="twitter:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -31,7 +31,7 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "The Source-Control Nervous System",
-    "description": "How the Unwind Brain is learning to build safely: branch, worktree, commit, and PR readiness gates that turn source-control power into inspectable architecture.",
+    "description": "A design note on review-only branch, worktree, commit and PR readiness packets for the Brain: fifteen packet modules with tests exist and no executor does. Revised 10 November 2026.",
     "author": {
       "@type": "Organization",
       "name": "Unwind Code"
@@ -111,7 +111,6 @@
     .evidence-detail strong { color:var(--text-primary); }
 
     .metrics-grid { margin-top:34px; display:grid; grid-template-columns:1fr 1fr; gap:22px; align-items:start; }
-    .chart-box { position:relative; width:100%; height:332px; }
     .mission-list { display:grid; gap:12px; }
     .mission-item { border:1px solid rgba(240,238,246,0.08); background:rgba(6,6,12,0.28); border-radius:14px; padding:16px; }
     .mission-item span { color:var(--accent-hot); font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; }
@@ -133,7 +132,6 @@
       .tx-section-head { align-items:flex-start; }
       .gate-detail, .pipeline-shell, .ledger-panel, .packet-panel, .chart-panel { padding:20px; }
       .evidence-grid { grid-template-columns:1fr; }
-      .chart-box { height:290px; }
     }
   
     /* revision 2026-11-10: dated notes and state-of-record table */
@@ -278,7 +276,7 @@
           <div class="st-row" data-s="built"><b>Review packets</b><span class="st-pill built">Built, tested</span><span>Fifteen modules, each with its own tests, prepare review-only packets that cannot execute. The Brain application is not running as of 8 November, and the repository holds hundreds of uncommitted files.</span></div>
           <div class="st-row" data-s="design"><b>Executor gate</b><span class="st-pill design">Design only</span><span>The "future owner-approved executor gate" does not exist. No executor is built that would create a branch, commit or push from these packets.</span></div>
           <div class="st-row" data-s="removed"><b>A larger packet chain</b><span class="st-pill removed">Removed</span><span>In July 2026 an architecture review of the same repository removed a far larger chain of generated approval packets, 87 modules, as ceremony without use. This chain stayed. The lesson stands for it too: count what a packet protects, not how many packets exist.</span></div>
-          <div class="st-row" data-s="idle"><b>Source control in force</b><span class="st-pill idle">Idle</span><span>The control that actually governs pushes on this machine is separate from these packets: the custody gate (pull, sign, seal; see Transmission 42). It is at Stage 0 because its Stage-1 grant expired on 4 October 2026; renewing it is the operator's.</span></div>
+          <div class="st-row" data-s="idle"><b>Source control in force</b><span class="st-pill idle">Idle</span><span>The control that actually governs pushes on this machine is separate from these packets: the custody gate. It is at Stage 0 because its Stage-1 grant expired on 4 October 2026; renewing it is the operator's.</span></div>
         </div>
         <ul class="nc-list" style="margin-top:28px">
           <li>It does not claim the Brain can change source code on its own. No executor exists, and the packets prepare commands that nothing here runs.</li>
