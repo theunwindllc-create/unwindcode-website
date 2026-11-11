@@ -265,7 +265,7 @@
         <p class="tx-hero-sub">A site can have a green build and a working route and still be the wrong public body. This note says what was built to catch that, what it checks and does not, what happened in July when the difference showed up, and what is still a design.</p>
         <div class="tx-hero-meta"><span>July 2026, revised November 2026</span><span>&middot;</span><span>Publication governance</span><span>&middot;</span><span>Check and gap record</span><span>&middot;</span><span>11 min read</span></div>
         <div class="tx-note tx-dated"><strong>Dated.</strong> The original was written on 1 July 2026 during a manual publication run. This revision describes the website repository as read on 10 November 2026: its checker script, its tests and its history. The live domain was not queried for this revision.</div>
-        <div class="tx-note tx-revised"><strong>Revised 10 November 2026.</strong> The original described a five-organ gate, a twelve-point protocol, a set of failure labels and a Release Identity Controller as though they were a system. This revision separates them: one read-only checker exists; most of the twelve points are covered by its ten checks; two are not; the labels and the controller are designs. It adds the dated history from the repository, a drift model that uses the checker’s real names, and a list of what the checker cannot see. Interactive panels were added.</div>
+        <div class="tx-note tx-revised"><strong>Revised 10 November 2026.</strong> The original described a five-organ gate, a twelve-point protocol, a set of failure labels and a Release Identity Controller as though they were a system. This revision separates them: one read-only checker exists; of the twelve points, eight are covered by its ten checks, two only in part and two not at all; the labels and the controller are designs. It adds the dated history from the repository, a drift model that uses the checker’s real names, and a list of what the checker cannot see. Interactive panels were added.</div>
         <div class="tx-note tx-correction"><strong>Correction, 10 November 2026.</strong> The June-July text said the gate "stops deployment, aliasing, public posting, and registry mutation until the gate passes". Nothing in the repository connects the checker to a deploy command. The checker is a read-only script that people run; the publication checklist in the repository’s instructions lists it as a step; the decision to deploy is the operator’s. The text also named failure labels (such as a stale lane or a live-ahead state). Those labels are not in the code. The checker reports named checks that pass or fail and says nothing about whether the live site is behind or ahead.</div>
       </div>
     </section>
@@ -284,7 +284,7 @@
           <div class="wf-step"><div class="wf-dot wf-dot-1">01</div><h3>15 June 2026 · Built and not merged</h3><p>A new homepage with a pulse console, a visitor pathfinder, an ecosystem map and bilingual boards is built on a branch. According to the 3 July merge message they were never merged, and each deploy from the main line since then kept shipping the older homepage.</p></div>
           <div class="wf-step"><div class="wf-dot wf-dot-2">02</div><h3>1 July 2026 · The note is written</h3><p>The original of this transmission records a comparison in which the local package was ahead of the public domain. That account is the note’s own record and is not restated here as a measurement.</p></div>
           <div class="wf-step"><div class="wf-dot wf-dot-3">03</div><h3>2 July 2026 · Live matches an uncommitted tree</h3><p>A later commit message states that the live site was verified byte-identical to the working tree on this day, and that the tree had not been committed: no rollback point existed.</p></div>
-          <div class="wf-step"><div class="wf-dot wf-dot-4">04</div><h3>3 July 2026 · A rollback point, then a merge</h3><p>One commit pins exactly what production was serving. A second merge restores the lab-foundation work and records that production deploy is the owner’s gate.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-4">04</div><h3>3 July 2026 · A rollback point, then a merge</h3><p>One commit pins exactly what production was serving. A second merge restores the lab homepage work and records that production deploy is the owner’s gate.</p></div>
           <div class="wf-step"><div class="wf-dot wf-dot-5">05</div><h3>14 July 2026 · A defect the checks could not see</h3><p>Two unclosed style blocks from the 3 July merge broke the lower part of the stylesheet. The fix commit says responsive rules and subpage styles were lost in production, and that public addresses pointed at redirecting variants. The checker does not read stylesheets.</p></div>
           <div class="wf-step"><div class="wf-dot wf-dot-6">06</div><h3>19 July 2026 · The root changes</h3><p>A build step promotes the lab homepage to the root route of the site. The older console is kept at its own route.</p></div>
           <div class="wf-step"><div class="wf-dot wf-dot-1">07</div><h3>8 November 2026 · The parity test</h3><p>The site test suite pins the newest transmission as number 45 across the status, sitemap, discovery files, archive and homepage, with 459 passing tests at the baseline for this revision.</p></div>
@@ -308,7 +308,7 @@
         <div class="tx-section-head"><span class="tx-section-num">03</span><h2>What the checker actually checks</h2></div>
         <div class="tx-section-label">The original twelve points, one by one</div>
         <div class="tx-prose">
-          <p>The original listed twelve questions the protocol should ask before publishing. A read-only checker exists in the repository. It runs ten named checks locally, and in live mode it adds two more, for reachability and for the status contract. In local mode it reads local files and calls the local request handlers for status, search and grounding. In live mode it fetches the live status, sitemap, agent files, archive and homepage and compares them with the local registry.</p>
+          <p>The original listed twelve questions the protocol should ask before publishing. A read-only checker exists in the repository. It runs ten named checks locally, and in live mode two further checks, for reachability and for the status contract, appear only when they fail and end the run early. In local mode it reads local files and calls the local request handlers for status, search and grounding. In live mode it fetches the live status, sitemap, agent files, archive and homepage and compares them with the local registry.</p>
           <p>The panel maps the twelve questions to the checker. "Script" means a named check covers it. "Partial" means it is covered in part. "Manual" means no script covers it and a person does it, or does not. The sorting shows that the original protocol was mostly real and mostly small, and that two of its twelve points were never automated.</p>
         </div>
         <div class="dl-filters" role="group" aria-label="Filter by coverage" id="twelve-chips"></div>
@@ -554,10 +554,10 @@
     "why": "The same approach with a fixed query and its own named check."
    },
    {
-    "state": "script",
+    "state": "partial",
     "name": "12  Social boundary",
     "short": "Are creator packets kept out of public discovery?",
-    "why": "One named check scans the sitemap, the agent file, the archive and the homepage for links into the packet area. It does not cover the transmission pages themselves."
+    "why": "One named check scans the sitemap, the agent file, the archive and the homepage for links into the packet area. It does not cover the transmission pages themselves, and the two pages that embed a published packet link to it, so the question is answered only in part."
    }
   ]
  },
