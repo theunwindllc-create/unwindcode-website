@@ -35,7 +35,7 @@
     "author": {"@type": "Organization", "name": "Unwind Code"},
     "publisher": {"@type": "Organization", "name": "Unwind Code", "url": "https://www.unwindcode.ai"},
     "datePublished": "2026-11-08",
-    "dateModified": "2026-11-08",
+    "dateModified": "2026-11-10",
     "keywords": ["remote control", "pull architecture", "passkey", "sealed envelope", "design note", "custody boundary"],
     "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/42-pull-sign-seal"
   }
@@ -220,6 +220,9 @@
       .dl-card, .mod-node, .mem-card, .oh-d, .cr-step, .dl-chip, .cr-fault { transition:none; }
       .dl-card:hover, .mod-node:hover, .mem-card:hover { transform:none; }
     }
+    .tx-dateline { max-width:720px; margin:32px auto 0; text-align:left; border:1px solid rgba(232,161,92,0.28); border-radius:14px; padding:16px 20px; background:linear-gradient(180deg,rgba(232,161,92,0.07),rgba(232,161,92,0.015)); font-size:0.88rem; line-height:1.65; color:var(--text-secondary); }
+    .tx-dateline strong { color:#e8a15c; font-weight:650; }
+    .tx-dateline + .tx-dateline { margin-top:12px; }
   </style>
 </head>
 <body class="tx-page">
@@ -248,6 +251,8 @@
         <h1>Pull,<br>Sign, Seal</h1>
         <p class="tx-hero-sub">On 8 November 2026 a design was written for running the organism from anywhere: adding connectors, entering API keys, running computer use. It is a design, not a build: the machine pulls requests, every request is signed by the operator's passkey, secrets travel sealed.</p>
         <div class="tx-hero-meta"><span>November 2026</span><span>·</span><span>Design note</span><span>·</span><span>Remote control</span><span>·</span><span>8 min read</span></div>
+        <p class="tx-dateline"><strong>Dated note.</strong> This note describes a design written on 8 November 2026 and was written and published that day. Nothing described here is built.</p>
+        <p class="tx-dateline"><strong>Revised 10 November 2026.</strong> A second reader checked the design facts (seven principles, six pieces, one envelope, ten checks, five rulings, the Stage-1 grant expiry of 4 October 2026) against the design document; they stand. One clarification: the fifteen decisions here are this design's own list. The hiring design in Transmission 43 has a separate list of fifteen, and the consolidation plan in Transmission 41 lists seven; the three counts are not the same decisions.</p>
       </div>
     </section>
 
@@ -354,7 +359,7 @@
           <p>R-REMOTE-3: credentials — a sealed intake key as a scoped credential that controls no assets; new keys dormant until a cap ruling.</p>
           <p>R-REMOTE-4: computer use — tiers, principals, model lane, forbidden acts no approval unlocks.</p>
           <p>R-REMOTE-5 (optional): the passkey as a Stage-2 approval origin.</p>
-          <p>Off the remote path for good: raising a cap, stage or grant; enrolling a device; RESUME after a HALT; anything touching money. Fifteen decisions are the operator's.</p>
+          <p>Off the remote path for good: raising a cap, stage or grant; enrolling a device; RESUME after a HALT; anything touching money. Fifteen decisions in this remote-control design are the operator's.</p>
         </div>
         <div class="mem-grid" id="mem-grid"></div>
       </section>
@@ -554,7 +559,7 @@
     }
     var waits = [
       { tag: 'rulings', title: 'Five rulings', desc: 'R-REMOTE-1 through R-REMOTE-5 must exist before any remote act.', extra: 'Remote acts to date: 0.' },
-      { tag: 'decisions', title: 'Fifteen decisions', desc: 'Each waits on the operator; none is the machine\'s to take.', extra: 'None.' },
+      { tag: 'decisions', title: 'Fifteen decisions', desc: 'In this design, each waits on the operator; none is the machine\'s to take.', extra: 'None.' },
       { tag: 'gate', title: 'The gate', desc: 'At Stage 0; its Stage-1 grant expired 4 October 2026.', extra: 'None of this is lawful under the current interface rules.' },
       { tag: 'machine', title: 'Mainnet', desc: 'Comes from the operator\'s other machine, after the rulings.', extra: 'Local hardening is lawful now.' }
     ];

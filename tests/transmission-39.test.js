@@ -30,7 +30,7 @@ test('Transmission 39 has one consistent clean route across article and discover
 test('Transmission 39 is dated to the production day it describes and keeps the rebuild honest', async () => {
   const page = await read(`transmissions/${id}.html`);
   assert.match(page, /"datePublished": "2026-11-08"/);
-  assert.match(page, /"dateModified": "2026-11-08"/);
+  assert.match(page, /"dateModified": "2026-11-10"/);
   for (const required of [
     'twenty of twenty',
     'called final',

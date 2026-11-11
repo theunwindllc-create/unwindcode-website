@@ -29,7 +29,7 @@ test('Transmission 44 has one consistent clean route across article and discover
 test('Transmission 44 is dated to the incidents it describes and keeps the record honest', async () => {
   const page = await read(`transmissions/${id}.html`);
   assert.match(page, /"datePublished": "2026-11-08"/);
-  assert.match(page, /"dateModified": "2026-11-08"/);
+  assert.match(page, /"dateModified": "2026-11-10"/);
   for (const required of [
     '3 November at 18:32',
     'a recursive delete on a link entry without inspecting it first',

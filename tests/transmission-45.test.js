@@ -30,12 +30,12 @@ test('Transmission 45 has one consistent clean route across article and discover
 test('Transmission 45 is a plan dated 8 November 2026 and never claims a receipt it does not have', async () => {
   const page = await read(`transmissions/${id}.html`);
   assert.match(page, /"datePublished": "2026-11-08"/);
-  assert.match(page, /"dateModified": "2026-11-08"/);
+  assert.match(page, /"dateModified": "2026-11-10"/);
   for (const required of [
     '32,768 tokens',
     '39,000 tokens',
     '14,000',
-    'nothing leaves the box',
+    'nothing leaves the machine',
     'progress is counted only from receipts',
     'No key lands on the machine',
     'nothing on this page has one yet',
