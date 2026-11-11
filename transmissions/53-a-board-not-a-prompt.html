@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Transmission 53: A Board, Not a Prompt | Unwind Code</title>
+  <meta name="description" content="On 8 November 2026 a single shared file went live so every hand on the machine could see what the others were working on, and within the day more than one kind of hand - including a free local-model agent working beside the subscription coding agent - used it." />
+  <meta name="theme-color" content="#06060c" />
+  <link rel="canonical" href="https://www.unwindcode.ai/transmissions/53-a-board-not-a-prompt" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="A Board, Not a Prompt" />
+  <meta property="og:description" content="On 8 November 2026 a single shared file went live so every hand on the machine could see what the others were working on, and within the day more than one kind of hand - including a free local-model agent working beside the subscription coding agent - used it." />
+  <meta property="og:url" content="https://www.unwindcode.ai/transmissions/53-a-board-not-a-prompt" />
+  <meta property="og:site_name" content="Unwind Code" />
+  <meta property="og:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
+  <meta property="og:image:type" content="image/svg+xml" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Unwind Code AI organism architecture lab visual" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="A Board, Not a Prompt" />
+  <meta name="twitter:description" content="On 8 November 2026 a single shared file went live so every hand on the machine could see what the others were working on, and within the day more than one kind of hand - including a free local-model agent working beside the subscription coding agent - used it." />
+  <meta name="twitter:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
+  <meta name="twitter:image:alt" content="Unwind Code AI organism architecture lab visual" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "A Board, Not a Prompt",
+    "description": "On 8 November 2026 a single shared file went live so every hand on the machine could see what the others were working on, and within the day more than one kind of hand - including a free local-model agent working beside the subscription coding agent - used it.",
+    "author": {"@type": "Organization", "name": "Unwind Code"},
+    "publisher": {"@type": "Organization", "name": "Unwind Code", "url": "https://www.unwindcode.ai"},
+    "datePublished": "2026-11-09",
+    "dateModified": "2026-11-09",
+    "keywords": ["board", "coordination", "field note", "interim"],
+    "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/53-a-board-not-a-prompt"
+  }
+  </script>
+  <style>
+    .tx-page { background: var(--bg-void); color: var(--text-primary); }
+    .tx-page *, .tx-page *::before, .tx-page *::after { box-sizing: border-box; }
+    .tx-hero { padding: 160px 0 72px; text-align: center; position: relative; overflow: hidden; }
+    .tx-hero::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:800px; height:800px; background:radial-gradient(circle, rgba(110,45,190,0.12) 0%, transparent 60%); pointer-events:none; }
+    .tx-hero-kicker { margin-bottom:16px; }
+    .tx-hero h1 { font-size:clamp(2.2rem,5vw,3.5rem); font-weight:800; letter-spacing:-0.04em; line-height:1.08; margin:0 0 20px; }
+    .tx-hero-sub { font-size:1.08rem; color:var(--text-secondary); max-width:660px; margin:0 auto; line-height:1.7; }
+    .tx-hero-meta { margin-top:28px; display:flex; justify-content:center; gap:14px; font-size:0.76rem; color:var(--text-muted); font-weight:600; letter-spacing:0.06em; text-transform:uppercase; flex-wrap:wrap; }
+    .tx-section { padding:72px 0; border-top:1px solid var(--accent-border); }
+    .tx-section:first-of-type { border-top:none; padding-top:24px; }
+    .tx-section-head { display:flex; align-items:center; gap:16px; margin-bottom:10px; }
+    .tx-section-num { font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:700; color:var(--accent-hot); letter-spacing:0.15em; }
+    .tx-section h2 { font-size:clamp(1.5rem,3vw,2rem); font-weight:700; letter-spacing:-0.02em; margin:0; }
+    .tx-section-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:24px; }
+    .tx-prose { font-size:1.04rem; color:var(--text-secondary); line-height:1.8; max-width:720px; }
+    .tx-prose p { margin:0 0 22px; }
+    .tx-prose strong { color:var(--text-primary); font-weight:600; }
+    .tx-prose code, .tx-prose-code { font-family:'JetBrains Mono',monospace; font-size:0.84rem; background:rgba(110,45,190,0.1); color:var(--accent-light); padding:2px 6px; border-radius:4px; }
+    .tx-prose a, .tx-inline { color:var(--accent-light); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    .tx-quote { border-left:3px solid var(--accent); padding:18px 24px; margin:36px 0; background:rgba(110,45,190,0.05); border-radius:0 12px 12px 0; color:var(--text-primary); font-size:1.08rem; line-height:1.6; font-weight:500; max-width:720px; }
+    .tx-after { margin-top:36px; }
+
+    /* 01 — Rules filter */
+    .dl-filters { display:flex; flex-wrap:wrap; gap:10px; margin:28px 0 18px; }
+    .dl-chip { font-family:inherit; font-size:0.78rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:9px 16px; border-radius:999px; border:1px solid var(--accent-border); background:var(--bg-surface); color:var(--text-secondary); cursor:pointer; transition:border-color .2s ease, color .2s ease, background .2s ease; }
+    .dl-chip:hover { border-color:rgba(110,45,190,0.4); color:var(--text-primary); }
+    .dl-chip[aria-pressed="true"] { background:rgba(110,45,190,0.16); border-color:var(--accent-light); color:var(--text-primary); }
+    .dl-chip-a[aria-pressed="true"] { border-color:#9b59f5; }
+    .dl-chip-b[aria-pressed="true"] { border-color:#38bdf8; }
+    .dl-chip-c[aria-pressed="true"] { border-color:#fbbf24; }
+    .dl-count { font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:var(--text-muted); margin-bottom:16px; letter-spacing:0.06em; }
+    .dl-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:12px; }
+    .dl-card { font-family:inherit; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:18px; cursor:pointer; transition:border-color .25s ease, transform .25s ease, opacity .25s ease; }
+    .dl-card:hover { transform:translateY(-2px); border-color:rgba(110,45,190,0.4); }
+    .dl-card[hidden] { display:none; }
+    .dl-state { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.12em; padding:3px 9px; border-radius:999px; border:1px solid currentColor; margin-bottom:10px; }
+    .dl-state-a { color:#c084fc; } .dl-state-b { color:#38bdf8; } .dl-state-c { color:#fbbf24; } .dl-state-d { color:#fbbf24; } .dl-state-e { color:#38bdf8; }
+    .dl-name { font-weight:700; font-size:0.96rem; margin-bottom:4px; }
+    .dl-short { font-size:0.84rem; color:var(--text-secondary); line-height:1.55; }
+    .dl-why { display:none; margin-top:12px; padding-top:12px; border-top:1px solid var(--accent-border); font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+    .dl-card[aria-expanded="true"] .dl-why { display:block; }
+    .dl-hint { font-size:0.68rem; color:var(--accent-hot); margin-top:10px; font-weight:600; letter-spacing:0.05em; }
+    .dl-law { margin-top:32px; border:1px solid rgba(251,191,36,0.28); border-radius:16px; padding:24px 28px; background:linear-gradient(180deg,rgba(251,191,36,0.07),rgba(251,191,36,0.015)); max-width:720px; }
+    .dl-law h3 { margin:0 0 10px; font-size:1rem; color:#fbbf24; }
+    .dl-law p { margin:0; font-size:0.95rem; color:var(--text-secondary); line-height:1.7; }
+
+    /* 02 — Four hands */
+    .mod-explorer { display:grid; grid-template-columns:1fr 1.25fr; gap:24px; margin-top:32px; }
+    .mod-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; align-content:start; }
+    .mod-node { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:20px; cursor:pointer; transition:all 0.25s ease; text-align:left; font-family:inherit; color:var(--text-primary); }
+    .mod-node:hover, .mod-node[aria-pressed="true"] { border-color:rgba(110,45,190,0.45); transform:translateY(-2px); box-shadow:0 8px 24px rgba(110,45,190,0.1); }
+    .mod-node[aria-pressed="true"] { background:rgba(110,45,190,0.08); }
+    .mod-glyph { font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--accent-hot); letter-spacing:0.14em; margin-bottom:10px; display:block; }
+    .mod-name { font-weight:700; font-size:1.02rem; font-family:'JetBrains Mono',monospace; }
+    .mod-path { font-size:0.78rem; color:var(--text-muted); margin-top:6px; line-height:1.4; }
+    .mod-score { margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:#34d399; }
+    .mod-detail { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:20px; padding:32px; min-height:420px; }
+    .mod-detail-title { font-size:1.4rem; font-weight:700; margin-bottom:8px; font-family:'JetBrains Mono',monospace; }
+    .mod-detail-type { display:inline-block; font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent-hot); background:rgba(110,45,190,0.12); border:1px solid rgba(110,45,190,0.2); padding:4px 12px; border-radius:20px; margin-bottom:20px; }
+    .mod-detail-desc { color:var(--text-secondary); line-height:1.7; font-size:0.95rem; margin-bottom:22px; }
+    .mod-specs-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:10px; }
+    .mod-specs { display:flex; flex-wrap:wrap; gap:8px; }
+    .mod-spec { background:rgba(110,45,190,0.08); border:1px solid var(--accent-border); color:var(--accent-light); padding:6px 14px; border-radius:20px; font-size:0.8rem; font-weight:500; }
+    .mod-proof { margin-top:22px; padding-top:18px; border-top:1px solid var(--accent-border); font-size:0.84rem; color:var(--text-muted); line-height:1.6; }
+    .mod-proof strong { color:#34d399; font-family:'JetBrains Mono',monospace; font-weight:600; }
+
+    /* 03 — Coordination lens */
+    .cr-wrap { margin-top:28px; border:1px solid rgba(56,189,248,0.22); border-radius:20px; padding:28px; background:linear-gradient(180deg,rgba(56,189,248,0.06),rgba(56,189,248,0.01)); }
+    .cr-top { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; }
+    .cr-label { font-family:'JetBrains Mono',monospace; font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:#38bdf8; }
+    .cr-faults { display:flex; flex-wrap:wrap; gap:8px; }
+    .cr-fault { font-family:inherit; font-size:0.76rem; font-weight:700; padding:8px 14px; border-radius:999px; border:1px solid var(--accent-border); background:var(--bg-surface); color:var(--text-secondary); cursor:pointer; transition:border-color .2s ease, color .2s ease; }
+    .cr-fault:hover { color:var(--text-primary); border-color:rgba(248,113,113,0.5); }
+    .cr-fault[aria-pressed="true"] { color:#fca5a5; border-color:#f87171; background:rgba(248,113,113,0.1); }
+    .cr-fault-reset[aria-pressed="true"] { color:#34d399; border-color:#10b981; background:rgba(16,185,129,0.1); }
+    .cr-cols { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .cr-col { border:1px solid var(--accent-border); border-radius:14px; padding:18px; background:rgba(0,0,0,0.22); }
+    .cr-col h3 { margin:0 0 4px; font-size:0.98rem; }
+    .cr-col-sub { font-size:0.78rem; color:var(--text-muted); margin:0 0 14px; line-height:1.5; }
+    .cr-steps { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
+    .cr-step { display:grid; grid-template-columns:22px 1fr auto; gap:10px; align-items:start; padding:10px 12px; border-radius:10px; border:1px solid var(--accent-border); font-size:0.84rem; line-height:1.5; color:var(--text-secondary); transition:border-color .2s ease, background .2s ease; }
+    .cr-step-n { font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--text-muted); padding-top:3px; }
+    .cr-step-t { color:var(--text-primary); font-weight:600; display:block; }
+    .cr-step-d { display:block; font-size:0.78rem; color:var(--text-muted); margin-top:2px; }
+    .cr-verdict { font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:700; letter-spacing:0.08em; padding-top:3px; white-space:nowrap; }
+    .cr-step.pass { border-color:rgba(16,185,129,0.35); } .cr-step.pass .cr-verdict { color:#34d399; }
+    .cr-step.fail { border-color:#f87171; background:rgba(248,113,113,0.08); } .cr-step.fail .cr-verdict { color:#fca5a5; }
+    .cr-step.skip { opacity:0.42; } .cr-step.skip .cr-verdict { color:var(--text-muted); }
+    .cr-step.blind { border-color:rgba(251,191,36,0.3); } .cr-step.blind .cr-verdict { color:#fbbf24; }
+    .cr-outcome { margin-top:16px; border-radius:12px; padding:14px 16px; font-size:0.9rem; line-height:1.6; border:1px solid var(--accent-border); background:rgba(0,0,0,0.22); color:var(--text-secondary); }
+    .cr-outcome strong { color:var(--text-primary); }
+    .cr-outcome.refused { border-color:rgba(248,113,113,0.4); }
+    .cr-outcome.clean { border-color:rgba(16,185,129,0.35); }
+    .cr-note { margin:14px 0 0; font-size:0.8rem; color:var(--text-muted); line-height:1.6; }
+
+    /* 04 — Timeline */
+    .wf-steps { position:relative; margin-top:32px; padding-left:40px; max-width:760px; }
+    .wf-steps::before { content:''; position:absolute; left:19px; top:0; bottom:0; width:2px; background:var(--accent-border); }
+    .wf-step { position:relative; margin-bottom:40px; }
+    .wf-step:last-child { margin-bottom:0; }
+    .wf-dot { position:absolute; left:-40px; top:0; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:800; z-index:2; font-family:'JetBrains Mono',monospace; }
+    .wf-dot-1 { background:rgba(110,45,190,0.15); color:var(--accent-light); border:2px solid var(--accent); }
+    .wf-dot-2 { background:rgba(79,70,229,0.15); color:#818cf8; border:2px solid #6366f1; }
+    .wf-dot-3 { background:rgba(14,165,233,0.15); color:#38bdf8; border:2px solid #0ea5e9; }
+    .wf-dot-4 { background:rgba(16,185,129,0.15); color:#34d399; border:2px solid #10b981; }
+    .wf-step h3 { font-size:1.06rem; font-weight:700; margin:0 0 6px; padding-top:8px; }
+    .wf-step p { font-size:0.92rem; color:var(--text-secondary); line-height:1.65; margin:0; }
+    .wf-step code { font-family:'JetBrains Mono',monospace; font-size:0.8rem; background:rgba(110,45,190,0.1); color:var(--accent-light); padding:2px 6px; border-radius:4px; }
+    .wf-step.reveal-step { opacity:0; transform:translateY(10px); animation:wfIn .6s ease forwards; }
+    .wf-step.reveal-step:nth-child(1){animation-delay:.05s}.wf-step.reveal-step:nth-child(2){animation-delay:.15s}.wf-step.reveal-step:nth-child(3){animation-delay:.25s}.wf-step.reveal-step:nth-child(4){animation-delay:.35s}.wf-step.reveal-step:nth-child(5){animation-delay:.45s}.wf-step.reveal-step:nth-child(6){animation-delay:.55s}.wf-step.reveal-step:nth-child(7){animation-delay:.65s}
+    @keyframes wfIn { to { opacity:1; transform:none; } }
+    .mem-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:28px; }
+    .mem-card { font-family:inherit; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:16px; padding:24px; cursor:pointer; transition:all 0.3s ease; }
+    .mem-card:hover { border-color:rgba(110,45,190,0.35); transform:translateY(-3px); box-shadow:0 8px 24px rgba(110,45,190,0.08); }
+    .mem-card h4 { font-size:0.98rem; font-weight:700; margin:0 0 8px; display:flex; align-items:center; gap:10px; }
+    .mem-tag { font-family:'JetBrains Mono',monospace; font-size:0.62rem; letter-spacing:0.12em; color:var(--accent-hot); border:1px solid rgba(110,45,190,0.3); padding:2px 8px; border-radius:999px; text-transform:uppercase; white-space:nowrap; }
+    .mem-card p { font-size:0.87rem; color:var(--text-secondary); line-height:1.6; margin:0; }
+    .mem-extra { display:none; margin-top:14px; padding-top:14px; border-top:1px solid var(--accent-border); font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+    .mem-card[aria-expanded="true"] .mem-extra { display:block; }
+    .mem-hint { font-size:0.68rem; color:var(--accent-hot); margin-top:12px; font-weight:600; letter-spacing:0.05em; }
+
+    /* 05 — Operator's hand */
+    .oh-list { display:flex; flex-direction:column; gap:12px; margin-top:28px; max-width:760px; }
+    .oh-item { font-family:inherit; text-align:left; color:var(--text-primary); border:1px solid var(--accent-border); border-radius:14px; padding:18px 22px; background:var(--bg-surface); display:grid; grid-template-columns:auto 1fr auto; gap:16px; align-items:start; cursor:pointer; transition:border-color .2s ease; }
+    .oh-item:hover { border-color:rgba(110,45,190,0.4); }
+    .oh-item[aria-expanded="true"] { border-color:var(--accent-light); }
+    .oh-box { width:22px; height:22px; border-radius:6px; border:2px solid rgba(240,238,246,0.3); margin-top:2px; position:relative; }
+    .oh-box::after { content:''; position:absolute; inset:4px; border-radius:2px; background:transparent; }
+    .oh-t { font-weight:650; font-size:0.98rem; margin-bottom:4px; }
+    .oh-s { font-size:0.85rem; color:var(--text-muted); }
+    .oh-d { font-size:0.9rem; color:var(--text-secondary); line-height:1.65; max-height:0; overflow:hidden; transition:max-height .3s ease, margin .3s ease; }
+    .oh-item[aria-expanded="true"] .oh-d { max-height:260px; margin-top:12px; }
+    .oh-needs { font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:4px 10px; border-radius:999px; border:1px solid currentColor; white-space:nowrap; margin-top:2px; }
+    .oh-needs-key { color:#c084fc; } .oh-needs-funds { color:#fbbf24; } .oh-needs-passkey { color:#38bdf8; } .oh-needs-secret { color:#fca5a5; }
+    .oh-foot { margin-top:16px; font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:var(--text-muted); letter-spacing:0.06em; }
+
+    /* Related + CTA */
+    .tx-related { margin-top:40px; padding-top:22px; border-top:1px solid var(--accent-border); font-size:0.9rem; color:var(--text-muted); line-height:1.7; }
+    .tx-related a { color:var(--accent-light); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    .tx-cta { text-align:center; padding:64px 40px; background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:28px; margin-top:72px; }
+    .tx-cta h2 { font-size:1.6rem; font-weight:700; margin:0 0 12px; }
+    .tx-cta p { color:var(--text-secondary); font-size:0.95rem; margin:0 auto 28px; max-width:520px; line-height:1.7; }
+
+    @media(max-width:900px) {
+      .mod-explorer, .cr-cols, .mem-grid { grid-template-columns:1fr; }
+      .mod-grid { grid-template-columns:1fr 1fr; }
+      .mod-detail { min-height:0; }
+    }
+    @media(max-width:640px) {
+      .mod-grid { grid-template-columns:1fr; }
+      .tx-hero { padding:130px 0 56px; }
+      .tx-section { padding:56px 0; }
+      .cr-wrap, .mod-detail { padding:20px; }
+      .oh-item { grid-template-columns:auto 1fr; }
+      .oh-needs { grid-column:2; justify-self:start; }
+      .cr-step { grid-template-columns:18px 1fr; }
+      .cr-verdict { grid-column:2; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .wf-step.reveal-step { animation:none; opacity:1; transform:none; }
+      .dl-card, .mod-node, .mem-card, .oh-d, .cr-step, .dl-chip, .cr-fault { transition:none; }
+      .dl-card:hover, .mod-node:hover, .mem-card:hover { transform:none; }
+    }
+  </style>
+</head>
+<body class="tx-page">
+
+  <nav id="nav" class="scrolled">
+    <a href="/" class="nav-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="/" data-i18n="nav.home">Home</a>
+      <a href="/organisms" data-i18n="nav.organisms">Organisms</a>
+      <a href="/architecture" data-i18n="nav.architecture">Architecture</a>
+      <a href="/proof" data-i18n="nav.proof">Proof</a>
+      <a href="/transmissions" class="active" aria-current="page" data-i18n="nav.blog">Transmissions</a>
+      <a href="/philosophy" data-i18n="nav.philosophy">Philosophy</a>
+    </div>
+    <div class="nav-actions">
+      <button id="lang-toggle" class="lang-toggle" aria-label="Switch to Spanish">ES</button>
+      <a href="/build-with-us" class="nav-cta" data-i18n="nav.cta">Build With Us</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="tx-hero">
+      <div class="container">
+        <div class="tx-hero-kicker"><span class="tx-section-num">TRANSMISSION 053</span></div>
+        <h1>A Board,<br>Not a Prompt</h1>
+        <p class="tx-hero-sub">On 8 November 2026 a single shared file was created, on a stated need for every hand on the machine to know what the others were working on until a more permanent job board existed. It is loaded into the short working-memory brief every hand reads before it starts a session, so each hand sees the open work before acting.</p>
+        <div class="tx-hero-meta"><span>November 2026</span><span>·</span><span>Field note</span><span>·</span><span>Coordination</span><span>·</span><span>6 min read</span></div>
+      </div>
+    </section>
+
+    <div class="container">
+
+      <!-- 01: ONE FILE -->
+      <section class="tx-section" id="one-file">
+        <div class="tx-section-head"><span class="tx-section-num">01</span><h2>One file, read before anything else</h2></div>
+        <div class="tx-section-label">The whole mechanism, in one file</div>
+        <div class="tx-prose">
+          <p>A single shared file, created on 8 November 2026 on a stated need: so every hand on the machine can know what the others are working on, until a more permanent job board exists. Every hand loads it into its working memory before it starts a session, so each hand sees the open work before acting. That is the whole mechanism — one file, read first.</p>
+        </div>
+      </section>
+
+      <!-- 02: THE RULES -->
+      <section class="tx-section" id="the-rules">
+        <div class="tx-section-head"><span class="tx-section-num">02</span><h2>Claim it, finish it, or hand it back</h2></div>
+        <div class="tx-section-label">The rules live beside the jobs</div>
+        <div class="tx-prose">
+          <p>The rules live in the same file as the jobs: claim a job with a timestamp before starting it, one hand per job; finish with a result and a reference to what was produced, or hand it back with a one-line note on what is done and what is left; a claim older than 24 hours with no note may be reclaimed by another hand; every claim, finish and handoff is logged; a job waiting on a human decision cannot be claimed by a hand; and the board itself grants no authority — a job listed here permits only what that job's own plan already allows.</p>
+        </div>
+        <div class="dl-filters" role="group" aria-label="Filter rules" id="dl-filters">
+          <button class="dl-chip" type="button" data-state="all" aria-pressed="true">All</button>
+          <button class="dl-chip dl-chip-a" type="button" data-state="before" aria-pressed="false">Before the job</button>
+          <button class="dl-chip dl-chip-b" type="button" data-state="after" aria-pressed="false">After the job</button>
+        </div>
+        <div class="dl-count" id="dl-count" aria-live="polite"></div>
+        <div class="dl-grid" id="dl-grid"></div>
+      </section>
+
+      <!-- 03: MORE THAN ONE HAND -->
+      <section class="tx-section" id="more-than-one-hand">
+        <div class="tx-section-head"><span class="tx-section-num">03</span><h2>More than one hand, the same day</h2></div>
+        <div class="tx-section-label">More than one kind of hand, the same day</div>
+        <div class="tx-prose">
+          <p>Within the same day the board went live, more than one kind of hand worked from it — for the first time, a free local-model agent finishing a job independently of the subscription-based coding agent that had been doing most of the work until then. One file, more than one hand, the same day.</p>
+        </div>
+        <div class="mod-explorer">
+          <div class="mod-grid" id="mod-grid" role="group" aria-label="Four hands"></div>
+          <div class="mod-detail" id="mod-detail" aria-live="polite"></div>
+        </div>
+        <div class="oh-list" id="oh-list"></div>
+        <div class="oh-foot">2 results · one file · day one</div>
+      </section>
+
+      <!-- 04: STILL INTERIM -->
+      <section class="tx-section" id="still-interim">
+        <div class="tx-section-head"><span class="tx-section-num">04</span><h2>Interim, and it says so</h2></div>
+        <div class="tx-section-label">Interim by its own words</div>
+        <div class="tx-prose">
+          <p>The board states its own limits plainly. It is explicitly interim, and the planned replacement is a calendar plus a dispatcher plus an agent registry — a more structured system this file is a stand-in for, not a competitor to.</p>
+        </div>
+        <div class="wf-steps" id="wf-steps">
+          <div class="wf-step"><div class="wf-dot wf-dot-1">01</div><h3>A stated need</h3><p>The board is created on a stated need: so every hand on the machine can know what the others are working on until a more permanent job board exists.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-2">02</div><h3>The rules go in the file</h3><p>Its rules are written into the file itself: claim with a timestamp before starting, finish with a receipt or hand back with a note, stale claims may be reclaimed, every move is logged, human-decision jobs cannot be claimed, and the board grants no authority.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-3">03</div><h3>More than one hand, the same day</h3><p>Inside the day the board went live, more than one kind of hand claimed and finished jobs from it — a free local-model agent working beside the subscription coding agent.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-4">04</div><h3>A stand-in for the real system</h3><p>It names its replacement — a calendar, a dispatcher and an agent registry — and calls itself a stand-in, not a competitor.</p></div>
+        </div>
+        <div class="mem-grid" id="mem-grid"></div>
+      </section>
+
+      <!-- 05: WHY IT SCALES -->
+      <section class="tx-section" id="why-it-scales">
+        <div class="tx-section-head"><span class="tx-section-num">05</span><h2>Why a record beats a retelling</h2></div>
+        <div class="tx-section-label">An outlook, not a receipt</div>
+        <div class="tx-prose">
+          <p>Outlook — this note's own reasoning, not a measured fact: a shared, journaled record plausibly coordinates better than a private prompt as more hands join, because each new hand only has to read one file to know the current state of the work, where private-prompt coordination requires someone to keep remembering and re-explaining what every other hand is doing. This organism has only tested that claim for one day, with a handful of hands, on one file. It is a reasoned expectation here, not a proven law.</p>
+        </div>
+        <div class="cr-wrap">
+          <div class="cr-top">
+            <span class="cr-label">Coordination lens</span>
+            <div class="cr-faults" role="group" aria-label="Coordination lenses" id="cr-faults">
+              <button class="cr-fault cr-fault-reset" type="button" data-fault="none" aria-pressed="true">Baseline</button>
+              <button class="cr-fault" type="button" data-fault="private" aria-pressed="false">Coordination by private prompt</button>
+              <button class="cr-fault" type="button" data-fault="shared" aria-pressed="false">Coordination by shared record</button>
+            </div>
+          </div>
+          <div class="cr-cols">
+            <div class="cr-col">
+              <h3>The private prompt</h3>
+              <p class="cr-col-sub">Someone has to remember and re-tell every hand what every other hand is doing.</p>
+              <ol class="cr-steps" id="cr-raw"></ol>
+            </div>
+            <div class="cr-col">
+              <h3>The shared record</h3>
+              <p class="cr-col-sub">Each hand reads one file to know the global state.</p>
+              <ol class="cr-steps" id="cr-verify"></ol>
+            </div>
+          </div>
+          <div class="cr-outcome" id="cr-outcome" aria-live="polite"></div>
+          <p class="cr-note">Outlook, not measured fact. This is the note's own analysis, distinct from the observed facts above.</p>
+        </div>
+      </section>
+
+      <div class="tx-cta">
+        <h2>One board, read by all</h2>
+        <p>If your agents are stepping on each other's work, start with one file they all read first. The structure can wait.</p>
+        <a class="btn btn-primary btn-lg" href="/transmissions"><span>All transmissions</span><span class="btn-arrow">→</span></a>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span><p class="footer-desc">Intelligence that evolves.<br />No claim without a trail.</p></div><div class="footer-col"><h5>Proof</h5><a href="/proof">Proof Register</a><a href="/proof/ledger">Live Ledger</a><a href="/transmissions">Transmissions</a><a href="/architecture">Architecture</a></div><div class="footer-col"><h5>Organisms</h5><a href="/organisms">All Organisms</a><a href="/organisms/financial-organisms">Financial Organisms</a><a href="/organisms/infinity-mirror">Infinity Mirror</a></div><div class="footer-col"><h5>Next</h5><a href="/build-with-us">Build With Us</a><a href="/#cta">Subscribe</a></div></div><div class="footer-bottom"><span>© 2026 Unwind Code. All rights reserved.</span><span class="footer-tagline">The future learns from itself. ∞</span></div></div></footer>
+
+  <script>
+  (function () {
+    // All data below is static and client-side. Nothing on this page makes a network call.
+
+    // 01 — RULES, filterable before and after the job
+    var ruleStates = { all: 'All', before: 'Before the job', after: 'After the job' };
+    var ruleComponents = [
+      { state: 'before', name: 'Claim before starting', short: 'Claim a job with a timestamp before starting it — one hand per job.', why: 'No one else can take it while the claim stands.' },
+      { state: 'before', name: 'Human-decision jobs stay open', short: 'A job waiting on a human decision cannot be claimed by a hand.', why: 'Only a person can move work that waits on a person.' },
+      { state: 'before', name: 'The board grants no authority', short: "A job listed here permits only what that job's own plan already allows.", why: 'The record shows work; it never approves it.' },
+      { state: 'after', name: 'Finish with a receipt', short: 'Finish with a result and a reference to what was produced.', why: 'Progress exists only where a receipt is.' },
+      { state: 'after', name: 'Or hand it back', short: 'Hand it back with a one-line note on what is done and what is left.', why: 'A stopped job leaves a trace, not a hole.' },
+      { state: 'after', name: 'Stale claims may be reclaimed', short: 'A claim older than 24 hours with no note may be reclaimed by another hand.', why: 'Open claims do not block the work forever.' },
+      { state: 'after', name: 'Every claim is logged', short: 'Every claim, finish and handoff is written to the record.', why: 'The log is the memory the next hand reads.' }
+    ];
+    var dlGrid = document.getElementById('dl-grid');
+    var dlCount = document.getElementById('dl-count');
+    var dlFilters = document.getElementById('dl-filters');
+    ruleComponents.forEach(function (c) {
+      var card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'dl-card';
+      card.setAttribute('data-state', c.state);
+      card.setAttribute('aria-expanded', 'false');
+      card.innerHTML =
+        '<span class="dl-state dl-state-' + c.state + '">' + c.state + '</span>' +
+        '<div class="dl-name">' + c.name + '</div>' +
+        '<div class="dl-short">' + c.short + '</div>' +
+        '<div class="dl-why">' + c.why + '</div>' +
+        '<div class="dl-hint">Why here ↓</div>';
+      card.addEventListener('click', function () {
+        var open = card.getAttribute('aria-expanded') === 'true';
+        card.setAttribute('aria-expanded', open ? 'false' : 'true');
+        card.querySelector('.dl-hint').textContent = open ? 'Why here ↓' : 'Close ↑';
+      });
+      dlGrid.appendChild(card);
+    });
+    function applyFilter(state) {
+      var shown = 0;
+      dlGrid.querySelectorAll('.dl-card').forEach(function (card) {
+        var match = state === 'all' || card.getAttribute('data-state') === state;
+        if (match) { card.removeAttribute('hidden'); shown += 1; } else { card.setAttribute('hidden', ''); }
+      });
+      dlCount.textContent = shown + ' of ' + ruleComponents.length + ' rules · ' + (state === 'all' ? 'claim, finish, hand back' : ruleStates[state]);
+    }
+    dlFilters.querySelectorAll('.dl-chip').forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        dlFilters.querySelectorAll('.dl-chip').forEach(function (other) { other.setAttribute('aria-pressed', 'false'); });
+        chip.setAttribute('aria-pressed', 'true');
+        applyFilter(chip.getAttribute('data-state'));
+      });
+    });
+    applyFilter('all');
+
+    // 02 — FOUR HANDS
+    var hands = [
+      { id: 'seat', role: 'Subscription coding agent', score: 'most of the work',
+        name: 'A subscription coding agent',
+        short: 'The hand that had been doing most of the work until the board went live.',
+        specs: ['Subscription-based', 'Reads the board first'],
+        proof: 'Every hand reads the board before it starts a session.' },
+      { id: 'term', role: 'Terminal coding agent', score: 'reads the board',
+        name: 'A terminal coding agent',
+        short: 'A second kind of hand that reads the same board before it starts a session.',
+        specs: ['Terminal-based', 'Reads the board first'],
+        proof: 'One file, read by every hand before acting.' },
+      { id: 'local', role: 'Free local-model agent', score: 'first free finish',
+        name: 'A free local-model agent',
+        short: 'Finished a job independently of the subscription coding agent, for the first time, on the day the board went live.',
+        specs: ['Free', 'Local model'],
+        proof: 'Worked from the same board as the other hands.' },
+      { id: 'shelved', role: 'Currently shelved', score: 'shelved',
+        name: 'A fourth agent, shelved',
+        short: 'A fourth agent is currently shelved; it is named in the board but is not part of the day-one work.',
+        specs: ['Shelved'],
+        proof: 'The board lists it as a hand to read the board once it is un-shelved.' }
+    ];
+    var modGrid = document.getElementById('mod-grid');
+    var modDetail = document.getElementById('mod-detail');
+    var modButtons = [];
+    function showCard(c) {
+      modButtons.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-id') === c.id ? 'true' : 'false'); });
+      modDetail.innerHTML =
+        '<div class="mod-detail-title">' + c.name + '</div>' +
+        '<span class="mod-detail-type">' + c.role + '</span>' +
+        '<p class="mod-detail-desc">' + c.short + '</p>' +
+        '<div class="mod-specs-label">Marked</div>' +
+        '<div class="mod-specs">' + c.specs.map(function (s) { return '<span class="mod-spec">' + s + '</span>'; }).join('') + '</div>' +
+        '<div class="mod-proof"><strong>' + c.score + '</strong> · ' + c.proof + '</div>';
+    }
+    hands.forEach(function (c) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'mod-node';
+      btn.setAttribute('data-id', c.id);
+      btn.setAttribute('aria-pressed', 'false');
+      btn.innerHTML = '<span class="mod-glyph">' + c.id.toUpperCase() + '</span><div class="mod-name">' + c.name + '</div><div class="mod-path">' + c.role + '</div><div class="mod-score">' + c.score + '</div>';
+      btn.addEventListener('click', function () { showCard(c); });
+      modGrid.appendChild(btn);
+      modButtons.push(btn);
+    });
+    showCard(hands[0]);
+
+    // 03 — COORDINATION LENS
+    var faultFailsAt = { none: -1, private: -1, shared: -1 };
+    var faultLabel = { none: 'baseline', private: 'private prompt', shared: 'shared record' };
+    var rawSteps = [
+      { t: 'Someone remembers', d: 'One person holds who is on what job, and re-tells it to each hand.' },
+      { t: 'Re-told every time', d: 'Each hand learns the global state secondhand, from a private prompt.' },
+      { t: 'Drift between tellings', d: 'Between re-tellings, hands act on stale copies of what the others are doing.' }
+    ];
+    var verifySteps = [
+      { t: 'One file', d: 'Each hand reads the same shared file before acting.' },
+      { t: 'Written in place', d: 'Every claim, finish and handoff is logged to the record.' },
+      { t: 'No middleman', d: 'No one must keep remembering and re-explaining what every other hand is doing.' }
+    ];
+    var crRaw = document.getElementById('cr-raw');
+    var crVerify = document.getElementById('cr-verify');
+    var crOutcome = document.getElementById('cr-outcome');
+    var crFaults = document.getElementById('cr-faults');
+    function renderStep(n, step, cls, verdict) {
+      var li = document.createElement('li');
+      li.className = 'cr-step ' + cls;
+      li.innerHTML = '<span class="cr-step-n">' + n + '</span><span><span class="cr-step-t">' + step.t + '</span><span class="cr-step-d">' + step.d + '</span></span><span class="cr-verdict">' + verdict + '</span>';
+      return li;
+    }
+    function runModel(fault) {
+      crRaw.innerHTML = '';
+      rawSteps.forEach(function (s, i) {
+        crRaw.appendChild(renderStep('0' + (i + 1), s, 'blind', 'ACCEPTED · MEMORY'));
+      });
+      crVerify.innerHTML = '';
+      verifySteps.forEach(function (s, i) {
+        crVerify.appendChild(renderStep('0' + (i + 1), s, 'pass', 'OK'));
+      });
+      crOutcome.className = 'cr-outcome clean';
+      crOutcome.innerHTML = '<strong>Why a record beats a retelling — this note\'s reasoning, not a measured fact.</strong> A shared, journaled record plausibly coordinates better than a private prompt as more hands join: each new hand reads one file to know the current state of the work, where private-prompt coordination requires someone to keep remembering and re-explaining what every other hand is doing. Tested for one day, with a handful of hands, on one file — a reasoned expectation here, not a proven law.';
+    }
+    crFaults.querySelectorAll('.cr-fault').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        crFaults.querySelectorAll('.cr-fault').forEach(function (other) { other.setAttribute('aria-pressed', 'false'); });
+        btn.setAttribute('aria-pressed', 'true');
+        runModel(btn.getAttribute('data-fault'));
+      });
+    });
+    runModel('none');
+
+    // 04 — TIMELINE REVEAL
+    var wf = document.getElementById('wf-steps');
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce && 'IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            wf.querySelectorAll('.wf-step').forEach(function (s) { s.classList.add('reveal-step'); });
+            io.disconnect();
+          }
+        });
+      }, { threshold: 0.15 });
+      io.observe(wf);
+    }
+
+    // 05 — WHAT THE BOARD IS NOT YET
+    var limits = [
+      { tag: 'not yet', title: 'Not a calendar', desc: 'Scheduling and dates belong to the planned replacement.', extra: 'The board holds open work; it does not schedule it.' },
+      { tag: 'not yet', title: 'Not a dispatcher', desc: 'A dispatcher is part of the planned replacement.', extra: 'The dispatcher is planned; the board names it.' },
+      { tag: 'not yet', title: 'Not an agent registry', desc: 'Registering the agents is part of the planned replacement.', extra: 'This file lists jobs; it does not register hands.' },
+      { tag: 'stopgap', title: 'A stand-in until then', desc: 'The calendar, the dispatcher and the registry are the planned replacement; this file is the stopgap.', extra: 'It calls itself interim.' }
+    ];
+    var memGrid = document.getElementById('mem-grid');
+    limits.forEach(function (l) {
+      var card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'mem-card';
+      card.setAttribute('aria-expanded', 'false');
+      card.innerHTML = '<h4><span class="mem-tag">' + l.tag + '</span>' + l.title + '</h4><p>' + l.desc + '</p><div class="mem-extra">' + l.extra + '</div><div class="mem-hint">Click to expand ↓</div>';
+      card.addEventListener('click', function () {
+        var open = card.getAttribute('aria-expanded') === 'true';
+        card.setAttribute('aria-expanded', open ? 'false' : 'true');
+        card.querySelector('.mem-hint').textContent = open ? 'Click to expand ↓' : 'Click to collapse ↑';
+      });
+      memGrid.appendChild(card);
+    });
+
+    // 06 — DAY ONE RESULTS
+    var results = [
+      { t: 'No duplicate work', s: 'No two hands reported doing the same job', needs: 'one file', d: 'Each hand read the same file before acting; no duplicate job was reported on day one.' },
+      { t: 'Authority stays with the job', s: 'A claim grants no authority of its own', needs: 'no grant', d: 'A hand may do only what that job\'s own plan already allows; the board adds nothing.' }
+    ];
+    var ohList = document.getElementById('oh-list');
+    results.forEach(function (h) {
+      var item = document.createElement('button');
+      item.type = 'button';
+      item.className = 'oh-item';
+      item.setAttribute('aria-expanded', 'false');
+      item.innerHTML = '<span class="oh-box" aria-hidden="true"></span><span><span class="oh-t">' + h.t + '</span><span class="oh-s">' + h.s + '</span><span class="oh-d">' + h.d + '</span></span><span class="oh-needs oh-needs-key">' + h.needs + '</span>';
+      item.addEventListener('click', function () {
+        item.setAttribute('aria-expanded', item.getAttribute('aria-expanded') === 'true' ? 'false' : 'true');
+      });
+      ohList.appendChild(item);
+    });
+  })();
+  </script>
+  <script type="module" src="/main.js?v=20260615-system-state"></script>
+</body>
+</html>
