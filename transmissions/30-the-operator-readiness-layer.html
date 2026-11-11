@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Transmission 30: The Operator Readiness Layer | Unwind Code</title>
-  <meta name="description" content="A whitepaper-grade Brain guide for the Operator Readiness Layer: content-free memory triage, readiness contracts, workbench cards, smoke packets, and approval boundaries before authority." />
+  <meta name="description" content="What the operator's surfaces are today and what was removed: a three-check readiness packet, a three-card workbench deck, a status file, a rail and a calendar; the contract and conformance layer written up in June was removed in July. A dated ledger, not a dashboard." />
   <meta name="theme-color" content="#06060c" />
   <link rel="canonical" href="https://www.unwindcode.ai/transmissions/30-the-operator-readiness-layer" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="The Operator Readiness Layer" />
-  <meta property="og:description" content="How the Unwind Brain turns memory, sandbox, dynamic cells, consciousness sync, and workbench state into a content-free readiness layer before any authority is opened." />
+  <meta property="og:description" content="Readiness before authority: what the operator surfaces are on 10 November 2026, what was removed in July, and what still waits on the operator." />
   <meta property="og:url" content="https://www.unwindcode.ai/transmissions/30-the-operator-readiness-layer" />
   <meta property="og:site_name" content="Unwind Code" />
   <meta property="og:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
@@ -19,7 +19,7 @@
   <meta property="og:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="The Operator Readiness Layer" />
-  <meta name="twitter:description" content="A compact whitepaper for readiness-before-authority architecture inside the Unwind Brain." />
+  <meta name="twitter:description" content="What the operator surfaces are today, what was removed, and what waits on the operator. Rewritten 10 November 2026." />
   <meta name="twitter:image" content="https://www.unwindcode.ai/assets/social/unwindcode-lab-preview.svg" />
   <meta name="twitter:image:alt" content="Unwind Code AI organism architecture lab visual" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -31,721 +31,655 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "The Operator Readiness Layer",
-    "description": "A whitepaper-grade Brain guide for the Operator Readiness Layer: content-free memory triage, readiness contracts, workbench cards, smoke packets, and approval boundaries before authority.",
+    "description": "What the operator's surfaces are today and what was removed: a three-check readiness packet, a three-card workbench deck, a status file, a rail and a calendar; the contract and conformance layer written up in June was removed in July.",
     "author": {"@type": "Organization", "name": "Unwind Code"},
     "publisher": {"@type": "Organization", "name": "Unwind Code", "url": "https://www.unwindcode.ai"},
     "datePublished": "2026-06-28",
     "dateModified": "2026-11-10",
+    "keywords": ["operator readiness", "readiness before authority", "workbench", "status", "calendar"],
     "mainEntityOfPage": "https://www.unwindcode.ai/transmissions/30-the-operator-readiness-layer"
   }
   </script>
   <style>
-    :root {
-      --orl-ink: #f4f0e8;
-      --orl-muted: rgba(244, 240, 232, 0.68);
-      --orl-line: rgba(244, 240, 232, 0.12);
-      --orl-gold: #d8b66b;
-      --orl-cyan: #74d4c8;
-      --orl-rose: #e07f75;
-      --orl-violet: #b9a7ff;
-      --orl-green: #9bd87f;
-      --orl-panel: rgba(13, 15, 23, 0.78);
-      --orl-panel-strong: rgba(18, 20, 29, 0.92);
+    .tx-page { background: var(--bg-void); color: var(--text-primary); }
+    .tx-page *, .tx-page *::before, .tx-page *::after { box-sizing: border-box; }
+    .tx-hero { padding: 160px 0 72px; text-align: center; position: relative; overflow: hidden; }
+    .tx-hero::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:800px; height:800px; background:radial-gradient(circle, rgba(110,45,190,0.12) 0%, transparent 60%); pointer-events:none; }
+    .tx-hero-kicker { margin-bottom:16px; }
+    .tx-hero h1 { font-size:clamp(2.2rem,5vw,3.5rem); font-weight:800; letter-spacing:-0.04em; line-height:1.08; margin:0 0 20px; }
+    .tx-hero-sub { font-size:1.08rem; color:var(--text-secondary); max-width:660px; margin:0 auto; line-height:1.7; }
+    .tx-hero-meta { margin-top:28px; display:flex; justify-content:center; gap:14px; font-size:0.76rem; color:var(--text-muted); font-weight:600; letter-spacing:0.06em; text-transform:uppercase; flex-wrap:wrap; }
+    .tx-section { padding:72px 0; border-top:1px solid var(--accent-border); }
+    .tx-section:first-of-type { border-top:none; padding-top:24px; }
+    .tx-section-head { display:flex; align-items:center; gap:16px; margin-bottom:10px; }
+    .tx-section-num { font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:700; color:var(--accent-hot); letter-spacing:0.15em; }
+    .tx-section h2 { font-size:clamp(1.5rem,3vw,2rem); font-weight:700; letter-spacing:-0.02em; margin:0; }
+    .tx-section-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:24px; }
+    .tx-prose { font-size:1.04rem; color:var(--text-secondary); line-height:1.8; max-width:720px; }
+    .tx-prose p { margin:0 0 22px; }
+    .tx-prose strong { color:var(--text-primary); font-weight:600; }
+    .tx-prose code, .tx-prose-code { font-family:'JetBrains Mono',monospace; font-size:0.84rem; background:rgba(110,45,190,0.1); color:var(--accent-light); padding:2px 6px; border-radius:4px; }
+    .tx-prose a, .tx-inline { color:var(--accent-light); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    .tx-quote { border-left:3px solid var(--accent); padding:18px 24px; margin:36px 0; background:rgba(110,45,190,0.05); border-radius:0 12px 12px 0; color:var(--text-primary); font-size:1.08rem; line-height:1.6; font-weight:500; max-width:720px; }
+    .tx-after { margin-top:36px; }
+
+    /* Claim ledger */
+    .dl-filters { display:flex; flex-wrap:wrap; gap:10px; margin:28px 0 18px; }
+    .dl-chip { font-family:inherit; font-size:0.78rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:9px 16px; border-radius:999px; border:1px solid var(--accent-border); background:var(--bg-surface); color:var(--text-secondary); cursor:pointer; transition:border-color .2s ease, color .2s ease, background .2s ease; }
+    .dl-chip:hover { border-color:rgba(110,45,190,0.4); color:var(--text-primary); }
+    .dl-chip[aria-pressed="true"] { background:rgba(110,45,190,0.16); border-color:var(--accent-light); color:var(--text-primary); }
+    .dl-chip-shipped[aria-pressed="true"] { border-color:#10b981; }
+    .dl-chip-design[aria-pressed="true"] { border-color:#38bdf8; }
+    .dl-chip-plan[aria-pressed="true"] { border-color:#fbbf24; }
+    .dl-chip-metaphor[aria-pressed="true"] { border-color:#c084fc; }
+    .dl-chip-removed[aria-pressed="true"] { border-color:#f87171; }
+    .dl-count { font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:var(--text-muted); margin-bottom:16px; letter-spacing:0.06em; }
+    .dl-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:12px; }
+    .dl-card { font-family:inherit; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:18px; cursor:pointer; transition:border-color .25s ease, transform .25s ease, opacity .25s ease; }
+    .dl-card:hover { transform:translateY(-2px); border-color:rgba(110,45,190,0.4); }
+    .dl-card[hidden] { display:none; }
+    .dl-state { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.12em; padding:3px 9px; border-radius:999px; border:1px solid currentColor; margin-bottom:10px; }
+    .dl-state-shipped { color:#10b981; } .dl-state-design { color:#38bdf8; } .dl-state-plan { color:#fbbf24; }
+    .dl-state-metaphor { color:#c084fc; } .dl-state-removed { color:#f87171; }
+    .dl-name { font-weight:700; font-size:0.96rem; margin-bottom:4px; }
+    .dl-short { font-size:0.84rem; color:var(--text-secondary); line-height:1.55; }
+    .dl-why { display:none; margin-top:12px; padding-top:12px; border-top:1px solid var(--accent-border); font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+    .dl-card[aria-expanded="true"] .dl-why { display:block; }
+    .dl-hint { font-size:0.68rem; color:var(--accent-hot); margin-top:10px; font-weight:600; letter-spacing:0.05em; }
+    .dl-law { margin-top:32px; border:1px solid rgba(251,191,36,0.28); border-radius:16px; padding:24px 28px; background:linear-gradient(180deg,rgba(251,191,36,0.07),rgba(251,191,36,0.015)); max-width:720px; }
+    .dl-law h3 { margin:0 0 10px; font-size:1rem; color:#fbbf24; }
+    .dl-law p { margin:0; font-size:0.95rem; color:var(--text-secondary); line-height:1.7; }
+
+    /* Component explorer */
+    .mod-explorer { display:grid; grid-template-columns:1fr 1.25fr; gap:24px; margin-top:32px; }
+    .mod-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; align-content:start; }
+    .mod-node { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:14px; padding:20px; cursor:pointer; transition:all 0.25s ease; text-align:left; font-family:inherit; color:var(--text-primary); }
+    .mod-node:hover, .mod-node[aria-pressed="true"] { border-color:rgba(110,45,190,0.45); transform:translateY(-2px); box-shadow:0 8px 24px rgba(110,45,190,0.1); }
+    .mod-node[aria-pressed="true"] { background:rgba(110,45,190,0.08); }
+    .mod-glyph { font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--accent-hot); letter-spacing:0.14em; margin-bottom:10px; display:block; }
+    .mod-name { font-weight:700; font-size:1.02rem; font-family:'JetBrains Mono',monospace; }
+    .mod-path { font-size:0.78rem; color:var(--text-muted); margin-top:6px; line-height:1.4; }
+    .mod-score { margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:0.74rem; color:#34d399; }
+    .mod-detail { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:20px; padding:32px; min-height:420px; }
+    .mod-detail-title { font-size:1.3rem; font-weight:700; margin-bottom:8px; font-family:'JetBrains Mono',monospace; word-break:break-word; }
+    .mod-detail-type { display:inline-block; font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent-hot); background:rgba(110,45,190,0.12); border:1px solid rgba(110,45,190,0.2); padding:4px 12px; border-radius:20px; margin-bottom:20px; }
+    .mod-detail-desc { color:var(--text-secondary); line-height:1.7; font-size:0.95rem; margin-bottom:22px; }
+    .mod-specs-label { font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:10px; }
+    .mod-specs { display:flex; flex-wrap:wrap; gap:8px; }
+    .mod-spec { background:rgba(110,45,190,0.08); border:1px solid var(--accent-border); color:var(--accent-light); padding:6px 14px; border-radius:20px; font-size:0.8rem; font-weight:500; }
+    .mod-proof { margin-top:22px; padding-top:18px; border-top:1px solid var(--accent-border); font-size:0.84rem; color:var(--text-muted); line-height:1.6; }
+    .mod-proof strong { color:#34d399; font-family:'JetBrains Mono',monospace; font-weight:600; }
+
+    /* Request model */
+    .cr-wrap { margin-top:28px; border:1px solid rgba(56,189,248,0.22); border-radius:20px; padding:28px; background:linear-gradient(180deg,rgba(56,189,248,0.06),rgba(56,189,248,0.01)); }
+    .cr-top { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; }
+    .cr-label { font-family:'JetBrains Mono',monospace; font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:#38bdf8; }
+    .cr-faults { display:flex; flex-wrap:wrap; gap:8px; }
+    .cr-fault { font-family:inherit; font-size:0.76rem; font-weight:700; padding:8px 14px; border-radius:999px; border:1px solid var(--accent-border); background:var(--bg-surface); color:var(--text-secondary); cursor:pointer; transition:border-color .2s ease, color .2s ease; }
+    .cr-fault:hover { color:var(--text-primary); border-color:rgba(248,113,113,0.5); }
+    .cr-fault[aria-pressed="true"] { color:#fca5a5; border-color:#f87171; background:rgba(248,113,113,0.1); }
+    .cr-fault-reset[aria-pressed="true"] { color:#34d399; border-color:#10b981; background:rgba(16,185,129,0.1); }
+    .cr-cols { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .cr-col { border:1px solid var(--accent-border); border-radius:14px; padding:18px; background:rgba(0,0,0,0.22); }
+    .cr-col h3 { margin:0 0 4px; font-size:0.98rem; font-family:'JetBrains Mono',monospace; }
+    .cr-col-sub { font-size:0.78rem; color:var(--text-muted); margin:0 0 14px; line-height:1.5; }
+    .cr-steps { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
+    .cr-step { display:grid; grid-template-columns:22px 1fr auto; gap:10px; align-items:start; padding:10px 12px; border-radius:10px; border:1px solid var(--accent-border); font-size:0.84rem; line-height:1.5; color:var(--text-secondary); transition:border-color .2s ease, background .2s ease; }
+    .cr-step-n { font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--text-muted); padding-top:3px; }
+    .cr-step-t { color:var(--text-primary); font-weight:600; display:block; }
+    .cr-step-d { display:block; font-size:0.78rem; color:var(--text-muted); margin-top:2px; }
+    .cr-verdict { font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:700; letter-spacing:0.08em; padding-top:3px; white-space:nowrap; }
+    .cr-step.pass { border-color:rgba(16,185,129,0.35); } .cr-step.pass .cr-verdict { color:#34d399; }
+    .cr-step.fail { border-color:#f87171; background:rgba(248,113,113,0.08); } .cr-step.fail .cr-verdict { color:#fca5a5; }
+    .cr-step.skip { opacity:0.42; } .cr-step.skip .cr-verdict { color:var(--text-muted); }
+    .cr-outcome { margin-top:16px; border-radius:12px; padding:14px 16px; font-size:0.9rem; line-height:1.6; border:1px solid var(--accent-border); background:rgba(0,0,0,0.22); color:var(--text-secondary); }
+    .cr-outcome strong { color:var(--text-primary); }
+    .cr-outcome.refused { border-color:rgba(248,113,113,0.4); }
+    .cr-outcome.clean { border-color:rgba(16,185,129,0.35); }
+    .cr-note { margin:14px 0 0; font-size:0.8rem; color:var(--text-muted); line-height:1.6; }
+
+    /* Sketch map */
+    .sk-wrap { margin-top:28px; display:grid; grid-template-columns:1fr 1.2fr; gap:20px; max-width:980px; }
+    .sk-code { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:16px; padding:18px; display:flex; flex-direction:column; gap:8px; }
+    .sk-field { font-family:'JetBrains Mono',monospace; font-size:0.8rem; text-align:left; color:var(--text-secondary); background:transparent; border:1px solid transparent; border-radius:10px; padding:9px 12px; cursor:pointer; transition:border-color .2s ease, background .2s ease; }
+    .sk-field:hover { border-color:rgba(110,45,190,0.4); color:var(--text-primary); }
+    .sk-field[aria-pressed="true"] { border-color:var(--accent-light); background:rgba(110,45,190,0.1); color:var(--text-primary); }
+    .sk-out { background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:16px; padding:24px; min-height:240px; }
+    .sk-out h3 { margin:0 0 6px; font-family:'JetBrains Mono',monospace; font-size:1rem; }
+    .sk-out .sk-tag { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.66rem; font-weight:700; letter-spacing:0.12em; padding:3px 9px; border-radius:999px; border:1px solid currentColor; margin-bottom:12px; }
+    .sk-out p { margin:0 0 12px; font-size:0.9rem; line-height:1.65; color:var(--text-secondary); }
+    .sk-tag-shipped { color:#10b981; } .sk-tag-design { color:#38bdf8; } .sk-tag-plan { color:#fbbf24; } .sk-tag-absent { color:#f87171; }
+
+    /* Timeline */
+    .wf-steps { position:relative; margin-top:32px; padding-left:40px; max-width:760px; }
+    .wf-steps::before { content:''; position:absolute; left:19px; top:0; bottom:0; width:2px; background:var(--accent-border); }
+    .wf-step { position:relative; margin-bottom:40px; }
+    .wf-step:last-child { margin-bottom:0; }
+    .wf-dot { position:absolute; left:-40px; top:0; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:800; z-index:2; font-family:'JetBrains Mono',monospace; }
+    .wf-dot-1 { background:rgba(110,45,190,0.15); color:var(--accent-light); border:2px solid var(--accent); }
+    .wf-dot-2 { background:rgba(79,70,229,0.15); color:#818cf8; border:2px solid #6366f1; }
+    .wf-dot-3 { background:rgba(14,165,233,0.15); color:#38bdf8; border:2px solid #0ea5e9; }
+    .wf-dot-4 { background:rgba(16,185,129,0.15); color:#34d399; border:2px solid #10b981; }
+    .wf-dot-5 { background:rgba(245,158,11,0.15); color:#fbbf24; border:2px solid #f59e0b; }
+    .wf-dot-6 { background:rgba(248,113,113,0.15); color:#fca5a5; border:2px solid #f87171; }
+    .wf-step h3 { font-size:1.06rem; font-weight:700; margin:0 0 6px; padding-top:8px; }
+    .wf-step p { font-size:0.92rem; color:var(--text-secondary); line-height:1.65; margin:0; }
+    .wf-step code { font-family:'JetBrains Mono',monospace; font-size:0.8rem; background:rgba(110,45,190,0.1); color:var(--accent-light); padding:2px 6px; border-radius:4px; }
+    .wf-step.reveal-step { opacity:0; transform:translateY(10px); animation:wfIn .6s ease forwards; }
+    .wf-step.reveal-step:nth-child(1){animation-delay:.05s}.wf-step.reveal-step:nth-child(2){animation-delay:.15s}.wf-step.reveal-step:nth-child(3){animation-delay:.25s}.wf-step.reveal-step:nth-child(4){animation-delay:.35s}.wf-step.reveal-step:nth-child(5){animation-delay:.45s}.wf-step.reveal-step:nth-child(6){animation-delay:.55s}
+    @keyframes wfIn { to { opacity:1; transform:none; } }
+
+    /* Not done cards */
+    .mem-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:28px; }
+    .mem-card { font-family:inherit; text-align:left; color:var(--text-primary); background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:16px; padding:24px; cursor:pointer; transition:all 0.3s ease; }
+    .mem-card:hover { border-color:rgba(110,45,190,0.35); transform:translateY(-3px); box-shadow:0 8px 24px rgba(110,45,190,0.08); }
+    .mem-card h4 { font-size:0.98rem; font-weight:700; margin:0 0 8px; display:flex; align-items:center; gap:10px; }
+    .mem-tag { font-family:'JetBrains Mono',monospace; font-size:0.62rem; letter-spacing:0.12em; color:var(--accent-hot); border:1px solid rgba(110,45,190,0.3); padding:2px 8px; border-radius:999px; text-transform:uppercase; white-space:nowrap; }
+    .mem-card p { font-size:0.87rem; color:var(--text-secondary); line-height:1.6; margin:0; }
+    .mem-extra { display:none; margin-top:14px; padding-top:14px; border-top:1px solid var(--accent-border); font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+    .mem-card[aria-expanded="true"] .mem-extra { display:block; }
+    .mem-hint { font-size:0.68rem; color:var(--accent-hot); margin-top:12px; font-weight:600; letter-spacing:0.05em; }
+
+    .tx-related { margin-top:40px; padding-top:22px; border-top:1px solid var(--accent-border); font-size:0.9rem; color:var(--text-muted); line-height:1.7; }
+    .tx-related a { color:var(--accent-light); text-decoration:none; border-bottom:1px solid rgba(155,89,245,0.3); }
+    .tx-cta { text-align:center; padding:64px 40px; background:var(--bg-surface); border:1px solid var(--accent-border); border-radius:28px; margin-top:72px; }
+    .tx-cta h2 { font-size:1.6rem; font-weight:700; margin:0 0 12px; }
+    .tx-cta p { color:var(--text-secondary); font-size:0.95rem; margin:0 auto 28px; max-width:520px; line-height:1.7; }
+
+    @media(max-width:900px) {
+      .mod-explorer, .cr-cols, .mem-grid, .sk-wrap { grid-template-columns:1fr; }
+      .mod-detail { min-height:0; }
     }
-    .orl-page {
-      background: var(--bg-void);
-      color: var(--text-primary);
-      overflow-x: hidden;
+    @media(max-width:640px) {
+      .mod-grid { grid-template-columns:1fr; }
+      .tx-hero { padding:130px 0 56px; }
+      .tx-section { padding:56px 0; }
+      .cr-wrap, .mod-detail { padding:20px; }
+      .cr-step { grid-template-columns:18px 1fr; }
+      .cr-verdict { grid-column:2; }
     }
-    .orl-page *, .orl-page *::before, .orl-page *::after {
-      box-sizing: border-box;
+    @media (prefers-reduced-motion: reduce) {
+      .wf-step.reveal-step { animation:none; opacity:1; transform:none; }
+      .dl-card, .mod-node, .mem-card, .cr-step, .dl-chip, .cr-fault, .sk-field { transition:none; }
+      .dl-card:hover, .mod-node:hover, .mem-card:hover { transform:none; }
     }
-    .orl-hero {
-      position: relative;
-      min-height: 95vh;
-      padding: 150px 0 72px;
-      display: grid;
-      align-items: center;
-      overflow: hidden;
-      border-bottom: 1px solid var(--orl-line);
-      background:
-        radial-gradient(circle at 14% 22%, rgba(216, 182, 107, 0.16), transparent 27%),
-        radial-gradient(circle at 86% 17%, rgba(116, 212, 200, 0.13), transparent 26%),
-        radial-gradient(circle at 50% 92%, rgba(185, 167, 255, 0.1), transparent 28%),
-        linear-gradient(145deg, rgba(8, 9, 16, 0.99), rgba(5, 6, 11, 1));
-    }
-    .orl-hero::before {
-      content: "";
-      position: absolute;
-      inset: -20%;
-      opacity: 0.22;
-      background-image:
-        linear-gradient(rgba(244, 240, 232, 0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(244, 240, 232, 0.08) 1px, transparent 1px);
-      background-size: 58px 58px;
-      transform: rotate(-4deg);
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.92), transparent 82%);
-    }
-    .orl-hero-grid {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: minmax(0, 1.02fr) minmax(350px, 0.76fr);
-      gap: 44px;
-      align-items: center;
-    }
-    .orl-kicker {
-      display: inline-flex;
-      width: fit-content;
-      align-items: center;
-      gap: 9px;
-      border: 1px solid rgba(216, 182, 107, 0.36);
-      border-radius: 999px;
-      padding: 8px 13px;
-      background: rgba(216, 182, 107, 0.08);
-      color: var(--orl-gold);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.72rem;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-    .orl-hero h1 {
-      max-width: 980px;
-      margin: 22px 0 24px;
-      font-size: 5.2rem;
-      line-height: 0.95;
-      font-weight: 900;
-      letter-spacing: 0;
-    }
-    .orl-hero-sub {
-      max-width: 850px;
-      color: var(--orl-muted);
-      font-size: 1.1rem;
-      line-height: 1.78;
-    }
-    .orl-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 28px;
-    }
-    .orl-meta span {
-      border: 1px solid var(--orl-line);
-      border-radius: 999px;
-      padding: 9px 12px;
-      background: rgba(15, 16, 25, 0.68);
-      color: var(--text-muted);
-      font-size: 0.75rem;
-      font-weight: 760;
-      text-transform: uppercase;
-    }
-    .orl-readiness-console {
-      border: 1px solid rgba(116, 212, 200, 0.24);
-      border-radius: 30px;
-      padding: 26px;
-      background:
-        linear-gradient(135deg, rgba(116, 212, 200, 0.12), transparent 38%),
-        linear-gradient(315deg, rgba(216, 182, 107, 0.1), transparent 44%),
-        var(--orl-panel);
-      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.36);
-    }
-    .orl-readiness-console h2 {
-      margin-bottom: 18px;
-      color: var(--orl-cyan);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-    }
-    .orl-console-grid {
-      display: grid;
-      gap: 12px;
-    }
-    .orl-console-row {
-      display: grid;
-      grid-template-columns: 52px 1fr;
-      gap: 13px;
-      align-items: start;
-      border: 1px solid var(--orl-line);
-      border-radius: 18px;
-      padding: 15px;
-      background: rgba(6, 7, 13, 0.46);
-    }
-    .orl-console-row b {
-      display: grid;
-      place-items: center;
-      width: 52px;
-      height: 52px;
-      border-radius: 16px;
-      border: 1px solid rgba(216, 182, 107, 0.32);
-      color: var(--orl-gold);
-      font-family: "JetBrains Mono", monospace;
-    }
-    .orl-console-row strong {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--orl-ink);
-    }
-    .orl-console-row span {
-      color: var(--orl-muted);
-      font-size: 0.89rem;
-      line-height: 1.5;
-    }
-    .orl-section {
-      padding: 82px 0;
-      border-bottom: 1px solid var(--orl-line);
-    }
-    .orl-section-head {
-      max-width: 960px;
-      margin-bottom: 28px;
-    }
-    .orl-section-num {
-      display: block;
-      margin-bottom: 12px;
-      color: var(--orl-gold);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.72rem;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-    .orl-section h2 {
-      font-size: 2.74rem;
-      line-height: 1.04;
-      letter-spacing: 0;
-    }
-    .orl-prose {
-      max-width: 920px;
-      color: var(--orl-muted);
-      font-size: 1.03rem;
-      line-height: 1.85;
-    }
-    .orl-prose p {
-      margin: 0 0 22px;
-    }
-    .orl-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 34px;
-    }
-    .orl-card,
-    .orl-step,
-    .orl-proof,
-    .orl-risk {
-      border: 1px solid var(--orl-line);
-      border-radius: 19px;
-      padding: 18px;
-      background: rgba(15, 16, 25, 0.58);
-    }
-    .orl-card {
-      min-height: 220px;
-    }
-    .orl-label {
-      color: var(--orl-gold);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.68rem;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-    .orl-card h3,
-    .orl-step h3,
-    .orl-proof h3,
-    .orl-risk h3 {
-      margin: 10px 0 8px;
-      font-size: 1.05rem;
-      line-height: 1.26;
-    }
-    .orl-card p,
-    .orl-step p,
-    .orl-proof p,
-    .orl-risk p {
-      margin: 0;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      line-height: 1.58;
-    }
-    .orl-wide-grid {
-      display: grid;
-      grid-template-columns: 0.86fr 1.14fr;
-      gap: 22px;
-      align-items: stretch;
-      margin-top: 34px;
-    }
-    .orl-code-panel {
-      border: 1px solid rgba(116, 212, 200, 0.22);
-      border-radius: 24px;
-      padding: 22px;
-      background: rgba(2, 6, 9, 0.58);
-      overflow: hidden;
-    }
-    .orl-code-panel h3 {
-      margin-bottom: 14px;
-      color: var(--orl-cyan);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.86rem;
-      text-transform: uppercase;
-    }
-    .orl-code-panel pre {
-      margin: 0;
-      color: rgba(244, 240, 232, 0.76);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.78rem;
-      line-height: 1.62;
-      white-space: pre-wrap;
-      overflow-wrap: anywhere;
-    }
-    .orl-layer-list {
-      display: grid;
-      gap: 12px;
-    }
-    .orl-layer {
-      display: grid;
-      grid-template-columns: 54px 1fr;
-      gap: 15px;
-      align-items: start;
-      border: 1px solid var(--orl-line);
-      border-radius: 18px;
-      padding: 16px;
-      background: rgba(15, 16, 25, 0.58);
-    }
-    .orl-layer b {
-      display: grid;
-      place-items: center;
-      width: 54px;
-      height: 54px;
-      border: 1px solid rgba(216, 182, 107, 0.34);
-      border-radius: 16px;
-      color: var(--orl-gold);
-      font-family: "JetBrains Mono", monospace;
-    }
-    .orl-layer p {
-      margin: 4px 0 0;
-      color: var(--text-muted);
-      line-height: 1.56;
-    }
-    .orl-protocol {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 34px;
-    }
-    .orl-step {
-      min-height: 226px;
-    }
-    .orl-step b {
-      display: inline-flex;
-      margin-bottom: 20px;
-      color: var(--orl-gold);
-      font-family: "JetBrains Mono", monospace;
-    }
-    .orl-risk-grid {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 34px;
-    }
-    .orl-risk {
-      min-height: 190px;
-      border-color: rgba(224, 127, 117, 0.22);
-    }
-    .orl-risk .orl-label {
-      color: var(--orl-rose);
-    }
-    .orl-blueprint {
-      margin-top: 36px;
-      border: 1px solid rgba(216, 182, 107, 0.24);
-      border-radius: 28px;
-      padding: 34px;
-      background:
-        linear-gradient(135deg, rgba(216, 182, 107, 0.12), transparent 42%),
-        linear-gradient(315deg, rgba(116, 212, 200, 0.1), transparent 48%),
-        var(--orl-panel-strong);
-    }
-    .orl-blueprint p {
-      max-width: 900px;
-      color: var(--orl-muted);
-      line-height: 1.74;
-      margin: 10px 0 18px;
-    }
-    .orl-blueprint code,
-    .orl-prose code {
-      color: var(--orl-cyan);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.9em;
-    }
-    .orl-proof-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 34px;
-    }
-    .orl-proof {
-      min-height: 176px;
-    }
-    .orl-note {
-      margin-top: 24px;
-      border: 1px solid rgba(155, 216, 127, 0.22);
-      border-radius: 22px;
-      padding: 20px;
-      background: rgba(155, 216, 127, 0.055);
-      color: var(--orl-muted);
-      line-height: 1.68;
-    }
-    .orl-cta {
-      margin-top: 40px;
-      border: 1px solid rgba(216, 182, 107, 0.24);
-      border-radius: 28px;
-      padding: 46px 34px;
-      text-align: center;
-      background: rgba(15, 16, 25, 0.58);
-    }
-    .orl-cta p {
-      max-width: 760px;
-      margin: 12px auto 26px;
-      color: var(--orl-muted);
-      line-height: 1.72;
-    }
-    @media (max-width: 1080px) {
-      .orl-hero-grid,
-      .orl-wide-grid {
-        grid-template-columns: 1fr;
-      }
-      .orl-grid,
-      .orl-protocol,
-      .orl-proof-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .orl-risk-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
-    @media (max-width: 760px) {
-      .orl-hero {
-        min-height: auto;
-        padding: 130px 0 58px;
-      }
-      .orl-hero h1 {
-        width: min(335px, calc(100vw - 40px));
-        max-width: min(335px, calc(100vw - 40px));
-        font-size: 2.26rem;
-        line-height: 1.08;
-        overflow-wrap: anywhere;
-      }
-      .orl-hero-sub,
-      .orl-prose,
-      .orl-blueprint p,
-      .orl-cta p {
-        width: 100%;
-        max-width: min(335px, calc(100vw - 40px));
-        overflow-wrap: anywhere;
-      }
-      .orl-page .container {
-        width: 100%;
-        max-width: 100vw;
-        padding-left: 20px;
-        padding-right: 20px;
-        overflow-x: hidden;
-      }
-      .orl-section {
-        padding: 58px 0;
-      }
-      .orl-section h2 {
-        width: 100%;
-        max-width: min(335px, calc(100vw - 40px));
-        font-size: 1.58rem;
-        overflow-wrap: anywhere;
-      }
-      .orl-meta {
-        display: grid;
-        width: min(335px, calc(100vw - 40px));
-      }
-      .orl-meta span {
-        width: 100%;
-        white-space: normal;
-      }
-      .orl-readiness-console,
-      .orl-grid,
-      .orl-wide-grid,
-      .orl-code-panel,
-      .orl-layer-list,
-      .orl-protocol,
-      .orl-risk-grid,
-      .orl-blueprint,
-      .orl-proof-grid,
-      .orl-cta {
-        width: 100%;
-        max-width: min(335px, calc(100vw - 40px));
-        min-width: 0;
-      }
-      .orl-grid,
-      .orl-protocol,
-      .orl-risk-grid,
-      .orl-proof-grid {
-        grid-template-columns: 1fr;
-      }
-      .orl-console-row,
-      .orl-layer {
-        grid-template-columns: 1fr;
-      }
-    }
+    .tx-dateline { max-width:720px; margin:32px auto 0; text-align:left; border:1px solid rgba(232,161,92,0.28); border-radius:14px; padding:16px 20px; background:linear-gradient(180deg,rgba(232,161,92,0.07),rgba(232,161,92,0.015)); font-size:0.88rem; line-height:1.65; color:var(--text-secondary); }
+    .tx-dateline strong { color:#e8a15c; font-weight:650; }
+    .tx-dateline + .tx-dateline { margin-top:12px; }
+    /* Transmission 30 additions */
+    .dl-chip-built[aria-pressed="true"] { border-color:#10b981; }
+    .dl-chip-removed[aria-pressed="true"] { border-color:#f87171; }
+    .dl-chip-historical[aria-pressed="true"] { border-color:#94a3b8; }
+    .dl-chip-waiting[aria-pressed="true"] { border-color:#f59e0b; }
+    .dl-state-built { color:#10b981; } .dl-state-historical { color:#94a3b8; } .dl-state-waiting { color:#f59e0b; }
+    .rd-wrap { margin-top:28px; border:1px solid rgba(56,189,248,0.22); border-radius:20px; padding:28px; background:linear-gradient(180deg,rgba(56,189,248,0.06),rgba(56,189,248,0.01)); }
+    .rd-cols { display:grid; grid-template-columns:1fr 1.1fr; gap:16px; }
+    .rd-col { border:1px solid var(--accent-border); border-radius:14px; padding:18px; background:rgba(0,0,0,0.22); }
+    .rd-col h3 { margin:0 0 4px; font-size:0.98rem; }
+    .rd-sub { font-size:0.78rem; color:var(--text-muted); margin:0 0 14px; line-height:1.5; }
+    .rd-checks { display:flex; flex-direction:column; gap:10px; }
+    .rd-check { font-family:inherit; text-align:left; color:var(--text-primary); display:grid; grid-template-columns:1fr auto; gap:10px; align-items:center; padding:12px 14px; border-radius:12px; border:1px solid rgba(16,185,129,0.35); background:var(--bg-surface); cursor:pointer; transition:border-color .2s ease, background .2s ease; }
+    .rd-check[aria-pressed="true"] { border-color:#f87171; background:rgba(248,113,113,0.08); }
+    .rd-check-name { font-family:'JetBrains Mono',monospace; font-size:0.8rem; font-weight:600; }
+    .rd-check-state { font-family:'JetBrains Mono',monospace; font-size:0.68rem; font-weight:700; letter-spacing:0.08em; color:#34d399; }
+    .rd-check[aria-pressed="true"] .rd-check-state { color:#fca5a5; }
+    .rd-packet { margin:0; display:grid; grid-template-columns:auto 1fr; gap:8px 14px; font-size:0.84rem; }
+    .rd-packet dt { font-family:'JetBrains Mono',monospace; font-size:0.76rem; color:var(--text-muted); }
+    .rd-packet dd { margin:0; font-family:'JetBrains Mono',monospace; font-size:0.78rem; color:var(--text-primary); word-break:break-word; }
+    .rd-packet dd.bad { color:#fca5a5; } .rd-packet dd.good { color:#34d399; }
+    .cmp-wrap { margin-top:28px; max-width:900px; }
+    .cmp-tabs { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:16px; }
+    .cmp-list { display:flex; flex-direction:column; gap:8px; }
+    .cmp-row { display:grid; grid-template-columns:1fr 1.4fr; gap:14px; align-items:start; padding:12px 16px; border:1px solid var(--accent-border); border-radius:12px; background:var(--bg-surface); font-size:0.88rem; line-height:1.55; }
+    .cmp-row.changed { border-color:rgba(248,113,113,0.4); }
+    .cmp-row.kept { border-color:rgba(16,185,129,0.3); }
+    .cmp-item { font-weight:650; color:var(--text-primary); }
+    .cmp-state { color:var(--text-secondary); }
+    .cmp-tag { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.62rem; font-weight:700; letter-spacing:0.1em; padding:2px 8px; border-radius:999px; border:1px solid currentColor; margin-right:8px; }
+    .cmp-tag.t-removed { color:#f87171; } .cmp-tag.t-kept { color:#10b981; } .cmp-tag.t-described { color:#38bdf8; } .cmp-tag.t-now { color:#fbbf24; }
+    .wf-dot-7 { background:rgba(192,132,252,0.15); color:#c084fc; border:2px solid #c084fc; }
+    .wf-step.reveal-step:nth-child(7){animation-delay:.65s}
+    @media(max-width:900px) { .rd-cols { grid-template-columns:1fr; } }
+    @media(max-width:640px) { .cmp-row { grid-template-columns:1fr; } .rd-wrap { padding:20px; } }
   </style>
 </head>
-<body class="tx-page orl-page">
+<body class="tx-page">
+
   <nav id="nav" class="scrolled">
-    <a href="/" class="nav-brand"><span class="nav-glyph">&infin;</span><span class="nav-name">unwind<span class="nav-accent">code</span></span></a>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    <a href="/" class="nav-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
     <div class="nav-links" id="nav-links">
-      <a href="/#organisms">Organisms</a>
-      <a href="/#architecture">Architecture</a>
-      <a href="/#philosophy">Philosophy</a>
-      <a href="/transmissions" class="active">Transmissions</a>
+      <a href="/" data-i18n="nav.home">Home</a>
+      <a href="/organisms" data-i18n="nav.organisms">Organisms</a>
+      <a href="/architecture" data-i18n="nav.architecture">Architecture</a>
+      <a href="/proof" data-i18n="nav.proof">Proof</a>
+      <a href="/transmissions" class="active" aria-current="page" data-i18n="nav.blog">Transmissions</a>
+      <a href="/philosophy" data-i18n="nav.philosophy">Philosophy</a>
     </div>
-    <div class="nav-actions"><a href="/#cta" class="nav-cta">Get in Touch</a></div>
+    <div class="nav-actions">
+      <button id="lang-toggle" class="lang-toggle" aria-label="Switch to Spanish">ES</button>
+      <a href="/build-with-us" class="nav-cta" data-i18n="nav.cta">Build With Us</a>
+      <a href="/proof/ledger" class="nav-ghost">Live ledger</a>
+    </div>
   </nav>
 
   <main>
-    <section class="orl-hero">
-      <div class="container orl-hero-grid">
-        <div>
-          <span class="orl-kicker">Transmission 030 / Readiness before authority</span>
-          <h1>The Operator Readiness Layer</h1>
-          <p class="orl-hero-sub">The Unwind Brain is learning a harder discipline than memory: showing whether memory, sandbox, dynamic cells, consciousness sync, and the operator workbench are safe to render before any consequential authority is opened.</p>
-          <div class="orl-meta"><span>June 2026</span><span>Manual Brain Mode</span><span>Whitepaper Record</span><span>Operator Architecture</span><span>Revised 10 Nov 2026</span></div><div class="rev-note" role="note" style="max-width:860px;margin:24px 0 0;padding:14px 18px;border:1px solid rgba(240,238,246,0.16);border-left:3px solid #d2ac5f;border-radius:10px;background:rgba(210,172,95,0.07);text-align:left;font-size:0.92rem;line-height:1.65;color:var(--text-secondary)"><strong>This note describes the Brain's readiness code as of 28 June 2026.</strong><br/><strong>Revised 10 November 2026.</strong> Correction, 10 November 2026: part of what this page describes was removed within a week of it being written. The Brain's removal manifest is dated 2 July 2026 and the commit that carried it landed on 3 July 2026; the page below says "2 July" for the manifest date. That cleanup removed the "contract" layer: the static client contracts, compatibility checks, conformance checks and drift cards, 21 HTTP routes and 26 commands in all, and the workbench card deck went from four cards to three (readiness, consciousness sync, custody boundary). The data surfaces stayed: readiness, gates, workbench cards, sandbox, dynamic-cell and consciousness health. So the "contract compatibility" and "conformance" items below are marked as removed, and the figures in the proof ledger (194 tests, 7/7 checks) are historical and have not been re-run. This is a Brain module, not a statement that an operator relies on it day to day: the Brain's 30 September 2026 status still lists the control-plane deployment as waiting on scoped authentication setup.</div>
+    <section class="tx-hero">
+      <div class="container">
+        <div class="tx-hero-kicker"><span class="tx-section-num">TRANSMISSION 030</span></div>
+        <h1>The Operator<br>Readiness Layer</h1>
+        <p class="tx-hero-sub">Readiness before authority: a system should show whether it is safe to look at before it asks to do anything. This note says what the operator's surfaces actually are on 10 November 2026, which part of the layer described in June was removed within a week, and what still waits on the operator.</p>
+        <div class="tx-hero-meta"><span>June 2026</span><span>·</span><span>Rewritten 10 November 2026</span><span>·</span><span>Operator architecture</span><span>·</span><span>10 min read</span></div>
+        <p class="tx-dateline"><strong>Dated note.</strong> This note describes the Brain's operator surfaces and the operator's working records as they stood on 10 November 2026. It was first written on 28 June 2026, when it described the Brain's readiness code as of that day. The rewrite reads the Brain's removal record and status file, the site's own published notes and the consolidation documents of 8 and 10 November. No test was run and no service was called for it.</p>
+        <p class="tx-dateline"><strong>Revised 10 November 2026.</strong> Rewritten to the Transmission standard. The page now separates what is built, what was removed, what is historical and what is only a plan; it adds a claim ledger, an explorer of the operator's surfaces, a model of the readiness packet, a then-and-now panel and a timeline. The status, checkpoint, rail and calendar are described as they are today.</p>
+        <p class="tx-dateline"><strong>Correction, 10 November 2026.</strong> Part of what the June version described was removed within a week of it being written. The Brain's removal manifest is dated 2 July 2026 and the commit that carried it landed on 3 July 2026; the June text gave 2 July for both. That cleanup removed the &ldquo;contract&rdquo; layer: the static client contracts, the compatibility checks, the conformance checks and the drift cards, 21 HTTP routes and 26 commands in all. The workbench card deck went from four cards to three (readiness, consciousness sync, custody boundary). The data surfaces stayed. The figures in the June proof ledger (194 tests, 7 of 7 checks) are historical and were not re-run. This is a Brain module, not a statement that an operator relies on it day to day: the Brain's status of 30 September 2026 lists the control-plane deployment as waiting on scoped authentication setup.</p>
+      </div>
+    </section>
+
+    <div class="container">
+
+      <!-- 01: THE LEDGER -->
+      <section class="tx-section" id="the-ledger">
+        <div class="tx-section-head"><span class="tx-section-num">01</span><h2>Readiness before authority</h2></div>
+        <div class="tx-section-label">A thesis, then a ledger of every claim</div>
+        <div class="tx-prose">
+          <p>A living Brain should not ask for authority until it can show that it is ready to be looked at. Most agent systems rush from output to action; the design here is the opposite: a layer that comes before action and shows the operator posture, queue pressure and boundaries without echoing private content. The design called for content-free memory triage: counts, identifiers and statuses in place of memory bodies. That is a design stance. What exists is smaller, and the ledger below says exactly how much.</p>
+          <p>Each card is one claim this note makes, tagged <strong>exists</strong>, <strong>removed</strong>, <strong>historical</strong> (a figure from an earlier date, not re-run), <strong>design</strong>, <strong>plan</strong>, <strong>metaphor</strong> or <strong>waiting</strong> (it waits on the operator). Filter by kind and open a card for its trail.</p>
         </div>
-        <aside class="orl-readiness-console" aria-label="Operator readiness contract map">
-          <h2>Readiness contract</h2>
-          <div class="orl-console-grid">
-            <div class="orl-console-row"><b>01</b><div><strong>Observe without content</strong><span>The operator can see health, queue pressure, receipts, and readiness state without exposing stored memory bodies.</span></div></div>
-            <div class="orl-console-row"><b>02</b><div><strong>Render only compatible packets</strong><span>Clients were to read explicit contracts before rendering readiness, workbench cards, or triage snapshots. The contract routes were removed on 2 July 2026.</span></div></div>
-            <div class="orl-console-row"><b>03</b><div><strong>Prefer preview before mutation</strong><span>Repair, resolve, and receipt-hygiene paths expose dry-run evidence before reviewed mutation.</span></div></div>
-            <div class="orl-console-row"><b>04</b><div><strong>Keep authority closed</strong><span>Readiness can recommend, route, and explain. It cannot publish, post, deploy, spend, sign, outreach, or mutate by itself.</span></div></div>
+        <div class="dl-filters" role="group" aria-label="Filter claims by kind" id="dl-filters"></div>
+        <div class="dl-count" id="dl-count" aria-live="polite"></div>
+        <div class="dl-grid" id="dl-grid"></div>
+        <div class="dl-law">
+          <h3>The dating rule</h3>
+          <p>A figure carries its date. A status from an old record is not a description of today. Where the record is older than the question, this note says so instead of rounding up.</p>
+        </div>
+      </section>
+
+      <!-- 02: SURFACES -->
+      <section class="tx-section" id="the-surfaces">
+        <div class="tx-section-head"><span class="tx-section-num">02</span><h2>What the operator can look at today</h2></div>
+        <div class="tx-section-label">The explorer · eight surfaces, 10 November 2026</div>
+        <div class="tx-prose">
+          <p>Three of these are code in the Brain: the readiness packet, the workbench cards and the memory routes. Five are records the operator and the working hands read: the status file, the checkpoint paper, the rail, the calendar and a dated organ-health read. Select a surface to see what it is, what it holds and what it does not do.</p>
+        </div>
+        <div class="mod-explorer">
+          <div class="mod-grid" id="mod-grid" role="group" aria-label="Operator surfaces"></div>
+          <div class="mod-detail" id="mod-detail" aria-live="polite"></div>
+        </div>
+        <div class="tx-prose tx-after">
+          <p>None of these grants authority. The rail says so in its own rules, the calendar's proposals are accepted by the operator and not by the loop that proposed them, and the readiness packet's flags are all closed. A surface that shows state is a window, not a door.</p>
+        </div>
+      </section>
+
+      <!-- 03: PACKET MODEL -->
+      <section class="tx-section" id="the-packet">
+        <div class="tx-section-head"><span class="tx-section-num">03</span><h2>What the readiness packet says</h2></div>
+        <div class="tx-section-label">A model of the packet's logic · not a live read</div>
+        <div class="tx-prose">
+          <p>The readiness packet composes three checks: the operator gates, the sandbox configuration and the health of the manifest of dynamic cells. The packet is <em>ready</em> only if all three pass. If one fails, it names the first failing check and the action a client should take. Flip a check below and read the packet the way the code would write it.</p>
+        </div>
+        <div class="rd-wrap">
+          <div class="rd-cols">
+            <div class="rd-col">
+              <h3>The three checks</h3>
+              <p class="rd-sub">Press a check to make it fail; press again to restore it.</p>
+              <div class="rd-checks" id="rd-checks" role="group" aria-label="Readiness checks"></div>
+            </div>
+            <div class="rd-col">
+              <h3>The packet</h3>
+              <p class="rd-sub">Fields as the code builds them.</p>
+              <dl class="rd-packet" id="rd-packet" aria-live="polite"></dl>
+            </div>
           </div>
-        </aside>
-      </div>
-    </section>
+          <div class="cr-outcome clean" id="rd-outcome" aria-live="polite" style="margin-top:16px"></div>
+          <p class="cr-note">A model written from the packet's code. The four closed flags are constants of the packet, not measurements.</p>
+        </div>
+        <div class="tx-prose tx-after">
+          <p>The hazard this layer exists to contain is false autonomy: ready is confused with allowed. A green readiness state is a statement about three checks. It is not permission to publish, post, spend, sign, deploy or contact anyone, and the packet contains no way to do any of them. A second hazard is action confusion: a recommended command in a packet is mistaken for approval to run it. The packet recommends; the operator decides.</p>
+          <p>The memory write routes make the same point from the other side. They refuse with a conflict error unless the request says it was operator-reviewed. That flag is a field of the request, so it records a claim of review rather than proof of who reviewed; making it hard to forge is part of the scoped authentication setup the status file lists as pending. That is this note's reading of the code, not a finding from a test.</p>
+        </div>
+      </section>
 
-    <section class="orl-section">
-      <div class="container">
-        <div class="orl-section-head"><span class="orl-section-num">01 / Thesis</span><h2>A living Brain should not ask for authority until it can prove it is ready to be looked at.</h2></div>
-        <div class="orl-prose">
-          <p>The next advancement inside the Unwind Brain is not another interface decoration and not another promise of autonomy. It is a control layer: a way for the operator to inspect whether the Brain's memory, action queues, sandbox posture, dynamic cells, consciousness sync, and workbench cards are safe to render before the system asks to do anything consequential.</p>
-          <p>That distinction matters. Most agent systems rush from output to action. The Unwind Brain is taking the opposite route. It is building the layer that comes before action: content-free visibility, contract compatibility, packet conformance, health summaries, dry-run previews, and explicit approval boundaries. Readiness becomes a product surface. Authority remains human-gated.</p>
-          <p>This is the Operator Readiness Layer: the membrane between a cognitive organism that can remember and a cognitive organism that can responsibly ask to move.</p>
+      <!-- 04: REMOVED -->
+      <section class="tx-section" id="what-was-removed">
+        <div class="tx-section-head"><span class="tx-section-num">04</span><h2>What was removed, and when</h2></div>
+        <div class="tx-section-label">The comparison panel · as first described, then after 3 July</div>
+        <div class="tx-prose">
+          <p>The June version of this note described a layer of contracts: documents that told a client what shape a packet would have, checks that told it whether it could render one, and checks that proved a packet matched its own promise. On 2 July the Brain's removal manifest dropped that layer; the commit followed on 3 July. The manifest calls them meta-surfaces that proved the shape of the data layer, and keeps every surface that carries data. Choose a moment to see what stood.</p>
         </div>
-      </div>
-    </section>
+        <div class="cmp-wrap">
+          <div class="cmp-tabs" id="cmp-tabs" role="group" aria-label="Choose a moment"></div>
+          <div class="cmp-list" id="cmp-list" aria-live="polite"></div>
+        </div>
+        <div class="tx-prose tx-after">
+          <p>The removal was approved by an architecture review dated 1 July, and its own summary reads as a rule: data surfaces stay, proof of proof goes. This note treats the rule as the lesson. A layer that only certifies another layer's shape adds a place for drift to hide, and removing it was the safer design. The routes count fell from 224 to 203 in that commit.</p>
+        </div>
+      </section>
 
-    <section class="orl-section">
-      <div class="container">
-        <div class="orl-section-head"><span class="orl-section-num">02 / Why this passes the transmission gate</span><h2>This is a real ecosystem advancement because it converts memory into an inspectable workload.</h2></div>
-        <div class="orl-prose">
-          <p>The signal came from local Brain work, not from a calendar. The Memory Integration Cell grew beyond capture and retrieval into a governed operations layer: recent-memory inspection, retention previews, health snapshots, action queues, operator triage, reviewed writes, resolve flows, mutation receipt hygiene, and a focused CI slice. At the same time, the operator surface gained readiness contracts and workbench cards that can render that state without opening storage, network, mutation, or execution authority.</p>
-          <p>That is a distinct advance from Transmission 28. The Memory Control Plane explained how recall becomes governable. The Operator Readiness Layer explains how governable memory becomes operationally visible to a human without becoming hidden authority.</p>
-          <p>This transmission is a Manual Brain Mode record. The Brain runtime did not publish this page unattended. The signal was reviewed manually from local source, docs, tests, and verification output, then translated into a public guide for future Brain memory.</p>
+      <!-- 05: TIMELINE -->
+      <section class="tx-section" id="the-record">
+        <div class="tx-section-head"><span class="tx-section-num">05</span><h2>The record, dated</h2></div>
+        <div class="tx-section-label">Seven entries · what each one does and does not show</div>
+        <div class="wf-steps" id="wf-steps">
+          <div class="wf-step"><div class="wf-dot wf-dot-1">01</div><h3>28 June 2026 · first written</h3><p>This note described the Brain's readiness code and recorded 194 tests and 7 of 7 checks from a local validation run. Both figures are now historical.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-2">02</div><h3>1 July 2026 · the review</h3><p>An architecture review approved the cleanup's third phase, which removes the contract layer.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-3">03</div><h3>2 and 3 July 2026 · the removal</h3><p>The removal manifest is dated 2 July; the commit landed on 3 July. 21 routes and 26 commands went, the deck went from four cards to three, and the commit message records a full test run of 1,294 passed and none failed.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-4">04</div><h3>30 September 2026 · status</h3><p>The Brain's status recorded that the control-plane deployment and the wiring from the operator panel to the cortex still required scoped authentication setup.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-5">05</div><h3>16 October 2026 · latest status entry</h3><p>The status file's most recent entry is a sandbox repair. It is the newest dated claim the Brain's status file makes.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-6">06</div><h3>8 November 2026 · the baseline</h3><p>A read-only consolidation audit counted the calendar at 402 tasks, with 74 waiting on the operator. The checkpoint paper records the operator panels as code and tests, not a running service, as of the same date.</p></div>
+          <div class="wf-step"><div class="wf-dot wf-dot-7">07</div><h3>10 November 2026 · this rewrite</h3><p>A dated organ-health read the same day recorded several organs failing for reasons that wait on the operator. This note was rewritten to say so and to stop describing removed things as present.</p></div>
         </div>
-        <div class="orl-grid">
-          <article class="orl-card"><span class="orl-label">Source signal</span><h3>Memory became a workload</h3><p>Recent, health, retention, action queues, triage, reviewed writes, and receipt hygiene now form an operator-facing memory operations plane.</p></article>
-          <article class="orl-card"><span class="orl-label">Interface signal</span><h3>Readiness became renderable</h3><p>Operator contracts, readiness cards, workbench card decks, and smoke packets make safety state visible without exposing content.</p></article>
-          <article class="orl-card"><span class="orl-label">Safety signal</span><h3>Preview comes before mutation</h3><p>Repair and resolve routes require reviewed requests; receipt-hygiene queues can produce content-free audit previews before changes.</p></article>
-          <article class="orl-card"><span class="orl-label">Proof signal</span><h3>The focused slice passed</h3><p>On 28 June 2026 the local validation script reported 194 tests plus compile, Ruff, operator gates, readiness, card conformance, and diff hygiene. That figure is historical: the conformance checks it counted were removed on 2 July 2026.</p></article>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="orl-section">
-      <div class="container">
-        <div class="orl-section-head"><span class="orl-section-num">03 / Definitions</span><h2>Readiness is not status. It is a contract about what can be safely rendered next.</h2></div>
-        <div class="orl-prose">
-          <p>A status badge says green or red. A readiness layer explains why, under which contract, from which source, with which safe next step, and with which authority still closed. That is the difference between a dashboard and an operator membrane.</p>
+      <!-- 06: NOT CLAIMED -->
+      <section class="tx-section" id="not-claimed">
+        <div class="tx-section-head"><span class="tx-section-num">06</span><h2>What this note does not claim</h2></div>
+        <div class="tx-section-label">Not done, on purpose · plan, not built</div>
+        <div class="tx-prose">
+          <p>This is a Manual Brain Mode transmission: a person-governed hand wrote it from the record. It does not claim unattended autonomy. It does not claim the Brain can publish itself, sync external storage, mutate memory, deploy, post, spend money, sign or contact anyone without reviewed authority. The Brain's code can render state; that is meaningful, and it is not operational permission. Every public deployment stays behind the operator's approval.</p>
         </div>
-        <div class="orl-grid">
-          <article class="orl-card"><span class="orl-label">Operator Readiness Layer</span><h3>The pre-authority membrane</h3><p>A content-free inspection layer that composes Memory health, contract gates, sandbox posture, dynamic-cell health, workbench cards, and consciousness sync state.</p></article>
-          <article class="orl-card"><span class="orl-label">Content-free packet</span><h3>Evidence without private body</h3><p>A response that names counts, IDs, routes, statuses, action labels, hashes, and safety flags without echoing stored memory content or private notes.</p></article>
-          <article class="orl-card"><span class="orl-label">Contract compatibility · removed 2 July 2026</span><h3>Render only what the client understands</h3><p>A check that tells clients whether they can safely render a packet, should ignore additive fields, or must refresh before display.</p></article>
-          <article class="orl-card"><span class="orl-label">Conformance · removed 2 July 2026</span><h3>Packet matches its promise</h3><p>A proof that required fields, expected checks, card counts, type expectations, and privacy flags match the declared contract.</p></article>
-          <article class="orl-card"><span class="orl-label">Action queue</span><h3>A reviewable workload</h3><p>A metadata-only list of records needing retention repair, resolution, or receipt-hygiene review, with exact CLI and API handoffs.</p></article>
-          <article class="orl-card"><span class="orl-label">Mutation receipt hygiene</span><h3>Receipts must stay clean</h3><p>A review path that detects receipts with unsafe content flags or missing reviewed-action metadata and repairs them only after explicit review.</p></article>
-          <article class="orl-card"><span class="orl-label">Workbench card deck</span><h3>Operator-facing readiness artifact</h3><p>A renderable card set for readiness, consciousness sync and the custody boundary (three cards since 2 July 2026), carrying policy flags that keep mutation, storage, execution, and external sync closed.</p></article>
-          <article class="orl-card"><span class="orl-label">Approval boundary</span><h3>The line before consequence</h3><p>The readiness layer can inspect, recommend, and route. It cannot mutate, publish, post, spend, sign, deploy, or outreach without reviewed authority.</p></article>
+        <div class="mem-grid" id="mem-grid"></div>
+        <div class="tx-prose tx-after">
+          <p><strong>Next-cell memory.</strong> The Operator Readiness Cell is a plan, not built, as of 10 November 2026. As designed it would merge memory triage, readiness, card state and a smoke check into one content-free packet that says the current posture, the active queue, the next safe thing to review, the authority still closed and the exact handoff. No code for it exists in the Brain. Until it does, the operator reads the surfaces in section 02 one by one. Posting assets for this transmission remain internal creator material and do not appear on public pages.</p>
         </div>
-      </div>
-    </section>
+        <div class="tx-related">
+          Related: <a href="/transmissions/21-the-unwind-brain-checkpoint-white-paper">Transmission 21 — the Brain checkpoint</a> · <a href="/transmissions/28-the-memory-control-plane">Transmission 28 — the memory control plane</a> · <a href="/transmissions/38-one-board-for-every-hand">Transmission 38 — one board for every hand</a>
+        </div>
+      </section>
 
-    <section class="orl-section">
-      <div class="container">
-        <div class="orl-section-head"><span class="orl-section-num">04 / Theory</span><h2>The Brain needs proprioception: a sense of its own operational posture.</h2></div>
-        <div class="orl-prose">
-          <p>Biological organisms do not only sense the outside world. They also sense internal posture: balance, strain, fatigue, hunger, pain, and coordination. A cognitive software organism needs an equivalent. It must know when memory is stale, when receipts are dirty, when unresolved decisions are piling up, when sandbox posture is safe, when dynamic cells are manifest-clean, and when the operator surface can render truth without leaking content.</p>
-          <p>That is why readiness belongs between memory and action. Memory tells the Brain what happened. Readiness tells the Brain whether it is safe to make that memory operationally visible. Authority tells the Brain whether it may act. Mixing those layers creates hidden power. Separating them creates an organism the operator can trust one step at a time.</p>
-          <p>The theory is simple: a Brain that cannot inspect itself should not move itself.</p>
-        </div>
+      <div class="tx-cta">
+        <h2>The readiness layer can recommend a door.</h2>
+        <p>It cannot walk through it. Authority still belongs to the operator.</p>
+        <a class="btn btn-primary btn-lg" href="/transmissions"><span>All Transmissions</span><span class="btn-arrow">→</span></a>
       </div>
-    </section>
-
-    <section class="orl-section">
-      <div class="container">
-        <div class="orl-section-head"><span class="orl-section-num">05 / Architecture</span><h2>The layer composes six organs into one readiness membrane.</h2></div>
-        <div class="orl-prose">
-          <p>The implementation shape is not a monolith. It is a composition of small organs, each bounded by a contract. Memory health summarizes pressure. Action queues translate pressure into reviewable workload. Triage chooses the next safe operator step. Contract gates protect clients from rendering unknown packet shapes. The workbench card deck makes state visible. Smoke packets and focused CI prove the layer can be checked repeatedly.</p>
-        </div>
-        <div class="orl-wide-grid">
-          <div class="orl-code-panel">
-            <h3>Readiness packet sketch</h3>
-<pre>{
-  "layer": "operator_readiness",
-  "default_authority": "read_only",
-  "content_included": false,
-  "memory_storage_opened": false,
-  "network_opened": false,
-  "mutation_allowed": false,
-  "checks": [
-    "operator_contract_gates",
-    "memory_operator_triage",
-    "workbench_card_deck",
-    "sandbox_configuration",
-    "dynamic_cell_manifest",
-    "consciousness_sync"
-  ],
-  "next_step": "render_operator_readiness",
-  "requires_review_before": [
-    "memory_mutation",
-    "file_write",
-    "deploy",
-    "public_post",
-    "external_sync"
-  ]
-}</pre>
-          </div>
-          <div class="orl-layer-list">
-            <article class="orl-layer"><b>01</b><div><h3>Memory Integration Cell</h3><p>Typed records, deterministic retrieval, context packets, privacy levels, expiry, resolution status, and durable backend fallback.</p></div></article>
-            <article class="orl-layer"><b>02</b><div><h3>Memory operations APIs</h3><p>Read-only context, recent inspection, health, retention preview, action queues, triage, reviewed writes, resolve, retention provenance, and receipt hygiene.</p></div></article>
-            <article class="orl-layer"><b>03</b><div><h3>Operator contract gates</h3><p>Sandbox safety, dynamic-cell health, and readiness aggregation. The static contracts, compatibility checks and packet conformance described on 28 June 2026 were removed on 2 July 2026.</p></div></article>
-            <article class="orl-layer"><b>04</b><div><h3>Workbench card deck</h3><p>Readable cards for operator readiness, consciousness sync and the custody boundary, with policy flags that keep content, secrets, storage, network, sync, execution, and mutation closed.</p></div></article>
-            <article class="orl-layer"><b>05</b><div><h3>Status smoke runner</h3><p>A stable selector and JSON-friendly smoke packet make the operator panel testable across unsafe-policy, attention-required, and loading paths.</p></div></article>
-            <article class="orl-layer"><b>06</b><div><h3>Focused CI slice</h3><p>A path-filtered workflow and local validation script verify the memory/operator surface without invoking the broader deployment pipeline.</p></div></article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="orl-section">
-      <div class="container">
-        <div class="orl-section-head"><span class="orl-section-num">06 / Protocol</span><h2>Readiness should move from aggregate signal to safe next step without crossing authority.</h2></div>
-        <div class="orl-prose">
-          <p>The protocol is how the operator moves from "something needs attention" to "I know what to review next" without reading private memory content or granting accidental mutation power.</p>
-        </div>
-        <div class="orl-protocol">
-          <article class="orl-step"><b>01</b><h3>Inspect</h3><p>Sample recent memory metadata, health counters, queue counts, and workbench card policy flags without reading stored content.</p></article>
-          <article class="orl-step"><b>02</b><h3>Classify</h3><p>Separate clear state, active queue state, health recommendation state, contract mismatch, unsafe policy, and attention-required state.</p></article>
-          <article class="orl-step"><b>03</b><h3>Contract</h3><p>Expose packet version, expected fields, compatible versions, privacy policy, evolution policy, and client action before rendering.</p></article>
-          <article class="orl-step"><b>04</b><h3>Conform</h3><p>Verify that the live packet matches required fields, counts, expected cards, expected checks, and content-free safety flags.</p></article>
-          <article class="orl-step"><b>05</b><h3>Preview</h3><p>For retention, unresolved memory, or receipt hygiene, show dry-run commands, API paths, record IDs, and audit packet IDs before mutation.</p></article>
-          <article class="orl-step"><b>06</b><h3>Ask</h3><p>Require reviewed requests before repair, resolve, receipt sanitization, external sync, file mutation, public publishing, deployment, or posting.</p></article>
-          <article class="orl-step"><b>07</b><h3>Receipt</h3><p>Append sanitized mutation receipts with reviewed action, content-free flags, source queue metadata, and optional audit packet references.</p></article>
-          <article class="orl-step"><b>08</b><h3>Recheck</h3><p>Refresh readiness after reviewed mutation so the operator sees whether pressure cleared or another queue remains active.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="orl-section">
-      <div class="container">
-        <div class="orl-section-head"><span class="orl-section-num">07 / Threat model</span><h2>The danger is not that the operator sees too little. It is that the system shows too much or moves too early.</h2></div>
-        <div class="orl-prose">
-          <p>Operator readiness is a safety layer only if it keeps its own appetite contained. A readiness surface can become dangerous when it leaks content, turns recommended actions into execution authority, or hides a mutation behind a status refresh. The threat model treats observability itself as a power that needs boundaries.</p>
-        </div>
-        <div class="orl-risk-grid">
-          <article class="orl-risk"><span class="orl-label">Content leak</span><h3>Metadata view becomes memory view</h3><p>Recent-memory inspection accidentally echoes stored bodies, private notes, or receipt payload fields.</p></article>
-          <article class="orl-risk"><span class="orl-label">Action confusion</span><h3>Recommended path becomes permission</h3><p>A CLI/API handoff is mistaken for approval to mutate, repair, resolve, sync, deploy, or publish.</p></article>
-          <article class="orl-risk"><span class="orl-label">Contract drift</span><h3>Client renders unknown packets</h3><p>UI reads a new field shape without checking contract version, compatibility, or conformance first.</p></article>
-          <article class="orl-risk"><span class="orl-label">Receipt rot</span><h3>Evidence starts carrying content</h3><p>Mutation receipts collect arbitrary payload fields or miss reviewed-action metadata, weakening future audits.</p></article>
-          <article class="orl-risk"><span class="orl-label">False autonomy</span><h3>Ready is confused with allowed</h3><p>A green readiness state is presented as permission to execute public, financial, file, outreach, or deployment work.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="orl-section">
-      <div class="container">
-        <div class="orl-section-head"><span class="orl-section-num">08 / Implementation sketch</span><h2>The next cell is an Operator Readiness Cell that turns state into a reviewed route.</h2></div>
-        <div class="orl-prose">
-          <p>The build direction is practical: assemble the existing memory/operator signals into one Operator Readiness Cell. The cell should not execute. It should inspect contracts, collect content-free state, identify the next reviewed queue, surface blocked authority, and generate an operator-facing packet that is safe enough to render in the Workbench.</p>
-          <p>It should answer one question: "What is the next safe thing for the operator to review?" Not "what should the Brain do?" That question remains too broad until authority is granted.</p>
-        </div>
-        <div class="orl-blueprint">
-          <span class="orl-section-num">Build recipe</span>
-          <h2>Make readiness a first-class cell, not a scattered set of badges.</h2>
-          <p><strong>Inputs:</strong> <code>/memory/health</code>, <code>/memory/action-queues</code>, <code>/memory/operator-triage</code>, <code>/operator/gates</code>, <code>/operator/readiness</code>, <code>/operator/workbench/cards</code>, sandbox readiness, dynamic-cell health, consciousness sync policy, focused validation output, and local smoke packets.</p>
-          <p><strong>Process (plan; the compatibility and conformance steps no longer have routes):</strong> check readiness and gate state, summarize queue pressure, classify readiness state, pick a single content-free next step, attach exact CLI/API handoffs, mark closed authority, and produce a proof ledger.</p>
-          <p><strong>Output:</strong> a render-safe operator packet, a Workbench card state, a CLI report, a smoke packet, and a private watch memo when the advancement gate fails. No mutation is performed by this cell.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="orl-section">
-      <div class="container">
-        <div class="orl-section-head"><span class="orl-section-num">09 / Approval boundary</span><h2>The readiness layer can recommend a door. It cannot walk through it.</h2></div>
-        <div class="orl-prose">
-          <p>This transmission does not claim unattended autonomy. It does not claim the Brain can publish itself, sync external storage, mutate memory, sanitize receipts, deploy, post to Instagram, spend money, sign wallets, or perform outreach without reviewed authority.</p>
-          <p>The local proof says the readiness layer can render content-free state and pass its focused validation. That is meaningful, but it is not operational permission. Every mutation path still requires a reviewed request. Every public deployment remains behind creator approval. Every social packet remains internal creator distribution material unless explicitly exposed.</p>
-        </div>
-        <div class="orl-note">
-          Manual Brain Mode boundary: this public page is a human-governed transmission built from local source evidence and validation output. The Brain did not run an unattended publication loop.
-        </div>
-      </div>
-    </section>
-
-    <section class="orl-section">
-      <div class="container">
-        <div class="orl-section-head"><span class="orl-section-num">10 / Proof ledger</span><h2>The local evidence is strong enough for a public guide, but production publication still needs an explicit gate.</h2></div>
-        <div class="orl-proof-grid">
-          <article class="orl-proof"><span class="orl-label">Local slice</span><h3>194 focused tests passed (28 June 2026, historical)</h3><p><code>bash scripts/validate_memory_slice.sh</code> passed the Memory Integration pytest slice, compile, Ruff, operator gates, and diff hygiene.</p></article>
-          <article class="orl-proof"><span class="orl-label">Operator gates</span><h3>Readiness returned ready (28 June 2026, historical)</h3><p>The validation output reported operator readiness ready, 7/7 checks passing, content-free, no network opened, and no storage opened.</p></article>
-          <article class="orl-proof"><span class="orl-label">Workbench deck</span><h3>Card conformance passed (historical; removed 2 July 2026)</h3><p>The card deck contract and conformance checks passed, with readiness and consciousness sync cards rendering under closed policy flags.</p></article>
-          <article class="orl-proof"><span class="orl-label">Safety posture</span><h3>Sandbox and dynamic cells passed</h3><p>Sandbox readiness passed and dynamic-cell health reported active entries with matching hashes while runtime imports remained closed.</p></article>
-          <article class="orl-proof"><span class="orl-label">Docs</span><h3>Memory cell documented</h3><p><code>docs/memory_integration_cell.md</code> now documents context packets, recent memory, health, retention, action queues, triage, reviewed writes, and validation.</p></article>
-          <article class="orl-proof"><span class="orl-label">Frontend</span><h3>Workbench status smoke exists</h3><p>The operator workbench card deck and status smoke runner expose stable attributes and JSON-friendly packets for UI verification. Their scope was reduced on 2 July 2026.</p></article>
-          <article class="orl-proof"><span class="orl-label">Boundary</span><h3>Deployment not implied</h3><p>This local package can be verified before deploy; publication to <code>www.unwindcode.ai</code> remains a separate approval gate.</p></article>
-          <article class="orl-proof"><span class="orl-label">Internal assets</span><h3>Carousel stays private</h3><p>Posting assets for this transmission remain internal creator material and must not appear on public pages, sitemap, or <code>llms.txt</code>.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="orl-section">
-      <div class="container">
-        <div class="orl-section-head"><span class="orl-section-num">11 / Next-cell memory</span><h2>Build the cell that tells the operator what to review next.</h2></div>
-        <div class="orl-prose">
-          <p>Plan, not built as of 10 November 2026: the next durable cell should merge memory triage, operator readiness, workbench card state, and smoke packets into one content-free operator route. It should produce a compact packet that says: current posture, active queue, next safe review, blocked authority, exact command/API handoff, and verification evidence.</p>
-          <p>When that cell exists, the Brain will not merely remember. It will be able to show its own readiness posture before asking the human for authority. That is the shape of a system that can grow without asking the operator to trust a black box.</p>
-        </div>
-        <div class="orl-cta">
-          <h2>Readiness before authority is the next law of the Unwind Brain.</h2>
-          <p>Memory gives the Brain continuity. Readiness gives the operator a safe window into that continuity. Authority still belongs to the human until the evidence is reviewed.</p>
-          <a class="btn btn-primary btn-lg" href="/transmissions"><span>All Transmissions</span><span class="btn-arrow">&rarr;</span></a>
-        </div>
-      </div>
-    </section>
+    </div>
   </main>
 
-  <footer id="footer" style="margin-top:0;">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand"><span class="nav-glyph">&infin;</span><span class="nav-name">unwind<span class="nav-accent">code</span></span><p class="footer-desc">Intelligence that evolves.<br />Growing organisms since 2026.</p></div>
-        <div class="footer-col"><h5>Learn</h5><a href="/#architecture">Architecture</a><a href="/#philosophy">Philosophy</a><a href="/#vision">Vision 2030</a></div>
-        <div class="footer-col"><h5>Community</h5><a href="/#cta">Join Updates</a><a href="/transmissions">Transmissions</a><a href="/#cta">Talk to the Brain</a></div>
-      </div>
-      <div class="footer-bottom"><span>&copy; 2026 Unwind Code. All rights reserved.</span><span class="footer-tagline">The future learns from itself. &infin;</span></div>
-    </div>
-  </footer>
+  <footer id="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><span class="nav-glyph">∞</span><span class="nav-name">unwind<span class="nav-accent">code</span></span><p class="footer-desc">Intelligence that evolves.<br />No claim without a trail.</p></div><div class="footer-col"><h5>Proof</h5><a href="/proof">Proof Register</a><a href="/proof/ledger">Live Ledger</a><a href="/transmissions">Transmissions</a><a href="/architecture">Architecture</a></div><div class="footer-col"><h5>Organisms</h5><a href="/organisms">All Organisms</a><a href="/organisms/financial-organisms">Financial Organisms</a><a href="/organisms/infinity-mirror">Infinity Mirror</a></div><div class="footer-col"><h5>Next</h5><a href="/build-with-us">Build With Us</a><a href="/#cta">Subscribe</a></div></div><div class="footer-bottom"><span>© 2026 Unwind Code. All rights reserved.</span><span class="footer-tagline">The future learns from itself. ∞</span></div></div></footer>
 
   <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const toggle = document.getElementById('nav-toggle');
-    const links = document.getElementById('nav-links');
-    if (toggle && links) {
-      toggle.addEventListener('click', () => {
-        toggle.classList.toggle('active');
-        links.classList.toggle('open');
+  (function () {
+    // All data below is static and client-side. Nothing on this page makes a network call.
+
+    // 01 — CLAIM LEDGER
+    var kinds = [
+      { key: 'built', label: 'Exists' },
+      { key: 'removed', label: 'Removed' },
+      { key: 'historical', label: 'Historical' },
+      { key: 'design', label: 'Design' },
+      { key: 'plan', label: 'Plan' },
+      { key: 'metaphor', label: 'Metaphor' },
+      { key: 'waiting', label: 'Waiting' }
+    ];
+    var claims = [
+      { kind: 'built', name: 'A readiness packet of three checks', short: 'Operator gates, sandbox configuration, dynamic-cell manifest health; ready only if all three pass.', why: 'Trail: the Brain\'s operator module and its readiness route, read on 10 November 2026. The packet\'s content, secrets, network and storage flags are all false.' },
+      { kind: 'built', name: 'Ten operator data routes', short: 'Gates, status hygiene, readiness and card, consciousness sync and card, custody-boundary card, workbench cards, sandbox readiness, dynamic-cell health.', why: 'Trail: the Brain\'s route table, counted on 10 November 2026. They survived the July removal.' },
+      { kind: 'built', name: 'A workbench deck of three cards', short: 'Readiness, consciousness sync and custody boundary, each with closed policy flags.', why: 'Trail: the deck builder and the removal manifest, which records the move from four cards to three.' },
+      { kind: 'built', name: 'Six memory read routes', short: 'Context, health, operator triage, action queues, retention preview and recent.', why: 'Trail: the memory retrieval module. The readiness and card packets are marked content-free; the context route, by design, returns context.' },
+      { kind: 'built', name: 'Reviewed writes refuse without a review flag', short: 'Reviewed write, retention repair, resolve and receipt hygiene answer 409 unless the request says it was reviewed.', why: 'Trail: the memory write module. The flag is a field of the request: it records a claim of review, not proof of who reviewed.' },
+      { kind: 'built', name: 'A status file, overwritten each session', short: 'Canonical, never appended. Its latest entry is dated 16 October 2026.', why: 'Trail: the Brain\'s status file. Its own test line is dated 3 July 2026, so it is not a current test result.' },
+      { kind: 'built', name: 'The rail', short: 'One file every hand reads before it starts: claim first, finish with a receipt, no authority granted.', why: 'Trail: Transmission 38 and the rail file it describes. A claim older than 24 hours with no note may be reclaimed.' },
+      { kind: 'built', name: 'The calendar', short: '402 tasks on 8 November 2026; proposals are accepted by the operator, not by the loop.', why: 'Trail: the consolidation audit of 8 November. 155 done, 83 blocked, 74 awaiting the operator, 36 awaiting a second machine, 34 proposed; those groups sum to 382 of 402.' },
+      { kind: 'removed', name: 'The contract layer', short: 'Static client contracts, compatibility checks, conformance checks and drift cards: 21 routes and 26 commands.', why: 'Trail: the removal manifest dated 2 July 2026 and the commit of 3 July 2026. Routes fell from 224 to 203.' },
+      { kind: 'removed', name: 'The fourth workbench card', short: 'The drift card is gone; the deck holds three cards.', why: 'Trail: the removal manifest. The June text described a four-card deck.' },
+      { kind: 'removed', name: 'Contract steps in the readiness packet', short: 'The packet no longer composes contract-compatibility or conformance checks.', why: 'Trail: the removal manifest. It now reports the three real checks. The June text is rewritten to match.' },
+      { kind: 'historical', name: '194 tests and 7 of 7 checks', short: 'Figures this page recorded on 28 June 2026.', why: 'Not re-run. Part of what they counted was removed on 3 July, so they cannot be compared with today.' },
+      { kind: 'historical', name: 'A full run of 1,294 passed', short: 'Recorded in the removal commit message of 3 July 2026.', why: 'Not re-run for this rewrite. The status file\'s own test line, 1,324 passed and 2 skipped, is dated the same day.' },
+      { kind: 'design', name: 'Readiness before authority', short: 'The layer may inspect, recommend and route; it may not publish, spend, sign or contact.', why: 'A design rule. The code supports it by omission: the readiness and card packets carry no action that changes anything.' },
+      { kind: 'metaphor', name: 'Proprioception', short: 'A sense of the system\'s own posture.', why: 'Language for a design. In code it is a packet of three checks. Nothing here senses, feels or decides.' },
+      { kind: 'plan', name: 'The Operator Readiness Cell', short: 'One content-free packet that names the next safe thing to review. Not built.', why: 'No code for it exists in the Brain as of 10 November 2026. Section 06 says what it would do.' },
+      { kind: 'waiting', name: 'A running operator panel', short: 'The panels are code and tests; the control-plane deployment waits on scoped authentication setup.', why: 'Trail: the status entry of 30 September 2026 and the checkpoint paper, which records the panels as code only on 8 November. Waits on the operator.' }
+    ];
+    var dlGrid = document.getElementById('dl-grid');
+    var dlCount = document.getElementById('dl-count');
+    var dlFilters = document.getElementById('dl-filters');
+    function addChip(key, label, n) {
+      var chip = document.createElement('button');
+      chip.type = 'button';
+      chip.className = 'dl-chip' + (key === 'all' ? '' : ' dl-chip-' + key);
+      chip.setAttribute('data-state', key);
+      chip.setAttribute('aria-pressed', key === 'all' ? 'true' : 'false');
+      chip.textContent = label + ' · ' + n;
+      chip.addEventListener('click', function () {
+        dlFilters.querySelectorAll('.dl-chip').forEach(function (other) { other.setAttribute('aria-pressed', 'false'); });
+        chip.setAttribute('aria-pressed', 'true');
+        applyFilter(key);
       });
+      dlFilters.appendChild(chip);
     }
-  });
+    addChip('all', 'All', claims.length);
+    kinds.forEach(function (k) {
+      var n = claims.filter(function (c) { return c.kind === k.key; }).length;
+      addChip(k.key, k.label, n);
+    });
+    claims.forEach(function (c) {
+      var card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'dl-card';
+      card.setAttribute('data-state', c.kind);
+      card.setAttribute('aria-expanded', 'false');
+      card.innerHTML =
+        '<span class="dl-state dl-state-' + c.kind + '">' + c.kind.toUpperCase() + '</span>' +
+        '<div class="dl-name">' + c.name + '</div>' +
+        '<div class="dl-short">' + c.short + '</div>' +
+        '<div class="dl-why">' + c.why + '</div>' +
+        '<div class="dl-hint">Trail ↓</div>';
+      card.addEventListener('click', function () {
+        var open = card.getAttribute('aria-expanded') === 'true';
+        card.setAttribute('aria-expanded', open ? 'false' : 'true');
+        card.querySelector('.dl-hint').textContent = open ? 'Trail ↓' : 'Close ↑';
+      });
+      dlGrid.appendChild(card);
+    });
+    function applyFilter(state) {
+      var shown = 0;
+      dlGrid.querySelectorAll('.dl-card').forEach(function (card) {
+        var match = state === 'all' || card.getAttribute('data-state') === state;
+        if (match) { card.removeAttribute('hidden'); shown += 1; } else { card.setAttribute('hidden', ''); }
+      });
+      dlCount.textContent = shown + ' of ' + claims.length + ' claims · seven kinds, none unlabelled';
+    }
+    applyFilter('all');
+
+    // 02 — SURFACE EXPLORER
+    var parts = [
+      { id: 'packet', role: 'Readiness packet', score: 'Code · Brain',
+        desc: 'A packet that composes three checks and reports ready or action required, with the exact route and command a client should use next.',
+        specs: ['Three checks', 'ready or action_required', 'Content flag false', 'No storage or network opened'],
+        proof: 'It does not run as a service today. The status entry of 30 September 2026 lists the control-plane deployment as waiting on scoped authentication setup.' },
+      { id: 'cards', role: 'Workbench cards', score: 'Code · Brain',
+        desc: 'A deck of three cards for the operator panel: readiness, consciousness sync and custody boundary. Each card carries policy flags that keep content, storage, network, execution and mutation closed.',
+        specs: ['Three cards since 3 July 2026', 'Closed policy flags', 'Consciousness sync is local only', 'External sync deferred'],
+        proof: 'The sync policy defers external sync pending the owner\'s approval. The panel itself is code and tests, not a running service.' },
+      { id: 'memory', role: 'Memory routes', score: 'Code · Brain',
+        desc: 'Six read routes (context, health, operator triage, action queues, retention preview, recent) and a set of reviewed write routes that refuse unless the request says it was reviewed.',
+        specs: ['Six read routes', 'Reviewed writes answer 409 without a flag', 'Receipt hygiene has previews'],
+        proof: 'Described in Transmission 28. Previews come before any reviewed change.' },
+      { id: 'status', role: 'Status file', score: 'Record · dated',
+        desc: 'One file that is overwritten at the end of each working session, never appended. If it conflicts with an older document, it wins.',
+        specs: ['Canonical', 'Overwritten each session', 'Latest entry 16 October 2026', 'Test line dated 3 July 2026'],
+        proof: 'A status is a dated claim. Read the date before the number.' },
+      { id: 'checkpoint', role: 'Checkpoint paper', score: 'Record · public',
+        desc: 'The Brain checkpoint paper, annotated on 10 November 2026. Its checkpoint cards, as annotated: harness is review; cell growth is staged (one generated cell staged since 16 October, never activated); product surface is code only; authority is closed.',
+        specs: ['Transmission 21', 'Custody gate at Stage 0 since 4 October 2026', 'Panels not a running service on 8 November'],
+        proof: 'The paper is a design thesis with an annotated record, not an operating manual.' },
+      { id: 'rail', role: 'The rail', score: 'Record · in use',
+        desc: 'The interim job board: one file, copied into the packet each working hand loads at start. Claim before you start, finish with a receipt or hand back with a note, and jobs that wait on the operator cannot be claimed.',
+        specs: ['Claim older than 24 hours may be reclaimed', 'Every claim and finish journaled', 'Grants no authority'],
+        proof: 'Described in Transmission 38. It is interim; the real job board is still a proposal.' },
+      { id: 'calendar', role: 'The calendar', score: 'Record · 8 November',
+        desc: 'The agentic calendar of dated tasks. On 8 November 2026 it held 402 tasks: 155 done, 83 blocked, 74 waiting on the operator (the oldest since 4 September), 36 waiting on a second machine and 34 proposed.',
+        specs: ['Proposals accepted by the operator', 'Groups sum to 382 of 402', 'Counts dated 8 November'],
+        proof: 'The loop that proposes a task cannot accept it. The figures are a baseline of one day, not today.' },
+      { id: 'organ', role: 'Organ-health read', score: 'Record · 10 November',
+        desc: 'A read-only diagnosis of the scheduled organs, dated 10 November 2026. In public categories: the heartbeat to the public witness has been refused by the service since 9 November; nightly evaluations were red on two nights for two independent causes; the build loop refuses to start while its integrity check differs; free disk space was low and falling; three scheduled tasks had no classification yet.',
+        specs: ['Nothing was changed by the read', 'Every item waits on the operator'],
+        proof: 'Each item is a category, not a specific, and each waits on the operator.' }
+    ];
+    var modGrid = document.getElementById('mod-grid');
+    var modDetail = document.getElementById('mod-detail');
+    var modButtons = [];
+    function showPart(p) {
+      modButtons.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-id') === p.id ? 'true' : 'false'); });
+      modDetail.innerHTML =
+        '<div class="mod-detail-title">' + p.role + '</div>' +
+        '<span class="mod-detail-type">' + p.score + '</span>' +
+        '<p class="mod-detail-desc">' + p.desc + '</p>' +
+        '<div class="mod-specs-label">Specification</div>' +
+        '<div class="mod-specs">' + p.specs.map(function (s) { return '<span class="mod-spec">' + s + '</span>'; }).join('') + '</div>' +
+        '<div class="mod-proof">' + p.proof + '</div>';
+    }
+    parts.forEach(function (p) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'mod-node';
+      btn.setAttribute('data-id', p.id);
+      btn.setAttribute('aria-pressed', 'false');
+      btn.innerHTML = '<span class="mod-glyph">SURFACE</span><div class="mod-name">' + p.role + '</div><div class="mod-score">' + p.score + '</div>';
+      btn.addEventListener('click', function () { showPart(p); });
+      modGrid.appendChild(btn);
+      modButtons.push(btn);
+    });
+    showPart(parts[0]);
+
+    // 03 — READINESS PACKET MODEL
+    var checks = [
+      { name: 'operator_contract_gates', action: 'render_operator_contract_gates' },
+      { name: 'sandbox_configuration_safety', action: 'inspect_sandbox_configuration_safety' },
+      { name: 'dynamic_cell_manifest_health', action: 'inspect_dynamic_cell_manifest_health' }
+    ];
+    var failing = [false, false, false];
+    var rdChecks = document.getElementById('rd-checks');
+    var rdPacket = document.getElementById('rd-packet');
+    var rdOutcome = document.getElementById('rd-outcome');
+    var rdButtons = [];
+    function renderPacket() {
+      var firstFail = -1;
+      failing.forEach(function (f, i) { if (f && firstFail < 0) { firstFail = i; } });
+      var ready = firstFail < 0;
+      var rows = [
+        ['status', ready ? 'ready' : 'action_required', ready ? 'good' : 'bad'],
+        ['ready', ready ? 'true' : 'false', ready ? 'good' : 'bad'],
+        ['check_count', '3', ''],
+        ['attention_check', ready ? 'none' : checks[firstFail].name, ready ? '' : 'bad'],
+        ['recommended_action', ready ? 'render_operator_readiness' : checks[firstFail].action, ''],
+        ['content_included', 'false', 'good'],
+        ['secrets_included', 'false', 'good'],
+        ['network_opened', 'false', 'good'],
+        ['storage_opened', 'false', 'good']
+      ];
+      rdPacket.innerHTML = rows.map(function (r) { return '<dt>' + r[0] + '</dt><dd class="' + r[2] + '">' + r[1] + '</dd>'; }).join('');
+      if (ready) {
+        rdOutcome.className = 'cr-outcome clean';
+        rdOutcome.innerHTML = '<strong>Ready.</strong> All three checks passed. That is a statement about three checks, not permission to act: ready is not allowed.';
+      } else {
+        rdOutcome.className = 'cr-outcome refused';
+        rdOutcome.innerHTML = '<strong>Action required.</strong> The packet names the first failing check, <code>' + checks[firstFail].name + '</code>, and the client action to take. Nothing is changed by saying so.';
+      }
+    }
+    checks.forEach(function (c, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'rd-check';
+      b.setAttribute('aria-pressed', 'false');
+      b.innerHTML = '<span class="rd-check-name">' + c.name + '</span><span class="rd-check-state">PASS</span>';
+      b.addEventListener('click', function () {
+        failing[i] = !failing[i];
+        b.setAttribute('aria-pressed', failing[i] ? 'true' : 'false');
+        b.querySelector('.rd-check-state').textContent = failing[i] ? 'FAIL' : 'PASS';
+        renderPacket();
+      });
+      rdChecks.appendChild(b);
+      rdButtons.push(b);
+    });
+    renderPacket();
+
+    // 04 — THEN AND NOW
+    var moments = {
+      june: { label: 'As first described · 28 June', rows: [
+        ['Contract routes', 'described', '21 HTTP routes across the operator and memory surfaces: contracts, compatibility and conformance.', 'changed'],
+        ['Commands', 'described', '26 commands: the same contracts, compatibility and conformance checks on the command line.', 'changed'],
+        ['Drift card', 'described', 'A fourth workbench card that showed gate drift.', 'changed'],
+        ['Workbench deck', 'described', 'Four cards.', 'changed'],
+        ['Readiness packet', 'described', 'Composed contract-compatibility and conformance checks as well as the three real ones.', 'changed'],
+        ['Total routes', 'described', '224 just before the removal commit.', 'changed'],
+        ['Data surfaces', 'kept', 'Readiness, gates, cards, sandbox, dynamic-cell and consciousness health, and the memory routes.', 'kept']
+      ] },
+      july: { label: 'After the removal · 3 July', rows: [
+        ['Contract routes', 'removed', 'None. The 21 routes were removed.', 'changed'],
+        ['Commands', 'removed', 'None. The 26 commands were removed.', 'changed'],
+        ['Drift card', 'removed', 'Deleted with the drift builder.', 'changed'],
+        ['Workbench deck', 'now', 'Three cards: readiness, consciousness sync, custody boundary.', 'changed'],
+        ['Readiness packet', 'now', 'The three real checks only: gates, sandbox configuration, dynamic-cell manifest health.', 'changed'],
+        ['Total routes', 'now', '203 after the commit.', 'changed'],
+        ['Data surfaces', 'kept', 'Unchanged. The removal manifest lists them as surviving.', 'kept']
+      ] }
+    };
+    var cmpTabs = document.getElementById('cmp-tabs');
+    var cmpList = document.getElementById('cmp-list');
+    function showMoment(key) {
+      var m = moments[key];
+      cmpList.innerHTML = m.rows.map(function (r) {
+        var tag = r[1] === 'kept' ? 't-kept' : (r[1] === 'removed' ? 't-removed' : (r[1] === 'now' ? 't-now' : 't-described'));
+        return '<div class="cmp-row ' + r[3] + '"><div class="cmp-item">' + r[0] + '</div><div class="cmp-state"><span class="cmp-tag ' + tag + '">' + r[1].toUpperCase() + '</span>' + r[2] + '</div></div>';
+      }).join('');
+    }
+    Object.keys(moments).forEach(function (key, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'dl-chip';
+      b.setAttribute('data-moment', key);
+      b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
+      b.textContent = moments[key].label;
+      b.addEventListener('click', function () {
+        cmpTabs.querySelectorAll('.dl-chip').forEach(function (other) { other.setAttribute('aria-pressed', 'false'); });
+        b.setAttribute('aria-pressed', 'true');
+        showMoment(key);
+      });
+      cmpTabs.appendChild(b);
+    });
+    showMoment('june');
+
+    // 05 — TIMELINE REVEAL
+    var wf = document.getElementById('wf-steps');
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce && 'IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            wf.querySelectorAll('.wf-step').forEach(function (s) { s.classList.add('reveal-step'); });
+            io.disconnect();
+          }
+        });
+      }, { threshold: 0.15 });
+      io.observe(wf);
+    }
+
+    // 06 — NOT DONE
+    var notDone = [
+      { tag: 'plan', title: 'Operator Readiness Cell', desc: 'One content-free packet that names the next safe thing to review. Not built.', extra: 'No code exists for it in the Brain. As designed it would not execute; it would inspect, summarise queue pressure, name one next step and mark the authority still closed.' },
+      { tag: 'waiting', title: 'A running operator panel', desc: 'The panels are code and tests, not a running service.', extra: 'The control-plane deployment waits on scoped authentication setup, per the status entry of 30 September 2026. Waits on the operator.' },
+      { tag: 'removed', title: 'Contract and conformance', desc: 'Removed in July and not restored.', extra: 'Bringing a certification layer back would be a decision, with the lesson of the removal in view.' },
+      { tag: 'unrun', title: 'Today\'s test results', desc: 'No test was run for this rewrite.', extra: 'The figures on this page are dated records. A current result would need a run, and a run would need the operator\'s go.' },
+      { tag: 'no', title: 'Automatic action', desc: 'Nothing here publishes, posts, syncs, deploys, spends or signs.', extra: 'The packet recommends; the operator decides. Ready is not allowed.' },
+      { tag: 'unknown', title: 'Daily use', desc: 'No claim that an operator relies on these surfaces every day.', extra: 'The record shows what exists and what is dated. It does not show how often a person opens a panel.' }
+    ];
+    var memGrid = document.getElementById('mem-grid');
+    notDone.forEach(function (l) {
+      var card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'mem-card';
+      card.setAttribute('aria-expanded', 'false');
+      card.innerHTML = '<h4><span class="mem-tag">' + l.tag + '</span>' + l.title + '</h4><p>' + l.desc + '</p><div class="mem-extra">' + l.extra + '</div><div class="mem-hint">Click to expand ↓</div>';
+      card.addEventListener('click', function () {
+        var open = card.getAttribute('aria-expanded') === 'true';
+        card.setAttribute('aria-expanded', open ? 'false' : 'true');
+        card.querySelector('.mem-hint').textContent = open ? 'Click to expand ↓' : 'Click to collapse ↑';
+      });
+      memGrid.appendChild(card);
+    });
+  })();
   </script>
+  <script type="module" src="/main.js?v=20260615-system-state"></script>
 </body>
 </html>
